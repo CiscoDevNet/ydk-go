@@ -48,6 +48,7 @@ func (mplsOam *MplsOam) GetEntityData() *types.CommonEntityData {
     mplsOam.EntityData.BundleName = "cisco_ios_xr"
     mplsOam.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-oam-cfg"
     mplsOam.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam"
+    mplsOam.EntityData.AbsolutePath = mplsOam.EntityData.SegmentPath
     mplsOam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsOam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsOam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -79,6 +80,7 @@ func (replyMode *MplsOam_ReplyMode) GetEntityData() *types.CommonEntityData {
     replyMode.EntityData.BundleName = "cisco_ios_xr"
     replyMode.EntityData.ParentYangName = "mpls-oam"
     replyMode.EntityData.SegmentPath = "reply-mode"
+    replyMode.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/" + replyMode.EntityData.SegmentPath
     replyMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replyMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replyMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -108,6 +110,7 @@ func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetEntityData() *types.C
     controlChannel.EntityData.BundleName = "cisco_ios_xr"
     controlChannel.EntityData.ParentYangName = "reply-mode"
     controlChannel.EntityData.SegmentPath = "control-channel"
+    controlChannel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/reply-mode/" + controlChannel.EntityData.SegmentPath
     controlChannel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controlChannel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controlChannel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

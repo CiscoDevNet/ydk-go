@@ -41,6 +41,7 @@ func (rFC1315MIB *RFC1315MIB) GetEntityData() *types.CommonEntityData {
     rFC1315MIB.EntityData.BundleName = "cisco_ios_xe"
     rFC1315MIB.EntityData.ParentYangName = "RFC1315-MIB"
     rFC1315MIB.EntityData.SegmentPath = "RFC1315-MIB:RFC1315-MIB"
+    rFC1315MIB.EntityData.AbsolutePath = rFC1315MIB.EntityData.SegmentPath
     rFC1315MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rFC1315MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rFC1315MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -73,6 +74,7 @@ func (frameRelayGlobals *RFC1315MIB_FrameRelayGlobals) GetEntityData() *types.Co
     frameRelayGlobals.EntityData.BundleName = "cisco_ios_xe"
     frameRelayGlobals.EntityData.ParentYangName = "RFC1315-MIB"
     frameRelayGlobals.EntityData.SegmentPath = "frame-relay-globals"
+    frameRelayGlobals.EntityData.AbsolutePath = "RFC1315-MIB:RFC1315-MIB/" + frameRelayGlobals.EntityData.SegmentPath
     frameRelayGlobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frameRelayGlobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frameRelayGlobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -114,6 +116,7 @@ func (frDlcmiTable *RFC1315MIB_FrDlcmiTable) GetEntityData() *types.CommonEntity
     frDlcmiTable.EntityData.BundleName = "cisco_ios_xe"
     frDlcmiTable.EntityData.ParentYangName = "RFC1315-MIB"
     frDlcmiTable.EntityData.SegmentPath = "frDlcmiTable"
+    frDlcmiTable.EntityData.AbsolutePath = "RFC1315-MIB:RFC1315-MIB/" + frDlcmiTable.EntityData.SegmentPath
     frDlcmiTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frDlcmiTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frDlcmiTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -136,6 +139,7 @@ func (frDlcmiTable *RFC1315MIB_FrDlcmiTable) GetEntityData() *types.CommonEntity
 type RFC1315MIB_FrDlcmiTable_FrDlcmiEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex value of the  corresponding  ifEn-
     // try. The type is interface{} with range: -2147483648..2147483647.
@@ -192,6 +196,7 @@ func (frDlcmiEntry *RFC1315MIB_FrDlcmiTable_FrDlcmiEntry) GetEntityData() *types
     frDlcmiEntry.EntityData.BundleName = "cisco_ios_xe"
     frDlcmiEntry.EntityData.ParentYangName = "frDlcmiTable"
     frDlcmiEntry.EntityData.SegmentPath = "frDlcmiEntry" + types.AddKeyToken(frDlcmiEntry.FrDlcmiIfIndex, "frDlcmiIfIndex")
+    frDlcmiEntry.EntityData.AbsolutePath = "RFC1315-MIB:RFC1315-MIB/frDlcmiTable/" + frDlcmiEntry.EntityData.SegmentPath
     frDlcmiEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frDlcmiEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frDlcmiEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -279,6 +284,7 @@ func (frCircuitTable *RFC1315MIB_FrCircuitTable) GetEntityData() *types.CommonEn
     frCircuitTable.EntityData.BundleName = "cisco_ios_xe"
     frCircuitTable.EntityData.ParentYangName = "RFC1315-MIB"
     frCircuitTable.EntityData.SegmentPath = "frCircuitTable"
+    frCircuitTable.EntityData.AbsolutePath = "RFC1315-MIB:RFC1315-MIB/" + frCircuitTable.EntityData.SegmentPath
     frCircuitTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frCircuitTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frCircuitTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -301,6 +307,7 @@ func (frCircuitTable *RFC1315MIB_FrCircuitTable) GetEntityData() *types.CommonEn
 type RFC1315MIB_FrCircuitTable_FrCircuitEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex Value of the ifEntry this  virtual
     // circuit is layered onto. The type is interface{} with range:
@@ -388,6 +395,7 @@ func (frCircuitEntry *RFC1315MIB_FrCircuitTable_FrCircuitEntry) GetEntityData() 
     frCircuitEntry.EntityData.BundleName = "cisco_ios_xe"
     frCircuitEntry.EntityData.ParentYangName = "frCircuitTable"
     frCircuitEntry.EntityData.SegmentPath = "frCircuitEntry" + types.AddKeyToken(frCircuitEntry.FrCircuitIfIndex, "frCircuitIfIndex") + types.AddKeyToken(frCircuitEntry.FrCircuitDlci, "frCircuitDlci")
+    frCircuitEntry.EntityData.AbsolutePath = "RFC1315-MIB:RFC1315-MIB/frCircuitTable/" + frCircuitEntry.EntityData.SegmentPath
     frCircuitEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frCircuitEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frCircuitEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -443,6 +451,7 @@ func (frErrTable *RFC1315MIB_FrErrTable) GetEntityData() *types.CommonEntityData
     frErrTable.EntityData.BundleName = "cisco_ios_xe"
     frErrTable.EntityData.ParentYangName = "RFC1315-MIB"
     frErrTable.EntityData.SegmentPath = "frErrTable"
+    frErrTable.EntityData.AbsolutePath = "RFC1315-MIB:RFC1315-MIB/" + frErrTable.EntityData.SegmentPath
     frErrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frErrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frErrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -465,6 +474,7 @@ func (frErrTable *RFC1315MIB_FrErrTable) GetEntityData() *types.CommonEntityData
 type RFC1315MIB_FrErrTable_FrErrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex Value of the  corresponding  ifEn-
     // try. The type is interface{} with range: -2147483648..2147483647.
@@ -491,6 +501,7 @@ func (frErrEntry *RFC1315MIB_FrErrTable_FrErrEntry) GetEntityData() *types.Commo
     frErrEntry.EntityData.BundleName = "cisco_ios_xe"
     frErrEntry.EntityData.ParentYangName = "frErrTable"
     frErrEntry.EntityData.SegmentPath = "frErrEntry" + types.AddKeyToken(frErrEntry.FrErrIfIndex, "frErrIfIndex")
+    frErrEntry.EntityData.AbsolutePath = "RFC1315-MIB:RFC1315-MIB/frErrTable/" + frErrEntry.EntityData.SegmentPath
     frErrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     frErrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     frErrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

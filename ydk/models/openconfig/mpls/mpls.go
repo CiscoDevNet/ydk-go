@@ -144,6 +144,7 @@ func (mpls *Mpls) GetEntityData() *types.CommonEntityData {
     mpls.EntityData.BundleName = "openconfig"
     mpls.EntityData.ParentYangName = "openconfig-mpls"
     mpls.EntityData.SegmentPath = "openconfig-mpls:mpls"
+    mpls.EntityData.AbsolutePath = mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -192,6 +193,7 @@ func (global *Mpls_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "openconfig"
     global.EntityData.ParentYangName = "mpls"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "openconfig-mpls:mpls/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -225,6 +227,7 @@ func (config *Mpls_Global_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "global"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -255,6 +258,7 @@ func (state *Mpls_Global_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "global"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -285,6 +289,7 @@ func (interfaceAttributes *Mpls_Global_InterfaceAttributes) GetEntityData() *typ
     interfaceAttributes.EntityData.BundleName = "openconfig"
     interfaceAttributes.EntityData.ParentYangName = "global"
     interfaceAttributes.EntityData.SegmentPath = "interface-attributes"
+    interfaceAttributes.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/" + interfaceAttributes.EntityData.SegmentPath
     interfaceAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -306,6 +311,7 @@ func (interfaceAttributes *Mpls_Global_InterfaceAttributes) GetEntityData() *typ
 type Mpls_Global_InterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the interface id list key. The type
     // is string. Refers to
@@ -328,6 +334,7 @@ func (self *Mpls_Global_InterfaceAttributes_Interface) GetEntityData() *types.Co
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interface-attributes"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/interface-attributes/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -364,6 +371,7 @@ func (config *Mpls_Global_InterfaceAttributes_Interface_Config) GetEntityData() 
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/interface-attributes/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -398,6 +406,7 @@ func (state *Mpls_Global_InterfaceAttributes_Interface_State) GetEntityData() *t
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/interface-attributes/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -431,6 +440,7 @@ func (interfaceRef *Mpls_Global_InterfaceAttributes_Interface_InterfaceRef) GetE
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/interface-attributes/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -470,6 +480,7 @@ func (config *Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_Config) Get
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/interface-attributes/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -509,6 +520,7 @@ func (state *Mpls_Global_InterfaceAttributes_Interface_InterfaceRef_State) GetEn
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/interface-attributes/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -545,6 +557,7 @@ func (reservedLabelBlocks *Mpls_Global_ReservedLabelBlocks) GetEntityData() *typ
     reservedLabelBlocks.EntityData.BundleName = "openconfig"
     reservedLabelBlocks.EntityData.ParentYangName = "global"
     reservedLabelBlocks.EntityData.SegmentPath = "reserved-label-blocks"
+    reservedLabelBlocks.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/" + reservedLabelBlocks.EntityData.SegmentPath
     reservedLabelBlocks.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     reservedLabelBlocks.EntityData.NamespaceTable = openconfig.GetNamespaces()
     reservedLabelBlocks.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -567,6 +580,7 @@ func (reservedLabelBlocks *Mpls_Global_ReservedLabelBlocks) GetEntityData() *typ
 type Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to a unique local identifier for this
     // label block. The type is string. Refers to
@@ -586,6 +600,7 @@ func (reservedLabelBlock *Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock) Ge
     reservedLabelBlock.EntityData.BundleName = "openconfig"
     reservedLabelBlock.EntityData.ParentYangName = "reserved-label-blocks"
     reservedLabelBlock.EntityData.SegmentPath = "reserved-label-block" + types.AddKeyToken(reservedLabelBlock.LocalId, "local-id")
+    reservedLabelBlock.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/reserved-label-blocks/" + reservedLabelBlock.EntityData.SegmentPath
     reservedLabelBlock.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     reservedLabelBlock.EntityData.NamespaceTable = openconfig.GetNamespaces()
     reservedLabelBlock.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -628,6 +643,7 @@ func (config *Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_Config) GetEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "reserved-label-block"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/reserved-label-blocks/reserved-label-block/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -670,6 +686,7 @@ func (state *Mpls_Global_ReservedLabelBlocks_ReservedLabelBlock_State) GetEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "reserved-label-block"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/global/reserved-label-blocks/reserved-label-block/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -707,6 +724,7 @@ func (teGlobalAttributes *Mpls_TeGlobalAttributes) GetEntityData() *types.Common
     teGlobalAttributes.EntityData.BundleName = "openconfig"
     teGlobalAttributes.EntityData.ParentYangName = "mpls"
     teGlobalAttributes.EntityData.SegmentPath = "te-global-attributes"
+    teGlobalAttributes.EntityData.AbsolutePath = "openconfig-mpls:mpls/" + teGlobalAttributes.EntityData.SegmentPath
     teGlobalAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teGlobalAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teGlobalAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -739,6 +757,7 @@ func (srlgs *Mpls_TeGlobalAttributes_Srlgs) GetEntityData() *types.CommonEntityD
     srlgs.EntityData.BundleName = "openconfig"
     srlgs.EntityData.ParentYangName = "te-global-attributes"
     srlgs.EntityData.SegmentPath = "srlgs"
+    srlgs.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/" + srlgs.EntityData.SegmentPath
     srlgs.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srlgs.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srlgs.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -760,6 +779,7 @@ func (srlgs *Mpls_TeGlobalAttributes_Srlgs) GetEntityData() *types.CommonEntityD
 type Mpls_TeGlobalAttributes_Srlgs_Srlg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The SRLG group identifier. The type is string.
     // Refers to mpls.Mpls_TeGlobalAttributes_Srlgs_Srlg_Config_Name
@@ -781,6 +801,7 @@ func (srlg *Mpls_TeGlobalAttributes_Srlgs_Srlg) GetEntityData() *types.CommonEnt
     srlg.EntityData.BundleName = "openconfig"
     srlg.EntityData.ParentYangName = "srlgs"
     srlg.EntityData.SegmentPath = "srlg" + types.AddKeyToken(srlg.Name, "name")
+    srlg.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/srlgs/" + srlg.EntityData.SegmentPath
     srlg.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     srlg.EntityData.NamespaceTable = openconfig.GetNamespaces()
     srlg.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -824,6 +845,7 @@ func (config *Mpls_TeGlobalAttributes_Srlgs_Srlg_Config) GetEntityData() *types.
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "srlg"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/srlgs/srlg/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -867,6 +889,7 @@ func (state *Mpls_TeGlobalAttributes_Srlgs_Srlg_State) GetEntityData() *types.Co
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "srlg"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/srlgs/srlg/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -901,6 +924,7 @@ func (staticSrlgMembers *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers) G
     staticSrlgMembers.EntityData.BundleName = "openconfig"
     staticSrlgMembers.EntityData.ParentYangName = "srlg"
     staticSrlgMembers.EntityData.SegmentPath = "static-srlg-members"
+    staticSrlgMembers.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/srlgs/srlg/" + staticSrlgMembers.EntityData.SegmentPath
     staticSrlgMembers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     staticSrlgMembers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticSrlgMembers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -924,6 +948,7 @@ func (staticSrlgMembers *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers) G
 type Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The from address of the link in the SRLG. The type
     // is one of the following types: string with pattern:
@@ -945,6 +970,7 @@ func (membersList *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersL
     membersList.EntityData.BundleName = "openconfig"
     membersList.EntityData.ParentYangName = "static-srlg-members"
     membersList.EntityData.SegmentPath = "members-list" + types.AddKeyToken(membersList.FromAddress, "from-address")
+    membersList.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/srlgs/srlg/static-srlg-members/" + membersList.EntityData.SegmentPath
     membersList.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     membersList.EntityData.NamespaceTable = openconfig.GetNamespaces()
     membersList.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -988,6 +1014,7 @@ func (config *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_C
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "members-list"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/srlgs/srlg/static-srlg-members/members-list/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1030,6 +1057,7 @@ func (state *Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticSrlgMembers_MembersList_St
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "members-list"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/srlgs/srlg/static-srlg-members/members-list/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1062,6 +1090,7 @@ func (mplsAdminGroups *Mpls_TeGlobalAttributes_MplsAdminGroups) GetEntityData() 
     mplsAdminGroups.EntityData.BundleName = "openconfig"
     mplsAdminGroups.EntityData.ParentYangName = "te-global-attributes"
     mplsAdminGroups.EntityData.SegmentPath = "mpls-admin-groups"
+    mplsAdminGroups.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/" + mplsAdminGroups.EntityData.SegmentPath
     mplsAdminGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     mplsAdminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     mplsAdminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1084,6 +1113,7 @@ func (mplsAdminGroups *Mpls_TeGlobalAttributes_MplsAdminGroups) GetEntityData() 
 type Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. name for mpls admin-group. The type is string.
     // Refers to
@@ -1103,6 +1133,7 @@ func (adminGroup *Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup) GetEntityD
     adminGroup.EntityData.BundleName = "openconfig"
     adminGroup.EntityData.ParentYangName = "mpls-admin-groups"
     adminGroup.EntityData.SegmentPath = "admin-group" + types.AddKeyToken(adminGroup.AdminGroupName, "admin-group-name")
+    adminGroup.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/mpls-admin-groups/" + adminGroup.EntityData.SegmentPath
     adminGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1141,6 +1172,7 @@ func (config *Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup_Config) GetEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "admin-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/mpls-admin-groups/admin-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1178,6 +1210,7 @@ func (state *Mpls_TeGlobalAttributes_MplsAdminGroups_AdminGroup_State) GetEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/mpls-admin-groups/admin-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1212,6 +1245,7 @@ func (teLspTimers *Mpls_TeGlobalAttributes_TeLspTimers) GetEntityData() *types.C
     teLspTimers.EntityData.BundleName = "openconfig"
     teLspTimers.EntityData.ParentYangName = "te-global-attributes"
     teLspTimers.EntityData.SegmentPath = "te-lsp-timers"
+    teLspTimers.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/" + teLspTimers.EntityData.SegmentPath
     teLspTimers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teLspTimers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teLspTimers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1252,6 +1286,7 @@ func (config *Mpls_TeGlobalAttributes_TeLspTimers_Config) GetEntityData() *types
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "te-lsp-timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/te-lsp-timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1292,6 +1327,7 @@ func (state *Mpls_TeGlobalAttributes_TeLspTimers_State) GetEntityData() *types.C
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "te-lsp-timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-global-attributes/te-lsp-timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1325,6 +1361,7 @@ func (teInterfaceAttributes *Mpls_TeInterfaceAttributes) GetEntityData() *types.
     teInterfaceAttributes.EntityData.BundleName = "openconfig"
     teInterfaceAttributes.EntityData.ParentYangName = "mpls"
     teInterfaceAttributes.EntityData.SegmentPath = "te-interface-attributes"
+    teInterfaceAttributes.EntityData.AbsolutePath = "openconfig-mpls:mpls/" + teInterfaceAttributes.EntityData.SegmentPath
     teInterfaceAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     teInterfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     teInterfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1346,6 +1383,7 @@ func (teInterfaceAttributes *Mpls_TeInterfaceAttributes) GetEntityData() *types.
 type Mpls_TeInterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the interface id list key. The type
     // is string. Refers to
@@ -1372,6 +1410,7 @@ func (self *Mpls_TeInterfaceAttributes_Interface) GetEntityData() *types.CommonE
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "te-interface-attributes"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1418,6 +1457,7 @@ func (config *Mpls_TeInterfaceAttributes_Interface_Config) GetEntityData() *type
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1463,6 +1503,7 @@ func (state *Mpls_TeInterfaceAttributes_Interface_State) GetEntityData() *types.
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1498,6 +1539,7 @@ func (interfaceRef *Mpls_TeInterfaceAttributes_Interface_InterfaceRef) GetEntity
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1537,6 +1579,7 @@ func (config *Mpls_TeInterfaceAttributes_Interface_InterfaceRef_Config) GetEntit
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1576,6 +1619,7 @@ func (state *Mpls_TeInterfaceAttributes_Interface_InterfaceRef_State) GetEntityD
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1611,6 +1655,7 @@ func (igpFloodingBandwidth *Mpls_TeInterfaceAttributes_Interface_IgpFloodingBand
     igpFloodingBandwidth.EntityData.BundleName = "openconfig"
     igpFloodingBandwidth.EntityData.ParentYangName = "interface"
     igpFloodingBandwidth.EntityData.SegmentPath = "igp-flooding-bandwidth"
+    igpFloodingBandwidth.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/interface/" + igpFloodingBandwidth.EntityData.SegmentPath
     igpFloodingBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     igpFloodingBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     igpFloodingBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1680,6 +1725,7 @@ func (config *Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_Config) 
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "igp-flooding-bandwidth"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/interface/igp-flooding-bandwidth/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1789,6 +1835,7 @@ func (state *Mpls_TeInterfaceAttributes_Interface_IgpFloodingBandwidth_State) Ge
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "igp-flooding-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/te-interface-attributes/interface/igp-flooding-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1867,6 +1914,7 @@ func (signalingProtocols *Mpls_SignalingProtocols) GetEntityData() *types.Common
     signalingProtocols.EntityData.BundleName = "openconfig"
     signalingProtocols.EntityData.ParentYangName = "mpls"
     signalingProtocols.EntityData.SegmentPath = "signaling-protocols"
+    signalingProtocols.EntityData.AbsolutePath = "openconfig-mpls:mpls/" + signalingProtocols.EntityData.SegmentPath
     signalingProtocols.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     signalingProtocols.EntityData.NamespaceTable = openconfig.GetNamespaces()
     signalingProtocols.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1907,6 +1955,7 @@ func (rsvpTe *Mpls_SignalingProtocols_RsvpTe) GetEntityData() *types.CommonEntit
     rsvpTe.EntityData.BundleName = "openconfig"
     rsvpTe.EntityData.ParentYangName = "signaling-protocols"
     rsvpTe.EntityData.SegmentPath = "rsvp-te"
+    rsvpTe.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/" + rsvpTe.EntityData.SegmentPath
     rsvpTe.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     rsvpTe.EntityData.NamespaceTable = openconfig.GetNamespaces()
     rsvpTe.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1940,6 +1989,7 @@ func (sessions *Mpls_SignalingProtocols_RsvpTe_Sessions) GetEntityData() *types.
     sessions.EntityData.BundleName = "openconfig"
     sessions.EntityData.ParentYangName = "rsvp-te"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sessions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1961,6 +2011,7 @@ func (sessions *Mpls_SignalingProtocols_RsvpTe_Sessions) GetEntityData() *types.
 type Mpls_SignalingProtocols_RsvpTe_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the local index for the RSVP session.
     // The type is string with range: 0..18446744073709551615. Refers to
@@ -1981,6 +2032,7 @@ func (session *Mpls_SignalingProtocols_RsvpTe_Sessions_Session) GetEntityData() 
     session.EntityData.BundleName = "openconfig"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.LocalIndex, "local-index")
+    session.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     session.EntityData.NamespaceTable = openconfig.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2017,6 +2069,7 @@ func (recordRouteObjects *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_Record
     recordRouteObjects.EntityData.BundleName = "openconfig"
     recordRouteObjects.EntityData.ParentYangName = "session"
     recordRouteObjects.EntityData.SegmentPath = "record-route-objects"
+    recordRouteObjects.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/session/" + recordRouteObjects.EntityData.SegmentPath
     recordRouteObjects.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     recordRouteObjects.EntityData.NamespaceTable = openconfig.GetNamespaces()
     recordRouteObjects.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2041,6 +2094,7 @@ func (recordRouteObjects *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_Record
 type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_RecordRouteObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the index of the record route object.
     // The index is used to indicate the ordering of hops in the path. The type is
@@ -2059,6 +2113,7 @@ func (recordRouteObject *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordR
     recordRouteObject.EntityData.BundleName = "openconfig"
     recordRouteObject.EntityData.ParentYangName = "record-route-objects"
     recordRouteObject.EntityData.SegmentPath = "record-route-object" + types.AddKeyToken(recordRouteObject.Index, "index")
+    recordRouteObject.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/session/record-route-objects/" + recordRouteObject.EntityData.SegmentPath
     recordRouteObject.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     recordRouteObject.EntityData.NamespaceTable = openconfig.GetNamespaces()
     recordRouteObject.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2105,6 +2160,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_RecordRouteObjects_
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "record-route-object"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/session/record-route-objects/record-route-object/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2193,6 +2249,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State) GetEntityDat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "session"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/session/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2236,7 +2293,7 @@ type Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderTspec struct {
     // The maximum traffic generation rate that the head-end device sends traffic
     // at. The type is one of the following types: string with length: 32 Units
     // are bytes per second., or enumeration
-    // Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
+    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.Sessions.Session.State.SenderTspec.PeakDataRate
     // Units are bytes per second..
     PeakDataRate interface{}
 }
@@ -2247,6 +2304,7 @@ func (senderTspec *Mpls_SignalingProtocols_RsvpTe_Sessions_Session_State_SenderT
     senderTspec.EntityData.BundleName = "openconfig"
     senderTspec.EntityData.ParentYangName = "state"
     senderTspec.EntityData.SegmentPath = "sender-tspec"
+    senderTspec.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/sessions/session/state/" + senderTspec.EntityData.SegmentPath
     senderTspec.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     senderTspec.EntityData.NamespaceTable = openconfig.GetNamespaces()
     senderTspec.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2299,6 +2357,7 @@ func (neighbors *Mpls_SignalingProtocols_RsvpTe_Neighbors) GetEntityData() *type
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "rsvp-te"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2320,6 +2379,7 @@ func (neighbors *Mpls_SignalingProtocols_RsvpTe_Neighbors) GetEntityData() *type
 type Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the address of the RSVP neighbor. The
     // type is one of the following types: string with pattern:
@@ -2338,6 +2398,7 @@ func (neighbor *Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor) GetEntityData
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Address, "address")
+    neighbor.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2382,6 +2443,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Neighbors_Neighbor_State) GetEntityD
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2437,6 +2499,7 @@ func (global *Mpls_SignalingProtocols_RsvpTe_Global) GetEntityData() *types.Comm
     global.EntityData.BundleName = "openconfig"
     global.EntityData.ParentYangName = "rsvp-te"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2473,6 +2536,7 @@ func (gracefulRestart *Mpls_SignalingProtocols_RsvpTe_Global_GracefulRestart) Ge
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "global"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2513,6 +2577,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_Global_GracefulRestart_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2554,6 +2619,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Global_GracefulRestart_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2589,6 +2655,7 @@ func (softPreemption *Mpls_SignalingProtocols_RsvpTe_Global_SoftPreemption) GetE
     softPreemption.EntityData.BundleName = "openconfig"
     softPreemption.EntityData.ParentYangName = "global"
     softPreemption.EntityData.SegmentPath = "soft-preemption"
+    softPreemption.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/" + softPreemption.EntityData.SegmentPath
     softPreemption.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     softPreemption.EntityData.NamespaceTable = openconfig.GetNamespaces()
     softPreemption.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2627,6 +2694,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_Global_SoftPreemption_Config) GetEn
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "soft-preemption"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/soft-preemption/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2665,6 +2733,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Global_SoftPreemption_State) GetEnti
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "soft-preemption"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/soft-preemption/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2698,6 +2767,7 @@ func (hellos *Mpls_SignalingProtocols_RsvpTe_Global_Hellos) GetEntityData() *typ
     hellos.EntityData.BundleName = "openconfig"
     hellos.EntityData.ParentYangName = "global"
     hellos.EntityData.SegmentPath = "hellos"
+    hellos.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/" + hellos.EntityData.SegmentPath
     hellos.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     hellos.EntityData.NamespaceTable = openconfig.GetNamespaces()
     hellos.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2735,6 +2805,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_Global_Hellos_Config) GetEntityData
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "hellos"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/hellos/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2771,6 +2842,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Global_Hellos_State) GetEntityData()
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "hellos"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/hellos/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2801,6 +2873,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_Global_State) GetEntityData() *types
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "global"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2909,6 +2982,7 @@ func (counters *Mpls_SignalingProtocols_RsvpTe_Global_State_Counters) GetEntityD
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/global/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2959,6 +3033,7 @@ func (interfaceAttributes *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes) G
     interfaceAttributes.EntityData.BundleName = "openconfig"
     interfaceAttributes.EntityData.ParentYangName = "rsvp-te"
     interfaceAttributes.EntityData.SegmentPath = "interface-attributes"
+    interfaceAttributes.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/" + interfaceAttributes.EntityData.SegmentPath
     interfaceAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2980,6 +3055,7 @@ func (interfaceAttributes *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes) G
 type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. reference to the interface-id data. The type is
     // string. Refers to
@@ -3018,6 +3094,7 @@ func (self *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface) GetEnt
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interface-attributes"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3055,6 +3132,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Confi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3087,6 +3165,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_State)
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3186,6 +3265,7 @@ func (counters *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Sta
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3235,6 +3315,7 @@ func (interfaceRef *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3274,6 +3355,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Inter
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3313,6 +3395,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Interf
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3345,6 +3428,7 @@ func (bandwidthReservations *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_
     bandwidthReservations.EntityData.BundleName = "openconfig"
     bandwidthReservations.EntityData.ParentYangName = "interface"
     bandwidthReservations.EntityData.SegmentPath = "bandwidth-reservations"
+    bandwidthReservations.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + bandwidthReservations.EntityData.SegmentPath
     bandwidthReservations.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthReservations.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthReservations.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3367,11 +3451,12 @@ func (bandwidthReservations *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_
 type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the RSVP priority level. The type is
     // one of the following types: int with range: 0..7, or
-    // :go:struct:`Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
-    // <ydk/models/mpls/Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
+    // :go:struct:`NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority
+    // <ydk/models/network_instance/NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReservations_BandwidthReservation_State_Priority>`.
     Priority interface{}
 
     // Operational state parameters relating to a bandwidth reservation at a
@@ -3385,6 +3470,7 @@ func (bandwidthReservation *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_I
     bandwidthReservation.EntityData.BundleName = "openconfig"
     bandwidthReservation.EntityData.ParentYangName = "bandwidth-reservations"
     bandwidthReservation.EntityData.SegmentPath = "bandwidth-reservation" + types.AddKeyToken(bandwidthReservation.Priority, "priority")
+    bandwidthReservation.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/bandwidth-reservations/" + bandwidthReservation.EntityData.SegmentPath
     bandwidthReservation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidthReservation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidthReservation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3408,7 +3494,7 @@ type Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_BandwidthReser
 
     // RSVP priority level for LSPs traversing the interface. The type is one of
     // the following types: int with range: 0..7, or enumeration
-    // Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
+    // NetworkInstances.NetworkInstance.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.BandwidthReservations.BandwidthReservation.State.Priority.
     Priority interface{}
 
     // Bandwidth currently available with the priority level, or for the entire
@@ -3438,6 +3524,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Bandwi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth-reservation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/bandwidth-reservations/bandwidth-reservation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3484,6 +3571,7 @@ func (hellos *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Hello
     hellos.EntityData.BundleName = "openconfig"
     hellos.EntityData.ParentYangName = "interface"
     hellos.EntityData.SegmentPath = "hellos"
+    hellos.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + hellos.EntityData.SegmentPath
     hellos.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     hellos.EntityData.NamespaceTable = openconfig.GetNamespaces()
     hellos.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3521,6 +3609,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Hello
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "hellos"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/hellos/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3557,6 +3646,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Hellos
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "hellos"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/hellos/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3591,6 +3681,7 @@ func (authentication *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interfa
     authentication.EntityData.BundleName = "openconfig"
     authentication.EntityData.ParentYangName = "interface"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     authentication.EntityData.NamespaceTable = openconfig.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3627,6 +3718,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Authe
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "authentication"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/authentication/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3663,6 +3755,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Authen
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "authentication"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/authentication/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3697,6 +3790,7 @@ func (subscription *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface
     subscription.EntityData.BundleName = "openconfig"
     subscription.EntityData.ParentYangName = "interface"
     subscription.EntityData.SegmentPath = "subscription"
+    subscription.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subscription.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3729,6 +3823,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Subsc
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "subscription"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/subscription/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3766,6 +3861,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Subscr
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subscription"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/subscription/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3799,6 +3895,7 @@ func (protection *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_P
     protection.EntityData.BundleName = "openconfig"
     protection.EntityData.ParentYangName = "interface"
     protection.EntityData.SegmentPath = "protection"
+    protection.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/" + protection.EntityData.SegmentPath
     protection.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     protection.EntityData.NamespaceTable = openconfig.GetNamespaces()
     protection.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3836,6 +3933,7 @@ func (config *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Prote
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "protection"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/protection/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3873,6 +3971,7 @@ func (state *Mpls_SignalingProtocols_RsvpTe_InterfaceAttributes_Interface_Protec
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "protection"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/rsvp-te/interface-attributes/interface/protection/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3900,6 +3999,7 @@ func (ldp *Mpls_SignalingProtocols_Ldp) GetEntityData() *types.CommonEntityData 
     ldp.EntityData.BundleName = "openconfig"
     ldp.EntityData.ParentYangName = "signaling-protocols"
     ldp.EntityData.SegmentPath = "ldp"
+    ldp.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/" + ldp.EntityData.SegmentPath
     ldp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ldp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3932,6 +4032,7 @@ func (segmentRouting *Mpls_SignalingProtocols_SegmentRouting) GetEntityData() *t
     segmentRouting.EntityData.BundleName = "openconfig"
     segmentRouting.EntityData.ParentYangName = "signaling-protocols"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = openconfig.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3965,6 +4066,7 @@ func (aggregateSidCounters *Mpls_SignalingProtocols_SegmentRouting_AggregateSidC
     aggregateSidCounters.EntityData.BundleName = "openconfig"
     aggregateSidCounters.EntityData.ParentYangName = "segment-routing"
     aggregateSidCounters.EntityData.SegmentPath = "aggregate-sid-counters"
+    aggregateSidCounters.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/" + aggregateSidCounters.EntityData.SegmentPath
     aggregateSidCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregateSidCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregateSidCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3988,11 +4090,11 @@ func (aggregateSidCounters *Mpls_SignalingProtocols_SegmentRouting_AggregateSidC
 type Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_AggregateSidCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MPLS label representing the segment
     // identifier. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     MplsLabel interface{}
 
     // State parameters for per-SID statistics.
@@ -4005,6 +4107,7 @@ func (aggregateSidCounter *Mpls_SignalingProtocols_SegmentRouting_AggregateSidCo
     aggregateSidCounter.EntityData.BundleName = "openconfig"
     aggregateSidCounter.EntityData.ParentYangName = "aggregate-sid-counters"
     aggregateSidCounter.EntityData.SegmentPath = "aggregate-sid-counter" + types.AddKeyToken(aggregateSidCounter.MplsLabel, "mpls-label")
+    aggregateSidCounter.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/aggregate-sid-counters/" + aggregateSidCounter.EntityData.SegmentPath
     aggregateSidCounter.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregateSidCounter.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregateSidCounter.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4058,6 +4161,7 @@ func (state *Mpls_SignalingProtocols_SegmentRouting_AggregateSidCounters_Aggrega
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "aggregate-sid-counter"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/aggregate-sid-counters/aggregate-sid-counter/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4093,6 +4197,7 @@ func (interfaces *Mpls_SignalingProtocols_SegmentRouting_Interfaces) GetEntityDa
     interfaces.EntityData.BundleName = "openconfig"
     interfaces.EntityData.ParentYangName = "segment-routing"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4115,6 +4220,7 @@ func (interfaces *Mpls_SignalingProtocols_SegmentRouting_Interfaces) GetEntityDa
 type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the ID for the interface for which
     // SR is configured. The type is string. Refers to
@@ -4142,6 +4248,7 @@ func (self *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface) GetEnti
     self.EntityData.BundleName = "openconfig"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceId, "interface-id")
+    self.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     self.EntityData.NamespaceTable = openconfig.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4176,6 +4283,7 @@ func (config *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Config
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4228,6 +4336,7 @@ func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_State) 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4263,6 +4372,7 @@ func (sidCounters *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_S
     sidCounters.EntityData.BundleName = "openconfig"
     sidCounters.EntityData.ParentYangName = "interface"
     sidCounters.EntityData.SegmentPath = "sid-counters"
+    sidCounters.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/" + sidCounters.EntityData.SegmentPath
     sidCounters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sidCounters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sidCounters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4284,11 +4394,11 @@ func (sidCounters *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_S
 type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MPLS label representing the segment
     // identifier. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     MplsLabel interface{}
 
     // State parameters for per-SID statistics.
@@ -4304,6 +4414,7 @@ func (sidCounter *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Si
     sidCounter.EntityData.BundleName = "openconfig"
     sidCounter.EntityData.ParentYangName = "sid-counters"
     sidCounter.EntityData.SegmentPath = "sid-counter" + types.AddKeyToken(sidCounter.MplsLabel, "mpls-label")
+    sidCounter.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/" + sidCounter.EntityData.SegmentPath
     sidCounter.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sidCounter.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sidCounter.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4358,6 +4469,7 @@ func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCoun
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "sid-counter"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/sid-counter/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4393,6 +4505,7 @@ func (forwardingClasses *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Inter
     forwardingClasses.EntityData.BundleName = "openconfig"
     forwardingClasses.EntityData.ParentYangName = "sid-counter"
     forwardingClasses.EntityData.SegmentPath = "forwarding-classes"
+    forwardingClasses.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/sid-counter/" + forwardingClasses.EntityData.SegmentPath
     forwardingClasses.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     forwardingClasses.EntityData.NamespaceTable = openconfig.GetNamespaces()
     forwardingClasses.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4415,6 +4528,7 @@ func (forwardingClasses *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Inter
 type Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCounters_SidCounter_ForwardingClasses_ForwardingClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the value of the EXP bits of the
     // segment identifier. The type is string with range: 0..7. Refers to
@@ -4432,6 +4546,7 @@ func (forwardingClass *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interfa
     forwardingClass.EntityData.BundleName = "openconfig"
     forwardingClass.EntityData.ParentYangName = "forwarding-classes"
     forwardingClass.EntityData.SegmentPath = "forwarding-class" + types.AddKeyToken(forwardingClass.Exp, "exp")
+    forwardingClass.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/sid-counter/forwarding-classes/" + forwardingClass.EntityData.SegmentPath
     forwardingClass.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     forwardingClass.EntityData.NamespaceTable = openconfig.GetNamespaces()
     forwardingClass.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4492,6 +4607,7 @@ func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_SidCoun
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "forwarding-class"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/sid-counters/sid-counter/forwarding-classes/forwarding-class/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4528,6 +4644,7 @@ func (interfaceRef *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "interface"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4567,6 +4684,7 @@ func (config *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Interf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "interface-ref"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/interface-ref/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4606,6 +4724,7 @@ func (state *Mpls_SignalingProtocols_SegmentRouting_Interfaces_Interface_Interfa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/signaling-protocols/segment-routing/interfaces/interface/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4644,6 +4763,7 @@ func (lsps *Mpls_Lsps) GetEntityData() *types.CommonEntityData {
     lsps.EntityData.BundleName = "openconfig"
     lsps.EntityData.ParentYangName = "mpls"
     lsps.EntityData.SegmentPath = "lsps"
+    lsps.EntityData.AbsolutePath = "openconfig-mpls:mpls/" + lsps.EntityData.SegmentPath
     lsps.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     lsps.EntityData.NamespaceTable = openconfig.GetNamespaces()
     lsps.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4679,6 +4799,7 @@ func (constrainedPath *Mpls_Lsps_ConstrainedPath) GetEntityData() *types.CommonE
     constrainedPath.EntityData.BundleName = "openconfig"
     constrainedPath.EntityData.ParentYangName = "lsps"
     constrainedPath.EntityData.SegmentPath = "constrained-path"
+    constrainedPath.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/" + constrainedPath.EntityData.SegmentPath
     constrainedPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     constrainedPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     constrainedPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4710,6 +4831,7 @@ func (namedExplicitPaths *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths) GetEntit
     namedExplicitPaths.EntityData.BundleName = "openconfig"
     namedExplicitPaths.EntityData.ParentYangName = "constrained-path"
     namedExplicitPaths.EntityData.SegmentPath = "named-explicit-paths"
+    namedExplicitPaths.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/" + namedExplicitPaths.EntityData.SegmentPath
     namedExplicitPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     namedExplicitPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     namedExplicitPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4731,6 +4853,7 @@ func (namedExplicitPaths *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths) GetEntit
 type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A string name that uniquely identifies an explicit
     // path. The type is string. Refers to
@@ -4753,6 +4876,7 @@ func (namedExplicitPath *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExpli
     namedExplicitPath.EntityData.BundleName = "openconfig"
     namedExplicitPath.EntityData.ParentYangName = "named-explicit-paths"
     namedExplicitPath.EntityData.SegmentPath = "named-explicit-path" + types.AddKeyToken(namedExplicitPath.Name, "name")
+    namedExplicitPath.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/named-explicit-paths/" + namedExplicitPath.EntityData.SegmentPath
     namedExplicitPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     namedExplicitPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     namedExplicitPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4797,6 +4921,7 @@ func (config *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Con
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "named-explicit-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4854,6 +4979,7 @@ func (state *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Stat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "named-explicit-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4900,6 +5026,7 @@ func (explicitRouteObjects *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedEx
     explicitRouteObjects.EntityData.BundleName = "openconfig"
     explicitRouteObjects.EntityData.ParentYangName = "named-explicit-path"
     explicitRouteObjects.EntityData.SegmentPath = "explicit-route-objects"
+    explicitRouteObjects.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/" + explicitRouteObjects.EntityData.SegmentPath
     explicitRouteObjects.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     explicitRouteObjects.EntityData.NamespaceTable = openconfig.GetNamespaces()
     explicitRouteObjects.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4921,6 +5048,7 @@ func (explicitRouteObjects *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedEx
 type Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_ExplicitRouteObjects_ExplicitRouteObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index of this explicit route object, to express
     // the order of hops in path. The type is string with range: 0..255. Refers to
@@ -4940,6 +5068,7 @@ func (explicitRouteObject *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExp
     explicitRouteObject.EntityData.BundleName = "openconfig"
     explicitRouteObject.EntityData.ParentYangName = "explicit-route-objects"
     explicitRouteObject.EntityData.SegmentPath = "explicit-route-object" + types.AddKeyToken(explicitRouteObject.Index, "index")
+    explicitRouteObject.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/explicit-route-objects/" + explicitRouteObject.EntityData.SegmentPath
     explicitRouteObject.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     explicitRouteObject.EntityData.NamespaceTable = openconfig.GetNamespaces()
     explicitRouteObject.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4983,6 +5112,7 @@ func (config *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Exp
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "explicit-route-object"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/explicit-route-objects/explicit-route-object/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5025,6 +5155,7 @@ func (state *Mpls_Lsps_ConstrainedPath_NamedExplicitPaths_NamedExplicitPath_Expl
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "explicit-route-object"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/named-explicit-paths/named-explicit-path/explicit-route-objects/explicit-route-object/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5060,6 +5191,7 @@ func (tunnels *Mpls_Lsps_ConstrainedPath_Tunnels) GetEntityData() *types.CommonE
     tunnels.EntityData.BundleName = "openconfig"
     tunnels.EntityData.ParentYangName = "constrained-path"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tunnels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5085,6 +5217,7 @@ func (tunnels *Mpls_Lsps_ConstrainedPath_Tunnels) GetEntityData() *types.CommonE
 type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The tunnel name. The type is string. Refers to
     // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Config_Name
@@ -5109,6 +5242,7 @@ func (tunnel *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel) GetEntityData() *types.C
     tunnel.EntityData.BundleName = "openconfig"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.Name, "name")
+    tunnel.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     tunnel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5213,6 +5347,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Config) GetEntityData() *
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "tunnel"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5339,6 +5474,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State) GetEntityData() *ty
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "tunnel"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5414,6 +5550,7 @@ func (counters *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_State_Counters) GetEnti
     counters.EntityData.BundleName = "openconfig"
     counters.EntityData.ParentYangName = "state"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/state/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5455,6 +5592,7 @@ func (bandwidth *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth) GetEntityDa
     bandwidth.EntityData.BundleName = "openconfig"
     bandwidth.EntityData.ParentYangName = "tunnel"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5492,6 +5630,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_Config) GetEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "bandwidth"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5535,6 +5674,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_State) GetEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5575,6 +5715,7 @@ func (autoBandwidth *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBand
     autoBandwidth.EntityData.BundleName = "openconfig"
     autoBandwidth.EntityData.ParentYangName = "bandwidth"
     autoBandwidth.EntityData.SegmentPath = "auto-bandwidth"
+    autoBandwidth.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/" + autoBandwidth.EntityData.SegmentPath
     autoBandwidth.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     autoBandwidth.EntityData.NamespaceTable = openconfig.GetNamespaces()
     autoBandwidth.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5627,6 +5768,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_C
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "auto-bandwidth"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5680,6 +5822,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_St
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "auto-bandwidth"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5717,6 +5860,7 @@ func (overflow *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth
     overflow.EntityData.BundleName = "openconfig"
     overflow.EntityData.ParentYangName = "auto-bandwidth"
     overflow.EntityData.SegmentPath = "overflow"
+    overflow.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/" + overflow.EntityData.SegmentPath
     overflow.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     overflow.EntityData.NamespaceTable = openconfig.GetNamespaces()
     overflow.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5757,6 +5901,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_O
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "overflow"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/overflow/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5798,6 +5943,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Ov
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "overflow"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/overflow/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5833,6 +5979,7 @@ func (underflow *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidt
     underflow.EntityData.BundleName = "openconfig"
     underflow.EntityData.ParentYangName = "auto-bandwidth"
     underflow.EntityData.SegmentPath = "underflow"
+    underflow.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/" + underflow.EntityData.SegmentPath
     underflow.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     underflow.EntityData.NamespaceTable = openconfig.GetNamespaces()
     underflow.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5873,6 +6020,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_U
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "underflow"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/underflow/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5914,6 +6062,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_Bandwidth_AutoBandwidth_Un
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "underflow"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/bandwidth/auto-bandwidth/underflow/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5954,6 +6103,7 @@ func (p2pTunnelAttributes *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAtt
     p2pTunnelAttributes.EntityData.BundleName = "openconfig"
     p2pTunnelAttributes.EntityData.ParentYangName = "tunnel"
     p2pTunnelAttributes.EntityData.SegmentPath = "p2p-tunnel-attributes"
+    p2pTunnelAttributes.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/" + p2pTunnelAttributes.EntityData.SegmentPath
     p2pTunnelAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pTunnelAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pTunnelAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5990,6 +6140,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_Confi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "p2p-tunnel-attributes"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6023,6 +6174,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_State)
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "p2p-tunnel-attributes"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6053,6 +6205,7 @@ func (p2pPrimaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttribut
     p2pPrimaryPath.EntityData.BundleName = "openconfig"
     p2pPrimaryPath.EntityData.ParentYangName = "p2p-tunnel-attributes"
     p2pPrimaryPath.EntityData.SegmentPath = "p2p-primary-path"
+    p2pPrimaryPath.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/" + p2pPrimaryPath.EntityData.SegmentPath
     p2pPrimaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pPrimaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pPrimaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6074,6 +6227,7 @@ func (p2pPrimaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttribut
 type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path name. The type is string. Refers to
     // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_Config_Name
@@ -6105,6 +6259,7 @@ func (p2pPrimaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttribut
     p2pPrimaryPath.EntityData.BundleName = "openconfig"
     p2pPrimaryPath.EntityData.ParentYangName = "p2p-primary-path"
     p2pPrimaryPath.EntityData.SegmentPath = "p2p-primary-path" + types.AddKeyToken(p2pPrimaryPath.Name, "name")
+    p2pPrimaryPath.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/" + p2pPrimaryPath.EntityData.SegmentPath
     p2pPrimaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pPrimaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pPrimaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6180,6 +6335,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "p2p-primary-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6267,6 +6423,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPri
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "p2p-primary-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6317,6 +6474,7 @@ func (candidateSecondaryPaths *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunne
     candidateSecondaryPaths.EntityData.BundleName = "openconfig"
     candidateSecondaryPaths.EntityData.ParentYangName = "p2p-primary-path"
     candidateSecondaryPaths.EntityData.SegmentPath = "candidate-secondary-paths"
+    candidateSecondaryPaths.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/" + candidateSecondaryPaths.EntityData.SegmentPath
     candidateSecondaryPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     candidateSecondaryPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     candidateSecondaryPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6339,6 +6497,7 @@ func (candidateSecondaryPaths *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunne
 type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPrimaryPath_P2pPrimaryPath_CandidateSecondaryPaths_CandidateSecondaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the secondary path option reference
     // which acts as the key of the candidate-secondary-path list. The type is
@@ -6359,6 +6518,7 @@ func (candidateSecondaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnel
     candidateSecondaryPath.EntityData.BundleName = "openconfig"
     candidateSecondaryPath.EntityData.ParentYangName = "candidate-secondary-paths"
     candidateSecondaryPath.EntityData.SegmentPath = "candidate-secondary-path" + types.AddKeyToken(candidateSecondaryPath.SecondaryPath, "secondary-path")
+    candidateSecondaryPath.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/candidate-secondary-paths/" + candidateSecondaryPath.EntityData.SegmentPath
     candidateSecondaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     candidateSecondaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     candidateSecondaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6399,6 +6559,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "candidate-secondary-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/candidate-secondary-paths/candidate-secondary-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6442,6 +6603,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPri
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "candidate-secondary-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/candidate-secondary-paths/candidate-secondary-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6477,6 +6639,7 @@ func (adminGroups *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_
     adminGroups.EntityData.BundleName = "openconfig"
     adminGroups.EntityData.ParentYangName = "p2p-primary-path"
     adminGroups.EntityData.SegmentPath = "admin-groups"
+    adminGroups.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/" + adminGroups.EntityData.SegmentPath
     adminGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6519,6 +6682,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPr
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "admin-groups"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/admin-groups/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6562,6 +6726,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pPri
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-groups"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-primary-path/p2p-primary-path/admin-groups/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6594,6 +6759,7 @@ func (p2pSecondaryPaths *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttri
     p2pSecondaryPaths.EntityData.BundleName = "openconfig"
     p2pSecondaryPaths.EntityData.ParentYangName = "p2p-tunnel-attributes"
     p2pSecondaryPaths.EntityData.SegmentPath = "p2p-secondary-paths"
+    p2pSecondaryPaths.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/" + p2pSecondaryPaths.EntityData.SegmentPath
     p2pSecondaryPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pSecondaryPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pSecondaryPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6615,6 +6781,7 @@ func (p2pSecondaryPaths *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttri
 type Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path name. The type is string. Refers to
     // mpls.Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSecondaryPaths_P2pSecondaryPath_Config_Name
@@ -6636,6 +6803,7 @@ func (p2pSecondaryPath *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttrib
     p2pSecondaryPath.EntityData.BundleName = "openconfig"
     p2pSecondaryPath.EntityData.ParentYangName = "p2p-secondary-paths"
     p2pSecondaryPath.EntityData.SegmentPath = "p2p-secondary-path" + types.AddKeyToken(p2pSecondaryPath.Name, "name")
+    p2pSecondaryPath.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/" + p2pSecondaryPath.EntityData.SegmentPath
     p2pSecondaryPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     p2pSecondaryPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     p2pSecondaryPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6710,6 +6878,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSe
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "p2p-secondary-path"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6797,6 +6966,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSec
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "p2p-secondary-path"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6840,6 +7010,7 @@ func (adminGroups *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_
     adminGroups.EntityData.BundleName = "openconfig"
     adminGroups.EntityData.ParentYangName = "p2p-secondary-path"
     adminGroups.EntityData.SegmentPath = "admin-groups"
+    adminGroups.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/" + adminGroups.EntityData.SegmentPath
     adminGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adminGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adminGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6882,6 +7053,7 @@ func (config *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSe
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "admin-groups"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/admin-groups/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6925,6 +7097,7 @@ func (state *Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P2pTunnelAttributes_P2pSec
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "admin-groups"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/constrained-path/tunnels/tunnel/p2p-tunnel-attributes/p2p-secondary-paths/p2p-secondary-path/admin-groups/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6957,6 +7130,7 @@ func (unconstrainedPath *Mpls_Lsps_UnconstrainedPath) GetEntityData() *types.Com
     unconstrainedPath.EntityData.BundleName = "openconfig"
     unconstrainedPath.EntityData.ParentYangName = "lsps"
     unconstrainedPath.EntityData.SegmentPath = "unconstrained-path"
+    unconstrainedPath.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/" + unconstrainedPath.EntityData.SegmentPath
     unconstrainedPath.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unconstrainedPath.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unconstrainedPath.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6987,6 +7161,7 @@ func (pathSetupProtocol *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol) GetEntit
     pathSetupProtocol.EntityData.BundleName = "openconfig"
     pathSetupProtocol.EntityData.ParentYangName = "unconstrained-path"
     pathSetupProtocol.EntityData.SegmentPath = "path-setup-protocol"
+    pathSetupProtocol.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/unconstrained-path/" + pathSetupProtocol.EntityData.SegmentPath
     pathSetupProtocol.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     pathSetupProtocol.EntityData.NamespaceTable = openconfig.GetNamespaces()
     pathSetupProtocol.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7013,6 +7188,7 @@ func (ldp *Mpls_Lsps_UnconstrainedPath_PathSetupProtocol_Ldp) GetEntityData() *t
     ldp.EntityData.BundleName = "openconfig"
     ldp.EntityData.ParentYangName = "path-setup-protocol"
     ldp.EntityData.SegmentPath = "ldp"
+    ldp.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/unconstrained-path/path-setup-protocol/" + ldp.EntityData.SegmentPath
     ldp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ldp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ldp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7043,6 +7219,7 @@ func (staticLsps *Mpls_Lsps_StaticLsps) GetEntityData() *types.CommonEntityData 
     staticLsps.EntityData.BundleName = "openconfig"
     staticLsps.EntityData.ParentYangName = "lsps"
     staticLsps.EntityData.SegmentPath = "static-lsps"
+    staticLsps.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/" + staticLsps.EntityData.SegmentPath
     staticLsps.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     staticLsps.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticLsps.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7064,6 +7241,7 @@ func (staticLsps *Mpls_Lsps_StaticLsps) GetEntityData() *types.CommonEntityData 
 type Mpls_Lsps_StaticLsps_StaticLsp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference the name list key. The type is string.
     // Refers to mpls.Mpls_Lsps_StaticLsps_StaticLsp_Config_Name
@@ -7091,6 +7269,7 @@ func (staticLsp *Mpls_Lsps_StaticLsps_StaticLsp) GetEntityData() *types.CommonEn
     staticLsp.EntityData.BundleName = "openconfig"
     staticLsp.EntityData.ParentYangName = "static-lsps"
     staticLsp.EntityData.SegmentPath = "static-lsp" + types.AddKeyToken(staticLsp.Name, "name")
+    staticLsp.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/" + staticLsp.EntityData.SegmentPath
     staticLsp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     staticLsp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     staticLsp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7125,6 +7304,7 @@ func (config *Mpls_Lsps_StaticLsps_StaticLsp_Config) GetEntityData() *types.Comm
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "static-lsp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7154,6 +7334,7 @@ func (state *Mpls_Lsps_StaticLsps_StaticLsp_State) GetEntityData() *types.Common
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "static-lsp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7187,6 +7368,7 @@ func (ingress *Mpls_Lsps_StaticLsps_StaticLsp_Ingress) GetEntityData() *types.Co
     ingress.EntityData.BundleName = "openconfig"
     ingress.EntityData.ParentYangName = "static-lsp"
     ingress.EntityData.SegmentPath = "ingress"
+    ingress.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/" + ingress.EntityData.SegmentPath
     ingress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ingress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ingress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7229,6 +7411,7 @@ func (config *Mpls_Lsps_StaticLsps_StaticLsp_Ingress_Config) GetEntityData() *ty
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ingress"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/ingress/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7272,6 +7455,7 @@ func (state *Mpls_Lsps_StaticLsps_StaticLsp_Ingress_State) GetEntityData() *type
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ingress"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/ingress/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7307,6 +7491,7 @@ func (transit *Mpls_Lsps_StaticLsps_StaticLsp_Transit) GetEntityData() *types.Co
     transit.EntityData.BundleName = "openconfig"
     transit.EntityData.ParentYangName = "static-lsp"
     transit.EntityData.SegmentPath = "transit"
+    transit.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/" + transit.EntityData.SegmentPath
     transit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7349,6 +7534,7 @@ func (config *Mpls_Lsps_StaticLsps_StaticLsp_Transit_Config) GetEntityData() *ty
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/transit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7392,6 +7578,7 @@ func (state *Mpls_Lsps_StaticLsps_StaticLsp_Transit_State) GetEntityData() *type
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/transit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7427,6 +7614,7 @@ func (egress *Mpls_Lsps_StaticLsps_StaticLsp_Egress) GetEntityData() *types.Comm
     egress.EntityData.BundleName = "openconfig"
     egress.EntityData.ParentYangName = "static-lsp"
     egress.EntityData.SegmentPath = "egress"
+    egress.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/" + egress.EntityData.SegmentPath
     egress.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     egress.EntityData.NamespaceTable = openconfig.GetNamespaces()
     egress.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7469,6 +7657,7 @@ func (config *Mpls_Lsps_StaticLsps_StaticLsp_Egress_Config) GetEntityData() *typ
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "egress"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/egress/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7512,6 +7701,7 @@ func (state *Mpls_Lsps_StaticLsps_StaticLsp_Egress_State) GetEntityData() *types
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "egress"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-mpls:mpls/lsps/static-lsps/static-lsp/egress/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

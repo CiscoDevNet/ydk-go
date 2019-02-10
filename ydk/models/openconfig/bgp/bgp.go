@@ -60,6 +60,7 @@ func (bgp *Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.BundleName = "openconfig"
     bgp.EntityData.ParentYangName = "openconfig-bgp"
     bgp.EntityData.SegmentPath = "openconfig-bgp:bgp"
+    bgp.EntityData.AbsolutePath = bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -122,6 +123,7 @@ func (global *Bgp_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "openconfig"
     global.EntityData.ParentYangName = "bgp"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "openconfig-bgp:bgp/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     global.EntityData.NamespaceTable = openconfig.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -166,6 +168,7 @@ func (config *Bgp_Global_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "global"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -211,6 +214,7 @@ func (state *Bgp_Global_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "global"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -248,6 +252,7 @@ func (defaultRouteDistance *Bgp_Global_DefaultRouteDistance) GetEntityData() *ty
     defaultRouteDistance.EntityData.BundleName = "openconfig"
     defaultRouteDistance.EntityData.ParentYangName = "global"
     defaultRouteDistance.EntityData.SegmentPath = "default-route-distance"
+    defaultRouteDistance.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + defaultRouteDistance.EntityData.SegmentPath
     defaultRouteDistance.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     defaultRouteDistance.EntityData.NamespaceTable = openconfig.GetNamespaces()
     defaultRouteDistance.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -284,6 +289,7 @@ func (config *Bgp_Global_DefaultRouteDistance_Config) GetEntityData() *types.Com
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "default-route-distance"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/default-route-distance/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -319,6 +325,7 @@ func (state *Bgp_Global_DefaultRouteDistance_State) GetEntityData() *types.Commo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "default-route-distance"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/default-route-distance/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -353,6 +360,7 @@ func (confederation *Bgp_Global_Confederation) GetEntityData() *types.CommonEnti
     confederation.EntityData.BundleName = "openconfig"
     confederation.EntityData.ParentYangName = "global"
     confederation.EntityData.SegmentPath = "confederation"
+    confederation.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + confederation.EntityData.SegmentPath
     confederation.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     confederation.EntityData.NamespaceTable = openconfig.GetNamespaces()
     confederation.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -392,6 +400,7 @@ func (config *Bgp_Global_Confederation_Config) GetEntityData() *types.CommonEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "confederation"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/confederation/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -432,6 +441,7 @@ func (state *Bgp_Global_Confederation_State) GetEntityData() *types.CommonEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "confederation"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/confederation/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -466,6 +476,7 @@ func (gracefulRestart *Bgp_Global_GracefulRestart) GetEntityData() *types.Common
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "global"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -518,6 +529,7 @@ func (config *Bgp_Global_GracefulRestart_Config) GetEntityData() *types.CommonEn
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -572,6 +584,7 @@ func (state *Bgp_Global_GracefulRestart_State) GetEntityData() *types.CommonEnti
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -614,6 +627,7 @@ func (useMultiplePaths *Bgp_Global_UseMultiplePaths) GetEntityData() *types.Comm
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "global"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -648,6 +662,7 @@ func (config *Bgp_Global_UseMultiplePaths_Config) GetEntityData() *types.CommonE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -679,6 +694,7 @@ func (state *Bgp_Global_UseMultiplePaths_State) GetEntityData() *types.CommonEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -711,6 +727,7 @@ func (ebgp *Bgp_Global_UseMultiplePaths_Ebgp) GetEntityData() *types.CommonEntit
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -748,6 +765,7 @@ func (config *Bgp_Global_UseMultiplePaths_Ebgp_Config) GetEntityData() *types.Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -785,6 +803,7 @@ func (state *Bgp_Global_UseMultiplePaths_Ebgp_State) GetEntityData() *types.Comm
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -818,6 +837,7 @@ func (ibgp *Bgp_Global_UseMultiplePaths_Ibgp) GetEntityData() *types.CommonEntit
     ibgp.EntityData.BundleName = "openconfig"
     ibgp.EntityData.ParentYangName = "use-multiple-paths"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/use-multiple-paths/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -850,6 +870,7 @@ func (config *Bgp_Global_UseMultiplePaths_Ibgp_Config) GetEntityData() *types.Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ibgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/use-multiple-paths/ibgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -881,6 +902,7 @@ func (state *Bgp_Global_UseMultiplePaths_Ibgp_State) GetEntityData() *types.Comm
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ibgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/use-multiple-paths/ibgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -913,6 +935,7 @@ func (routeSelectionOptions *Bgp_Global_RouteSelectionOptions) GetEntityData() *
     routeSelectionOptions.EntityData.BundleName = "openconfig"
     routeSelectionOptions.EntityData.ParentYangName = "global"
     routeSelectionOptions.EntityData.SegmentPath = "route-selection-options"
+    routeSelectionOptions.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + routeSelectionOptions.EntityData.SegmentPath
     routeSelectionOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -970,6 +993,7 @@ func (config *Bgp_Global_RouteSelectionOptions_Config) GetEntityData() *types.Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-selection-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/route-selection-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1030,6 +1054,7 @@ func (state *Bgp_Global_RouteSelectionOptions_State) GetEntityData() *types.Comm
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-selection-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/route-selection-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1065,6 +1090,7 @@ func (afiSafis *Bgp_Global_AfiSafis) GetEntityData() *types.CommonEntityData {
     afiSafis.EntityData.BundleName = "openconfig"
     afiSafis.EntityData.ParentYangName = "global"
     afiSafis.EntityData.SegmentPath = "afi-safis"
+    afiSafis.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + afiSafis.EntityData.SegmentPath
     afiSafis.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1087,6 +1113,7 @@ func (afiSafis *Bgp_Global_AfiSafis) GetEntityData() *types.CommonEntityData {
 type Bgp_Global_AfiSafis_AfiSafi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
@@ -1145,6 +1172,7 @@ func (afiSafi *Bgp_Global_AfiSafis_AfiSafi) GetEntityData() *types.CommonEntityD
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
     afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
+    afiSafi.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1194,6 +1222,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Config) GetEntityData() *types.CommonE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "afi-safi"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1237,6 +1266,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_State) GetEntityData() *types.CommonEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "afi-safi"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1272,6 +1302,7 @@ func (gracefulRestart *Bgp_Global_AfiSafis_AfiSafi_GracefulRestart) GetEntityDat
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "afi-safi"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1303,6 +1334,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_GracefulRestart_Config) GetEntityData(
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1333,6 +1365,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_GracefulRestart_State) GetEntityData() 
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1365,6 +1398,7 @@ func (routeSelectionOptions *Bgp_Global_AfiSafis_AfiSafi_RouteSelectionOptions) 
     routeSelectionOptions.EntityData.BundleName = "openconfig"
     routeSelectionOptions.EntityData.ParentYangName = "afi-safi"
     routeSelectionOptions.EntityData.SegmentPath = "route-selection-options"
+    routeSelectionOptions.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + routeSelectionOptions.EntityData.SegmentPath
     routeSelectionOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1422,6 +1456,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_RouteSelectionOptions_Config) GetEntit
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-selection-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/route-selection-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1482,6 +1517,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_RouteSelectionOptions_State) GetEntityD
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-selection-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/route-selection-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1526,6 +1562,7 @@ func (useMultiplePaths *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths) GetEntityD
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "afi-safi"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1560,6 +1597,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Config) GetEntityData
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1591,6 +1629,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_State) GetEntityData()
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1623,6 +1662,7 @@ func (ebgp *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp) GetEntityData() *
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1660,6 +1700,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_Config) GetEntit
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1697,6 +1738,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_State) GetEntityD
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1730,6 +1772,7 @@ func (ibgp *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp) GetEntityData() *
     ibgp.EntityData.BundleName = "openconfig"
     ibgp.EntityData.ParentYangName = "use-multiple-paths"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/use-multiple-paths/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1762,6 +1805,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp_Config) GetEntit
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ibgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/use-multiple-paths/ibgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1793,6 +1837,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp_State) GetEntityD
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ibgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/use-multiple-paths/ibgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1828,6 +1873,7 @@ func (ipv4Unicast *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast) GetEntityData() *typ
     ipv4Unicast.EntityData.BundleName = "openconfig"
     ipv4Unicast.EntityData.ParentYangName = "afi-safi"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1863,6 +1909,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit) GetEntit
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1912,6 +1959,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Config) GetEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1963,6 +2011,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_State) GetEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1997,6 +2046,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_Config) GetEntityData() *t
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv4-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2028,6 +2078,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv4Unicast_State) GetEntityData() *typ
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv4-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2063,6 +2114,7 @@ func (ipv6Unicast *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast) GetEntityData() *typ
     ipv6Unicast.EntityData.BundleName = "openconfig"
     ipv6Unicast.EntityData.ParentYangName = "afi-safi"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2098,6 +2150,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit) GetEntit
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2147,6 +2200,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Config) GetEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2198,6 +2252,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_State) GetEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2232,6 +2287,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_Config) GetEntityData() *t
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv6-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2263,6 +2319,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv6Unicast_State) GetEntityData() *typ
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv6-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2292,6 +2349,7 @@ func (ipv4LabeledUnicast *Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast) GetEnt
     ipv4LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv4LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv4LabeledUnicast.EntityData.SegmentPath = "ipv4-labeled-unicast"
+    ipv4LabeledUnicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + ipv4LabeledUnicast.EntityData.SegmentPath
     ipv4LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2325,6 +2383,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit) G
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv4-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2374,6 +2433,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_Config)
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2425,6 +2485,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLimit_State) G
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2457,6 +2518,7 @@ func (ipv6LabeledUnicast *Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast) GetEnt
     ipv6LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv6LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv6LabeledUnicast.EntityData.SegmentPath = "ipv6-labeled-unicast"
+    ipv6LabeledUnicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + ipv6LabeledUnicast.EntityData.SegmentPath
     ipv6LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2490,6 +2552,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit) G
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv6-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2539,6 +2602,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_Config)
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2590,6 +2654,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLimit_State) G
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2622,6 +2687,7 @@ func (l3vpnIpv4Unicast *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast) GetEntityD
     l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + l3vpnIpv4Unicast.EntityData.SegmentPath
     l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2655,6 +2721,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit) Get
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2704,6 +2771,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_Config) G
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2755,6 +2823,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimit_State) Get
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2787,6 +2856,7 @@ func (l3vpnIpv6Unicast *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast) GetEntityD
     l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + l3vpnIpv6Unicast.EntityData.SegmentPath
     l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2820,6 +2890,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit) Get
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2869,6 +2940,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_Config) G
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2920,6 +2992,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimit_State) Get
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2952,6 +3025,7 @@ func (l3vpnIpv4Multicast *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast) GetEnt
     l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + l3vpnIpv4Multicast.EntityData.SegmentPath
     l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2985,6 +3059,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit) G
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv4-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3034,6 +3109,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_Config)
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3085,6 +3161,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLimit_State) G
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3117,6 +3194,7 @@ func (l3vpnIpv6Multicast *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast) GetEnt
     l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + l3vpnIpv6Multicast.EntityData.SegmentPath
     l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3150,6 +3228,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit) G
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv6-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3199,6 +3278,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_Config)
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3250,6 +3330,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLimit_State) G
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3282,6 +3363,7 @@ func (l2vpnVpls *Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls) GetEntityData() *types.C
     l2vpnVpls.EntityData.BundleName = "openconfig"
     l2vpnVpls.EntityData.ParentYangName = "afi-safi"
     l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + l2vpnVpls.EntityData.SegmentPath
     l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3315,6 +3397,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit) GetEntityD
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-vpls"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l2vpn-vpls/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3364,6 +3447,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Config) GetEntit
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3415,6 +3499,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State) GetEntityD
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3447,6 +3532,7 @@ func (l2vpnEvpn *Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn) GetEntityData() *types.C
     l2vpnEvpn.EntityData.BundleName = "openconfig"
     l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
     l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/" + l2vpnEvpn.EntityData.SegmentPath
     l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3480,6 +3566,7 @@ func (prefixLimit *Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit) GetEntityD
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-evpn"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l2vpn-evpn/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3529,6 +3616,7 @@ func (config *Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Config) GetEntit
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3580,6 +3668,7 @@ func (state *Bgp_Global_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State) GetEntityD
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3622,6 +3711,7 @@ func (dynamicNeighborPrefixes *Bgp_Global_DynamicNeighborPrefixes) GetEntityData
     dynamicNeighborPrefixes.EntityData.BundleName = "openconfig"
     dynamicNeighborPrefixes.EntityData.ParentYangName = "global"
     dynamicNeighborPrefixes.EntityData.SegmentPath = "dynamic-neighbor-prefixes"
+    dynamicNeighborPrefixes.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/" + dynamicNeighborPrefixes.EntityData.SegmentPath
     dynamicNeighborPrefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     dynamicNeighborPrefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     dynamicNeighborPrefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3644,6 +3734,7 @@ func (dynamicNeighborPrefixes *Bgp_Global_DynamicNeighborPrefixes) GetEntityData
 type Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the IP prefix from which source
     // connections are allowed for the dynamic neighbor group. The type is one of
@@ -3668,6 +3759,7 @@ func (dynamicNeighborPrefix *Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborP
     dynamicNeighborPrefix.EntityData.BundleName = "openconfig"
     dynamicNeighborPrefix.EntityData.ParentYangName = "dynamic-neighbor-prefixes"
     dynamicNeighborPrefix.EntityData.SegmentPath = "dynamic-neighbor-prefix" + types.AddKeyToken(dynamicNeighborPrefix.Prefix, "prefix")
+    dynamicNeighborPrefix.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/dynamic-neighbor-prefixes/" + dynamicNeighborPrefix.EntityData.SegmentPath
     dynamicNeighborPrefix.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     dynamicNeighborPrefix.EntityData.NamespaceTable = openconfig.GetNamespaces()
     dynamicNeighborPrefix.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3711,6 +3803,7 @@ func (config *Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_Config) G
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "dynamic-neighbor-prefix"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/dynamic-neighbor-prefixes/dynamic-neighbor-prefix/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3753,6 +3846,7 @@ func (state *Bgp_Global_DynamicNeighborPrefixes_DynamicNeighborPrefix_State) Get
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "dynamic-neighbor-prefix"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/global/dynamic-neighbor-prefixes/dynamic-neighbor-prefix/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3784,6 +3878,7 @@ func (neighbors *Bgp_Neighbors) GetEntityData() *types.CommonEntityData {
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "bgp"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-bgp:bgp/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3806,6 +3901,7 @@ func (neighbors *Bgp_Neighbors) GetEntityData() *types.CommonEntityData {
 type Bgp_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the address of the BGP neighbor used
     // as a key in the neighbor list. The type is one of the following types:
@@ -3868,6 +3964,7 @@ func (neighbor *Bgp_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData 
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
+    neighbor.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3962,6 +4059,7 @@ func (config *Bgp_Neighbors_Neighbor_Config) GetEntityData() *types.CommonEntity
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "neighbor"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4084,6 +4182,7 @@ func (state *Bgp_Neighbors_Neighbor_State) GetEntityData() *types.CommonEntityDa
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "neighbor"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4134,6 +4233,7 @@ func (messages *Bgp_Neighbors_Neighbor_State_Messages) GetEntityData() *types.Co
     messages.EntityData.BundleName = "openconfig"
     messages.EntityData.ParentYangName = "state"
     messages.EntityData.SegmentPath = "messages"
+    messages.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/state/" + messages.EntityData.SegmentPath
     messages.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     messages.EntityData.NamespaceTable = openconfig.GetNamespaces()
     messages.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4170,6 +4270,7 @@ func (sent *Bgp_Neighbors_Neighbor_State_Messages_Sent) GetEntityData() *types.C
     sent.EntityData.BundleName = "openconfig"
     sent.EntityData.ParentYangName = "messages"
     sent.EntityData.SegmentPath = "sent"
+    sent.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/state/messages/" + sent.EntityData.SegmentPath
     sent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     sent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4206,6 +4307,7 @@ func (received *Bgp_Neighbors_Neighbor_State_Messages_Received) GetEntityData() 
     received.EntityData.BundleName = "openconfig"
     received.EntityData.ParentYangName = "messages"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/state/messages/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     received.EntityData.NamespaceTable = openconfig.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4242,6 +4344,7 @@ func (queues *Bgp_Neighbors_Neighbor_State_Queues) GetEntityData() *types.Common
     queues.EntityData.BundleName = "openconfig"
     queues.EntityData.ParentYangName = "state"
     queues.EntityData.SegmentPath = "queues"
+    queues.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/state/" + queues.EntityData.SegmentPath
     queues.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     queues.EntityData.NamespaceTable = openconfig.GetNamespaces()
     queues.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4305,6 +4408,7 @@ func (timers *Bgp_Neighbors_Neighbor_Timers) GetEntityData() *types.CommonEntity
     timers.EntityData.BundleName = "openconfig"
     timers.EntityData.ParentYangName = "neighbor"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4358,6 +4462,7 @@ func (config *Bgp_Neighbors_Neighbor_Timers_Config) GetEntityData() *types.Commo
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4417,6 +4522,7 @@ func (state *Bgp_Neighbors_Neighbor_Timers_State) GetEntityData() *types.CommonE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4455,6 +4561,7 @@ func (transport *Bgp_Neighbors_Neighbor_Transport) GetEntityData() *types.Common
     transport.EntityData.BundleName = "openconfig"
     transport.EntityData.ParentYangName = "neighbor"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transport.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4506,6 +4613,7 @@ func (config *Bgp_Neighbors_Neighbor_Transport_Config) GetEntityData() *types.Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transport"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/transport/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4574,6 +4682,7 @@ func (state *Bgp_Neighbors_Neighbor_Transport_State) GetEntityData() *types.Comm
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transport"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/transport/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4615,6 +4724,7 @@ func (errorHandling *Bgp_Neighbors_Neighbor_ErrorHandling) GetEntityData() *type
     errorHandling.EntityData.BundleName = "openconfig"
     errorHandling.EntityData.ParentYangName = "neighbor"
     errorHandling.EntityData.SegmentPath = "error-handling"
+    errorHandling.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + errorHandling.EntityData.SegmentPath
     errorHandling.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     errorHandling.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorHandling.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4649,6 +4759,7 @@ func (config *Bgp_Neighbors_Neighbor_ErrorHandling_Config) GetEntityData() *type
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "error-handling"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/error-handling/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4686,6 +4797,7 @@ func (state *Bgp_Neighbors_Neighbor_ErrorHandling_State) GetEntityData() *types.
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "error-handling"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/error-handling/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4719,6 +4831,7 @@ func (gracefulRestart *Bgp_Neighbors_Neighbor_GracefulRestart) GetEntityData() *
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "neighbor"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4771,6 +4884,7 @@ func (config *Bgp_Neighbors_Neighbor_GracefulRestart_Config) GetEntityData() *ty
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4843,6 +4957,7 @@ func (state *Bgp_Neighbors_Neighbor_GracefulRestart_State) GetEntityData() *type
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4905,6 +5020,7 @@ func (loggingOptions *Bgp_Neighbors_Neighbor_LoggingOptions) GetEntityData() *ty
     loggingOptions.EntityData.BundleName = "openconfig"
     loggingOptions.EntityData.ParentYangName = "neighbor"
     loggingOptions.EntityData.SegmentPath = "logging-options"
+    loggingOptions.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + loggingOptions.EntityData.SegmentPath
     loggingOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     loggingOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     loggingOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4937,6 +5053,7 @@ func (config *Bgp_Neighbors_Neighbor_LoggingOptions_Config) GetEntityData() *typ
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "logging-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/logging-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4968,6 +5085,7 @@ func (state *Bgp_Neighbors_Neighbor_LoggingOptions_State) GetEntityData() *types
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "logging-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/logging-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5000,6 +5118,7 @@ func (ebgpMultihop *Bgp_Neighbors_Neighbor_EbgpMultihop) GetEntityData() *types.
     ebgpMultihop.EntityData.BundleName = "openconfig"
     ebgpMultihop.EntityData.ParentYangName = "neighbor"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5038,6 +5157,7 @@ func (config *Bgp_Neighbors_Neighbor_EbgpMultihop_Config) GetEntityData() *types
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp-multihop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/ebgp-multihop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5076,6 +5196,7 @@ func (state *Bgp_Neighbors_Neighbor_EbgpMultihop_State) GetEntityData() *types.C
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp-multihop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/ebgp-multihop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5109,6 +5230,7 @@ func (routeReflector *Bgp_Neighbors_Neighbor_RouteReflector) GetEntityData() *ty
     routeReflector.EntityData.BundleName = "openconfig"
     routeReflector.EntityData.ParentYangName = "neighbor"
     routeReflector.EntityData.SegmentPath = "route-reflector"
+    routeReflector.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + routeReflector.EntityData.SegmentPath
     routeReflector.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeReflector.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeReflector.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5148,6 +5270,7 @@ func (config *Bgp_Neighbors_Neighbor_RouteReflector_Config) GetEntityData() *typ
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-reflector"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/route-reflector/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5187,6 +5310,7 @@ func (state *Bgp_Neighbors_Neighbor_RouteReflector_State) GetEntityData() *types
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-reflector"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/route-reflector/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5223,6 +5347,7 @@ func (asPathOptions *Bgp_Neighbors_Neighbor_AsPathOptions) GetEntityData() *type
     asPathOptions.EntityData.BundleName = "openconfig"
     asPathOptions.EntityData.ParentYangName = "neighbor"
     asPathOptions.EntityData.SegmentPath = "as-path-options"
+    asPathOptions.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + asPathOptions.EntityData.SegmentPath
     asPathOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     asPathOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5260,6 +5385,7 @@ func (config *Bgp_Neighbors_Neighbor_AsPathOptions_Config) GetEntityData() *type
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "as-path-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/as-path-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5297,6 +5423,7 @@ func (state *Bgp_Neighbors_Neighbor_AsPathOptions_State) GetEntityData() *types.
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "as-path-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/as-path-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5331,6 +5458,7 @@ func (addPaths *Bgp_Neighbors_Neighbor_AddPaths) GetEntityData() *types.CommonEn
     addPaths.EntityData.BundleName = "openconfig"
     addPaths.EntityData.ParentYangName = "neighbor"
     addPaths.EntityData.SegmentPath = "add-paths"
+    addPaths.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + addPaths.EntityData.SegmentPath
     addPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     addPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5371,6 +5499,7 @@ func (config *Bgp_Neighbors_Neighbor_AddPaths_Config) GetEntityData() *types.Com
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "add-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/add-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5412,6 +5541,7 @@ func (state *Bgp_Neighbors_Neighbor_AddPaths_State) GetEntityData() *types.Commo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "add-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/add-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5450,6 +5580,7 @@ func (useMultiplePaths *Bgp_Neighbors_Neighbor_UseMultiplePaths) GetEntityData()
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "neighbor"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5483,6 +5614,7 @@ func (config *Bgp_Neighbors_Neighbor_UseMultiplePaths_Config) GetEntityData() *t
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5514,6 +5646,7 @@ func (state *Bgp_Neighbors_Neighbor_UseMultiplePaths_State) GetEntityData() *typ
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5546,6 +5679,7 @@ func (ebgp *Bgp_Neighbors_Neighbor_UseMultiplePaths_Ebgp) GetEntityData() *types
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5578,6 +5712,7 @@ func (config *Bgp_Neighbors_Neighbor_UseMultiplePaths_Ebgp_Config) GetEntityData
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5609,6 +5744,7 @@ func (state *Bgp_Neighbors_Neighbor_UseMultiplePaths_Ebgp_State) GetEntityData()
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5644,6 +5780,7 @@ func (applyPolicy *Bgp_Neighbors_Neighbor_ApplyPolicy) GetEntityData() *types.Co
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "neighbor"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5693,6 +5830,7 @@ func (config *Bgp_Neighbors_Neighbor_ApplyPolicy_Config) GetEntityData() *types.
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5744,6 +5882,7 @@ func (state *Bgp_Neighbors_Neighbor_ApplyPolicy_State) GetEntityData() *types.Co
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5778,6 +5917,7 @@ func (afiSafis *Bgp_Neighbors_Neighbor_AfiSafis) GetEntityData() *types.CommonEn
     afiSafis.EntityData.BundleName = "openconfig"
     afiSafis.EntityData.ParentYangName = "neighbor"
     afiSafis.EntityData.SegmentPath = "afi-safis"
+    afiSafis.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/" + afiSafis.EntityData.SegmentPath
     afiSafis.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5800,6 +5940,7 @@ func (afiSafis *Bgp_Neighbors_Neighbor_AfiSafis) GetEntityData() *types.CommonEn
 type Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
@@ -5861,6 +6002,7 @@ func (afiSafi *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi) GetEntityData() *types.C
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
     afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
+    afiSafi.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5910,6 +6052,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Config) GetEntityData() *t
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "afi-safi"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5954,6 +6097,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_State) GetEntityData() *typ
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "afi-safi"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -5995,6 +6139,7 @@ func (prefixes *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_State_Prefixes) GetEntit
     prefixes.EntityData.BundleName = "openconfig"
     prefixes.EntityData.ParentYangName = "state"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/state/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6029,6 +6174,7 @@ func (gracefulRestart *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_GracefulRestart) 
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "afi-safi"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6060,6 +6206,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_GracefulRestart_Config) Ge
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6098,6 +6245,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_GracefulRestart_State) GetE
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6135,6 +6283,7 @@ func (applyPolicy *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_ApplyPolicy) GetEntit
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "afi-safi"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6184,6 +6333,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_ApplyPolicy_Config) GetEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6235,6 +6385,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_ApplyPolicy_State) GetEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6273,6 +6424,7 @@ func (ipv4Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast) GetEntit
     ipv4Unicast.EntityData.BundleName = "openconfig"
     ipv4Unicast.EntityData.ParentYangName = "afi-safi"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6308,6 +6460,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLim
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6357,6 +6510,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6408,6 +6562,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6442,6 +6597,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_Config) GetEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6473,6 +6629,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4Unicast_State) GetEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6508,6 +6665,7 @@ func (ipv6Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast) GetEntit
     ipv6Unicast.EntityData.BundleName = "openconfig"
     ipv6Unicast.EntityData.ParentYangName = "afi-safi"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6543,6 +6701,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLim
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6592,6 +6751,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6643,6 +6803,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6677,6 +6838,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_Config) GetEnt
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6708,6 +6870,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6Unicast_State) GetEntit
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6737,6 +6900,7 @@ func (ipv4LabeledUnicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUni
     ipv4LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv4LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv4LabeledUnicast.EntityData.SegmentPath = "ipv4-labeled-unicast"
+    ipv4LabeledUnicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + ipv4LabeledUnicast.EntityData.SegmentPath
     ipv4LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6770,6 +6934,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUnicast_Pr
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6819,6 +6984,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixL
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6870,6 +7036,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv4LabeledUnicast_PrefixLi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6902,6 +7069,7 @@ func (ipv6LabeledUnicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUni
     ipv6LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv6LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv6LabeledUnicast.EntityData.SegmentPath = "ipv6-labeled-unicast"
+    ipv6LabeledUnicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + ipv6LabeledUnicast.EntityData.SegmentPath
     ipv6LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6935,6 +7103,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast_Pr
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -6984,6 +7153,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixL
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7035,6 +7205,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_Ipv6LabeledUnicast_PrefixLi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7067,6 +7238,7 @@ func (l3vpnIpv4Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast
     l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + l3vpnIpv4Unicast.EntityData.SegmentPath
     l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7100,6 +7272,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_Pref
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7149,6 +7322,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLim
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7200,6 +7374,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLimi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7232,6 +7407,7 @@ func (l3vpnIpv6Unicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast
     l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + l3vpnIpv6Unicast.EntityData.SegmentPath
     l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7265,6 +7441,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_Pref
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7314,6 +7491,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLim
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7365,6 +7543,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLimi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7397,6 +7576,7 @@ func (l3vpnIpv4Multicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multi
     l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + l3vpnIpv4Multicast.EntityData.SegmentPath
     l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7430,6 +7610,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_Pr
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7479,6 +7660,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixL
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7530,6 +7712,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv4Multicast_PrefixLi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7562,6 +7745,7 @@ func (l3vpnIpv6Multicast *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multi
     l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + l3vpnIpv6Multicast.EntityData.SegmentPath
     l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7595,6 +7779,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_Pr
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7644,6 +7829,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixL
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7695,6 +7881,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L3vpnIpv6Multicast_PrefixLi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7727,6 +7914,7 @@ func (l2vpnVpls *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls) GetEntityDat
     l2vpnVpls.EntityData.BundleName = "openconfig"
     l2vpnVpls.EntityData.ParentYangName = "afi-safi"
     l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + l2vpnVpls.EntityData.SegmentPath
     l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7760,6 +7948,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-vpls"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-vpls/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7809,6 +7998,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Conf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7860,6 +8050,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_State
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7892,6 +8083,7 @@ func (l2vpnEvpn *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn) GetEntityDat
     l2vpnEvpn.EntityData.BundleName = "openconfig"
     l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
     l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + l2vpnEvpn.EntityData.SegmentPath
     l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7925,6 +8117,7 @@ func (prefixLimit *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-evpn"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-evpn/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -7974,6 +8167,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Conf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8025,6 +8219,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_State
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8064,6 +8259,7 @@ func (useMultiplePaths *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "afi-safi"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8097,6 +8293,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_Config) G
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8128,6 +8325,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_State) Get
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8160,6 +8358,7 @@ func (ebgp *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp) GetEn
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8192,6 +8391,7 @@ func (config *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_Conf
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8223,6 +8423,7 @@ func (state *Bgp_Neighbors_Neighbor_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_State
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/neighbors/neighbor/afi-safis/afi-safi/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8254,6 +8455,7 @@ func (peerGroups *Bgp_PeerGroups) GetEntityData() *types.CommonEntityData {
     peerGroups.EntityData.BundleName = "openconfig"
     peerGroups.EntityData.ParentYangName = "bgp"
     peerGroups.EntityData.SegmentPath = "peer-groups"
+    peerGroups.EntityData.AbsolutePath = "openconfig-bgp:bgp/" + peerGroups.EntityData.SegmentPath
     peerGroups.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     peerGroups.EntityData.NamespaceTable = openconfig.GetNamespaces()
     peerGroups.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8276,6 +8478,7 @@ func (peerGroups *Bgp_PeerGroups) GetEntityData() *types.CommonEntityData {
 type Bgp_PeerGroups_PeerGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the name of the BGP peer-group used
     // as a key in the peer-group list. The type is string. Refers to
@@ -8334,6 +8537,7 @@ func (peerGroup *Bgp_PeerGroups_PeerGroup) GetEntityData() *types.CommonEntityDa
     peerGroup.EntityData.BundleName = "openconfig"
     peerGroup.EntityData.ParentYangName = "peer-groups"
     peerGroup.EntityData.SegmentPath = "peer-group" + types.AddKeyToken(peerGroup.PeerGroupName, "peer-group-name")
+    peerGroup.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/" + peerGroup.EntityData.SegmentPath
     peerGroup.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     peerGroup.EntityData.NamespaceTable = openconfig.GetNamespaces()
     peerGroup.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8412,6 +8616,7 @@ func (config *Bgp_PeerGroups_PeerGroup_Config) GetEntityData() *types.CommonEnti
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "peer-group"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8491,6 +8696,7 @@ func (state *Bgp_PeerGroups_PeerGroup_State) GetEntityData() *types.CommonEntity
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "peer-group"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8534,6 +8740,7 @@ func (timers *Bgp_PeerGroups_PeerGroup_Timers) GetEntityData() *types.CommonEnti
     timers.EntityData.BundleName = "openconfig"
     timers.EntityData.ParentYangName = "peer-group"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     timers.EntityData.NamespaceTable = openconfig.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8587,6 +8794,7 @@ func (config *Bgp_PeerGroups_PeerGroup_Timers_Config) GetEntityData() *types.Com
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "timers"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/timers/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8642,6 +8850,7 @@ func (state *Bgp_PeerGroups_PeerGroup_Timers_State) GetEntityData() *types.Commo
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "timers"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/timers/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8679,6 +8888,7 @@ func (transport *Bgp_PeerGroups_PeerGroup_Transport) GetEntityData() *types.Comm
     transport.EntityData.BundleName = "openconfig"
     transport.EntityData.ParentYangName = "peer-group"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transport.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8730,6 +8940,7 @@ func (config *Bgp_PeerGroups_PeerGroup_Transport_Config) GetEntityData() *types.
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transport"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/transport/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8783,6 +8994,7 @@ func (state *Bgp_PeerGroups_PeerGroup_Transport_State) GetEntityData() *types.Co
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transport"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/transport/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8820,6 +9032,7 @@ func (errorHandling *Bgp_PeerGroups_PeerGroup_ErrorHandling) GetEntityData() *ty
     errorHandling.EntityData.BundleName = "openconfig"
     errorHandling.EntityData.ParentYangName = "peer-group"
     errorHandling.EntityData.SegmentPath = "error-handling"
+    errorHandling.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + errorHandling.EntityData.SegmentPath
     errorHandling.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     errorHandling.EntityData.NamespaceTable = openconfig.GetNamespaces()
     errorHandling.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8854,6 +9067,7 @@ func (config *Bgp_PeerGroups_PeerGroup_ErrorHandling_Config) GetEntityData() *ty
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "error-handling"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/error-handling/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8886,6 +9100,7 @@ func (state *Bgp_PeerGroups_PeerGroup_ErrorHandling_State) GetEntityData() *type
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "error-handling"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/error-handling/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8918,6 +9133,7 @@ func (gracefulRestart *Bgp_PeerGroups_PeerGroup_GracefulRestart) GetEntityData()
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "peer-group"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -8970,6 +9186,7 @@ func (config *Bgp_PeerGroups_PeerGroup_GracefulRestart_Config) GetEntityData() *
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9024,6 +9241,7 @@ func (state *Bgp_PeerGroups_PeerGroup_GracefulRestart_State) GetEntityData() *ty
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9061,6 +9279,7 @@ func (loggingOptions *Bgp_PeerGroups_PeerGroup_LoggingOptions) GetEntityData() *
     loggingOptions.EntityData.BundleName = "openconfig"
     loggingOptions.EntityData.ParentYangName = "peer-group"
     loggingOptions.EntityData.SegmentPath = "logging-options"
+    loggingOptions.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + loggingOptions.EntityData.SegmentPath
     loggingOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     loggingOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     loggingOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9093,6 +9312,7 @@ func (config *Bgp_PeerGroups_PeerGroup_LoggingOptions_Config) GetEntityData() *t
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "logging-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/logging-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9124,6 +9344,7 @@ func (state *Bgp_PeerGroups_PeerGroup_LoggingOptions_State) GetEntityData() *typ
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "logging-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/logging-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9156,6 +9377,7 @@ func (ebgpMultihop *Bgp_PeerGroups_PeerGroup_EbgpMultihop) GetEntityData() *type
     ebgpMultihop.EntityData.BundleName = "openconfig"
     ebgpMultihop.EntityData.ParentYangName = "peer-group"
     ebgpMultihop.EntityData.SegmentPath = "ebgp-multihop"
+    ebgpMultihop.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + ebgpMultihop.EntityData.SegmentPath
     ebgpMultihop.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgpMultihop.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgpMultihop.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9194,6 +9416,7 @@ func (config *Bgp_PeerGroups_PeerGroup_EbgpMultihop_Config) GetEntityData() *typ
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp-multihop"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/ebgp-multihop/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9232,6 +9455,7 @@ func (state *Bgp_PeerGroups_PeerGroup_EbgpMultihop_State) GetEntityData() *types
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp-multihop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/ebgp-multihop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9265,6 +9489,7 @@ func (routeReflector *Bgp_PeerGroups_PeerGroup_RouteReflector) GetEntityData() *
     routeReflector.EntityData.BundleName = "openconfig"
     routeReflector.EntityData.ParentYangName = "peer-group"
     routeReflector.EntityData.SegmentPath = "route-reflector"
+    routeReflector.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + routeReflector.EntityData.SegmentPath
     routeReflector.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeReflector.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeReflector.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9304,6 +9529,7 @@ func (config *Bgp_PeerGroups_PeerGroup_RouteReflector_Config) GetEntityData() *t
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-reflector"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/route-reflector/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9343,6 +9569,7 @@ func (state *Bgp_PeerGroups_PeerGroup_RouteReflector_State) GetEntityData() *typ
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-reflector"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/route-reflector/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9379,6 +9606,7 @@ func (asPathOptions *Bgp_PeerGroups_PeerGroup_AsPathOptions) GetEntityData() *ty
     asPathOptions.EntityData.BundleName = "openconfig"
     asPathOptions.EntityData.ParentYangName = "peer-group"
     asPathOptions.EntityData.SegmentPath = "as-path-options"
+    asPathOptions.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + asPathOptions.EntityData.SegmentPath
     asPathOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     asPathOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     asPathOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9416,6 +9644,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AsPathOptions_Config) GetEntityData() *ty
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "as-path-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/as-path-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9453,6 +9682,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AsPathOptions_State) GetEntityData() *type
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "as-path-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/as-path-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9487,6 +9717,7 @@ func (addPaths *Bgp_PeerGroups_PeerGroup_AddPaths) GetEntityData() *types.Common
     addPaths.EntityData.BundleName = "openconfig"
     addPaths.EntityData.ParentYangName = "peer-group"
     addPaths.EntityData.SegmentPath = "add-paths"
+    addPaths.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + addPaths.EntityData.SegmentPath
     addPaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     addPaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     addPaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9527,6 +9758,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AddPaths_Config) GetEntityData() *types.C
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "add-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/add-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9568,6 +9800,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AddPaths_State) GetEntityData() *types.Com
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "add-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/add-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9609,6 +9842,7 @@ func (useMultiplePaths *Bgp_PeerGroups_PeerGroup_UseMultiplePaths) GetEntityData
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "peer-group"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9643,6 +9877,7 @@ func (config *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Config) GetEntityData() 
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9674,6 +9909,7 @@ func (state *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_State) GetEntityData() *t
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9706,6 +9942,7 @@ func (ebgp *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ebgp) GetEntityData() *typ
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9743,6 +9980,7 @@ func (config *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ebgp_Config) GetEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9780,6 +10018,7 @@ func (state *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ebgp_State) GetEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9813,6 +10052,7 @@ func (ibgp *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ibgp) GetEntityData() *typ
     ibgp.EntityData.BundleName = "openconfig"
     ibgp.EntityData.ParentYangName = "use-multiple-paths"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/use-multiple-paths/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9845,6 +10085,7 @@ func (config *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ibgp_Config) GetEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ibgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/use-multiple-paths/ibgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9876,6 +10117,7 @@ func (state *Bgp_PeerGroups_PeerGroup_UseMultiplePaths_Ibgp_State) GetEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ibgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/use-multiple-paths/ibgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9911,6 +10153,7 @@ func (applyPolicy *Bgp_PeerGroups_PeerGroup_ApplyPolicy) GetEntityData() *types.
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "peer-group"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -9960,6 +10203,7 @@ func (config *Bgp_PeerGroups_PeerGroup_ApplyPolicy_Config) GetEntityData() *type
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10011,6 +10255,7 @@ func (state *Bgp_PeerGroups_PeerGroup_ApplyPolicy_State) GetEntityData() *types.
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10045,6 +10290,7 @@ func (afiSafis *Bgp_PeerGroups_PeerGroup_AfiSafis) GetEntityData() *types.Common
     afiSafis.EntityData.BundleName = "openconfig"
     afiSafis.EntityData.ParentYangName = "peer-group"
     afiSafis.EntityData.SegmentPath = "afi-safis"
+    afiSafis.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/" + afiSafis.EntityData.SegmentPath
     afiSafis.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10067,6 +10313,7 @@ func (afiSafis *Bgp_PeerGroups_PeerGroup_AfiSafis) GetEntityData() *types.Common
 type Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
@@ -10130,6 +10377,7 @@ func (afiSafi *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi) GetEntityData() *types
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
     afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
+    afiSafi.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10180,6 +10428,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Config) GetEntityData() 
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "afi-safi"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10215,6 +10464,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_State) GetEntityData() *t
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "afi-safi"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10248,6 +10498,7 @@ func (gracefulRestart *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_GracefulRestart
     gracefulRestart.EntityData.BundleName = "openconfig"
     gracefulRestart.EntityData.ParentYangName = "afi-safi"
     gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + gracefulRestart.EntityData.SegmentPath
     gracefulRestart.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     gracefulRestart.EntityData.NamespaceTable = openconfig.GetNamespaces()
     gracefulRestart.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10279,6 +10530,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_GracefulRestart_Config) 
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "graceful-restart"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/graceful-restart/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10309,6 +10561,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_GracefulRestart_State) Ge
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "graceful-restart"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/graceful-restart/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10341,6 +10594,7 @@ func (routeSelectionOptions *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_RouteSele
     routeSelectionOptions.EntityData.BundleName = "openconfig"
     routeSelectionOptions.EntityData.ParentYangName = "afi-safi"
     routeSelectionOptions.EntityData.SegmentPath = "route-selection-options"
+    routeSelectionOptions.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + routeSelectionOptions.EntityData.SegmentPath
     routeSelectionOptions.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routeSelectionOptions.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routeSelectionOptions.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10398,6 +10652,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_RouteSelectionOptions_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "route-selection-options"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/route-selection-options/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10458,6 +10713,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_RouteSelectionOptions_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "route-selection-options"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/route-selection-options/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10502,6 +10758,7 @@ func (useMultiplePaths *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePat
     useMultiplePaths.EntityData.BundleName = "openconfig"
     useMultiplePaths.EntityData.ParentYangName = "afi-safi"
     useMultiplePaths.EntityData.SegmentPath = "use-multiple-paths"
+    useMultiplePaths.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + useMultiplePaths.EntityData.SegmentPath
     useMultiplePaths.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     useMultiplePaths.EntityData.NamespaceTable = openconfig.GetNamespaces()
     useMultiplePaths.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10536,6 +10793,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Config)
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "use-multiple-paths"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10567,6 +10825,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_State) G
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "use-multiple-paths"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10599,6 +10858,7 @@ func (ebgp *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp) Get
     ebgp.EntityData.BundleName = "openconfig"
     ebgp.EntityData.ParentYangName = "use-multiple-paths"
     ebgp.EntityData.SegmentPath = "ebgp"
+    ebgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/" + ebgp.EntityData.SegmentPath
     ebgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ebgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ebgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10636,6 +10896,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ebgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/ebgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10673,6 +10934,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ebgp_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ebgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/ebgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10706,6 +10968,7 @@ func (ibgp *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp) Get
     ibgp.EntityData.BundleName = "openconfig"
     ibgp.EntityData.ParentYangName = "use-multiple-paths"
     ibgp.EntityData.SegmentPath = "ibgp"
+    ibgp.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/" + ibgp.EntityData.SegmentPath
     ibgp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ibgp.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ibgp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10738,6 +11001,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ibgp"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/ibgp/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10769,6 +11033,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_UseMultiplePaths_Ibgp_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ibgp"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/use-multiple-paths/ibgp/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10804,6 +11069,7 @@ func (applyPolicy *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_ApplyPolicy) GetEnt
     applyPolicy.EntityData.BundleName = "openconfig"
     applyPolicy.EntityData.ParentYangName = "afi-safi"
     applyPolicy.EntityData.SegmentPath = "apply-policy"
+    applyPolicy.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + applyPolicy.EntityData.SegmentPath
     applyPolicy.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     applyPolicy.EntityData.NamespaceTable = openconfig.GetNamespaces()
     applyPolicy.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10853,6 +11119,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_ApplyPolicy_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "apply-policy"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/apply-policy/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10904,6 +11171,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_ApplyPolicy_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "apply-policy"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/apply-policy/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10942,6 +11210,7 @@ func (ipv4Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast) GetEnt
     ipv4Unicast.EntityData.BundleName = "openconfig"
     ipv4Unicast.EntityData.ParentYangName = "afi-safi"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -10977,6 +11246,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_PrefixL
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11026,6 +11296,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11077,6 +11348,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_PrefixLimit_S
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11111,6 +11383,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv4-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11142,6 +11415,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4Unicast_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv4-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11177,6 +11451,7 @@ func (ipv6Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast) GetEnt
     ipv6Unicast.EntityData.BundleName = "openconfig"
     ipv6Unicast.EntityData.ParentYangName = "afi-safi"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11212,6 +11487,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_PrefixL
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11261,6 +11537,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11312,6 +11589,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_PrefixLimit_S
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11346,6 +11624,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_Config) GetE
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "ipv6-unicast"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11377,6 +11656,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6Unicast_State) GetEnt
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "ipv6-unicast"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-unicast/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11406,6 +11686,7 @@ func (ipv4LabeledUnicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledU
     ipv4LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv4LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv4LabeledUnicast.EntityData.SegmentPath = "ipv4-labeled-unicast"
+    ipv4LabeledUnicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + ipv4LabeledUnicast.EntityData.SegmentPath
     ipv4LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11439,6 +11720,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledUnicast_
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv4-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11488,6 +11770,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledUnicast_Prefi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11539,6 +11822,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv4LabeledUnicast_Prefix
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv4-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11571,6 +11855,7 @@ func (ipv6LabeledUnicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledU
     ipv6LabeledUnicast.EntityData.BundleName = "openconfig"
     ipv6LabeledUnicast.EntityData.ParentYangName = "afi-safi"
     ipv6LabeledUnicast.EntityData.SegmentPath = "ipv6-labeled-unicast"
+    ipv6LabeledUnicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + ipv6LabeledUnicast.EntityData.SegmentPath
     ipv6LabeledUnicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6LabeledUnicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6LabeledUnicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11604,6 +11889,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast_
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "ipv6-labeled-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-labeled-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11653,6 +11939,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast_Prefi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11704,6 +11991,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_Ipv6LabeledUnicast_Prefix
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/ipv6-labeled-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11736,6 +12024,7 @@ func (l3vpnIpv4Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unica
     l3vpnIpv4Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Unicast.EntityData.SegmentPath = "l3vpn-ipv4-unicast"
+    l3vpnIpv4Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l3vpnIpv4Unicast.EntityData.SegmentPath
     l3vpnIpv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11769,6 +12058,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_Pr
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11818,6 +12108,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixL
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11869,6 +12160,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Unicast_PrefixLi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11901,6 +12193,7 @@ func (l3vpnIpv6Unicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unica
     l3vpnIpv6Unicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Unicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Unicast.EntityData.SegmentPath = "l3vpn-ipv6-unicast"
+    l3vpnIpv6Unicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l3vpnIpv6Unicast.EntityData.SegmentPath
     l3vpnIpv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11934,6 +12227,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_Pr
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-unicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-unicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -11983,6 +12277,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixL
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12034,6 +12329,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Unicast_PrefixLi
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-unicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12066,6 +12362,7 @@ func (l3vpnIpv4Multicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Mul
     l3vpnIpv4Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv4Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv4Multicast.EntityData.SegmentPath = "l3vpn-ipv4-multicast"
+    l3vpnIpv4Multicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l3vpnIpv4Multicast.EntityData.SegmentPath
     l3vpnIpv4Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv4Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv4Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12099,6 +12396,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv4-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12148,6 +12446,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_Prefi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12199,6 +12498,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv4Multicast_Prefix
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv4-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12231,6 +12531,7 @@ func (l3vpnIpv6Multicast *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Mul
     l3vpnIpv6Multicast.EntityData.BundleName = "openconfig"
     l3vpnIpv6Multicast.EntityData.ParentYangName = "afi-safi"
     l3vpnIpv6Multicast.EntityData.SegmentPath = "l3vpn-ipv6-multicast"
+    l3vpnIpv6Multicast.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l3vpnIpv6Multicast.EntityData.SegmentPath
     l3vpnIpv6Multicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l3vpnIpv6Multicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l3vpnIpv6Multicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12264,6 +12565,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l3vpn-ipv6-multicast"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-multicast/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12313,6 +12615,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_Prefi
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12364,6 +12667,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L3vpnIpv6Multicast_Prefix
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l3vpn-ipv6-multicast/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12396,6 +12700,7 @@ func (l2vpnVpls *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls) GetEntityD
     l2vpnVpls.EntityData.BundleName = "openconfig"
     l2vpnVpls.EntityData.ParentYangName = "afi-safi"
     l2vpnVpls.EntityData.SegmentPath = "l2vpn-vpls"
+    l2vpnVpls.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l2vpnVpls.EntityData.SegmentPath
     l2vpnVpls.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnVpls.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnVpls.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12429,6 +12734,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLim
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-vpls"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-vpls/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12478,6 +12784,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12529,6 +12836,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnVpls_PrefixLimit_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-vpls/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12561,6 +12869,7 @@ func (l2vpnEvpn *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn) GetEntityD
     l2vpnEvpn.EntityData.BundleName = "openconfig"
     l2vpnEvpn.EntityData.ParentYangName = "afi-safi"
     l2vpnEvpn.EntityData.SegmentPath = "l2vpn-evpn"
+    l2vpnEvpn.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/" + l2vpnEvpn.EntityData.SegmentPath
     l2vpnEvpn.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     l2vpnEvpn.EntityData.NamespaceTable = openconfig.GetNamespaces()
     l2vpnEvpn.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12594,6 +12903,7 @@ func (prefixLimit *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLim
     prefixLimit.EntityData.BundleName = "openconfig"
     prefixLimit.EntityData.ParentYangName = "l2vpn-evpn"
     prefixLimit.EntityData.SegmentPath = "prefix-limit"
+    prefixLimit.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-evpn/" + prefixLimit.EntityData.SegmentPath
     prefixLimit.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     prefixLimit.EntityData.NamespaceTable = openconfig.GetNamespaces()
     prefixLimit.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12643,6 +12953,7 @@ func (config *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "prefix-limit"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -12694,6 +13005,7 @@ func (state *Bgp_PeerGroups_PeerGroup_AfiSafis_AfiSafi_L2vpnEvpn_PrefixLimit_Sta
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "prefix-limit"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-bgp:bgp/peer-groups/peer-group/afi-safis/afi-safi/l2vpn-evpn/prefix-limit/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

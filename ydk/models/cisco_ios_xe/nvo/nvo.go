@@ -57,6 +57,7 @@ func (nvoInstances *NvoInstances) GetEntityData() *types.CommonEntityData {
     nvoInstances.EntityData.BundleName = "cisco_ios_xe"
     nvoInstances.EntityData.ParentYangName = "nvo"
     nvoInstances.EntityData.SegmentPath = "nvo:nvo-instances"
+    nvoInstances.EntityData.AbsolutePath = nvoInstances.EntityData.SegmentPath
     nvoInstances.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nvoInstances.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nvoInstances.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -78,17 +79,18 @@ func (nvoInstances *NvoInstances) GetEntityData() *types.CommonEntityData {
 type NvoInstances_NvoInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Virtualization Overlay Instance 
     // Identifier. The type is interface{} with range: 0..65535.
     NvoId interface{}
 
-    // Encapsulation type. The type is one of the following: NvgreTypeVxlanType.
-    OverlayEncapsulation interface{}
-
     // Source interface name. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name This attribute is mandatory.
     SourceInterface interface{}
+
+    // Encapsulation type. The type is one of the following: NvgreTypeVxlanType.
+    OverlayEncapsulation interface{}
 
     // VNI member attributes. The type is slice of
     // NvoInstances_NvoInstance_VirtualNetwork.
@@ -101,6 +103,7 @@ func (nvoInstance *NvoInstances_NvoInstance) GetEntityData() *types.CommonEntity
     nvoInstance.EntityData.BundleName = "cisco_ios_xe"
     nvoInstance.EntityData.ParentYangName = "nvo-instances"
     nvoInstance.EntityData.SegmentPath = "nvo-instance" + types.AddKeyToken(nvoInstance.NvoId, "nvo-id")
+    nvoInstance.EntityData.AbsolutePath = "nvo:nvo-instances/" + nvoInstance.EntityData.SegmentPath
     nvoInstance.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nvoInstance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nvoInstance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -112,8 +115,8 @@ func (nvoInstance *NvoInstances_NvoInstance) GetEntityData() *types.CommonEntity
     }
     nvoInstance.EntityData.Leafs = types.NewOrderedMap()
     nvoInstance.EntityData.Leafs.Append("nvo-id", types.YLeaf{"NvoId", nvoInstance.NvoId})
-    nvoInstance.EntityData.Leafs.Append("overlay-encapsulation", types.YLeaf{"OverlayEncapsulation", nvoInstance.OverlayEncapsulation})
     nvoInstance.EntityData.Leafs.Append("source-interface", types.YLeaf{"SourceInterface", nvoInstance.SourceInterface})
+    nvoInstance.EntityData.Leafs.Append("overlay-encapsulation", types.YLeaf{"OverlayEncapsulation", nvoInstance.OverlayEncapsulation})
 
     nvoInstance.EntityData.YListKeys = []string {"NvoId"}
 
@@ -125,6 +128,7 @@ func (nvoInstance *NvoInstances_NvoInstance) GetEntityData() *types.CommonEntity
 type NvoInstances_NvoInstance_VirtualNetwork struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Single Virtual Network Identifier  or start of
     // range. The type is interface{} with range: 1..16777214. This attribute is
@@ -136,19 +140,19 @@ type NvoInstances_NvoInstance_VirtualNetwork struct {
     // 1..16777214. This attribute is mandatory.
     VniEnd interface{}
 
-    // VRF Name. The type is string. Refers to
-    // ietf_routing.Routing_RoutingInstance_Name
-    RoutingInstance interface{}
-
-    // How to peform endpoint discovery. The type is EndHostDiscovery. The default
-    // value is flood-and-learn.
-    EndHostDiscovery interface{}
-
     // Use control protocol BGP to discover  peers. The type is interface{}.
     Bgp interface{}
 
     // Enable ARP request suppression for this VNI. The type is interface{}.
     SuppressArp interface{}
+
+    // How to peform endpoint discovery. The type is EndHostDiscovery. The default
+    // value is flood-and-learn.
+    EndHostDiscovery interface{}
+
+    // VRF Name. The type is string. Refers to
+    // ietf_routing.Routing_RoutingInstance_Name
+    RoutingInstance interface{}
 
     // Mulitcast group range associated  with the VxLAN segment(s).
     Multicast NvoInstances_NvoInstance_VirtualNetwork_Multicast
@@ -164,6 +168,7 @@ func (virtualNetwork *NvoInstances_NvoInstance_VirtualNetwork) GetEntityData() *
     virtualNetwork.EntityData.BundleName = "cisco_ios_xe"
     virtualNetwork.EntityData.ParentYangName = "nvo-instance"
     virtualNetwork.EntityData.SegmentPath = "virtual-network" + types.AddKeyToken(virtualNetwork.VniStart, "vni-start") + types.AddKeyToken(virtualNetwork.VniEnd, "vni-end")
+    virtualNetwork.EntityData.AbsolutePath = "nvo:nvo-instances/nvo-instance/" + virtualNetwork.EntityData.SegmentPath
     virtualNetwork.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     virtualNetwork.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     virtualNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -177,10 +182,10 @@ func (virtualNetwork *NvoInstances_NvoInstance_VirtualNetwork) GetEntityData() *
     virtualNetwork.EntityData.Leafs = types.NewOrderedMap()
     virtualNetwork.EntityData.Leafs.Append("vni-start", types.YLeaf{"VniStart", virtualNetwork.VniStart})
     virtualNetwork.EntityData.Leafs.Append("vni-end", types.YLeaf{"VniEnd", virtualNetwork.VniEnd})
-    virtualNetwork.EntityData.Leafs.Append("routing-instance", types.YLeaf{"RoutingInstance", virtualNetwork.RoutingInstance})
-    virtualNetwork.EntityData.Leafs.Append("end-host-discovery", types.YLeaf{"EndHostDiscovery", virtualNetwork.EndHostDiscovery})
     virtualNetwork.EntityData.Leafs.Append("bgp", types.YLeaf{"Bgp", virtualNetwork.Bgp})
     virtualNetwork.EntityData.Leafs.Append("suppress-arp", types.YLeaf{"SuppressArp", virtualNetwork.SuppressArp})
+    virtualNetwork.EntityData.Leafs.Append("end-host-discovery", types.YLeaf{"EndHostDiscovery", virtualNetwork.EndHostDiscovery})
+    virtualNetwork.EntityData.Leafs.Append("routing-instance", types.YLeaf{"RoutingInstance", virtualNetwork.RoutingInstance})
 
     virtualNetwork.EntityData.YListKeys = []string {"VniStart", "VniEnd"}
 
@@ -211,6 +216,7 @@ func (multicast *NvoInstances_NvoInstance_VirtualNetwork_Multicast) GetEntityDat
     multicast.EntityData.BundleName = "cisco_ios_xe"
     multicast.EntityData.ParentYangName = "virtual-network"
     multicast.EntityData.SegmentPath = "multicast"
+    multicast.EntityData.AbsolutePath = "nvo:nvo-instances/nvo-instance/virtual-network/" + multicast.EntityData.SegmentPath
     multicast.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     multicast.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     multicast.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -230,6 +236,7 @@ func (multicast *NvoInstances_NvoInstance_VirtualNetwork_Multicast) GetEntityDat
 type NvoInstances_NvoInstance_VirtualNetwork_Peers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VTEP peer IP address. The type is one of the
     // following types: string with pattern:
@@ -245,6 +252,7 @@ func (peers *NvoInstances_NvoInstance_VirtualNetwork_Peers) GetEntityData() *typ
     peers.EntityData.BundleName = "cisco_ios_xe"
     peers.EntityData.ParentYangName = "virtual-network"
     peers.EntityData.SegmentPath = "peers" + types.AddKeyToken(peers.PeerIp, "peer-ip")
+    peers.EntityData.AbsolutePath = "nvo:nvo-instances/nvo-instance/virtual-network/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

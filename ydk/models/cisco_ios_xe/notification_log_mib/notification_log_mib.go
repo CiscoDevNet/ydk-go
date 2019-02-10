@@ -51,6 +51,7 @@ func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetEntityData() *types.CommonEntit
     nOTIFICATIONLOGMIB.EntityData.BundleName = "cisco_ios_xe"
     nOTIFICATIONLOGMIB.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
     nOTIFICATIONLOGMIB.EntityData.SegmentPath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB"
+    nOTIFICATIONLOGMIB.EntityData.AbsolutePath = nOTIFICATIONLOGMIB.EntityData.SegmentPath
     nOTIFICATIONLOGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nOTIFICATIONLOGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nOTIFICATIONLOGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -106,6 +107,7 @@ func (nlmConfig *NOTIFICATIONLOGMIB_NlmConfig) GetEntityData() *types.CommonEnti
     nlmConfig.EntityData.BundleName = "cisco_ios_xe"
     nlmConfig.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
     nlmConfig.EntityData.SegmentPath = "nlmConfig"
+    nlmConfig.EntityData.AbsolutePath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/" + nlmConfig.EntityData.SegmentPath
     nlmConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlmConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlmConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -145,6 +147,7 @@ func (nlmStats *NOTIFICATIONLOGMIB_NlmStats) GetEntityData() *types.CommonEntity
     nlmStats.EntityData.BundleName = "cisco_ios_xe"
     nlmStats.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
     nlmStats.EntityData.SegmentPath = "nlmStats"
+    nlmStats.EntityData.AbsolutePath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/" + nlmStats.EntityData.SegmentPath
     nlmStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlmStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlmStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -178,6 +181,7 @@ func (nlmConfigLogTable *NOTIFICATIONLOGMIB_NlmConfigLogTable) GetEntityData() *
     nlmConfigLogTable.EntityData.BundleName = "cisco_ios_xe"
     nlmConfigLogTable.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
     nlmConfigLogTable.EntityData.SegmentPath = "nlmConfigLogTable"
+    nlmConfigLogTable.EntityData.AbsolutePath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/" + nlmConfigLogTable.EntityData.SegmentPath
     nlmConfigLogTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlmConfigLogTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlmConfigLogTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -201,6 +205,7 @@ func (nlmConfigLogTable *NOTIFICATIONLOGMIB_NlmConfigLogTable) GetEntityData() *
 type NOTIFICATIONLOGMIB_NlmConfigLogTable_NlmConfigLogEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the log.  An implementation may allow
     // multiple named logs, up to some implementation-specific limit (which may be
@@ -270,6 +275,7 @@ func (nlmConfigLogEntry *NOTIFICATIONLOGMIB_NlmConfigLogTable_NlmConfigLogEntry)
     nlmConfigLogEntry.EntityData.BundleName = "cisco_ios_xe"
     nlmConfigLogEntry.EntityData.ParentYangName = "nlmConfigLogTable"
     nlmConfigLogEntry.EntityData.SegmentPath = "nlmConfigLogEntry" + types.AddKeyToken(nlmConfigLogEntry.NlmLogName, "nlmLogName")
+    nlmConfigLogEntry.EntityData.AbsolutePath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmConfigLogTable/" + nlmConfigLogEntry.EntityData.SegmentPath
     nlmConfigLogEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlmConfigLogEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlmConfigLogEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -350,6 +356,7 @@ func (nlmLogTable *NOTIFICATIONLOGMIB_NlmLogTable) GetEntityData() *types.Common
     nlmLogTable.EntityData.BundleName = "cisco_ios_xe"
     nlmLogTable.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
     nlmLogTable.EntityData.SegmentPath = "nlmLogTable"
+    nlmLogTable.EntityData.AbsolutePath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/" + nlmLogTable.EntityData.SegmentPath
     nlmLogTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlmLogTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlmLogTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -389,6 +396,7 @@ func (nlmLogTable *NOTIFICATIONLOGMIB_NlmLogTable) GetEntityData() *types.Common
 type NOTIFICATIONLOGMIB_NlmLogTable_NlmLogEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // notification_log_mib.NOTIFICATIONLOGMIB_NlmConfigLogTable_NlmConfigLogEntry_NlmLogName
@@ -460,6 +468,7 @@ func (nlmLogEntry *NOTIFICATIONLOGMIB_NlmLogTable_NlmLogEntry) GetEntityData() *
     nlmLogEntry.EntityData.BundleName = "cisco_ios_xe"
     nlmLogEntry.EntityData.ParentYangName = "nlmLogTable"
     nlmLogEntry.EntityData.SegmentPath = "nlmLogEntry" + types.AddKeyToken(nlmLogEntry.NlmLogName, "nlmLogName") + types.AddKeyToken(nlmLogEntry.NlmLogIndex, "nlmLogIndex")
+    nlmLogEntry.EntityData.AbsolutePath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogTable/" + nlmLogEntry.EntityData.SegmentPath
     nlmLogEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlmLogEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlmLogEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -501,6 +510,7 @@ func (nlmLogVariableTable *NOTIFICATIONLOGMIB_NlmLogVariableTable) GetEntityData
     nlmLogVariableTable.EntityData.BundleName = "cisco_ios_xe"
     nlmLogVariableTable.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
     nlmLogVariableTable.EntityData.SegmentPath = "nlmLogVariableTable"
+    nlmLogVariableTable.EntityData.AbsolutePath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/" + nlmLogVariableTable.EntityData.SegmentPath
     nlmLogVariableTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlmLogVariableTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlmLogVariableTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -525,6 +535,7 @@ func (nlmLogVariableTable *NOTIFICATIONLOGMIB_NlmLogVariableTable) GetEntityData
 type NOTIFICATIONLOGMIB_NlmLogVariableTable_NlmLogVariableEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // notification_log_mib.NOTIFICATIONLOGMIB_NlmConfigLogTable_NlmConfigLogEntry_NlmLogName
@@ -595,6 +606,7 @@ func (nlmLogVariableEntry *NOTIFICATIONLOGMIB_NlmLogVariableTable_NlmLogVariable
     nlmLogVariableEntry.EntityData.BundleName = "cisco_ios_xe"
     nlmLogVariableEntry.EntityData.ParentYangName = "nlmLogVariableTable"
     nlmLogVariableEntry.EntityData.SegmentPath = "nlmLogVariableEntry" + types.AddKeyToken(nlmLogVariableEntry.NlmLogName, "nlmLogName") + types.AddKeyToken(nlmLogVariableEntry.NlmLogIndex, "nlmLogIndex") + types.AddKeyToken(nlmLogVariableEntry.NlmLogVariableIndex, "nlmLogVariableIndex")
+    nlmLogVariableEntry.EntityData.AbsolutePath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogVariableTable/" + nlmLogVariableEntry.EntityData.SegmentPath
     nlmLogVariableEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlmLogVariableEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlmLogVariableEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

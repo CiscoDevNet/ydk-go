@@ -34,6 +34,7 @@ func (cISCOIETFATM2PVCTRAPMIB *CISCOIETFATM2PVCTRAPMIB) GetEntityData() *types.C
     cISCOIETFATM2PVCTRAPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFATM2PVCTRAPMIB.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB"
     cISCOIETFATM2PVCTRAPMIB.EntityData.SegmentPath = "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB"
+    cISCOIETFATM2PVCTRAPMIB.EntityData.AbsolutePath = cISCOIETFATM2PVCTRAPMIB.EntityData.SegmentPath
     cISCOIETFATM2PVCTRAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFATM2PVCTRAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFATM2PVCTRAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -69,6 +70,7 @@ func (atmCurrentlyFailingPVclTable *CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingP
     atmCurrentlyFailingPVclTable.EntityData.BundleName = "cisco_ios_xe"
     atmCurrentlyFailingPVclTable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB"
     atmCurrentlyFailingPVclTable.EntityData.SegmentPath = "atmCurrentlyFailingPVclTable"
+    atmCurrentlyFailingPVclTable.EntityData.AbsolutePath = "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB/" + atmCurrentlyFailingPVclTable.EntityData.SegmentPath
     atmCurrentlyFailingPVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmCurrentlyFailingPVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmCurrentlyFailingPVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -92,6 +94,7 @@ func (atmCurrentlyFailingPVclTable *CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingP
 type CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingPVclTable_AtmCurrentlyFailingPVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -120,6 +123,7 @@ func (atmCurrentlyFailingPVclEntry *CISCOIETFATM2PVCTRAPMIB_AtmCurrentlyFailingP
     atmCurrentlyFailingPVclEntry.EntityData.BundleName = "cisco_ios_xe"
     atmCurrentlyFailingPVclEntry.EntityData.ParentYangName = "atmCurrentlyFailingPVclTable"
     atmCurrentlyFailingPVclEntry.EntityData.SegmentPath = "atmCurrentlyFailingPVclEntry" + types.AddKeyToken(atmCurrentlyFailingPVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmCurrentlyFailingPVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(atmCurrentlyFailingPVclEntry.AtmVclVci, "atmVclVci")
+    atmCurrentlyFailingPVclEntry.EntityData.AbsolutePath = "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB/atmCurrentlyFailingPVclTable/" + atmCurrentlyFailingPVclEntry.EntityData.SegmentPath
     atmCurrentlyFailingPVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmCurrentlyFailingPVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmCurrentlyFailingPVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -43,6 +43,7 @@ func (nve *Nve) GetEntityData() *types.CommonEntityData {
     nve.EntityData.BundleName = "cisco_ios_xr"
     nve.EntityData.ParentYangName = "Cisco-IOS-XR-tunnel-nve-oper"
     nve.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-nve-oper:nve"
+    nve.EntityData.AbsolutePath = nve.EntityData.SegmentPath
     nve.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nve.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nve.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -73,6 +74,7 @@ func (vnis *Nve_Vnis) GetEntityData() *types.CommonEntityData {
     vnis.EntityData.BundleName = "cisco_ios_xr"
     vnis.EntityData.ParentYangName = "nve"
     vnis.EntityData.SegmentPath = "vnis"
+    vnis.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-nve-oper:nve/" + vnis.EntityData.SegmentPath
     vnis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vnis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vnis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +96,7 @@ func (vnis *Nve_Vnis) GetEntityData() *types.CommonEntityData {
 type Nve_Vnis_Vni struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VNI ID. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -168,6 +171,7 @@ func (vni *Nve_Vnis_Vni) GetEntityData() *types.CommonEntityData {
     vni.EntityData.BundleName = "cisco_ios_xr"
     vni.EntityData.ParentYangName = "vnis"
     vni.EntityData.SegmentPath = "vni" + types.AddKeyToken(vni.Vni, "vni")
+    vni.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-nve-oper:nve/vnis/" + vni.EntityData.SegmentPath
     vni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -218,6 +222,7 @@ func (interfaces *Nve_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "nve"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-nve-oper:nve/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -239,6 +244,7 @@ func (interfaces *Nve_Interfaces) GetEntityData() *types.CommonEntityData {
 type Nve_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -300,6 +306,7 @@ func (self *Nve_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-nve-oper:nve/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

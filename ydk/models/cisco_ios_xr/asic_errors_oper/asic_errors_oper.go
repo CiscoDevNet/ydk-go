@@ -40,6 +40,7 @@ func (asicErrors *AsicErrors) GetEntityData() *types.CommonEntityData {
     asicErrors.EntityData.BundleName = "cisco_ios_xr"
     asicErrors.EntityData.ParentYangName = "Cisco-IOS-XR-asic-errors-oper"
     asicErrors.EntityData.SegmentPath = "Cisco-IOS-XR-asic-errors-oper:asic-errors"
+    asicErrors.EntityData.AbsolutePath = asicErrors.EntityData.SegmentPath
     asicErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *AsicErrors_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "asic-errors"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +93,7 @@ func (nodes *AsicErrors_Nodes) GetEntityData() *types.CommonEntityData {
 type AsicErrors_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -107,6 +110,7 @@ func (node *AsicErrors_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -129,6 +133,7 @@ func (node *AsicErrors_Nodes_Node) GetEntityData() *types.CommonEntityData {
 type AsicErrors_Nodes_Node_AsicInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Asic string. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -147,6 +152,7 @@ func (asicInformation *AsicErrors_Nodes_Node_AsicInformation) GetEntityData() *t
     asicInformation.EntityData.BundleName = "cisco_ios_xr"
     asicInformation.EntityData.ParentYangName = "node"
     asicInformation.EntityData.SegmentPath = "asic-information" + types.AddKeyToken(asicInformation.Asic, "asic")
+    asicInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/" + asicInformation.EntityData.SegmentPath
     asicInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -178,6 +184,7 @@ func (allInstances *AsicErrors_Nodes_Node_AsicInformation_AllInstances) GetEntit
     allInstances.EntityData.BundleName = "cisco_ios_xr"
     allInstances.EntityData.ParentYangName = "asic-information"
     allInstances.EntityData.SegmentPath = "all-instances"
+    allInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/" + allInstances.EntityData.SegmentPath
     allInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -207,6 +214,7 @@ func (allErrorPath *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorP
     allErrorPath.EntityData.BundleName = "cisco_ios_xr"
     allErrorPath.EntityData.ParentYangName = "all-instances"
     allErrorPath.EntityData.SegmentPath = "all-error-path"
+    allErrorPath.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/all-instances/" + allErrorPath.EntityData.SegmentPath
     allErrorPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allErrorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allErrorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +251,7 @@ func (summary *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_S
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "all-error-path"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/all-instances/all-error-path/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +259,7 @@ func (summary *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_S
     summary.EntityData.Children = types.NewOrderedMap()
     summary.EntityData.Children.Append("sum-data", types.YChild{"SumData", nil})
     for i := range summary.SumData {
+        types.SetYListKey(summary.SumData[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.SumData[i]), types.YChild{"SumData", summary.SumData[i]})
     }
     summary.EntityData.Leafs = types.NewOrderedMap()
@@ -266,6 +276,7 @@ func (summary *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_S
 type AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // num nodes. The type is interface{} with range: 0..4294967295.
     NumNodes interface{}
@@ -305,7 +316,8 @@ func (sumData *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_S
     sumData.EntityData.YangName = "sum-data"
     sumData.EntityData.BundleName = "cisco_ios_xr"
     sumData.EntityData.ParentYangName = "summary"
-    sumData.EntityData.SegmentPath = "sum-data"
+    sumData.EntityData.SegmentPath = "sum-data" + types.AddNoKeyToken(sumData)
+    sumData.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/all-instances/all-error-path/summary/" + sumData.EntityData.SegmentPath
     sumData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -313,10 +325,12 @@ func (sumData *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_S
     sumData.EntityData.Children = types.NewOrderedMap()
     sumData.EntityData.Children.Append("err-count", types.YChild{"ErrCount", nil})
     for i := range sumData.ErrCount {
+        types.SetYListKey(sumData.ErrCount[i], i)
         sumData.EntityData.Children.Append(types.GetSegmentPath(sumData.ErrCount[i]), types.YChild{"ErrCount", sumData.ErrCount[i]})
     }
     sumData.EntityData.Children.Append("pcie-err-count", types.YChild{"PcieErrCount", nil})
     for i := range sumData.PcieErrCount {
+        types.SetYListKey(sumData.PcieErrCount[i], i)
         sumData.EntityData.Children.Append(types.GetSegmentPath(sumData.PcieErrCount[i]), types.YChild{"PcieErrCount", sumData.PcieErrCount[i]})
     }
     sumData.EntityData.Leafs = types.NewOrderedMap()
@@ -339,6 +353,7 @@ func (sumData *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_S
 type AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_ErrCount struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -352,7 +367,8 @@ func (errCount *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_
     errCount.EntityData.YangName = "err-count"
     errCount.EntityData.BundleName = "cisco_ios_xr"
     errCount.EntityData.ParentYangName = "sum-data"
-    errCount.EntityData.SegmentPath = "err-count"
+    errCount.EntityData.SegmentPath = "err-count" + types.AddNoKeyToken(errCount)
+    errCount.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/all-instances/all-error-path/summary/sum-data/" + errCount.EntityData.SegmentPath
     errCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -372,6 +388,7 @@ func (errCount *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_
 type AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorPath_Summary_SumData_PcieErrCount struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -385,7 +402,8 @@ func (pcieErrCount *AsicErrors_Nodes_Node_AsicInformation_AllInstances_AllErrorP
     pcieErrCount.EntityData.YangName = "pcie-err-count"
     pcieErrCount.EntityData.BundleName = "cisco_ios_xr"
     pcieErrCount.EntityData.ParentYangName = "sum-data"
-    pcieErrCount.EntityData.SegmentPath = "pcie-err-count"
+    pcieErrCount.EntityData.SegmentPath = "pcie-err-count" + types.AddNoKeyToken(pcieErrCount)
+    pcieErrCount.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/all-instances/all-error-path/summary/sum-data/" + pcieErrCount.EntityData.SegmentPath
     pcieErrCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcieErrCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcieErrCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -417,6 +435,7 @@ func (instances *AsicErrors_Nodes_Node_AsicInformation_Instances) GetEntityData(
     instances.EntityData.BundleName = "cisco_ios_xr"
     instances.EntityData.ParentYangName = "asic-information"
     instances.EntityData.SegmentPath = "instances"
+    instances.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/" + instances.EntityData.SegmentPath
     instances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -438,6 +457,7 @@ func (instances *AsicErrors_Nodes_Node_AsicInformation_Instances) GetEntityData(
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. asic instance. The type is interface{} with range:
     // 0..4294967295.
@@ -453,6 +473,7 @@ func (instance *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance) GetEnt
     instance.EntityData.BundleName = "cisco_ios_xr"
     instance.EntityData.ParentYangName = "instances"
     instance.EntityData.SegmentPath = "instance" + types.AddKeyToken(instance.AsicInstance, "asic-instance")
+    instance.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/" + instance.EntityData.SegmentPath
     instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -633,6 +654,7 @@ func (errorPath *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorP
     errorPath.EntityData.BundleName = "cisco_ios_xr"
     errorPath.EntityData.ParentYangName = "instance"
     errorPath.EntityData.SegmentPath = "error-path"
+    errorPath.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/" + errorPath.EntityData.SegmentPath
     errorPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -713,6 +735,7 @@ func (multipleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Ins
     multipleBitSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     multipleBitSoftErrors.EntityData.ParentYangName = "error-path"
     multipleBitSoftErrors.EntityData.SegmentPath = "multiple-bit-soft-errors"
+    multipleBitSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + multipleBitSoftErrors.EntityData.SegmentPath
     multipleBitSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multipleBitSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multipleBitSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -720,6 +743,7 @@ func (multipleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Ins
     multipleBitSoftErrors.EntityData.Children = types.NewOrderedMap()
     multipleBitSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range multipleBitSoftErrors.Error {
+        types.SetYListKey(multipleBitSoftErrors.Error[i], i)
         multipleBitSoftErrors.EntityData.Children.Append(types.GetSegmentPath(multipleBitSoftErrors.Error[i]), types.YChild{"Error", multipleBitSoftErrors.Error[i]})
     }
     multipleBitSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -734,6 +758,7 @@ func (multipleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Ins
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -786,7 +811,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_M
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "multiple-bit-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/multiple-bit-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -794,10 +820,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_M
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -824,6 +852,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_M
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -840,7 +869,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/multiple-bit-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -861,6 +891,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -883,7 +914,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/multiple-bit-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -918,6 +950,7 @@ func (asicErrorGenericSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     asicErrorGenericSoft.EntityData.BundleName = "cisco_ios_xr"
     asicErrorGenericSoft.EntityData.ParentYangName = "error-path"
     asicErrorGenericSoft.EntityData.SegmentPath = "asic-error-generic-soft"
+    asicErrorGenericSoft.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorGenericSoft.EntityData.SegmentPath
     asicErrorGenericSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorGenericSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorGenericSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -925,6 +958,7 @@ func (asicErrorGenericSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     asicErrorGenericSoft.EntityData.Children = types.NewOrderedMap()
     asicErrorGenericSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorGenericSoft.Error {
+        types.SetYListKey(asicErrorGenericSoft.Error[i], i)
         asicErrorGenericSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorGenericSoft.Error[i]), types.YChild{"Error", asicErrorGenericSoft.Error[i]})
     }
     asicErrorGenericSoft.EntityData.Leafs = types.NewOrderedMap()
@@ -939,6 +973,7 @@ func (asicErrorGenericSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -991,7 +1026,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-generic-soft"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-generic-soft/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -999,10 +1035,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -1029,6 +1067,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -1045,7 +1084,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-generic-soft/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1066,6 +1106,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericSoft_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -1088,7 +1129,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-generic-soft/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1123,6 +1165,7 @@ func (crcHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Er
     crcHardErrors.EntityData.BundleName = "cisco_ios_xr"
     crcHardErrors.EntityData.ParentYangName = "error-path"
     crcHardErrors.EntityData.SegmentPath = "crc-hard-errors"
+    crcHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + crcHardErrors.EntityData.SegmentPath
     crcHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crcHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crcHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1130,6 +1173,7 @@ func (crcHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Er
     crcHardErrors.EntityData.Children = types.NewOrderedMap()
     crcHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range crcHardErrors.Error {
+        types.SetYListKey(crcHardErrors.Error[i], i)
         crcHardErrors.EntityData.Children.Append(types.GetSegmentPath(crcHardErrors.Error[i]), types.YChild{"Error", crcHardErrors.Error[i]})
     }
     crcHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -1144,6 +1188,7 @@ func (crcHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Er
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -1196,7 +1241,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "crc-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/crc-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1204,10 +1250,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -1234,6 +1282,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -1250,7 +1299,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/crc-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1271,6 +1321,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -1293,7 +1344,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/crc-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1328,6 +1380,7 @@ func (asicErrorSbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorSbeSoft.EntityData.BundleName = "cisco_ios_xr"
     asicErrorSbeSoft.EntityData.ParentYangName = "error-path"
     asicErrorSbeSoft.EntityData.SegmentPath = "asic-error-sbe-soft"
+    asicErrorSbeSoft.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorSbeSoft.EntityData.SegmentPath
     asicErrorSbeSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorSbeSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorSbeSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1335,6 +1388,7 @@ func (asicErrorSbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorSbeSoft.EntityData.Children = types.NewOrderedMap()
     asicErrorSbeSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorSbeSoft.Error {
+        types.SetYListKey(asicErrorSbeSoft.Error[i], i)
         asicErrorSbeSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorSbeSoft.Error[i]), types.YChild{"Error", asicErrorSbeSoft.Error[i]})
     }
     asicErrorSbeSoft.EntityData.Leafs = types.NewOrderedMap()
@@ -1349,6 +1403,7 @@ func (asicErrorSbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -1401,7 +1456,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-sbe-soft"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-sbe-soft/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1409,10 +1465,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -1439,6 +1497,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -1455,7 +1514,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-sbe-soft/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1476,6 +1536,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeSoft_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -1498,7 +1559,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-sbe-soft/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1533,6 +1595,7 @@ func (hardwareSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     hardwareSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     hardwareSoftErrors.EntityData.ParentYangName = "error-path"
     hardwareSoftErrors.EntityData.SegmentPath = "hardware-soft-errors"
+    hardwareSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + hardwareSoftErrors.EntityData.SegmentPath
     hardwareSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1540,6 +1603,7 @@ func (hardwareSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     hardwareSoftErrors.EntityData.Children = types.NewOrderedMap()
     hardwareSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range hardwareSoftErrors.Error {
+        types.SetYListKey(hardwareSoftErrors.Error[i], i)
         hardwareSoftErrors.EntityData.Children.Append(types.GetSegmentPath(hardwareSoftErrors.Error[i]), types.YChild{"Error", hardwareSoftErrors.Error[i]})
     }
     hardwareSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -1554,6 +1618,7 @@ func (hardwareSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -1606,7 +1671,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_H
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "hardware-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/hardware-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1614,10 +1680,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_H
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -1644,6 +1712,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_H
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -1660,7 +1729,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/hardware-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1681,6 +1751,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -1703,7 +1774,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/hardware-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1738,6 +1810,7 @@ func (asicErrorCrcSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorCrcSoft.EntityData.BundleName = "cisco_ios_xr"
     asicErrorCrcSoft.EntityData.ParentYangName = "error-path"
     asicErrorCrcSoft.EntityData.SegmentPath = "asic-error-crc-soft"
+    asicErrorCrcSoft.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorCrcSoft.EntityData.SegmentPath
     asicErrorCrcSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorCrcSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorCrcSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1745,6 +1818,7 @@ func (asicErrorCrcSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorCrcSoft.EntityData.Children = types.NewOrderedMap()
     asicErrorCrcSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorCrcSoft.Error {
+        types.SetYListKey(asicErrorCrcSoft.Error[i], i)
         asicErrorCrcSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorCrcSoft.Error[i]), types.YChild{"Error", asicErrorCrcSoft.Error[i]})
     }
     asicErrorCrcSoft.EntityData.Leafs = types.NewOrderedMap()
@@ -1759,6 +1833,7 @@ func (asicErrorCrcSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -1811,7 +1886,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-crc-soft"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-crc-soft/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1819,10 +1895,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -1849,6 +1927,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -1865,7 +1944,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-crc-soft/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1886,6 +1966,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcSoft_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -1908,7 +1989,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-crc-soft/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1943,6 +2025,7 @@ func (asicErrorParitySoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     asicErrorParitySoft.EntityData.BundleName = "cisco_ios_xr"
     asicErrorParitySoft.EntityData.ParentYangName = "error-path"
     asicErrorParitySoft.EntityData.SegmentPath = "asic-error-parity-soft"
+    asicErrorParitySoft.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorParitySoft.EntityData.SegmentPath
     asicErrorParitySoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorParitySoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorParitySoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1950,6 +2033,7 @@ func (asicErrorParitySoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     asicErrorParitySoft.EntityData.Children = types.NewOrderedMap()
     asicErrorParitySoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorParitySoft.Error {
+        types.SetYListKey(asicErrorParitySoft.Error[i], i)
         asicErrorParitySoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorParitySoft.Error[i]), types.YChild{"Error", asicErrorParitySoft.Error[i]})
     }
     asicErrorParitySoft.EntityData.Leafs = types.NewOrderedMap()
@@ -1964,6 +2048,7 @@ func (asicErrorParitySoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -2016,7 +2101,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-parity-soft"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-parity-soft/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2024,10 +2110,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -2054,6 +2142,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -2070,7 +2159,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-parity-soft/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2091,6 +2181,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParitySoft_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -2113,7 +2204,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-parity-soft/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2148,6 +2240,7 @@ func (ioSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
     ioSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     ioSoftErrors.EntityData.ParentYangName = "error-path"
     ioSoftErrors.EntityData.SegmentPath = "io-soft-errors"
+    ioSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + ioSoftErrors.EntityData.SegmentPath
     ioSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ioSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ioSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2155,6 +2248,7 @@ func (ioSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
     ioSoftErrors.EntityData.Children = types.NewOrderedMap()
     ioSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range ioSoftErrors.Error {
+        types.SetYListKey(ioSoftErrors.Error[i], i)
         ioSoftErrors.EntityData.Children.Append(types.GetSegmentPath(ioSoftErrors.Error[i]), types.YChild{"Error", ioSoftErrors.Error[i]})
     }
     ioSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -2169,6 +2263,7 @@ func (ioSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -2221,7 +2316,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "io-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/io-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2229,10 +2325,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -2259,6 +2357,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -2275,7 +2374,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/io-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2296,6 +2396,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -2318,7 +2419,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/io-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2353,6 +2455,7 @@ func (resetSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     resetSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     resetSoftErrors.EntityData.ParentYangName = "error-path"
     resetSoftErrors.EntityData.SegmentPath = "reset-soft-errors"
+    resetSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + resetSoftErrors.EntityData.SegmentPath
     resetSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resetSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resetSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2360,6 +2463,7 @@ func (resetSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     resetSoftErrors.EntityData.Children = types.NewOrderedMap()
     resetSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range resetSoftErrors.Error {
+        types.SetYListKey(resetSoftErrors.Error[i], i)
         resetSoftErrors.EntityData.Children.Append(types.GetSegmentPath(resetSoftErrors.Error[i]), types.YChild{"Error", resetSoftErrors.Error[i]})
     }
     resetSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -2374,6 +2478,7 @@ func (resetSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -2426,7 +2531,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_R
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "reset-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/reset-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2434,10 +2540,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_R
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -2464,6 +2572,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_R
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -2480,7 +2589,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/reset-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2501,6 +2611,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -2523,7 +2634,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/reset-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2558,6 +2670,7 @@ func (barrierHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     barrierHardErrors.EntityData.BundleName = "cisco_ios_xr"
     barrierHardErrors.EntityData.ParentYangName = "error-path"
     barrierHardErrors.EntityData.SegmentPath = "barrier-hard-errors"
+    barrierHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + barrierHardErrors.EntityData.SegmentPath
     barrierHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     barrierHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     barrierHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2565,6 +2678,7 @@ func (barrierHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     barrierHardErrors.EntityData.Children = types.NewOrderedMap()
     barrierHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range barrierHardErrors.Error {
+        types.SetYListKey(barrierHardErrors.Error[i], i)
         barrierHardErrors.EntityData.Children.Append(types.GetSegmentPath(barrierHardErrors.Error[i]), types.YChild{"Error", barrierHardErrors.Error[i]})
     }
     barrierHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -2579,6 +2693,7 @@ func (barrierHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -2631,7 +2746,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "barrier-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/barrier-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2639,10 +2755,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -2669,6 +2787,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -2685,7 +2804,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/barrier-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2706,6 +2826,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -2728,7 +2849,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/barrier-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2763,6 +2885,7 @@ func (ucodeSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     ucodeSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     ucodeSoftErrors.EntityData.ParentYangName = "error-path"
     ucodeSoftErrors.EntityData.SegmentPath = "ucode-soft-errors"
+    ucodeSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + ucodeSoftErrors.EntityData.SegmentPath
     ucodeSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ucodeSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucodeSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2770,6 +2893,7 @@ func (ucodeSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     ucodeSoftErrors.EntityData.Children = types.NewOrderedMap()
     ucodeSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range ucodeSoftErrors.Error {
+        types.SetYListKey(ucodeSoftErrors.Error[i], i)
         ucodeSoftErrors.EntityData.Children.Append(types.GetSegmentPath(ucodeSoftErrors.Error[i]), types.YChild{"Error", ucodeSoftErrors.Error[i]})
     }
     ucodeSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -2784,6 +2908,7 @@ func (ucodeSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -2836,7 +2961,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "ucode-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/ucode-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2844,10 +2970,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -2874,6 +3002,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -2890,7 +3019,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/ucode-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2911,6 +3041,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -2933,7 +3064,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/ucode-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2968,6 +3100,7 @@ func (asicErrorResetHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     asicErrorResetHard.EntityData.BundleName = "cisco_ios_xr"
     asicErrorResetHard.EntityData.ParentYangName = "error-path"
     asicErrorResetHard.EntityData.SegmentPath = "asic-error-reset-hard"
+    asicErrorResetHard.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorResetHard.EntityData.SegmentPath
     asicErrorResetHard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorResetHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorResetHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2975,6 +3108,7 @@ func (asicErrorResetHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     asicErrorResetHard.EntityData.Children = types.NewOrderedMap()
     asicErrorResetHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorResetHard.Error {
+        types.SetYListKey(asicErrorResetHard.Error[i], i)
         asicErrorResetHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorResetHard.Error[i]), types.YChild{"Error", asicErrorResetHard.Error[i]})
     }
     asicErrorResetHard.EntityData.Leafs = types.NewOrderedMap()
@@ -2989,6 +3123,7 @@ func (asicErrorResetHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -3041,7 +3176,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-reset-hard"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-reset-hard/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3049,10 +3185,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -3079,6 +3217,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -3095,7 +3234,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-reset-hard/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3116,6 +3256,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetHard_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -3138,7 +3279,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-reset-hard/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3173,6 +3315,7 @@ func (singleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     singleBitHardErrors.EntityData.BundleName = "cisco_ios_xr"
     singleBitHardErrors.EntityData.ParentYangName = "error-path"
     singleBitHardErrors.EntityData.SegmentPath = "single-bit-hard-errors"
+    singleBitHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + singleBitHardErrors.EntityData.SegmentPath
     singleBitHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleBitHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleBitHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3180,6 +3323,7 @@ func (singleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     singleBitHardErrors.EntityData.Children = types.NewOrderedMap()
     singleBitHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range singleBitHardErrors.Error {
+        types.SetYListKey(singleBitHardErrors.Error[i], i)
         singleBitHardErrors.EntityData.Children.Append(types.GetSegmentPath(singleBitHardErrors.Error[i]), types.YChild{"Error", singleBitHardErrors.Error[i]})
     }
     singleBitHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -3194,6 +3338,7 @@ func (singleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -3246,7 +3391,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_S
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "single-bit-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/single-bit-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3254,10 +3400,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_S
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -3284,6 +3432,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_S
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -3300,7 +3449,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/single-bit-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3321,6 +3471,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -3343,7 +3494,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/single-bit-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3378,6 +3530,7 @@ func (indirectHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     indirectHardErrors.EntityData.BundleName = "cisco_ios_xr"
     indirectHardErrors.EntityData.ParentYangName = "error-path"
     indirectHardErrors.EntityData.SegmentPath = "indirect-hard-errors"
+    indirectHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + indirectHardErrors.EntityData.SegmentPath
     indirectHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indirectHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indirectHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3385,6 +3538,7 @@ func (indirectHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     indirectHardErrors.EntityData.Children = types.NewOrderedMap()
     indirectHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range indirectHardErrors.Error {
+        types.SetYListKey(indirectHardErrors.Error[i], i)
         indirectHardErrors.EntityData.Children.Append(types.GetSegmentPath(indirectHardErrors.Error[i]), types.YChild{"Error", indirectHardErrors.Error[i]})
     }
     indirectHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -3399,6 +3553,7 @@ func (indirectHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -3451,7 +3606,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "indirect-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/indirect-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3459,10 +3615,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -3489,6 +3647,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -3505,7 +3664,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/indirect-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3526,6 +3686,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -3548,7 +3709,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/indirect-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3583,6 +3745,7 @@ func (outofResourceSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     outofResourceSoft.EntityData.BundleName = "cisco_ios_xr"
     outofResourceSoft.EntityData.ParentYangName = "error-path"
     outofResourceSoft.EntityData.SegmentPath = "outof-resource-soft"
+    outofResourceSoft.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + outofResourceSoft.EntityData.SegmentPath
     outofResourceSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outofResourceSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outofResourceSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3590,6 +3753,7 @@ func (outofResourceSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     outofResourceSoft.EntityData.Children = types.NewOrderedMap()
     outofResourceSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range outofResourceSoft.Error {
+        types.SetYListKey(outofResourceSoft.Error[i], i)
         outofResourceSoft.EntityData.Children.Append(types.GetSegmentPath(outofResourceSoft.Error[i]), types.YChild{"Error", outofResourceSoft.Error[i]})
     }
     outofResourceSoft.EntityData.Leafs = types.NewOrderedMap()
@@ -3604,6 +3768,7 @@ func (outofResourceSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -3656,7 +3821,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_O
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "outof-resource-soft"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/outof-resource-soft/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3664,10 +3830,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_O
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -3694,6 +3862,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_O
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -3710,7 +3879,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/outof-resource-soft/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3731,6 +3901,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceSoft_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -3753,7 +3924,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/outof-resource-soft/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3788,6 +3960,7 @@ func (crcSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Er
     crcSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     crcSoftErrors.EntityData.ParentYangName = "error-path"
     crcSoftErrors.EntityData.SegmentPath = "crc-soft-errors"
+    crcSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + crcSoftErrors.EntityData.SegmentPath
     crcSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crcSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crcSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3795,6 +3968,7 @@ func (crcSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Er
     crcSoftErrors.EntityData.Children = types.NewOrderedMap()
     crcSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range crcSoftErrors.Error {
+        types.SetYListKey(crcSoftErrors.Error[i], i)
         crcSoftErrors.EntityData.Children.Append(types.GetSegmentPath(crcSoftErrors.Error[i]), types.YChild{"Error", crcSoftErrors.Error[i]})
     }
     crcSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -3809,6 +3983,7 @@ func (crcSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Er
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -3861,7 +4036,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "crc-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/crc-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3869,10 +4045,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -3899,6 +4077,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -3915,7 +4094,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/crc-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3936,6 +4116,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_CrcSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -3958,7 +4139,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/crc-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3993,6 +4175,7 @@ func (timeOutHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     timeOutHardErrors.EntityData.BundleName = "cisco_ios_xr"
     timeOutHardErrors.EntityData.ParentYangName = "error-path"
     timeOutHardErrors.EntityData.SegmentPath = "time-out-hard-errors"
+    timeOutHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + timeOutHardErrors.EntityData.SegmentPath
     timeOutHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeOutHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeOutHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4000,6 +4183,7 @@ func (timeOutHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     timeOutHardErrors.EntityData.Children = types.NewOrderedMap()
     timeOutHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range timeOutHardErrors.Error {
+        types.SetYListKey(timeOutHardErrors.Error[i], i)
         timeOutHardErrors.EntityData.Children.Append(types.GetSegmentPath(timeOutHardErrors.Error[i]), types.YChild{"Error", timeOutHardErrors.Error[i]})
     }
     timeOutHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -4014,6 +4198,7 @@ func (timeOutHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -4066,7 +4251,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_T
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "time-out-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/time-out-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4074,10 +4260,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_T
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -4104,6 +4292,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_T
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -4120,7 +4309,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/time-out-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4141,6 +4331,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -4163,7 +4354,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/time-out-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4198,6 +4390,7 @@ func (barrierSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     barrierSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     barrierSoftErrors.EntityData.ParentYangName = "error-path"
     barrierSoftErrors.EntityData.SegmentPath = "barrier-soft-errors"
+    barrierSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + barrierSoftErrors.EntityData.SegmentPath
     barrierSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     barrierSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     barrierSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4205,6 +4398,7 @@ func (barrierSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     barrierSoftErrors.EntityData.Children = types.NewOrderedMap()
     barrierSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range barrierSoftErrors.Error {
+        types.SetYListKey(barrierSoftErrors.Error[i], i)
         barrierSoftErrors.EntityData.Children.Append(types.GetSegmentPath(barrierSoftErrors.Error[i]), types.YChild{"Error", barrierSoftErrors.Error[i]})
     }
     barrierSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -4219,6 +4413,7 @@ func (barrierSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -4271,7 +4466,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "barrier-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/barrier-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4279,10 +4475,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -4309,6 +4507,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -4325,7 +4524,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/barrier-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4346,6 +4546,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BarrierSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -4368,7 +4569,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/barrier-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4403,6 +4605,7 @@ func (asicErrorMbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorMbeSoft.EntityData.BundleName = "cisco_ios_xr"
     asicErrorMbeSoft.EntityData.ParentYangName = "error-path"
     asicErrorMbeSoft.EntityData.SegmentPath = "asic-error-mbe-soft"
+    asicErrorMbeSoft.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorMbeSoft.EntityData.SegmentPath
     asicErrorMbeSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorMbeSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorMbeSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4410,6 +4613,7 @@ func (asicErrorMbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorMbeSoft.EntityData.Children = types.NewOrderedMap()
     asicErrorMbeSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorMbeSoft.Error {
+        types.SetYListKey(asicErrorMbeSoft.Error[i], i)
         asicErrorMbeSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorMbeSoft.Error[i]), types.YChild{"Error", asicErrorMbeSoft.Error[i]})
     }
     asicErrorMbeSoft.EntityData.Leafs = types.NewOrderedMap()
@@ -4424,6 +4628,7 @@ func (asicErrorMbeSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -4476,7 +4681,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-mbe-soft"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-mbe-soft/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4484,10 +4690,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -4514,6 +4722,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -4530,7 +4739,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-mbe-soft/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4551,6 +4761,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeSoft_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -4573,7 +4784,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-mbe-soft/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4608,6 +4820,7 @@ func (backPressureHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_In
     backPressureHardErrors.EntityData.BundleName = "cisco_ios_xr"
     backPressureHardErrors.EntityData.ParentYangName = "error-path"
     backPressureHardErrors.EntityData.SegmentPath = "back-pressure-hard-errors"
+    backPressureHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + backPressureHardErrors.EntityData.SegmentPath
     backPressureHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backPressureHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backPressureHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4615,6 +4828,7 @@ func (backPressureHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_In
     backPressureHardErrors.EntityData.Children = types.NewOrderedMap()
     backPressureHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range backPressureHardErrors.Error {
+        types.SetYListKey(backPressureHardErrors.Error[i], i)
         backPressureHardErrors.EntityData.Children.Append(types.GetSegmentPath(backPressureHardErrors.Error[i]), types.YChild{"Error", backPressureHardErrors.Error[i]})
     }
     backPressureHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -4629,6 +4843,7 @@ func (backPressureHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_In
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -4681,7 +4896,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "back-pressure-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/back-pressure-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4689,10 +4905,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -4719,6 +4937,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -4735,7 +4954,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/back-pressure-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4756,6 +4976,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -4778,7 +4999,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/back-pressure-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4813,6 +5035,7 @@ func (singleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     singleBitSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     singleBitSoftErrors.EntityData.ParentYangName = "error-path"
     singleBitSoftErrors.EntityData.SegmentPath = "single-bit-soft-errors"
+    singleBitSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + singleBitSoftErrors.EntityData.SegmentPath
     singleBitSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleBitSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleBitSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4820,6 +5043,7 @@ func (singleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     singleBitSoftErrors.EntityData.Children = types.NewOrderedMap()
     singleBitSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range singleBitSoftErrors.Error {
+        types.SetYListKey(singleBitSoftErrors.Error[i], i)
         singleBitSoftErrors.EntityData.Children.Append(types.GetSegmentPath(singleBitSoftErrors.Error[i]), types.YChild{"Error", singleBitSoftErrors.Error[i]})
     }
     singleBitSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -4834,6 +5058,7 @@ func (singleBitSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -4886,7 +5111,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_S
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "single-bit-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/single-bit-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4894,10 +5120,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_S
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -4924,6 +5152,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_S
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -4940,7 +5169,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/single-bit-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4961,6 +5191,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_SingleBitSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -4983,7 +5214,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/single-bit-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5018,6 +5250,7 @@ func (indirectSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     indirectSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     indirectSoftErrors.EntityData.ParentYangName = "error-path"
     indirectSoftErrors.EntityData.SegmentPath = "indirect-soft-errors"
+    indirectSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + indirectSoftErrors.EntityData.SegmentPath
     indirectSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indirectSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indirectSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5025,6 +5258,7 @@ func (indirectSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     indirectSoftErrors.EntityData.Children = types.NewOrderedMap()
     indirectSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range indirectSoftErrors.Error {
+        types.SetYListKey(indirectSoftErrors.Error[i], i)
         indirectSoftErrors.EntityData.Children.Append(types.GetSegmentPath(indirectSoftErrors.Error[i]), types.YChild{"Error", indirectSoftErrors.Error[i]})
     }
     indirectSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -5039,6 +5273,7 @@ func (indirectSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -5091,7 +5326,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "indirect-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/indirect-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5099,10 +5335,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -5129,6 +5367,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -5145,7 +5384,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/indirect-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5166,6 +5406,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IndirectSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -5188,7 +5429,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/indirect-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5223,6 +5465,7 @@ func (genericHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     genericHardErrors.EntityData.BundleName = "cisco_ios_xr"
     genericHardErrors.EntityData.ParentYangName = "error-path"
     genericHardErrors.EntityData.SegmentPath = "generic-hard-errors"
+    genericHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + genericHardErrors.EntityData.SegmentPath
     genericHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5230,6 +5473,7 @@ func (genericHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     genericHardErrors.EntityData.Children = types.NewOrderedMap()
     genericHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range genericHardErrors.Error {
+        types.SetYListKey(genericHardErrors.Error[i], i)
         genericHardErrors.EntityData.Children.Append(types.GetSegmentPath(genericHardErrors.Error[i]), types.YChild{"Error", genericHardErrors.Error[i]})
     }
     genericHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -5244,6 +5488,7 @@ func (genericHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -5296,7 +5541,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_G
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "generic-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/generic-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5304,10 +5550,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_G
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -5334,6 +5582,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_G
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -5350,7 +5599,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/generic-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5371,6 +5621,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -5393,7 +5644,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/generic-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5428,6 +5680,7 @@ func (linkHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_E
     linkHardErrors.EntityData.BundleName = "cisco_ios_xr"
     linkHardErrors.EntityData.ParentYangName = "error-path"
     linkHardErrors.EntityData.SegmentPath = "link-hard-errors"
+    linkHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + linkHardErrors.EntityData.SegmentPath
     linkHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5435,6 +5688,7 @@ func (linkHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_E
     linkHardErrors.EntityData.Children = types.NewOrderedMap()
     linkHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range linkHardErrors.Error {
+        types.SetYListKey(linkHardErrors.Error[i], i)
         linkHardErrors.EntityData.Children.Append(types.GetSegmentPath(linkHardErrors.Error[i]), types.YChild{"Error", linkHardErrors.Error[i]})
     }
     linkHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -5449,6 +5703,7 @@ func (linkHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_E
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -5501,7 +5756,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_L
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "link-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/link-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5509,10 +5765,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_L
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -5539,6 +5797,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_L
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -5555,7 +5814,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/link-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5576,6 +5836,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -5598,7 +5859,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/link-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5633,6 +5895,7 @@ func (configurationHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_I
     configurationHardErrors.EntityData.BundleName = "cisco_ios_xr"
     configurationHardErrors.EntityData.ParentYangName = "error-path"
     configurationHardErrors.EntityData.SegmentPath = "configuration-hard-errors"
+    configurationHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + configurationHardErrors.EntityData.SegmentPath
     configurationHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configurationHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5640,6 +5903,7 @@ func (configurationHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_I
     configurationHardErrors.EntityData.Children = types.NewOrderedMap()
     configurationHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range configurationHardErrors.Error {
+        types.SetYListKey(configurationHardErrors.Error[i], i)
         configurationHardErrors.EntityData.Children.Append(types.GetSegmentPath(configurationHardErrors.Error[i]), types.YChild{"Error", configurationHardErrors.Error[i]})
     }
     configurationHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -5654,6 +5918,7 @@ func (configurationHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_I
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -5706,7 +5971,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "configuration-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/configuration-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5714,10 +5980,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -5744,6 +6012,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -5760,7 +6029,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/configuration-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5781,6 +6051,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -5803,7 +6074,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/configuration-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5844,6 +6116,7 @@ func (instanceSummary *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     instanceSummary.EntityData.BundleName = "cisco_ios_xr"
     instanceSummary.EntityData.ParentYangName = "error-path"
     instanceSummary.EntityData.SegmentPath = "instance-summary"
+    instanceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + instanceSummary.EntityData.SegmentPath
     instanceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     instanceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     instanceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5851,6 +6124,7 @@ func (instanceSummary *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     instanceSummary.EntityData.Children = types.NewOrderedMap()
     instanceSummary.EntityData.Children.Append("sum-data", types.YChild{"SumData", nil})
     for i := range instanceSummary.SumData {
+        types.SetYListKey(instanceSummary.SumData[i], i)
         instanceSummary.EntityData.Children.Append(types.GetSegmentPath(instanceSummary.SumData[i]), types.YChild{"SumData", instanceSummary.SumData[i]})
     }
     instanceSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -5867,6 +6141,7 @@ func (instanceSummary *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // num nodes. The type is interface{} with range: 0..4294967295.
     NumNodes interface{}
@@ -5906,7 +6181,8 @@ func (sumData *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     sumData.EntityData.YangName = "sum-data"
     sumData.EntityData.BundleName = "cisco_ios_xr"
     sumData.EntityData.ParentYangName = "instance-summary"
-    sumData.EntityData.SegmentPath = "sum-data"
+    sumData.EntityData.SegmentPath = "sum-data" + types.AddNoKeyToken(sumData)
+    sumData.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/instance-summary/" + sumData.EntityData.SegmentPath
     sumData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5914,10 +6190,12 @@ func (sumData *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     sumData.EntityData.Children = types.NewOrderedMap()
     sumData.EntityData.Children.Append("err-count", types.YChild{"ErrCount", nil})
     for i := range sumData.ErrCount {
+        types.SetYListKey(sumData.ErrCount[i], i)
         sumData.EntityData.Children.Append(types.GetSegmentPath(sumData.ErrCount[i]), types.YChild{"ErrCount", sumData.ErrCount[i]})
     }
     sumData.EntityData.Children.Append("pcie-err-count", types.YChild{"PcieErrCount", nil})
     for i := range sumData.PcieErrCount {
+        types.SetYListKey(sumData.PcieErrCount[i], i)
         sumData.EntityData.Children.Append(types.GetSegmentPath(sumData.PcieErrCount[i]), types.YChild{"PcieErrCount", sumData.PcieErrCount[i]})
     }
     sumData.EntityData.Leafs = types.NewOrderedMap()
@@ -5940,6 +6218,7 @@ func (sumData *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_ErrCount struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -5953,7 +6232,8 @@ func (errCount *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     errCount.EntityData.YangName = "err-count"
     errCount.EntityData.BundleName = "cisco_ios_xr"
     errCount.EntityData.ParentYangName = "sum-data"
-    errCount.EntityData.SegmentPath = "err-count"
+    errCount.EntityData.SegmentPath = "err-count" + types.AddNoKeyToken(errCount)
+    errCount.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/instance-summary/sum-data/" + errCount.EntityData.SegmentPath
     errCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5973,6 +6253,7 @@ func (errCount *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InstanceSummary_SumData_PcieErrCount struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -5986,7 +6267,8 @@ func (pcieErrCount *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
     pcieErrCount.EntityData.YangName = "pcie-err-count"
     pcieErrCount.EntityData.BundleName = "cisco_ios_xr"
     pcieErrCount.EntityData.ParentYangName = "sum-data"
-    pcieErrCount.EntityData.SegmentPath = "pcie-err-count"
+    pcieErrCount.EntityData.SegmentPath = "pcie-err-count" + types.AddNoKeyToken(pcieErrCount)
+    pcieErrCount.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/instance-summary/sum-data/" + pcieErrCount.EntityData.SegmentPath
     pcieErrCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcieErrCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcieErrCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6018,6 +6300,7 @@ func (unexpectedHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     unexpectedHardErrors.EntityData.BundleName = "cisco_ios_xr"
     unexpectedHardErrors.EntityData.ParentYangName = "error-path"
     unexpectedHardErrors.EntityData.SegmentPath = "unexpected-hard-errors"
+    unexpectedHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + unexpectedHardErrors.EntityData.SegmentPath
     unexpectedHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unexpectedHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unexpectedHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6025,6 +6308,7 @@ func (unexpectedHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     unexpectedHardErrors.EntityData.Children = types.NewOrderedMap()
     unexpectedHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range unexpectedHardErrors.Error {
+        types.SetYListKey(unexpectedHardErrors.Error[i], i)
         unexpectedHardErrors.EntityData.Children.Append(types.GetSegmentPath(unexpectedHardErrors.Error[i]), types.YChild{"Error", unexpectedHardErrors.Error[i]})
     }
     unexpectedHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -6039,6 +6323,7 @@ func (unexpectedHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -6091,7 +6376,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "unexpected-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/unexpected-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6099,10 +6385,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -6129,6 +6417,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -6145,7 +6434,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/unexpected-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6166,6 +6456,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -6188,7 +6479,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/unexpected-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6223,6 +6515,7 @@ func (timeOutSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     timeOutSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     timeOutSoftErrors.EntityData.ParentYangName = "error-path"
     timeOutSoftErrors.EntityData.SegmentPath = "time-out-soft-errors"
+    timeOutSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + timeOutSoftErrors.EntityData.SegmentPath
     timeOutSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeOutSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeOutSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6230,6 +6523,7 @@ func (timeOutSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     timeOutSoftErrors.EntityData.Children = types.NewOrderedMap()
     timeOutSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range timeOutSoftErrors.Error {
+        types.SetYListKey(timeOutSoftErrors.Error[i], i)
         timeOutSoftErrors.EntityData.Children.Append(types.GetSegmentPath(timeOutSoftErrors.Error[i]), types.YChild{"Error", timeOutSoftErrors.Error[i]})
     }
     timeOutSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -6244,6 +6538,7 @@ func (timeOutSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -6296,7 +6591,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_T
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "time-out-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/time-out-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6304,10 +6600,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_T
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -6334,6 +6632,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_T
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -6350,7 +6649,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/time-out-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6371,6 +6671,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_TimeOutSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -6393,7 +6694,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/time-out-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6428,6 +6730,7 @@ func (asicErrorGenericHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     asicErrorGenericHard.EntityData.BundleName = "cisco_ios_xr"
     asicErrorGenericHard.EntityData.ParentYangName = "error-path"
     asicErrorGenericHard.EntityData.SegmentPath = "asic-error-generic-hard"
+    asicErrorGenericHard.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorGenericHard.EntityData.SegmentPath
     asicErrorGenericHard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorGenericHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorGenericHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6435,6 +6738,7 @@ func (asicErrorGenericHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     asicErrorGenericHard.EntityData.Children = types.NewOrderedMap()
     asicErrorGenericHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorGenericHard.Error {
+        types.SetYListKey(asicErrorGenericHard.Error[i], i)
         asicErrorGenericHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorGenericHard.Error[i]), types.YChild{"Error", asicErrorGenericHard.Error[i]})
     }
     asicErrorGenericHard.EntityData.Leafs = types.NewOrderedMap()
@@ -6449,6 +6753,7 @@ func (asicErrorGenericHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -6501,7 +6806,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-generic-hard"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-generic-hard/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6509,10 +6815,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -6539,6 +6847,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -6555,7 +6864,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-generic-hard/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6576,6 +6886,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorGenericHard_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -6598,7 +6909,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-generic-hard/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6633,6 +6945,7 @@ func (parityHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     parityHardErrors.EntityData.BundleName = "cisco_ios_xr"
     parityHardErrors.EntityData.ParentYangName = "error-path"
     parityHardErrors.EntityData.SegmentPath = "parity-hard-errors"
+    parityHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + parityHardErrors.EntityData.SegmentPath
     parityHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parityHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parityHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6640,6 +6953,7 @@ func (parityHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     parityHardErrors.EntityData.Children = types.NewOrderedMap()
     parityHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range parityHardErrors.Error {
+        types.SetYListKey(parityHardErrors.Error[i], i)
         parityHardErrors.EntityData.Children.Append(types.GetSegmentPath(parityHardErrors.Error[i]), types.YChild{"Error", parityHardErrors.Error[i]})
     }
     parityHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -6654,6 +6968,7 @@ func (parityHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -6706,7 +7021,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_P
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "parity-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/parity-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6714,10 +7030,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_P
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -6744,6 +7062,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_P
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -6760,7 +7079,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/parity-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6781,6 +7101,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParityHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -6803,7 +7124,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/parity-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6838,6 +7160,7 @@ func (descriptorHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     descriptorHardErrors.EntityData.BundleName = "cisco_ios_xr"
     descriptorHardErrors.EntityData.ParentYangName = "error-path"
     descriptorHardErrors.EntityData.SegmentPath = "descriptor-hard-errors"
+    descriptorHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + descriptorHardErrors.EntityData.SegmentPath
     descriptorHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     descriptorHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     descriptorHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6845,6 +7168,7 @@ func (descriptorHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     descriptorHardErrors.EntityData.Children = types.NewOrderedMap()
     descriptorHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range descriptorHardErrors.Error {
+        types.SetYListKey(descriptorHardErrors.Error[i], i)
         descriptorHardErrors.EntityData.Children.Append(types.GetSegmentPath(descriptorHardErrors.Error[i]), types.YChild{"Error", descriptorHardErrors.Error[i]})
     }
     descriptorHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -6859,6 +7183,7 @@ func (descriptorHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -6911,7 +7236,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_D
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "descriptor-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/descriptor-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6919,10 +7245,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_D
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -6949,6 +7277,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_D
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -6965,7 +7294,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/descriptor-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6986,6 +7316,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -7008,7 +7339,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/descriptor-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7043,6 +7375,7 @@ func (interfaceHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     interfaceHardErrors.EntityData.BundleName = "cisco_ios_xr"
     interfaceHardErrors.EntityData.ParentYangName = "error-path"
     interfaceHardErrors.EntityData.SegmentPath = "interface-hard-errors"
+    interfaceHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + interfaceHardErrors.EntityData.SegmentPath
     interfaceHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7050,6 +7383,7 @@ func (interfaceHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     interfaceHardErrors.EntityData.Children = types.NewOrderedMap()
     interfaceHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range interfaceHardErrors.Error {
+        types.SetYListKey(interfaceHardErrors.Error[i], i)
         interfaceHardErrors.EntityData.Children.Append(types.GetSegmentPath(interfaceHardErrors.Error[i]), types.YChild{"Error", interfaceHardErrors.Error[i]})
     }
     interfaceHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -7064,6 +7398,7 @@ func (interfaceHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -7116,7 +7451,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/interface-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7124,10 +7460,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -7154,6 +7492,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -7170,7 +7509,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/interface-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7191,6 +7531,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -7213,7 +7554,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/interface-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7248,6 +7590,7 @@ func (asicErrorSbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorSbeHard.EntityData.BundleName = "cisco_ios_xr"
     asicErrorSbeHard.EntityData.ParentYangName = "error-path"
     asicErrorSbeHard.EntityData.SegmentPath = "asic-error-sbe-hard"
+    asicErrorSbeHard.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorSbeHard.EntityData.SegmentPath
     asicErrorSbeHard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorSbeHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorSbeHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7255,6 +7598,7 @@ func (asicErrorSbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorSbeHard.EntityData.Children = types.NewOrderedMap()
     asicErrorSbeHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorSbeHard.Error {
+        types.SetYListKey(asicErrorSbeHard.Error[i], i)
         asicErrorSbeHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorSbeHard.Error[i]), types.YChild{"Error", asicErrorSbeHard.Error[i]})
     }
     asicErrorSbeHard.EntityData.Leafs = types.NewOrderedMap()
@@ -7269,6 +7613,7 @@ func (asicErrorSbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -7321,7 +7666,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-sbe-hard"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-sbe-hard/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7329,10 +7675,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -7359,6 +7707,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -7375,7 +7724,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-sbe-hard/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7396,6 +7746,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorSbeHard_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -7418,7 +7769,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-sbe-hard/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7453,6 +7805,7 @@ func (asicErrorCrcHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorCrcHard.EntityData.BundleName = "cisco_ios_xr"
     asicErrorCrcHard.EntityData.ParentYangName = "error-path"
     asicErrorCrcHard.EntityData.SegmentPath = "asic-error-crc-hard"
+    asicErrorCrcHard.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorCrcHard.EntityData.SegmentPath
     asicErrorCrcHard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorCrcHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorCrcHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7460,6 +7813,7 @@ func (asicErrorCrcHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorCrcHard.EntityData.Children = types.NewOrderedMap()
     asicErrorCrcHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorCrcHard.Error {
+        types.SetYListKey(asicErrorCrcHard.Error[i], i)
         asicErrorCrcHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorCrcHard.Error[i]), types.YChild{"Error", asicErrorCrcHard.Error[i]})
     }
     asicErrorCrcHard.EntityData.Leafs = types.NewOrderedMap()
@@ -7474,6 +7828,7 @@ func (asicErrorCrcHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -7526,7 +7881,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-crc-hard"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-crc-hard/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7534,10 +7890,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -7564,6 +7922,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -7580,7 +7939,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-crc-hard/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7601,6 +7961,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorCrcHard_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -7623,7 +7984,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-crc-hard/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7658,6 +8020,7 @@ func (asicErrorParityHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     asicErrorParityHard.EntityData.BundleName = "cisco_ios_xr"
     asicErrorParityHard.EntityData.ParentYangName = "error-path"
     asicErrorParityHard.EntityData.SegmentPath = "asic-error-parity-hard"
+    asicErrorParityHard.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorParityHard.EntityData.SegmentPath
     asicErrorParityHard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorParityHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorParityHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7665,6 +8028,7 @@ func (asicErrorParityHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     asicErrorParityHard.EntityData.Children = types.NewOrderedMap()
     asicErrorParityHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorParityHard.Error {
+        types.SetYListKey(asicErrorParityHard.Error[i], i)
         asicErrorParityHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorParityHard.Error[i]), types.YChild{"Error", asicErrorParityHard.Error[i]})
     }
     asicErrorParityHard.EntityData.Leafs = types.NewOrderedMap()
@@ -7679,6 +8043,7 @@ func (asicErrorParityHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -7731,7 +8096,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-parity-hard"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-parity-hard/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7739,10 +8105,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -7769,6 +8137,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -7785,7 +8154,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-parity-hard/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7806,6 +8176,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorParityHard_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -7828,7 +8199,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-parity-hard/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7863,6 +8235,7 @@ func (asicErrorResetSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     asicErrorResetSoft.EntityData.BundleName = "cisco_ios_xr"
     asicErrorResetSoft.EntityData.ParentYangName = "error-path"
     asicErrorResetSoft.EntityData.SegmentPath = "asic-error-reset-soft"
+    asicErrorResetSoft.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorResetSoft.EntityData.SegmentPath
     asicErrorResetSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorResetSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorResetSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7870,6 +8243,7 @@ func (asicErrorResetSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     asicErrorResetSoft.EntityData.Children = types.NewOrderedMap()
     asicErrorResetSoft.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorResetSoft.Error {
+        types.SetYListKey(asicErrorResetSoft.Error[i], i)
         asicErrorResetSoft.EntityData.Children.Append(types.GetSegmentPath(asicErrorResetSoft.Error[i]), types.YChild{"Error", asicErrorResetSoft.Error[i]})
     }
     asicErrorResetSoft.EntityData.Leafs = types.NewOrderedMap()
@@ -7884,6 +8258,7 @@ func (asicErrorResetSoft *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -7936,7 +8311,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-reset-soft"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-reset-soft/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7944,10 +8320,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -7974,6 +8352,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -7990,7 +8369,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-reset-soft/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8011,6 +8391,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorResetSoft_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -8033,7 +8414,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-reset-soft/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8068,6 +8450,7 @@ func (backPressureSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_In
     backPressureSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     backPressureSoftErrors.EntityData.ParentYangName = "error-path"
     backPressureSoftErrors.EntityData.SegmentPath = "back-pressure-soft-errors"
+    backPressureSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + backPressureSoftErrors.EntityData.SegmentPath
     backPressureSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backPressureSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backPressureSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8075,6 +8458,7 @@ func (backPressureSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_In
     backPressureSoftErrors.EntityData.Children = types.NewOrderedMap()
     backPressureSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range backPressureSoftErrors.Error {
+        types.SetYListKey(backPressureSoftErrors.Error[i], i)
         backPressureSoftErrors.EntityData.Children.Append(types.GetSegmentPath(backPressureSoftErrors.Error[i]), types.YChild{"Error", backPressureSoftErrors.Error[i]})
     }
     backPressureSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -8089,6 +8473,7 @@ func (backPressureSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_In
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -8141,7 +8526,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "back-pressure-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/back-pressure-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8149,10 +8535,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -8179,6 +8567,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_B
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -8195,7 +8584,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/back-pressure-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8216,6 +8606,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_BackPressureSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -8238,7 +8629,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/back-pressure-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8273,6 +8665,7 @@ func (genericSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     genericSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     genericSoftErrors.EntityData.ParentYangName = "error-path"
     genericSoftErrors.EntityData.SegmentPath = "generic-soft-errors"
+    genericSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + genericSoftErrors.EntityData.SegmentPath
     genericSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8280,6 +8673,7 @@ func (genericSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     genericSoftErrors.EntityData.Children = types.NewOrderedMap()
     genericSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range genericSoftErrors.Error {
+        types.SetYListKey(genericSoftErrors.Error[i], i)
         genericSoftErrors.EntityData.Children.Append(types.GetSegmentPath(genericSoftErrors.Error[i]), types.YChild{"Error", genericSoftErrors.Error[i]})
     }
     genericSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -8294,6 +8688,7 @@ func (genericSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -8346,7 +8741,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_G
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "generic-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/generic-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8354,10 +8750,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_G
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -8384,6 +8782,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_G
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -8400,7 +8799,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/generic-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8421,6 +8821,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_GenericSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -8443,7 +8844,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/generic-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8478,6 +8880,7 @@ func (linkSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_E
     linkSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     linkSoftErrors.EntityData.ParentYangName = "error-path"
     linkSoftErrors.EntityData.SegmentPath = "link-soft-errors"
+    linkSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + linkSoftErrors.EntityData.SegmentPath
     linkSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8485,6 +8888,7 @@ func (linkSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_E
     linkSoftErrors.EntityData.Children = types.NewOrderedMap()
     linkSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range linkSoftErrors.Error {
+        types.SetYListKey(linkSoftErrors.Error[i], i)
         linkSoftErrors.EntityData.Children.Append(types.GetSegmentPath(linkSoftErrors.Error[i]), types.YChild{"Error", linkSoftErrors.Error[i]})
     }
     linkSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -8499,6 +8903,7 @@ func (linkSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_E
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -8551,7 +8956,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_L
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "link-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/link-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8559,10 +8965,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_L
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -8589,6 +8997,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_L
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -8605,7 +9014,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/link-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8626,6 +9036,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_LinkSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -8648,7 +9059,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/link-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8683,6 +9095,7 @@ func (configurationSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_I
     configurationSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     configurationSoftErrors.EntityData.ParentYangName = "error-path"
     configurationSoftErrors.EntityData.SegmentPath = "configuration-soft-errors"
+    configurationSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + configurationSoftErrors.EntityData.SegmentPath
     configurationSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configurationSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configurationSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8690,6 +9103,7 @@ func (configurationSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_I
     configurationSoftErrors.EntityData.Children = types.NewOrderedMap()
     configurationSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range configurationSoftErrors.Error {
+        types.SetYListKey(configurationSoftErrors.Error[i], i)
         configurationSoftErrors.EntityData.Children.Append(types.GetSegmentPath(configurationSoftErrors.Error[i]), types.YChild{"Error", configurationSoftErrors.Error[i]})
     }
     configurationSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -8704,6 +9118,7 @@ func (configurationSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_I
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -8756,7 +9171,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "configuration-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/configuration-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8764,10 +9180,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -8794,6 +9212,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_C
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -8810,7 +9229,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/configuration-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8831,6 +9251,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ConfigurationSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -8853,7 +9274,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/configuration-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8888,6 +9310,7 @@ func (multipleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Ins
     multipleBitHardErrors.EntityData.BundleName = "cisco_ios_xr"
     multipleBitHardErrors.EntityData.ParentYangName = "error-path"
     multipleBitHardErrors.EntityData.SegmentPath = "multiple-bit-hard-errors"
+    multipleBitHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + multipleBitHardErrors.EntityData.SegmentPath
     multipleBitHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multipleBitHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multipleBitHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8895,6 +9318,7 @@ func (multipleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Ins
     multipleBitHardErrors.EntityData.Children = types.NewOrderedMap()
     multipleBitHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range multipleBitHardErrors.Error {
+        types.SetYListKey(multipleBitHardErrors.Error[i], i)
         multipleBitHardErrors.EntityData.Children.Append(types.GetSegmentPath(multipleBitHardErrors.Error[i]), types.YChild{"Error", multipleBitHardErrors.Error[i]})
     }
     multipleBitHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -8909,6 +9333,7 @@ func (multipleBitHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Ins
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -8961,7 +9386,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_M
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "multiple-bit-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/multiple-bit-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8969,10 +9395,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_M
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -8999,6 +9427,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_M
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -9015,7 +9444,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/multiple-bit-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9036,6 +9466,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_MultipleBitHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -9058,7 +9489,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/multiple-bit-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9093,6 +9525,7 @@ func (unexpectedSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     unexpectedSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     unexpectedSoftErrors.EntityData.ParentYangName = "error-path"
     unexpectedSoftErrors.EntityData.SegmentPath = "unexpected-soft-errors"
+    unexpectedSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + unexpectedSoftErrors.EntityData.SegmentPath
     unexpectedSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unexpectedSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unexpectedSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9100,6 +9533,7 @@ func (unexpectedSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     unexpectedSoftErrors.EntityData.Children = types.NewOrderedMap()
     unexpectedSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range unexpectedSoftErrors.Error {
+        types.SetYListKey(unexpectedSoftErrors.Error[i], i)
         unexpectedSoftErrors.EntityData.Children.Append(types.GetSegmentPath(unexpectedSoftErrors.Error[i]), types.YChild{"Error", unexpectedSoftErrors.Error[i]})
     }
     unexpectedSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -9114,6 +9548,7 @@ func (unexpectedSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -9166,7 +9601,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "unexpected-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/unexpected-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9174,10 +9610,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -9204,6 +9642,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -9220,7 +9659,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/unexpected-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9241,6 +9681,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UnexpectedSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -9263,7 +9704,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/unexpected-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9298,6 +9740,7 @@ func (outofResourceHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     outofResourceHard.EntityData.BundleName = "cisco_ios_xr"
     outofResourceHard.EntityData.ParentYangName = "error-path"
     outofResourceHard.EntityData.SegmentPath = "outof-resource-hard"
+    outofResourceHard.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + outofResourceHard.EntityData.SegmentPath
     outofResourceHard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outofResourceHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outofResourceHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9305,6 +9748,7 @@ func (outofResourceHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
     outofResourceHard.EntityData.Children = types.NewOrderedMap()
     outofResourceHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range outofResourceHard.Error {
+        types.SetYListKey(outofResourceHard.Error[i], i)
         outofResourceHard.EntityData.Children.Append(types.GetSegmentPath(outofResourceHard.Error[i]), types.YChild{"Error", outofResourceHard.Error[i]})
     }
     outofResourceHard.EntityData.Leafs = types.NewOrderedMap()
@@ -9319,6 +9763,7 @@ func (outofResourceHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instanc
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -9371,7 +9816,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_O
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "outof-resource-hard"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/outof-resource-hard/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9379,10 +9825,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_O
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -9409,6 +9857,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_O
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -9425,7 +9874,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/outof-resource-hard/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9446,6 +9896,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_OutofResourceHard_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -9468,7 +9919,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/outof-resource-hard/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9503,6 +9955,7 @@ func (hardwareHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     hardwareHardErrors.EntityData.BundleName = "cisco_ios_xr"
     hardwareHardErrors.EntityData.ParentYangName = "error-path"
     hardwareHardErrors.EntityData.SegmentPath = "hardware-hard-errors"
+    hardwareHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + hardwareHardErrors.EntityData.SegmentPath
     hardwareHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9510,6 +9963,7 @@ func (hardwareHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
     hardwareHardErrors.EntityData.Children = types.NewOrderedMap()
     hardwareHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range hardwareHardErrors.Error {
+        types.SetYListKey(hardwareHardErrors.Error[i], i)
         hardwareHardErrors.EntityData.Children.Append(types.GetSegmentPath(hardwareHardErrors.Error[i]), types.YChild{"Error", hardwareHardErrors.Error[i]})
     }
     hardwareHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -9524,6 +9978,7 @@ func (hardwareHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instan
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -9576,7 +10031,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_H
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "hardware-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/hardware-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9584,10 +10040,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_H
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -9614,6 +10072,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_H
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -9630,7 +10089,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/hardware-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9651,6 +10111,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_HardwareHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -9673,7 +10134,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/hardware-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9708,6 +10170,7 @@ func (paritySoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     paritySoftErrors.EntityData.BundleName = "cisco_ios_xr"
     paritySoftErrors.EntityData.ParentYangName = "error-path"
     paritySoftErrors.EntityData.SegmentPath = "parity-soft-errors"
+    paritySoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + paritySoftErrors.EntityData.SegmentPath
     paritySoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paritySoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paritySoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9715,6 +10178,7 @@ func (paritySoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     paritySoftErrors.EntityData.Children = types.NewOrderedMap()
     paritySoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range paritySoftErrors.Error {
+        types.SetYListKey(paritySoftErrors.Error[i], i)
         paritySoftErrors.EntityData.Children.Append(types.GetSegmentPath(paritySoftErrors.Error[i]), types.YChild{"Error", paritySoftErrors.Error[i]})
     }
     paritySoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -9729,6 +10193,7 @@ func (paritySoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -9781,7 +10246,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_P
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "parity-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/parity-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9789,10 +10255,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_P
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -9819,6 +10287,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_P
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -9835,7 +10304,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/parity-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9856,6 +10326,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ParitySoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -9878,7 +10349,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/parity-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9913,6 +10385,7 @@ func (descriptorSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     descriptorSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     descriptorSoftErrors.EntityData.ParentYangName = "error-path"
     descriptorSoftErrors.EntityData.SegmentPath = "descriptor-soft-errors"
+    descriptorSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + descriptorSoftErrors.EntityData.SegmentPath
     descriptorSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     descriptorSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     descriptorSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9920,6 +10393,7 @@ func (descriptorSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
     descriptorSoftErrors.EntityData.Children = types.NewOrderedMap()
     descriptorSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range descriptorSoftErrors.Error {
+        types.SetYListKey(descriptorSoftErrors.Error[i], i)
         descriptorSoftErrors.EntityData.Children.Append(types.GetSegmentPath(descriptorSoftErrors.Error[i]), types.YChild{"Error", descriptorSoftErrors.Error[i]})
     }
     descriptorSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -9934,6 +10408,7 @@ func (descriptorSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Inst
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -9986,7 +10461,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_D
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "descriptor-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/descriptor-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9994,10 +10470,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_D
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -10024,6 +10502,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_D
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -10040,7 +10519,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/descriptor-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10061,6 +10541,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_DescriptorSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -10083,7 +10564,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/descriptor-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10118,6 +10600,7 @@ func (interfaceSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     interfaceSoftErrors.EntityData.BundleName = "cisco_ios_xr"
     interfaceSoftErrors.EntityData.ParentYangName = "error-path"
     interfaceSoftErrors.EntityData.SegmentPath = "interface-soft-errors"
+    interfaceSoftErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + interfaceSoftErrors.EntityData.SegmentPath
     interfaceSoftErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSoftErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSoftErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10125,6 +10608,7 @@ func (interfaceSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
     interfaceSoftErrors.EntityData.Children = types.NewOrderedMap()
     interfaceSoftErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range interfaceSoftErrors.Error {
+        types.SetYListKey(interfaceSoftErrors.Error[i], i)
         interfaceSoftErrors.EntityData.Children.Append(types.GetSegmentPath(interfaceSoftErrors.Error[i]), types.YChild{"Error", interfaceSoftErrors.Error[i]})
     }
     interfaceSoftErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -10139,6 +10623,7 @@ func (interfaceSoftErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Insta
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -10191,7 +10676,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-soft-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/interface-soft-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10199,10 +10685,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -10229,6 +10717,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -10245,7 +10734,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/interface-soft-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10266,6 +10756,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_InterfaceSoftErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -10288,7 +10779,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/interface-soft-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10323,6 +10815,7 @@ func (ioHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
     ioHardErrors.EntityData.BundleName = "cisco_ios_xr"
     ioHardErrors.EntityData.ParentYangName = "error-path"
     ioHardErrors.EntityData.SegmentPath = "io-hard-errors"
+    ioHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + ioHardErrors.EntityData.SegmentPath
     ioHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ioHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ioHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10330,6 +10823,7 @@ func (ioHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
     ioHardErrors.EntityData.Children = types.NewOrderedMap()
     ioHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range ioHardErrors.Error {
+        types.SetYListKey(ioHardErrors.Error[i], i)
         ioHardErrors.EntityData.Children.Append(types.GetSegmentPath(ioHardErrors.Error[i]), types.YChild{"Error", ioHardErrors.Error[i]})
     }
     ioHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -10344,6 +10838,7 @@ func (ioHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_Err
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -10396,7 +10891,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "io-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/io-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10404,10 +10900,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -10434,6 +10932,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_I
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -10450,7 +10949,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/io-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10471,6 +10971,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_IoHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -10493,7 +10994,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/io-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10528,6 +11030,7 @@ func (resetHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     resetHardErrors.EntityData.BundleName = "cisco_ios_xr"
     resetHardErrors.EntityData.ParentYangName = "error-path"
     resetHardErrors.EntityData.SegmentPath = "reset-hard-errors"
+    resetHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + resetHardErrors.EntityData.SegmentPath
     resetHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resetHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resetHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10535,6 +11038,7 @@ func (resetHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     resetHardErrors.EntityData.Children = types.NewOrderedMap()
     resetHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range resetHardErrors.Error {
+        types.SetYListKey(resetHardErrors.Error[i], i)
         resetHardErrors.EntityData.Children.Append(types.GetSegmentPath(resetHardErrors.Error[i]), types.YChild{"Error", resetHardErrors.Error[i]})
     }
     resetHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -10549,6 +11053,7 @@ func (resetHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -10601,7 +11106,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_R
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "reset-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/reset-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10609,10 +11115,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_R
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -10639,6 +11147,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_R
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -10655,7 +11164,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/reset-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10676,6 +11186,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_ResetHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -10698,7 +11209,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/reset-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10733,6 +11245,7 @@ func (ucodeHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     ucodeHardErrors.EntityData.BundleName = "cisco_ios_xr"
     ucodeHardErrors.EntityData.ParentYangName = "error-path"
     ucodeHardErrors.EntityData.SegmentPath = "ucode-hard-errors"
+    ucodeHardErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + ucodeHardErrors.EntityData.SegmentPath
     ucodeHardErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ucodeHardErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ucodeHardErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10740,6 +11253,7 @@ func (ucodeHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
     ucodeHardErrors.EntityData.Children = types.NewOrderedMap()
     ucodeHardErrors.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range ucodeHardErrors.Error {
+        types.SetYListKey(ucodeHardErrors.Error[i], i)
         ucodeHardErrors.EntityData.Children.Append(types.GetSegmentPath(ucodeHardErrors.Error[i]), types.YChild{"Error", ucodeHardErrors.Error[i]})
     }
     ucodeHardErrors.EntityData.Leafs = types.NewOrderedMap()
@@ -10754,6 +11268,7 @@ func (ucodeHardErrors *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -10806,7 +11321,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "ucode-hard-errors"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/ucode-hard-errors/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10814,10 +11330,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -10844,6 +11362,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_U
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -10860,7 +11379,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/ucode-hard-errors/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10881,6 +11401,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_UcodeHardErrors_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -10903,7 +11424,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/ucode-hard-errors/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10938,6 +11460,7 @@ func (asicErrorMbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorMbeHard.EntityData.BundleName = "cisco_ios_xr"
     asicErrorMbeHard.EntityData.ParentYangName = "error-path"
     asicErrorMbeHard.EntityData.SegmentPath = "asic-error-mbe-hard"
+    asicErrorMbeHard.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/" + asicErrorMbeHard.EntityData.SegmentPath
     asicErrorMbeHard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asicErrorMbeHard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asicErrorMbeHard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10945,6 +11468,7 @@ func (asicErrorMbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
     asicErrorMbeHard.EntityData.Children = types.NewOrderedMap()
     asicErrorMbeHard.EntityData.Children.Append("error", types.YChild{"Error", nil})
     for i := range asicErrorMbeHard.Error {
+        types.SetYListKey(asicErrorMbeHard.Error[i], i)
         asicErrorMbeHard.EntityData.Children.Append(types.GetSegmentPath(asicErrorMbeHard.Error[i]), types.YChild{"Error", asicErrorMbeHard.Error[i]})
     }
     asicErrorMbeHard.EntityData.Leafs = types.NewOrderedMap()
@@ -10959,6 +11483,7 @@ func (asicErrorMbeHard *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name assigned to mem. The type is string.
     Name interface{}
@@ -11011,7 +11536,8 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.YangName = "error"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "asic-error-mbe-hard"
-    self.EntityData.SegmentPath = "error"
+    self.EntityData.SegmentPath = "error" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-mbe-hard/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11019,10 +11545,12 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
     self.EntityData.Children = types.NewOrderedMap()
     self.EntityData.Children.Append("csrs-info", types.YChild{"CsrsInfo", nil})
     for i := range self.CsrsInfo {
+        types.SetYListKey(self.CsrsInfo[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.CsrsInfo[i]), types.YChild{"CsrsInfo", self.CsrsInfo[i]})
     }
     self.EntityData.Children.Append("last-err", types.YChild{"LastErr", nil})
     for i := range self.LastErr {
+        types.SetYListKey(self.LastErr[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.LastErr[i]), types.YChild{"LastErr", self.LastErr[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -11049,6 +11577,7 @@ func (self *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_A
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_CsrsInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // name. The type is string.
     Name interface{}
@@ -11065,7 +11594,8 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
     csrsInfo.EntityData.YangName = "csrs-info"
     csrsInfo.EntityData.BundleName = "cisco_ios_xr"
     csrsInfo.EntityData.ParentYangName = "error"
-    csrsInfo.EntityData.SegmentPath = "csrs-info"
+    csrsInfo.EntityData.SegmentPath = "csrs-info" + types.AddNoKeyToken(csrsInfo)
+    csrsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-mbe-hard/error/" + csrsInfo.EntityData.SegmentPath
     csrsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     csrsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     csrsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11086,6 +11616,7 @@ func (csrsInfo *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPa
 type AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPath_AsicErrorMbeHard_Error_LastErr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // at time. The type is interface{} with range: 0..18446744073709551615.
     AtTime interface{}
@@ -11108,7 +11639,8 @@ func (lastErr *AsicErrors_Nodes_Node_AsicInformation_Instances_Instance_ErrorPat
     lastErr.EntityData.YangName = "last-err"
     lastErr.EntityData.BundleName = "cisco_ios_xr"
     lastErr.EntityData.ParentYangName = "error"
-    lastErr.EntityData.SegmentPath = "last-err"
+    lastErr.EntityData.SegmentPath = "last-err" + types.AddNoKeyToken(lastErr)
+    lastErr.EntityData.AbsolutePath = "Cisco-IOS-XR-asic-errors-oper:asic-errors/nodes/node/asic-information/instances/instance/error-path/asic-error-mbe-hard/error/" + lastErr.EntityData.SegmentPath
     lastErr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

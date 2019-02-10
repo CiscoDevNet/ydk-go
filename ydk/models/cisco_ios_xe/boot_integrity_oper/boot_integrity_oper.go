@@ -47,6 +47,7 @@ func (bootIntegrityOperData *BootIntegrityOperData) GetEntityData() *types.Commo
     bootIntegrityOperData.EntityData.BundleName = "cisco_ios_xe"
     bootIntegrityOperData.EntityData.ParentYangName = "Cisco-IOS-XE-boot-integrity-oper"
     bootIntegrityOperData.EntityData.SegmentPath = "Cisco-IOS-XE-boot-integrity-oper:boot-integrity-oper-data"
+    bootIntegrityOperData.EntityData.AbsolutePath = bootIntegrityOperData.EntityData.SegmentPath
     bootIntegrityOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bootIntegrityOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bootIntegrityOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -120,6 +121,7 @@ func (bootIntegrity *BootIntegrityOperData_BootIntegrity) GetEntityData() *types
     bootIntegrity.EntityData.BundleName = "cisco_ios_xe"
     bootIntegrity.EntityData.ParentYangName = "boot-integrity-oper-data"
     bootIntegrity.EntityData.SegmentPath = "boot-integrity"
+    bootIntegrity.EntityData.AbsolutePath = "Cisco-IOS-XE-boot-integrity-oper:boot-integrity-oper-data/" + bootIntegrity.EntityData.SegmentPath
     bootIntegrity.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bootIntegrity.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bootIntegrity.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -155,6 +157,7 @@ func (bootIntegrity *BootIntegrityOperData_BootIntegrity) GetEntityData() *types
 type BootIntegrityOperData_BootIntegrity_PcrRegister struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References PCR Register Index. The type is
     // interface{} with range: 0..255.
@@ -170,6 +173,7 @@ func (pcrRegister *BootIntegrityOperData_BootIntegrity_PcrRegister) GetEntityDat
     pcrRegister.EntityData.BundleName = "cisco_ios_xe"
     pcrRegister.EntityData.ParentYangName = "boot-integrity"
     pcrRegister.EntityData.SegmentPath = "pcr-register" + types.AddKeyToken(pcrRegister.Index, "index")
+    pcrRegister.EntityData.AbsolutePath = "Cisco-IOS-XE-boot-integrity-oper:boot-integrity-oper-data/boot-integrity/" + pcrRegister.EntityData.SegmentPath
     pcrRegister.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pcrRegister.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pcrRegister.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -189,6 +193,7 @@ func (pcrRegister *BootIntegrityOperData_BootIntegrity_PcrRegister) GetEntityDat
 type BootIntegrityOperData_BootIntegrity_PackageSignature struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Package Name. The type is string.
     Name interface{}
@@ -203,6 +208,7 @@ func (packageSignature *BootIntegrityOperData_BootIntegrity_PackageSignature) Ge
     packageSignature.EntityData.BundleName = "cisco_ios_xe"
     packageSignature.EntityData.ParentYangName = "boot-integrity"
     packageSignature.EntityData.SegmentPath = "package-signature" + types.AddKeyToken(packageSignature.Name, "name")
+    packageSignature.EntityData.AbsolutePath = "Cisco-IOS-XE-boot-integrity-oper:boot-integrity-oper-data/boot-integrity/" + packageSignature.EntityData.SegmentPath
     packageSignature.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     packageSignature.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     packageSignature.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -249,6 +255,7 @@ func (sudiCertificate *BootIntegrityOperData_SudiCertificate) GetEntityData() *t
     sudiCertificate.EntityData.BundleName = "cisco_ios_xe"
     sudiCertificate.EntityData.ParentYangName = "boot-integrity-oper-data"
     sudiCertificate.EntityData.SegmentPath = "sudi-certificate"
+    sudiCertificate.EntityData.AbsolutePath = "Cisco-IOS-XE-boot-integrity-oper:boot-integrity-oper-data/" + sudiCertificate.EntityData.SegmentPath
     sudiCertificate.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sudiCertificate.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sudiCertificate.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

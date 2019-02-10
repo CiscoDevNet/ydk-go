@@ -51,6 +51,7 @@ func (hardware *Hardware) GetEntityData() *types.CommonEntityData {
     hardware.EntityData.BundleName = "cisco_ios_xr"
     hardware.EntityData.ParentYangName = "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg"
     hardware.EntityData.SegmentPath = "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg:hardware"
+    hardware.EntityData.AbsolutePath = hardware.EntityData.SegmentPath
     hardware.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardware.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardware.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -80,6 +81,7 @@ func (accessList *Hardware_AccessList) GetEntityData() *types.CommonEntityData {
     accessList.EntityData.BundleName = "cisco_ios_xr"
     accessList.EntityData.ParentYangName = "hardware"
     accessList.EntityData.SegmentPath = "access-list"
+    accessList.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg:hardware/" + accessList.EntityData.SegmentPath
     accessList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

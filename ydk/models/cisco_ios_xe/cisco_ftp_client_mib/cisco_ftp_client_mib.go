@@ -35,6 +35,7 @@ func (cISCOFTPCLIENTMIB *CISCOFTPCLIENTMIB) GetEntityData() *types.CommonEntityD
     cISCOFTPCLIENTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOFTPCLIENTMIB.EntityData.ParentYangName = "CISCO-FTP-CLIENT-MIB"
     cISCOFTPCLIENTMIB.EntityData.SegmentPath = "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB"
+    cISCOFTPCLIENTMIB.EntityData.AbsolutePath = cISCOFTPCLIENTMIB.EntityData.SegmentPath
     cISCOFTPCLIENTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOFTPCLIENTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOFTPCLIENTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -82,6 +83,7 @@ func (cfcRequest *CISCOFTPCLIENTMIB_CfcRequest) GetEntityData() *types.CommonEnt
     cfcRequest.EntityData.BundleName = "cisco_ios_xe"
     cfcRequest.EntityData.ParentYangName = "CISCO-FTP-CLIENT-MIB"
     cfcRequest.EntityData.SegmentPath = "cfcRequest"
+    cfcRequest.EntityData.AbsolutePath = "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/" + cfcRequest.EntityData.SegmentPath
     cfcRequest.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cfcRequest.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfcRequest.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -122,6 +124,7 @@ func (cfcRequestTable *CISCOFTPCLIENTMIB_CfcRequestTable) GetEntityData() *types
     cfcRequestTable.EntityData.BundleName = "cisco_ios_xe"
     cfcRequestTable.EntityData.ParentYangName = "CISCO-FTP-CLIENT-MIB"
     cfcRequestTable.EntityData.SegmentPath = "cfcRequestTable"
+    cfcRequestTable.EntityData.AbsolutePath = "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/" + cfcRequestTable.EntityData.SegmentPath
     cfcRequestTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cfcRequestTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfcRequestTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -157,6 +160,7 @@ func (cfcRequestTable *CISCOFTPCLIENTMIB_CfcRequestTable) GetEntityData() *types
 type CISCOFTPCLIENTMIB_CfcRequestTable_CfcRequestEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary integer to uniquely identify this
     // entry.  To create an entry a management application should pick a random
@@ -217,6 +221,7 @@ func (cfcRequestEntry *CISCOFTPCLIENTMIB_CfcRequestTable_CfcRequestEntry) GetEnt
     cfcRequestEntry.EntityData.BundleName = "cisco_ios_xe"
     cfcRequestEntry.EntityData.ParentYangName = "cfcRequestTable"
     cfcRequestEntry.EntityData.SegmentPath = "cfcRequestEntry" + types.AddKeyToken(cfcRequestEntry.CfcRequestIndex, "cfcRequestIndex")
+    cfcRequestEntry.EntityData.AbsolutePath = "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/cfcRequestTable/" + cfcRequestEntry.EntityData.SegmentPath
     cfcRequestEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cfcRequestEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cfcRequestEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

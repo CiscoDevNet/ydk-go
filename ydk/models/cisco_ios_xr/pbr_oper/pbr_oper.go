@@ -51,6 +51,7 @@ func (pbr *Pbr) GetEntityData() *types.CommonEntityData {
     pbr.EntityData.BundleName = "cisco_ios_xr"
     pbr.EntityData.ParentYangName = "Cisco-IOS-XR-pbr-oper"
     pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-oper:pbr"
+    pbr.EntityData.AbsolutePath = pbr.EntityData.SegmentPath
     pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -81,6 +82,7 @@ func (nodes *Pbr_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "pbr"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -102,6 +104,7 @@ func (nodes *Pbr_Nodes) GetEntityData() *types.CommonEntityData {
 type Pbr_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -117,6 +120,7 @@ func (node *Pbr_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -147,6 +151,7 @@ func (policyMap *Pbr_Nodes_Node_PolicyMap) GetEntityData() *types.CommonEntityDa
     policyMap.EntityData.BundleName = "cisco_ios_xr"
     policyMap.EntityData.ParentYangName = "node"
     policyMap.EntityData.SegmentPath = "policy-map"
+    policyMap.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/" + policyMap.EntityData.SegmentPath
     policyMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -177,6 +182,7 @@ func (interfaces *Pbr_Nodes_Node_PolicyMap_Interfaces) GetEntityData() *types.Co
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "policy-map"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/policy-map/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -198,6 +204,7 @@ func (interfaces *Pbr_Nodes_Node_PolicyMap_Interfaces) GetEntityData() *types.Co
 type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -213,6 +220,7 @@ func (self *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface) GetEntityData() *type
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/policy-map/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +251,7 @@ func (direction *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction) GetEnt
     direction.EntityData.BundleName = "cisco_ios_xr"
     direction.EntityData.ParentYangName = "interface"
     direction.EntityData.SegmentPath = "direction"
+    direction.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/policy-map/interfaces/interface/" + direction.EntityData.SegmentPath
     direction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     direction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     direction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -285,6 +294,7 @@ func (input *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input) GetE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "direction"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/policy-map/interfaces/interface/direction/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -292,6 +302,7 @@ func (input *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input) GetE
     input.EntityData.Children = types.NewOrderedMap()
     input.EntityData.Children.Append("class-stat", types.YChild{"ClassStat", nil})
     for i := range input.ClassStat {
+        types.SetYListKey(input.ClassStat[i], i)
         input.EntityData.Children.Append(types.GetSegmentPath(input.ClassStat[i]), types.YChild{"ClassStat", input.ClassStat[i]})
     }
     input.EntityData.Leafs = types.NewOrderedMap()
@@ -310,6 +321,7 @@ func (input *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input) GetE
 type Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_ClassStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bitmask to indicate which counter or counters are undetermined. Counters
     // will be marked undetermined when one or more classes share queues with
@@ -346,7 +358,8 @@ func (classStat *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_C
     classStat.EntityData.YangName = "class-stat"
     classStat.EntityData.BundleName = "cisco_ios_xr"
     classStat.EntityData.ParentYangName = "input"
-    classStat.EntityData.SegmentPath = "class-stat"
+    classStat.EntityData.SegmentPath = "class-stat" + types.AddNoKeyToken(classStat)
+    classStat.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/policy-map/interfaces/interface/direction/input/" + classStat.EntityData.SegmentPath
     classStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -414,6 +427,7 @@ func (generalStats *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Inpu
     generalStats.EntityData.BundleName = "cisco_ios_xr"
     generalStats.EntityData.ParentYangName = "class-stat"
     generalStats.EntityData.SegmentPath = "general-stats"
+    generalStats.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/policy-map/interfaces/interface/direction/input/class-stat/" + generalStats.EntityData.SegmentPath
     generalStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     generalStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     generalStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -472,6 +486,7 @@ func (httprStats *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_Input_
     httprStats.EntityData.BundleName = "cisco_ios_xr"
     httprStats.EntityData.ParentYangName = "class-stat"
     httprStats.EntityData.SegmentPath = "httpr-stats"
+    httprStats.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/policy-map/interfaces/interface/direction/input/class-stat/" + httprStats.EntityData.SegmentPath
     httprStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httprStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httprStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -535,6 +550,7 @@ func (httpEnrichStats *Pbr_Nodes_Node_PolicyMap_Interfaces_Interface_Direction_I
     httpEnrichStats.EntityData.BundleName = "cisco_ios_xr"
     httpEnrichStats.EntityData.ParentYangName = "class-stat"
     httpEnrichStats.EntityData.SegmentPath = "http-enrich-stats"
+    httpEnrichStats.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-oper:pbr/nodes/node/policy-map/interfaces/interface/direction/input/class-stat/" + httpEnrichStats.EntityData.SegmentPath
     httpEnrichStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httpEnrichStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpEnrichStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

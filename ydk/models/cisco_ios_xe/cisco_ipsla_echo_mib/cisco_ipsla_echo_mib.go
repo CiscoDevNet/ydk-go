@@ -53,6 +53,7 @@ func (cISCOIPSLAECHOMIB *CISCOIPSLAECHOMIB) GetEntityData() *types.CommonEntityD
     cISCOIPSLAECHOMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPSLAECHOMIB.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
     cISCOIPSLAECHOMIB.EntityData.SegmentPath = "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB"
+    cISCOIPSLAECHOMIB.EntityData.AbsolutePath = cISCOIPSLAECHOMIB.EntityData.SegmentPath
     cISCOIPSLAECHOMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPSLAECHOMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSLAECHOMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -85,6 +86,7 @@ func (cipslaIcmpEchoTmplTable *CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable) GetEnt
     cipslaIcmpEchoTmplTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaIcmpEchoTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
     cipslaIcmpEchoTmplTable.EntityData.SegmentPath = "cipslaIcmpEchoTmplTable"
+    cipslaIcmpEchoTmplTable.EntityData.AbsolutePath = "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/" + cipslaIcmpEchoTmplTable.EntityData.SegmentPath
     cipslaIcmpEchoTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaIcmpEchoTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaIcmpEchoTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -106,6 +108,7 @@ func (cipslaIcmpEchoTmplTable *CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable) GetEnt
 type CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaIcmpEchoTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This field is used to specify the ICMP echo
     // template name. The type is string with length: 1..64.
@@ -230,6 +233,7 @@ func (cipslaIcmpEchoTmplEntry *CISCOIPSLAECHOMIB_CipslaIcmpEchoTmplTable_CipslaI
     cipslaIcmpEchoTmplEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaIcmpEchoTmplEntry.EntityData.ParentYangName = "cipslaIcmpEchoTmplTable"
     cipslaIcmpEchoTmplEntry.EntityData.SegmentPath = "cipslaIcmpEchoTmplEntry" + types.AddKeyToken(cipslaIcmpEchoTmplEntry.CipslaIcmpEchoTmplName, "cipslaIcmpEchoTmplName")
+    cipslaIcmpEchoTmplEntry.EntityData.AbsolutePath = "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaIcmpEchoTmplTable/" + cipslaIcmpEchoTmplEntry.EntityData.SegmentPath
     cipslaIcmpEchoTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaIcmpEchoTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaIcmpEchoTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -290,6 +294,7 @@ func (cipslaUdpEchoTmplTable *CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable) GetEntit
     cipslaUdpEchoTmplTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaUdpEchoTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
     cipslaUdpEchoTmplTable.EntityData.SegmentPath = "cipslaUdpEchoTmplTable"
+    cipslaUdpEchoTmplTable.EntityData.AbsolutePath = "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/" + cipslaUdpEchoTmplTable.EntityData.SegmentPath
     cipslaUdpEchoTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaUdpEchoTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaUdpEchoTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -311,6 +316,7 @@ func (cipslaUdpEchoTmplTable *CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable) GetEntit
 type CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdpEchoTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A string which specifies the UDP echo template
     // name. The type is string with length: 1..64.
@@ -444,6 +450,7 @@ func (cipslaUdpEchoTmplEntry *CISCOIPSLAECHOMIB_CipslaUdpEchoTmplTable_CipslaUdp
     cipslaUdpEchoTmplEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaUdpEchoTmplEntry.EntityData.ParentYangName = "cipslaUdpEchoTmplTable"
     cipslaUdpEchoTmplEntry.EntityData.SegmentPath = "cipslaUdpEchoTmplEntry" + types.AddKeyToken(cipslaUdpEchoTmplEntry.CipslaUdpEchoTmplName, "cipslaUdpEchoTmplName")
+    cipslaUdpEchoTmplEntry.EntityData.AbsolutePath = "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaUdpEchoTmplTable/" + cipslaUdpEchoTmplEntry.EntityData.SegmentPath
     cipslaUdpEchoTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaUdpEchoTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaUdpEchoTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -506,6 +513,7 @@ func (cipslaTcpConnTmplTable *CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable) GetEntit
     cipslaTcpConnTmplTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaTcpConnTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-ECHO-MIB"
     cipslaTcpConnTmplTable.EntityData.SegmentPath = "cipslaTcpConnTmplTable"
+    cipslaTcpConnTmplTable.EntityData.AbsolutePath = "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/" + cipslaTcpConnTmplTable.EntityData.SegmentPath
     cipslaTcpConnTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaTcpConnTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaTcpConnTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -527,6 +535,7 @@ func (cipslaTcpConnTmplTable *CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable) GetEntit
 type CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcpConnTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A string which specifies the TCP connect template
     // name. The type is string with length: 1..64.
@@ -647,6 +656,7 @@ func (cipslaTcpConnTmplEntry *CISCOIPSLAECHOMIB_CipslaTcpConnTmplTable_CipslaTcp
     cipslaTcpConnTmplEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaTcpConnTmplEntry.EntityData.ParentYangName = "cipslaTcpConnTmplTable"
     cipslaTcpConnTmplEntry.EntityData.SegmentPath = "cipslaTcpConnTmplEntry" + types.AddKeyToken(cipslaTcpConnTmplEntry.CipslaTcpConnTmplName, "cipslaTcpConnTmplName")
+    cipslaTcpConnTmplEntry.EntityData.AbsolutePath = "CISCO-IPSLA-ECHO-MIB:CISCO-IPSLA-ECHO-MIB/cipslaTcpConnTmplTable/" + cipslaTcpConnTmplEntry.EntityData.SegmentPath
     cipslaTcpConnTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaTcpConnTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaTcpConnTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

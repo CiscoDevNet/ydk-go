@@ -71,6 +71,7 @@ func (lmp *Lmp) GetEntityData() *types.CommonEntityData {
     lmp.EntityData.BundleName = "cisco_ios_xr"
     lmp.EntityData.ParentYangName = "Cisco-IOS-XR-lmp-cfg"
     lmp.EntityData.SegmentPath = "Cisco-IOS-XR-lmp-cfg:lmp"
+    lmp.EntityData.AbsolutePath = lmp.EntityData.SegmentPath
     lmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -107,6 +108,7 @@ func (gmplsUni *Lmp_GmplsUni) GetEntityData() *types.CommonEntityData {
     gmplsUni.EntityData.BundleName = "cisco_ios_xr"
     gmplsUni.EntityData.ParentYangName = "lmp"
     gmplsUni.EntityData.SegmentPath = "gmpls-uni"
+    gmplsUni.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/" + gmplsUni.EntityData.SegmentPath
     gmplsUni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gmplsUni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gmplsUni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +141,7 @@ func (neighbors *Lmp_GmplsUni_Neighbors) GetEntityData() *types.CommonEntityData
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "gmpls-uni"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -160,6 +163,7 @@ func (neighbors *Lmp_GmplsUni_Neighbors) GetEntityData() *types.CommonEntityData
 type Lmp_GmplsUni_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor name. The type is string with length:
     // 1..64.
@@ -182,6 +186,7 @@ func (neighbor *Lmp_GmplsUni_Neighbors_Neighbor) GetEntityData() *types.CommonEn
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborName, "neighbor-name")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -214,6 +219,7 @@ func (ipcc *Lmp_GmplsUni_Neighbors_Neighbor_Ipcc) GetEntityData() *types.CommonE
     ipcc.EntityData.BundleName = "cisco_ios_xr"
     ipcc.EntityData.ParentYangName = "neighbor"
     ipcc.EntityData.SegmentPath = "ipcc"
+    ipcc.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/neighbors/neighbor/" + ipcc.EntityData.SegmentPath
     ipcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -243,6 +249,7 @@ func (routed *Lmp_GmplsUni_Neighbors_Neighbor_Ipcc_Routed) GetEntityData() *type
     routed.EntityData.BundleName = "cisco_ios_xr"
     routed.EntityData.ParentYangName = "ipcc"
     routed.EntityData.SegmentPath = "routed"
+    routed.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/neighbors/neighbor/ipcc/" + routed.EntityData.SegmentPath
     routed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -278,6 +285,7 @@ func (routerId *Lmp_GmplsUni_RouterId) GetEntityData() *types.CommonEntityData {
     routerId.EntityData.BundleName = "cisco_ios_xr"
     routerId.EntityData.ParentYangName = "gmpls-uni"
     routerId.EntityData.SegmentPath = "router-id"
+    routerId.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/" + routerId.EntityData.SegmentPath
     routerId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -309,6 +317,7 @@ func (controllers *Lmp_GmplsUni_Controllers) GetEntityData() *types.CommonEntity
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "gmpls-uni"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -330,6 +339,7 @@ func (controllers *Lmp_GmplsUni_Controllers) GetEntityData() *types.CommonEntity
 type Lmp_GmplsUni_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -351,6 +361,7 @@ func (controller *Lmp_GmplsUni_Controllers_Controller) GetEntityData() *types.Co
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -391,6 +402,7 @@ func (localLinkId *Lmp_GmplsUni_Controllers_Controller_LocalLinkId) GetEntityDat
     localLinkId.EntityData.BundleName = "cisco_ios_xr"
     localLinkId.EntityData.ParentYangName = "controller"
     localLinkId.EntityData.SegmentPath = "local-link-id"
+    localLinkId.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/controllers/controller/" + localLinkId.EntityData.SegmentPath
     localLinkId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localLinkId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLinkId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -422,6 +434,7 @@ func (adjacency *Lmp_GmplsUni_Controllers_Controller_Adjacency) GetEntityData() 
     adjacency.EntityData.BundleName = "cisco_ios_xr"
     adjacency.EntityData.ParentYangName = "controller"
     adjacency.EntityData.SegmentPath = "adjacency"
+    adjacency.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/controllers/controller/" + adjacency.EntityData.SegmentPath
     adjacency.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -466,6 +479,7 @@ func (remoteNeighbor *Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighb
     remoteNeighbor.EntityData.BundleName = "cisco_ios_xr"
     remoteNeighbor.EntityData.ParentYangName = "adjacency"
     remoteNeighbor.EntityData.SegmentPath = "remote-neighbor"
+    remoteNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/controllers/controller/adjacency/" + remoteNeighbor.EntityData.SegmentPath
     remoteNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -507,6 +521,7 @@ func (interfaceId *Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor_
     interfaceId.EntityData.BundleName = "cisco_ios_xr"
     interfaceId.EntityData.ParentYangName = "remote-neighbor"
     interfaceId.EntityData.SegmentPath = "interface-id"
+    interfaceId.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/controllers/controller/adjacency/remote-neighbor/" + interfaceId.EntityData.SegmentPath
     interfaceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +561,7 @@ func (linkId *Lmp_GmplsUni_Controllers_Controller_Adjacency_RemoteNeighbor_LinkI
     linkId.EntityData.BundleName = "cisco_ios_xr"
     linkId.EntityData.ParentYangName = "remote-neighbor"
     linkId.EntityData.SegmentPath = "link-id"
+    linkId.EntityData.AbsolutePath = "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/controllers/controller/adjacency/remote-neighbor/" + linkId.EntityData.SegmentPath
     linkId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

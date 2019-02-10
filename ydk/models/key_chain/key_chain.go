@@ -26,6 +26,7 @@ func init() {
 type KeyChains struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the key-chain. The type is string.
     Name interface{}
@@ -43,6 +44,7 @@ func (keyChains *KeyChains) GetEntityData() *types.CommonEntityData {
     keyChains.EntityData.BundleName = "ietf"
     keyChains.EntityData.ParentYangName = "ietf-key-chain"
     keyChains.EntityData.SegmentPath = "ietf-key-chain:key-chains" + types.AddKeyToken(keyChains.Name, "name")
+    keyChains.EntityData.AbsolutePath = keyChains.EntityData.SegmentPath
     keyChains.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     keyChains.EntityData.NamespaceTable = ietf.GetNamespaces()
     keyChains.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -78,6 +80,7 @@ func (acceptTolerance *KeyChains_AcceptTolerance) GetEntityData() *types.CommonE
     acceptTolerance.EntityData.BundleName = "ietf"
     acceptTolerance.EntityData.ParentYangName = "key-chains"
     acceptTolerance.EntityData.SegmentPath = "accept-tolerance"
+    acceptTolerance.EntityData.AbsolutePath = "ietf-key-chain:key-chains/" + acceptTolerance.EntityData.SegmentPath
     acceptTolerance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     acceptTolerance.EntityData.NamespaceTable = ietf.GetNamespaces()
     acceptTolerance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -96,6 +99,7 @@ func (acceptTolerance *KeyChains_AcceptTolerance) GetEntityData() *types.CommonE
 type KeyChains_Key struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Key id. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -117,6 +121,7 @@ func (key *KeyChains_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.BundleName = "ietf"
     key.EntityData.ParentYangName = "key-chains"
     key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyId, "key-id")
+    key.EntityData.AbsolutePath = "ietf-key-chain:key-chains/" + key.EntityData.SegmentPath
     key.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     key.EntityData.NamespaceTable = ietf.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -153,6 +158,7 @@ func (keyString *KeyChains_Key_KeyString) GetEntityData() *types.CommonEntityDat
     keyString.EntityData.BundleName = "ietf"
     keyString.EntityData.ParentYangName = "key"
     keyString.EntityData.SegmentPath = "key-string"
+    keyString.EntityData.AbsolutePath = "ietf-key-chain:key-chains/key/" + keyString.EntityData.SegmentPath
     keyString.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     keyString.EntityData.NamespaceTable = ietf.GetNamespaces()
     keyString.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -189,6 +195,7 @@ func (lifetime *KeyChains_Key_Lifetime) GetEntityData() *types.CommonEntityData 
     lifetime.EntityData.BundleName = "ietf"
     lifetime.EntityData.ParentYangName = "key"
     lifetime.EntityData.SegmentPath = "lifetime"
+    lifetime.EntityData.AbsolutePath = "ietf-key-chain:key-chains/key/" + lifetime.EntityData.SegmentPath
     lifetime.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     lifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
     lifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -236,6 +243,7 @@ func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetEntityDa
     sendAcceptLifetime.EntityData.BundleName = "ietf"
     sendAcceptLifetime.EntityData.ParentYangName = "lifetime"
     sendAcceptLifetime.EntityData.SegmentPath = "send-accept-lifetime"
+    sendAcceptLifetime.EntityData.AbsolutePath = "ietf-key-chain:key-chains/key/lifetime/" + sendAcceptLifetime.EntityData.SegmentPath
     sendAcceptLifetime.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sendAcceptLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
     sendAcceptLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -285,6 +293,7 @@ func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetEntityData() *types.
     sendLifetime.EntityData.BundleName = "ietf"
     sendLifetime.EntityData.ParentYangName = "lifetime"
     sendLifetime.EntityData.SegmentPath = "send-lifetime"
+    sendLifetime.EntityData.AbsolutePath = "ietf-key-chain:key-chains/key/lifetime/" + sendLifetime.EntityData.SegmentPath
     sendLifetime.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sendLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
     sendLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -334,6 +343,7 @@ func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetEntityData() *ty
     acceptLifetime.EntityData.BundleName = "ietf"
     acceptLifetime.EntityData.ParentYangName = "lifetime"
     acceptLifetime.EntityData.SegmentPath = "accept-lifetime"
+    acceptLifetime.EntityData.AbsolutePath = "ietf-key-chain:key-chains/key/lifetime/" + acceptLifetime.EntityData.SegmentPath
     acceptLifetime.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     acceptLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
     acceptLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -388,6 +398,7 @@ func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetEntityData() *types.Com
     cryptoAlgorithm.EntityData.BundleName = "ietf"
     cryptoAlgorithm.EntityData.ParentYangName = "key"
     cryptoAlgorithm.EntityData.SegmentPath = "crypto-algorithm"
+    cryptoAlgorithm.EntityData.AbsolutePath = "ietf-key-chain:key-chains/key/" + cryptoAlgorithm.EntityData.SegmentPath
     cryptoAlgorithm.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
     cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

@@ -157,6 +157,7 @@ func (dhcpOperData *DhcpOperData) GetEntityData() *types.CommonEntityData {
     dhcpOperData.EntityData.BundleName = "cisco_ios_xe"
     dhcpOperData.EntityData.ParentYangName = "Cisco-IOS-XE-dhcp-oper"
     dhcpOperData.EntityData.SegmentPath = "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data"
+    dhcpOperData.EntityData.AbsolutePath = dhcpOperData.EntityData.SegmentPath
     dhcpOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcpOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -182,6 +183,7 @@ func (dhcpOperData *DhcpOperData) GetEntityData() *types.CommonEntityData {
 type DhcpOperData_Dhcpv4ServerOper struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Server Pool name from where the Client  ip is
     // provided. The type is string.
@@ -224,6 +226,7 @@ func (dhcpv4ServerOper *DhcpOperData_Dhcpv4ServerOper) GetEntityData() *types.Co
     dhcpv4ServerOper.EntityData.BundleName = "cisco_ios_xe"
     dhcpv4ServerOper.EntityData.ParentYangName = "dhcp-oper-data"
     dhcpv4ServerOper.EntityData.SegmentPath = "dhcpv4-server-oper" + types.AddKeyToken(dhcpv4ServerOper.PoolName, "pool-name") + types.AddKeyToken(dhcpv4ServerOper.ClientIp, "client-ip") + types.AddKeyToken(dhcpv4ServerOper.VrfName, "vrf-name")
+    dhcpv4ServerOper.EntityData.AbsolutePath = "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data/" + dhcpv4ServerOper.EntityData.SegmentPath
     dhcpv4ServerOper.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcpv4ServerOper.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpv4ServerOper.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -265,6 +268,7 @@ func (expiration *DhcpOperData_Dhcpv4ServerOper_Expiration) GetEntityData() *typ
     expiration.EntityData.BundleName = "cisco_ios_xe"
     expiration.EntityData.ParentYangName = "dhcpv4-server-oper"
     expiration.EntityData.SegmentPath = "expiration"
+    expiration.EntityData.AbsolutePath = "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data/dhcpv4-server-oper/" + expiration.EntityData.SegmentPath
     expiration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expiration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expiration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -284,6 +288,7 @@ func (expiration *DhcpOperData_Dhcpv4ServerOper_Expiration) GetEntityData() *typ
 type DhcpOperData_Dhcpv4ClientOper struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface infomation where dhcp Client is
     // configured. The type is string.
@@ -356,6 +361,7 @@ func (dhcpv4ClientOper *DhcpOperData_Dhcpv4ClientOper) GetEntityData() *types.Co
     dhcpv4ClientOper.EntityData.BundleName = "cisco_ios_xe"
     dhcpv4ClientOper.EntityData.ParentYangName = "dhcp-oper-data"
     dhcpv4ClientOper.EntityData.SegmentPath = "dhcpv4-client-oper" + types.AddKeyToken(dhcpv4ClientOper.IfName, "if-name") + types.AddKeyToken(dhcpv4ClientOper.ClientAddr, "client-addr") + types.AddKeyToken(dhcpv4ClientOper.VrfName, "vrf-name")
+    dhcpv4ClientOper.EntityData.AbsolutePath = "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data/" + dhcpv4ClientOper.EntityData.SegmentPath
     dhcpv4ClientOper.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcpv4ClientOper.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpv4ClientOper.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -400,6 +406,7 @@ func (leaseExpiry *DhcpOperData_Dhcpv4ClientOper_LeaseExpiry) GetEntityData() *t
     leaseExpiry.EntityData.BundleName = "cisco_ios_xe"
     leaseExpiry.EntityData.ParentYangName = "dhcpv4-client-oper"
     leaseExpiry.EntityData.SegmentPath = "lease-expiry"
+    leaseExpiry.EntityData.AbsolutePath = "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data/dhcpv4-client-oper/" + leaseExpiry.EntityData.SegmentPath
     leaseExpiry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     leaseExpiry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     leaseExpiry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -40,6 +40,7 @@ func (sdrInventoryVm *SdrInventoryVm) GetEntityData() *types.CommonEntityData {
     sdrInventoryVm.EntityData.BundleName = "cisco_ios_xr"
     sdrInventoryVm.EntityData.ParentYangName = "Cisco-IOS-XR-cmproxy-oper"
     sdrInventoryVm.EntityData.SegmentPath = "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm"
+    sdrInventoryVm.EntityData.AbsolutePath = sdrInventoryVm.EntityData.SegmentPath
     sdrInventoryVm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdrInventoryVm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdrInventoryVm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (nodes *SdrInventoryVm_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "sdr-inventory-vm"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (nodes *SdrInventoryVm_Nodes) GetEntityData() *types.CommonEntityData {
 type SdrInventoryVm_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -105,6 +108,7 @@ func (node *SdrInventoryVm_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Name, "name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -136,6 +140,7 @@ func (nodeEntries *SdrInventoryVm_Nodes_Node_NodeEntries) GetEntityData() *types
     nodeEntries.EntityData.BundleName = "cisco_ios_xr"
     nodeEntries.EntityData.ParentYangName = "node"
     nodeEntries.EntityData.SegmentPath = "node-entries"
+    nodeEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/nodes/node/" + nodeEntries.EntityData.SegmentPath
     nodeEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -157,6 +162,7 @@ func (nodeEntries *SdrInventoryVm_Nodes_Node_NodeEntries) GetEntityData() *types
 type SdrInventoryVm_Nodes_Node_NodeEntries_NodeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -215,6 +221,7 @@ func (nodeEntry *SdrInventoryVm_Nodes_Node_NodeEntries_NodeEntry) GetEntityData(
     nodeEntry.EntityData.BundleName = "cisco_ios_xr"
     nodeEntry.EntityData.ParentYangName = "node-entries"
     nodeEntry.EntityData.SegmentPath = "node-entry" + types.AddKeyToken(nodeEntry.Name, "name")
+    nodeEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/nodes/node/node-entries/" + nodeEntry.EntityData.SegmentPath
     nodeEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

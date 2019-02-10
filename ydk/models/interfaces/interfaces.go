@@ -63,6 +63,7 @@ func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "ietf"
     interfaces.EntityData.ParentYangName = "ietf-interfaces"
     interfaces.EntityData.SegmentPath = "ietf-interfaces:interfaces"
+    interfaces.EntityData.AbsolutePath = interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interfaces.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -95,6 +96,7 @@ func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
 type Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface.  A device MAY restrict
     // the allowed values for this leaf, possibly depending on the type of the
@@ -177,6 +179,7 @@ func (self *Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "ietf-interfaces:interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -243,6 +246,7 @@ func (ipv4 *Interfaces_Interface_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "ietf"
     ipv4.EntityData.ParentYangName = "interface"
     ipv4.EntityData.SegmentPath = "ietf-ip:ipv4"
+    ipv4.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -271,6 +275,7 @@ func (ipv4 *Interfaces_Interface_Ipv4) GetEntityData() *types.CommonEntityData {
 type Interfaces_Interface_Ipv4_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv4 address on the interface. The type is
     // string with pattern:
@@ -291,6 +296,7 @@ func (address *Interfaces_Interface_Ipv4_Address) GetEntityData() *types.CommonE
     address.EntityData.BundleName = "ietf"
     address.EntityData.ParentYangName = "ipv4"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     address.EntityData.NamespaceTable = ietf.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -314,6 +320,7 @@ func (address *Interfaces_Interface_Ipv4_Address) GetEntityData() *types.CommonE
 type Interfaces_Interface_Ipv4_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv4 address of the neighbor node. The type is
     // string with pattern:
@@ -331,6 +338,7 @@ func (neighbor *Interfaces_Interface_Ipv4_Neighbor) GetEntityData() *types.Commo
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "ipv4"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/ietf-ip:ipv4/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -403,6 +411,7 @@ func (ipv6 *Interfaces_Interface_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "ietf"
     ipv6.EntityData.ParentYangName = "interface"
     ipv6.EntityData.SegmentPath = "ietf-ip:ipv6"
+    ipv6.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ipv6.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -434,6 +443,7 @@ func (ipv6 *Interfaces_Interface_Ipv6) GetEntityData() *types.CommonEntityData {
 type Interfaces_Interface_Ipv6_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv6 address on the interface. The type is
     // string with pattern:
@@ -451,6 +461,7 @@ func (address *Interfaces_Interface_Ipv6_Address) GetEntityData() *types.CommonE
     address.EntityData.BundleName = "ietf"
     address.EntityData.ParentYangName = "ipv6"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     address.EntityData.NamespaceTable = ietf.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -473,6 +484,7 @@ func (address *Interfaces_Interface_Ipv6_Address) GetEntityData() *types.CommonE
 type Interfaces_Interface_Ipv6_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv6 address of the neighbor node. The type is
     // string with pattern:
@@ -490,6 +502,7 @@ func (neighbor *Interfaces_Interface_Ipv6_Neighbor) GetEntityData() *types.Commo
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "ipv6"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -536,6 +549,7 @@ func (autoconf *Interfaces_Interface_Ipv6_Autoconf) GetEntityData() *types.Commo
     autoconf.EntityData.BundleName = "ietf"
     autoconf.EntityData.ParentYangName = "ipv6"
     autoconf.EntityData.SegmentPath = "autoconf"
+    autoconf.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/" + autoconf.EntityData.SegmentPath
     autoconf.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     autoconf.EntityData.NamespaceTable = ietf.GetNamespaces()
     autoconf.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -634,6 +648,7 @@ func (ipv6RouterAdvertisements *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisemen
     ipv6RouterAdvertisements.EntityData.BundleName = "ietf"
     ipv6RouterAdvertisements.EntityData.ParentYangName = "ipv6"
     ipv6RouterAdvertisements.EntityData.SegmentPath = "ietf-ipv6-unicast-routing:ipv6-router-advertisements"
+    ipv6RouterAdvertisements.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/" + ipv6RouterAdvertisements.EntityData.SegmentPath
     ipv6RouterAdvertisements.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ipv6RouterAdvertisements.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv6RouterAdvertisements.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -683,6 +698,7 @@ func (prefixList *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList)
     prefixList.EntityData.BundleName = "ietf"
     prefixList.EntityData.ParentYangName = "ipv6-router-advertisements"
     prefixList.EntityData.SegmentPath = "prefix-list"
+    prefixList.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/ietf-ipv6-unicast-routing:ipv6-router-advertisements/" + prefixList.EntityData.SegmentPath
     prefixList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefixList.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefixList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -704,6 +720,7 @@ func (prefixList *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList)
 type Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 address prefix. The type is string with
     // pattern:
@@ -742,6 +759,7 @@ func (prefix *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Pref
     prefix.EntityData.BundleName = "ietf"
     prefix.EntityData.ParentYangName = "prefix-list"
     prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.PrefixSpec, "prefix-spec")
+    prefix.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/ietf-ip:ipv6/ietf-ipv6-unicast-routing:ipv6-router-advertisements/prefix-list/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     prefix.EntityData.NamespaceTable = ietf.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -765,6 +783,7 @@ func (prefix *Interfaces_Interface_Ipv6_Ipv6RouterAdvertisements_PrefixList_Pref
 type Interfaces_Interface_DiffservTargetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Direction fo the traffic flow either inbound or
     // outbound. The type is one of the following: InboundOutbound.
@@ -780,6 +799,7 @@ func (diffservTargetEntry *Interfaces_Interface_DiffservTargetEntry) GetEntityDa
     diffservTargetEntry.EntityData.BundleName = "ietf"
     diffservTargetEntry.EntityData.ParentYangName = "interface"
     diffservTargetEntry.EntityData.SegmentPath = "ietf-diffserv-target:diffserv-target-entry" + types.AddKeyToken(diffservTargetEntry.Direction, "direction") + types.AddKeyToken(diffservTargetEntry.PolicyName, "policy-name")
+    diffservTargetEntry.EntityData.AbsolutePath = "ietf-interfaces:interfaces/interface/" + diffservTargetEntry.EntityData.SegmentPath
     diffservTargetEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     diffservTargetEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     diffservTargetEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -821,6 +841,7 @@ func (interfacesState *InterfacesState) GetEntityData() *types.CommonEntityData 
     interfacesState.EntityData.BundleName = "ietf"
     interfacesState.EntityData.ParentYangName = "ietf-interfaces"
     interfacesState.EntityData.SegmentPath = "ietf-interfaces:interfaces-state"
+    interfacesState.EntityData.AbsolutePath = interfacesState.EntityData.SegmentPath
     interfacesState.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     interfacesState.EntityData.NamespaceTable = ietf.GetNamespaces()
     interfacesState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -846,6 +867,7 @@ func (interfacesState *InterfacesState) GetEntityData() *types.CommonEntityData 
 type InterfacesState_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface.  A server
     // implementation MAY map this leaf to the ifName MIB object.  Such an
@@ -931,6 +953,7 @@ func (self *InterfacesState_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "ietf"
     self.EntityData.ParentYangName = "interfaces-state"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     self.EntityData.NamespaceTable = ietf.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1107,6 +1130,7 @@ func (statistics *InterfacesState_Interface_Statistics) GetEntityData() *types.C
     statistics.EntityData.BundleName = "ietf"
     statistics.EntityData.ParentYangName = "interface"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     statistics.EntityData.NamespaceTable = ietf.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1168,6 +1192,7 @@ func (ipv4 *InterfacesState_Interface_Ipv4) GetEntityData() *types.CommonEntityD
     ipv4.EntityData.BundleName = "ietf"
     ipv4.EntityData.ParentYangName = "interface"
     ipv4.EntityData.SegmentPath = "ietf-ip:ipv4"
+    ipv4.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1195,6 +1220,7 @@ func (ipv4 *InterfacesState_Interface_Ipv4) GetEntityData() *types.CommonEntityD
 type InterfacesState_Interface_Ipv4_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv4 address on the interface. The type is
     // string with pattern:
@@ -1218,6 +1244,7 @@ func (address *InterfacesState_Interface_Ipv4_Address) GetEntityData() *types.Co
     address.EntityData.BundleName = "ietf"
     address.EntityData.ParentYangName = "ipv4"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     address.EntityData.NamespaceTable = ietf.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1241,6 +1268,7 @@ func (address *InterfacesState_Interface_Ipv4_Address) GetEntityData() *types.Co
 type InterfacesState_Interface_Ipv4_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv4 address of the neighbor node. The type is
     // string with pattern:
@@ -1261,6 +1289,7 @@ func (neighbor *InterfacesState_Interface_Ipv4_Neighbor) GetEntityData() *types.
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "ipv4"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv4/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1309,6 +1338,7 @@ func (ipv6 *InterfacesState_Interface_Ipv6) GetEntityData() *types.CommonEntityD
     ipv6.EntityData.BundleName = "ietf"
     ipv6.EntityData.ParentYangName = "interface"
     ipv6.EntityData.SegmentPath = "ietf-ip:ipv6"
+    ipv6.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ipv6.EntityData.NamespaceTable = ietf.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1336,6 +1366,7 @@ func (ipv6 *InterfacesState_Interface_Ipv6) GetEntityData() *types.CommonEntityD
 type InterfacesState_Interface_Ipv6_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv6 address on the interface. The type is
     // string with pattern:
@@ -1360,6 +1391,7 @@ func (address *InterfacesState_Interface_Ipv6_Address) GetEntityData() *types.Co
     address.EntityData.BundleName = "ietf"
     address.EntityData.ParentYangName = "ipv6"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Ip, "ip")
+    address.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     address.EntityData.NamespaceTable = ietf.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1425,6 +1457,7 @@ const (
 type InterfacesState_Interface_Ipv6_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPv6 address of the neighbor node. The type is
     // string with pattern:
@@ -1452,6 +1485,7 @@ func (neighbor *InterfacesState_Interface_Ipv6_Neighbor) GetEntityData() *types.
     neighbor.EntityData.BundleName = "ietf"
     neighbor.EntityData.ParentYangName = "ipv6"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.Ip, "ip")
+    neighbor.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-ip:ipv6/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     neighbor.EntityData.NamespaceTable = ietf.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1506,6 +1540,7 @@ const (
 type InterfacesState_Interface_DiffservTargetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Direction fo the traffic flow either inbound or
     // outbound. The type is one of the following: InboundOutbound.
@@ -1525,6 +1560,7 @@ func (diffservTargetEntry *InterfacesState_Interface_DiffservTargetEntry) GetEnt
     diffservTargetEntry.EntityData.BundleName = "ietf"
     diffservTargetEntry.EntityData.ParentYangName = "interface"
     diffservTargetEntry.EntityData.SegmentPath = "ietf-diffserv-target:diffserv-target-entry" + types.AddKeyToken(diffservTargetEntry.Direction, "direction") + types.AddKeyToken(diffservTargetEntry.PolicyName, "policy-name")
+    diffservTargetEntry.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/" + diffservTargetEntry.EntityData.SegmentPath
     diffservTargetEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     diffservTargetEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     diffservTargetEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1548,6 +1584,7 @@ func (diffservTargetEntry *InterfacesState_Interface_DiffservTargetEntry) GetEnt
 type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Classifier Entry Name. The type is string.
     ClassifierEntryName interface{}
@@ -1574,6 +1611,7 @@ func (diffservTargetClassifierStatistics *InterfacesState_Interface_DiffservTarg
     diffservTargetClassifierStatistics.EntityData.BundleName = "ietf"
     diffservTargetClassifierStatistics.EntityData.ParentYangName = "diffserv-target-entry"
     diffservTargetClassifierStatistics.EntityData.SegmentPath = "diffserv-target-classifier-statistics" + types.AddKeyToken(diffservTargetClassifierStatistics.ClassifierEntryName, "classifier-entry-name") + types.AddKeyToken(diffservTargetClassifierStatistics.ParentPath, "parent-path")
+    diffservTargetClassifierStatistics.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-diffserv-target:diffserv-target-entry/" + diffservTargetClassifierStatistics.EntityData.SegmentPath
     diffservTargetClassifierStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     diffservTargetClassifierStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
     diffservTargetClassifierStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1623,6 +1661,7 @@ func (classifierEntryStatistics *InterfacesState_Interface_DiffservTargetEntry_D
     classifierEntryStatistics.EntityData.BundleName = "ietf"
     classifierEntryStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
     classifierEntryStatistics.EntityData.SegmentPath = "classifier-entry-statistics"
+    classifierEntryStatistics.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-diffserv-target:diffserv-target-entry/diffserv-target-classifier-statistics/" + classifierEntryStatistics.EntityData.SegmentPath
     classifierEntryStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     classifierEntryStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
     classifierEntryStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1643,6 +1682,7 @@ func (classifierEntryStatistics *InterfacesState_Interface_DiffservTargetEntry_D
 type InterfacesState_Interface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Meter Identifier. The type is interface{} with
     // range: 0..65535.
@@ -1671,6 +1711,7 @@ func (meterStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservTar
     meterStatistics.EntityData.BundleName = "ietf"
     meterStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
     meterStatistics.EntityData.SegmentPath = "meter-statistics" + types.AddKeyToken(meterStatistics.MeterId, "meter-id")
+    meterStatistics.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-diffserv-target:diffserv-target-entry/diffserv-target-classifier-statistics/" + meterStatistics.EntityData.SegmentPath
     meterStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     meterStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
     meterStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1728,6 +1769,7 @@ func (queuingStatistics *InterfacesState_Interface_DiffservTargetEntry_DiffservT
     queuingStatistics.EntityData.BundleName = "ietf"
     queuingStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
     queuingStatistics.EntityData.SegmentPath = "queuing-statistics"
+    queuingStatistics.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-diffserv-target:diffserv-target-entry/diffserv-target-classifier-statistics/" + queuingStatistics.EntityData.SegmentPath
     queuingStatistics.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     queuingStatistics.EntityData.NamespaceTable = ietf.GetNamespaces()
     queuingStatistics.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1768,6 +1810,7 @@ func (wredStats *InterfacesState_Interface_DiffservTargetEntry_DiffservTargetCla
     wredStats.EntityData.BundleName = "ietf"
     wredStats.EntityData.ParentYangName = "queuing-statistics"
     wredStats.EntityData.SegmentPath = "wred-stats"
+    wredStats.EntityData.AbsolutePath = "ietf-interfaces:interfaces-state/interface/ietf-diffserv-target:diffserv-target-entry/diffserv-target-classifier-statistics/queuing-statistics/" + wredStats.EntityData.SegmentPath
     wredStats.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     wredStats.EntityData.NamespaceTable = ietf.GetNamespaces()
     wredStats.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

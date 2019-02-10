@@ -49,6 +49,7 @@ func (tacacsServer *TacacsServer) GetEntityData() *types.CommonEntityData {
     tacacsServer.EntityData.BundleName = "cisco_ios_xr"
     tacacsServer.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server"
     tacacsServer.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server"
+    tacacsServer.EntityData.AbsolutePath = tacacsServer.EntityData.SegmentPath
     tacacsServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tacacsServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tacacsServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -75,6 +76,7 @@ func (tacacsServer *TacacsServer) GetEntityData() *types.CommonEntityData {
 type TacacsServer_Host struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is one of the following types: string
     // with pattern:
@@ -99,6 +101,7 @@ func (host *TacacsServer_Host) GetEntityData() *types.CommonEntityData {
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "tacacs-server"
     host.EntityData.SegmentPath = "host" + types.AddKeyToken(host.Ip, "ip") + types.AddKeyToken(host.Port, "port")
+    host.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/" + host.EntityData.SegmentPath
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -130,6 +133,7 @@ func (requests *TacacsServer_Requests) GetEntityData() *types.CommonEntityData {
     requests.EntityData.BundleName = "cisco_ios_xr"
     requests.EntityData.ParentYangName = "tacacs-server"
     requests.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-show-tacacs:requests"
+    requests.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/" + requests.EntityData.SegmentPath
     requests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -150,6 +154,7 @@ func (requests *TacacsServer_Requests) GetEntityData() *types.CommonEntityData {
 type TacacsServer_Requests_Ipv4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Server IPv4 address. The type is one of the
     // following types: string with pattern:
@@ -188,6 +193,7 @@ func (ipv4 *TacacsServer_Requests_Ipv4) GetEntityData() *types.CommonEntityData 
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "requests"
     ipv4.EntityData.SegmentPath = "ipv4" + types.AddKeyToken(ipv4.Addr, "addr") + types.AddKeyToken(ipv4.Port, "port")
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/Cisco-IOS-XR-sysadmin-tacacs-show-tacacs:requests/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -225,6 +231,7 @@ func (testAuthentication *TacacsServer_TestAuthentication) GetEntityData() *type
     testAuthentication.EntityData.BundleName = "cisco_ios_xr"
     testAuthentication.EntityData.ParentYangName = "tacacs-server"
     testAuthentication.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authentication"
+    testAuthentication.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/" + testAuthentication.EntityData.SegmentPath
     testAuthentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     testAuthentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     testAuthentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +262,7 @@ func (testAuthorization *TacacsServer_TestAuthorization) GetEntityData() *types.
     testAuthorization.EntityData.BundleName = "cisco_ios_xr"
     testAuthorization.EntityData.ParentYangName = "tacacs-server"
     testAuthorization.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-authorization"
+    testAuthorization.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/" + testAuthorization.EntityData.SegmentPath
     testAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     testAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     testAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -285,6 +293,7 @@ func (testAccounting *TacacsServer_TestAccounting) GetEntityData() *types.Common
     testAccounting.EntityData.BundleName = "cisco_ios_xr"
     testAccounting.EntityData.ParentYangName = "tacacs-server"
     testAccounting.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-tacacs-test-tacacs:test-accounting"
+    testAccounting.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-tacacs-tacacs-server:tacacs-server/" + testAccounting.EntityData.SegmentPath
     testAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     testAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     testAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

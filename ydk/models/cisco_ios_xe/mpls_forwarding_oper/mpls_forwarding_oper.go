@@ -116,6 +116,7 @@ func (mplsForwardingOperData *MplsForwardingOperData) GetEntityData() *types.Com
     mplsForwardingOperData.EntityData.BundleName = "cisco_ios_xe"
     mplsForwardingOperData.EntityData.ParentYangName = "Cisco-IOS-XE-mpls-forwarding-oper"
     mplsForwardingOperData.EntityData.SegmentPath = "Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data"
+    mplsForwardingOperData.EntityData.AbsolutePath = mplsForwardingOperData.EntityData.SegmentPath
     mplsForwardingOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsForwardingOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsForwardingOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -141,6 +142,7 @@ func (mplsForwardingOperData *MplsForwardingOperData) GetEntityData() *types.Com
 type MplsForwardingOperData_MplsLocalLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Value of local label. The type is interface{} with
     // range: 0..4294967295.
@@ -160,6 +162,7 @@ func (mplsLocalLabel *MplsForwardingOperData_MplsLocalLabel) GetEntityData() *ty
     mplsLocalLabel.EntityData.BundleName = "cisco_ios_xe"
     mplsLocalLabel.EntityData.ParentYangName = "mpls-forwarding-oper-data"
     mplsLocalLabel.EntityData.SegmentPath = "mpls-local-label" + types.AddKeyToken(mplsLocalLabel.LocalLabel, "local-label")
+    mplsLocalLabel.EntityData.AbsolutePath = "Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data/" + mplsLocalLabel.EntityData.SegmentPath
     mplsLocalLabel.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsLocalLabel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsLocalLabel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -168,6 +171,7 @@ func (mplsLocalLabel *MplsForwardingOperData_MplsLocalLabel) GetEntityData() *ty
     mplsLocalLabel.EntityData.Children.Append("connection-information", types.YChild{"ConnectionInformation", &mplsLocalLabel.ConnectionInformation})
     mplsLocalLabel.EntityData.Children.Append("forwarding-paths", types.YChild{"ForwardingPaths", nil})
     for i := range mplsLocalLabel.ForwardingPaths {
+        types.SetYListKey(mplsLocalLabel.ForwardingPaths[i], i)
         mplsLocalLabel.EntityData.Children.Append(types.GetSegmentPath(mplsLocalLabel.ForwardingPaths[i]), types.YChild{"ForwardingPaths", mplsLocalLabel.ForwardingPaths[i]})
     }
     mplsLocalLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -201,6 +205,7 @@ func (connectionInformation *MplsForwardingOperData_MplsLocalLabel_ConnectionInf
     connectionInformation.EntityData.BundleName = "cisco_ios_xe"
     connectionInformation.EntityData.ParentYangName = "mpls-local-label"
     connectionInformation.EntityData.SegmentPath = "connection-information"
+    connectionInformation.EntityData.AbsolutePath = "Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data/mpls-local-label/" + connectionInformation.EntityData.SegmentPath
     connectionInformation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     connectionInformation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     connectionInformation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -220,6 +225,7 @@ func (connectionInformation *MplsForwardingOperData_MplsLocalLabel_ConnectionInf
 type MplsForwardingOperData_MplsLocalLabel_ForwardingPaths struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Outgoing interface information.
     OutgoingInterface MplsForwardingOperData_MplsLocalLabel_ForwardingPaths_OutgoingInterface
@@ -236,7 +242,8 @@ func (forwardingPaths *MplsForwardingOperData_MplsLocalLabel_ForwardingPaths) Ge
     forwardingPaths.EntityData.YangName = "forwarding-paths"
     forwardingPaths.EntityData.BundleName = "cisco_ios_xe"
     forwardingPaths.EntityData.ParentYangName = "mpls-local-label"
-    forwardingPaths.EntityData.SegmentPath = "forwarding-paths"
+    forwardingPaths.EntityData.SegmentPath = "forwarding-paths" + types.AddNoKeyToken(forwardingPaths)
+    forwardingPaths.EntityData.AbsolutePath = "Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data/mpls-local-label/" + forwardingPaths.EntityData.SegmentPath
     forwardingPaths.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     forwardingPaths.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     forwardingPaths.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -271,6 +278,7 @@ func (outgoingInterface *MplsForwardingOperData_MplsLocalLabel_ForwardingPaths_O
     outgoingInterface.EntityData.BundleName = "cisco_ios_xe"
     outgoingInterface.EntityData.ParentYangName = "forwarding-paths"
     outgoingInterface.EntityData.SegmentPath = "outgoing-interface"
+    outgoingInterface.EntityData.AbsolutePath = "Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data/mpls-local-label/forwarding-paths/" + outgoingInterface.EntityData.SegmentPath
     outgoingInterface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     outgoingInterface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     outgoingInterface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -319,6 +327,7 @@ func (outgoingLabel *MplsForwardingOperData_MplsLocalLabel_ForwardingPaths_Outgo
     outgoingLabel.EntityData.BundleName = "cisco_ios_xe"
     outgoingLabel.EntityData.ParentYangName = "forwarding-paths"
     outgoingLabel.EntityData.SegmentPath = "outgoing-label"
+    outgoingLabel.EntityData.AbsolutePath = "Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data/mpls-local-label/forwarding-paths/" + outgoingLabel.EntityData.SegmentPath
     outgoingLabel.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     outgoingLabel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     outgoingLabel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -360,6 +369,7 @@ func (nextHop *MplsForwardingOperData_MplsLocalLabel_ForwardingPaths_NextHop) Ge
     nextHop.EntityData.BundleName = "cisco_ios_xe"
     nextHop.EntityData.ParentYangName = "forwarding-paths"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data/mpls-local-label/forwarding-paths/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -379,6 +389,7 @@ func (nextHop *MplsForwardingOperData_MplsLocalLabel_ForwardingPaths_NextHop) Ge
 type MplsForwardingOperData_MplsLocalLabelStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Value of local label. The type is interface{} with
     // range: 0..4294967295.
@@ -403,6 +414,7 @@ func (mplsLocalLabelStatistics *MplsForwardingOperData_MplsLocalLabelStatistics)
     mplsLocalLabelStatistics.EntityData.BundleName = "cisco_ios_xe"
     mplsLocalLabelStatistics.EntityData.ParentYangName = "mpls-forwarding-oper-data"
     mplsLocalLabelStatistics.EntityData.SegmentPath = "mpls-local-label-statistics" + types.AddKeyToken(mplsLocalLabelStatistics.LocalLabel, "local-label") + types.AddKeyToken(mplsLocalLabelStatistics.ForwardingPathIndex, "forwarding-path-index")
+    mplsLocalLabelStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-mpls-forwarding-oper:mpls-forwarding-oper-data/" + mplsLocalLabelStatistics.EntityData.SegmentPath
     mplsLocalLabelStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsLocalLabelStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsLocalLabelStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

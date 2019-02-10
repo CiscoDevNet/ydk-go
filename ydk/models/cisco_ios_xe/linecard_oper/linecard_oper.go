@@ -36,6 +36,7 @@ func (linecardOperData *LinecardOperData) GetEntityData() *types.CommonEntityDat
     linecardOperData.EntityData.BundleName = "cisco_ios_xe"
     linecardOperData.EntityData.ParentYangName = "Cisco-IOS-XE-linecard-oper"
     linecardOperData.EntityData.SegmentPath = "Cisco-IOS-XE-linecard-oper:linecard-oper-data"
+    linecardOperData.EntityData.AbsolutePath = linecardOperData.EntityData.SegmentPath
     linecardOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linecardOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linecardOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -57,6 +58,7 @@ func (linecardOperData *LinecardOperData) GetEntityData() *types.CommonEntityDat
 type LinecardOperData_Linecard struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Physical location description of the linecard. The
     // type is string.
@@ -72,6 +74,7 @@ func (linecard *LinecardOperData_Linecard) GetEntityData() *types.CommonEntityDa
     linecard.EntityData.BundleName = "cisco_ios_xe"
     linecard.EntityData.ParentYangName = "linecard-oper-data"
     linecard.EntityData.SegmentPath = "linecard" + types.AddKeyToken(linecard.Name, "name")
+    linecard.EntityData.AbsolutePath = "Cisco-IOS-XE-linecard-oper:linecard-oper-data/" + linecard.EntityData.SegmentPath
     linecard.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     linecard.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     linecard.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

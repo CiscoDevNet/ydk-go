@@ -44,6 +44,7 @@ func (checkpointArchives *CheckpointArchives) GetEntityData() *types.CommonEntit
     checkpointArchives.EntityData.BundleName = "cisco_ios_xe"
     checkpointArchives.EntityData.ParentYangName = "Cisco-IOS-XE-checkpoint-archive-oper"
     checkpointArchives.EntityData.SegmentPath = "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives"
+    checkpointArchives.EntityData.AbsolutePath = checkpointArchives.EntityData.SegmentPath
     checkpointArchives.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     checkpointArchives.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     checkpointArchives.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -76,6 +77,7 @@ func (archives *CheckpointArchives_Archives) GetEntityData() *types.CommonEntity
     archives.EntityData.BundleName = "cisco_ios_xe"
     archives.EntityData.ParentYangName = "checkpoint-archives"
     archives.EntityData.SegmentPath = "archives"
+    archives.EntityData.AbsolutePath = "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives/" + archives.EntityData.SegmentPath
     archives.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     archives.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     archives.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -97,6 +99,7 @@ func (archives *CheckpointArchives_Archives) GetEntityData() *types.CommonEntity
 type CheckpointArchives_Archives_Archive struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The archive number. The type is interface{} with
     // range: 0..65535.
@@ -112,6 +115,7 @@ func (archive *CheckpointArchives_Archives_Archive) GetEntityData() *types.Commo
     archive.EntityData.BundleName = "cisco_ios_xe"
     archive.EntityData.ParentYangName = "archives"
     archive.EntityData.SegmentPath = "archive" + types.AddKeyToken(archive.Number, "number")
+    archive.EntityData.AbsolutePath = "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives/archives/" + archive.EntityData.SegmentPath
     archive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     archive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     archive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

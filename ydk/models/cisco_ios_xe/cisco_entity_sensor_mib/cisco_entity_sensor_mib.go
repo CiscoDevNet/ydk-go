@@ -154,6 +154,7 @@ func (cISCOENTITYSENSORMIB *CISCOENTITYSENSORMIB) GetEntityData() *types.CommonE
     cISCOENTITYSENSORMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOENTITYSENSORMIB.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
     cISCOENTITYSENSORMIB.EntityData.SegmentPath = "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB"
+    cISCOENTITYSENSORMIB.EntityData.AbsolutePath = cISCOENTITYSENSORMIB.EntityData.SegmentPath
     cISCOENTITYSENSORMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOENTITYSENSORMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOENTITYSENSORMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -189,6 +190,7 @@ func (entSensorGlobalObjects *CISCOENTITYSENSORMIB_EntSensorGlobalObjects) GetEn
     entSensorGlobalObjects.EntityData.BundleName = "cisco_ios_xe"
     entSensorGlobalObjects.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
     entSensorGlobalObjects.EntityData.SegmentPath = "entSensorGlobalObjects"
+    entSensorGlobalObjects.EntityData.AbsolutePath = "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/" + entSensorGlobalObjects.EntityData.SegmentPath
     entSensorGlobalObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     entSensorGlobalObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     entSensorGlobalObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -221,6 +223,7 @@ func (entSensorValueTable *CISCOENTITYSENSORMIB_EntSensorValueTable) GetEntityDa
     entSensorValueTable.EntityData.BundleName = "cisco_ios_xe"
     entSensorValueTable.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
     entSensorValueTable.EntityData.SegmentPath = "entSensorValueTable"
+    entSensorValueTable.EntityData.AbsolutePath = "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/" + entSensorValueTable.EntityData.SegmentPath
     entSensorValueTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     entSensorValueTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     entSensorValueTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -244,6 +247,7 @@ func (entSensorValueTable *CISCOENTITYSENSORMIB_EntSensorValueTable) GetEntityDa
 type CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorValueEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -306,6 +310,7 @@ func (entSensorValueEntry *CISCOENTITYSENSORMIB_EntSensorValueTable_EntSensorVal
     entSensorValueEntry.EntityData.BundleName = "cisco_ios_xe"
     entSensorValueEntry.EntityData.ParentYangName = "entSensorValueTable"
     entSensorValueEntry.EntityData.SegmentPath = "entSensorValueEntry" + types.AddKeyToken(entSensorValueEntry.EntPhysicalIndex, "entPhysicalIndex")
+    entSensorValueEntry.EntityData.AbsolutePath = "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/entSensorValueTable/" + entSensorValueEntry.EntityData.SegmentPath
     entSensorValueEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     entSensorValueEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     entSensorValueEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -353,6 +358,7 @@ func (entSensorThresholdTable *CISCOENTITYSENSORMIB_EntSensorThresholdTable) Get
     entSensorThresholdTable.EntityData.BundleName = "cisco_ios_xe"
     entSensorThresholdTable.EntityData.ParentYangName = "CISCO-ENTITY-SENSOR-MIB"
     entSensorThresholdTable.EntityData.SegmentPath = "entSensorThresholdTable"
+    entSensorThresholdTable.EntityData.AbsolutePath = "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/" + entSensorThresholdTable.EntityData.SegmentPath
     entSensorThresholdTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     entSensorThresholdTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     entSensorThresholdTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -387,6 +393,7 @@ func (entSensorThresholdTable *CISCOENTITYSENSORMIB_EntSensorThresholdTable) Get
 type CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntSensorThresholdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -443,6 +450,7 @@ func (entSensorThresholdEntry *CISCOENTITYSENSORMIB_EntSensorThresholdTable_EntS
     entSensorThresholdEntry.EntityData.BundleName = "cisco_ios_xe"
     entSensorThresholdEntry.EntityData.ParentYangName = "entSensorThresholdTable"
     entSensorThresholdEntry.EntityData.SegmentPath = "entSensorThresholdEntry" + types.AddKeyToken(entSensorThresholdEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(entSensorThresholdEntry.EntSensorThresholdIndex, "entSensorThresholdIndex")
+    entSensorThresholdEntry.EntityData.AbsolutePath = "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/entSensorThresholdTable/" + entSensorThresholdEntry.EntityData.SegmentPath
     entSensorThresholdEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     entSensorThresholdEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     entSensorThresholdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

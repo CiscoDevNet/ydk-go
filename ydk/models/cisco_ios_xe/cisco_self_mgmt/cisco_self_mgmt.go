@@ -32,6 +32,7 @@ func (netconfYang *NetconfYang) GetEntityData() *types.CommonEntityData {
     netconfYang.EntityData.BundleName = "cisco_ios_xe"
     netconfYang.EntityData.ParentYangName = "cisco-self-mgmt"
     netconfYang.EntityData.SegmentPath = "cisco-self-mgmt:netconf-yang"
+    netconfYang.EntityData.AbsolutePath = netconfYang.EntityData.SegmentPath
     netconfYang.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     netconfYang.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     netconfYang.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -151,6 +152,7 @@ func (ciscoIa *NetconfYang_CiscoIa) GetEntityData() *types.CommonEntityData {
     ciscoIa.EntityData.BundleName = "cisco_ios_xe"
     ciscoIa.EntityData.ParentYangName = "netconf-yang"
     ciscoIa.EntityData.SegmentPath = "cisco-ia:cisco-ia"
+    ciscoIa.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/" + ciscoIa.EntityData.SegmentPath
     ciscoIa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoIa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoIa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -221,6 +223,7 @@ func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetEntityData() *typ
     snmpTrapControl.EntityData.BundleName = "cisco_ios_xe"
     snmpTrapControl.EntityData.ParentYangName = "cisco-ia"
     snmpTrapControl.EntityData.SegmentPath = "snmp-trap-control"
+    snmpTrapControl.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + snmpTrapControl.EntityData.SegmentPath
     snmpTrapControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpTrapControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpTrapControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -245,6 +248,7 @@ func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetEntityData() *typ
 type NetconfYang_CiscoIa_SnmpTrapControl_TrapList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf contains the OID for the  SNMP trap to
     // be forwarded. The type is string with pattern:
@@ -266,6 +270,7 @@ func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetEntityData() *t
     trapList.EntityData.BundleName = "cisco_ios_xe"
     trapList.EntityData.ParentYangName = "snmp-trap-control"
     trapList.EntityData.SegmentPath = "trap-list" + types.AddKeyToken(trapList.TrapOid, "trap-oid")
+    trapList.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/snmp-trap-control/" + trapList.EntityData.SegmentPath
     trapList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     trapList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     trapList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -291,6 +296,7 @@ func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetEntityData() *t
 type NetconfYang_CiscoIa_PreserveNedPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An XPath from the NED model. The type is string
     // with length: 1..1024.
@@ -303,6 +309,7 @@ func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetEntityData() *typ
     preserveNedPath.EntityData.BundleName = "cisco_ios_xe"
     preserveNedPath.EntityData.ParentYangName = "cisco-ia"
     preserveNedPath.EntityData.SegmentPath = "preserve-ned-path" + types.AddKeyToken(preserveNedPath.Xpath, "xpath")
+    preserveNedPath.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + preserveNedPath.EntityData.SegmentPath
     preserveNedPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     preserveNedPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     preserveNedPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -325,6 +332,7 @@ func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetEntityData() *typ
 type NetconfYang_CiscoIa_ParserMsgIgnore struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression to match parser output to be
     // ignored. The type is string with length: 1..255.
@@ -337,6 +345,7 @@ func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetEntityData() *typ
     parserMsgIgnore.EntityData.BundleName = "cisco_ios_xe"
     parserMsgIgnore.EntityData.ParentYangName = "cisco-ia"
     parserMsgIgnore.EntityData.SegmentPath = "parser-msg-ignore" + types.AddKeyToken(parserMsgIgnore.Message, "message")
+    parserMsgIgnore.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + parserMsgIgnore.EntityData.SegmentPath
     parserMsgIgnore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     parserMsgIgnore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     parserMsgIgnore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -357,6 +366,7 @@ func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetEntityData() *typ
 type NetconfYang_CiscoIa_ConfParserMsgIgnore struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression to match parser output to be
     // ignored. The type is string with length: 1..255.
@@ -369,6 +379,7 @@ func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetEntityDat
     confParserMsgIgnore.EntityData.BundleName = "cisco_ios_xe"
     confParserMsgIgnore.EntityData.ParentYangName = "cisco-ia"
     confParserMsgIgnore.EntityData.SegmentPath = "conf-parser-msg-ignore" + types.AddKeyToken(confParserMsgIgnore.Message, "message")
+    confParserMsgIgnore.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + confParserMsgIgnore.EntityData.SegmentPath
     confParserMsgIgnore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     confParserMsgIgnore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     confParserMsgIgnore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -389,6 +400,7 @@ func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetEntityDat
 type NetconfYang_CiscoIa_FullSyncCli struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression matching command lines which
     // cause other automatic configuration changes. The type is string with
@@ -402,6 +414,7 @@ func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetEntityData() *types.Commo
     fullSyncCli.EntityData.BundleName = "cisco_ios_xe"
     fullSyncCli.EntityData.ParentYangName = "cisco-ia"
     fullSyncCli.EntityData.SegmentPath = "full-sync-cli" + types.AddKeyToken(fullSyncCli.Command, "command")
+    fullSyncCli.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + fullSyncCli.EntityData.SegmentPath
     fullSyncCli.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fullSyncCli.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fullSyncCli.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -423,6 +436,7 @@ func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetEntityData() *types.Commo
 type NetconfYang_CiscoIa_ConfFullSyncCli struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression matching command lines which
     // cause other automatic configuration changes. The type is string with
@@ -436,6 +450,7 @@ func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetEntityData() *typ
     confFullSyncCli.EntityData.BundleName = "cisco_ios_xe"
     confFullSyncCli.EntityData.ParentYangName = "cisco-ia"
     confFullSyncCli.EntityData.SegmentPath = "conf-full-sync-cli" + types.AddKeyToken(confFullSyncCli.Command, "command")
+    confFullSyncCli.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + confFullSyncCli.EntityData.SegmentPath
     confFullSyncCli.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     confFullSyncCli.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     confFullSyncCli.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -486,6 +501,7 @@ func (logging *NetconfYang_CiscoIa_Logging) GetEntityData() *types.CommonEntityD
     logging.EntityData.BundleName = "cisco_ios_xe"
     logging.EntityData.ParentYangName = "cisco-ia"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -535,6 +551,7 @@ func (blocking *NetconfYang_CiscoIa_Blocking) GetEntityData() *types.CommonEntit
     blocking.EntityData.BundleName = "cisco_ios_xe"
     blocking.EntityData.ParentYangName = "cisco-ia"
     blocking.EntityData.SegmentPath = "blocking"
+    blocking.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/" + blocking.EntityData.SegmentPath
     blocking.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     blocking.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     blocking.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -563,6 +580,7 @@ func (blocking *NetconfYang_CiscoIa_Blocking) GetEntityData() *types.CommonEntit
 type NetconfYang_CiscoIa_Blocking_NetworkElementCommand struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression matching command lines which
     // should be blocked from entry via console/vty. The type is string with
@@ -576,6 +594,7 @@ func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand)
     networkElementCommand.EntityData.BundleName = "cisco_ios_xe"
     networkElementCommand.EntityData.ParentYangName = "blocking"
     networkElementCommand.EntityData.SegmentPath = "network-element-command" + types.AddKeyToken(networkElementCommand.Command, "command")
+    networkElementCommand.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/blocking/" + networkElementCommand.EntityData.SegmentPath
     networkElementCommand.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     networkElementCommand.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     networkElementCommand.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -594,6 +613,7 @@ func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand)
 type NetconfYang_CiscoIa_Blocking_ConfdCfgCommand struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A regular expression matching command lines which
     // should be blocked from being sent to Confd from the network element. The
@@ -607,6 +627,7 @@ func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetEntityDa
     confdCfgCommand.EntityData.BundleName = "cisco_ios_xe"
     confdCfgCommand.EntityData.ParentYangName = "blocking"
     confdCfgCommand.EntityData.SegmentPath = "confd-cfg-command" + types.AddKeyToken(confdCfgCommand.Command, "command")
+    confdCfgCommand.EntityData.AbsolutePath = "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/blocking/" + confdCfgCommand.EntityData.SegmentPath
     confdCfgCommand.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     confdCfgCommand.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     confdCfgCommand.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

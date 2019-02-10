@@ -88,6 +88,7 @@ func (sr *Sr) GetEntityData() *types.CommonEntityData {
     sr.EntityData.BundleName = "cisco_ios_xr"
     sr.EntityData.ParentYangName = "Cisco-IOS-XR-segment-routing-ms-cfg"
     sr.EntityData.SegmentPath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr"
+    sr.EntityData.AbsolutePath = sr.EntityData.SegmentPath
     sr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -129,6 +130,7 @@ func (localBlock *Sr_LocalBlock) GetEntityData() *types.CommonEntityData {
     localBlock.EntityData.BundleName = "cisco_ios_xr"
     localBlock.EntityData.ParentYangName = "sr"
     localBlock.EntityData.SegmentPath = "local-block"
+    localBlock.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/" + localBlock.EntityData.SegmentPath
     localBlock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localBlock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localBlock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -159,6 +161,7 @@ func (mappings *Sr_Mappings) GetEntityData() *types.CommonEntityData {
     mappings.EntityData.BundleName = "cisco_ios_xr"
     mappings.EntityData.ParentYangName = "sr"
     mappings.EntityData.SegmentPath = "mappings"
+    mappings.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/" + mappings.EntityData.SegmentPath
     mappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -180,6 +183,7 @@ func (mappings *Sr_Mappings) GetEntityData() *types.CommonEntityData {
 type Sr_Mappings_Mapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family. The type is SrmsAddressFamily.
     Af interface{}
@@ -210,6 +214,7 @@ func (mapping *Sr_Mappings_Mapping) GetEntityData() *types.CommonEntityData {
     mapping.EntityData.BundleName = "cisco_ios_xr"
     mapping.EntityData.ParentYangName = "mappings"
     mapping.EntityData.SegmentPath = "mapping" + types.AddKeyToken(mapping.Af, "af") + types.AddKeyToken(mapping.Ip, "ip") + types.AddKeyToken(mapping.Mask, "mask")
+    mapping.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/mappings/" + mapping.EntityData.SegmentPath
     mapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -244,6 +249,7 @@ func (adjacencySid *Sr_AdjacencySid) GetEntityData() *types.CommonEntityData {
     adjacencySid.EntityData.BundleName = "cisco_ios_xr"
     adjacencySid.EntityData.ParentYangName = "sr"
     adjacencySid.EntityData.SegmentPath = "adjacency-sid"
+    adjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -274,6 +280,7 @@ func (interfaces *Sr_AdjacencySid_Interfaces) GetEntityData() *types.CommonEntit
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "adjacency-sid"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/adjacency-sid/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -295,6 +302,7 @@ func (interfaces *Sr_AdjacencySid_Interfaces) GetEntityData() *types.CommonEntit
 type Sr_AdjacencySid_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -310,6 +318,7 @@ func (self *Sr_AdjacencySid_Interfaces_Interface) GetEntityData() *types.CommonE
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/adjacency-sid/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -342,6 +351,7 @@ func (addressFamilies *Sr_AdjacencySid_Interfaces_Interface_AddressFamilies) Get
     addressFamilies.EntityData.BundleName = "cisco_ios_xr"
     addressFamilies.EntityData.ParentYangName = "interface"
     addressFamilies.EntityData.SegmentPath = "address-families"
+    addressFamilies.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/adjacency-sid/interfaces/interface/" + addressFamilies.EntityData.SegmentPath
     addressFamilies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -364,6 +374,7 @@ func (addressFamilies *Sr_AdjacencySid_Interfaces_Interface_AddressFamilies) Get
 type Sr_AdjacencySid_Interfaces_Interface_AddressFamilies_AddressFamily struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address Family. The type is SrmsAddressFamily.
     AddressFamily interface{}
@@ -378,6 +389,7 @@ func (addressFamily *Sr_AdjacencySid_Interfaces_Interface_AddressFamilies_Addres
     addressFamily.EntityData.BundleName = "cisco_ios_xr"
     addressFamily.EntityData.ParentYangName = "address-families"
     addressFamily.EntityData.SegmentPath = "address-family" + types.AddKeyToken(addressFamily.AddressFamily, "address-family")
+    addressFamily.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/adjacency-sid/interfaces/interface/address-families/" + addressFamily.EntityData.SegmentPath
     addressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -412,6 +424,7 @@ func (nextHops *Sr_AdjacencySid_Interfaces_Interface_AddressFamilies_AddressFami
     nextHops.EntityData.BundleName = "cisco_ios_xr"
     nextHops.EntityData.ParentYangName = "address-family"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/adjacency-sid/interfaces/interface/address-families/address-family/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -436,6 +449,7 @@ func (nextHops *Sr_AdjacencySid_Interfaces_Interface_AddressFamilies_AddressFami
 type Sr_AdjacencySid_Interfaces_Interface_AddressFamilies_AddressFamily_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. NextHop IP address. The type is one of the
     // following types: string with pattern:
@@ -454,6 +468,7 @@ func (nextHop *Sr_AdjacencySid_Interfaces_Interface_AddressFamilies_AddressFamil
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.IpAddr, "ip-addr")
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/adjacency-sid/interfaces/interface/address-families/address-family/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -494,6 +509,7 @@ func (l2AdjacencySid *Sr_AdjacencySid_Interfaces_Interface_AddressFamilies_Addre
     l2AdjacencySid.EntityData.BundleName = "cisco_ios_xr"
     l2AdjacencySid.EntityData.ParentYangName = "next-hop"
     l2AdjacencySid.EntityData.SegmentPath = "l2-adjacency-sid"
+    l2AdjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/adjacency-sid/interfaces/interface/address-families/address-family/next-hops/next-hop/" + l2AdjacencySid.EntityData.SegmentPath
     l2AdjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2AdjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2AdjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -533,6 +549,7 @@ func (globalBlock *Sr_GlobalBlock) GetEntityData() *types.CommonEntityData {
     globalBlock.EntityData.BundleName = "cisco_ios_xr"
     globalBlock.EntityData.ParentYangName = "sr"
     globalBlock.EntityData.SegmentPath = "global-block"
+    globalBlock.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/" + globalBlock.EntityData.SegmentPath
     globalBlock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalBlock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalBlock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -596,6 +613,7 @@ func (trafficEngineering *Sr_TrafficEngineering) GetEntityData() *types.CommonEn
     trafficEngineering.EntityData.BundleName = "cisco_ios_xr"
     trafficEngineering.EntityData.ParentYangName = "sr"
     trafficEngineering.EntityData.SegmentPath = "Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering"
+    trafficEngineering.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/" + trafficEngineering.EntityData.SegmentPath
     trafficEngineering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trafficEngineering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trafficEngineering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -636,6 +654,7 @@ func (onDemandColors *Sr_TrafficEngineering_OnDemandColors) GetEntityData() *typ
     onDemandColors.EntityData.BundleName = "cisco_ios_xr"
     onDemandColors.EntityData.ParentYangName = "traffic-engineering"
     onDemandColors.EntityData.SegmentPath = "on-demand-colors"
+    onDemandColors.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + onDemandColors.EntityData.SegmentPath
     onDemandColors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandColors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandColors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -657,6 +676,7 @@ func (onDemandColors *Sr_TrafficEngineering_OnDemandColors) GetEntityData() *typ
 type Sr_TrafficEngineering_OnDemandColors_OnDemandColor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Color. The type is interface{} with range:
     // 1..4294967295.
@@ -679,6 +699,7 @@ func (onDemandColor *Sr_TrafficEngineering_OnDemandColors_OnDemandColor) GetEnti
     onDemandColor.EntityData.BundleName = "cisco_ios_xr"
     onDemandColor.EntityData.ParentYangName = "on-demand-colors"
     onDemandColor.EntityData.SegmentPath = "on-demand-color" + types.AddKeyToken(onDemandColor.Color, "color")
+    onDemandColor.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/" + onDemandColor.EntityData.SegmentPath
     onDemandColor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandColor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandColor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -726,6 +747,7 @@ func (onDemandColorDynMpls *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_O
     onDemandColorDynMpls.EntityData.BundleName = "cisco_ios_xr"
     onDemandColorDynMpls.EntityData.ParentYangName = "on-demand-color"
     onDemandColorDynMpls.EntityData.SegmentPath = "on-demand-color-dyn-mpls"
+    onDemandColorDynMpls.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/on-demand-color/" + onDemandColorDynMpls.EntityData.SegmentPath
     onDemandColorDynMpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandColorDynMpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandColorDynMpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -764,6 +786,7 @@ func (onDemandColorDynMplsMetric *Sr_TrafficEngineering_OnDemandColors_OnDemandC
     onDemandColorDynMplsMetric.EntityData.BundleName = "cisco_ios_xr"
     onDemandColorDynMplsMetric.EntityData.ParentYangName = "on-demand-color-dyn-mpls"
     onDemandColorDynMplsMetric.EntityData.SegmentPath = "on-demand-color-dyn-mpls-metric"
+    onDemandColorDynMplsMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/on-demand-color/on-demand-color-dyn-mpls/" + onDemandColorDynMplsMetric.EntityData.SegmentPath
     onDemandColorDynMplsMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandColorDynMplsMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandColorDynMplsMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -794,6 +817,7 @@ func (onDemandColorDynMplsPce *Sr_TrafficEngineering_OnDemandColors_OnDemandColo
     onDemandColorDynMplsPce.EntityData.BundleName = "cisco_ios_xr"
     onDemandColorDynMplsPce.EntityData.ParentYangName = "on-demand-color-dyn-mpls"
     onDemandColorDynMplsPce.EntityData.SegmentPath = "on-demand-color-dyn-mpls-pce"
+    onDemandColorDynMplsPce.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/on-demand-color/on-demand-color-dyn-mpls/" + onDemandColorDynMplsPce.EntityData.SegmentPath
     onDemandColorDynMplsPce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onDemandColorDynMplsPce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onDemandColorDynMplsPce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -833,6 +857,7 @@ func (disjointPath *Sr_TrafficEngineering_OnDemandColors_OnDemandColor_OnDemandC
     disjointPath.EntityData.BundleName = "cisco_ios_xr"
     disjointPath.EntityData.ParentYangName = "on-demand-color-dyn-mpls"
     disjointPath.EntityData.SegmentPath = "disjoint-path"
+    disjointPath.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/on-demand-colors/on-demand-color/on-demand-color-dyn-mpls/" + disjointPath.EntityData.SegmentPath
     disjointPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disjointPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disjointPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -865,6 +890,7 @@ func (segments *Sr_TrafficEngineering_Segments) GetEntityData() *types.CommonEnt
     segments.EntityData.BundleName = "cisco_ios_xr"
     segments.EntityData.ParentYangName = "traffic-engineering"
     segments.EntityData.SegmentPath = "segments"
+    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + segments.EntityData.SegmentPath
     segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -886,6 +912,7 @@ func (segments *Sr_TrafficEngineering_Segments) GetEntityData() *types.CommonEnt
 type Sr_TrafficEngineering_Segments_Segment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment-list name. The type is string with length:
     // 1..128.
@@ -904,6 +931,7 @@ func (segment *Sr_TrafficEngineering_Segments_Segment) GetEntityData() *types.Co
     segment.EntityData.BundleName = "cisco_ios_xr"
     segment.EntityData.ParentYangName = "segments"
     segment.EntityData.SegmentPath = "segment" + types.AddKeyToken(segment.PathName, "path-name")
+    segment.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/segments/" + segment.EntityData.SegmentPath
     segment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -937,6 +965,7 @@ func (segments *Sr_TrafficEngineering_Segments_Segment_Segments) GetEntityData()
     segments.EntityData.BundleName = "cisco_ios_xr"
     segments.EntityData.ParentYangName = "segment"
     segments.EntityData.SegmentPath = "segments"
+    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/segments/segment/" + segments.EntityData.SegmentPath
     segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -958,6 +987,7 @@ func (segments *Sr_TrafficEngineering_Segments_Segment_Segments) GetEntityData()
 type Sr_TrafficEngineering_Segments_Segment_Segments_Segment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment index. The type is interface{} with range:
     // 1..65535.
@@ -980,6 +1010,7 @@ func (segment *Sr_TrafficEngineering_Segments_Segment_Segments_Segment) GetEntit
     segment.EntityData.BundleName = "cisco_ios_xr"
     segment.EntityData.ParentYangName = "segments"
     segment.EntityData.SegmentPath = "segment" + types.AddKeyToken(segment.SegmentIndex, "segment-index")
+    segment.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/segments/segment/segments/" + segment.EntityData.SegmentPath
     segment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1015,6 +1046,7 @@ func (logging *Sr_TrafficEngineering_Logging) GetEntityData() *types.CommonEntit
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "traffic-engineering"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1044,6 +1076,7 @@ func (bindingSidRules *Sr_TrafficEngineering_BindingSidRules) GetEntityData() *t
     bindingSidRules.EntityData.BundleName = "cisco_ios_xr"
     bindingSidRules.EntityData.ParentYangName = "traffic-engineering"
     bindingSidRules.EntityData.SegmentPath = "binding-sid-rules"
+    bindingSidRules.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + bindingSidRules.EntityData.SegmentPath
     bindingSidRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bindingSidRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingSidRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1076,6 +1109,7 @@ func (explicit *Sr_TrafficEngineering_BindingSidRules_Explicit) GetEntityData() 
     explicit.EntityData.BundleName = "cisco_ios_xr"
     explicit.EntityData.ParentYangName = "binding-sid-rules"
     explicit.EntityData.SegmentPath = "explicit"
+    explicit.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/binding-sid-rules/" + explicit.EntityData.SegmentPath
     explicit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1106,6 +1140,7 @@ func (policies *Sr_TrafficEngineering_Policies) GetEntityData() *types.CommonEnt
     policies.EntityData.BundleName = "cisco_ios_xr"
     policies.EntityData.ParentYangName = "traffic-engineering"
     policies.EntityData.SegmentPath = "policies"
+    policies.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + policies.EntityData.SegmentPath
     policies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1127,6 +1162,7 @@ func (policies *Sr_TrafficEngineering_Policies) GetEntityData() *types.CommonEnt
 type Sr_TrafficEngineering_Policies_Policy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Policy name. The type is string with length:
     // 1..59.
@@ -1171,6 +1207,7 @@ func (policy *Sr_TrafficEngineering_Policies_Policy) GetEntityData() *types.Comm
     policy.EntityData.BundleName = "cisco_ios_xr"
     policy.EntityData.ParentYangName = "policies"
     policy.EntityData.SegmentPath = "policy" + types.AddKeyToken(policy.PolicyName, "policy-name")
+    policy.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/" + policy.EntityData.SegmentPath
     policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1210,6 +1247,7 @@ func (steering *Sr_TrafficEngineering_Policies_Policy_Steering) GetEntityData() 
     steering.EntityData.BundleName = "cisco_ios_xr"
     steering.EntityData.ParentYangName = "policy"
     steering.EntityData.SegmentPath = "steering"
+    steering.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/" + steering.EntityData.SegmentPath
     steering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     steering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     steering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1241,6 +1279,7 @@ func (applications *Sr_TrafficEngineering_Policies_Policy_Steering_Applications)
     applications.EntityData.BundleName = "cisco_ios_xr"
     applications.EntityData.ParentYangName = "steering"
     applications.EntityData.SegmentPath = "applications"
+    applications.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/steering/" + applications.EntityData.SegmentPath
     applications.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     applications.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     applications.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1263,6 +1302,7 @@ func (applications *Sr_TrafficEngineering_Policies_Policy_Steering_Applications)
 type Sr_TrafficEngineering_Policies_Policy_Steering_Applications_Application struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Steering application. The type is
     // XtcSteeringApplication.
@@ -1278,6 +1318,7 @@ func (application *Sr_TrafficEngineering_Policies_Policy_Steering_Applications_A
     application.EntityData.BundleName = "cisco_ios_xr"
     application.EntityData.ParentYangName = "applications"
     application.EntityData.SegmentPath = "application" + types.AddKeyToken(application.Application, "application")
+    application.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/steering/applications/" + application.EntityData.SegmentPath
     application.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     application.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     application.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1311,6 +1352,7 @@ func (bindingSid *Sr_TrafficEngineering_Policies_Policy_BindingSid) GetEntityDat
     bindingSid.EntityData.BundleName = "cisco_ios_xr"
     bindingSid.EntityData.ParentYangName = "policy"
     bindingSid.EntityData.SegmentPath = "binding-sid"
+    bindingSid.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/" + bindingSid.EntityData.SegmentPath
     bindingSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bindingSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bindingSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1356,6 +1398,7 @@ func (policyColorEndpoint *Sr_TrafficEngineering_Policies_Policy_PolicyColorEndp
     policyColorEndpoint.EntityData.BundleName = "cisco_ios_xr"
     policyColorEndpoint.EntityData.ParentYangName = "policy"
     policyColorEndpoint.EntityData.SegmentPath = "policy-color-endpoint"
+    policyColorEndpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/" + policyColorEndpoint.EntityData.SegmentPath
     policyColorEndpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyColorEndpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyColorEndpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1393,6 +1436,7 @@ func (autoRoute *Sr_TrafficEngineering_Policies_Policy_AutoRoute) GetEntityData(
     autoRoute.EntityData.BundleName = "cisco_ios_xr"
     autoRoute.EntityData.ParentYangName = "policy"
     autoRoute.EntityData.SegmentPath = "auto-route"
+    autoRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/" + autoRoute.EntityData.SegmentPath
     autoRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1431,6 +1475,7 @@ func (autoRouteMetric *Sr_TrafficEngineering_Policies_Policy_AutoRoute_AutoRoute
     autoRouteMetric.EntityData.BundleName = "cisco_ios_xr"
     autoRouteMetric.EntityData.ParentYangName = "auto-route"
     autoRouteMetric.EntityData.SegmentPath = "auto-route-metric"
+    autoRouteMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/auto-route/" + autoRouteMetric.EntityData.SegmentPath
     autoRouteMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoRouteMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRouteMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1463,6 +1508,7 @@ func (includePrefixes *Sr_TrafficEngineering_Policies_Policy_AutoRoute_IncludePr
     includePrefixes.EntityData.BundleName = "cisco_ios_xr"
     includePrefixes.EntityData.ParentYangName = "auto-route"
     includePrefixes.EntityData.SegmentPath = "include-prefixes"
+    includePrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/auto-route/" + includePrefixes.EntityData.SegmentPath
     includePrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     includePrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     includePrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1484,6 +1530,7 @@ func (includePrefixes *Sr_TrafficEngineering_Policies_Policy_AutoRoute_IncludePr
 type Sr_TrafficEngineering_Policies_Policy_AutoRoute_IncludePrefixes_IncludePrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address family type. The type is XtcAddressFamily.
     AfType interface{}
@@ -1506,6 +1553,7 @@ func (includePrefix *Sr_TrafficEngineering_Policies_Policy_AutoRoute_IncludePref
     includePrefix.EntityData.BundleName = "cisco_ios_xr"
     includePrefix.EntityData.ParentYangName = "include-prefixes"
     includePrefix.EntityData.SegmentPath = "include-prefix" + types.AddKeyToken(includePrefix.AfType, "af-type") + types.AddKeyToken(includePrefix.PrefixAddress, "prefix-address") + types.AddKeyToken(includePrefix.PrefixLength, "prefix-length")
+    includePrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/auto-route/include-prefixes/" + includePrefix.EntityData.SegmentPath
     includePrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     includePrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     includePrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1540,6 +1588,7 @@ func (candidatePaths *Sr_TrafficEngineering_Policies_Policy_CandidatePaths) GetE
     candidatePaths.EntityData.BundleName = "cisco_ios_xr"
     candidatePaths.EntityData.ParentYangName = "policy"
     candidatePaths.EntityData.SegmentPath = "candidate-paths"
+    candidatePaths.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/" + candidatePaths.EntityData.SegmentPath
     candidatePaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidatePaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidatePaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1571,6 +1620,7 @@ func (preferences *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferen
     preferences.EntityData.BundleName = "cisco_ios_xr"
     preferences.EntityData.ParentYangName = "candidate-paths"
     preferences.EntityData.SegmentPath = "preferences"
+    preferences.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/" + preferences.EntityData.SegmentPath
     preferences.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preferences.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preferences.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1592,6 +1642,7 @@ func (preferences *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferen
 type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path-option preference. The type is interface{}
     // with range: 1..65535.
@@ -1613,6 +1664,7 @@ func (preference *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferenc
     preference.EntityData.BundleName = "cisco_ios_xr"
     preference.EntityData.ParentYangName = "preferences"
     preference.EntityData.SegmentPath = "preference" + types.AddKeyToken(preference.PathIndex, "path-index")
+    preference.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/" + preference.EntityData.SegmentPath
     preference.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     preference.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     preference.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1655,6 +1707,7 @@ func (constraints *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferen
     constraints.EntityData.BundleName = "cisco_ios_xr"
     constraints.EntityData.ParentYangName = "preference"
     constraints.EntityData.SegmentPath = "constraints"
+    constraints.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/" + constraints.EntityData.SegmentPath
     constraints.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     constraints.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     constraints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1697,6 +1750,7 @@ func (disjointPath *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Prefere
     disjointPath.EntityData.BundleName = "cisco_ios_xr"
     disjointPath.EntityData.ParentYangName = "constraints"
     disjointPath.EntityData.SegmentPath = "disjoint-path"
+    disjointPath.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/constraints/" + disjointPath.EntityData.SegmentPath
     disjointPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disjointPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disjointPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1732,6 +1786,7 @@ func (segmentRules *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Prefere
     segmentRules.EntityData.BundleName = "cisco_ios_xr"
     segmentRules.EntityData.ParentYangName = "constraints"
     segmentRules.EntityData.SegmentPath = "segment-rules"
+    segmentRules.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/constraints/" + segmentRules.EntityData.SegmentPath
     segmentRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1763,6 +1818,7 @@ func (affinityRules *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Prefer
     affinityRules.EntityData.BundleName = "cisco_ios_xr"
     affinityRules.EntityData.ParentYangName = "constraints"
     affinityRules.EntityData.SegmentPath = "affinity-rules"
+    affinityRules.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/constraints/" + affinityRules.EntityData.SegmentPath
     affinityRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1785,6 +1841,7 @@ func (affinityRules *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Prefer
 type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_Constraints_AffinityRules_AffinityRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path-option preference. The type is
     // XtcAffinityRule.
@@ -1800,6 +1857,7 @@ func (affinityRule *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Prefere
     affinityRule.EntityData.BundleName = "cisco_ios_xr"
     affinityRule.EntityData.ParentYangName = "affinity-rules"
     affinityRule.EntityData.SegmentPath = "affinity-rule" + types.AddKeyToken(affinityRule.Rule, "rule") + types.AddKeyToken(affinityRule.Color, "color")
+    affinityRule.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/constraints/affinity-rules/" + affinityRule.EntityData.SegmentPath
     affinityRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1832,6 +1890,7 @@ func (pathInfos *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preference
     pathInfos.EntityData.BundleName = "cisco_ios_xr"
     pathInfos.EntityData.ParentYangName = "preference"
     pathInfos.EntityData.SegmentPath = "path-infos"
+    pathInfos.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/" + pathInfos.EntityData.SegmentPath
     pathInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1853,6 +1912,7 @@ func (pathInfos *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preference
 type Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Preference_PathInfos_PathInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path-option type. The type is XtcPath.
     Type interface{}
@@ -1884,6 +1944,7 @@ func (pathInfo *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences
     pathInfo.EntityData.BundleName = "cisco_ios_xr"
     pathInfo.EntityData.ParentYangName = "path-infos"
     pathInfo.EntityData.SegmentPath = "path-info" + types.AddKeyToken(pathInfo.Type, "type") + types.AddKeyToken(pathInfo.HopType, "hop-type") + types.AddKeyToken(pathInfo.SegmentListName, "segment-list-name")
+    pathInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/path-infos/" + pathInfo.EntityData.SegmentPath
     pathInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1932,6 +1993,7 @@ func (metric *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_P
     metric.EntityData.BundleName = "cisco_ios_xr"
     metric.EntityData.ParentYangName = "path-info"
     metric.EntityData.SegmentPath = "metric"
+    metric.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/path-infos/path-info/" + metric.EntityData.SegmentPath
     metric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1970,6 +2032,7 @@ func (margin *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_P
     margin.EntityData.BundleName = "cisco_ios_xr"
     margin.EntityData.ParentYangName = "metric"
     margin.EntityData.SegmentPath = "margin"
+    margin.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/path-infos/path-info/metric/" + margin.EntityData.SegmentPath
     margin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     margin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     margin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2001,6 +2064,7 @@ func (pcep *Sr_TrafficEngineering_Policies_Policy_CandidatePaths_Preferences_Pre
     pcep.EntityData.BundleName = "cisco_ios_xr"
     pcep.EntityData.ParentYangName = "path-info"
     pcep.EntityData.SegmentPath = "pcep"
+    pcep.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/policies/policy/candidate-paths/preferences/preference/path-infos/path-info/" + pcep.EntityData.SegmentPath
     pcep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2031,6 +2095,7 @@ func (srteInterfaces *Sr_TrafficEngineering_SrteInterfaces) GetEntityData() *typ
     srteInterfaces.EntityData.BundleName = "cisco_ios_xr"
     srteInterfaces.EntityData.ParentYangName = "traffic-engineering"
     srteInterfaces.EntityData.SegmentPath = "srte-interfaces"
+    srteInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + srteInterfaces.EntityData.SegmentPath
     srteInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srteInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srteInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2052,6 +2117,7 @@ func (srteInterfaces *Sr_TrafficEngineering_SrteInterfaces) GetEntityData() *typ
 type Sr_TrafficEngineering_SrteInterfaces_SrteInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SR-TE Interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2074,6 +2140,7 @@ func (srteInterface *Sr_TrafficEngineering_SrteInterfaces_SrteInterface) GetEnti
     srteInterface.EntityData.BundleName = "cisco_ios_xr"
     srteInterface.EntityData.ParentYangName = "srte-interfaces"
     srteInterface.EntityData.SegmentPath = "srte-interface" + types.AddKeyToken(srteInterface.SrteInterfaceName, "srte-interface-name")
+    srteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/srte-interfaces/" + srteInterface.EntityData.SegmentPath
     srteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2107,6 +2174,7 @@ func (interfaceAffinities *Sr_TrafficEngineering_SrteInterfaces_SrteInterface_In
     interfaceAffinities.EntityData.BundleName = "cisco_ios_xr"
     interfaceAffinities.EntityData.ParentYangName = "srte-interface"
     interfaceAffinities.EntityData.SegmentPath = "interface-affinities"
+    interfaceAffinities.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/srte-interfaces/srte-interface/" + interfaceAffinities.EntityData.SegmentPath
     interfaceAffinities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAffinities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAffinities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2128,6 +2196,7 @@ func (interfaceAffinities *Sr_TrafficEngineering_SrteInterfaces_SrteInterface_In
 type Sr_TrafficEngineering_SrteInterfaces_SrteInterface_InterfaceAffinities_InterfaceAffinity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface affinity colors. The type is string with
     // length: 1..32.
@@ -2140,6 +2209,7 @@ func (interfaceAffinity *Sr_TrafficEngineering_SrteInterfaces_SrteInterface_Inte
     interfaceAffinity.EntityData.BundleName = "cisco_ios_xr"
     interfaceAffinity.EntityData.ParentYangName = "interface-affinities"
     interfaceAffinity.EntityData.SegmentPath = "interface-affinity" + types.AddKeyToken(interfaceAffinity.Color, "color")
+    interfaceAffinity.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/srte-interfaces/srte-interface/interface-affinities/" + interfaceAffinity.EntityData.SegmentPath
     interfaceAffinity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAffinity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAffinity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2214,6 +2284,7 @@ func (pcc *Sr_TrafficEngineering_Pcc) GetEntityData() *types.CommonEntityData {
     pcc.EntityData.BundleName = "cisco_ios_xr"
     pcc.EntityData.ParentYangName = "traffic-engineering"
     pcc.EntityData.SegmentPath = "pcc"
+    pcc.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + pcc.EntityData.SegmentPath
     pcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2254,6 +2325,7 @@ func (pcePeers *Sr_TrafficEngineering_Pcc_PcePeers) GetEntityData() *types.Commo
     pcePeers.EntityData.BundleName = "cisco_ios_xr"
     pcePeers.EntityData.ParentYangName = "pcc"
     pcePeers.EntityData.SegmentPath = "pce-peers"
+    pcePeers.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/pcc/" + pcePeers.EntityData.SegmentPath
     pcePeers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcePeers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcePeers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2275,6 +2347,7 @@ func (pcePeers *Sr_TrafficEngineering_Pcc_PcePeers) GetEntityData() *types.Commo
 type Sr_TrafficEngineering_Pcc_PcePeers_PcePeer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Remote PCE address. The type is one of the
     // following types: string with pattern:
@@ -2302,6 +2375,7 @@ func (pcePeer *Sr_TrafficEngineering_Pcc_PcePeers_PcePeer) GetEntityData() *type
     pcePeer.EntityData.BundleName = "cisco_ios_xr"
     pcePeer.EntityData.ParentYangName = "pce-peers"
     pcePeer.EntityData.SegmentPath = "pce-peer" + types.AddKeyToken(pcePeer.PceAddress, "pce-address")
+    pcePeer.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/pcc/pce-peers/" + pcePeer.EntityData.SegmentPath
     pcePeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcePeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcePeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2336,6 +2410,7 @@ func (pceAddresses *Sr_TrafficEngineering_Pcc_PceAddresses) GetEntityData() *typ
     pceAddresses.EntityData.BundleName = "cisco_ios_xr"
     pceAddresses.EntityData.ParentYangName = "pcc"
     pceAddresses.EntityData.SegmentPath = "pce-addresses"
+    pceAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/pcc/" + pceAddresses.EntityData.SegmentPath
     pceAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pceAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pceAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2357,6 +2432,7 @@ func (pceAddresses *Sr_TrafficEngineering_Pcc_PceAddresses) GetEntityData() *typ
 type Sr_TrafficEngineering_Pcc_PceAddresses_PceAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Remote PCE address. The type is one of the
     // following types: string with pattern:
@@ -2376,6 +2452,7 @@ func (pceAddress *Sr_TrafficEngineering_Pcc_PceAddresses_PceAddress) GetEntityDa
     pceAddress.EntityData.BundleName = "cisco_ios_xr"
     pceAddress.EntityData.ParentYangName = "pce-addresses"
     pceAddress.EntityData.SegmentPath = "pce-address" + types.AddKeyToken(pceAddress.PceAddress, "pce-address")
+    pceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/pcc/pce-addresses/" + pceAddress.EntityData.SegmentPath
     pceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2407,6 +2484,7 @@ func (affinityMaps *Sr_TrafficEngineering_AffinityMaps) GetEntityData() *types.C
     affinityMaps.EntityData.BundleName = "cisco_ios_xr"
     affinityMaps.EntityData.ParentYangName = "traffic-engineering"
     affinityMaps.EntityData.SegmentPath = "affinity-maps"
+    affinityMaps.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/" + affinityMaps.EntityData.SegmentPath
     affinityMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2428,6 +2506,7 @@ func (affinityMaps *Sr_TrafficEngineering_AffinityMaps) GetEntityData() *types.C
 type Sr_TrafficEngineering_AffinityMaps_AffinityMap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Affinity-map bit-position. The type is string with
     // length: 1..32.
@@ -2444,6 +2523,7 @@ func (affinityMap *Sr_TrafficEngineering_AffinityMaps_AffinityMap) GetEntityData
     affinityMap.EntityData.BundleName = "cisco_ios_xr"
     affinityMap.EntityData.ParentYangName = "affinity-maps"
     affinityMap.EntityData.SegmentPath = "affinity-map" + types.AddKeyToken(affinityMap.Color, "color")
+    affinityMap.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-cfg:sr/Cisco-IOS-XR-infra-xtc-agent-cfg:traffic-engineering/affinity-maps/" + affinityMap.EntityData.SegmentPath
     affinityMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -40,6 +40,7 @@ func (ppp *Ppp) GetEntityData() *types.CommonEntityData {
     ppp.EntityData.BundleName = "cisco_ios_xr"
     ppp.EntityData.ParentYangName = "Cisco-IOS-XR-ppp-ma-syslog-cfg"
     ppp.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ma-syslog-cfg:ppp"
+    ppp.EntityData.AbsolutePath = ppp.EntityData.SegmentPath
     ppp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ppp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ppp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (syslog *Ppp_Syslog) GetEntityData() *types.CommonEntityData {
     syslog.EntityData.BundleName = "cisco_ios_xr"
     syslog.EntityData.ParentYangName = "ppp"
     syslog.EntityData.SegmentPath = "syslog"
+    syslog.EntityData.AbsolutePath = "Cisco-IOS-XR-ppp-ma-syslog-cfg:ppp/" + syslog.EntityData.SegmentPath
     syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

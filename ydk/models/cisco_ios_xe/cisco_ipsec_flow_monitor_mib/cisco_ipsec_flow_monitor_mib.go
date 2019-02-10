@@ -299,6 +299,7 @@ func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetEntityData() *types
     cISCOIPSECFLOWMONITORMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPSECFLOWMONITORMIB.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cISCOIPSECFLOWMONITORMIB.EntityData.SegmentPath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cISCOIPSECFLOWMONITORMIB.EntityData.AbsolutePath = cISCOIPSECFLOWMONITORMIB.EntityData.SegmentPath
     cISCOIPSECFLOWMONITORMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPSECFLOWMONITORMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSECFLOWMONITORMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -345,6 +346,7 @@ func (cipSecLevels *CISCOIPSECFLOWMONITORMIB_CipSecLevels) GetEntityData() *type
     cipSecLevels.EntityData.BundleName = "cisco_ios_xe"
     cipSecLevels.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecLevels.EntityData.SegmentPath = "cipSecLevels"
+    cipSecLevels.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecLevels.EntityData.SegmentPath
     cipSecLevels.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecLevels.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecLevels.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -501,6 +503,7 @@ func (cikeGlobalStats *CISCOIPSECFLOWMONITORMIB_CikeGlobalStats) GetEntityData()
     cikeGlobalStats.EntityData.BundleName = "cisco_ios_xe"
     cikeGlobalStats.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cikeGlobalStats.EntityData.SegmentPath = "cikeGlobalStats"
+    cikeGlobalStats.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cikeGlobalStats.EntityData.SegmentPath
     cikeGlobalStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikeGlobalStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikeGlobalStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -718,6 +721,7 @@ func (cipSecGlobalStats *CISCOIPSECFLOWMONITORMIB_CipSecGlobalStats) GetEntityDa
     cipSecGlobalStats.EntityData.BundleName = "cisco_ios_xe"
     cipSecGlobalStats.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecGlobalStats.EntityData.SegmentPath = "cipSecGlobalStats"
+    cipSecGlobalStats.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecGlobalStats.EntityData.SegmentPath
     cipSecGlobalStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecGlobalStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecGlobalStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -794,6 +798,7 @@ func (cipSecHistGlobalCntl *CISCOIPSECFLOWMONITORMIB_CipSecHistGlobalCntl) GetEn
     cipSecHistGlobalCntl.EntityData.BundleName = "cisco_ios_xe"
     cipSecHistGlobalCntl.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecHistGlobalCntl.EntityData.SegmentPath = "cipSecHistGlobalCntl"
+    cipSecHistGlobalCntl.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecHistGlobalCntl.EntityData.SegmentPath
     cipSecHistGlobalCntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecHistGlobalCntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecHistGlobalCntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -840,6 +845,7 @@ func (cipSecFailGlobalCntl *CISCOIPSECFLOWMONITORMIB_CipSecFailGlobalCntl) GetEn
     cipSecFailGlobalCntl.EntityData.BundleName = "cisco_ios_xe"
     cipSecFailGlobalCntl.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecFailGlobalCntl.EntityData.SegmentPath = "cipSecFailGlobalCntl"
+    cipSecFailGlobalCntl.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecFailGlobalCntl.EntityData.SegmentPath
     cipSecFailGlobalCntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecFailGlobalCntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecFailGlobalCntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -917,6 +923,7 @@ func (cipSecTrapCntl *CISCOIPSECFLOWMONITORMIB_CipSecTrapCntl) GetEntityData() *
     cipSecTrapCntl.EntityData.BundleName = "cisco_ios_xe"
     cipSecTrapCntl.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecTrapCntl.EntityData.SegmentPath = "cipSecTrapCntl"
+    cipSecTrapCntl.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecTrapCntl.EntityData.SegmentPath
     cipSecTrapCntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecTrapCntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecTrapCntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -966,6 +973,7 @@ func (cikePeerTable *CISCOIPSECFLOWMONITORMIB_CikePeerTable) GetEntityData() *ty
     cikePeerTable.EntityData.BundleName = "cisco_ios_xe"
     cikePeerTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cikePeerTable.EntityData.SegmentPath = "cikePeerTable"
+    cikePeerTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cikePeerTable.EntityData.SegmentPath
     cikePeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikePeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikePeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -988,6 +996,7 @@ func (cikePeerTable *CISCOIPSECFLOWMONITORMIB_CikePeerTable) GetEntityData() *ty
 type CISCOIPSECFLOWMONITORMIB_CikePeerTable_CikePeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of local peer identity.  The local peer
     // may be identified by: 1. an IP address, or 2. a host name. The type is
@@ -1040,6 +1049,7 @@ func (cikePeerEntry *CISCOIPSECFLOWMONITORMIB_CikePeerTable_CikePeerEntry) GetEn
     cikePeerEntry.EntityData.BundleName = "cisco_ios_xe"
     cikePeerEntry.EntityData.ParentYangName = "cikePeerTable"
     cikePeerEntry.EntityData.SegmentPath = "cikePeerEntry" + types.AddKeyToken(cikePeerEntry.CikePeerLocalType, "cikePeerLocalType") + types.AddKeyToken(cikePeerEntry.CikePeerLocalValue, "cikePeerLocalValue") + types.AddKeyToken(cikePeerEntry.CikePeerRemoteType, "cikePeerRemoteType") + types.AddKeyToken(cikePeerEntry.CikePeerRemoteValue, "cikePeerRemoteValue") + types.AddKeyToken(cikePeerEntry.CikePeerIntIndex, "cikePeerIntIndex")
+    cikePeerEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePeerTable/" + cikePeerEntry.EntityData.SegmentPath
     cikePeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikePeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikePeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1081,6 +1091,7 @@ func (cikeTunnelTable *CISCOIPSECFLOWMONITORMIB_CikeTunnelTable) GetEntityData()
     cikeTunnelTable.EntityData.BundleName = "cisco_ios_xe"
     cikeTunnelTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cikeTunnelTable.EntityData.SegmentPath = "cikeTunnelTable"
+    cikeTunnelTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cikeTunnelTable.EntityData.SegmentPath
     cikeTunnelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikeTunnelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikeTunnelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1103,6 +1114,7 @@ func (cikeTunnelTable *CISCOIPSECFLOWMONITORMIB_CikeTunnelTable) GetEntityData()
 type CISCOIPSECFLOWMONITORMIB_CikeTunnelTable_CikeTunnelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the IPsec Phase-1 IKE Tunnel Table.
     // The value of the index is a number which begins  at one and is incremented
@@ -1271,6 +1283,7 @@ func (cikeTunnelEntry *CISCOIPSECFLOWMONITORMIB_CikeTunnelTable_CikeTunnelEntry)
     cikeTunnelEntry.EntityData.BundleName = "cisco_ios_xe"
     cikeTunnelEntry.EntityData.ParentYangName = "cikeTunnelTable"
     cikeTunnelEntry.EntityData.SegmentPath = "cikeTunnelEntry" + types.AddKeyToken(cikeTunnelEntry.CikeTunIndex, "cikeTunIndex")
+    cikeTunnelEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeTunnelTable/" + cikeTunnelEntry.EntityData.SegmentPath
     cikeTunnelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikeTunnelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikeTunnelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1340,6 +1353,7 @@ func (cikePeerCorrTable *CISCOIPSECFLOWMONITORMIB_CikePeerCorrTable) GetEntityDa
     cikePeerCorrTable.EntityData.BundleName = "cisco_ios_xe"
     cikePeerCorrTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cikePeerCorrTable.EntityData.SegmentPath = "cikePeerCorrTable"
+    cikePeerCorrTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cikePeerCorrTable.EntityData.SegmentPath
     cikePeerCorrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikePeerCorrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikePeerCorrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1363,6 +1377,7 @@ func (cikePeerCorrTable *CISCOIPSECFLOWMONITORMIB_CikePeerCorrTable) GetEntityDa
 type CISCOIPSECFLOWMONITORMIB_CikePeerCorrTable_CikePeerCorrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of local peer identity. The local peer
     // may be identified by: 1. an IP address, or 2. a host name. The type is
@@ -1410,6 +1425,7 @@ func (cikePeerCorrEntry *CISCOIPSECFLOWMONITORMIB_CikePeerCorrTable_CikePeerCorr
     cikePeerCorrEntry.EntityData.BundleName = "cisco_ios_xe"
     cikePeerCorrEntry.EntityData.ParentYangName = "cikePeerCorrTable"
     cikePeerCorrEntry.EntityData.SegmentPath = "cikePeerCorrEntry" + types.AddKeyToken(cikePeerCorrEntry.CikePeerCorrLocalType, "cikePeerCorrLocalType") + types.AddKeyToken(cikePeerCorrEntry.CikePeerCorrLocalValue, "cikePeerCorrLocalValue") + types.AddKeyToken(cikePeerCorrEntry.CikePeerCorrRemoteType, "cikePeerCorrRemoteType") + types.AddKeyToken(cikePeerCorrEntry.CikePeerCorrRemoteValue, "cikePeerCorrRemoteValue") + types.AddKeyToken(cikePeerCorrEntry.CikePeerCorrIntIndex, "cikePeerCorrIntIndex") + types.AddKeyToken(cikePeerCorrEntry.CikePeerCorrSeqNum, "cikePeerCorrSeqNum")
+    cikePeerCorrEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePeerCorrTable/" + cikePeerCorrEntry.EntityData.SegmentPath
     cikePeerCorrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikePeerCorrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikePeerCorrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1450,6 +1466,7 @@ func (cikePhase1GWStatsTable *CISCOIPSECFLOWMONITORMIB_CikePhase1GWStatsTable) G
     cikePhase1GWStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cikePhase1GWStatsTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cikePhase1GWStatsTable.EntityData.SegmentPath = "cikePhase1GWStatsTable"
+    cikePhase1GWStatsTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cikePhase1GWStatsTable.EntityData.SegmentPath
     cikePhase1GWStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikePhase1GWStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikePhase1GWStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1475,6 +1492,7 @@ func (cikePhase1GWStatsTable *CISCOIPSECFLOWMONITORMIB_CikePhase1GWStatsTable) G
 type CISCOIPSECFLOWMONITORMIB_CikePhase1GWStatsTable_CikePhase1GWStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1618,6 +1636,7 @@ func (cikePhase1GWStatsEntry *CISCOIPSECFLOWMONITORMIB_CikePhase1GWStatsTable_Ci
     cikePhase1GWStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cikePhase1GWStatsEntry.EntityData.ParentYangName = "cikePhase1GWStatsTable"
     cikePhase1GWStatsEntry.EntityData.SegmentPath = "cikePhase1GWStatsEntry" + types.AddKeyToken(cikePhase1GWStatsEntry.CmgwIndex, "cmgwIndex")
+    cikePhase1GWStatsEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikePhase1GWStatsTable/" + cikePhase1GWStatsEntry.EntityData.SegmentPath
     cikePhase1GWStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikePhase1GWStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikePhase1GWStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1677,6 +1696,7 @@ func (cipSecTunnelTable *CISCOIPSECFLOWMONITORMIB_CipSecTunnelTable) GetEntityDa
     cipSecTunnelTable.EntityData.BundleName = "cisco_ios_xe"
     cipSecTunnelTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecTunnelTable.EntityData.SegmentPath = "cipSecTunnelTable"
+    cipSecTunnelTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecTunnelTable.EntityData.SegmentPath
     cipSecTunnelTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecTunnelTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecTunnelTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1699,6 +1719,7 @@ func (cipSecTunnelTable *CISCOIPSECFLOWMONITORMIB_CipSecTunnelTable) GetEntityDa
 type CISCOIPSECFLOWMONITORMIB_CipSecTunnelTable_CipSecTunnelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the IPsec Phase-2 Tunnel Table. The
     // value of the index is a number which begins  at one and is incremented with
@@ -1959,6 +1980,7 @@ func (cipSecTunnelEntry *CISCOIPSECFLOWMONITORMIB_CipSecTunnelTable_CipSecTunnel
     cipSecTunnelEntry.EntityData.BundleName = "cisco_ios_xe"
     cipSecTunnelEntry.EntityData.ParentYangName = "cipSecTunnelTable"
     cipSecTunnelEntry.EntityData.SegmentPath = "cipSecTunnelEntry" + types.AddKeyToken(cipSecTunnelEntry.CipSecTunIndex, "cipSecTunIndex")
+    cipSecTunnelEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecTunnelTable/" + cipSecTunnelEntry.EntityData.SegmentPath
     cipSecTunnelEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecTunnelEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecTunnelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2042,6 +2064,7 @@ func (cipSecEndPtTable *CISCOIPSECFLOWMONITORMIB_CipSecEndPtTable) GetEntityData
     cipSecEndPtTable.EntityData.BundleName = "cisco_ios_xe"
     cipSecEndPtTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecEndPtTable.EntityData.SegmentPath = "cipSecEndPtTable"
+    cipSecEndPtTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecEndPtTable.EntityData.SegmentPath
     cipSecEndPtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecEndPtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecEndPtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2063,6 +2086,7 @@ func (cipSecEndPtTable *CISCOIPSECFLOWMONITORMIB_CipSecEndPtTable) GetEntityData
 type CISCOIPSECFLOWMONITORMIB_CipSecEndPtTable_CipSecEndPtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2146,6 +2170,7 @@ func (cipSecEndPtEntry *CISCOIPSECFLOWMONITORMIB_CipSecEndPtTable_CipSecEndPtEnt
     cipSecEndPtEntry.EntityData.BundleName = "cisco_ios_xe"
     cipSecEndPtEntry.EntityData.ParentYangName = "cipSecEndPtTable"
     cipSecEndPtEntry.EntityData.SegmentPath = "cipSecEndPtEntry" + types.AddKeyToken(cipSecEndPtEntry.CipSecTunIndex, "cipSecTunIndex") + types.AddKeyToken(cipSecEndPtEntry.CipSecEndPtIndex, "cipSecEndPtIndex")
+    cipSecEndPtEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecEndPtTable/" + cipSecEndPtEntry.EntityData.SegmentPath
     cipSecEndPtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecEndPtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecEndPtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2193,6 +2218,7 @@ func (cipSecSpiTable *CISCOIPSECFLOWMONITORMIB_CipSecSpiTable) GetEntityData() *
     cipSecSpiTable.EntityData.BundleName = "cisco_ios_xe"
     cipSecSpiTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecSpiTable.EntityData.SegmentPath = "cipSecSpiTable"
+    cipSecSpiTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecSpiTable.EntityData.SegmentPath
     cipSecSpiTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecSpiTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecSpiTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2216,6 +2242,7 @@ func (cipSecSpiTable *CISCOIPSECFLOWMONITORMIB_CipSecSpiTable) GetEntityData() *
 type CISCOIPSECFLOWMONITORMIB_CipSecSpiTable_CipSecSpiEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2248,6 +2275,7 @@ func (cipSecSpiEntry *CISCOIPSECFLOWMONITORMIB_CipSecSpiTable_CipSecSpiEntry) Ge
     cipSecSpiEntry.EntityData.BundleName = "cisco_ios_xe"
     cipSecSpiEntry.EntityData.ParentYangName = "cipSecSpiTable"
     cipSecSpiEntry.EntityData.SegmentPath = "cipSecSpiEntry" + types.AddKeyToken(cipSecSpiEntry.CipSecTunIndex, "cipSecTunIndex") + types.AddKeyToken(cipSecSpiEntry.CipSecSpiIndex, "cipSecSpiIndex")
+    cipSecSpiEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecSpiTable/" + cipSecSpiEntry.EntityData.SegmentPath
     cipSecSpiEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecSpiEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecSpiEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2317,6 +2345,7 @@ func (cipSecPhase2GWStatsTable *CISCOIPSECFLOWMONITORMIB_CipSecPhase2GWStatsTabl
     cipSecPhase2GWStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cipSecPhase2GWStatsTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecPhase2GWStatsTable.EntityData.SegmentPath = "cipSecPhase2GWStatsTable"
+    cipSecPhase2GWStatsTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecPhase2GWStatsTable.EntityData.SegmentPath
     cipSecPhase2GWStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecPhase2GWStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecPhase2GWStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2342,6 +2371,7 @@ func (cipSecPhase2GWStatsTable *CISCOIPSECFLOWMONITORMIB_CipSecPhase2GWStatsTabl
 type CISCOIPSECFLOWMONITORMIB_CipSecPhase2GWStatsTable_CipSecPhase2GWStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2496,6 +2526,7 @@ func (cipSecPhase2GWStatsEntry *CISCOIPSECFLOWMONITORMIB_CipSecPhase2GWStatsTabl
     cipSecPhase2GWStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cipSecPhase2GWStatsEntry.EntityData.ParentYangName = "cipSecPhase2GWStatsTable"
     cipSecPhase2GWStatsEntry.EntityData.SegmentPath = "cipSecPhase2GWStatsEntry" + types.AddKeyToken(cipSecPhase2GWStatsEntry.CmgwIndex, "cmgwIndex")
+    cipSecPhase2GWStatsEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecPhase2GWStatsTable/" + cipSecPhase2GWStatsEntry.EntityData.SegmentPath
     cipSecPhase2GWStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecPhase2GWStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecPhase2GWStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2557,6 +2588,7 @@ func (cikeTunnelHistTable *CISCOIPSECFLOWMONITORMIB_CikeTunnelHistTable) GetEnti
     cikeTunnelHistTable.EntityData.BundleName = "cisco_ios_xe"
     cikeTunnelHistTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cikeTunnelHistTable.EntityData.SegmentPath = "cikeTunnelHistTable"
+    cikeTunnelHistTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cikeTunnelHistTable.EntityData.SegmentPath
     cikeTunnelHistTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikeTunnelHistTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikeTunnelHistTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2580,6 +2612,7 @@ func (cikeTunnelHistTable *CISCOIPSECFLOWMONITORMIB_CikeTunnelHistTable) GetEnti
 type CISCOIPSECFLOWMONITORMIB_CikeTunnelHistTable_CikeTunnelHistEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the IPsec Phase-1 IKE Tunnel History
     // Table.  The value of the index is a number which  begins at one and is
@@ -2764,6 +2797,7 @@ func (cikeTunnelHistEntry *CISCOIPSECFLOWMONITORMIB_CikeTunnelHistTable_CikeTunn
     cikeTunnelHistEntry.EntityData.BundleName = "cisco_ios_xe"
     cikeTunnelHistEntry.EntityData.ParentYangName = "cikeTunnelHistTable"
     cikeTunnelHistEntry.EntityData.SegmentPath = "cikeTunnelHistEntry" + types.AddKeyToken(cikeTunnelHistEntry.CikeTunHistIndex, "cikeTunHistIndex")
+    cikeTunnelHistEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeTunnelHistTable/" + cikeTunnelHistEntry.EntityData.SegmentPath
     cikeTunnelHistEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikeTunnelHistEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikeTunnelHistEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2856,6 +2890,7 @@ func (cipSecTunnelHistTable *CISCOIPSECFLOWMONITORMIB_CipSecTunnelHistTable) Get
     cipSecTunnelHistTable.EntityData.BundleName = "cisco_ios_xe"
     cipSecTunnelHistTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecTunnelHistTable.EntityData.SegmentPath = "cipSecTunnelHistTable"
+    cipSecTunnelHistTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecTunnelHistTable.EntityData.SegmentPath
     cipSecTunnelHistTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecTunnelHistTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecTunnelHistTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2878,6 +2913,7 @@ func (cipSecTunnelHistTable *CISCOIPSECFLOWMONITORMIB_CipSecTunnelHistTable) Get
 type CISCOIPSECFLOWMONITORMIB_CipSecTunnelHistTable_CipSecTunnelHistEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the IPsec Phase-2 Tunnel History
     // Table. The value of the index is a number which  begins at one and is
@@ -3130,6 +3166,7 @@ func (cipSecTunnelHistEntry *CISCOIPSECFLOWMONITORMIB_CipSecTunnelHistTable_CipS
     cipSecTunnelHistEntry.EntityData.BundleName = "cisco_ios_xe"
     cipSecTunnelHistEntry.EntityData.ParentYangName = "cipSecTunnelHistTable"
     cipSecTunnelHistEntry.EntityData.SegmentPath = "cipSecTunnelHistEntry" + types.AddKeyToken(cipSecTunnelHistEntry.CipSecTunHistIndex, "cipSecTunHistIndex")
+    cipSecTunnelHistEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecTunnelHistTable/" + cipSecTunnelHistEntry.EntityData.SegmentPath
     cipSecTunnelHistEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecTunnelHistEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecTunnelHistEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3233,6 +3270,7 @@ func (cipSecEndPtHistTable *CISCOIPSECFLOWMONITORMIB_CipSecEndPtHistTable) GetEn
     cipSecEndPtHistTable.EntityData.BundleName = "cisco_ios_xe"
     cipSecEndPtHistTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecEndPtHistTable.EntityData.SegmentPath = "cipSecEndPtHistTable"
+    cipSecEndPtHistTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecEndPtHistTable.EntityData.SegmentPath
     cipSecEndPtHistTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecEndPtHistTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecEndPtHistTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3255,6 +3293,7 @@ func (cipSecEndPtHistTable *CISCOIPSECFLOWMONITORMIB_CipSecEndPtHistTable) GetEn
 type CISCOIPSECFLOWMONITORMIB_CipSecEndPtHistTable_CipSecEndPtHistEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The number of the previously active Endpoint
     // associated  with a IPsec Phase-2 Tunnel Table.  The value   of this index
@@ -3341,6 +3380,7 @@ func (cipSecEndPtHistEntry *CISCOIPSECFLOWMONITORMIB_CipSecEndPtHistTable_CipSec
     cipSecEndPtHistEntry.EntityData.BundleName = "cisco_ios_xe"
     cipSecEndPtHistEntry.EntityData.ParentYangName = "cipSecEndPtHistTable"
     cipSecEndPtHistEntry.EntityData.SegmentPath = "cipSecEndPtHistEntry" + types.AddKeyToken(cipSecEndPtHistEntry.CipSecEndPtHistIndex, "cipSecEndPtHistIndex")
+    cipSecEndPtHistEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecEndPtHistTable/" + cipSecEndPtHistEntry.EntityData.SegmentPath
     cipSecEndPtHistEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecEndPtHistEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecEndPtHistEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3390,6 +3430,7 @@ func (cikeFailTable *CISCOIPSECFLOWMONITORMIB_CikeFailTable) GetEntityData() *ty
     cikeFailTable.EntityData.BundleName = "cisco_ios_xe"
     cikeFailTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cikeFailTable.EntityData.SegmentPath = "cikeFailTable"
+    cikeFailTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cikeFailTable.EntityData.SegmentPath
     cikeFailTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikeFailTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikeFailTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3413,6 +3454,7 @@ func (cikeFailTable *CISCOIPSECFLOWMONITORMIB_CikeFailTable) GetEntityData() *ty
 type CISCOIPSECFLOWMONITORMIB_CikeFailTable_CikeFailEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPsec Phase-1 Failure Table index. The value
     // of the index is a number which  begins at one and is incremented with each 
@@ -3468,6 +3510,7 @@ func (cikeFailEntry *CISCOIPSECFLOWMONITORMIB_CikeFailTable_CikeFailEntry) GetEn
     cikeFailEntry.EntityData.BundleName = "cisco_ios_xe"
     cikeFailEntry.EntityData.ParentYangName = "cikeFailTable"
     cikeFailEntry.EntityData.SegmentPath = "cikeFailEntry" + types.AddKeyToken(cikeFailEntry.CikeFailIndex, "cikeFailIndex")
+    cikeFailEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cikeFailTable/" + cikeFailEntry.EntityData.SegmentPath
     cikeFailEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cikeFailEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cikeFailEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3550,6 +3593,7 @@ func (cipSecFailTable *CISCOIPSECFLOWMONITORMIB_CipSecFailTable) GetEntityData()
     cipSecFailTable.EntityData.BundleName = "cisco_ios_xe"
     cipSecFailTable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
     cipSecFailTable.EntityData.SegmentPath = "cipSecFailTable"
+    cipSecFailTable.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/" + cipSecFailTable.EntityData.SegmentPath
     cipSecFailTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecFailTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecFailTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3572,6 +3616,7 @@ func (cipSecFailTable *CISCOIPSECFLOWMONITORMIB_CipSecFailTable) GetEntityData()
 type CISCOIPSECFLOWMONITORMIB_CipSecFailTable_CipSecFailEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IPsec Phase-2 Failure Table index. The value
     // of the index is a number which  begins at one and is incremented with each 
@@ -3615,6 +3660,7 @@ func (cipSecFailEntry *CISCOIPSECFLOWMONITORMIB_CipSecFailTable_CipSecFailEntry)
     cipSecFailEntry.EntityData.BundleName = "cisco_ios_xe"
     cipSecFailEntry.EntityData.ParentYangName = "cipSecFailTable"
     cipSecFailEntry.EntityData.SegmentPath = "cipSecFailEntry" + types.AddKeyToken(cipSecFailEntry.CipSecFailIndex, "cipSecFailIndex")
+    cipSecFailEntry.EntityData.AbsolutePath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB/cipSecFailTable/" + cipSecFailEntry.EntityData.SegmentPath
     cipSecFailEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipSecFailEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipSecFailEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

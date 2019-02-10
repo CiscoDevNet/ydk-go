@@ -263,6 +263,7 @@ func (cISCOVOICEDIALCONTROLMIB *CISCOVOICEDIALCONTROLMIB) GetEntityData() *types
     cISCOVOICEDIALCONTROLMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOVOICEDIALCONTROLMIB.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cISCOVOICEDIALCONTROLMIB.EntityData.SegmentPath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB"
+    cISCOVOICEDIALCONTROLMIB.EntityData.AbsolutePath = cISCOVOICEDIALCONTROLMIB.EntityData.SegmentPath
     cISCOVOICEDIALCONTROLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOVOICEDIALCONTROLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVOICEDIALCONTROLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -349,6 +350,7 @@ func (cvGeneralConfiguration *CISCOVOICEDIALCONTROLMIB_CvGeneralConfiguration) G
     cvGeneralConfiguration.EntityData.BundleName = "cisco_ios_xe"
     cvGeneralConfiguration.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvGeneralConfiguration.EntityData.SegmentPath = "cvGeneralConfiguration"
+    cvGeneralConfiguration.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvGeneralConfiguration.EntityData.SegmentPath
     cvGeneralConfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvGeneralConfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvGeneralConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -407,6 +409,7 @@ func (cvGatewayCallActive *CISCOVOICEDIALCONTROLMIB_CvGatewayCallActive) GetEnti
     cvGatewayCallActive.EntityData.BundleName = "cisco_ios_xe"
     cvGatewayCallActive.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvGatewayCallActive.EntityData.SegmentPath = "cvGatewayCallActive"
+    cvGatewayCallActive.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvGatewayCallActive.EntityData.SegmentPath
     cvGatewayCallActive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvGatewayCallActive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvGatewayCallActive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -446,6 +449,7 @@ func (cvCallVolume *CISCOVOICEDIALCONTROLMIB_CvCallVolume) GetEntityData() *type
     cvCallVolume.EntityData.BundleName = "cisco_ios_xe"
     cvCallVolume.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallVolume.EntityData.SegmentPath = "cvCallVolume"
+    cvCallVolume.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallVolume.EntityData.SegmentPath
     cvCallVolume.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallVolume.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallVolume.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -492,6 +496,7 @@ func (cvCallRateMonitor *CISCOVOICEDIALCONTROLMIB_CvCallRateMonitor) GetEntityDa
     cvCallRateMonitor.EntityData.BundleName = "cisco_ios_xe"
     cvCallRateMonitor.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallRateMonitor.EntityData.SegmentPath = "cvCallRateMonitor"
+    cvCallRateMonitor.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallRateMonitor.EntityData.SegmentPath
     cvCallRateMonitor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallRateMonitor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallRateMonitor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -532,6 +537,7 @@ func (cvCallVolumeStatsHistory *CISCOVOICEDIALCONTROLMIB_CvCallVolumeStatsHistor
     cvCallVolumeStatsHistory.EntityData.BundleName = "cisco_ios_xe"
     cvCallVolumeStatsHistory.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallVolumeStatsHistory.EntityData.SegmentPath = "cvCallVolumeStatsHistory"
+    cvCallVolumeStatsHistory.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallVolumeStatsHistory.EntityData.SegmentPath
     cvCallVolumeStatsHistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallVolumeStatsHistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallVolumeStatsHistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -591,6 +597,7 @@ func (cvPeerCfgTable *CISCOVOICEDIALCONTROLMIB_CvPeerCfgTable) GetEntityData() *
     cvPeerCfgTable.EntityData.BundleName = "cisco_ios_xe"
     cvPeerCfgTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvPeerCfgTable.EntityData.SegmentPath = "cvPeerCfgTable"
+    cvPeerCfgTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvPeerCfgTable.EntityData.SegmentPath
     cvPeerCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvPeerCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvPeerCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -651,6 +658,7 @@ func (cvPeerCfgTable *CISCOVOICEDIALCONTROLMIB_CvPeerCfgTable) GetEntityData() *
 type CISCOVOICEDIALCONTROLMIB_CvPeerCfgTable_CvPeerCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary index that uniquely identifies a
     // generic voice peer. The type is interface{} with range: 1..2147483647.
@@ -701,6 +709,7 @@ func (cvPeerCfgEntry *CISCOVOICEDIALCONTROLMIB_CvPeerCfgTable_CvPeerCfgEntry) Ge
     cvPeerCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     cvPeerCfgEntry.EntityData.ParentYangName = "cvPeerCfgTable"
     cvPeerCfgEntry.EntityData.SegmentPath = "cvPeerCfgEntry" + types.AddKeyToken(cvPeerCfgEntry.CvPeerCfgIndex, "cvPeerCfgIndex")
+    cvPeerCfgEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvPeerCfgTable/" + cvPeerCfgEntry.EntityData.SegmentPath
     cvPeerCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvPeerCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvPeerCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -767,6 +776,7 @@ func (cvVoicePeerCfgTable *CISCOVOICEDIALCONTROLMIB_CvVoicePeerCfgTable) GetEnti
     cvVoicePeerCfgTable.EntityData.BundleName = "cisco_ios_xe"
     cvVoicePeerCfgTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvVoicePeerCfgTable.EntityData.SegmentPath = "cvVoicePeerCfgTable"
+    cvVoicePeerCfgTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvVoicePeerCfgTable.EntityData.SegmentPath
     cvVoicePeerCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvVoicePeerCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvVoicePeerCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -793,6 +803,7 @@ func (cvVoicePeerCfgTable *CISCOVOICEDIALCONTROLMIB_CvVoicePeerCfgTable) GetEnti
 type CISCOVOICEDIALCONTROLMIB_CvVoicePeerCfgTable_CvVoicePeerCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -882,6 +893,7 @@ func (cvVoicePeerCfgEntry *CISCOVOICEDIALCONTROLMIB_CvVoicePeerCfgTable_CvVoiceP
     cvVoicePeerCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     cvVoicePeerCfgEntry.EntityData.ParentYangName = "cvVoicePeerCfgTable"
     cvVoicePeerCfgEntry.EntityData.SegmentPath = "cvVoicePeerCfgEntry" + types.AddKeyToken(cvVoicePeerCfgEntry.IfIndex, "ifIndex")
+    cvVoicePeerCfgEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoicePeerCfgTable/" + cvVoicePeerCfgEntry.EntityData.SegmentPath
     cvVoicePeerCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvVoicePeerCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvVoicePeerCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -956,6 +968,7 @@ func (cvVoIPPeerCfgTable *CISCOVOICEDIALCONTROLMIB_CvVoIPPeerCfgTable) GetEntity
     cvVoIPPeerCfgTable.EntityData.BundleName = "cisco_ios_xe"
     cvVoIPPeerCfgTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvVoIPPeerCfgTable.EntityData.SegmentPath = "cvVoIPPeerCfgTable"
+    cvVoIPPeerCfgTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvVoIPPeerCfgTable.EntityData.SegmentPath
     cvVoIPPeerCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvVoIPPeerCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvVoIPPeerCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -982,6 +995,7 @@ func (cvVoIPPeerCfgTable *CISCOVOICEDIALCONTROLMIB_CvVoIPPeerCfgTable) GetEntity
 type CISCOVOICEDIALCONTROLMIB_CvVoIPPeerCfgTable_CvVoIPPeerCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1211,6 +1225,7 @@ func (cvVoIPPeerCfgEntry *CISCOVOICEDIALCONTROLMIB_CvVoIPPeerCfgTable_CvVoIPPeer
     cvVoIPPeerCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     cvVoIPPeerCfgEntry.EntityData.ParentYangName = "cvVoIPPeerCfgTable"
     cvVoIPPeerCfgEntry.EntityData.SegmentPath = "cvVoIPPeerCfgEntry" + types.AddKeyToken(cvVoIPPeerCfgEntry.IfIndex, "ifIndex")
+    cvVoIPPeerCfgEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPPeerCfgTable/" + cvVoIPPeerCfgEntry.EntityData.SegmentPath
     cvVoIPPeerCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvVoIPPeerCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvVoIPPeerCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1308,6 +1323,7 @@ func (cvPeerCommonCfgTable *CISCOVOICEDIALCONTROLMIB_CvPeerCommonCfgTable) GetEn
     cvPeerCommonCfgTable.EntityData.BundleName = "cisco_ios_xe"
     cvPeerCommonCfgTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvPeerCommonCfgTable.EntityData.SegmentPath = "cvPeerCommonCfgTable"
+    cvPeerCommonCfgTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvPeerCommonCfgTable.EntityData.SegmentPath
     cvPeerCommonCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvPeerCommonCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvPeerCommonCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1334,6 +1350,7 @@ func (cvPeerCommonCfgTable *CISCOVOICEDIALCONTROLMIB_CvPeerCommonCfgTable) GetEn
 type CISCOVOICEDIALCONTROLMIB_CvPeerCommonCfgTable_CvPeerCommonCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1412,6 +1429,7 @@ func (cvPeerCommonCfgEntry *CISCOVOICEDIALCONTROLMIB_CvPeerCommonCfgTable_CvPeer
     cvPeerCommonCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     cvPeerCommonCfgEntry.EntityData.ParentYangName = "cvPeerCommonCfgTable"
     cvPeerCommonCfgEntry.EntityData.SegmentPath = "cvPeerCommonCfgEntry" + types.AddKeyToken(cvPeerCommonCfgEntry.IfIndex, "ifIndex")
+    cvPeerCommonCfgEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvPeerCommonCfgTable/" + cvPeerCommonCfgEntry.EntityData.SegmentPath
     cvPeerCommonCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvPeerCommonCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvPeerCommonCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1462,6 +1480,7 @@ func (cvCallActiveTable *CISCOVOICEDIALCONTROLMIB_CvCallActiveTable) GetEntityDa
     cvCallActiveTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallActiveTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallActiveTable.EntityData.SegmentPath = "cvCallActiveTable"
+    cvCallActiveTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallActiveTable.EntityData.SegmentPath
     cvCallActiveTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallActiveTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallActiveTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1493,6 +1512,7 @@ func (cvCallActiveTable *CISCOVOICEDIALCONTROLMIB_CvCallActiveTable) GetEntityDa
 type CISCOVOICEDIALCONTROLMIB_CvCallActiveTable_CvCallActiveEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1608,6 +1628,7 @@ func (cvCallActiveEntry *CISCOVOICEDIALCONTROLMIB_CvCallActiveTable_CvCallActive
     cvCallActiveEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallActiveEntry.EntityData.ParentYangName = "cvCallActiveTable"
     cvCallActiveEntry.EntityData.SegmentPath = "cvCallActiveEntry" + types.AddKeyToken(cvCallActiveEntry.CallActiveSetupTime, "callActiveSetupTime") + types.AddKeyToken(cvCallActiveEntry.CallActiveIndex, "callActiveIndex")
+    cvCallActiveEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallActiveTable/" + cvCallActiveEntry.EntityData.SegmentPath
     cvCallActiveEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallActiveEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallActiveEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1667,6 +1688,7 @@ func (cvVoIPCallActiveTable *CISCOVOICEDIALCONTROLMIB_CvVoIPCallActiveTable) Get
     cvVoIPCallActiveTable.EntityData.BundleName = "cisco_ios_xe"
     cvVoIPCallActiveTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvVoIPCallActiveTable.EntityData.SegmentPath = "cvVoIPCallActiveTable"
+    cvVoIPCallActiveTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvVoIPCallActiveTable.EntityData.SegmentPath
     cvVoIPCallActiveTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvVoIPCallActiveTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvVoIPCallActiveTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1698,6 +1720,7 @@ func (cvVoIPCallActiveTable *CISCOVOICEDIALCONTROLMIB_CvVoIPCallActiveTable) Get
 type CISCOVOICEDIALCONTROLMIB_CvVoIPCallActiveTable_CvVoIPCallActiveEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1971,6 +1994,7 @@ func (cvVoIPCallActiveEntry *CISCOVOICEDIALCONTROLMIB_CvVoIPCallActiveTable_CvVo
     cvVoIPCallActiveEntry.EntityData.BundleName = "cisco_ios_xe"
     cvVoIPCallActiveEntry.EntityData.ParentYangName = "cvVoIPCallActiveTable"
     cvVoIPCallActiveEntry.EntityData.SegmentPath = "cvVoIPCallActiveEntry" + types.AddKeyToken(cvVoIPCallActiveEntry.CallActiveSetupTime, "callActiveSetupTime") + types.AddKeyToken(cvVoIPCallActiveEntry.CallActiveIndex, "callActiveIndex")
+    cvVoIPCallActiveEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPCallActiveTable/" + cvVoIPCallActiveEntry.EntityData.SegmentPath
     cvVoIPCallActiveEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvVoIPCallActiveEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvVoIPCallActiveEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2051,6 +2075,7 @@ func (cvCallVolConnTable *CISCOVOICEDIALCONTROLMIB_CvCallVolConnTable) GetEntity
     cvCallVolConnTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallVolConnTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallVolConnTable.EntityData.SegmentPath = "cvCallVolConnTable"
+    cvCallVolConnTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallVolConnTable.EntityData.SegmentPath
     cvCallVolConnTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallVolConnTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallVolConnTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2074,6 +2099,7 @@ func (cvCallVolConnTable *CISCOVOICEDIALCONTROLMIB_CvCallVolConnTable) GetEntity
 type CISCOVOICEDIALCONTROLMIB_CvCallVolConnTable_CvCallVolConnEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object represents index to the
     // cvCallVolConnTable. The type is CvCallConnectionType.
@@ -2090,6 +2116,7 @@ func (cvCallVolConnEntry *CISCOVOICEDIALCONTROLMIB_CvCallVolConnTable_CvCallVolC
     cvCallVolConnEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallVolConnEntry.EntityData.ParentYangName = "cvCallVolConnTable"
     cvCallVolConnEntry.EntityData.SegmentPath = "cvCallVolConnEntry" + types.AddKeyToken(cvCallVolConnEntry.CvCallVolConnIndex, "cvCallVolConnIndex")
+    cvCallVolConnEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallVolConnTable/" + cvCallVolConnEntry.EntityData.SegmentPath
     cvCallVolConnEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallVolConnEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallVolConnEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2128,6 +2155,7 @@ func (cvCallVolIfTable *CISCOVOICEDIALCONTROLMIB_CvCallVolIfTable) GetEntityData
     cvCallVolIfTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallVolIfTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallVolIfTable.EntityData.SegmentPath = "cvCallVolIfTable"
+    cvCallVolIfTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallVolIfTable.EntityData.SegmentPath
     cvCallVolIfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallVolIfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallVolIfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2151,6 +2179,7 @@ func (cvCallVolIfTable *CISCOVOICEDIALCONTROLMIB_CvCallVolIfTable) GetEntityData
 type CISCOVOICEDIALCONTROLMIB_CvCallVolIfTable_CvCallVolIfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2171,6 +2200,7 @@ func (cvCallVolIfEntry *CISCOVOICEDIALCONTROLMIB_CvCallVolIfTable_CvCallVolIfEnt
     cvCallVolIfEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallVolIfEntry.EntityData.ParentYangName = "cvCallVolIfTable"
     cvCallVolIfEntry.EntityData.SegmentPath = "cvCallVolIfEntry" + types.AddKeyToken(cvCallVolIfEntry.IfIndex, "ifIndex")
+    cvCallVolIfEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallVolIfTable/" + cvCallVolIfEntry.EntityData.SegmentPath
     cvCallVolIfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallVolIfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallVolIfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2213,6 +2243,7 @@ func (cvCallHistoryTable *CISCOVOICEDIALCONTROLMIB_CvCallHistoryTable) GetEntity
     cvCallHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallHistoryTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallHistoryTable.EntityData.SegmentPath = "cvCallHistoryTable"
+    cvCallHistoryTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallHistoryTable.EntityData.SegmentPath
     cvCallHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2244,6 +2275,7 @@ func (cvCallHistoryTable *CISCOVOICEDIALCONTROLMIB_CvCallHistoryTable) GetEntity
 type CISCOVOICEDIALCONTROLMIB_CvCallHistoryTable_CvCallHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -2320,6 +2352,7 @@ func (cvCallHistoryEntry *CISCOVOICEDIALCONTROLMIB_CvCallHistoryTable_CvCallHist
     cvCallHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallHistoryEntry.EntityData.ParentYangName = "cvCallHistoryTable"
     cvCallHistoryEntry.EntityData.SegmentPath = "cvCallHistoryEntry" + types.AddKeyToken(cvCallHistoryEntry.CCallHistoryIndex, "cCallHistoryIndex")
+    cvCallHistoryEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallHistoryTable/" + cvCallHistoryEntry.EntityData.SegmentPath
     cvCallHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2373,6 +2406,7 @@ func (cvVoIPCallHistoryTable *CISCOVOICEDIALCONTROLMIB_CvVoIPCallHistoryTable) G
     cvVoIPCallHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     cvVoIPCallHistoryTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvVoIPCallHistoryTable.EntityData.SegmentPath = "cvVoIPCallHistoryTable"
+    cvVoIPCallHistoryTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvVoIPCallHistoryTable.EntityData.SegmentPath
     cvVoIPCallHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvVoIPCallHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvVoIPCallHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2404,6 +2438,7 @@ func (cvVoIPCallHistoryTable *CISCOVOICEDIALCONTROLMIB_CvVoIPCallHistoryTable) G
 type CISCOVOICEDIALCONTROLMIB_CvVoIPCallHistoryTable_CvVoIPCallHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -2688,6 +2723,7 @@ func (cvVoIPCallHistoryEntry *CISCOVOICEDIALCONTROLMIB_CvVoIPCallHistoryTable_Cv
     cvVoIPCallHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     cvVoIPCallHistoryEntry.EntityData.ParentYangName = "cvVoIPCallHistoryTable"
     cvVoIPCallHistoryEntry.EntityData.SegmentPath = "cvVoIPCallHistoryEntry" + types.AddKeyToken(cvVoIPCallHistoryEntry.CCallHistoryIndex, "cCallHistoryIndex")
+    cvVoIPCallHistoryEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvVoIPCallHistoryTable/" + cvVoIPCallHistoryEntry.EntityData.SegmentPath
     cvVoIPCallHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvVoIPCallHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvVoIPCallHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2773,6 +2809,7 @@ func (cvCallRateStatsTable *CISCOVOICEDIALCONTROLMIB_CvCallRateStatsTable) GetEn
     cvCallRateStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallRateStatsTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallRateStatsTable.EntityData.SegmentPath = "cvCallRateStatsTable"
+    cvCallRateStatsTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallRateStatsTable.EntityData.SegmentPath
     cvCallRateStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallRateStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallRateStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2796,6 +2833,7 @@ func (cvCallRateStatsTable *CISCOVOICEDIALCONTROLMIB_CvCallRateStatsTable) GetEn
 type CISCOVOICEDIALCONTROLMIB_CvCallRateStatsTable_CvCallRateStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in Call Rate Table to select
     // one among three interval-tables.  The different types in this table are
@@ -2826,6 +2864,7 @@ func (cvCallRateStatsEntry *CISCOVOICEDIALCONTROLMIB_CvCallRateStatsTable_CvCall
     cvCallRateStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallRateStatsEntry.EntityData.ParentYangName = "cvCallRateStatsTable"
     cvCallRateStatsEntry.EntityData.SegmentPath = "cvCallRateStatsEntry" + types.AddKeyToken(cvCallRateStatsEntry.CvCallRateStatsIntvlDurUnits, "cvCallRateStatsIntvlDurUnits") + types.AddKeyToken(cvCallRateStatsEntry.CvCallRateStatsIntvlDur, "cvCallRateStatsIntvlDur")
+    cvCallRateStatsEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallRateStatsTable/" + cvCallRateStatsEntry.EntityData.SegmentPath
     cvCallRateStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallRateStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallRateStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2865,6 +2904,7 @@ func (cvCallLegRateStatsTable *CISCOVOICEDIALCONTROLMIB_CvCallLegRateStatsTable)
     cvCallLegRateStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallLegRateStatsTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallLegRateStatsTable.EntityData.SegmentPath = "cvCallLegRateStatsTable"
+    cvCallLegRateStatsTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallLegRateStatsTable.EntityData.SegmentPath
     cvCallLegRateStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallLegRateStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallLegRateStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2888,6 +2928,7 @@ func (cvCallLegRateStatsTable *CISCOVOICEDIALCONTROLMIB_CvCallLegRateStatsTable)
 type CISCOVOICEDIALCONTROLMIB_CvCallLegRateStatsTable_CvCallLegRateStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in Call Leg Rate Table to
     // select one among three interval-tables.  The different types in this table
@@ -2918,6 +2959,7 @@ func (cvCallLegRateStatsEntry *CISCOVOICEDIALCONTROLMIB_CvCallLegRateStatsTable_
     cvCallLegRateStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallLegRateStatsEntry.EntityData.ParentYangName = "cvCallLegRateStatsTable"
     cvCallLegRateStatsEntry.EntityData.SegmentPath = "cvCallLegRateStatsEntry" + types.AddKeyToken(cvCallLegRateStatsEntry.CvCallLegRateStatsIntvlDurUnits, "cvCallLegRateStatsIntvlDurUnits") + types.AddKeyToken(cvCallLegRateStatsEntry.CvCallLegRateStatsIntvlDur, "cvCallLegRateStatsIntvlDur")
+    cvCallLegRateStatsEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallLegRateStatsTable/" + cvCallLegRateStatsEntry.EntityData.SegmentPath
     cvCallLegRateStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallLegRateStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallLegRateStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2958,6 +3000,7 @@ func (cvActiveCallStatsTable *CISCOVOICEDIALCONTROLMIB_CvActiveCallStatsTable) G
     cvActiveCallStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cvActiveCallStatsTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvActiveCallStatsTable.EntityData.SegmentPath = "cvActiveCallStatsTable"
+    cvActiveCallStatsTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvActiveCallStatsTable.EntityData.SegmentPath
     cvActiveCallStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvActiveCallStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvActiveCallStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2981,6 +3024,7 @@ func (cvActiveCallStatsTable *CISCOVOICEDIALCONTROLMIB_CvActiveCallStatsTable) G
 type CISCOVOICEDIALCONTROLMIB_CvActiveCallStatsTable_CvActiveCallStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in Active Call Rate Table
     // (con-current calls table) to select one among three interval-tables.  The
@@ -3011,6 +3055,7 @@ func (cvActiveCallStatsEntry *CISCOVOICEDIALCONTROLMIB_CvActiveCallStatsTable_Cv
     cvActiveCallStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cvActiveCallStatsEntry.EntityData.ParentYangName = "cvActiveCallStatsTable"
     cvActiveCallStatsEntry.EntityData.SegmentPath = "cvActiveCallStatsEntry" + types.AddKeyToken(cvActiveCallStatsEntry.CvActiveCallStatsIntvlDurUnits, "cvActiveCallStatsIntvlDurUnits") + types.AddKeyToken(cvActiveCallStatsEntry.CvActiveCallStatsIntvlDur, "cvActiveCallStatsIntvlDur")
+    cvActiveCallStatsEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvActiveCallStatsTable/" + cvActiveCallStatsEntry.EntityData.SegmentPath
     cvActiveCallStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvActiveCallStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvActiveCallStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3054,6 +3099,7 @@ func (cvCallDurationStatsTable *CISCOVOICEDIALCONTROLMIB_CvCallDurationStatsTabl
     cvCallDurationStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallDurationStatsTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallDurationStatsTable.EntityData.SegmentPath = "cvCallDurationStatsTable"
+    cvCallDurationStatsTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallDurationStatsTable.EntityData.SegmentPath
     cvCallDurationStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallDurationStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallDurationStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3077,6 +3123,7 @@ func (cvCallDurationStatsTable *CISCOVOICEDIALCONTROLMIB_CvCallDurationStatsTabl
 type CISCOVOICEDIALCONTROLMIB_CvCallDurationStatsTable_CvCallDurationStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in Call Duration Table to
     // select one among three interval-tables.  The different types in this table
@@ -3107,6 +3154,7 @@ func (cvCallDurationStatsEntry *CISCOVOICEDIALCONTROLMIB_CvCallDurationStatsTabl
     cvCallDurationStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallDurationStatsEntry.EntityData.ParentYangName = "cvCallDurationStatsTable"
     cvCallDurationStatsEntry.EntityData.SegmentPath = "cvCallDurationStatsEntry" + types.AddKeyToken(cvCallDurationStatsEntry.CvCallDurationStatsIntvlDurUnits, "cvCallDurationStatsIntvlDurUnits") + types.AddKeyToken(cvCallDurationStatsEntry.CvCallDurationStatsIntvlDur, "cvCallDurationStatsIntvlDur")
+    cvCallDurationStatsEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallDurationStatsTable/" + cvCallDurationStatsEntry.EntityData.SegmentPath
     cvCallDurationStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallDurationStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallDurationStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3147,6 +3195,7 @@ func (cvSipMsgRateStatsTable *CISCOVOICEDIALCONTROLMIB_CvSipMsgRateStatsTable) G
     cvSipMsgRateStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cvSipMsgRateStatsTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvSipMsgRateStatsTable.EntityData.SegmentPath = "cvSipMsgRateStatsTable"
+    cvSipMsgRateStatsTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvSipMsgRateStatsTable.EntityData.SegmentPath
     cvSipMsgRateStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvSipMsgRateStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvSipMsgRateStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3170,6 +3219,7 @@ func (cvSipMsgRateStatsTable *CISCOVOICEDIALCONTROLMIB_CvSipMsgRateStatsTable) G
 type CISCOVOICEDIALCONTROLMIB_CvSipMsgRateStatsTable_CvSipMsgRateStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in SIP Message Rate Table to
     // select one among three interval-tables.  The different types in this table
@@ -3200,6 +3250,7 @@ func (cvSipMsgRateStatsEntry *CISCOVOICEDIALCONTROLMIB_CvSipMsgRateStatsTable_Cv
     cvSipMsgRateStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cvSipMsgRateStatsEntry.EntityData.ParentYangName = "cvSipMsgRateStatsTable"
     cvSipMsgRateStatsEntry.EntityData.SegmentPath = "cvSipMsgRateStatsEntry" + types.AddKeyToken(cvSipMsgRateStatsEntry.CvSipMsgRateStatsIntvlDurUnits, "cvSipMsgRateStatsIntvlDurUnits") + types.AddKeyToken(cvSipMsgRateStatsEntry.CvSipMsgRateStatsIntvlDur, "cvSipMsgRateStatsIntvlDur")
+    cvSipMsgRateStatsEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvSipMsgRateStatsTable/" + cvSipMsgRateStatsEntry.EntityData.SegmentPath
     cvSipMsgRateStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvSipMsgRateStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvSipMsgRateStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3242,6 +3293,7 @@ func (cvCallRateWMTable *CISCOVOICEDIALCONTROLMIB_CvCallRateWMTable) GetEntityDa
     cvCallRateWMTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallRateWMTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallRateWMTable.EntityData.SegmentPath = "cvCallRateWMTable"
+    cvCallRateWMTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallRateWMTable.EntityData.SegmentPath
     cvCallRateWMTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallRateWMTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallRateWMTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3269,6 +3321,7 @@ func (cvCallRateWMTable *CISCOVOICEDIALCONTROLMIB_CvCallRateWMTable) GetEntityDa
 type CISCOVOICEDIALCONTROLMIB_CvCallRateWMTable_CvCallRateWMEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in call rate Water mark Table
     // to select one among four interval-tables.  The different types in this
@@ -3298,6 +3351,7 @@ func (cvCallRateWMEntry *CISCOVOICEDIALCONTROLMIB_CvCallRateWMTable_CvCallRateWM
     cvCallRateWMEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallRateWMEntry.EntityData.ParentYangName = "cvCallRateWMTable"
     cvCallRateWMEntry.EntityData.SegmentPath = "cvCallRateWMEntry" + types.AddKeyToken(cvCallRateWMEntry.CvCallRateWMIntvlDurUnits, "cvCallRateWMIntvlDurUnits") + types.AddKeyToken(cvCallRateWMEntry.CvCallRateWMIndex, "cvCallRateWMIndex")
+    cvCallRateWMEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallRateWMTable/" + cvCallRateWMEntry.EntityData.SegmentPath
     cvCallRateWMEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallRateWMEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallRateWMEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3340,6 +3394,7 @@ func (cvCallLegRateWMTable *CISCOVOICEDIALCONTROLMIB_CvCallLegRateWMTable) GetEn
     cvCallLegRateWMTable.EntityData.BundleName = "cisco_ios_xe"
     cvCallLegRateWMTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvCallLegRateWMTable.EntityData.SegmentPath = "cvCallLegRateWMTable"
+    cvCallLegRateWMTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvCallLegRateWMTable.EntityData.SegmentPath
     cvCallLegRateWMTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallLegRateWMTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallLegRateWMTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3367,6 +3422,7 @@ func (cvCallLegRateWMTable *CISCOVOICEDIALCONTROLMIB_CvCallLegRateWMTable) GetEn
 type CISCOVOICEDIALCONTROLMIB_CvCallLegRateWMTable_CvCallLegRateWMEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in call leg rate Water mark
     // Table to select one among four interval-tables.  The different types in
@@ -3396,6 +3452,7 @@ func (cvCallLegRateWMEntry *CISCOVOICEDIALCONTROLMIB_CvCallLegRateWMTable_CvCall
     cvCallLegRateWMEntry.EntityData.BundleName = "cisco_ios_xe"
     cvCallLegRateWMEntry.EntityData.ParentYangName = "cvCallLegRateWMTable"
     cvCallLegRateWMEntry.EntityData.SegmentPath = "cvCallLegRateWMEntry" + types.AddKeyToken(cvCallLegRateWMEntry.CvCallLegRateWMIntvlDurUnits, "cvCallLegRateWMIntvlDurUnits") + types.AddKeyToken(cvCallLegRateWMEntry.CvCallLegRateWMIndex, "cvCallLegRateWMIndex")
+    cvCallLegRateWMEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvCallLegRateWMTable/" + cvCallLegRateWMEntry.EntityData.SegmentPath
     cvCallLegRateWMEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvCallLegRateWMEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvCallLegRateWMEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3438,6 +3495,7 @@ func (cvActiveCallWMTable *CISCOVOICEDIALCONTROLMIB_CvActiveCallWMTable) GetEnti
     cvActiveCallWMTable.EntityData.BundleName = "cisco_ios_xe"
     cvActiveCallWMTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvActiveCallWMTable.EntityData.SegmentPath = "cvActiveCallWMTable"
+    cvActiveCallWMTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvActiveCallWMTable.EntityData.SegmentPath
     cvActiveCallWMTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvActiveCallWMTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvActiveCallWMTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3465,6 +3523,7 @@ func (cvActiveCallWMTable *CISCOVOICEDIALCONTROLMIB_CvActiveCallWMTable) GetEnti
 type CISCOVOICEDIALCONTROLMIB_CvActiveCallWMTable_CvActiveCallWMEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in active call Water mark Table
     // to select one among four interval-tables.  The different types in this
@@ -3494,6 +3553,7 @@ func (cvActiveCallWMEntry *CISCOVOICEDIALCONTROLMIB_CvActiveCallWMTable_CvActive
     cvActiveCallWMEntry.EntityData.BundleName = "cisco_ios_xe"
     cvActiveCallWMEntry.EntityData.ParentYangName = "cvActiveCallWMTable"
     cvActiveCallWMEntry.EntityData.SegmentPath = "cvActiveCallWMEntry" + types.AddKeyToken(cvActiveCallWMEntry.CvActiveCallWMIntvlDurUnits, "cvActiveCallWMIntvlDurUnits") + types.AddKeyToken(cvActiveCallWMEntry.CvActiveCallWMIndex, "cvActiveCallWMIndex")
+    cvActiveCallWMEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvActiveCallWMTable/" + cvActiveCallWMEntry.EntityData.SegmentPath
     cvActiveCallWMEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvActiveCallWMEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvActiveCallWMEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3536,6 +3596,7 @@ func (cvSipMsgRateWMTable *CISCOVOICEDIALCONTROLMIB_CvSipMsgRateWMTable) GetEnti
     cvSipMsgRateWMTable.EntityData.BundleName = "cisco_ios_xe"
     cvSipMsgRateWMTable.EntityData.ParentYangName = "CISCO-VOICE-DIAL-CONTROL-MIB"
     cvSipMsgRateWMTable.EntityData.SegmentPath = "cvSipMsgRateWMTable"
+    cvSipMsgRateWMTable.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/" + cvSipMsgRateWMTable.EntityData.SegmentPath
     cvSipMsgRateWMTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvSipMsgRateWMTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvSipMsgRateWMTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3563,6 +3624,7 @@ func (cvSipMsgRateWMTable *CISCOVOICEDIALCONTROLMIB_CvSipMsgRateWMTable) GetEnti
 type CISCOVOICEDIALCONTROLMIB_CvSipMsgRateWMTable_CvSipMsgRateWMEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Object indexes in SIP Message rate Water mark
     // Table to select one among four interval-tables.  The different types in
@@ -3592,6 +3654,7 @@ func (cvSipMsgRateWMEntry *CISCOVOICEDIALCONTROLMIB_CvSipMsgRateWMTable_CvSipMsg
     cvSipMsgRateWMEntry.EntityData.BundleName = "cisco_ios_xe"
     cvSipMsgRateWMEntry.EntityData.ParentYangName = "cvSipMsgRateWMTable"
     cvSipMsgRateWMEntry.EntityData.SegmentPath = "cvSipMsgRateWMEntry" + types.AddKeyToken(cvSipMsgRateWMEntry.CvSipMsgRateWMIntvlDurUnits, "cvSipMsgRateWMIntvlDurUnits") + types.AddKeyToken(cvSipMsgRateWMEntry.CvSipMsgRateWMIndex, "cvSipMsgRateWMIndex")
+    cvSipMsgRateWMEntry.EntityData.AbsolutePath = "CISCO-VOICE-DIAL-CONTROL-MIB:CISCO-VOICE-DIAL-CONTROL-MIB/cvSipMsgRateWMTable/" + cvSipMsgRateWMEntry.EntityData.SegmentPath
     cvSipMsgRateWMEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cvSipMsgRateWMEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cvSipMsgRateWMEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

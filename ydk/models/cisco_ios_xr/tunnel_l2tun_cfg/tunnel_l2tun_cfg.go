@@ -65,6 +65,7 @@ func (l2tp *L2tp) GetEntityData() *types.CommonEntityData {
     l2tp.EntityData.BundleName = "cisco_ios_xr"
     l2tp.EntityData.ParentYangName = "Cisco-IOS-XR-tunnel-l2tun-cfg"
     l2tp.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp"
+    l2tp.EntityData.AbsolutePath = l2tp.EntityData.SegmentPath
     l2tp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -95,6 +96,7 @@ func (classes *L2tp_Classes) GetEntityData() *types.CommonEntityData {
     classes.EntityData.BundleName = "cisco_ios_xr"
     classes.EntityData.ParentYangName = "l2tp"
     classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -116,6 +118,7 @@ func (classes *L2tp_Classes) GetEntityData() *types.CommonEntityData {
 type L2tp_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify the class name. Regexp:
     // ^[a-z0-9A-Z][-_.a-z0-9A-Z]*$. The type is string with length: 1..31.
@@ -179,6 +182,7 @@ func (class *L2tp_Classes_Class) GetEntityData() *types.CommonEntityData {
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -223,6 +227,7 @@ func (security *L2tp_Classes_Class_Security) GetEntityData() *types.CommonEntity
     security.EntityData.BundleName = "cisco_ios_xr"
     security.EntityData.ParentYangName = "class"
     security.EntityData.SegmentPath = "security"
+    security.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/" + security.EntityData.SegmentPath
     security.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     security.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     security.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -252,6 +257,7 @@ func (ip *L2tp_Classes_Class_Security_Ip) GetEntityData() *types.CommonEntityDat
     ip.EntityData.BundleName = "cisco_ios_xr"
     ip.EntityData.ParentYangName = "security"
     ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/security/" + ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -288,6 +294,7 @@ func (retransmit *L2tp_Classes_Class_Retransmit) GetEntityData() *types.CommonEn
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "class"
     retransmit.EntityData.SegmentPath = "retransmit"
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -322,6 +329,7 @@ func (initial *L2tp_Classes_Class_Retransmit_Initial) GetEntityData() *types.Com
     initial.EntityData.BundleName = "cisco_ios_xr"
     initial.EntityData.ParentYangName = "retransmit"
     initial.EntityData.SegmentPath = "initial"
+    initial.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/retransmit/" + initial.EntityData.SegmentPath
     initial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     initial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     initial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -355,6 +363,7 @@ func (timeout *L2tp_Classes_Class_Retransmit_Initial_Timeout) GetEntityData() *t
     timeout.EntityData.BundleName = "cisco_ios_xr"
     timeout.EntityData.ParentYangName = "initial"
     timeout.EntityData.SegmentPath = "timeout"
+    timeout.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/retransmit/initial/" + timeout.EntityData.SegmentPath
     timeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -388,6 +397,7 @@ func (timeout *L2tp_Classes_Class_Retransmit_Timeout) GetEntityData() *types.Com
     timeout.EntityData.BundleName = "cisco_ios_xr"
     timeout.EntityData.ParentYangName = "retransmit"
     timeout.EntityData.SegmentPath = "timeout"
+    timeout.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/retransmit/" + timeout.EntityData.SegmentPath
     timeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -418,6 +428,7 @@ func (tunnel *L2tp_Classes_Class_Tunnel) GetEntityData() *types.CommonEntityData
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "class"
     tunnel.EntityData.SegmentPath = "tunnel"
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -454,6 +465,7 @@ func (digest *L2tp_Classes_Class_Digest) GetEntityData() *types.CommonEntityData
     digest.EntityData.BundleName = "cisco_ios_xr"
     digest.EntityData.ParentYangName = "class"
     digest.EntityData.SegmentPath = "digest"
+    digest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/" + digest.EntityData.SegmentPath
     digest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     digest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     digest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -486,6 +498,7 @@ func (secrets *L2tp_Classes_Class_Digest_Secrets) GetEntityData() *types.CommonE
     secrets.EntityData.BundleName = "cisco_ios_xr"
     secrets.EntityData.ParentYangName = "digest"
     secrets.EntityData.SegmentPath = "secrets"
+    secrets.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/digest/" + secrets.EntityData.SegmentPath
     secrets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secrets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secrets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -507,6 +520,7 @@ func (secrets *L2tp_Classes_Class_Digest_Secrets) GetEntityData() *types.CommonE
 type L2tp_Classes_Class_Digest_Secrets_Secret struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify the encrypted user secret. The type is
     // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -523,6 +537,7 @@ func (secret *L2tp_Classes_Class_Digest_Secrets_Secret) GetEntityData() *types.C
     secret.EntityData.BundleName = "cisco_ios_xr"
     secret.EntityData.ParentYangName = "secrets"
     secret.EntityData.SegmentPath = "secret" + types.AddKeyToken(secret.SecretName, "secret-name")
+    secret.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/digest/secrets/" + secret.EntityData.SegmentPath
     secret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -553,6 +568,7 @@ func (ip *L2tp_Classes_Class_Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.BundleName = "cisco_ios_xr"
     ip.EntityData.ParentYangName = "class"
     ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/class/" + ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

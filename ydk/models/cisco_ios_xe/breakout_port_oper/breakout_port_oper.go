@@ -45,6 +45,7 @@ func (breakoutPortOperData *BreakoutPortOperData) GetEntityData() *types.CommonE
     breakoutPortOperData.EntityData.BundleName = "cisco_ios_xe"
     breakoutPortOperData.EntityData.ParentYangName = "Cisco-IOS-XE-breakout-port-oper"
     breakoutPortOperData.EntityData.SegmentPath = "Cisco-IOS-XE-breakout-port-oper:breakout-port-oper-data"
+    breakoutPortOperData.EntityData.AbsolutePath = breakoutPortOperData.EntityData.SegmentPath
     breakoutPortOperData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     breakoutPortOperData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     breakoutPortOperData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -66,6 +67,7 @@ func (breakoutPortOperData *BreakoutPortOperData) GetEntityData() *types.CommonE
 type BreakoutPortOperData_PortBreakout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the breakout port. The type is string.
     Name interface{}
@@ -84,6 +86,7 @@ func (portBreakout *BreakoutPortOperData_PortBreakout) GetEntityData() *types.Co
     portBreakout.EntityData.BundleName = "cisco_ios_xe"
     portBreakout.EntityData.ParentYangName = "breakout-port-oper-data"
     portBreakout.EntityData.SegmentPath = "port-breakout" + types.AddKeyToken(portBreakout.Name, "name")
+    portBreakout.EntityData.AbsolutePath = "Cisco-IOS-XE-breakout-port-oper:breakout-port-oper-data/" + portBreakout.EntityData.SegmentPath
     portBreakout.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     portBreakout.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portBreakout.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

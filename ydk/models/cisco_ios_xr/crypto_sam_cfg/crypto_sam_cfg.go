@@ -51,6 +51,7 @@ func (sam *Sam) GetEntityData() *types.CommonEntityData {
     sam.EntityData.BundleName = "cisco_ios_xr"
     sam.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-sam-cfg"
     sam.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-sam-cfg:sam"
+    sam.EntityData.AbsolutePath = sam.EntityData.SegmentPath
     sam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -87,6 +88,7 @@ func (promptInterval *Sam_PromptInterval) GetEntityData() *types.CommonEntityDat
     promptInterval.EntityData.BundleName = "cisco_ios_xr"
     promptInterval.EntityData.ParentYangName = "sam"
     promptInterval.EntityData.SegmentPath = "prompt-interval"
+    promptInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-sam-cfg:sam/" + promptInterval.EntityData.SegmentPath
     promptInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     promptInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     promptInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -92,6 +92,7 @@ func (bgpStateData *BgpStateData) GetEntityData() *types.CommonEntityData {
     bgpStateData.EntityData.BundleName = "cisco_ios_xe"
     bgpStateData.EntityData.ParentYangName = "Cisco-IOS-XE-bgp-oper"
     bgpStateData.EntityData.SegmentPath = "Cisco-IOS-XE-bgp-oper:bgp-state-data"
+    bgpStateData.EntityData.AbsolutePath = bgpStateData.EntityData.SegmentPath
     bgpStateData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpStateData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpStateData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -125,6 +126,7 @@ func (neighbors *BgpStateData_Neighbors) GetEntityData() *types.CommonEntityData
     neighbors.EntityData.BundleName = "cisco_ios_xe"
     neighbors.EntityData.ParentYangName = "bgp-state-data"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -146,6 +148,7 @@ func (neighbors *BgpStateData_Neighbors) GetEntityData() *types.CommonEntityData
 type BgpStateData_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Afi-safi key. The type is AfiSafi.
     AfiSafi interface{}
@@ -212,6 +215,7 @@ func (neighbor *BgpStateData_Neighbors_Neighbor) GetEntityData() *types.CommonEn
     neighbor.EntityData.BundleName = "cisco_ios_xe"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.AfiSafi, "afi-safi") + types.AddKeyToken(neighbor.VrfName, "vrf-name") + types.AddKeyToken(neighbor.NeighborId, "neighbor-id")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -261,6 +265,7 @@ func (negotiatedKeepaliveTimers *BgpStateData_Neighbors_Neighbor_NegotiatedKeepa
     negotiatedKeepaliveTimers.EntityData.BundleName = "cisco_ios_xe"
     negotiatedKeepaliveTimers.EntityData.ParentYangName = "neighbor"
     negotiatedKeepaliveTimers.EntityData.SegmentPath = "negotiated-keepalive-timers"
+    negotiatedKeepaliveTimers.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/" + negotiatedKeepaliveTimers.EntityData.SegmentPath
     negotiatedKeepaliveTimers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     negotiatedKeepaliveTimers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     negotiatedKeepaliveTimers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -300,6 +305,7 @@ func (bgpNeighborCounters *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters) 
     bgpNeighborCounters.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborCounters.EntityData.ParentYangName = "neighbor"
     bgpNeighborCounters.EntityData.SegmentPath = "bgp-neighbor-counters"
+    bgpNeighborCounters.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/" + bgpNeighborCounters.EntityData.SegmentPath
     bgpNeighborCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -346,6 +352,7 @@ func (sent *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Sent) GetEntityD
     sent.EntityData.BundleName = "cisco_ios_xe"
     sent.EntityData.ParentYangName = "bgp-neighbor-counters"
     sent.EntityData.SegmentPath = "sent"
+    sent.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/bgp-neighbor-counters/" + sent.EntityData.SegmentPath
     sent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -393,6 +400,7 @@ func (received *BgpStateData_Neighbors_Neighbor_BgpNeighborCounters_Received) Ge
     received.EntityData.BundleName = "cisco_ios_xe"
     received.EntityData.ParentYangName = "bgp-neighbor-counters"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/bgp-neighbor-counters/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -443,6 +451,7 @@ func (connection *BgpStateData_Neighbors_Neighbor_Connection) GetEntityData() *t
     connection.EntityData.BundleName = "cisco_ios_xe"
     connection.EntityData.ParentYangName = "neighbor"
     connection.EntityData.SegmentPath = "connection"
+    connection.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/" + connection.EntityData.SegmentPath
     connection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     connection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     connection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -503,6 +512,7 @@ func (transport *BgpStateData_Neighbors_Neighbor_Transport) GetEntityData() *typ
     transport.EntityData.BundleName = "cisco_ios_xe"
     transport.EntityData.ParentYangName = "neighbor"
     transport.EntityData.SegmentPath = "transport"
+    transport.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/" + transport.EntityData.SegmentPath
     transport.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     transport.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     transport.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -540,6 +550,7 @@ func (prefixActivity *BgpStateData_Neighbors_Neighbor_PrefixActivity) GetEntityD
     prefixActivity.EntityData.BundleName = "cisco_ios_xe"
     prefixActivity.EntityData.ParentYangName = "neighbor"
     prefixActivity.EntityData.SegmentPath = "prefix-activity"
+    prefixActivity.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/" + prefixActivity.EntityData.SegmentPath
     prefixActivity.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefixActivity.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefixActivity.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -591,6 +602,7 @@ func (sent *BgpStateData_Neighbors_Neighbor_PrefixActivity_Sent) GetEntityData()
     sent.EntityData.BundleName = "cisco_ios_xe"
     sent.EntityData.ParentYangName = "prefix-activity"
     sent.EntityData.SegmentPath = "sent"
+    sent.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/prefix-activity/" + sent.EntityData.SegmentPath
     sent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -646,6 +658,7 @@ func (received *BgpStateData_Neighbors_Neighbor_PrefixActivity_Received) GetEnti
     received.EntityData.BundleName = "cisco_ios_xe"
     received.EntityData.ParentYangName = "prefix-activity"
     received.EntityData.SegmentPath = "received"
+    received.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/neighbors/neighbor/prefix-activity/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -681,6 +694,7 @@ func (addressFamilies *BgpStateData_AddressFamilies) GetEntityData() *types.Comm
     addressFamilies.EntityData.BundleName = "cisco_ios_xe"
     addressFamilies.EntityData.ParentYangName = "bgp-state-data"
     addressFamilies.EntityData.SegmentPath = "address-families"
+    addressFamilies.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/" + addressFamilies.EntityData.SegmentPath
     addressFamilies.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressFamilies.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressFamilies.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -702,6 +716,7 @@ func (addressFamilies *BgpStateData_AddressFamilies) GetEntityData() *types.Comm
 type BgpStateData_AddressFamilies_AddressFamily struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Afi-safi value. The type is AfiSafi.
     AfiSafi interface{}
@@ -758,6 +773,7 @@ func (addressFamily *BgpStateData_AddressFamilies_AddressFamily) GetEntityData()
     addressFamily.EntityData.BundleName = "cisco_ios_xe"
     addressFamily.EntityData.ParentYangName = "address-families"
     addressFamily.EntityData.SegmentPath = "address-family" + types.AddKeyToken(addressFamily.AfiSafi, "afi-safi") + types.AddKeyToken(addressFamily.VrfName, "vrf-name")
+    addressFamily.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/" + addressFamily.EntityData.SegmentPath
     addressFamily.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressFamily.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -805,6 +821,7 @@ func (prefixes *BgpStateData_AddressFamilies_AddressFamily_Prefixes) GetEntityDa
     prefixes.EntityData.BundleName = "cisco_ios_xe"
     prefixes.EntityData.ParentYangName = "address-family"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/address-family/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     prefixes.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -840,6 +857,7 @@ func (path *BgpStateData_AddressFamilies_AddressFamily_Path) GetEntityData() *ty
     path.EntityData.BundleName = "cisco_ios_xe"
     path.EntityData.ParentYangName = "address-family"
     path.EntityData.SegmentPath = "path"
+    path.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/address-family/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -875,6 +893,7 @@ func (asPath *BgpStateData_AddressFamilies_AddressFamily_AsPath) GetEntityData()
     asPath.EntityData.BundleName = "cisco_ios_xe"
     asPath.EntityData.ParentYangName = "address-family"
     asPath.EntityData.SegmentPath = "as-path"
+    asPath.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/address-family/" + asPath.EntityData.SegmentPath
     asPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     asPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     asPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -910,6 +929,7 @@ func (routeMap *BgpStateData_AddressFamilies_AddressFamily_RouteMap) GetEntityDa
     routeMap.EntityData.BundleName = "cisco_ios_xe"
     routeMap.EntityData.ParentYangName = "address-family"
     routeMap.EntityData.SegmentPath = "route-map"
+    routeMap.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/address-family/" + routeMap.EntityData.SegmentPath
     routeMap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     routeMap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     routeMap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -945,6 +965,7 @@ func (filterList *BgpStateData_AddressFamilies_AddressFamily_FilterList) GetEnti
     filterList.EntityData.BundleName = "cisco_ios_xe"
     filterList.EntityData.ParentYangName = "address-family"
     filterList.EntityData.SegmentPath = "filter-list"
+    filterList.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/address-family/" + filterList.EntityData.SegmentPath
     filterList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     filterList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     filterList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -983,6 +1004,7 @@ func (activities *BgpStateData_AddressFamilies_AddressFamily_Activities) GetEnti
     activities.EntityData.BundleName = "cisco_ios_xe"
     activities.EntityData.ParentYangName = "address-family"
     activities.EntityData.SegmentPath = "activities"
+    activities.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/address-family/" + activities.EntityData.SegmentPath
     activities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     activities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     activities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1015,6 +1037,7 @@ func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighb
     bgpNeighborSummaries.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborSummaries.EntityData.ParentYangName = "address-family"
     bgpNeighborSummaries.EntityData.SegmentPath = "bgp-neighbor-summaries"
+    bgpNeighborSummaries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/address-family/" + bgpNeighborSummaries.EntityData.SegmentPath
     bgpNeighborSummaries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborSummaries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1036,6 +1059,7 @@ func (bgpNeighborSummaries *BgpStateData_AddressFamilies_AddressFamily_BgpNeighb
 type BgpStateData_AddressFamilies_AddressFamily_BgpNeighborSummaries_BgpNeighborSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor address. The type is string.
     Id interface{}
@@ -1087,6 +1111,7 @@ func (bgpNeighborSummary *BgpStateData_AddressFamilies_AddressFamily_BgpNeighbor
     bgpNeighborSummary.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborSummary.EntityData.ParentYangName = "bgp-neighbor-summaries"
     bgpNeighborSummary.EntityData.SegmentPath = "bgp-neighbor-summary" + types.AddKeyToken(bgpNeighborSummary.Id, "id")
+    bgpNeighborSummary.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/address-families/address-family/bgp-neighbor-summaries/" + bgpNeighborSummary.EntityData.SegmentPath
     bgpNeighborSummary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborSummary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborSummary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1128,6 +1153,7 @@ func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetEntityData() *types.CommonEnti
     bgpRouteVrfs.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteVrfs.EntityData.ParentYangName = "bgp-state-data"
     bgpRouteVrfs.EntityData.SegmentPath = "bgp-route-vrfs"
+    bgpRouteVrfs.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/" + bgpRouteVrfs.EntityData.SegmentPath
     bgpRouteVrfs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteVrfs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1149,6 +1175,7 @@ func (bgpRouteVrfs *BgpStateData_BgpRouteVrfs) GetEntityData() *types.CommonEnti
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP vrf. The type is string.
     Vrf interface{}
@@ -1163,6 +1190,7 @@ func (bgpRouteVrf *BgpStateData_BgpRouteVrfs_BgpRouteVrf) GetEntityData() *types
     bgpRouteVrf.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteVrf.EntityData.ParentYangName = "bgp-route-vrfs"
     bgpRouteVrf.EntityData.SegmentPath = "bgp-route-vrf" + types.AddKeyToken(bgpRouteVrf.Vrf, "vrf")
+    bgpRouteVrf.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/" + bgpRouteVrf.EntityData.SegmentPath
     bgpRouteVrf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteVrf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteVrf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1194,6 +1222,7 @@ func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetEntityD
     bgpRouteAfs.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteAfs.EntityData.ParentYangName = "bgp-route-vrf"
     bgpRouteAfs.EntityData.SegmentPath = "bgp-route-afs"
+    bgpRouteAfs.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/" + bgpRouteAfs.EntityData.SegmentPath
     bgpRouteAfs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteAfs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteAfs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1215,6 +1244,7 @@ func (bgpRouteAfs *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs) GetEntityD
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP address family. The type is AfiSafi.
     AfiSafi interface{}
@@ -1235,6 +1265,7 @@ func (bgpRouteAf *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf) 
     bgpRouteAf.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteAf.EntityData.ParentYangName = "bgp-route-afs"
     bgpRouteAf.EntityData.SegmentPath = "bgp-route-af" + types.AddKeyToken(bgpRouteAf.AfiSafi, "afi-safi")
+    bgpRouteAf.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/" + bgpRouteAf.EntityData.SegmentPath
     bgpRouteAf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteAf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteAf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1268,6 +1299,7 @@ func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRout
     bgpRouteFilters.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteFilters.EntityData.ParentYangName = "bgp-route-af"
     bgpRouteFilters.EntityData.SegmentPath = "bgp-route-filters"
+    bgpRouteFilters.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/" + bgpRouteFilters.EntityData.SegmentPath
     bgpRouteFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1289,6 +1321,7 @@ func (bgpRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRout
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP route filter. The type is BgpRouteFilters.
     RouteFilter interface{}
@@ -1303,6 +1336,7 @@ func (bgpRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRoute
     bgpRouteFilter.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteFilter.EntityData.ParentYangName = "bgp-route-filters"
     bgpRouteFilter.EntityData.SegmentPath = "bgp-route-filter" + types.AddKeyToken(bgpRouteFilter.RouteFilter, "route-filter")
+    bgpRouteFilter.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-filters/" + bgpRouteFilter.EntityData.SegmentPath
     bgpRouteFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1334,6 +1368,7 @@ func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRout
     bgpRouteEntries.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteEntries.EntityData.ParentYangName = "bgp-route-filter"
     bgpRouteEntries.EntityData.SegmentPath = "bgp-route-entries"
+    bgpRouteEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-filters/bgp-route-filter/" + bgpRouteEntries.EntityData.SegmentPath
     bgpRouteEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1355,6 +1390,7 @@ func (bgpRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRout
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Routing table entry prefix. The type is string.
     Prefix interface{}
@@ -1379,6 +1415,7 @@ func (bgpRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteA
     bgpRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteEntry.EntityData.ParentYangName = "bgp-route-entries"
     bgpRouteEntry.EntityData.SegmentPath = "bgp-route-entry" + types.AddKeyToken(bgpRouteEntry.Prefix, "prefix")
+    bgpRouteEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-filters/bgp-route-filter/bgp-route-entries/" + bgpRouteEntry.EntityData.SegmentPath
     bgpRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1413,6 +1450,7 @@ func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRoute
     bgpPathEntries.EntityData.BundleName = "cisco_ios_xe"
     bgpPathEntries.EntityData.ParentYangName = "bgp-route-entry"
     bgpPathEntries.EntityData.SegmentPath = "bgp-path-entries"
+    bgpPathEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-filters/bgp-route-filter/bgp-route-entries/bgp-route-entry/" + bgpPathEntries.EntityData.SegmentPath
     bgpPathEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpPathEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpPathEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1434,6 +1472,7 @@ func (bgpPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRoute
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteFilters_BgpRouteFilter_BgpRouteEntries_BgpRouteEntry_BgpPathEntries_BgpPathEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop for this path. The type is string.
     Nexthop interface{}
@@ -1525,6 +1564,7 @@ func (bgpPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf
     bgpPathEntry.EntityData.BundleName = "cisco_ios_xe"
     bgpPathEntry.EntityData.ParentYangName = "bgp-path-entries"
     bgpPathEntry.EntityData.SegmentPath = "bgp-path-entry" + types.AddKeyToken(bgpPathEntry.Nexthop, "nexthop")
+    bgpPathEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-filters/bgp-route-filter/bgp-route-entries/bgp-route-entry/bgp-path-entries/" + bgpPathEntry.EntityData.SegmentPath
     bgpPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1619,6 +1659,7 @@ func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_B
     pathStatus.EntityData.BundleName = "cisco_ios_xe"
     pathStatus.EntityData.ParentYangName = "bgp-path-entry"
     pathStatus.EntityData.SegmentPath = "path-status"
+    pathStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-filters/bgp-route-filter/bgp-route-entries/bgp-route-entry/bgp-path-entries/bgp-path-entry/" + pathStatus.EntityData.SegmentPath
     pathStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pathStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1663,6 +1704,7 @@ func (bgpRouteNeighbors *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRo
     bgpRouteNeighbors.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteNeighbors.EntityData.ParentYangName = "bgp-route-af"
     bgpRouteNeighbors.EntityData.SegmentPath = "bgp-route-neighbors"
+    bgpRouteNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/" + bgpRouteNeighbors.EntityData.SegmentPath
     bgpRouteNeighbors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteNeighbors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1684,6 +1726,7 @@ func (bgpRouteNeighbors *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRo
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP neighbor ID. The type is string.
     NbrId interface{}
@@ -1698,6 +1741,7 @@ func (bgpRouteNeighbor *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRou
     bgpRouteNeighbor.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteNeighbor.EntityData.ParentYangName = "bgp-route-neighbors"
     bgpRouteNeighbor.EntityData.SegmentPath = "bgp-route-neighbor" + types.AddKeyToken(bgpRouteNeighbor.NbrId, "nbr-id")
+    bgpRouteNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-neighbors/" + bgpRouteNeighbor.EntityData.SegmentPath
     bgpRouteNeighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteNeighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1729,6 +1773,7 @@ func (bgpNeighborRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs
     bgpNeighborRouteFilters.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborRouteFilters.EntityData.ParentYangName = "bgp-route-neighbor"
     bgpNeighborRouteFilters.EntityData.SegmentPath = "bgp-neighbor-route-filters"
+    bgpNeighborRouteFilters.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-neighbors/bgp-route-neighbor/" + bgpNeighborRouteFilters.EntityData.SegmentPath
     bgpNeighborRouteFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborRouteFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborRouteFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1750,6 +1795,7 @@ func (bgpNeighborRouteFilters *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP neighbor route filter. The type is
     // BgpNeighborRouteFilters.
@@ -1765,6 +1811,7 @@ func (bgpNeighborRouteFilter *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_
     bgpNeighborRouteFilter.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborRouteFilter.EntityData.ParentYangName = "bgp-neighbor-route-filters"
     bgpNeighborRouteFilter.EntityData.SegmentPath = "bgp-neighbor-route-filter" + types.AddKeyToken(bgpNeighborRouteFilter.NbrFltr, "nbr-fltr")
+    bgpNeighborRouteFilter.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-neighbors/bgp-route-neighbor/bgp-neighbor-route-filters/" + bgpNeighborRouteFilter.EntityData.SegmentPath
     bgpNeighborRouteFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborRouteFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborRouteFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1796,6 +1843,7 @@ func (bgpNeighborRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs
     bgpNeighborRouteEntries.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborRouteEntries.EntityData.ParentYangName = "bgp-neighbor-route-filter"
     bgpNeighborRouteEntries.EntityData.SegmentPath = "bgp-neighbor-route-entries"
+    bgpNeighborRouteEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-neighbors/bgp-route-neighbor/bgp-neighbor-route-filters/bgp-neighbor-route-filter/" + bgpNeighborRouteEntries.EntityData.SegmentPath
     bgpNeighborRouteEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborRouteEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborRouteEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1817,6 +1865,7 @@ func (bgpNeighborRouteEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor routing table entry prefix. The type is
     // string.
@@ -1843,6 +1892,7 @@ func (bgpNeighborRouteEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_B
     bgpNeighborRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborRouteEntry.EntityData.ParentYangName = "bgp-neighbor-route-entries"
     bgpNeighborRouteEntry.EntityData.SegmentPath = "bgp-neighbor-route-entry" + types.AddKeyToken(bgpNeighborRouteEntry.Prefix, "prefix")
+    bgpNeighborRouteEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-neighbors/bgp-route-neighbor/bgp-neighbor-route-filters/bgp-neighbor-route-filter/bgp-neighbor-route-entries/" + bgpNeighborRouteEntry.EntityData.SegmentPath
     bgpNeighborRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1877,6 +1927,7 @@ func (bgpNeighborPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_
     bgpNeighborPathEntries.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborPathEntries.EntityData.ParentYangName = "bgp-neighbor-route-entry"
     bgpNeighborPathEntries.EntityData.SegmentPath = "bgp-neighbor-path-entries"
+    bgpNeighborPathEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-neighbors/bgp-route-neighbor/bgp-neighbor-route-filters/bgp-neighbor-route-filter/bgp-neighbor-route-entries/bgp-neighbor-route-entry/" + bgpNeighborPathEntries.EntityData.SegmentPath
     bgpNeighborPathEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborPathEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborPathEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1898,6 +1949,7 @@ func (bgpNeighborPathEntries *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpRouteNeighbors_BgpRouteNeighbor_BgpNeighborRouteFilters_BgpNeighborRouteFilter_BgpNeighborRouteEntries_BgpNeighborRouteEntry_BgpNeighborPathEntries_BgpNeighborPathEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop for this path. The type is string.
     Nexthop interface{}
@@ -1989,6 +2041,7 @@ func (bgpNeighborPathEntry *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_Bg
     bgpNeighborPathEntry.EntityData.BundleName = "cisco_ios_xe"
     bgpNeighborPathEntry.EntityData.ParentYangName = "bgp-neighbor-path-entries"
     bgpNeighborPathEntry.EntityData.SegmentPath = "bgp-neighbor-path-entry" + types.AddKeyToken(bgpNeighborPathEntry.Nexthop, "nexthop")
+    bgpNeighborPathEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-neighbors/bgp-route-neighbor/bgp-neighbor-route-filters/bgp-neighbor-route-filter/bgp-neighbor-route-entries/bgp-neighbor-route-entry/bgp-neighbor-path-entries/" + bgpNeighborPathEntry.EntityData.SegmentPath
     bgpNeighborPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpNeighborPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpNeighborPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2083,6 +2136,7 @@ func (pathStatus *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_B
     pathStatus.EntityData.BundleName = "cisco_ios_xe"
     pathStatus.EntityData.ParentYangName = "bgp-neighbor-path-entry"
     pathStatus.EntityData.SegmentPath = "path-status"
+    pathStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-route-neighbors/bgp-route-neighbor/bgp-neighbor-route-filters/bgp-neighbor-route-filter/bgp-neighbor-route-entries/bgp-neighbor-route-entry/bgp-neighbor-path-entries/bgp-neighbor-path-entry/" + pathStatus.EntityData.SegmentPath
     pathStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pathStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2127,6 +2181,7 @@ func (bgpPeerGroups *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteA
     bgpPeerGroups.EntityData.BundleName = "cisco_ios_xe"
     bgpPeerGroups.EntityData.ParentYangName = "bgp-route-af"
     bgpPeerGroups.EntityData.SegmentPath = "bgp-peer-groups"
+    bgpPeerGroups.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/" + bgpPeerGroups.EntityData.SegmentPath
     bgpPeerGroups.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpPeerGroups.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpPeerGroups.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2148,6 +2203,7 @@ func (bgpPeerGroups *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteA
 type BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf_BgpPeerGroups_BgpPeerGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP peer group name. The type is string.
     Name interface{}
@@ -2234,6 +2290,7 @@ func (bgpPeerGroup *BgpStateData_BgpRouteVrfs_BgpRouteVrf_BgpRouteAfs_BgpRouteAf
     bgpPeerGroup.EntityData.BundleName = "cisco_ios_xe"
     bgpPeerGroup.EntityData.ParentYangName = "bgp-peer-groups"
     bgpPeerGroup.EntityData.SegmentPath = "bgp-peer-group" + types.AddKeyToken(bgpPeerGroup.Name, "name")
+    bgpPeerGroup.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-vrfs/bgp-route-vrf/bgp-route-afs/bgp-route-af/bgp-peer-groups/" + bgpPeerGroup.EntityData.SegmentPath
     bgpPeerGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpPeerGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpPeerGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2284,6 +2341,7 @@ func (bgpRouteRds *BgpStateData_BgpRouteRds) GetEntityData() *types.CommonEntity
     bgpRouteRds.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteRds.EntityData.ParentYangName = "bgp-state-data"
     bgpRouteRds.EntityData.SegmentPath = "bgp-route-rds"
+    bgpRouteRds.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/" + bgpRouteRds.EntityData.SegmentPath
     bgpRouteRds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteRds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteRds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2305,6 +2363,7 @@ func (bgpRouteRds *BgpStateData_BgpRouteRds) GetEntityData() *types.CommonEntity
 type BgpStateData_BgpRouteRds_BgpRouteRd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP rd value. The type is string.
     RdValue interface{}
@@ -2319,6 +2378,7 @@ func (bgpRouteRd *BgpStateData_BgpRouteRds_BgpRouteRd) GetEntityData() *types.Co
     bgpRouteRd.EntityData.BundleName = "cisco_ios_xe"
     bgpRouteRd.EntityData.ParentYangName = "bgp-route-rds"
     bgpRouteRd.EntityData.SegmentPath = "bgp-route-rd" + types.AddKeyToken(bgpRouteRd.RdValue, "rd-value")
+    bgpRouteRd.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/" + bgpRouteRd.EntityData.SegmentPath
     bgpRouteRd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRouteRd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRouteRd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2350,6 +2410,7 @@ func (bgpRdRouteAfs *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs) GetEntit
     bgpRdRouteAfs.EntityData.BundleName = "cisco_ios_xe"
     bgpRdRouteAfs.EntityData.ParentYangName = "bgp-route-rd"
     bgpRdRouteAfs.EntityData.SegmentPath = "bgp-rd-route-afs"
+    bgpRdRouteAfs.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/" + bgpRdRouteAfs.EntityData.SegmentPath
     bgpRdRouteAfs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdRouteAfs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdRouteAfs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2371,6 +2432,7 @@ func (bgpRdRouteAfs *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs) GetEntit
 type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP address family. The type is AfiSafi.
     AfiSafi interface{}
@@ -2388,6 +2450,7 @@ func (bgpRdRouteAf *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRoute
     bgpRdRouteAf.EntityData.BundleName = "cisco_ios_xe"
     bgpRdRouteAf.EntityData.ParentYangName = "bgp-rd-route-afs"
     bgpRdRouteAf.EntityData.SegmentPath = "bgp-rd-route-af" + types.AddKeyToken(bgpRdRouteAf.AfiSafi, "afi-safi")
+    bgpRdRouteAf.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/" + bgpRdRouteAf.EntityData.SegmentPath
     bgpRdRouteAf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdRouteAf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdRouteAf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2420,6 +2483,7 @@ func (bgpRdRouteFilters *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRd
     bgpRdRouteFilters.EntityData.BundleName = "cisco_ios_xe"
     bgpRdRouteFilters.EntityData.ParentYangName = "bgp-rd-route-af"
     bgpRdRouteFilters.EntityData.SegmentPath = "bgp-rd-route-filters"
+    bgpRdRouteFilters.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/" + bgpRdRouteFilters.EntityData.SegmentPath
     bgpRdRouteFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdRouteFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdRouteFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2441,6 +2505,7 @@ func (bgpRdRouteFilters *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRd
 type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP RD route filter. The type is BgpRouteFilters.
     RouteFilter interface{}
@@ -2455,6 +2520,7 @@ func (bgpRdRouteFilter *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdR
     bgpRdRouteFilter.EntityData.BundleName = "cisco_ios_xe"
     bgpRdRouteFilter.EntityData.ParentYangName = "bgp-rd-route-filters"
     bgpRdRouteFilter.EntityData.SegmentPath = "bgp-rd-route-filter" + types.AddKeyToken(bgpRdRouteFilter.RouteFilter, "route-filter")
+    bgpRdRouteFilter.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-filters/" + bgpRdRouteFilter.EntityData.SegmentPath
     bgpRdRouteFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdRouteFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdRouteFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2486,6 +2552,7 @@ func (bgpRdRouteEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRd
     bgpRdRouteEntries.EntityData.BundleName = "cisco_ios_xe"
     bgpRdRouteEntries.EntityData.ParentYangName = "bgp-rd-route-filter"
     bgpRdRouteEntries.EntityData.SegmentPath = "bgp-rd-route-entries"
+    bgpRdRouteEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-filters/bgp-rd-route-filter/" + bgpRdRouteEntries.EntityData.SegmentPath
     bgpRdRouteEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdRouteEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdRouteEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2507,6 +2574,7 @@ func (bgpRdRouteEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRd
 type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RD Routing table entry prefix. The type is string.
     Prefix interface{}
@@ -2532,6 +2600,7 @@ func (bgpRdRouteEntry *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRo
     bgpRdRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     bgpRdRouteEntry.EntityData.ParentYangName = "bgp-rd-route-entries"
     bgpRdRouteEntry.EntityData.SegmentPath = "bgp-rd-route-entry" + types.AddKeyToken(bgpRdRouteEntry.Prefix, "prefix")
+    bgpRdRouteEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-filters/bgp-rd-route-filter/bgp-rd-route-entries/" + bgpRdRouteEntry.EntityData.SegmentPath
     bgpRdRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2566,6 +2635,7 @@ func (bgpRdPathEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdR
     bgpRdPathEntries.EntityData.BundleName = "cisco_ios_xe"
     bgpRdPathEntries.EntityData.ParentYangName = "bgp-rd-route-entry"
     bgpRdPathEntries.EntityData.SegmentPath = "bgp-rd-path-entries"
+    bgpRdPathEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-filters/bgp-rd-route-filter/bgp-rd-route-entries/bgp-rd-route-entry/" + bgpRdPathEntries.EntityData.SegmentPath
     bgpRdPathEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdPathEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdPathEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2587,6 +2657,7 @@ func (bgpRdPathEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdR
 type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteFilters_BgpRdRouteFilter_BgpRdRouteEntries_BgpRdRouteEntry_BgpRdPathEntries_BgpRdPathEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop for this path. The type is string.
     Nexthop interface{}
@@ -2678,6 +2749,7 @@ func (bgpRdPathEntry *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRou
     bgpRdPathEntry.EntityData.BundleName = "cisco_ios_xe"
     bgpRdPathEntry.EntityData.ParentYangName = "bgp-rd-path-entries"
     bgpRdPathEntry.EntityData.SegmentPath = "bgp-rd-path-entry" + types.AddKeyToken(bgpRdPathEntry.Nexthop, "nexthop")
+    bgpRdPathEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-filters/bgp-rd-route-filter/bgp-rd-route-entries/bgp-rd-route-entry/bgp-rd-path-entries/" + bgpRdPathEntry.EntityData.SegmentPath
     bgpRdPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2772,6 +2844,7 @@ func (pathStatus *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf
     pathStatus.EntityData.BundleName = "cisco_ios_xe"
     pathStatus.EntityData.ParentYangName = "bgp-rd-path-entry"
     pathStatus.EntityData.SegmentPath = "path-status"
+    pathStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-filters/bgp-rd-route-filter/bgp-rd-route-entries/bgp-rd-route-entry/bgp-rd-path-entries/bgp-rd-path-entry/" + pathStatus.EntityData.SegmentPath
     pathStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pathStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2816,6 +2889,7 @@ func (bgpRdRouteNeighbors *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_Bgp
     bgpRdRouteNeighbors.EntityData.BundleName = "cisco_ios_xe"
     bgpRdRouteNeighbors.EntityData.ParentYangName = "bgp-rd-route-af"
     bgpRdRouteNeighbors.EntityData.SegmentPath = "bgp-rd-route-neighbors"
+    bgpRdRouteNeighbors.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/" + bgpRdRouteNeighbors.EntityData.SegmentPath
     bgpRdRouteNeighbors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdRouteNeighbors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdRouteNeighbors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2837,6 +2911,7 @@ func (bgpRdRouteNeighbors *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_Bgp
 type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP RD neighbor ID. The type is string.
     NeighborId interface{}
@@ -2851,6 +2926,7 @@ func (bgpRdRouteNeighbor *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpR
     bgpRdRouteNeighbor.EntityData.BundleName = "cisco_ios_xe"
     bgpRdRouteNeighbor.EntityData.ParentYangName = "bgp-rd-route-neighbors"
     bgpRdRouteNeighbor.EntityData.SegmentPath = "bgp-rd-route-neighbor" + types.AddKeyToken(bgpRdRouteNeighbor.NeighborId, "neighbor-id")
+    bgpRdRouteNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-neighbors/" + bgpRdRouteNeighbor.EntityData.SegmentPath
     bgpRdRouteNeighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdRouteNeighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdRouteNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2882,6 +2958,7 @@ func (bgpRdNeighborRouteFilters *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteA
     bgpRdNeighborRouteFilters.EntityData.BundleName = "cisco_ios_xe"
     bgpRdNeighborRouteFilters.EntityData.ParentYangName = "bgp-rd-route-neighbor"
     bgpRdNeighborRouteFilters.EntityData.SegmentPath = "bgp-rd-neighbor-route-filters"
+    bgpRdNeighborRouteFilters.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-neighbors/bgp-rd-route-neighbor/" + bgpRdNeighborRouteFilters.EntityData.SegmentPath
     bgpRdNeighborRouteFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdNeighborRouteFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdNeighborRouteFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2903,6 +2980,7 @@ func (bgpRdNeighborRouteFilters *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteA
 type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BGP RD neighbor route filter. The type is
     // BgpNeighborRouteFilters.
@@ -2918,6 +2996,7 @@ func (bgpRdNeighborRouteFilter *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAf
     bgpRdNeighborRouteFilter.EntityData.BundleName = "cisco_ios_xe"
     bgpRdNeighborRouteFilter.EntityData.ParentYangName = "bgp-rd-neighbor-route-filters"
     bgpRdNeighborRouteFilter.EntityData.SegmentPath = "bgp-rd-neighbor-route-filter" + types.AddKeyToken(bgpRdNeighborRouteFilter.NeighborFilter, "neighbor-filter")
+    bgpRdNeighborRouteFilter.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-neighbors/bgp-rd-route-neighbor/bgp-rd-neighbor-route-filters/" + bgpRdNeighborRouteFilter.EntityData.SegmentPath
     bgpRdNeighborRouteFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdNeighborRouteFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdNeighborRouteFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2949,6 +3028,7 @@ func (bgpRdNeighborRouteEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteA
     bgpRdNeighborRouteEntries.EntityData.BundleName = "cisco_ios_xe"
     bgpRdNeighborRouteEntries.EntityData.ParentYangName = "bgp-rd-neighbor-route-filter"
     bgpRdNeighborRouteEntries.EntityData.SegmentPath = "bgp-rd-neighbor-route-entries"
+    bgpRdNeighborRouteEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-neighbors/bgp-rd-route-neighbor/bgp-rd-neighbor-route-filters/bgp-rd-neighbor-route-filter/" + bgpRdNeighborRouteEntries.EntityData.SegmentPath
     bgpRdNeighborRouteEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdNeighborRouteEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdNeighborRouteEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2970,6 +3050,7 @@ func (bgpRdNeighborRouteEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteA
 type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RD neighbor routing table entry prefix. The type
     // is string.
@@ -2996,6 +3077,7 @@ func (bgpRdNeighborRouteEntry *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs
     bgpRdNeighborRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     bgpRdNeighborRouteEntry.EntityData.ParentYangName = "bgp-rd-neighbor-route-entries"
     bgpRdNeighborRouteEntry.EntityData.SegmentPath = "bgp-rd-neighbor-route-entry" + types.AddKeyToken(bgpRdNeighborRouteEntry.Prefix, "prefix")
+    bgpRdNeighborRouteEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-neighbors/bgp-rd-route-neighbor/bgp-rd-neighbor-route-filters/bgp-rd-neighbor-route-filter/bgp-rd-neighbor-route-entries/" + bgpRdNeighborRouteEntry.EntityData.SegmentPath
     bgpRdNeighborRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdNeighborRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdNeighborRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3030,6 +3112,7 @@ func (bgpRdNeighborPathEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAf
     bgpRdNeighborPathEntries.EntityData.BundleName = "cisco_ios_xe"
     bgpRdNeighborPathEntries.EntityData.ParentYangName = "bgp-rd-neighbor-route-entry"
     bgpRdNeighborPathEntries.EntityData.SegmentPath = "bgp-rd-neighbor-path-entries"
+    bgpRdNeighborPathEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-neighbors/bgp-rd-route-neighbor/bgp-rd-neighbor-route-filters/bgp-rd-neighbor-route-filter/bgp-rd-neighbor-route-entries/bgp-rd-neighbor-route-entry/" + bgpRdNeighborPathEntries.EntityData.SegmentPath
     bgpRdNeighborPathEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdNeighborPathEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdNeighborPathEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3051,6 +3134,7 @@ func (bgpRdNeighborPathEntries *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAf
 type BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf_BgpRdRouteNeighbors_BgpRdRouteNeighbor_BgpRdNeighborRouteFilters_BgpRdNeighborRouteFilter_BgpRdNeighborRouteEntries_BgpRdNeighborRouteEntry_BgpRdNeighborPathEntries_BgpRdNeighborPathEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop for this path. The type is string.
     Nexthop interface{}
@@ -3142,6 +3226,7 @@ func (bgpRdNeighborPathEntry *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_
     bgpRdNeighborPathEntry.EntityData.BundleName = "cisco_ios_xe"
     bgpRdNeighborPathEntry.EntityData.ParentYangName = "bgp-rd-neighbor-path-entries"
     bgpRdNeighborPathEntry.EntityData.SegmentPath = "bgp-rd-neighbor-path-entry" + types.AddKeyToken(bgpRdNeighborPathEntry.Nexthop, "nexthop")
+    bgpRdNeighborPathEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-neighbors/bgp-rd-route-neighbor/bgp-rd-neighbor-route-filters/bgp-rd-neighbor-route-filter/bgp-rd-neighbor-route-entries/bgp-rd-neighbor-route-entry/bgp-rd-neighbor-path-entries/" + bgpRdNeighborPathEntry.EntityData.SegmentPath
     bgpRdNeighborPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgpRdNeighborPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgpRdNeighborPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3236,6 +3321,7 @@ func (pathStatus *BgpStateData_BgpRouteRds_BgpRouteRd_BgpRdRouteAfs_BgpRdRouteAf
     pathStatus.EntityData.BundleName = "cisco_ios_xe"
     pathStatus.EntityData.ParentYangName = "bgp-rd-neighbor-path-entry"
     pathStatus.EntityData.SegmentPath = "path-status"
+    pathStatus.EntityData.AbsolutePath = "Cisco-IOS-XE-bgp-oper:bgp-state-data/bgp-route-rds/bgp-route-rd/bgp-rd-route-afs/bgp-rd-route-af/bgp-rd-route-neighbors/bgp-rd-route-neighbor/bgp-rd-neighbor-route-filters/bgp-rd-neighbor-route-filter/bgp-rd-neighbor-route-entries/bgp-rd-neighbor-route-entry/bgp-rd-neighbor-path-entries/bgp-rd-neighbor-path-entry/" + pathStatus.EntityData.SegmentPath
     pathStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pathStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

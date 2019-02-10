@@ -46,6 +46,7 @@ func (rcp *Rcp) GetEntityData() *types.CommonEntityData {
     rcp.EntityData.BundleName = "cisco_ios_xr"
     rcp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-filesystems-cfg"
     rcp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-filesystems-cfg:rcp"
+    rcp.EntityData.AbsolutePath = rcp.EntityData.SegmentPath
     rcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -79,6 +80,7 @@ func (rcpClient *Rcp_RcpClient) GetEntityData() *types.CommonEntityData {
     rcpClient.EntityData.BundleName = "cisco_ios_xr"
     rcpClient.EntityData.ParentYangName = "rcp"
     rcpClient.EntityData.SegmentPath = "rcp-client"
+    rcpClient.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-filesystems-cfg:rcp/" + rcpClient.EntityData.SegmentPath
     rcpClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rcpClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rcpClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -109,6 +111,7 @@ func (ftp *Ftp) GetEntityData() *types.CommonEntityData {
     ftp.EntityData.BundleName = "cisco_ios_xr"
     ftp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-filesystems-cfg"
     ftp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp"
+    ftp.EntityData.AbsolutePath = ftp.EntityData.SegmentPath
     ftp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ftp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ftp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -155,6 +158,7 @@ func (ftpClient *Ftp_FtpClient) GetEntityData() *types.CommonEntityData {
     ftpClient.EntityData.BundleName = "cisco_ios_xr"
     ftpClient.EntityData.ParentYangName = "ftp"
     ftpClient.EntityData.SegmentPath = "ftp-client"
+    ftpClient.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/" + ftpClient.EntityData.SegmentPath
     ftpClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ftpClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ftpClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -189,6 +193,7 @@ func (vrfs *Ftp_FtpClient_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "ftp-client"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/ftp-client/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -210,6 +215,7 @@ func (vrfs *Ftp_FtpClient_Vrfs) GetEntityData() *types.CommonEntityData {
 type Ftp_FtpClient_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -239,6 +245,7 @@ func (vrf *Ftp_FtpClient_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/ftp-client/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +280,7 @@ func (tftp *Tftp) GetEntityData() *types.CommonEntityData {
     tftp.EntityData.BundleName = "cisco_ios_xr"
     tftp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-filesystems-cfg"
     tftp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp"
+    tftp.EntityData.AbsolutePath = tftp.EntityData.SegmentPath
     tftp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -314,6 +322,7 @@ func (tftpClient *Tftp_TftpClient) GetEntityData() *types.CommonEntityData {
     tftpClient.EntityData.BundleName = "cisco_ios_xr"
     tftpClient.EntityData.ParentYangName = "tftp"
     tftpClient.EntityData.SegmentPath = "tftp-client"
+    tftpClient.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/" + tftpClient.EntityData.SegmentPath
     tftpClient.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tftpClient.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tftpClient.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -346,6 +355,7 @@ func (vrfs *Tftp_TftpClient_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "tftp-client"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/tftp-client/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +377,7 @@ func (vrfs *Tftp_TftpClient_Vrfs) GetEntityData() *types.CommonEntityData {
 type Tftp_TftpClient_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -391,6 +402,7 @@ func (vrf *Tftp_TftpClient_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/tftp-client/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

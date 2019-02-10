@@ -215,6 +215,7 @@ func (etherLinkOam *EtherLinkOam) GetEntityData() *types.CommonEntityData {
     etherLinkOam.EntityData.BundleName = "cisco_ios_xr"
     etherLinkOam.EntityData.ParentYangName = "Cisco-IOS-XR-ethernet-link-oam-oper"
     etherLinkOam.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam"
+    etherLinkOam.EntityData.AbsolutePath = etherLinkOam.EntityData.SegmentPath
     etherLinkOam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     etherLinkOam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     etherLinkOam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -251,6 +252,7 @@ func (discoveryInfoInterfaces *EtherLinkOam_DiscoveryInfoInterfaces) GetEntityDa
     discoveryInfoInterfaces.EntityData.BundleName = "cisco_ios_xr"
     discoveryInfoInterfaces.EntityData.ParentYangName = "ether-link-oam"
     discoveryInfoInterfaces.EntityData.SegmentPath = "discovery-info-interfaces"
+    discoveryInfoInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/" + discoveryInfoInterfaces.EntityData.SegmentPath
     discoveryInfoInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discoveryInfoInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discoveryInfoInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +275,7 @@ func (discoveryInfoInterfaces *EtherLinkOam_DiscoveryInfoInterfaces) GetEntityDa
 type EtherLinkOam_DiscoveryInfoInterfaces_DiscoveryInfoInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -439,6 +442,7 @@ func (discoveryInfoInterface *EtherLinkOam_DiscoveryInfoInterfaces_DiscoveryInfo
     discoveryInfoInterface.EntityData.BundleName = "cisco_ios_xr"
     discoveryInfoInterface.EntityData.ParentYangName = "discovery-info-interfaces"
     discoveryInfoInterface.EntityData.SegmentPath = "discovery-info-interface" + types.AddKeyToken(discoveryInfoInterface.MemberInterface, "member-interface")
+    discoveryInfoInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/discovery-info-interfaces/" + discoveryInfoInterface.EntityData.SegmentPath
     discoveryInfoInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     discoveryInfoInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     discoveryInfoInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -519,6 +523,7 @@ func (interfaceStateInterfaces *EtherLinkOam_InterfaceStateInterfaces) GetEntity
     interfaceStateInterfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaceStateInterfaces.EntityData.ParentYangName = "ether-link-oam"
     interfaceStateInterfaces.EntityData.SegmentPath = "interface-state-interfaces"
+    interfaceStateInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/" + interfaceStateInterfaces.EntityData.SegmentPath
     interfaceStateInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStateInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStateInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -541,6 +546,7 @@ func (interfaceStateInterfaces *EtherLinkOam_InterfaceStateInterfaces) GetEntity
 type EtherLinkOam_InterfaceStateInterfaces_InterfaceStateInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -574,6 +580,7 @@ func (interfaceStateInterface *EtherLinkOam_InterfaceStateInterfaces_InterfaceSt
     interfaceStateInterface.EntityData.BundleName = "cisco_ios_xr"
     interfaceStateInterface.EntityData.ParentYangName = "interface-state-interfaces"
     interfaceStateInterface.EntityData.SegmentPath = "interface-state-interface" + types.AddKeyToken(interfaceStateInterface.MemberInterface, "member-interface")
+    interfaceStateInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/interface-state-interfaces/" + interfaceStateInterface.EntityData.SegmentPath
     interfaceStateInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStateInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStateInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -643,6 +650,7 @@ func (errors *EtherLinkOam_InterfaceStateInterfaces_InterfaceStateInterface_Erro
     errors.EntityData.BundleName = "cisco_ios_xr"
     errors.EntityData.ParentYangName = "interface-state-interface"
     errors.EntityData.SegmentPath = "errors"
+    errors.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/interface-state-interfaces/interface-state-interface/" + errors.EntityData.SegmentPath
     errors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -693,6 +701,7 @@ func (efdTriggers *EtherLinkOam_InterfaceStateInterfaces_InterfaceStateInterface
     efdTriggers.EntityData.BundleName = "cisco_ios_xr"
     efdTriggers.EntityData.ParentYangName = "interface-state-interface"
     efdTriggers.EntityData.SegmentPath = "efd-triggers"
+    efdTriggers.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/interface-state-interfaces/interface-state-interface/" + efdTriggers.EntityData.SegmentPath
     efdTriggers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     efdTriggers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     efdTriggers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -728,6 +737,7 @@ func (runningConfigInterfaces *EtherLinkOam_RunningConfigInterfaces) GetEntityDa
     runningConfigInterfaces.EntityData.BundleName = "cisco_ios_xr"
     runningConfigInterfaces.EntityData.ParentYangName = "ether-link-oam"
     runningConfigInterfaces.EntityData.SegmentPath = "running-config-interfaces"
+    runningConfigInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/" + runningConfigInterfaces.EntityData.SegmentPath
     runningConfigInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     runningConfigInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     runningConfigInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -750,6 +760,7 @@ func (runningConfigInterfaces *EtherLinkOam_RunningConfigInterfaces) GetEntityDa
 type EtherLinkOam_RunningConfigInterfaces_RunningConfigInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1020,6 +1031,7 @@ func (runningConfigInterface *EtherLinkOam_RunningConfigInterfaces_RunningConfig
     runningConfigInterface.EntityData.BundleName = "cisco_ios_xr"
     runningConfigInterface.EntityData.ParentYangName = "running-config-interfaces"
     runningConfigInterface.EntityData.SegmentPath = "running-config-interface" + types.AddKeyToken(runningConfigInterface.MemberInterface, "member-interface")
+    runningConfigInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/running-config-interfaces/" + runningConfigInterface.EntityData.SegmentPath
     runningConfigInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     runningConfigInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     runningConfigInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1128,6 +1140,7 @@ func (nodes *EtherLinkOam_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ether-link-oam"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1149,6 +1162,7 @@ func (nodes *EtherLinkOam_Nodes) GetEntityData() *types.CommonEntityData {
 type EtherLinkOam_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1164,6 +1178,7 @@ func (node *EtherLinkOam_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1280,6 +1295,7 @@ func (summary *EtherLinkOam_Nodes_Node_Summary) GetEntityData() *types.CommonEnt
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1332,6 +1348,7 @@ func (eventLogEntryInterfaces *EtherLinkOam_EventLogEntryInterfaces) GetEntityDa
     eventLogEntryInterfaces.EntityData.BundleName = "cisco_ios_xr"
     eventLogEntryInterfaces.EntityData.ParentYangName = "ether-link-oam"
     eventLogEntryInterfaces.EntityData.SegmentPath = "event-log-entry-interfaces"
+    eventLogEntryInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/" + eventLogEntryInterfaces.EntityData.SegmentPath
     eventLogEntryInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventLogEntryInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventLogEntryInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1354,6 +1371,7 @@ func (eventLogEntryInterfaces *EtherLinkOam_EventLogEntryInterfaces) GetEntityDa
 type EtherLinkOam_EventLogEntryInterfaces_EventLogEntryInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1369,6 +1387,7 @@ func (eventLogEntryInterface *EtherLinkOam_EventLogEntryInterfaces_EventLogEntry
     eventLogEntryInterface.EntityData.BundleName = "cisco_ios_xr"
     eventLogEntryInterface.EntityData.ParentYangName = "event-log-entry-interfaces"
     eventLogEntryInterface.EntityData.SegmentPath = "event-log-entry-interface" + types.AddKeyToken(eventLogEntryInterface.MemberInterface, "member-interface")
+    eventLogEntryInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/event-log-entry-interfaces/" + eventLogEntryInterface.EntityData.SegmentPath
     eventLogEntryInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventLogEntryInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventLogEntryInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1402,6 +1421,7 @@ func (eventLogEntryIndexes *EtherLinkOam_EventLogEntryInterfaces_EventLogEntryIn
     eventLogEntryIndexes.EntityData.BundleName = "cisco_ios_xr"
     eventLogEntryIndexes.EntityData.ParentYangName = "event-log-entry-interface"
     eventLogEntryIndexes.EntityData.SegmentPath = "event-log-entry-indexes"
+    eventLogEntryIndexes.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/event-log-entry-interfaces/event-log-entry-interface/" + eventLogEntryIndexes.EntityData.SegmentPath
     eventLogEntryIndexes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventLogEntryIndexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventLogEntryIndexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1424,6 +1444,7 @@ func (eventLogEntryIndexes *EtherLinkOam_EventLogEntryInterfaces_EventLogEntryIn
 type EtherLinkOam_EventLogEntryInterfaces_EventLogEntryInterface_EventLogEntryIndexes_EventLogEntryIndex struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Event Log Entry index. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1512,6 +1533,7 @@ func (eventLogEntryIndex *EtherLinkOam_EventLogEntryInterfaces_EventLogEntryInte
     eventLogEntryIndex.EntityData.BundleName = "cisco_ios_xr"
     eventLogEntryIndex.EntityData.ParentYangName = "event-log-entry-indexes"
     eventLogEntryIndex.EntityData.SegmentPath = "event-log-entry-index" + types.AddKeyToken(eventLogEntryIndex.EventLogEntryIndex, "event-log-entry-index")
+    eventLogEntryIndex.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/event-log-entry-interfaces/event-log-entry-interface/event-log-entry-indexes/" + eventLogEntryIndex.EntityData.SegmentPath
     eventLogEntryIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eventLogEntryIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eventLogEntryIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1562,6 +1584,7 @@ func (statsInterfaces *EtherLinkOam_StatsInterfaces) GetEntityData() *types.Comm
     statsInterfaces.EntityData.BundleName = "cisco_ios_xr"
     statsInterfaces.EntityData.ParentYangName = "ether-link-oam"
     statsInterfaces.EntityData.SegmentPath = "stats-interfaces"
+    statsInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/" + statsInterfaces.EntityData.SegmentPath
     statsInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1583,6 +1606,7 @@ func (statsInterfaces *EtherLinkOam_StatsInterfaces) GetEntityData() *types.Comm
 type EtherLinkOam_StatsInterfaces_StatsInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1699,6 +1723,7 @@ func (statsInterface *EtherLinkOam_StatsInterfaces_StatsInterface) GetEntityData
     statsInterface.EntityData.BundleName = "cisco_ios_xr"
     statsInterface.EntityData.ParentYangName = "stats-interfaces"
     statsInterface.EntityData.SegmentPath = "stats-interface" + types.AddKeyToken(statsInterface.MemberInterface, "member-interface")
+    statsInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/stats-interfaces/" + statsInterface.EntityData.SegmentPath
     statsInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -40,6 +40,7 @@ func (netFlow *NetFlow) GetEntityData() *types.CommonEntityData {
     netFlow.EntityData.BundleName = "cisco_ios_xr"
     netFlow.EntityData.ParentYangName = "Cisco-IOS-XR-dnx-netflow-oper"
     netFlow.EntityData.SegmentPath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow"
+    netFlow.EntityData.AbsolutePath = netFlow.EntityData.SegmentPath
     netFlow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netFlow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netFlow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (statistics *NetFlow_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "net-flow"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +94,7 @@ func (statistics *NetFlow_Statistics) GetEntityData() *types.CommonEntityData {
 type NetFlow_Statistics_Statistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -110,6 +113,7 @@ func (statistic *NetFlow_Statistics_Statistic) GetEntityData() *types.CommonEnti
     statistic.EntityData.BundleName = "cisco_ios_xr"
     statistic.EntityData.ParentYangName = "statistics"
     statistic.EntityData.SegmentPath = "statistic" + types.AddKeyToken(statistic.Node, "node")
+    statistic.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/" + statistic.EntityData.SegmentPath
     statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -141,6 +145,7 @@ func (producer *NetFlow_Statistics_Statistic_Producer) GetEntityData() *types.Co
     producer.EntityData.BundleName = "cisco_ios_xr"
     producer.EntityData.ParentYangName = "statistic"
     producer.EntityData.SegmentPath = "producer"
+    producer.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/statistic/" + producer.EntityData.SegmentPath
     producer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     producer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     producer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -223,6 +228,7 @@ func (statistics *NetFlow_Statistics_Statistic_Producer_Statistics) GetEntityDat
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "producer"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/statistic/producer/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -265,6 +271,7 @@ func (server *NetFlow_Statistics_Statistic_Server) GetEntityData() *types.Common
     server.EntityData.BundleName = "cisco_ios_xr"
     server.EntityData.ParentYangName = "statistic"
     server.EntityData.SegmentPath = "server"
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/statistic/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -295,6 +302,7 @@ func (flowExporters *NetFlow_Statistics_Statistic_Server_FlowExporters) GetEntit
     flowExporters.EntityData.BundleName = "cisco_ios_xr"
     flowExporters.EntityData.ParentYangName = "server"
     flowExporters.EntityData.SegmentPath = "flow-exporters"
+    flowExporters.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/statistic/server/" + flowExporters.EntityData.SegmentPath
     flowExporters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowExporters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowExporters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -316,6 +324,7 @@ func (flowExporters *NetFlow_Statistics_Statistic_Server_FlowExporters) GetEntit
 type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Exporter name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -331,6 +340,7 @@ func (flowExporter *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExport
     flowExporter.EntityData.BundleName = "cisco_ios_xr"
     flowExporter.EntityData.ParentYangName = "flow-exporters"
     flowExporter.EntityData.SegmentPath = "flow-exporter" + types.AddKeyToken(flowExporter.ExporterName, "exporter-name")
+    flowExporter.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/" + flowExporter.EntityData.SegmentPath
     flowExporter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowExporter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowExporter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -362,6 +372,7 @@ func (exporter *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_E
     exporter.EntityData.BundleName = "cisco_ios_xr"
     exporter.EntityData.ParentYangName = "flow-exporter"
     exporter.EntityData.SegmentPath = "exporter"
+    exporter.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/" + exporter.EntityData.SegmentPath
     exporter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exporter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exporter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -369,6 +380,7 @@ func (exporter *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_E
     exporter.EntityData.Children = types.NewOrderedMap()
     exporter.EntityData.Children.Append("statistic", types.YChild{"Statistic", nil})
     for i := range exporter.Statistic {
+        types.SetYListKey(exporter.Statistic[i], i)
         exporter.EntityData.Children.Append(types.GetSegmentPath(exporter.Statistic[i]), types.YChild{"Statistic", exporter.Statistic[i]})
     }
     exporter.EntityData.Leafs = types.NewOrderedMap()
@@ -383,6 +395,7 @@ func (exporter *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_E
 type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Exporter name. The type is string.
     Name interface{}
@@ -403,7 +416,8 @@ func (statistic *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_
     statistic.EntityData.YangName = "statistic"
     statistic.EntityData.BundleName = "cisco_ios_xr"
     statistic.EntityData.ParentYangName = "exporter"
-    statistic.EntityData.SegmentPath = "statistic"
+    statistic.EntityData.SegmentPath = "statistic" + types.AddNoKeyToken(statistic)
+    statistic.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter/" + statistic.EntityData.SegmentPath
     statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -411,6 +425,7 @@ func (statistic *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_
     statistic.EntityData.Children = types.NewOrderedMap()
     statistic.EntityData.Children.Append("collector", types.YChild{"Collector", nil})
     for i := range statistic.Collector {
+        types.SetYListKey(statistic.Collector[i], i)
         statistic.EntityData.Children.Append(types.GetSegmentPath(statistic.Collector[i]), types.YChild{"Collector", statistic.Collector[i]})
     }
     statistic.EntityData.Leafs = types.NewOrderedMap()
@@ -428,6 +443,7 @@ func (statistic *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_
 type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_Exporter_Statistic_Collector struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Exporter state. The type is string.
     ExporterState interface{}
@@ -569,7 +585,8 @@ func (collector *NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter_
     collector.EntityData.YangName = "collector"
     collector.EntityData.BundleName = "cisco_ios_xr"
     collector.EntityData.ParentYangName = "statistic"
-    collector.EntityData.SegmentPath = "collector"
+    collector.EntityData.SegmentPath = "collector" + types.AddNoKeyToken(collector)
+    collector.EntityData.AbsolutePath = "Cisco-IOS-XR-dnx-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter/statistic/" + collector.EntityData.SegmentPath
     collector.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collector.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collector.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

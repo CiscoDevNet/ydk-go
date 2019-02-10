@@ -35,6 +35,7 @@ func (eNTITYSTATEMIB *ENTITYSTATEMIB) GetEntityData() *types.CommonEntityData {
     eNTITYSTATEMIB.EntityData.BundleName = "cisco_ios_xr"
     eNTITYSTATEMIB.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-entity-state-mib"
     eNTITYSTATEMIB.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-entity-state-mib:ENTITY-STATE-MIB"
+    eNTITYSTATEMIB.EntityData.AbsolutePath = eNTITYSTATEMIB.EntityData.SegmentPath
     eNTITYSTATEMIB.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eNTITYSTATEMIB.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eNTITYSTATEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -63,6 +64,7 @@ func (entStateTable *ENTITYSTATEMIB_EntStateTable) GetEntityData() *types.Common
     entStateTable.EntityData.BundleName = "cisco_ios_xr"
     entStateTable.EntityData.ParentYangName = "ENTITY-STATE-MIB"
     entStateTable.EntityData.SegmentPath = "entStateTable"
+    entStateTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-state-mib:ENTITY-STATE-MIB/" + entStateTable.EntityData.SegmentPath
     entStateTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entStateTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entStateTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -83,6 +85,7 @@ func (entStateTable *ENTITYSTATEMIB_EntStateTable) GetEntityData() *types.Common
 type ENTITYSTATEMIB_EntStateTable_EntStateEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
     EntPhysicalIndex interface{}
@@ -113,6 +116,7 @@ func (entStateEntry *ENTITYSTATEMIB_EntStateTable_EntStateEntry) GetEntityData()
     entStateEntry.EntityData.BundleName = "cisco_ios_xr"
     entStateEntry.EntityData.ParentYangName = "entStateTable"
     entStateEntry.EntityData.SegmentPath = "entStateEntry" + types.AddKeyToken(entStateEntry.EntPhysicalIndex, "entPhysicalIndex")
+    entStateEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-state-mib:ENTITY-STATE-MIB/entStateTable/" + entStateEntry.EntityData.SegmentPath
     entStateEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entStateEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entStateEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

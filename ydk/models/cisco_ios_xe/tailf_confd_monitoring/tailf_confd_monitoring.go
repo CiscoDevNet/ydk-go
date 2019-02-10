@@ -73,6 +73,7 @@ func (confdState *ConfdState) GetEntityData() *types.CommonEntityData {
     confdState.EntityData.BundleName = "cisco_ios_xe"
     confdState.EntityData.ParentYangName = "tailf-confd-monitoring"
     confdState.EntityData.SegmentPath = "tailf-confd-monitoring:confd-state"
+    confdState.EntityData.AbsolutePath = confdState.EntityData.SegmentPath
     confdState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     confdState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     confdState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -117,6 +118,7 @@ func (smp *ConfdState_Smp) GetEntityData() *types.CommonEntityData {
     smp.EntityData.BundleName = "cisco_ios_xe"
     smp.EntityData.ParentYangName = "confd-state"
     smp.EntityData.SegmentPath = "smp"
+    smp.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + smp.EntityData.SegmentPath
     smp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     smp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     smp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -162,6 +164,7 @@ func (ha *ConfdState_Ha) GetEntityData() *types.CommonEntityData {
     ha.EntityData.BundleName = "cisco_ios_xe"
     ha.EntityData.ParentYangName = "confd-state"
     ha.EntityData.SegmentPath = "ha"
+    ha.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + ha.EntityData.SegmentPath
     ha.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ha.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ha.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -210,6 +213,7 @@ func (loadedDataModels *ConfdState_LoadedDataModels) GetEntityData() *types.Comm
     loadedDataModels.EntityData.BundleName = "cisco_ios_xe"
     loadedDataModels.EntityData.ParentYangName = "confd-state"
     loadedDataModels.EntityData.SegmentPath = "loaded-data-models"
+    loadedDataModels.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + loadedDataModels.EntityData.SegmentPath
     loadedDataModels.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     loadedDataModels.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     loadedDataModels.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -235,6 +239,7 @@ func (loadedDataModels *ConfdState_LoadedDataModels) GetEntityData() *types.Comm
 type ConfdState_LoadedDataModels_DataModel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The YANG module name. The type is string.
     Name interface{}
@@ -266,6 +271,7 @@ func (dataModel *ConfdState_LoadedDataModels_DataModel) GetEntityData() *types.C
     dataModel.EntityData.BundleName = "cisco_ios_xe"
     dataModel.EntityData.ParentYangName = "loaded-data-models"
     dataModel.EntityData.SegmentPath = "data-model" + types.AddKeyToken(dataModel.Name, "name")
+    dataModel.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/loaded-data-models/" + dataModel.EntityData.SegmentPath
     dataModel.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dataModel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dataModel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -319,6 +325,7 @@ func (netconf *ConfdState_Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.BundleName = "cisco_ios_xe"
     netconf.EntityData.ParentYangName = "confd-state"
     netconf.EntityData.SegmentPath = "netconf"
+    netconf.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + netconf.EntityData.SegmentPath
     netconf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     netconf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     netconf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -355,6 +362,7 @@ func (listen *ConfdState_Netconf_Listen) GetEntityData() *types.CommonEntityData
     listen.EntityData.BundleName = "cisco_ios_xe"
     listen.EntityData.ParentYangName = "netconf"
     listen.EntityData.SegmentPath = "listen"
+    listen.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/netconf/" + listen.EntityData.SegmentPath
     listen.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -362,10 +370,12 @@ func (listen *ConfdState_Netconf_Listen) GetEntityData() *types.CommonEntityData
     listen.EntityData.Children = types.NewOrderedMap()
     listen.EntityData.Children.Append("tcp", types.YChild{"Tcp", nil})
     for i := range listen.Tcp {
+        types.SetYListKey(listen.Tcp[i], i)
         listen.EntityData.Children.Append(types.GetSegmentPath(listen.Tcp[i]), types.YChild{"Tcp", listen.Tcp[i]})
     }
     listen.EntityData.Children.Append("ssh", types.YChild{"Ssh", nil})
     for i := range listen.Ssh {
+        types.SetYListKey(listen.Ssh[i], i)
         listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssh[i]), types.YChild{"Ssh", listen.Ssh[i]})
     }
     listen.EntityData.Leafs = types.NewOrderedMap()
@@ -379,6 +389,7 @@ func (listen *ConfdState_Netconf_Listen) GetEntityData() *types.CommonEntityData
 type ConfdState_Netconf_Listen_Tcp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is one of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -395,7 +406,8 @@ func (tcp *ConfdState_Netconf_Listen_Tcp) GetEntityData() *types.CommonEntityDat
     tcp.EntityData.YangName = "tcp"
     tcp.EntityData.BundleName = "cisco_ios_xe"
     tcp.EntityData.ParentYangName = "listen"
-    tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.SegmentPath = "tcp" + types.AddNoKeyToken(tcp)
+    tcp.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/netconf/listen/" + tcp.EntityData.SegmentPath
     tcp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -414,6 +426,7 @@ func (tcp *ConfdState_Netconf_Listen_Tcp) GetEntityData() *types.CommonEntityDat
 type ConfdState_Netconf_Listen_Ssh struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is one of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -430,7 +443,8 @@ func (ssh *ConfdState_Netconf_Listen_Ssh) GetEntityData() *types.CommonEntityDat
     ssh.EntityData.YangName = "ssh"
     ssh.EntityData.BundleName = "cisco_ios_xe"
     ssh.EntityData.ParentYangName = "listen"
-    ssh.EntityData.SegmentPath = "ssh"
+    ssh.EntityData.SegmentPath = "ssh" + types.AddNoKeyToken(ssh)
+    ssh.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/netconf/listen/" + ssh.EntityData.SegmentPath
     ssh.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ssh.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -466,6 +480,7 @@ func (cli *ConfdState_Cli) GetEntityData() *types.CommonEntityData {
     cli.EntityData.BundleName = "cisco_ios_xe"
     cli.EntityData.ParentYangName = "confd-state"
     cli.EntityData.SegmentPath = "cli"
+    cli.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + cli.EntityData.SegmentPath
     cli.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cli.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cli.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -502,6 +517,7 @@ func (listen *ConfdState_Cli_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.BundleName = "cisco_ios_xe"
     listen.EntityData.ParentYangName = "cli"
     listen.EntityData.SegmentPath = "listen"
+    listen.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/cli/" + listen.EntityData.SegmentPath
     listen.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -509,6 +525,7 @@ func (listen *ConfdState_Cli_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.Children = types.NewOrderedMap()
     listen.EntityData.Children.Append("ssh", types.YChild{"Ssh", nil})
     for i := range listen.Ssh {
+        types.SetYListKey(listen.Ssh[i], i)
         listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssh[i]), types.YChild{"Ssh", listen.Ssh[i]})
     }
     listen.EntityData.Leafs = types.NewOrderedMap()
@@ -522,6 +539,7 @@ func (listen *ConfdState_Cli_Listen) GetEntityData() *types.CommonEntityData {
 type ConfdState_Cli_Listen_Ssh struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is one of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -538,7 +556,8 @@ func (ssh *ConfdState_Cli_Listen_Ssh) GetEntityData() *types.CommonEntityData {
     ssh.EntityData.YangName = "ssh"
     ssh.EntityData.BundleName = "cisco_ios_xe"
     ssh.EntityData.ParentYangName = "listen"
-    ssh.EntityData.SegmentPath = "ssh"
+    ssh.EntityData.SegmentPath = "ssh" + types.AddNoKeyToken(ssh)
+    ssh.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/cli/listen/" + ssh.EntityData.SegmentPath
     ssh.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ssh.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -570,6 +589,7 @@ func (webui *ConfdState_Webui) GetEntityData() *types.CommonEntityData {
     webui.EntityData.BundleName = "cisco_ios_xe"
     webui.EntityData.ParentYangName = "confd-state"
     webui.EntityData.SegmentPath = "webui"
+    webui.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + webui.EntityData.SegmentPath
     webui.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     webui.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     webui.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -602,6 +622,7 @@ func (listen *ConfdState_Webui_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.BundleName = "cisco_ios_xe"
     listen.EntityData.ParentYangName = "webui"
     listen.EntityData.SegmentPath = "listen"
+    listen.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/webui/" + listen.EntityData.SegmentPath
     listen.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -609,10 +630,12 @@ func (listen *ConfdState_Webui_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.Children = types.NewOrderedMap()
     listen.EntityData.Children.Append("tcp", types.YChild{"Tcp", nil})
     for i := range listen.Tcp {
+        types.SetYListKey(listen.Tcp[i], i)
         listen.EntityData.Children.Append(types.GetSegmentPath(listen.Tcp[i]), types.YChild{"Tcp", listen.Tcp[i]})
     }
     listen.EntityData.Children.Append("ssl", types.YChild{"Ssl", nil})
     for i := range listen.Ssl {
+        types.SetYListKey(listen.Ssl[i], i)
         listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssl[i]), types.YChild{"Ssl", listen.Ssl[i]})
     }
     listen.EntityData.Leafs = types.NewOrderedMap()
@@ -626,6 +649,7 @@ func (listen *ConfdState_Webui_Listen) GetEntityData() *types.CommonEntityData {
 type ConfdState_Webui_Listen_Tcp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is one of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -642,7 +666,8 @@ func (tcp *ConfdState_Webui_Listen_Tcp) GetEntityData() *types.CommonEntityData 
     tcp.EntityData.YangName = "tcp"
     tcp.EntityData.BundleName = "cisco_ios_xe"
     tcp.EntityData.ParentYangName = "listen"
-    tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.SegmentPath = "tcp" + types.AddNoKeyToken(tcp)
+    tcp.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/webui/listen/" + tcp.EntityData.SegmentPath
     tcp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -661,6 +686,7 @@ func (tcp *ConfdState_Webui_Listen_Tcp) GetEntityData() *types.CommonEntityData 
 type ConfdState_Webui_Listen_Ssl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is one of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -677,7 +703,8 @@ func (ssl *ConfdState_Webui_Listen_Ssl) GetEntityData() *types.CommonEntityData 
     ssl.EntityData.YangName = "ssl"
     ssl.EntityData.BundleName = "cisco_ios_xe"
     ssl.EntityData.ParentYangName = "listen"
-    ssl.EntityData.SegmentPath = "ssl"
+    ssl.EntityData.SegmentPath = "ssl" + types.AddNoKeyToken(ssl)
+    ssl.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/webui/listen/" + ssl.EntityData.SegmentPath
     ssl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ssl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ssl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -709,6 +736,7 @@ func (rest *ConfdState_Rest) GetEntityData() *types.CommonEntityData {
     rest.EntityData.BundleName = "cisco_ios_xe"
     rest.EntityData.ParentYangName = "confd-state"
     rest.EntityData.SegmentPath = "rest"
+    rest.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + rest.EntityData.SegmentPath
     rest.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rest.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rest.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -741,6 +769,7 @@ func (listen *ConfdState_Rest_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.BundleName = "cisco_ios_xe"
     listen.EntityData.ParentYangName = "rest"
     listen.EntityData.SegmentPath = "listen"
+    listen.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/rest/" + listen.EntityData.SegmentPath
     listen.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -748,10 +777,12 @@ func (listen *ConfdState_Rest_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.Children = types.NewOrderedMap()
     listen.EntityData.Children.Append("tcp", types.YChild{"Tcp", nil})
     for i := range listen.Tcp {
+        types.SetYListKey(listen.Tcp[i], i)
         listen.EntityData.Children.Append(types.GetSegmentPath(listen.Tcp[i]), types.YChild{"Tcp", listen.Tcp[i]})
     }
     listen.EntityData.Children.Append("ssl", types.YChild{"Ssl", nil})
     for i := range listen.Ssl {
+        types.SetYListKey(listen.Ssl[i], i)
         listen.EntityData.Children.Append(types.GetSegmentPath(listen.Ssl[i]), types.YChild{"Ssl", listen.Ssl[i]})
     }
     listen.EntityData.Leafs = types.NewOrderedMap()
@@ -765,6 +796,7 @@ func (listen *ConfdState_Rest_Listen) GetEntityData() *types.CommonEntityData {
 type ConfdState_Rest_Listen_Tcp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is one of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -781,7 +813,8 @@ func (tcp *ConfdState_Rest_Listen_Tcp) GetEntityData() *types.CommonEntityData {
     tcp.EntityData.YangName = "tcp"
     tcp.EntityData.BundleName = "cisco_ios_xe"
     tcp.EntityData.ParentYangName = "listen"
-    tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.SegmentPath = "tcp" + types.AddNoKeyToken(tcp)
+    tcp.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/rest/listen/" + tcp.EntityData.SegmentPath
     tcp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -800,6 +833,7 @@ func (tcp *ConfdState_Rest_Listen_Tcp) GetEntityData() *types.CommonEntityData {
 type ConfdState_Rest_Listen_Ssl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is one of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -816,7 +850,8 @@ func (ssl *ConfdState_Rest_Listen_Ssl) GetEntityData() *types.CommonEntityData {
     ssl.EntityData.YangName = "ssl"
     ssl.EntityData.BundleName = "cisco_ios_xe"
     ssl.EntityData.ParentYangName = "listen"
-    ssl.EntityData.SegmentPath = "ssl"
+    ssl.EntityData.SegmentPath = "ssl" + types.AddNoKeyToken(ssl)
+    ssl.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/rest/listen/" + ssl.EntityData.SegmentPath
     ssl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ssl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ssl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -859,6 +894,7 @@ func (snmp *ConfdState_Snmp) GetEntityData() *types.CommonEntityData {
     snmp.EntityData.BundleName = "cisco_ios_xe"
     snmp.EntityData.ParentYangName = "confd-state"
     snmp.EntityData.SegmentPath = "snmp"
+    snmp.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + snmp.EntityData.SegmentPath
     snmp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -891,6 +927,7 @@ func (listen *ConfdState_Snmp_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.BundleName = "cisco_ios_xe"
     listen.EntityData.ParentYangName = "snmp"
     listen.EntityData.SegmentPath = "listen"
+    listen.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/snmp/" + listen.EntityData.SegmentPath
     listen.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     listen.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     listen.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -898,6 +935,7 @@ func (listen *ConfdState_Snmp_Listen) GetEntityData() *types.CommonEntityData {
     listen.EntityData.Children = types.NewOrderedMap()
     listen.EntityData.Children.Append("udp", types.YChild{"Udp", nil})
     for i := range listen.Udp {
+        types.SetYListKey(listen.Udp[i], i)
         listen.EntityData.Children.Append(types.GetSegmentPath(listen.Udp[i]), types.YChild{"Udp", listen.Udp[i]})
     }
     listen.EntityData.Leafs = types.NewOrderedMap()
@@ -911,6 +949,7 @@ func (listen *ConfdState_Snmp_Listen) GetEntityData() *types.CommonEntityData {
 type ConfdState_Snmp_Listen_Udp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is one of the following types: string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
@@ -927,7 +966,8 @@ func (udp *ConfdState_Snmp_Listen_Udp) GetEntityData() *types.CommonEntityData {
     udp.EntityData.YangName = "udp"
     udp.EntityData.BundleName = "cisco_ios_xe"
     udp.EntityData.ParentYangName = "listen"
-    udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.SegmentPath = "udp" + types.AddNoKeyToken(udp)
+    udp.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/snmp/listen/" + udp.EntityData.SegmentPath
     udp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     udp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     udp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -964,6 +1004,7 @@ func (version *ConfdState_Snmp_Version) GetEntityData() *types.CommonEntityData 
     version.EntityData.BundleName = "cisco_ios_xe"
     version.EntityData.ParentYangName = "snmp"
     version.EntityData.SegmentPath = "version"
+    version.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/snmp/" + version.EntityData.SegmentPath
     version.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     version.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     version.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -997,6 +1038,7 @@ func (internal *ConfdState_Internal) GetEntityData() *types.CommonEntityData {
     internal.EntityData.BundleName = "cisco_ios_xe"
     internal.EntityData.ParentYangName = "confd-state"
     internal.EntityData.SegmentPath = "internal"
+    internal.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/" + internal.EntityData.SegmentPath
     internal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     internal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     internal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1056,6 +1098,7 @@ func (callpoints *ConfdState_Internal_Callpoints) GetEntityData() *types.CommonE
     callpoints.EntityData.BundleName = "cisco_ios_xe"
     callpoints.EntityData.ParentYangName = "internal"
     callpoints.EntityData.SegmentPath = "callpoints"
+    callpoints.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/" + callpoints.EntityData.SegmentPath
     callpoints.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     callpoints.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     callpoints.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1106,6 +1149,7 @@ func (callpoints *ConfdState_Internal_Callpoints) GetEntityData() *types.CommonE
 type ConfdState_Internal_Callpoints_Callpoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Callpoint id. The type is string.
     Id interface{}
@@ -1135,6 +1179,7 @@ func (callpoint *ConfdState_Internal_Callpoints_Callpoint) GetEntityData() *type
     callpoint.EntityData.BundleName = "cisco_ios_xe"
     callpoint.EntityData.ParentYangName = "callpoints"
     callpoint.EntityData.SegmentPath = "callpoint" + types.AddKeyToken(callpoint.Id, "id")
+    callpoint.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + callpoint.EntityData.SegmentPath
     callpoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     callpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     callpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1143,6 +1188,7 @@ func (callpoint *ConfdState_Internal_Callpoints_Callpoint) GetEntityData() *type
     callpoint.EntityData.Children.Append("daemon", types.YChild{"Daemon", &callpoint.Daemon})
     callpoint.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range callpoint.Range {
+        types.SetYListKey(callpoint.Range[i], i)
         callpoint.EntityData.Children.Append(types.GetSegmentPath(callpoint.Range[i]), types.YChild{"Range", callpoint.Range[i]})
     }
     callpoint.EntityData.Leafs = types.NewOrderedMap()
@@ -1180,6 +1226,7 @@ func (daemon *ConfdState_Internal_Callpoints_Callpoint_Daemon) GetEntityData() *
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "callpoint"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/callpoint/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1208,6 +1255,7 @@ const (
 type ConfdState_Internal_Callpoints_Callpoint_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -1230,7 +1278,8 @@ func (self *ConfdState_Internal_Callpoints_Callpoint_Range) GetEntityData() *typ
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "callpoint"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/callpoint/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1271,6 +1320,7 @@ func (daemon *ConfdState_Internal_Callpoints_Callpoint_Range_Daemon) GetEntityDa
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/callpoint/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1312,6 +1362,7 @@ const (
 type ConfdState_Internal_Callpoints_Validationpoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Callpoint id. The type is string.
     Id interface{}
@@ -1341,6 +1392,7 @@ func (validationpoint *ConfdState_Internal_Callpoints_Validationpoint) GetEntity
     validationpoint.EntityData.BundleName = "cisco_ios_xe"
     validationpoint.EntityData.ParentYangName = "callpoints"
     validationpoint.EntityData.SegmentPath = "validationpoint" + types.AddKeyToken(validationpoint.Id, "id")
+    validationpoint.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + validationpoint.EntityData.SegmentPath
     validationpoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     validationpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     validationpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1349,6 +1401,7 @@ func (validationpoint *ConfdState_Internal_Callpoints_Validationpoint) GetEntity
     validationpoint.EntityData.Children.Append("daemon", types.YChild{"Daemon", &validationpoint.Daemon})
     validationpoint.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range validationpoint.Range {
+        types.SetYListKey(validationpoint.Range[i], i)
         validationpoint.EntityData.Children.Append(types.GetSegmentPath(validationpoint.Range[i]), types.YChild{"Range", validationpoint.Range[i]})
     }
     validationpoint.EntityData.Leafs = types.NewOrderedMap()
@@ -1386,6 +1439,7 @@ func (daemon *ConfdState_Internal_Callpoints_Validationpoint_Daemon) GetEntityDa
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "validationpoint"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/validationpoint/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1414,6 +1468,7 @@ const (
 type ConfdState_Internal_Callpoints_Validationpoint_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -1436,7 +1491,8 @@ func (self *ConfdState_Internal_Callpoints_Validationpoint_Range) GetEntityData(
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "validationpoint"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/validationpoint/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1477,6 +1533,7 @@ func (daemon *ConfdState_Internal_Callpoints_Validationpoint_Range_Daemon) GetEn
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/validationpoint/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1518,6 +1575,7 @@ const (
 type ConfdState_Internal_Callpoints_Actionpoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Callpoint id. The type is string.
     Id interface{}
@@ -1547,6 +1605,7 @@ func (actionpoint *ConfdState_Internal_Callpoints_Actionpoint) GetEntityData() *
     actionpoint.EntityData.BundleName = "cisco_ios_xe"
     actionpoint.EntityData.ParentYangName = "callpoints"
     actionpoint.EntityData.SegmentPath = "actionpoint" + types.AddKeyToken(actionpoint.Id, "id")
+    actionpoint.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + actionpoint.EntityData.SegmentPath
     actionpoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     actionpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     actionpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1555,6 +1614,7 @@ func (actionpoint *ConfdState_Internal_Callpoints_Actionpoint) GetEntityData() *
     actionpoint.EntityData.Children.Append("daemon", types.YChild{"Daemon", &actionpoint.Daemon})
     actionpoint.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range actionpoint.Range {
+        types.SetYListKey(actionpoint.Range[i], i)
         actionpoint.EntityData.Children.Append(types.GetSegmentPath(actionpoint.Range[i]), types.YChild{"Range", actionpoint.Range[i]})
     }
     actionpoint.EntityData.Leafs = types.NewOrderedMap()
@@ -1592,6 +1652,7 @@ func (daemon *ConfdState_Internal_Callpoints_Actionpoint_Daemon) GetEntityData()
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "actionpoint"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/actionpoint/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1620,6 +1681,7 @@ const (
 type ConfdState_Internal_Callpoints_Actionpoint_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -1642,7 +1704,8 @@ func (self *ConfdState_Internal_Callpoints_Actionpoint_Range) GetEntityData() *t
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "actionpoint"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/actionpoint/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1683,6 +1746,7 @@ func (daemon *ConfdState_Internal_Callpoints_Actionpoint_Range_Daemon) GetEntity
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/actionpoint/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1724,6 +1788,7 @@ const (
 type ConfdState_Internal_Callpoints_SnmpInformCallback struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Callpoint id. The type is string.
     Id interface{}
@@ -1754,6 +1819,7 @@ func (snmpInformCallback *ConfdState_Internal_Callpoints_SnmpInformCallback) Get
     snmpInformCallback.EntityData.BundleName = "cisco_ios_xe"
     snmpInformCallback.EntityData.ParentYangName = "callpoints"
     snmpInformCallback.EntityData.SegmentPath = "snmp-inform-callback" + types.AddKeyToken(snmpInformCallback.Id, "id")
+    snmpInformCallback.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + snmpInformCallback.EntityData.SegmentPath
     snmpInformCallback.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpInformCallback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpInformCallback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1762,6 +1828,7 @@ func (snmpInformCallback *ConfdState_Internal_Callpoints_SnmpInformCallback) Get
     snmpInformCallback.EntityData.Children.Append("daemon", types.YChild{"Daemon", &snmpInformCallback.Daemon})
     snmpInformCallback.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range snmpInformCallback.Range {
+        types.SetYListKey(snmpInformCallback.Range[i], i)
         snmpInformCallback.EntityData.Children.Append(types.GetSegmentPath(snmpInformCallback.Range[i]), types.YChild{"Range", snmpInformCallback.Range[i]})
     }
     snmpInformCallback.EntityData.Leafs = types.NewOrderedMap()
@@ -1799,6 +1866,7 @@ func (daemon *ConfdState_Internal_Callpoints_SnmpInformCallback_Daemon) GetEntit
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "snmp-inform-callback"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/snmp-inform-callback/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1827,6 +1895,7 @@ const (
 type ConfdState_Internal_Callpoints_SnmpInformCallback_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -1849,7 +1918,8 @@ func (self *ConfdState_Internal_Callpoints_SnmpInformCallback_Range) GetEntityDa
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "snmp-inform-callback"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/snmp-inform-callback/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1890,6 +1960,7 @@ func (daemon *ConfdState_Internal_Callpoints_SnmpInformCallback_Range_Daemon) Ge
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/snmp-inform-callback/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1931,6 +2002,7 @@ const (
 type ConfdState_Internal_Callpoints_SnmpNotificationSubscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Callpoint id. The type is string.
     Id interface{}
@@ -1961,6 +2033,7 @@ func (snmpNotificationSubscription *ConfdState_Internal_Callpoints_SnmpNotificat
     snmpNotificationSubscription.EntityData.BundleName = "cisco_ios_xe"
     snmpNotificationSubscription.EntityData.ParentYangName = "callpoints"
     snmpNotificationSubscription.EntityData.SegmentPath = "snmp-notification-subscription" + types.AddKeyToken(snmpNotificationSubscription.Id, "id")
+    snmpNotificationSubscription.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + snmpNotificationSubscription.EntityData.SegmentPath
     snmpNotificationSubscription.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpNotificationSubscription.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpNotificationSubscription.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1969,6 +2042,7 @@ func (snmpNotificationSubscription *ConfdState_Internal_Callpoints_SnmpNotificat
     snmpNotificationSubscription.EntityData.Children.Append("daemon", types.YChild{"Daemon", &snmpNotificationSubscription.Daemon})
     snmpNotificationSubscription.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range snmpNotificationSubscription.Range {
+        types.SetYListKey(snmpNotificationSubscription.Range[i], i)
         snmpNotificationSubscription.EntityData.Children.Append(types.GetSegmentPath(snmpNotificationSubscription.Range[i]), types.YChild{"Range", snmpNotificationSubscription.Range[i]})
     }
     snmpNotificationSubscription.EntityData.Leafs = types.NewOrderedMap()
@@ -2006,6 +2080,7 @@ func (daemon *ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Daemon
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "snmp-notification-subscription"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/snmp-notification-subscription/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2034,6 +2109,7 @@ const (
 type ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -2056,7 +2132,8 @@ func (self *ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range) G
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "snmp-notification-subscription"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/snmp-notification-subscription/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2097,6 +2174,7 @@ func (daemon *ConfdState_Internal_Callpoints_SnmpNotificationSubscription_Range_
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/snmp-notification-subscription/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2138,6 +2216,7 @@ const (
 type ConfdState_Internal_Callpoints_ErrorFormattingCallback struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Callpoint id. The type is string.
     Id interface{}
@@ -2168,6 +2247,7 @@ func (errorFormattingCallback *ConfdState_Internal_Callpoints_ErrorFormattingCal
     errorFormattingCallback.EntityData.BundleName = "cisco_ios_xe"
     errorFormattingCallback.EntityData.ParentYangName = "callpoints"
     errorFormattingCallback.EntityData.SegmentPath = "error-formatting-callback" + types.AddKeyToken(errorFormattingCallback.Id, "id")
+    errorFormattingCallback.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + errorFormattingCallback.EntityData.SegmentPath
     errorFormattingCallback.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     errorFormattingCallback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     errorFormattingCallback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2176,6 +2256,7 @@ func (errorFormattingCallback *ConfdState_Internal_Callpoints_ErrorFormattingCal
     errorFormattingCallback.EntityData.Children.Append("daemon", types.YChild{"Daemon", &errorFormattingCallback.Daemon})
     errorFormattingCallback.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range errorFormattingCallback.Range {
+        types.SetYListKey(errorFormattingCallback.Range[i], i)
         errorFormattingCallback.EntityData.Children.Append(types.GetSegmentPath(errorFormattingCallback.Range[i]), types.YChild{"Range", errorFormattingCallback.Range[i]})
     }
     errorFormattingCallback.EntityData.Leafs = types.NewOrderedMap()
@@ -2213,6 +2294,7 @@ func (daemon *ConfdState_Internal_Callpoints_ErrorFormattingCallback_Daemon) Get
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "error-formatting-callback"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/error-formatting-callback/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2241,6 +2323,7 @@ const (
 type ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -2263,7 +2346,8 @@ func (self *ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range) GetEnt
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "error-formatting-callback"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/error-formatting-callback/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2304,6 +2388,7 @@ func (daemon *ConfdState_Internal_Callpoints_ErrorFormattingCallback_Range_Daemo
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/error-formatting-callback/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2345,6 +2430,7 @@ const (
 type ConfdState_Internal_Callpoints_Typepoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Callpoint id. The type is string.
     Id interface{}
@@ -2374,6 +2460,7 @@ func (typepoint *ConfdState_Internal_Callpoints_Typepoint) GetEntityData() *type
     typepoint.EntityData.BundleName = "cisco_ios_xe"
     typepoint.EntityData.ParentYangName = "callpoints"
     typepoint.EntityData.SegmentPath = "typepoint" + types.AddKeyToken(typepoint.Id, "id")
+    typepoint.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + typepoint.EntityData.SegmentPath
     typepoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     typepoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     typepoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2382,6 +2469,7 @@ func (typepoint *ConfdState_Internal_Callpoints_Typepoint) GetEntityData() *type
     typepoint.EntityData.Children.Append("daemon", types.YChild{"Daemon", &typepoint.Daemon})
     typepoint.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range typepoint.Range {
+        types.SetYListKey(typepoint.Range[i], i)
         typepoint.EntityData.Children.Append(types.GetSegmentPath(typepoint.Range[i]), types.YChild{"Range", typepoint.Range[i]})
     }
     typepoint.EntityData.Leafs = types.NewOrderedMap()
@@ -2419,6 +2507,7 @@ func (daemon *ConfdState_Internal_Callpoints_Typepoint_Daemon) GetEntityData() *
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "typepoint"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/typepoint/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2447,6 +2536,7 @@ const (
 type ConfdState_Internal_Callpoints_Typepoint_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -2469,7 +2559,8 @@ func (self *ConfdState_Internal_Callpoints_Typepoint_Range) GetEntityData() *typ
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "typepoint"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/typepoint/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2510,6 +2601,7 @@ func (daemon *ConfdState_Internal_Callpoints_Typepoint_Range_Daemon) GetEntityDa
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/typepoint/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2551,6 +2643,7 @@ const (
 type ConfdState_Internal_Callpoints_NotificationStreamReplay struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the notification stream. The type is
     // string.
@@ -2585,6 +2678,7 @@ func (notificationStreamReplay *ConfdState_Internal_Callpoints_NotificationStrea
     notificationStreamReplay.EntityData.BundleName = "cisco_ios_xe"
     notificationStreamReplay.EntityData.ParentYangName = "callpoints"
     notificationStreamReplay.EntityData.SegmentPath = "notification-stream-replay" + types.AddKeyToken(notificationStreamReplay.Name, "name")
+    notificationStreamReplay.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + notificationStreamReplay.EntityData.SegmentPath
     notificationStreamReplay.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     notificationStreamReplay.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     notificationStreamReplay.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2593,6 +2687,7 @@ func (notificationStreamReplay *ConfdState_Internal_Callpoints_NotificationStrea
     notificationStreamReplay.EntityData.Children.Append("daemon", types.YChild{"Daemon", &notificationStreamReplay.Daemon})
     notificationStreamReplay.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range notificationStreamReplay.Range {
+        types.SetYListKey(notificationStreamReplay.Range[i], i)
         notificationStreamReplay.EntityData.Children.Append(types.GetSegmentPath(notificationStreamReplay.Range[i]), types.YChild{"Range", notificationStreamReplay.Range[i]})
     }
     notificationStreamReplay.EntityData.Leafs = types.NewOrderedMap()
@@ -2631,6 +2726,7 @@ func (daemon *ConfdState_Internal_Callpoints_NotificationStreamReplay_Daemon) Ge
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "notification-stream-replay"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/notification-stream-replay/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2659,6 +2755,7 @@ const (
 type ConfdState_Internal_Callpoints_NotificationStreamReplay_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -2681,7 +2778,8 @@ func (self *ConfdState_Internal_Callpoints_NotificationStreamReplay_Range) GetEn
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "notification-stream-replay"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/notification-stream-replay/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2722,6 +2820,7 @@ func (daemon *ConfdState_Internal_Callpoints_NotificationStreamReplay_Range_Daem
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/notification-stream-replay/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2806,6 +2905,7 @@ func (authenticationCallback *ConfdState_Internal_Callpoints_AuthenticationCallb
     authenticationCallback.EntityData.BundleName = "cisco_ios_xe"
     authenticationCallback.EntityData.ParentYangName = "callpoints"
     authenticationCallback.EntityData.SegmentPath = "authentication-callback"
+    authenticationCallback.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + authenticationCallback.EntityData.SegmentPath
     authenticationCallback.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authenticationCallback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authenticationCallback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2814,6 +2914,7 @@ func (authenticationCallback *ConfdState_Internal_Callpoints_AuthenticationCallb
     authenticationCallback.EntityData.Children.Append("daemon", types.YChild{"Daemon", &authenticationCallback.Daemon})
     authenticationCallback.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range authenticationCallback.Range {
+        types.SetYListKey(authenticationCallback.Range[i], i)
         authenticationCallback.EntityData.Children.Append(types.GetSegmentPath(authenticationCallback.Range[i]), types.YChild{"Range", authenticationCallback.Range[i]})
     }
     authenticationCallback.EntityData.Leafs = types.NewOrderedMap()
@@ -2851,6 +2952,7 @@ func (daemon *ConfdState_Internal_Callpoints_AuthenticationCallback_Daemon) GetE
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "authentication-callback"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2879,6 +2981,7 @@ const (
 type ConfdState_Internal_Callpoints_AuthenticationCallback_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -2901,7 +3004,8 @@ func (self *ConfdState_Internal_Callpoints_AuthenticationCallback_Range) GetEnti
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "authentication-callback"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2942,6 +3046,7 @@ func (daemon *ConfdState_Internal_Callpoints_AuthenticationCallback_Range_Daemon
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3015,6 +3120,7 @@ func (authorizationCallbacks *ConfdState_Internal_Callpoints_AuthorizationCallba
     authorizationCallbacks.EntityData.BundleName = "cisco_ios_xe"
     authorizationCallbacks.EntityData.ParentYangName = "callpoints"
     authorizationCallbacks.EntityData.SegmentPath = "authorization-callbacks"
+    authorizationCallbacks.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/" + authorizationCallbacks.EntityData.SegmentPath
     authorizationCallbacks.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     authorizationCallbacks.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     authorizationCallbacks.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3023,6 +3129,7 @@ func (authorizationCallbacks *ConfdState_Internal_Callpoints_AuthorizationCallba
     authorizationCallbacks.EntityData.Children.Append("daemon", types.YChild{"Daemon", &authorizationCallbacks.Daemon})
     authorizationCallbacks.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range authorizationCallbacks.Range {
+        types.SetYListKey(authorizationCallbacks.Range[i], i)
         authorizationCallbacks.EntityData.Children.Append(types.GetSegmentPath(authorizationCallbacks.Range[i]), types.YChild{"Range", authorizationCallbacks.Range[i]})
     }
     authorizationCallbacks.EntityData.Leafs = types.NewOrderedMap()
@@ -3060,6 +3167,7 @@ func (daemon *ConfdState_Internal_Callpoints_AuthorizationCallbacks_Daemon) GetE
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "authorization-callbacks"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3088,6 +3196,7 @@ const (
 type ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The space-separated set of keys that defines the lower endpoint of the
     // range for a non-default registration. The type is string.
@@ -3110,7 +3219,8 @@ func (self *ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range) GetEnti
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "authorization-callbacks"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3151,6 +3261,7 @@ func (daemon *ConfdState_Internal_Callpoints_AuthorizationCallbacks_Range_Daemon
     daemon.EntityData.BundleName = "cisco_ios_xe"
     daemon.EntityData.ParentYangName = "range"
     daemon.EntityData.SegmentPath = "daemon"
+    daemon.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/range/" + daemon.EntityData.SegmentPath
     daemon.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daemon.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daemon.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3206,6 +3317,7 @@ func (cdb *ConfdState_Internal_Cdb) GetEntityData() *types.CommonEntityData {
     cdb.EntityData.BundleName = "cisco_ios_xe"
     cdb.EntityData.ParentYangName = "internal"
     cdb.EntityData.SegmentPath = "cdb"
+    cdb.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/" + cdb.EntityData.SegmentPath
     cdb.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdb.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdb.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3217,6 +3329,7 @@ func (cdb *ConfdState_Internal_Cdb) GetEntityData() *types.CommonEntityData {
     }
     cdb.EntityData.Children.Append("client", types.YChild{"Client", nil})
     for i := range cdb.Client {
+        types.SetYListKey(cdb.Client[i], i)
         cdb.EntityData.Children.Append(types.GetSegmentPath(cdb.Client[i]), types.YChild{"Client", cdb.Client[i]})
     }
     cdb.EntityData.Leafs = types.NewOrderedMap()
@@ -3230,6 +3343,7 @@ func (cdb *ConfdState_Internal_Cdb) GetEntityData() *types.CommonEntityData {
 type ConfdState_Internal_Cdb_Datastore struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is DatastoreName.
     Name interface{}
@@ -3293,6 +3407,7 @@ func (datastore *ConfdState_Internal_Cdb_Datastore) GetEntityData() *types.Commo
     datastore.EntityData.BundleName = "cisco_ios_xe"
     datastore.EntityData.ParentYangName = "cdb"
     datastore.EntityData.SegmentPath = "datastore" + types.AddKeyToken(datastore.Name, "name")
+    datastore.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/cdb/" + datastore.EntityData.SegmentPath
     datastore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     datastore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     datastore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3301,6 +3416,7 @@ func (datastore *ConfdState_Internal_Cdb_Datastore) GetEntityData() *types.Commo
     datastore.EntityData.Children.Append("pending-subscription-sync", types.YChild{"PendingSubscriptionSync", &datastore.PendingSubscriptionSync})
     datastore.EntityData.Children.Append("pending-notification-queue", types.YChild{"PendingNotificationQueue", nil})
     for i := range datastore.PendingNotificationQueue {
+        types.SetYListKey(datastore.PendingNotificationQueue[i], i)
         datastore.EntityData.Children.Append(types.GetSegmentPath(datastore.PendingNotificationQueue[i]), types.YChild{"PendingNotificationQueue", datastore.PendingNotificationQueue[i]})
     }
     datastore.EntityData.Leafs = types.NewOrderedMap()
@@ -3355,6 +3471,7 @@ func (pendingSubscriptionSync *ConfdState_Internal_Cdb_Datastore_PendingSubscrip
     pendingSubscriptionSync.EntityData.BundleName = "cisco_ios_xe"
     pendingSubscriptionSync.EntityData.ParentYangName = "datastore"
     pendingSubscriptionSync.EntityData.SegmentPath = "pending-subscription-sync"
+    pendingSubscriptionSync.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/cdb/datastore/" + pendingSubscriptionSync.EntityData.SegmentPath
     pendingSubscriptionSync.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pendingSubscriptionSync.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pendingSubscriptionSync.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3362,6 +3479,7 @@ func (pendingSubscriptionSync *ConfdState_Internal_Cdb_Datastore_PendingSubscrip
     pendingSubscriptionSync.EntityData.Children = types.NewOrderedMap()
     pendingSubscriptionSync.EntityData.Children.Append("notification", types.YChild{"Notification", nil})
     for i := range pendingSubscriptionSync.Notification {
+        types.SetYListKey(pendingSubscriptionSync.Notification[i], i)
         pendingSubscriptionSync.EntityData.Children.Append(types.GetSegmentPath(pendingSubscriptionSync.Notification[i]), types.YChild{"Notification", pendingSubscriptionSync.Notification[i]})
     }
     pendingSubscriptionSync.EntityData.Leafs = types.NewOrderedMap()
@@ -3377,6 +3495,7 @@ func (pendingSubscriptionSync *ConfdState_Internal_Cdb_Datastore_PendingSubscrip
 type ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync_Notification struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The name of the client that is the recipient of the notification. The type
     // is string.
@@ -3392,7 +3511,8 @@ func (notification *ConfdState_Internal_Cdb_Datastore_PendingSubscriptionSync_No
     notification.EntityData.YangName = "notification"
     notification.EntityData.BundleName = "cisco_ios_xe"
     notification.EntityData.ParentYangName = "pending-subscription-sync"
-    notification.EntityData.SegmentPath = "notification"
+    notification.EntityData.SegmentPath = "notification" + types.AddNoKeyToken(notification)
+    notification.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/cdb/datastore/pending-subscription-sync/" + notification.EntityData.SegmentPath
     notification.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     notification.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     notification.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3421,6 +3541,7 @@ const (
 type ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is slice of
     // ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue_Notification.
@@ -3432,7 +3553,8 @@ func (pendingNotificationQueue *ConfdState_Internal_Cdb_Datastore_PendingNotific
     pendingNotificationQueue.EntityData.YangName = "pending-notification-queue"
     pendingNotificationQueue.EntityData.BundleName = "cisco_ios_xe"
     pendingNotificationQueue.EntityData.ParentYangName = "datastore"
-    pendingNotificationQueue.EntityData.SegmentPath = "pending-notification-queue"
+    pendingNotificationQueue.EntityData.SegmentPath = "pending-notification-queue" + types.AddNoKeyToken(pendingNotificationQueue)
+    pendingNotificationQueue.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/cdb/datastore/" + pendingNotificationQueue.EntityData.SegmentPath
     pendingNotificationQueue.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pendingNotificationQueue.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pendingNotificationQueue.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3440,6 +3562,7 @@ func (pendingNotificationQueue *ConfdState_Internal_Cdb_Datastore_PendingNotific
     pendingNotificationQueue.EntityData.Children = types.NewOrderedMap()
     pendingNotificationQueue.EntityData.Children.Append("notification", types.YChild{"Notification", nil})
     for i := range pendingNotificationQueue.Notification {
+        types.SetYListKey(pendingNotificationQueue.Notification[i], i)
         pendingNotificationQueue.EntityData.Children.Append(types.GetSegmentPath(pendingNotificationQueue.Notification[i]), types.YChild{"Notification", pendingNotificationQueue.Notification[i]})
     }
     pendingNotificationQueue.EntityData.Leafs = types.NewOrderedMap()
@@ -3453,6 +3576,7 @@ func (pendingNotificationQueue *ConfdState_Internal_Cdb_Datastore_PendingNotific
 type ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue_Notification struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The priority of the subscriptions that generated the notification. Not
     // present for the the 'operational' datastore. The type is interface{} with
@@ -3473,7 +3597,8 @@ func (notification *ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue_N
     notification.EntityData.YangName = "notification"
     notification.EntityData.BundleName = "cisco_ios_xe"
     notification.EntityData.ParentYangName = "pending-notification-queue"
-    notification.EntityData.SegmentPath = "notification"
+    notification.EntityData.SegmentPath = "notification" + types.AddNoKeyToken(notification)
+    notification.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/cdb/datastore/pending-notification-queue/" + notification.EntityData.SegmentPath
     notification.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     notification.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     notification.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3493,6 +3618,7 @@ func (notification *ConfdState_Internal_Cdb_Datastore_PendingNotificationQueue_N
 type ConfdState_Internal_Cdb_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The client name. The type is string.
     Name interface{}
@@ -3533,7 +3659,8 @@ func (client *ConfdState_Internal_Cdb_Client) GetEntityData() *types.CommonEntit
     client.EntityData.YangName = "client"
     client.EntityData.BundleName = "cisco_ios_xe"
     client.EntityData.ParentYangName = "cdb"
-    client.EntityData.SegmentPath = "client"
+    client.EntityData.SegmentPath = "client" + types.AddNoKeyToken(client)
+    client.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/cdb/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3541,6 +3668,7 @@ func (client *ConfdState_Internal_Cdb_Client) GetEntityData() *types.CommonEntit
     client.EntityData.Children = types.NewOrderedMap()
     client.EntityData.Children.Append("subscription", types.YChild{"Subscription", nil})
     for i := range client.Subscription {
+        types.SetYListKey(client.Subscription[i], i)
         client.EntityData.Children.Append(types.GetSegmentPath(client.Subscription[i]), types.YChild{"Subscription", client.Subscription[i]})
     }
     client.EntityData.Leafs = types.NewOrderedMap()
@@ -3559,6 +3687,7 @@ func (client *ConfdState_Internal_Cdb_Client) GetEntityData() *types.CommonEntit
 type ConfdState_Internal_Cdb_Client_Subscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The name of the datastore for the subscription - only 'running' and
     // 'operational' can have subscriptions. The type is DatastoreName.
@@ -3590,7 +3719,8 @@ func (subscription *ConfdState_Internal_Cdb_Client_Subscription) GetEntityData()
     subscription.EntityData.YangName = "subscription"
     subscription.EntityData.BundleName = "cisco_ios_xe"
     subscription.EntityData.ParentYangName = "client"
-    subscription.EntityData.SegmentPath = "subscription"
+    subscription.EntityData.SegmentPath = "subscription" + types.AddNoKeyToken(subscription)
+    subscription.EntityData.AbsolutePath = "tailf-confd-monitoring:confd-state/internal/cdb/client/" + subscription.EntityData.SegmentPath
     subscription.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     subscription.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     subscription.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

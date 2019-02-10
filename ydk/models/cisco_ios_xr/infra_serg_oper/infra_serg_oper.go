@@ -218,6 +218,7 @@ func (sessionRedundancyManager *SessionRedundancyManager) GetEntityData() *types
     sessionRedundancyManager.EntityData.BundleName = "cisco_ios_xr"
     sessionRedundancyManager.EntityData.ParentYangName = "Cisco-IOS-XR-infra-serg-oper"
     sessionRedundancyManager.EntityData.SegmentPath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager"
+    sessionRedundancyManager.EntityData.AbsolutePath = sessionRedundancyManager.EntityData.SegmentPath
     sessionRedundancyManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionRedundancyManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionRedundancyManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +251,7 @@ func (interfaces *SessionRedundancyManager_Interfaces) GetEntityData() *types.Co
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "session-redundancy-manager"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -271,6 +273,7 @@ func (interfaces *SessionRedundancyManager_Interfaces) GetEntityData() *types.Co
 type SessionRedundancyManager_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -298,6 +301,7 @@ func (self *SessionRedundancyManager_Interfaces_Interface) GetEntityData() *type
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -333,6 +337,7 @@ func (groups *SessionRedundancyManager_Groups) GetEntityData() *types.CommonEnti
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "session-redundancy-manager"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -354,6 +359,7 @@ func (groups *SessionRedundancyManager_Groups) GetEntityData() *types.CommonEnti
 type SessionRedundancyManager_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -401,6 +407,7 @@ func (group *SessionRedundancyManager_Groups_Group) GetEntityData() *types.Commo
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Group, "group")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -496,6 +503,7 @@ func (summary *SessionRedundancyManager_Summary) GetEntityData() *types.CommonEn
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "session-redundancy-manager"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -541,6 +549,7 @@ func (sessionRedundancyAgent *SessionRedundancyAgent) GetEntityData() *types.Com
     sessionRedundancyAgent.EntityData.BundleName = "cisco_ios_xr"
     sessionRedundancyAgent.EntityData.ParentYangName = "Cisco-IOS-XR-infra-serg-oper"
     sessionRedundancyAgent.EntityData.SegmentPath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent"
+    sessionRedundancyAgent.EntityData.AbsolutePath = sessionRedundancyAgent.EntityData.SegmentPath
     sessionRedundancyAgent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionRedundancyAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionRedundancyAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -572,6 +581,7 @@ func (nodes *SessionRedundancyAgent_Nodes) GetEntityData() *types.CommonEntityDa
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "session-redundancy-agent"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -593,6 +603,7 @@ func (nodes *SessionRedundancyAgent_Nodes) GetEntityData() *types.CommonEntityDa
 type SessionRedundancyAgent_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -626,6 +637,7 @@ func (node *SessionRedundancyAgent_Nodes_Node) GetEntityData() *types.CommonEnti
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -663,6 +675,7 @@ func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetEntityData() *t
     groupIdXr.EntityData.BundleName = "cisco_ios_xr"
     groupIdXr.EntityData.ParentYangName = "node"
     groupIdXr.EntityData.SegmentPath = "group-id-xr"
+    groupIdXr.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/" + groupIdXr.EntityData.SegmentPath
     groupIdXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupIdXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupIdXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -684,6 +697,7 @@ func (groupIdXr *SessionRedundancyAgent_Nodes_Node_GroupIdXr) GetEntityData() *t
 type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. GroupId. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -719,6 +733,7 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntityDat
     groupId.EntityData.BundleName = "cisco_ios_xr"
     groupId.EntityData.ParentYangName = "group-id-xr"
     groupId.EntityData.SegmentPath = "group-id" + types.AddKeyToken(groupId.GroupId, "group-id")
+    groupId.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/group-id-xr/" + groupId.EntityData.SegmentPath
     groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -726,10 +741,12 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntityDat
     groupId.EntityData.Children = types.NewOrderedMap()
     groupId.EntityData.Children.Append("session-detailed-information", types.YChild{"SessionDetailedInformation", nil})
     for i := range groupId.SessionDetailedInformation {
+        types.SetYListKey(groupId.SessionDetailedInformation[i], i)
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.SessionDetailedInformation[i]), types.YChild{"SessionDetailedInformation", groupId.SessionDetailedInformation[i]})
     }
     groupId.EntityData.Children.Append("session-sync-error-information", types.YChild{"SessionSyncErrorInformation", nil})
     for i := range groupId.SessionSyncErrorInformation {
+        types.SetYListKey(groupId.SessionSyncErrorInformation[i], i)
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.SessionSyncErrorInformation[i]), types.YChild{"SessionSyncErrorInformation", groupId.SessionSyncErrorInformation[i]})
     }
     groupId.EntityData.Leafs = types.NewOrderedMap()
@@ -750,6 +767,7 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId) GetEntityDat
 type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionDetailedInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Component. The type is SergShowComp.
     Component interface{}
@@ -772,7 +790,8 @@ func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_Gr
     sessionDetailedInformation.EntityData.YangName = "session-detailed-information"
     sessionDetailedInformation.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailedInformation.EntityData.ParentYangName = "group-id"
-    sessionDetailedInformation.EntityData.SegmentPath = "session-detailed-information"
+    sessionDetailedInformation.EntityData.SegmentPath = "session-detailed-information" + types.AddNoKeyToken(sessionDetailedInformation)
+    sessionDetailedInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/group-id-xr/group-id/" + sessionDetailedInformation.EntityData.SegmentPath
     sessionDetailedInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailedInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailedInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -795,6 +814,7 @@ func (sessionDetailedInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_Gr
 type SessionRedundancyAgent_Nodes_Node_GroupIdXr_GroupId_SessionSyncErrorInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // No. of Errors occured during Synchronization. The type is interface{} with
     // range: 0..65535.
@@ -812,7 +832,8 @@ func (sessionSyncErrorInformation *SessionRedundancyAgent_Nodes_Node_GroupIdXr_G
     sessionSyncErrorInformation.EntityData.YangName = "session-sync-error-information"
     sessionSyncErrorInformation.EntityData.BundleName = "cisco_ios_xr"
     sessionSyncErrorInformation.EntityData.ParentYangName = "group-id"
-    sessionSyncErrorInformation.EntityData.SegmentPath = "session-sync-error-information"
+    sessionSyncErrorInformation.EntityData.SegmentPath = "session-sync-error-information" + types.AddNoKeyToken(sessionSyncErrorInformation)
+    sessionSyncErrorInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/group-id-xr/group-id/" + sessionSyncErrorInformation.EntityData.SegmentPath
     sessionSyncErrorInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionSyncErrorInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionSyncErrorInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -845,6 +866,7 @@ func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetEntityData() *t
     clientIds.EntityData.BundleName = "cisco_ios_xr"
     clientIds.EntityData.ParentYangName = "node"
     clientIds.EntityData.SegmentPath = "client-ids"
+    clientIds.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/" + clientIds.EntityData.SegmentPath
     clientIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +888,7 @@ func (clientIds *SessionRedundancyAgent_Nodes_Node_ClientIds) GetEntityData() *t
 type SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Client Id. The type is interface{} with range:
     // 0..4294967295.
@@ -1070,6 +1093,7 @@ func (clientId *SessionRedundancyAgent_Nodes_Node_ClientIds_ClientId) GetEntityD
     clientId.EntityData.BundleName = "cisco_ios_xr"
     clientId.EntityData.ParentYangName = "client-ids"
     clientId.EntityData.SegmentPath = "client-id" + types.AddKeyToken(clientId.StatsClientId, "stats-client-id")
+    clientId.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/client-ids/" + clientId.EntityData.SegmentPath
     clientId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1160,6 +1184,7 @@ func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetEntityData() *types.C
     memory.EntityData.BundleName = "cisco_ios_xr"
     memory.EntityData.ParentYangName = "node"
     memory.EntityData.SegmentPath = "memory"
+    memory.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/" + memory.EntityData.SegmentPath
     memory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1167,14 +1192,17 @@ func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetEntityData() *types.C
     memory.EntityData.Children = types.NewOrderedMap()
     memory.EntityData.Children.Append("memory-info", types.YChild{"MemoryInfo", nil})
     for i := range memory.MemoryInfo {
+        types.SetYListKey(memory.MemoryInfo[i], i)
         memory.EntityData.Children.Append(types.GetSegmentPath(memory.MemoryInfo[i]), types.YChild{"MemoryInfo", memory.MemoryInfo[i]})
     }
     memory.EntityData.Children.Append("edm-memory-info", types.YChild{"EdmMemoryInfo", nil})
     for i := range memory.EdmMemoryInfo {
+        types.SetYListKey(memory.EdmMemoryInfo[i], i)
         memory.EntityData.Children.Append(types.GetSegmentPath(memory.EdmMemoryInfo[i]), types.YChild{"EdmMemoryInfo", memory.EdmMemoryInfo[i]})
     }
     memory.EntityData.Children.Append("string-memory-info", types.YChild{"StringMemoryInfo", nil})
     for i := range memory.StringMemoryInfo {
+        types.SetYListKey(memory.StringMemoryInfo[i], i)
         memory.EntityData.Children.Append(types.GetSegmentPath(memory.StringMemoryInfo[i]), types.YChild{"StringMemoryInfo", memory.StringMemoryInfo[i]})
     }
     memory.EntityData.Leafs = types.NewOrderedMap()
@@ -1189,6 +1217,7 @@ func (memory *SessionRedundancyAgent_Nodes_Node_Memory) GetEntityData() *types.C
 type SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Structure Name. The type is string.
     StructureName interface{}
@@ -1218,7 +1247,8 @@ func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetEntity
     memoryInfo.EntityData.YangName = "memory-info"
     memoryInfo.EntityData.BundleName = "cisco_ios_xr"
     memoryInfo.EntityData.ParentYangName = "memory"
-    memoryInfo.EntityData.SegmentPath = "memory-info"
+    memoryInfo.EntityData.SegmentPath = "memory-info" + types.AddNoKeyToken(memoryInfo)
+    memoryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/memory/" + memoryInfo.EntityData.SegmentPath
     memoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1243,6 +1273,7 @@ func (memoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_MemoryInfo) GetEntity
 type SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Size of the block. The type is interface{} with range: 0..4294967295.
     Size interface{}
@@ -1262,7 +1293,8 @@ func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) Get
     edmMemoryInfo.EntityData.YangName = "edm-memory-info"
     edmMemoryInfo.EntityData.BundleName = "cisco_ios_xr"
     edmMemoryInfo.EntityData.ParentYangName = "memory"
-    edmMemoryInfo.EntityData.SegmentPath = "edm-memory-info"
+    edmMemoryInfo.EntityData.SegmentPath = "edm-memory-info" + types.AddNoKeyToken(edmMemoryInfo)
+    edmMemoryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/memory/" + edmMemoryInfo.EntityData.SegmentPath
     edmMemoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     edmMemoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     edmMemoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1284,6 +1316,7 @@ func (edmMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_EdmMemoryInfo) Get
 type SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Size of the block. The type is interface{} with range: 0..4294967295.
     Size interface{}
@@ -1303,7 +1336,8 @@ func (stringMemoryInfo *SessionRedundancyAgent_Nodes_Node_Memory_StringMemoryInf
     stringMemoryInfo.EntityData.YangName = "string-memory-info"
     stringMemoryInfo.EntityData.BundleName = "cisco_ios_xr"
     stringMemoryInfo.EntityData.ParentYangName = "memory"
-    stringMemoryInfo.EntityData.SegmentPath = "string-memory-info"
+    stringMemoryInfo.EntityData.SegmentPath = "string-memory-info" + types.AddNoKeyToken(stringMemoryInfo)
+    stringMemoryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/memory/" + stringMemoryInfo.EntityData.SegmentPath
     stringMemoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stringMemoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stringMemoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1337,6 +1371,7 @@ func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetEntityData() *typ
     groupIds.EntityData.BundleName = "cisco_ios_xr"
     groupIds.EntityData.ParentYangName = "node"
     groupIds.EntityData.SegmentPath = "group-ids"
+    groupIds.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/" + groupIds.EntityData.SegmentPath
     groupIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1358,6 +1393,7 @@ func (groupIds *SessionRedundancyAgent_Nodes_Node_GroupIds) GetEntityData() *typ
 type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group Id. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1496,6 +1532,7 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityData
     groupId.EntityData.BundleName = "cisco_ios_xr"
     groupId.EntityData.ParentYangName = "group-ids"
     groupId.EntityData.SegmentPath = "group-id" + types.AddKeyToken(groupId.GroupId, "group-id")
+    groupId.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/group-ids/" + groupId.EntityData.SegmentPath
     groupId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1503,14 +1540,17 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityData
     groupId.EntityData.Children = types.NewOrderedMap()
     groupId.EntityData.Children.Append("client-session-count", types.YChild{"ClientSessionCount", nil})
     for i := range groupId.ClientSessionCount {
+        types.SetYListKey(groupId.ClientSessionCount[i], i)
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.ClientSessionCount[i]), types.YChild{"ClientSessionCount", groupId.ClientSessionCount[i]})
     }
     groupId.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range groupId.Interface {
+        types.SetYListKey(groupId.Interface[i], i)
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.Interface[i]), types.YChild{"Interface", groupId.Interface[i]})
     }
     groupId.EntityData.Children.Append("pool", types.YChild{"Pool", nil})
     for i := range groupId.Pool {
+        types.SetYListKey(groupId.Pool[i], i)
         groupId.EntityData.Children.Append(types.GetSegmentPath(groupId.Pool[i]), types.YChild{"Pool", groupId.Pool[i]})
     }
     groupId.EntityData.Leafs = types.NewOrderedMap()
@@ -1561,6 +1601,7 @@ func (groupId *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId) GetEntityData
 type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_ClientSessionCount struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Component. The type is SergShowComp.
     Component interface{}
@@ -1574,7 +1615,8 @@ func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Cli
     clientSessionCount.EntityData.YangName = "client-session-count"
     clientSessionCount.EntityData.BundleName = "cisco_ios_xr"
     clientSessionCount.EntityData.ParentYangName = "group-id"
-    clientSessionCount.EntityData.SegmentPath = "client-session-count"
+    clientSessionCount.EntityData.SegmentPath = "client-session-count" + types.AddNoKeyToken(clientSessionCount)
+    clientSessionCount.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/group-ids/group-id/" + clientSessionCount.EntityData.SegmentPath
     clientSessionCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientSessionCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientSessionCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1594,6 +1636,7 @@ func (clientSessionCount *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Cli
 type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -1614,7 +1657,8 @@ func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetEnt
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "group-id"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/group-ids/group-id/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1636,6 +1680,7 @@ func (self *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Interface) GetEnt
 type SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Pool struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Pool Name. The type is string.
     PoolName interface{}
@@ -1646,7 +1691,8 @@ func (pool *SessionRedundancyAgent_Nodes_Node_GroupIds_GroupId_Pool) GetEntityDa
     pool.EntityData.YangName = "pool"
     pool.EntityData.BundleName = "cisco_ios_xr"
     pool.EntityData.ParentYangName = "group-id"
-    pool.EntityData.SegmentPath = "pool"
+    pool.EntityData.SegmentPath = "pool" + types.AddNoKeyToken(pool)
+    pool.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/group-ids/group-id/" + pool.EntityData.SegmentPath
     pool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1677,6 +1723,7 @@ func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetEntityData() 
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1698,6 +1745,7 @@ func (interfaces *SessionRedundancyAgent_Nodes_Node_Interfaces) GetEntityData() 
 type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1758,6 +1806,7 @@ func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetEntityDat
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1767,6 +1816,7 @@ func (self *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface) GetEntityDat
     self.EntityData.Children.Append("interface-status", types.YChild{"InterfaceStatus", &self.InterfaceStatus})
     self.EntityData.Children.Append("client-status", types.YChild{"ClientStatus", nil})
     for i := range self.ClientStatus {
+        types.SetYListKey(self.ClientStatus[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.ClientStatus[i]), types.YChild{"ClientStatus", self.ClientStatus[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -1816,6 +1866,7 @@ func (interfaceOper *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_Inte
     interfaceOper.EntityData.BundleName = "cisco_ios_xr"
     interfaceOper.EntityData.ParentYangName = "interface"
     interfaceOper.EntityData.SegmentPath = "interface-oper"
+    interfaceOper.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/interfaces/interface/" + interfaceOper.EntityData.SegmentPath
     interfaceOper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1870,6 +1921,7 @@ func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_In
     interfaceStatus.EntityData.BundleName = "cisco_ios_xr"
     interfaceStatus.EntityData.ParentYangName = "interface"
     interfaceStatus.EntityData.SegmentPath = "interface-status"
+    interfaceStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/interfaces/interface/" + interfaceStatus.EntityData.SegmentPath
     interfaceStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1895,6 +1947,7 @@ func (interfaceStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_In
 type SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_ClientStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Component. The type is SergShowComp.
     Component interface{}
@@ -1914,7 +1967,8 @@ func (clientStatus *SessionRedundancyAgent_Nodes_Node_Interfaces_Interface_Clien
     clientStatus.EntityData.YangName = "client-status"
     clientStatus.EntityData.BundleName = "cisco_ios_xr"
     clientStatus.EntityData.ParentYangName = "interface"
-    clientStatus.EntityData.SegmentPath = "client-status"
+    clientStatus.EntityData.SegmentPath = "client-status" + types.AddNoKeyToken(clientStatus)
+    clientStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/interfaces/interface/" + clientStatus.EntityData.SegmentPath
     clientStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2091,6 +2145,7 @@ func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetEntityData(
     statsGlobal.EntityData.BundleName = "cisco_ios_xr"
     statsGlobal.EntityData.ParentYangName = "node"
     statsGlobal.EntityData.SegmentPath = "stats-global"
+    statsGlobal.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/" + statsGlobal.EntityData.SegmentPath
     statsGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2100,14 +2155,17 @@ func (statsGlobal *SessionRedundancyAgent_Nodes_Node_StatsGlobal) GetEntityData(
     statsGlobal.EntityData.Children.Append("tx-list-statistics", types.YChild{"TxListStatistics", &statsGlobal.TxListStatistics})
     statsGlobal.EntityData.Children.Append("client-status", types.YChild{"ClientStatus", nil})
     for i := range statsGlobal.ClientStatus {
+        types.SetYListKey(statsGlobal.ClientStatus[i], i)
         statsGlobal.EntityData.Children.Append(types.GetSegmentPath(statsGlobal.ClientStatus[i]), types.YChild{"ClientStatus", statsGlobal.ClientStatus[i]})
     }
     statsGlobal.EntityData.Children.Append("opaque-memory-status", types.YChild{"OpaqueMemoryStatus", nil})
     for i := range statsGlobal.OpaqueMemoryStatus {
+        types.SetYListKey(statsGlobal.OpaqueMemoryStatus[i], i)
         statsGlobal.EntityData.Children.Append(types.GetSegmentPath(statsGlobal.OpaqueMemoryStatus[i]), types.YChild{"OpaqueMemoryStatus", statsGlobal.OpaqueMemoryStatus[i]})
     }
     statsGlobal.EntityData.Children.Append("tx-list-over-tcp-status", types.YChild{"TxListOverTcpStatus", nil})
     for i := range statsGlobal.TxListOverTcpStatus {
+        types.SetYListKey(statsGlobal.TxListOverTcpStatus[i], i)
         statsGlobal.EntityData.Children.Append(types.GetSegmentPath(statsGlobal.TxListOverTcpStatus[i]), types.YChild{"TxListOverTcpStatus", statsGlobal.TxListOverTcpStatus[i]})
     }
     statsGlobal.EntityData.Leafs = types.NewOrderedMap()
@@ -2185,6 +2243,7 @@ func (intfStatusStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_IntfSt
     intfStatusStatistics.EntityData.BundleName = "cisco_ios_xr"
     intfStatusStatistics.EntityData.ParentYangName = "stats-global"
     intfStatusStatistics.EntityData.SegmentPath = "intf-status-statistics"
+    intfStatusStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/stats-global/" + intfStatusStatistics.EntityData.SegmentPath
     intfStatusStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intfStatusStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfStatusStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2246,6 +2305,7 @@ func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStat
     txListStatistics.EntityData.BundleName = "cisco_ios_xr"
     txListStatistics.EntityData.ParentYangName = "stats-global"
     txListStatistics.EntityData.SegmentPath = "tx-list-statistics"
+    txListStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/stats-global/" + txListStatistics.EntityData.SegmentPath
     txListStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txListStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txListStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2272,6 +2332,7 @@ func (txListStatistics *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListStat
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Component. The type is SergShowComp.
     Component interface{}
@@ -2301,7 +2362,8 @@ func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) 
     clientStatus.EntityData.YangName = "client-status"
     clientStatus.EntityData.BundleName = "cisco_ios_xr"
     clientStatus.EntityData.ParentYangName = "stats-global"
-    clientStatus.EntityData.SegmentPath = "client-status"
+    clientStatus.EntityData.SegmentPath = "client-status" + types.AddNoKeyToken(clientStatus)
+    clientStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/stats-global/" + clientStatus.EntityData.SegmentPath
     clientStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2326,6 +2388,7 @@ func (clientStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_ClientStatus) 
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMemoryStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Component. The type is SergShowComp.
     Component interface{}
@@ -2352,7 +2415,8 @@ func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMe
     opaqueMemoryStatus.EntityData.YangName = "opaque-memory-status"
     opaqueMemoryStatus.EntityData.BundleName = "cisco_ios_xr"
     opaqueMemoryStatus.EntityData.ParentYangName = "stats-global"
-    opaqueMemoryStatus.EntityData.SegmentPath = "opaque-memory-status"
+    opaqueMemoryStatus.EntityData.SegmentPath = "opaque-memory-status" + types.AddNoKeyToken(opaqueMemoryStatus)
+    opaqueMemoryStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/stats-global/" + opaqueMemoryStatus.EntityData.SegmentPath
     opaqueMemoryStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opaqueMemoryStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opaqueMemoryStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2375,6 +2439,7 @@ func (opaqueMemoryStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_OpaqueMe
 type SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListOverTcpStatus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Message Sent Count. The type is interface{} with range: 0..4294967295.
     MessagesSent interface{}
@@ -2459,7 +2524,8 @@ func (txListOverTcpStatus *SessionRedundancyAgent_Nodes_Node_StatsGlobal_TxListO
     txListOverTcpStatus.EntityData.YangName = "tx-list-over-tcp-status"
     txListOverTcpStatus.EntityData.BundleName = "cisco_ios_xr"
     txListOverTcpStatus.EntityData.ParentYangName = "stats-global"
-    txListOverTcpStatus.EntityData.SegmentPath = "tx-list-over-tcp-status"
+    txListOverTcpStatus.EntityData.SegmentPath = "tx-list-over-tcp-status" + types.AddNoKeyToken(txListOverTcpStatus)
+    txListOverTcpStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/stats-global/" + txListOverTcpStatus.EntityData.SegmentPath
     txListOverTcpStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txListOverTcpStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txListOverTcpStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2511,6 +2577,7 @@ func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetEntit
     groupSummaries.EntityData.BundleName = "cisco_ios_xr"
     groupSummaries.EntityData.ParentYangName = "node"
     groupSummaries.EntityData.SegmentPath = "group-summaries"
+    groupSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/" + groupSummaries.EntityData.SegmentPath
     groupSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2532,6 +2599,7 @@ func (groupSummaries *SessionRedundancyAgent_Nodes_Node_GroupSummaries) GetEntit
 type SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. GroupId. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -2583,6 +2651,7 @@ func (groupSummary *SessionRedundancyAgent_Nodes_Node_GroupSummaries_GroupSummar
     groupSummary.EntityData.BundleName = "cisco_ios_xr"
     groupSummary.EntityData.ParentYangName = "group-summaries"
     groupSummary.EntityData.SegmentPath = "group-summary" + types.AddKeyToken(groupSummary.GroupId, "group-id")
+    groupSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/node/group-summaries/" + groupSummary.EntityData.SegmentPath
     groupSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

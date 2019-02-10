@@ -43,6 +43,7 @@ func (lptsPa *LptsPa) GetEntityData() *types.CommonEntityData {
     lptsPa.EntityData.BundleName = "cisco_ios_xr"
     lptsPa.EntityData.ParentYangName = "Cisco-IOS-XR-lpts-pa-oper"
     lptsPa.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-pa-oper:lpts-pa"
+    lptsPa.EntityData.AbsolutePath = lptsPa.EntityData.SegmentPath
     lptsPa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lptsPa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsPa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -73,6 +74,7 @@ func (entryXr *LptsPa_EntryXr) GetEntityData() *types.CommonEntityData {
     entryXr.EntityData.BundleName = "cisco_ios_xr"
     entryXr.EntityData.ParentYangName = "lpts-pa"
     entryXr.EntityData.SegmentPath = "entry-xr"
+    entryXr.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/" + entryXr.EntityData.SegmentPath
     entryXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entryXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entryXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +96,7 @@ func (entryXr *LptsPa_EntryXr) GetEntityData() *types.CommonEntityData {
 type LptsPa_EntryXr_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Single Binding entry. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -179,6 +182,7 @@ func (entry *LptsPa_EntryXr_Entry) GetEntityData() *types.CommonEntityData {
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "entry-xr"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Entry, "entry")
+    entry.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/entry-xr/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -234,6 +238,7 @@ func (ctime *LptsPa_EntryXr_Entry_Ctime) GetEntityData() *types.CommonEntityData
     ctime.EntityData.BundleName = "cisco_ios_xr"
     ctime.EntityData.ParentYangName = "entry"
     ctime.EntityData.SegmentPath = "ctime"
+    ctime.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/entry-xr/entry/" + ctime.EntityData.SegmentPath
     ctime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ctime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ctime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +272,7 @@ func (utime *LptsPa_EntryXr_Entry_Utime) GetEntityData() *types.CommonEntityData
     utime.EntityData.BundleName = "cisco_ios_xr"
     utime.EntityData.ParentYangName = "entry"
     utime.EntityData.SegmentPath = "utime"
+    utime.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/entry-xr/entry/" + utime.EntityData.SegmentPath
     utime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     utime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     utime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -297,6 +303,7 @@ func (entries *LptsPa_Entries) GetEntityData() *types.CommonEntityData {
     entries.EntityData.BundleName = "cisco_ios_xr"
     entries.EntityData.ParentYangName = "lpts-pa"
     entries.EntityData.SegmentPath = "entries"
+    entries.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/" + entries.EntityData.SegmentPath
     entries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -318,6 +325,7 @@ func (entries *LptsPa_Entries) GetEntityData() *types.CommonEntityData {
 type LptsPa_Entries_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Single Client entry. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -346,6 +354,7 @@ func (entry *LptsPa_Entries_Entry) GetEntityData() *types.CommonEntityData {
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "entries"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Entry, "entry")
+    entry.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/entries/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

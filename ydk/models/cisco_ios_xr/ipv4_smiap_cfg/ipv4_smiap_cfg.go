@@ -44,6 +44,7 @@ func (ipv4Virtual *Ipv4Virtual) GetEntityData() *types.CommonEntityData {
     ipv4Virtual.EntityData.BundleName = "cisco_ios_xr"
     ipv4Virtual.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-smiap-cfg"
     ipv4Virtual.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-smiap-cfg:ipv4-virtual"
+    ipv4Virtual.EntityData.AbsolutePath = ipv4Virtual.EntityData.SegmentPath
     ipv4Virtual.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Virtual.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Virtual.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -75,6 +76,7 @@ func (vrfs *Ipv4Virtual_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "ipv4-virtual"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-smiap-cfg:ipv4-virtual/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -97,6 +99,7 @@ func (vrfs *Ipv4Virtual_Vrfs) GetEntityData() *types.CommonEntityData {
 type Ipv4Virtual_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of VRF. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -112,6 +115,7 @@ func (vrf *Ipv4Virtual_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-smiap-cfg:ipv4-virtual/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -150,6 +154,7 @@ func (address *Ipv4Virtual_Vrfs_Vrf_Address) GetEntityData() *types.CommonEntity
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "vrf"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-smiap-cfg:ipv4-virtual/vrfs/vrf/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

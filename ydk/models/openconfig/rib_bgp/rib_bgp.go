@@ -57,6 +57,7 @@ func (bgpRib *BgpRib) GetEntityData() *types.CommonEntityData {
     bgpRib.EntityData.BundleName = "openconfig"
     bgpRib.EntityData.ParentYangName = "openconfig-rib-bgp"
     bgpRib.EntityData.SegmentPath = "openconfig-rib-bgp:bgp-rib"
+    bgpRib.EntityData.AbsolutePath = bgpRib.EntityData.SegmentPath
     bgpRib.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     bgpRib.EntityData.NamespaceTable = openconfig.GetNamespaces()
     bgpRib.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -86,6 +87,7 @@ func (afiSafis *BgpRib_AfiSafis) GetEntityData() *types.CommonEntityData {
     afiSafis.EntityData.BundleName = "openconfig"
     afiSafis.EntityData.ParentYangName = "bgp-rib"
     afiSafis.EntityData.SegmentPath = "afi-safis"
+    afiSafis.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/" + afiSafis.EntityData.SegmentPath
     afiSafis.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafis.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafis.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -107,6 +109,7 @@ func (afiSafis *BgpRib_AfiSafis) GetEntityData() *types.CommonEntityData {
 type BgpRib_AfiSafis_AfiSafi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. AFI,SAFI. The type is one of the following:
     // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
@@ -127,6 +130,7 @@ func (afiSafi *BgpRib_AfiSafis_AfiSafi) GetEntityData() *types.CommonEntityData 
     afiSafi.EntityData.BundleName = "openconfig"
     afiSafi.EntityData.ParentYangName = "afi-safis"
     afiSafi.EntityData.SegmentPath = "afi-safi" + types.AddKeyToken(afiSafi.AfiSafiName, "afi-safi-name")
+    afiSafi.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/" + afiSafi.EntityData.SegmentPath
     afiSafi.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     afiSafi.EntityData.NamespaceTable = openconfig.GetNamespaces()
     afiSafi.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -169,6 +173,7 @@ func (ipv4Unicast *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast) GetEntityData() *types.C
     ipv4Unicast.EntityData.BundleName = "openconfig"
     ipv4Unicast.EntityData.ParentYangName = "afi-safi"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -212,6 +217,7 @@ func (locRib *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib) GetEntityData() *types
     locRib.EntityData.BundleName = "openconfig"
     locRib.EntityData.ParentYangName = "ipv4-unicast"
     locRib.EntityData.SegmentPath = "loc-rib"
+    locRib.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/" + locRib.EntityData.SegmentPath
     locRib.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     locRib.EntityData.NamespaceTable = openconfig.GetNamespaces()
     locRib.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -244,6 +250,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes) GetEntityData()
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "loc-rib"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/loc-rib/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -251,6 +258,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes) GetEntityData()
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -265,6 +273,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes) GetEntityData()
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
@@ -303,7 +312,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route) GetEntityD
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/loc-rib/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -394,6 +404,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Attrib
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/loc-rib/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -444,6 +455,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Attrib
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/loc-rib/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -523,6 +535,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Ext
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/loc-rib/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -550,6 +563,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_Ext
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -574,6 +588,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_LocRib_Routes_Route_
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/loc-rib/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -606,6 +621,7 @@ func (neighbors *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors) GetEntityData() 
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "ipv4-unicast"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -627,6 +643,7 @@ func (neighbors *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors) GetEntityData() 
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the BGP neighbor or peer. The type
     // is one of the following types: string with pattern:
@@ -660,6 +677,7 @@ func (neighbor *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor) GetEntit
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
+    neighbor.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -700,6 +718,7 @@ func (adjRibInPre *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRib
     adjRibInPre.EntityData.BundleName = "openconfig"
     adjRibInPre.EntityData.ParentYangName = "neighbor"
     adjRibInPre.EntityData.SegmentPath = "adj-rib-in-pre"
+    adjRibInPre.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/" + adjRibInPre.EntityData.SegmentPath
     adjRibInPre.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjRibInPre.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibInPre.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -732,6 +751,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "adj-rib-in-pre"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-pre/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -739,6 +759,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -753,6 +774,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
@@ -791,7 +813,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-pre/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -882,6 +905,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibI
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-pre/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -932,6 +956,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibI
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-pre/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1011,6 +1036,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-pre/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1038,6 +1064,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -1062,6 +1089,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-pre/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1099,6 +1127,7 @@ func (adjRibInPost *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRi
     adjRibInPost.EntityData.BundleName = "openconfig"
     adjRibInPost.EntityData.ParentYangName = "neighbor"
     adjRibInPost.EntityData.SegmentPath = "adj-rib-in-post"
+    adjRibInPost.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/" + adjRibInPost.EntityData.SegmentPath
     adjRibInPost.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjRibInPost.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibInPost.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1131,6 +1160,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPos
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "adj-rib-in-post"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-post/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1138,6 +1168,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPos
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -1152,6 +1183,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPos
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
@@ -1190,7 +1222,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-post/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1281,6 +1314,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibI
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-post/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1331,6 +1365,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibI
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-post/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1410,6 +1445,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-post/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1437,6 +1473,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -1461,6 +1498,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-in-post/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1498,6 +1536,7 @@ func (adjRibOutPre *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRi
     adjRibOutPre.EntityData.BundleName = "openconfig"
     adjRibOutPre.EntityData.ParentYangName = "neighbor"
     adjRibOutPre.EntityData.SegmentPath = "adj-rib-out-pre"
+    adjRibOutPre.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/" + adjRibOutPre.EntityData.SegmentPath
     adjRibOutPre.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjRibOutPre.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibOutPre.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1530,6 +1569,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPr
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "adj-rib-out-pre"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-pre/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1537,6 +1577,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPr
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -1551,6 +1592,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPr
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
@@ -1589,7 +1631,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-pre/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1680,6 +1723,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibO
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-pre/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1730,6 +1774,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibO
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-pre/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1809,6 +1854,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-pre/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1836,6 +1882,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -1860,6 +1907,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-pre/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1897,6 +1945,7 @@ func (adjRibOutPost *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     adjRibOutPost.EntityData.BundleName = "openconfig"
     adjRibOutPost.EntityData.ParentYangName = "neighbor"
     adjRibOutPost.EntityData.SegmentPath = "adj-rib-out-post"
+    adjRibOutPost.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/" + adjRibOutPost.EntityData.SegmentPath
     adjRibOutPost.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjRibOutPost.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibOutPost.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1929,6 +1978,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPo
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "adj-rib-out-post"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-post/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1936,6 +1986,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPo
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -1950,6 +2001,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPo
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
@@ -1988,7 +2040,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPos
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-post/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2079,6 +2132,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibO
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-post/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2129,6 +2183,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibO
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-post/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2208,6 +2263,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-post/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2235,6 +2291,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjR
 type BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -2259,6 +2316,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv4Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv4-unicast/neighbors/neighbor/adj-rib-out-post/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2301,6 +2359,7 @@ func (ipv6Unicast *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast) GetEntityData() *types.C
     ipv6Unicast.EntityData.BundleName = "openconfig"
     ipv6Unicast.EntityData.ParentYangName = "afi-safi"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = openconfig.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2344,6 +2403,7 @@ func (locRib *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib) GetEntityData() *types
     locRib.EntityData.BundleName = "openconfig"
     locRib.EntityData.ParentYangName = "ipv6-unicast"
     locRib.EntityData.SegmentPath = "loc-rib"
+    locRib.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/" + locRib.EntityData.SegmentPath
     locRib.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     locRib.EntityData.NamespaceTable = openconfig.GetNamespaces()
     locRib.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2376,6 +2436,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes) GetEntityData()
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "loc-rib"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/loc-rib/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2383,6 +2444,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes) GetEntityData()
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -2397,6 +2459,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes) GetEntityData()
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
@@ -2435,7 +2498,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route) GetEntityD
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/loc-rib/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2526,6 +2590,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Attrib
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/loc-rib/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2576,6 +2641,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Attrib
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/loc-rib/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2655,6 +2721,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Ext
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/loc-rib/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2682,6 +2749,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_Ext
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -2706,6 +2774,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_LocRib_Routes_Route_
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/loc-rib/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2738,6 +2807,7 @@ func (neighbors *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors) GetEntityData() 
     neighbors.EntityData.BundleName = "openconfig"
     neighbors.EntityData.ParentYangName = "ipv6-unicast"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbors.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2759,6 +2829,7 @@ func (neighbors *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors) GetEntityData() 
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the BGP neighbor or peer. The type
     // is one of the following types: string with pattern:
@@ -2792,6 +2863,7 @@ func (neighbor *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor) GetEntit
     neighbor.EntityData.BundleName = "openconfig"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address")
+    neighbor.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     neighbor.EntityData.NamespaceTable = openconfig.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2832,6 +2904,7 @@ func (adjRibInPre *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRib
     adjRibInPre.EntityData.BundleName = "openconfig"
     adjRibInPre.EntityData.ParentYangName = "neighbor"
     adjRibInPre.EntityData.SegmentPath = "adj-rib-in-pre"
+    adjRibInPre.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/" + adjRibInPre.EntityData.SegmentPath
     adjRibInPre.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjRibInPre.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibInPre.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2864,6 +2937,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "adj-rib-in-pre"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-pre/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -2871,6 +2945,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -2885,6 +2960,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
@@ -2923,7 +2999,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-pre/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3014,6 +3091,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibI
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-pre/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3064,6 +3142,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibI
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-pre/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3143,6 +3222,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-pre/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3170,6 +3250,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPre_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -3194,6 +3275,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-pre/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3231,6 +3313,7 @@ func (adjRibInPost *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRi
     adjRibInPost.EntityData.BundleName = "openconfig"
     adjRibInPost.EntityData.ParentYangName = "neighbor"
     adjRibInPost.EntityData.SegmentPath = "adj-rib-in-post"
+    adjRibInPost.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/" + adjRibInPost.EntityData.SegmentPath
     adjRibInPost.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjRibInPost.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibInPost.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3263,6 +3346,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPos
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "adj-rib-in-post"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-post/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3270,6 +3354,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPos
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -3284,6 +3369,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPos
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
@@ -3322,7 +3408,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-post/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3413,6 +3500,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibI
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-post/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3463,6 +3551,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibI
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-post/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3542,6 +3631,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-post/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3569,6 +3659,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibInPost_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -3593,6 +3684,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-in-post/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3630,6 +3722,7 @@ func (adjRibOutPre *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRi
     adjRibOutPre.EntityData.BundleName = "openconfig"
     adjRibOutPre.EntityData.ParentYangName = "neighbor"
     adjRibOutPre.EntityData.SegmentPath = "adj-rib-out-pre"
+    adjRibOutPre.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/" + adjRibOutPre.EntityData.SegmentPath
     adjRibOutPre.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjRibOutPre.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibOutPre.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3662,6 +3755,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPr
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "adj-rib-out-pre"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-pre/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3669,6 +3763,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPr
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -3683,6 +3778,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPr
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
@@ -3721,7 +3817,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-pre/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3812,6 +3909,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibO
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-pre/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3862,6 +3960,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibO
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-pre/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3941,6 +4040,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-pre/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -3968,6 +4068,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPre_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -3992,6 +4093,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-pre/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4029,6 +4131,7 @@ func (adjRibOutPost *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     adjRibOutPost.EntityData.BundleName = "openconfig"
     adjRibOutPost.EntityData.ParentYangName = "neighbor"
     adjRibOutPost.EntityData.SegmentPath = "adj-rib-out-post"
+    adjRibOutPost.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/" + adjRibOutPost.EntityData.SegmentPath
     adjRibOutPost.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     adjRibOutPost.EntityData.NamespaceTable = openconfig.GetNamespaces()
     adjRibOutPost.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4061,6 +4164,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPo
     routes.EntityData.BundleName = "openconfig"
     routes.EntityData.ParentYangName = "adj-rib-out-post"
     routes.EntityData.SegmentPath = "routes"
+    routes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-post/" + routes.EntityData.SegmentPath
     routes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     routes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     routes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4068,6 +4172,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPo
     routes.EntityData.Children = types.NewOrderedMap()
     routes.EntityData.Children.Append("route", types.YChild{"Route", nil})
     for i := range routes.Route {
+        types.SetYListKey(routes.Route[i], i)
         routes.EntityData.Children.Append(types.GetSegmentPath(routes.Route[i]), types.YChild{"Route", routes.Route[i]})
     }
     routes.EntityData.Leafs = types.NewOrderedMap()
@@ -4082,6 +4187,7 @@ func (routes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPo
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix for the route. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
@@ -4120,7 +4226,8 @@ func (route *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPos
     route.EntityData.YangName = "route"
     route.EntityData.BundleName = "openconfig"
     route.EntityData.ParentYangName = "routes"
-    route.EntityData.SegmentPath = "route"
+    route.EntityData.SegmentPath = "route" + types.AddNoKeyToken(route)
+    route.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-post/routes/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     route.EntityData.NamespaceTable = openconfig.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4211,6 +4318,7 @@ func (attributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibO
     attributes.EntityData.BundleName = "openconfig"
     attributes.EntityData.ParentYangName = "route"
     attributes.EntityData.SegmentPath = "attributes"
+    attributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-post/routes/route/" + attributes.EntityData.SegmentPath
     attributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     attributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     attributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4261,6 +4369,7 @@ func (aggregator *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibO
     aggregator.EntityData.BundleName = "openconfig"
     aggregator.EntityData.ParentYangName = "attributes"
     aggregator.EntityData.SegmentPath = "aggregator"
+    aggregator.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-post/routes/route/attributes/" + aggregator.EntityData.SegmentPath
     aggregator.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     aggregator.EntityData.NamespaceTable = openconfig.GetNamespaces()
     aggregator.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4340,6 +4449,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
     extAttributes.EntityData.BundleName = "openconfig"
     extAttributes.EntityData.ParentYangName = "route"
     extAttributes.EntityData.SegmentPath = "ext-attributes"
+    extAttributes.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-post/routes/route/" + extAttributes.EntityData.SegmentPath
     extAttributes.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     extAttributes.EntityData.NamespaceTable = openconfig.GetNamespaces()
     extAttributes.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -4367,6 +4477,7 @@ func (extAttributes *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjR
 type BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_AdjRibOutPost_Routes_Route_ExtAttributes_UnknownAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. 2-octet value encoding the attribute flags and the
     // attribute type code. The type is interface{} with range: 0..65535.
@@ -4391,6 +4502,7 @@ func (unknownAttribute *BgpRib_AfiSafis_AfiSafi_Ipv6Unicast_Neighbors_Neighbor_A
     unknownAttribute.EntityData.BundleName = "openconfig"
     unknownAttribute.EntityData.ParentYangName = "ext-attributes"
     unknownAttribute.EntityData.SegmentPath = "unknown-attribute" + types.AddKeyToken(unknownAttribute.AttrType, "attr-type")
+    unknownAttribute.EntityData.AbsolutePath = "openconfig-rib-bgp:bgp-rib/afi-safis/afi-safi/ipv6-unicast/neighbors/neighbor/adj-rib-out-post/routes/route/ext-attributes/" + unknownAttribute.EntityData.SegmentPath
     unknownAttribute.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     unknownAttribute.EntityData.NamespaceTable = openconfig.GetNamespaces()
     unknownAttribute.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

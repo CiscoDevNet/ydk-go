@@ -296,22 +296,23 @@ func ExecuteGnmiRPC(
 		if entityData == nil {
 			continue
 		}
-		segmentPath := entityData.SegmentPath
 		entityFilter := collectionFilter
 		if entityData.YFilter != yfilter.NotSet {
 			entityFilter = entityData.YFilter
 		}
 
+		segmentPath := entityData.SegmentPath
+		aliasKey := strings.Replace(segmentPath, "'", "_", -1)
 		var entityTag string
 		switch entityFilter {
 			case yfilter.Replace:
-				entityTag = "replace[alias='" + segmentPath + "']/entity"
+				entityTag = "replace[alias='" + aliasKey + "']/entity"
 			case yfilter.Update:
-				entityTag = "update[alias='" + segmentPath + "']/entity"
+				entityTag = "update[alias='" + aliasKey + "']/entity"
 			case yfilter.Delete:
-				entityTag = "delete[alias='" + segmentPath + "']/entity"
+				entityTag = "delete[alias='" + aliasKey + "']/entity"
 			default:
-				entityTag = "request[alias='" + segmentPath + "']/entity"
+				entityTag = "request[alias='" + aliasKey + "']/entity"
 		}
 		if entityData.YFilter != yfilter.NotSet {
 			// Remove setting of the filter before payload is calculated
@@ -330,33 +331,64 @@ func ExecuteGnmiRPC(
 	return dataNode
 }
 
+func GetSubscribeDataPayload(provider types.ServiceProvider, entity types.Entity) string {
+
+	state := provider.GetState()
+	cstate := GetCState(state)
+	wrappedProvider := provider.GetPrivate().(types.CServiceProvider)
+	realProvider := wrappedProvider.Private.(C.ServiceProvider)
+	rootSchema := C.ServiceProviderGetRootSchema(*cstate, realProvider)
+	PanicOnCStateError(cstate)
+
+	cpayload := GetDataPayload(state, entity, rootSchema, provider)
+	defer C.free(unsafe.Pointer(cpayload))
+	PanicOnCStateError(cstate)
+
+	return C.GoString(cpayload)
+}
+
 // GNMI Path utility parses entity tree and converts it to gnmi::Path
 //
 func parseEntityToPath(entity types.Entity) C.GnmiPath {
 	path := C.GnmiPathInit()
 	parseEntityPrefix(entity, path)
-	parseEntityChildren(entity, path);
+	entityData := entity.GetEntityData()
+	if entityData.AbsolutePath == entityData.SegmentPath {
+		// This is top level class
+		parseEntityChildren(entity, path);
+	} else {
+		parseEntity(entity, path);
+	}
 	return path
 }
 
-func parseEntityPrefix(entity types.Entity, path C.GnmiPath) {
-	// Add origin and first container to the path
-    	// parse_entity_prefix(entity, path);
-	segPath := entity.GetEntityData().SegmentPath
-	s := strings.Split(segPath, ":")
-	if len(s) >= 2 {
-		var origin *C.char = C.CString(s[0])
-		var path_elem *C.char = C.CString(s[1])
-		defer C.free(unsafe.Pointer(origin))
-		defer C.free(unsafe.Pointer(path_elem))
+func addPathElem(s string, path C.GnmiPath) C.GnmiPathElem {
+	ydk.YLogDebug(fmt.Sprintf("addPathElem: Adding elem: '%s'", s))
+	var pathElem *C.char = C.CString(s)
+	defer C.free(unsafe.Pointer(pathElem))
+	elem := C.GnmiPathAddElem(path, pathElem)
+	return elem
+}
 
+func parseEntityPrefix(entity types.Entity, path C.GnmiPath) {
+	// Add origin and following containers to the path
+	absPath := entity.GetEntityData().AbsolutePath
+	segments := strings.Split(absPath, "/")
+	s := strings.Split(segments[0], ":")
+	if len(s) >= 2 {
+		ydk.YLogDebug(fmt.Sprintf("parseEntityPrefix: Adding origin: '%s'", s[0]))
+		var origin *C.char = C.CString(s[0])
+		defer C.free(unsafe.Pointer(origin))
 		C.GnmiPathAddOrigin(path, origin)
-		C.GnmiPathAddElem(path, path_elem)
+		addPathElem(s[1], path)
 	} else {
-		ydk.YLogWarn(fmt.Sprintf("parseEntityPrefix: Missing module in the root entity path: '%s'", segPath))
-		var path_elem *C.char = C.CString(segPath)
-		defer C.free(unsafe.Pointer(path_elem))
-		C.GnmiPathAddElem(path, path_elem)
+		ydk.YLogWarn(fmt.Sprintf("parseEntityPrefix: Missing module in the root entity path: '%s'", s[0]))
+		addPathElem(s[0], path)
+	}
+	// Add following segments to the path
+	// The last segment belong to the entity, therefore do not process it
+	for i := 1; i < len(segments)-1; i++ {
+		addPathElem(segments[i], path)
 	}
 }
 
@@ -367,10 +399,7 @@ func parseEntityChildren( entity types.Entity, path C.GnmiPath) {
 		entPath := types.GetEntityPath(entity) // EntityPath
 		for _, leafData := range(entPath.ValuePaths) {
 			if leafData.Data.Filter != yfilter.NotSet {
-			        ydk.YLogDebug(fmt.Sprintf("parseEntityChildren: Adding elem for YLeaf: '%s'", leafData.Name))
-				var path_elem *C.char = C.CString(leafData.Name)
-				defer C.free(unsafe.Pointer(path_elem))
-				C.GnmiPathAddElem(path, path_elem)
+				addPathElem(leafData.Name, path)
 			        return	// Only one flagged element can be requested at a time
 			}
 		}
@@ -429,11 +458,7 @@ func parseEntity( entity types.Entity, path C.GnmiPath) {
 		}
 	}
 
-	ydk.YLogDebug(fmt.Sprintf("parseEntity: Adding elem: '%s'", s))
-	var pathElem *C.char = C.CString(s)
-	defer C.free(unsafe.Pointer(pathElem))
-	elem := C.GnmiPathAddElem(path, pathElem)
-
+	elem := addPathElem(s, path)
 	for key, value := range(keys) {
 		ydk.YLogDebug(fmt.Sprintf("parseEntity: Adding key value: '%s:%s'", key, value))
 		var ckey *C.char = C.CString(key)
@@ -444,14 +469,8 @@ func parseEntity( entity types.Entity, path C.GnmiPath) {
 	}
 
 	for leaf, _ := range(leafs) {
-		ydk.YLogDebug(fmt.Sprintf("parseEntity: Adding elem for YLeaf: '%s'", leaf))
-		var cleaf *C.char = C.CString(leaf)
-		defer C.free(unsafe.Pointer(cleaf))
-		C.GnmiPathAddElem(path, cleaf)
-
-		// Only one leaf with operation can be processed at a time
-		// and it must be the last in the path
-		return;
+		addPathElem(leaf, path)
+		return;	// Only one leaf with operation can be processed at a time
 	}
 
 	parseEntityChildren(entity, path);

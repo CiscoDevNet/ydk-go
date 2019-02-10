@@ -358,6 +358,7 @@ func (bfd *Bfd) GetEntityData() *types.CommonEntityData {
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "Cisco-IOS-XR-ip-bfd-oper"
     bfd.EntityData.SegmentPath = "Cisco-IOS-XR-ip-bfd-oper:bfd"
+    bfd.EntityData.AbsolutePath = bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -442,6 +443,7 @@ func (labelSessionBriefs *Bfd_LabelSessionBriefs) GetEntityData() *types.CommonE
     labelSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     labelSessionBriefs.EntityData.ParentYangName = "bfd"
     labelSessionBriefs.EntityData.SegmentPath = "label-session-briefs"
+    labelSessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + labelSessionBriefs.EntityData.SegmentPath
     labelSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -449,6 +451,7 @@ func (labelSessionBriefs *Bfd_LabelSessionBriefs) GetEntityData() *types.CommonE
     labelSessionBriefs.EntityData.Children = types.NewOrderedMap()
     labelSessionBriefs.EntityData.Children.Append("label-session-brief", types.YChild{"LabelSessionBrief", nil})
     for i := range labelSessionBriefs.LabelSessionBrief {
+        types.SetYListKey(labelSessionBriefs.LabelSessionBrief[i], i)
         labelSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(labelSessionBriefs.LabelSessionBrief[i]), types.YChild{"LabelSessionBrief", labelSessionBriefs.LabelSessionBrief[i]})
     }
     labelSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -464,6 +467,7 @@ func (labelSessionBriefs *Bfd_LabelSessionBriefs) GetEntityData() *types.CommonE
 type Bfd_LabelSessionBriefs_LabelSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -500,7 +504,8 @@ func (labelSessionBrief *Bfd_LabelSessionBriefs_LabelSessionBrief) GetEntityData
     labelSessionBrief.EntityData.YangName = "label-session-brief"
     labelSessionBrief.EntityData.BundleName = "cisco_ios_xr"
     labelSessionBrief.EntityData.ParentYangName = "label-session-briefs"
-    labelSessionBrief.EntityData.SegmentPath = "label-session-brief"
+    labelSessionBrief.EntityData.SegmentPath = "label-session-brief" + types.AddNoKeyToken(labelSessionBrief)
+    labelSessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-briefs/" + labelSessionBrief.EntityData.SegmentPath
     labelSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -541,6 +546,7 @@ func (statusBriefInformation *Bfd_LabelSessionBriefs_LabelSessionBrief_StatusBri
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "label-session-brief"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-briefs/label-session-brief/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -583,6 +589,7 @@ func (asyncIntervalMultiplier *Bfd_LabelSessionBriefs_LabelSessionBrief_StatusBr
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-briefs/label-session-brief/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -623,6 +630,7 @@ func (echoIntervalMultiplier *Bfd_LabelSessionBriefs_LabelSessionBrief_StatusBri
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-briefs/label-session-brief/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -655,6 +663,7 @@ func (ipv4bfDoMplsteTailSummary *Bfd_Ipv4bfDoMplsteTailSummary) GetEntityData() 
     ipv4bfDoMplsteTailSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailSummary.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteTailSummary.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-summary"
+    ipv4bfDoMplsteTailSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteTailSummary.EntityData.SegmentPath
     ipv4bfDoMplsteTailSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -697,6 +706,7 @@ func (sessionState *Bfd_Ipv4bfDoMplsteTailSummary_SessionState) GetEntityData() 
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -729,6 +739,7 @@ func (ipv6SingleHopCounters *Bfd_Ipv6SingleHopCounters) GetEntityData() *types.C
     ipv6SingleHopCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopCounters.EntityData.ParentYangName = "bfd"
     ipv6SingleHopCounters.EntityData.SegmentPath = "ipv6-single-hop-counters"
+    ipv6SingleHopCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6SingleHopCounters.EntityData.SegmentPath
     ipv6SingleHopCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -759,6 +770,7 @@ func (ipv6SingleHopPacketCounters *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacket
     ipv6SingleHopPacketCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopPacketCounters.EntityData.ParentYangName = "ipv6-single-hop-counters"
     ipv6SingleHopPacketCounters.EntityData.SegmentPath = "ipv6-single-hop-packet-counters"
+    ipv6SingleHopPacketCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-counters/" + ipv6SingleHopPacketCounters.EntityData.SegmentPath
     ipv6SingleHopPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -766,6 +778,7 @@ func (ipv6SingleHopPacketCounters *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacket
     ipv6SingleHopPacketCounters.EntityData.Children = types.NewOrderedMap()
     ipv6SingleHopPacketCounters.EntityData.Children.Append("ipv6-single-hop-packet-counter", types.YChild{"Ipv6SingleHopPacketCounter", nil})
     for i := range ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter {
+        types.SetYListKey(ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter[i], i)
         ipv6SingleHopPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter[i]), types.YChild{"Ipv6SingleHopPacketCounter", ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter[i]})
     }
     ipv6SingleHopPacketCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -780,6 +793,7 @@ func (ipv6SingleHopPacketCounters *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacket
 type Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketCounters_Ipv6SingleHopPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -813,7 +827,8 @@ func (ipv6SingleHopPacketCounter *Bfd_Ipv6SingleHopCounters_Ipv6SingleHopPacketC
     ipv6SingleHopPacketCounter.EntityData.YangName = "ipv6-single-hop-packet-counter"
     ipv6SingleHopPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopPacketCounter.EntityData.ParentYangName = "ipv6-single-hop-packet-counters"
-    ipv6SingleHopPacketCounter.EntityData.SegmentPath = "ipv6-single-hop-packet-counter"
+    ipv6SingleHopPacketCounter.EntityData.SegmentPath = "ipv6-single-hop-packet-counter" + types.AddNoKeyToken(ipv6SingleHopPacketCounter)
+    ipv6SingleHopPacketCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-counters/ipv6-single-hop-packet-counters/" + ipv6SingleHopPacketCounter.EntityData.SegmentPath
     ipv6SingleHopPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -849,6 +864,7 @@ func (counters *Bfd_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "bfd"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -879,6 +895,7 @@ func (packetCounters *Bfd_Counters_PacketCounters) GetEntityData() *types.Common
     packetCounters.EntityData.BundleName = "cisco_ios_xr"
     packetCounters.EntityData.ParentYangName = "counters"
     packetCounters.EntityData.SegmentPath = "packet-counters"
+    packetCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/counters/" + packetCounters.EntityData.SegmentPath
     packetCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -886,6 +903,7 @@ func (packetCounters *Bfd_Counters_PacketCounters) GetEntityData() *types.Common
     packetCounters.EntityData.Children = types.NewOrderedMap()
     packetCounters.EntityData.Children.Append("packet-counter", types.YChild{"PacketCounter", nil})
     for i := range packetCounters.PacketCounter {
+        types.SetYListKey(packetCounters.PacketCounter[i], i)
         packetCounters.EntityData.Children.Append(types.GetSegmentPath(packetCounters.PacketCounter[i]), types.YChild{"PacketCounter", packetCounters.PacketCounter[i]})
     }
     packetCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -900,6 +918,7 @@ func (packetCounters *Bfd_Counters_PacketCounters) GetEntityData() *types.Common
 type Bfd_Counters_PacketCounters_PacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -933,7 +952,8 @@ func (packetCounter *Bfd_Counters_PacketCounters_PacketCounter) GetEntityData() 
     packetCounter.EntityData.YangName = "packet-counter"
     packetCounter.EntityData.BundleName = "cisco_ios_xr"
     packetCounter.EntityData.ParentYangName = "packet-counters"
-    packetCounter.EntityData.SegmentPath = "packet-counter"
+    packetCounter.EntityData.SegmentPath = "packet-counter" + types.AddNoKeyToken(packetCounter)
+    packetCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/counters/packet-counters/" + packetCounter.EntityData.SegmentPath
     packetCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -970,6 +990,7 @@ func (clientDetails *Bfd_ClientDetails) GetEntityData() *types.CommonEntityData 
     clientDetails.EntityData.BundleName = "cisco_ios_xr"
     clientDetails.EntityData.ParentYangName = "bfd"
     clientDetails.EntityData.SegmentPath = "client-details"
+    clientDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + clientDetails.EntityData.SegmentPath
     clientDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -991,6 +1012,7 @@ func (clientDetails *Bfd_ClientDetails) GetEntityData() *types.CommonEntityData 
 type Bfd_ClientDetails_ClientDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Client Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1013,6 +1035,7 @@ func (clientDetail *Bfd_ClientDetails_ClientDetail) GetEntityData() *types.Commo
     clientDetail.EntityData.BundleName = "cisco_ios_xr"
     clientDetail.EntityData.ParentYangName = "client-details"
     clientDetail.EntityData.SegmentPath = "client-detail" + types.AddKeyToken(clientDetail.ClientName, "client-name")
+    clientDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/client-details/" + clientDetail.EntityData.SegmentPath
     clientDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1053,6 +1076,7 @@ func (brief *Bfd_ClientDetails_ClientDetail_Brief) GetEntityData() *types.Common
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "client-detail"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/client-details/client-detail/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1089,6 +1113,7 @@ func (flags *Bfd_ClientDetails_ClientDetail_Flags) GetEntityData() *types.Common
     flags.EntityData.BundleName = "cisco_ios_xr"
     flags.EntityData.ParentYangName = "client-detail"
     flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/client-details/client-detail/" + flags.EntityData.SegmentPath
     flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1120,6 +1145,7 @@ func (ipv4SingleHopSummary *Bfd_Ipv4SingleHopSummary) GetEntityData() *types.Com
     ipv4SingleHopSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopSummary.EntityData.ParentYangName = "bfd"
     ipv4SingleHopSummary.EntityData.SegmentPath = "ipv4-single-hop-summary"
+    ipv4SingleHopSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4SingleHopSummary.EntityData.SegmentPath
     ipv4SingleHopSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1162,6 +1188,7 @@ func (sessionState *Bfd_Ipv4SingleHopSummary_SessionState) GetEntityData() *type
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4-single-hop-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1195,6 +1222,7 @@ func (ipv6SingleHopSummary *Bfd_Ipv6SingleHopSummary) GetEntityData() *types.Com
     ipv6SingleHopSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopSummary.EntityData.ParentYangName = "bfd"
     ipv6SingleHopSummary.EntityData.SegmentPath = "ipv6-single-hop-summary"
+    ipv6SingleHopSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6SingleHopSummary.EntityData.SegmentPath
     ipv6SingleHopSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1237,6 +1265,7 @@ func (sessionState *Bfd_Ipv6SingleHopSummary_SessionState) GetEntityData() *type
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv6-single-hop-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1270,6 +1299,7 @@ func (labelMultiPaths *Bfd_LabelMultiPaths) GetEntityData() *types.CommonEntityD
     labelMultiPaths.EntityData.BundleName = "cisco_ios_xr"
     labelMultiPaths.EntityData.ParentYangName = "bfd"
     labelMultiPaths.EntityData.SegmentPath = "label-multi-paths"
+    labelMultiPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + labelMultiPaths.EntityData.SegmentPath
     labelMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1277,6 +1307,7 @@ func (labelMultiPaths *Bfd_LabelMultiPaths) GetEntityData() *types.CommonEntityD
     labelMultiPaths.EntityData.Children = types.NewOrderedMap()
     labelMultiPaths.EntityData.Children.Append("label-multi-path", types.YChild{"LabelMultiPath", nil})
     for i := range labelMultiPaths.LabelMultiPath {
+        types.SetYListKey(labelMultiPaths.LabelMultiPath[i], i)
         labelMultiPaths.EntityData.Children.Append(types.GetSegmentPath(labelMultiPaths.LabelMultiPath[i]), types.YChild{"LabelMultiPath", labelMultiPaths.LabelMultiPath[i]})
     }
     labelMultiPaths.EntityData.Leafs = types.NewOrderedMap()
@@ -1291,6 +1322,7 @@ func (labelMultiPaths *Bfd_LabelMultiPaths) GetEntityData() *types.CommonEntityD
 type Bfd_LabelMultiPaths_LabelMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -1328,7 +1360,8 @@ func (labelMultiPath *Bfd_LabelMultiPaths_LabelMultiPath) GetEntityData() *types
     labelMultiPath.EntityData.YangName = "label-multi-path"
     labelMultiPath.EntityData.BundleName = "cisco_ios_xr"
     labelMultiPath.EntityData.ParentYangName = "label-multi-paths"
-    labelMultiPath.EntityData.SegmentPath = "label-multi-path"
+    labelMultiPath.EntityData.SegmentPath = "label-multi-path" + types.AddNoKeyToken(labelMultiPath)
+    labelMultiPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-multi-paths/" + labelMultiPath.EntityData.SegmentPath
     labelMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1368,6 +1401,7 @@ func (ipv4MultiHopSessionDetails *Bfd_Ipv4MultiHopSessionDetails) GetEntityData(
     ipv4MultiHopSessionDetails.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopSessionDetails.EntityData.ParentYangName = "bfd"
     ipv4MultiHopSessionDetails.EntityData.SegmentPath = "ipv4-multi-hop-session-details"
+    ipv4MultiHopSessionDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4MultiHopSessionDetails.EntityData.SegmentPath
     ipv4MultiHopSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1375,6 +1409,7 @@ func (ipv4MultiHopSessionDetails *Bfd_Ipv4MultiHopSessionDetails) GetEntityData(
     ipv4MultiHopSessionDetails.EntityData.Children = types.NewOrderedMap()
     ipv4MultiHopSessionDetails.EntityData.Children.Append("ipv4-multi-hop-session-detail", types.YChild{"Ipv4MultiHopSessionDetail", nil})
     for i := range ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail {
+        types.SetYListKey(ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail[i], i)
         ipv4MultiHopSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail[i]), types.YChild{"Ipv4MultiHopSessionDetail", ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail[i]})
     }
     ipv4MultiHopSessionDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -1390,6 +1425,7 @@ func (ipv4MultiHopSessionDetails *Bfd_Ipv4MultiHopSessionDetails) GetEntityData(
 type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source Address. The type is one of the following types: string with
     // pattern:
@@ -1435,7 +1471,8 @@ func (ipv4MultiHopSessionDetail *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSess
     ipv4MultiHopSessionDetail.EntityData.YangName = "ipv4-multi-hop-session-detail"
     ipv4MultiHopSessionDetail.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopSessionDetail.EntityData.ParentYangName = "ipv4-multi-hop-session-details"
-    ipv4MultiHopSessionDetail.EntityData.SegmentPath = "ipv4-multi-hop-session-detail"
+    ipv4MultiHopSessionDetail.EntityData.SegmentPath = "ipv4-multi-hop-session-detail" + types.AddNoKeyToken(ipv4MultiHopSessionDetail)
+    ipv4MultiHopSessionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/" + ipv4MultiHopSessionDetail.EntityData.SegmentPath
     ipv4MultiHopSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1446,10 +1483,12 @@ func (ipv4MultiHopSessionDetail *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSess
     ipv4MultiHopSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv4MultiHopSessionDetail.LspPingInfo})
     ipv4MultiHopSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv4MultiHopSessionDetail.OwnerInformation {
+        types.SetYListKey(ipv4MultiHopSessionDetail.OwnerInformation[i], i)
         ipv4MultiHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv4MultiHopSessionDetail.OwnerInformation[i]})
     }
     ipv4MultiHopSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv4MultiHopSessionDetail.AssociationInformation {
+        types.SetYListKey(ipv4MultiHopSessionDetail.AssociationInformation[i], i)
         ipv4MultiHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv4MultiHopSessionDetail.AssociationInformation[i]})
     }
     ipv4MultiHopSessionDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -1556,6 +1595,7 @@ func (statusInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetai
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
     statusInformation.EntityData.ParentYangName = "ipv4-multi-hop-session-detail"
     statusInformation.EntityData.SegmentPath = "status-information"
+    statusInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/" + statusInformation.EntityData.SegmentPath
     statusInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1618,6 +1658,7 @@ func (sourceAddress *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_St
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceAddress.EntityData.ParentYangName = "status-information"
     sourceAddress.EntityData.SegmentPath = "source-address"
+    sourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + sourceAddress.EntityData.SegmentPath
     sourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1663,6 +1704,7 @@ func (lastStateChange *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastStateChange.EntityData.ParentYangName = "status-information"
     lastStateChange.EntityData.SegmentPath = "last-state-change"
+    lastStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + lastStateChange.EntityData.SegmentPath
     lastStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1746,6 +1788,7 @@ func (transmitPacket *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_S
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
     transmitPacket.EntityData.ParentYangName = "status-information"
     transmitPacket.EntityData.SegmentPath = "transmit-packet"
+    transmitPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + transmitPacket.EntityData.SegmentPath
     transmitPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1841,6 +1884,7 @@ func (receivePacket *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_St
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
     receivePacket.EntityData.ParentYangName = "status-information"
     receivePacket.EntityData.SegmentPath = "receive-packet"
+    receivePacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + receivePacket.EntityData.SegmentPath
     receivePacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1888,6 +1932,7 @@ func (statusBriefInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "status-information"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1930,6 +1975,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessio
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1970,6 +2016,7 @@ func (echoIntervalMultiplier *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2019,6 +2066,7 @@ func (asyncTransmitStatistics *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessio
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncTransmitStatistics.EntityData.ParentYangName = "status-information"
     asyncTransmitStatistics.EntityData.SegmentPath = "async-transmit-statistics"
+    asyncTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + asyncTransmitStatistics.EntityData.SegmentPath
     asyncTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2070,6 +2118,7 @@ func (asyncReceiveStatistics *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncReceiveStatistics.EntityData.ParentYangName = "status-information"
     asyncReceiveStatistics.EntityData.SegmentPath = "async-receive-statistics"
+    asyncReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + asyncReceiveStatistics.EntityData.SegmentPath
     asyncReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2121,6 +2170,7 @@ func (echoTransmitStatistics *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoTransmitStatistics.EntityData.ParentYangName = "status-information"
     echoTransmitStatistics.EntityData.SegmentPath = "echo-transmit-statistics"
+    echoTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + echoTransmitStatistics.EntityData.SegmentPath
     echoTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2172,6 +2222,7 @@ func (echoReceivedStatistics *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoReceivedStatistics.EntityData.ParentYangName = "status-information"
     echoReceivedStatistics.EntityData.SegmentPath = "echo-received-statistics"
+    echoReceivedStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/" + echoReceivedStatistics.EntityData.SegmentPath
     echoReceivedStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2208,6 +2259,7 @@ func (mpDownloadState *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
     mpDownloadState.EntityData.ParentYangName = "ipv4-multi-hop-session-detail"
     mpDownloadState.EntityData.SegmentPath = "mp-download-state"
+    mpDownloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/" + mpDownloadState.EntityData.SegmentPath
     mpDownloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2243,6 +2295,7 @@ func (changeTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_MpDow
     changeTime.EntityData.BundleName = "cisco_ios_xr"
     changeTime.EntityData.ParentYangName = "mp-download-state"
     changeTime.EntityData.SegmentPath = "change-time"
+    changeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/mp-download-state/" + changeTime.EntityData.SegmentPath
     changeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2308,6 +2361,7 @@ func (lspPingInfo *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_LspP
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
     lspPingInfo.EntityData.ParentYangName = "ipv4-multi-hop-session-detail"
     lspPingInfo.EntityData.SegmentPath = "lsp-ping-info"
+    lspPingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/" + lspPingInfo.EntityData.SegmentPath
     lspPingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2353,6 +2407,7 @@ func (lspPingTxLastTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetai
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastTime.EntityData.SegmentPath = "lsp-ping-tx-last-time"
+    lspPingTxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/lsp-ping-info/" + lspPingTxLastTime.EntityData.SegmentPath
     lspPingTxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2388,6 +2443,7 @@ func (lspPingTxLastErrorTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastErrorTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastErrorTime.EntityData.SegmentPath = "lsp-ping-tx-last-error-time"
+    lspPingTxLastErrorTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/lsp-ping-info/" + lspPingTxLastErrorTime.EntityData.SegmentPath
     lspPingTxLastErrorTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2423,6 +2479,7 @@ func (lspPingRxLastTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetai
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingRxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingRxLastTime.EntityData.SegmentPath = "lsp-ping-rx-last-time"
+    lspPingRxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/lsp-ping-info/" + lspPingRxLastTime.EntityData.SegmentPath
     lspPingRxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2442,6 +2499,7 @@ func (lspPingRxLastTime *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetai
 type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -2468,7 +2526,8 @@ func (ownerInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "ipv4-multi-hop-session-detail"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2491,6 +2550,7 @@ func (ownerInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail
 type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -2515,7 +2575,8 @@ func (associationInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "ipv4-multi-hop-session-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2524,6 +2585,7 @@ func (associationInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSession
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -2563,6 +2625,7 @@ func (ipDestinationAddress *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDe
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2584,6 +2647,7 @@ func (ipDestinationAddress *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDe
 type Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -2610,7 +2674,8 @@ func (ownerInformation *Bfd_Ipv4MultiHopSessionDetails_Ipv4MultiHopSessionDetail
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2646,6 +2711,7 @@ func (ipv4SingleHopSessionDetails *Bfd_Ipv4SingleHopSessionDetails) GetEntityDat
     ipv4SingleHopSessionDetails.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopSessionDetails.EntityData.ParentYangName = "bfd"
     ipv4SingleHopSessionDetails.EntityData.SegmentPath = "ipv4-single-hop-session-details"
+    ipv4SingleHopSessionDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4SingleHopSessionDetails.EntityData.SegmentPath
     ipv4SingleHopSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2653,6 +2719,7 @@ func (ipv4SingleHopSessionDetails *Bfd_Ipv4SingleHopSessionDetails) GetEntityDat
     ipv4SingleHopSessionDetails.EntityData.Children = types.NewOrderedMap()
     ipv4SingleHopSessionDetails.EntityData.Children.Append("ipv4-single-hop-session-detail", types.YChild{"Ipv4SingleHopSessionDetail", nil})
     for i := range ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail {
+        types.SetYListKey(ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail[i], i)
         ipv4SingleHopSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail[i]), types.YChild{"Ipv4SingleHopSessionDetail", ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail[i]})
     }
     ipv4SingleHopSessionDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -2668,6 +2735,7 @@ func (ipv4SingleHopSessionDetails *Bfd_Ipv4SingleHopSessionDetails) GetEntityDat
 type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -2703,7 +2771,8 @@ func (ipv4SingleHopSessionDetail *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopS
     ipv4SingleHopSessionDetail.EntityData.YangName = "ipv4-single-hop-session-detail"
     ipv4SingleHopSessionDetail.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopSessionDetail.EntityData.ParentYangName = "ipv4-single-hop-session-details"
-    ipv4SingleHopSessionDetail.EntityData.SegmentPath = "ipv4-single-hop-session-detail"
+    ipv4SingleHopSessionDetail.EntityData.SegmentPath = "ipv4-single-hop-session-detail" + types.AddNoKeyToken(ipv4SingleHopSessionDetail)
+    ipv4SingleHopSessionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/" + ipv4SingleHopSessionDetail.EntityData.SegmentPath
     ipv4SingleHopSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2714,10 +2783,12 @@ func (ipv4SingleHopSessionDetail *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopS
     ipv4SingleHopSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv4SingleHopSessionDetail.LspPingInfo})
     ipv4SingleHopSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv4SingleHopSessionDetail.OwnerInformation {
+        types.SetYListKey(ipv4SingleHopSessionDetail.OwnerInformation[i], i)
         ipv4SingleHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv4SingleHopSessionDetail.OwnerInformation[i]})
     }
     ipv4SingleHopSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv4SingleHopSessionDetail.AssociationInformation {
+        types.SetYListKey(ipv4SingleHopSessionDetail.AssociationInformation[i], i)
         ipv4SingleHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv4SingleHopSessionDetail.AssociationInformation[i]})
     }
     ipv4SingleHopSessionDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -2823,6 +2894,7 @@ func (statusInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDet
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
     statusInformation.EntityData.ParentYangName = "ipv4-single-hop-session-detail"
     statusInformation.EntityData.SegmentPath = "status-information"
+    statusInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/" + statusInformation.EntityData.SegmentPath
     statusInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2885,6 +2957,7 @@ func (sourceAddress *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceAddress.EntityData.ParentYangName = "status-information"
     sourceAddress.EntityData.SegmentPath = "source-address"
+    sourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + sourceAddress.EntityData.SegmentPath
     sourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2930,6 +3003,7 @@ func (lastStateChange *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetai
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastStateChange.EntityData.ParentYangName = "status-information"
     lastStateChange.EntityData.SegmentPath = "last-state-change"
+    lastStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + lastStateChange.EntityData.SegmentPath
     lastStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3013,6 +3087,7 @@ func (transmitPacket *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
     transmitPacket.EntityData.ParentYangName = "status-information"
     transmitPacket.EntityData.SegmentPath = "transmit-packet"
+    transmitPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + transmitPacket.EntityData.SegmentPath
     transmitPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3108,6 +3183,7 @@ func (receivePacket *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
     receivePacket.EntityData.ParentYangName = "status-information"
     receivePacket.EntityData.SegmentPath = "receive-packet"
+    receivePacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + receivePacket.EntityData.SegmentPath
     receivePacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3155,6 +3231,7 @@ func (statusBriefInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "status-information"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3197,6 +3274,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSess
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3237,6 +3315,7 @@ func (echoIntervalMultiplier *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3286,6 +3365,7 @@ func (asyncTransmitStatistics *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSess
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncTransmitStatistics.EntityData.ParentYangName = "status-information"
     asyncTransmitStatistics.EntityData.SegmentPath = "async-transmit-statistics"
+    asyncTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + asyncTransmitStatistics.EntityData.SegmentPath
     asyncTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3337,6 +3417,7 @@ func (asyncReceiveStatistics *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncReceiveStatistics.EntityData.ParentYangName = "status-information"
     asyncReceiveStatistics.EntityData.SegmentPath = "async-receive-statistics"
+    asyncReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + asyncReceiveStatistics.EntityData.SegmentPath
     asyncReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3388,6 +3469,7 @@ func (echoTransmitStatistics *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoTransmitStatistics.EntityData.ParentYangName = "status-information"
     echoTransmitStatistics.EntityData.SegmentPath = "echo-transmit-statistics"
+    echoTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + echoTransmitStatistics.EntityData.SegmentPath
     echoTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3439,6 +3521,7 @@ func (echoReceivedStatistics *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoReceivedStatistics.EntityData.ParentYangName = "status-information"
     echoReceivedStatistics.EntityData.SegmentPath = "echo-received-statistics"
+    echoReceivedStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/" + echoReceivedStatistics.EntityData.SegmentPath
     echoReceivedStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3475,6 +3558,7 @@ func (mpDownloadState *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetai
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
     mpDownloadState.EntityData.ParentYangName = "ipv4-single-hop-session-detail"
     mpDownloadState.EntityData.SegmentPath = "mp-download-state"
+    mpDownloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/" + mpDownloadState.EntityData.SegmentPath
     mpDownloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3510,6 +3594,7 @@ func (changeTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_MpD
     changeTime.EntityData.BundleName = "cisco_ios_xr"
     changeTime.EntityData.ParentYangName = "mp-download-state"
     changeTime.EntityData.SegmentPath = "change-time"
+    changeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/mp-download-state/" + changeTime.EntityData.SegmentPath
     changeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3575,6 +3660,7 @@ func (lspPingInfo *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_Ls
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
     lspPingInfo.EntityData.ParentYangName = "ipv4-single-hop-session-detail"
     lspPingInfo.EntityData.SegmentPath = "lsp-ping-info"
+    lspPingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/" + lspPingInfo.EntityData.SegmentPath
     lspPingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3620,6 +3706,7 @@ func (lspPingTxLastTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDet
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastTime.EntityData.SegmentPath = "lsp-ping-tx-last-time"
+    lspPingTxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/lsp-ping-info/" + lspPingTxLastTime.EntityData.SegmentPath
     lspPingTxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3655,6 +3742,7 @@ func (lspPingTxLastErrorTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastErrorTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastErrorTime.EntityData.SegmentPath = "lsp-ping-tx-last-error-time"
+    lspPingTxLastErrorTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/lsp-ping-info/" + lspPingTxLastErrorTime.EntityData.SegmentPath
     lspPingTxLastErrorTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3690,6 +3778,7 @@ func (lspPingRxLastTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDet
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingRxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingRxLastTime.EntityData.SegmentPath = "lsp-ping-rx-last-time"
+    lspPingRxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/lsp-ping-info/" + lspPingRxLastTime.EntityData.SegmentPath
     lspPingRxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3709,6 +3798,7 @@ func (lspPingRxLastTime *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDet
 type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -3735,7 +3825,8 @@ func (ownerInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDeta
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "ipv4-single-hop-session-detail"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3758,6 +3849,7 @@ func (ownerInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDeta
 type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -3782,7 +3874,8 @@ func (associationInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "ipv4-single-hop-session-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3791,6 +3884,7 @@ func (associationInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessi
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -3830,6 +3924,7 @@ func (ipDestinationAddress *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSession
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3851,6 +3946,7 @@ func (ipDestinationAddress *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSession
 type Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -3877,7 +3973,8 @@ func (ownerInformation *Bfd_Ipv4SingleHopSessionDetails_Ipv4SingleHopSessionDeta
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3913,6 +4010,7 @@ func (ipv4MultiHopSessionBriefs *Bfd_Ipv4MultiHopSessionBriefs) GetEntityData() 
     ipv4MultiHopSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopSessionBriefs.EntityData.ParentYangName = "bfd"
     ipv4MultiHopSessionBriefs.EntityData.SegmentPath = "ipv4-multi-hop-session-briefs"
+    ipv4MultiHopSessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4MultiHopSessionBriefs.EntityData.SegmentPath
     ipv4MultiHopSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3920,6 +4018,7 @@ func (ipv4MultiHopSessionBriefs *Bfd_Ipv4MultiHopSessionBriefs) GetEntityData() 
     ipv4MultiHopSessionBriefs.EntityData.Children = types.NewOrderedMap()
     ipv4MultiHopSessionBriefs.EntityData.Children.Append("ipv4-multi-hop-session-brief", types.YChild{"Ipv4MultiHopSessionBrief", nil})
     for i := range ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief {
+        types.SetYListKey(ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief[i], i)
         ipv4MultiHopSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief[i]), types.YChild{"Ipv4MultiHopSessionBrief", ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief[i]})
     }
     ipv4MultiHopSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -3935,6 +4034,7 @@ func (ipv4MultiHopSessionBriefs *Bfd_Ipv4MultiHopSessionBriefs) GetEntityData() 
 type Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -3976,7 +4076,8 @@ func (ipv4MultiHopSessionBrief *Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessio
     ipv4MultiHopSessionBrief.EntityData.YangName = "ipv4-multi-hop-session-brief"
     ipv4MultiHopSessionBrief.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopSessionBrief.EntityData.ParentYangName = "ipv4-multi-hop-session-briefs"
-    ipv4MultiHopSessionBrief.EntityData.SegmentPath = "ipv4-multi-hop-session-brief"
+    ipv4MultiHopSessionBrief.EntityData.SegmentPath = "ipv4-multi-hop-session-brief" + types.AddNoKeyToken(ipv4MultiHopSessionBrief)
+    ipv4MultiHopSessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-briefs/" + ipv4MultiHopSessionBrief.EntityData.SegmentPath
     ipv4MultiHopSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4018,6 +4119,7 @@ func (statusBriefInformation *Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionB
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "ipv4-multi-hop-session-brief"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-briefs/ipv4-multi-hop-session-brief/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4060,6 +4162,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSession
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-briefs/ipv4-multi-hop-session-brief/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4100,6 +4203,7 @@ func (echoIntervalMultiplier *Bfd_Ipv4MultiHopSessionBriefs_Ipv4MultiHopSessionB
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-briefs/ipv4-multi-hop-session-brief/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4132,6 +4236,7 @@ func (genericSummaries *Bfd_GenericSummaries) GetEntityData() *types.CommonEntit
     genericSummaries.EntityData.BundleName = "cisco_ios_xr"
     genericSummaries.EntityData.ParentYangName = "bfd"
     genericSummaries.EntityData.SegmentPath = "generic-summaries"
+    genericSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + genericSummaries.EntityData.SegmentPath
     genericSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4154,6 +4259,7 @@ func (genericSummaries *Bfd_GenericSummaries) GetEntityData() *types.CommonEntit
 type Bfd_GenericSummaries_GenericSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -4199,6 +4305,7 @@ func (genericSummary *Bfd_GenericSummaries_GenericSummary) GetEntityData() *type
     genericSummary.EntityData.BundleName = "cisco_ios_xr"
     genericSummary.EntityData.ParentYangName = "generic-summaries"
     genericSummary.EntityData.SegmentPath = "generic-summary" + types.AddKeyToken(genericSummary.Location, "location")
+    genericSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/generic-summaries/" + genericSummary.EntityData.SegmentPath
     genericSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4239,6 +4346,7 @@ func (ipv6SingleHopMultiPaths *Bfd_Ipv6SingleHopMultiPaths) GetEntityData() *typ
     ipv6SingleHopMultiPaths.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopMultiPaths.EntityData.ParentYangName = "bfd"
     ipv6SingleHopMultiPaths.EntityData.SegmentPath = "ipv6-single-hop-multi-paths"
+    ipv6SingleHopMultiPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6SingleHopMultiPaths.EntityData.SegmentPath
     ipv6SingleHopMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4246,6 +4354,7 @@ func (ipv6SingleHopMultiPaths *Bfd_Ipv6SingleHopMultiPaths) GetEntityData() *typ
     ipv6SingleHopMultiPaths.EntityData.Children = types.NewOrderedMap()
     ipv6SingleHopMultiPaths.EntityData.Children.Append("ipv6-single-hop-multi-path", types.YChild{"Ipv6SingleHopMultiPath", nil})
     for i := range ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath {
+        types.SetYListKey(ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath[i], i)
         ipv6SingleHopMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath[i]), types.YChild{"Ipv6SingleHopMultiPath", ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath[i]})
     }
     ipv6SingleHopMultiPaths.EntityData.Leafs = types.NewOrderedMap()
@@ -4260,6 +4369,7 @@ func (ipv6SingleHopMultiPaths *Bfd_Ipv6SingleHopMultiPaths) GetEntityData() *typ
 type Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -4301,7 +4411,8 @@ func (ipv6SingleHopMultiPath *Bfd_Ipv6SingleHopMultiPaths_Ipv6SingleHopMultiPath
     ipv6SingleHopMultiPath.EntityData.YangName = "ipv6-single-hop-multi-path"
     ipv6SingleHopMultiPath.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopMultiPath.EntityData.ParentYangName = "ipv6-single-hop-multi-paths"
-    ipv6SingleHopMultiPath.EntityData.SegmentPath = "ipv6-single-hop-multi-path"
+    ipv6SingleHopMultiPath.EntityData.SegmentPath = "ipv6-single-hop-multi-path" + types.AddNoKeyToken(ipv6SingleHopMultiPath)
+    ipv6SingleHopMultiPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-multi-paths/" + ipv6SingleHopMultiPath.EntityData.SegmentPath
     ipv6SingleHopMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4342,6 +4453,7 @@ func (ipv4SingleHopNodeLocationSummaries *Bfd_Ipv4SingleHopNodeLocationSummaries
     ipv4SingleHopNodeLocationSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopNodeLocationSummaries.EntityData.ParentYangName = "bfd"
     ipv4SingleHopNodeLocationSummaries.EntityData.SegmentPath = "ipv4-single-hop-node-location-summaries"
+    ipv4SingleHopNodeLocationSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4SingleHopNodeLocationSummaries.EntityData.SegmentPath
     ipv4SingleHopNodeLocationSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopNodeLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopNodeLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4364,6 +4476,7 @@ func (ipv4SingleHopNodeLocationSummaries *Bfd_Ipv4SingleHopNodeLocationSummaries
 type Bfd_Ipv4SingleHopNodeLocationSummaries_Ipv4SingleHopNodeLocationSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -4379,6 +4492,7 @@ func (ipv4SingleHopNodeLocationSummary *Bfd_Ipv4SingleHopNodeLocationSummaries_I
     ipv4SingleHopNodeLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopNodeLocationSummary.EntityData.ParentYangName = "ipv4-single-hop-node-location-summaries"
     ipv4SingleHopNodeLocationSummary.EntityData.SegmentPath = "ipv4-single-hop-node-location-summary" + types.AddKeyToken(ipv4SingleHopNodeLocationSummary.Location, "location")
+    ipv4SingleHopNodeLocationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-node-location-summaries/" + ipv4SingleHopNodeLocationSummary.EntityData.SegmentPath
     ipv4SingleHopNodeLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopNodeLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopNodeLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4430,6 +4544,7 @@ func (sessionState *Bfd_Ipv4SingleHopNodeLocationSummaries_Ipv4SingleHopNodeLoca
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4-single-hop-node-location-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-node-location-summaries/ipv4-single-hop-node-location-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4464,6 +4579,7 @@ func (labelSummary *Bfd_LabelSummary) GetEntityData() *types.CommonEntityData {
     labelSummary.EntityData.BundleName = "cisco_ios_xr"
     labelSummary.EntityData.ParentYangName = "bfd"
     labelSummary.EntityData.SegmentPath = "label-summary"
+    labelSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + labelSummary.EntityData.SegmentPath
     labelSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4506,6 +4622,7 @@ func (sessionState *Bfd_LabelSummary_SessionState) GetEntityData() *types.Common
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "label-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4541,6 +4658,7 @@ func (ipv4bfDoMplsteHeadSessionBriefs *Bfd_Ipv4bfDoMplsteHeadSessionBriefs) GetE
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-briefs"
+    ipv4bfDoMplsteHeadSessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteHeadSessionBriefs.EntityData.SegmentPath
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4548,6 +4666,7 @@ func (ipv4bfDoMplsteHeadSessionBriefs *Bfd_Ipv4bfDoMplsteHeadSessionBriefs) GetE
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.Children = types.NewOrderedMap()
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.Children.Append("ipv4bf-do-mplste-head-session-brief", types.YChild{"Ipv4bfDoMplsteHeadSessionBrief", nil})
     for i := range ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief {
+        types.SetYListKey(ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief[i], i)
         ipv4bfDoMplsteHeadSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief[i]), types.YChild{"Ipv4bfDoMplsteHeadSessionBrief", ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief[i]})
     }
     ipv4bfDoMplsteHeadSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -4563,6 +4682,7 @@ func (ipv4bfDoMplsteHeadSessionBriefs *Bfd_Ipv4bfDoMplsteHeadSessionBriefs) GetE
 type Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplsteHeadSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -4636,7 +4756,8 @@ func (ipv4bfDoMplsteHeadSessionBrief *Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bf
     ipv4bfDoMplsteHeadSessionBrief.EntityData.YangName = "ipv4bf-do-mplste-head-session-brief"
     ipv4bfDoMplsteHeadSessionBrief.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadSessionBrief.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-briefs"
-    ipv4bfDoMplsteHeadSessionBrief.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-brief"
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-brief" + types.AddNoKeyToken(ipv4bfDoMplsteHeadSessionBrief)
+    ipv4bfDoMplsteHeadSessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-briefs/" + ipv4bfDoMplsteHeadSessionBrief.EntityData.SegmentPath
     ipv4bfDoMplsteHeadSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4688,6 +4809,7 @@ func (statusBriefInformation *Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplste
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-brief"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-briefs/ipv4bf-do-mplste-head-session-brief/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4730,6 +4852,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplst
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-briefs/ipv4bf-do-mplste-head-session-brief/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4770,6 +4893,7 @@ func (echoIntervalMultiplier *Bfd_Ipv4bfDoMplsteHeadSessionBriefs_Ipv4bfDoMplste
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-briefs/ipv4bf-do-mplste-head-session-brief/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4804,6 +4928,7 @@ func (ipv4bfDoMplsteTailSessionDetails *Bfd_Ipv4bfDoMplsteTailSessionDetails) Ge
     ipv4bfDoMplsteTailSessionDetails.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailSessionDetails.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteTailSessionDetails.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-details"
+    ipv4bfDoMplsteTailSessionDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteTailSessionDetails.EntityData.SegmentPath
     ipv4bfDoMplsteTailSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4811,6 +4936,7 @@ func (ipv4bfDoMplsteTailSessionDetails *Bfd_Ipv4bfDoMplsteTailSessionDetails) Ge
     ipv4bfDoMplsteTailSessionDetails.EntityData.Children = types.NewOrderedMap()
     ipv4bfDoMplsteTailSessionDetails.EntityData.Children.Append("ipv4bf-do-mplste-tail-session-detail", types.YChild{"Ipv4bfDoMplsteTailSessionDetail", nil})
     for i := range ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail {
+        types.SetYListKey(ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail[i], i)
         ipv4bfDoMplsteTailSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail[i]), types.YChild{"Ipv4bfDoMplsteTailSessionDetail", ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail[i]})
     }
     ipv4bfDoMplsteTailSessionDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -4826,6 +4952,7 @@ func (ipv4bfDoMplsteTailSessionDetails *Bfd_Ipv4bfDoMplsteTailSessionDetails) Ge
 type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
@@ -4894,7 +5021,8 @@ func (ipv4bfDoMplsteTailSessionDetail *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4
     ipv4bfDoMplsteTailSessionDetail.EntityData.YangName = "ipv4bf-do-mplste-tail-session-detail"
     ipv4bfDoMplsteTailSessionDetail.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailSessionDetail.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-details"
-    ipv4bfDoMplsteTailSessionDetail.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-detail"
+    ipv4bfDoMplsteTailSessionDetail.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-detail" + types.AddNoKeyToken(ipv4bfDoMplsteTailSessionDetail)
+    ipv4bfDoMplsteTailSessionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/" + ipv4bfDoMplsteTailSessionDetail.EntityData.SegmentPath
     ipv4bfDoMplsteTailSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4905,10 +5033,12 @@ func (ipv4bfDoMplsteTailSessionDetail *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4
     ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv4bfDoMplsteTailSessionDetail.LspPingInfo})
     ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv4bfDoMplsteTailSessionDetail.OwnerInformation {
+        types.SetYListKey(ipv4bfDoMplsteTailSessionDetail.OwnerInformation[i], i)
         ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv4bfDoMplsteTailSessionDetail.OwnerInformation[i]})
     }
     ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv4bfDoMplsteTailSessionDetail.AssociationInformation {
+        types.SetYListKey(ipv4bfDoMplsteTailSessionDetail.AssociationInformation[i], i)
         ipv4bfDoMplsteTailSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv4bfDoMplsteTailSessionDetail.AssociationInformation[i]})
     }
     ipv4bfDoMplsteTailSessionDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -5024,6 +5154,7 @@ func (statusInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTail
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
     statusInformation.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-detail"
     statusInformation.EntityData.SegmentPath = "status-information"
+    statusInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/" + statusInformation.EntityData.SegmentPath
     statusInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5086,6 +5217,7 @@ func (sourceAddress *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSess
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceAddress.EntityData.ParentYangName = "status-information"
     sourceAddress.EntityData.SegmentPath = "source-address"
+    sourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + sourceAddress.EntityData.SegmentPath
     sourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5131,6 +5263,7 @@ func (lastStateChange *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSe
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastStateChange.EntityData.ParentYangName = "status-information"
     lastStateChange.EntityData.SegmentPath = "last-state-change"
+    lastStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + lastStateChange.EntityData.SegmentPath
     lastStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5214,6 +5347,7 @@ func (transmitPacket *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSes
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
     transmitPacket.EntityData.ParentYangName = "status-information"
     transmitPacket.EntityData.SegmentPath = "transmit-packet"
+    transmitPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + transmitPacket.EntityData.SegmentPath
     transmitPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5309,6 +5443,7 @@ func (receivePacket *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSess
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
     receivePacket.EntityData.ParentYangName = "status-information"
     receivePacket.EntityData.SegmentPath = "receive-packet"
+    receivePacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + receivePacket.EntityData.SegmentPath
     receivePacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5356,6 +5491,7 @@ func (statusBriefInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplst
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "status-information"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5398,6 +5534,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMpls
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5438,6 +5575,7 @@ func (echoIntervalMultiplier *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplst
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5487,6 +5625,7 @@ func (asyncTransmitStatistics *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMpls
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncTransmitStatistics.EntityData.ParentYangName = "status-information"
     asyncTransmitStatistics.EntityData.SegmentPath = "async-transmit-statistics"
+    asyncTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + asyncTransmitStatistics.EntityData.SegmentPath
     asyncTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5538,6 +5677,7 @@ func (asyncReceiveStatistics *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplst
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncReceiveStatistics.EntityData.ParentYangName = "status-information"
     asyncReceiveStatistics.EntityData.SegmentPath = "async-receive-statistics"
+    asyncReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + asyncReceiveStatistics.EntityData.SegmentPath
     asyncReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5589,6 +5729,7 @@ func (echoTransmitStatistics *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplst
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoTransmitStatistics.EntityData.ParentYangName = "status-information"
     echoTransmitStatistics.EntityData.SegmentPath = "echo-transmit-statistics"
+    echoTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + echoTransmitStatistics.EntityData.SegmentPath
     echoTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5640,6 +5781,7 @@ func (echoReceivedStatistics *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplst
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoReceivedStatistics.EntityData.ParentYangName = "status-information"
     echoReceivedStatistics.EntityData.SegmentPath = "echo-received-statistics"
+    echoReceivedStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/" + echoReceivedStatistics.EntityData.SegmentPath
     echoReceivedStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5676,6 +5818,7 @@ func (mpDownloadState *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSe
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
     mpDownloadState.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-detail"
     mpDownloadState.EntityData.SegmentPath = "mp-download-state"
+    mpDownloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/" + mpDownloadState.EntityData.SegmentPath
     mpDownloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5711,6 +5854,7 @@ func (changeTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSession
     changeTime.EntityData.BundleName = "cisco_ios_xr"
     changeTime.EntityData.ParentYangName = "mp-download-state"
     changeTime.EntityData.SegmentPath = "change-time"
+    changeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/mp-download-state/" + changeTime.EntityData.SegmentPath
     changeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5776,6 +5920,7 @@ func (lspPingInfo *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessio
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
     lspPingInfo.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-detail"
     lspPingInfo.EntityData.SegmentPath = "lsp-ping-info"
+    lspPingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/" + lspPingInfo.EntityData.SegmentPath
     lspPingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5821,6 +5966,7 @@ func (lspPingTxLastTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTail
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastTime.EntityData.SegmentPath = "lsp-ping-tx-last-time"
+    lspPingTxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/lsp-ping-info/" + lspPingTxLastTime.EntityData.SegmentPath
     lspPingTxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5856,6 +6002,7 @@ func (lspPingTxLastErrorTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplst
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastErrorTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastErrorTime.EntityData.SegmentPath = "lsp-ping-tx-last-error-time"
+    lspPingTxLastErrorTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/lsp-ping-info/" + lspPingTxLastErrorTime.EntityData.SegmentPath
     lspPingTxLastErrorTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5891,6 +6038,7 @@ func (lspPingRxLastTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTail
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingRxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingRxLastTime.EntityData.SegmentPath = "lsp-ping-rx-last-time"
+    lspPingRxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/lsp-ping-info/" + lspPingRxLastTime.EntityData.SegmentPath
     lspPingRxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5910,6 +6058,7 @@ func (lspPingRxLastTime *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTail
 type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -5936,7 +6085,8 @@ func (ownerInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailS
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-detail"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5959,6 +6109,7 @@ func (ownerInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailS
 type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -5983,7 +6134,8 @@ func (associationInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplst
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5992,6 +6144,7 @@ func (associationInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplst
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -6031,6 +6184,7 @@ func (ipDestinationAddress *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteT
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6052,6 +6206,7 @@ func (ipDestinationAddress *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteT
 type Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -6078,7 +6233,8 @@ func (ownerInformation *Bfd_Ipv4bfDoMplsteTailSessionDetails_Ipv4bfDoMplsteTailS
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6115,6 +6271,7 @@ func (ipv4MultiHopNodeLocationSummaries *Bfd_Ipv4MultiHopNodeLocationSummaries) 
     ipv4MultiHopNodeLocationSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopNodeLocationSummaries.EntityData.ParentYangName = "bfd"
     ipv4MultiHopNodeLocationSummaries.EntityData.SegmentPath = "ipv4-multi-hop-node-location-summaries"
+    ipv4MultiHopNodeLocationSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4MultiHopNodeLocationSummaries.EntityData.SegmentPath
     ipv4MultiHopNodeLocationSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopNodeLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopNodeLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6137,6 +6294,7 @@ func (ipv4MultiHopNodeLocationSummaries *Bfd_Ipv4MultiHopNodeLocationSummaries) 
 type Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv4MultiHopNodeLocationSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -6152,6 +6310,7 @@ func (ipv4MultiHopNodeLocationSummary *Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv
     ipv4MultiHopNodeLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopNodeLocationSummary.EntityData.ParentYangName = "ipv4-multi-hop-node-location-summaries"
     ipv4MultiHopNodeLocationSummary.EntityData.SegmentPath = "ipv4-multi-hop-node-location-summary" + types.AddKeyToken(ipv4MultiHopNodeLocationSummary.Location, "location")
+    ipv4MultiHopNodeLocationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-node-location-summaries/" + ipv4MultiHopNodeLocationSummary.EntityData.SegmentPath
     ipv4MultiHopNodeLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopNodeLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopNodeLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6203,6 +6362,7 @@ func (sessionState *Bfd_Ipv4MultiHopNodeLocationSummaries_Ipv4MultiHopNodeLocati
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4-multi-hop-node-location-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-node-location-summaries/ipv4-multi-hop-node-location-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6240,6 +6400,7 @@ func (ipv4bfDoMplsteTailSessionBriefs *Bfd_Ipv4bfDoMplsteTailSessionBriefs) GetE
     ipv4bfDoMplsteTailSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailSessionBriefs.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteTailSessionBriefs.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-briefs"
+    ipv4bfDoMplsteTailSessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteTailSessionBriefs.EntityData.SegmentPath
     ipv4bfDoMplsteTailSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6247,6 +6408,7 @@ func (ipv4bfDoMplsteTailSessionBriefs *Bfd_Ipv4bfDoMplsteTailSessionBriefs) GetE
     ipv4bfDoMplsteTailSessionBriefs.EntityData.Children = types.NewOrderedMap()
     ipv4bfDoMplsteTailSessionBriefs.EntityData.Children.Append("ipv4bf-do-mplste-tail-session-brief", types.YChild{"Ipv4bfDoMplsteTailSessionBrief", nil})
     for i := range ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief {
+        types.SetYListKey(ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief[i], i)
         ipv4bfDoMplsteTailSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief[i]), types.YChild{"Ipv4bfDoMplsteTailSessionBrief", ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief[i]})
     }
     ipv4bfDoMplsteTailSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -6262,6 +6424,7 @@ func (ipv4bfDoMplsteTailSessionBriefs *Bfd_Ipv4bfDoMplsteTailSessionBriefs) GetE
 type Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplsteTailSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
@@ -6332,7 +6495,8 @@ func (ipv4bfDoMplsteTailSessionBrief *Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bf
     ipv4bfDoMplsteTailSessionBrief.EntityData.YangName = "ipv4bf-do-mplste-tail-session-brief"
     ipv4bfDoMplsteTailSessionBrief.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailSessionBrief.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-briefs"
-    ipv4bfDoMplsteTailSessionBrief.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-brief"
+    ipv4bfDoMplsteTailSessionBrief.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-session-brief" + types.AddNoKeyToken(ipv4bfDoMplsteTailSessionBrief)
+    ipv4bfDoMplsteTailSessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-briefs/" + ipv4bfDoMplsteTailSessionBrief.EntityData.SegmentPath
     ipv4bfDoMplsteTailSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6383,6 +6547,7 @@ func (statusBriefInformation *Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplste
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-session-brief"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-briefs/ipv4bf-do-mplste-tail-session-brief/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6425,6 +6590,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplst
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-briefs/ipv4bf-do-mplste-tail-session-brief/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6465,6 +6631,7 @@ func (echoIntervalMultiplier *Bfd_Ipv4bfDoMplsteTailSessionBriefs_Ipv4bfDoMplste
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-briefs/ipv4bf-do-mplste-tail-session-brief/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6499,6 +6666,7 @@ func (ipv6MultiHopNodeLocationSummaries *Bfd_Ipv6MultiHopNodeLocationSummaries) 
     ipv6MultiHopNodeLocationSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopNodeLocationSummaries.EntityData.ParentYangName = "bfd"
     ipv6MultiHopNodeLocationSummaries.EntityData.SegmentPath = "ipv6-multi-hop-node-location-summaries"
+    ipv6MultiHopNodeLocationSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6MultiHopNodeLocationSummaries.EntityData.SegmentPath
     ipv6MultiHopNodeLocationSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopNodeLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopNodeLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6521,6 +6689,7 @@ func (ipv6MultiHopNodeLocationSummaries *Bfd_Ipv6MultiHopNodeLocationSummaries) 
 type Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv6MultiHopNodeLocationSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -6536,6 +6705,7 @@ func (ipv6MultiHopNodeLocationSummary *Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv
     ipv6MultiHopNodeLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopNodeLocationSummary.EntityData.ParentYangName = "ipv6-multi-hop-node-location-summaries"
     ipv6MultiHopNodeLocationSummary.EntityData.SegmentPath = "ipv6-multi-hop-node-location-summary" + types.AddKeyToken(ipv6MultiHopNodeLocationSummary.Location, "location")
+    ipv6MultiHopNodeLocationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-node-location-summaries/" + ipv6MultiHopNodeLocationSummary.EntityData.SegmentPath
     ipv6MultiHopNodeLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopNodeLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopNodeLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6587,6 +6757,7 @@ func (sessionState *Bfd_Ipv6MultiHopNodeLocationSummaries_Ipv6MultiHopNodeLocati
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv6-multi-hop-node-location-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-node-location-summaries/ipv6-multi-hop-node-location-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6622,6 +6793,7 @@ func (ipv4MultiHopSummary *Bfd_Ipv4MultiHopSummary) GetEntityData() *types.Commo
     ipv4MultiHopSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopSummary.EntityData.ParentYangName = "bfd"
     ipv4MultiHopSummary.EntityData.SegmentPath = "ipv4-multi-hop-summary"
+    ipv4MultiHopSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4MultiHopSummary.EntityData.SegmentPath
     ipv4MultiHopSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6664,6 +6836,7 @@ func (sessionState *Bfd_Ipv4MultiHopSummary_SessionState) GetEntityData() *types
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4-multi-hop-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6696,6 +6869,7 @@ func (ipv4SingleHopCounters *Bfd_Ipv4SingleHopCounters) GetEntityData() *types.C
     ipv4SingleHopCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopCounters.EntityData.ParentYangName = "bfd"
     ipv4SingleHopCounters.EntityData.SegmentPath = "ipv4-single-hop-counters"
+    ipv4SingleHopCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4SingleHopCounters.EntityData.SegmentPath
     ipv4SingleHopCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6726,6 +6900,7 @@ func (ipv4SingleHopPacketCounters *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacket
     ipv4SingleHopPacketCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopPacketCounters.EntityData.ParentYangName = "ipv4-single-hop-counters"
     ipv4SingleHopPacketCounters.EntityData.SegmentPath = "ipv4-single-hop-packet-counters"
+    ipv4SingleHopPacketCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-counters/" + ipv4SingleHopPacketCounters.EntityData.SegmentPath
     ipv4SingleHopPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6733,6 +6908,7 @@ func (ipv4SingleHopPacketCounters *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacket
     ipv4SingleHopPacketCounters.EntityData.Children = types.NewOrderedMap()
     ipv4SingleHopPacketCounters.EntityData.Children.Append("ipv4-single-hop-packet-counter", types.YChild{"Ipv4SingleHopPacketCounter", nil})
     for i := range ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter {
+        types.SetYListKey(ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter[i], i)
         ipv4SingleHopPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter[i]), types.YChild{"Ipv4SingleHopPacketCounter", ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter[i]})
     }
     ipv4SingleHopPacketCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -6747,6 +6923,7 @@ func (ipv4SingleHopPacketCounters *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacket
 type Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketCounters_Ipv4SingleHopPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -6780,7 +6957,8 @@ func (ipv4SingleHopPacketCounter *Bfd_Ipv4SingleHopCounters_Ipv4SingleHopPacketC
     ipv4SingleHopPacketCounter.EntityData.YangName = "ipv4-single-hop-packet-counter"
     ipv4SingleHopPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopPacketCounter.EntityData.ParentYangName = "ipv4-single-hop-packet-counters"
-    ipv4SingleHopPacketCounter.EntityData.SegmentPath = "ipv4-single-hop-packet-counter"
+    ipv4SingleHopPacketCounter.EntityData.SegmentPath = "ipv4-single-hop-packet-counter" + types.AddNoKeyToken(ipv4SingleHopPacketCounter)
+    ipv4SingleHopPacketCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-counters/ipv4-single-hop-packet-counters/" + ipv4SingleHopPacketCounter.EntityData.SegmentPath
     ipv4SingleHopPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6818,6 +6996,7 @@ func (ipv6MultiHopSessionDetails *Bfd_Ipv6MultiHopSessionDetails) GetEntityData(
     ipv6MultiHopSessionDetails.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopSessionDetails.EntityData.ParentYangName = "bfd"
     ipv6MultiHopSessionDetails.EntityData.SegmentPath = "ipv6-multi-hop-session-details"
+    ipv6MultiHopSessionDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6MultiHopSessionDetails.EntityData.SegmentPath
     ipv6MultiHopSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6825,6 +7004,7 @@ func (ipv6MultiHopSessionDetails *Bfd_Ipv6MultiHopSessionDetails) GetEntityData(
     ipv6MultiHopSessionDetails.EntityData.Children = types.NewOrderedMap()
     ipv6MultiHopSessionDetails.EntityData.Children.Append("ipv6-multi-hop-session-detail", types.YChild{"Ipv6MultiHopSessionDetail", nil})
     for i := range ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail {
+        types.SetYListKey(ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail[i], i)
         ipv6MultiHopSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail[i]), types.YChild{"Ipv6MultiHopSessionDetail", ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail[i]})
     }
     ipv6MultiHopSessionDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -6840,6 +7020,7 @@ func (ipv6MultiHopSessionDetails *Bfd_Ipv6MultiHopSessionDetails) GetEntityData(
 type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source Address. The type is one of the following types: string with
     // pattern:
@@ -6885,7 +7066,8 @@ func (ipv6MultiHopSessionDetail *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSess
     ipv6MultiHopSessionDetail.EntityData.YangName = "ipv6-multi-hop-session-detail"
     ipv6MultiHopSessionDetail.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopSessionDetail.EntityData.ParentYangName = "ipv6-multi-hop-session-details"
-    ipv6MultiHopSessionDetail.EntityData.SegmentPath = "ipv6-multi-hop-session-detail"
+    ipv6MultiHopSessionDetail.EntityData.SegmentPath = "ipv6-multi-hop-session-detail" + types.AddNoKeyToken(ipv6MultiHopSessionDetail)
+    ipv6MultiHopSessionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/" + ipv6MultiHopSessionDetail.EntityData.SegmentPath
     ipv6MultiHopSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6896,10 +7078,12 @@ func (ipv6MultiHopSessionDetail *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSess
     ipv6MultiHopSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv6MultiHopSessionDetail.LspPingInfo})
     ipv6MultiHopSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv6MultiHopSessionDetail.OwnerInformation {
+        types.SetYListKey(ipv6MultiHopSessionDetail.OwnerInformation[i], i)
         ipv6MultiHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv6MultiHopSessionDetail.OwnerInformation[i]})
     }
     ipv6MultiHopSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv6MultiHopSessionDetail.AssociationInformation {
+        types.SetYListKey(ipv6MultiHopSessionDetail.AssociationInformation[i], i)
         ipv6MultiHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv6MultiHopSessionDetail.AssociationInformation[i]})
     }
     ipv6MultiHopSessionDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -7006,6 +7190,7 @@ func (statusInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetai
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
     statusInformation.EntityData.ParentYangName = "ipv6-multi-hop-session-detail"
     statusInformation.EntityData.SegmentPath = "status-information"
+    statusInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/" + statusInformation.EntityData.SegmentPath
     statusInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7068,6 +7253,7 @@ func (sourceAddress *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_St
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceAddress.EntityData.ParentYangName = "status-information"
     sourceAddress.EntityData.SegmentPath = "source-address"
+    sourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + sourceAddress.EntityData.SegmentPath
     sourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7113,6 +7299,7 @@ func (lastStateChange *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastStateChange.EntityData.ParentYangName = "status-information"
     lastStateChange.EntityData.SegmentPath = "last-state-change"
+    lastStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + lastStateChange.EntityData.SegmentPath
     lastStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7196,6 +7383,7 @@ func (transmitPacket *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_S
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
     transmitPacket.EntityData.ParentYangName = "status-information"
     transmitPacket.EntityData.SegmentPath = "transmit-packet"
+    transmitPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + transmitPacket.EntityData.SegmentPath
     transmitPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7291,6 +7479,7 @@ func (receivePacket *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_St
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
     receivePacket.EntityData.ParentYangName = "status-information"
     receivePacket.EntityData.SegmentPath = "receive-packet"
+    receivePacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + receivePacket.EntityData.SegmentPath
     receivePacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7338,6 +7527,7 @@ func (statusBriefInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "status-information"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7380,6 +7570,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessio
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7420,6 +7611,7 @@ func (echoIntervalMultiplier *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7469,6 +7661,7 @@ func (asyncTransmitStatistics *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessio
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncTransmitStatistics.EntityData.ParentYangName = "status-information"
     asyncTransmitStatistics.EntityData.SegmentPath = "async-transmit-statistics"
+    asyncTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + asyncTransmitStatistics.EntityData.SegmentPath
     asyncTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7520,6 +7713,7 @@ func (asyncReceiveStatistics *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncReceiveStatistics.EntityData.ParentYangName = "status-information"
     asyncReceiveStatistics.EntityData.SegmentPath = "async-receive-statistics"
+    asyncReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + asyncReceiveStatistics.EntityData.SegmentPath
     asyncReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7571,6 +7765,7 @@ func (echoTransmitStatistics *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoTransmitStatistics.EntityData.ParentYangName = "status-information"
     echoTransmitStatistics.EntityData.SegmentPath = "echo-transmit-statistics"
+    echoTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + echoTransmitStatistics.EntityData.SegmentPath
     echoTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7622,6 +7817,7 @@ func (echoReceivedStatistics *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoReceivedStatistics.EntityData.ParentYangName = "status-information"
     echoReceivedStatistics.EntityData.SegmentPath = "echo-received-statistics"
+    echoReceivedStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/" + echoReceivedStatistics.EntityData.SegmentPath
     echoReceivedStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7658,6 +7854,7 @@ func (mpDownloadState *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
     mpDownloadState.EntityData.ParentYangName = "ipv6-multi-hop-session-detail"
     mpDownloadState.EntityData.SegmentPath = "mp-download-state"
+    mpDownloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/" + mpDownloadState.EntityData.SegmentPath
     mpDownloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7693,6 +7890,7 @@ func (changeTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_MpDow
     changeTime.EntityData.BundleName = "cisco_ios_xr"
     changeTime.EntityData.ParentYangName = "mp-download-state"
     changeTime.EntityData.SegmentPath = "change-time"
+    changeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/mp-download-state/" + changeTime.EntityData.SegmentPath
     changeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7758,6 +7956,7 @@ func (lspPingInfo *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_LspP
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
     lspPingInfo.EntityData.ParentYangName = "ipv6-multi-hop-session-detail"
     lspPingInfo.EntityData.SegmentPath = "lsp-ping-info"
+    lspPingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/" + lspPingInfo.EntityData.SegmentPath
     lspPingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7803,6 +8002,7 @@ func (lspPingTxLastTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetai
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastTime.EntityData.SegmentPath = "lsp-ping-tx-last-time"
+    lspPingTxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/lsp-ping-info/" + lspPingTxLastTime.EntityData.SegmentPath
     lspPingTxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7838,6 +8038,7 @@ func (lspPingTxLastErrorTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastErrorTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastErrorTime.EntityData.SegmentPath = "lsp-ping-tx-last-error-time"
+    lspPingTxLastErrorTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/lsp-ping-info/" + lspPingTxLastErrorTime.EntityData.SegmentPath
     lspPingTxLastErrorTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7873,6 +8074,7 @@ func (lspPingRxLastTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetai
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingRxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingRxLastTime.EntityData.SegmentPath = "lsp-ping-rx-last-time"
+    lspPingRxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/lsp-ping-info/" + lspPingRxLastTime.EntityData.SegmentPath
     lspPingRxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7892,6 +8094,7 @@ func (lspPingRxLastTime *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetai
 type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -7918,7 +8121,8 @@ func (ownerInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "ipv6-multi-hop-session-detail"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7941,6 +8145,7 @@ func (ownerInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail
 type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -7965,7 +8170,8 @@ func (associationInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "ipv6-multi-hop-session-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7974,6 +8180,7 @@ func (associationInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSession
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -8013,6 +8220,7 @@ func (ipDestinationAddress *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDe
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8034,6 +8242,7 @@ func (ipDestinationAddress *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDe
 type Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -8060,7 +8269,8 @@ func (ownerInformation *Bfd_Ipv6MultiHopSessionDetails_Ipv6MultiHopSessionDetail
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8095,6 +8305,7 @@ func (ipv6MultiHopMultiPaths *Bfd_Ipv6MultiHopMultiPaths) GetEntityData() *types
     ipv6MultiHopMultiPaths.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopMultiPaths.EntityData.ParentYangName = "bfd"
     ipv6MultiHopMultiPaths.EntityData.SegmentPath = "ipv6-multi-hop-multi-paths"
+    ipv6MultiHopMultiPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6MultiHopMultiPaths.EntityData.SegmentPath
     ipv6MultiHopMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8102,6 +8313,7 @@ func (ipv6MultiHopMultiPaths *Bfd_Ipv6MultiHopMultiPaths) GetEntityData() *types
     ipv6MultiHopMultiPaths.EntityData.Children = types.NewOrderedMap()
     ipv6MultiHopMultiPaths.EntityData.Children.Append("ipv6-multi-hop-multi-path", types.YChild{"Ipv6MultiHopMultiPath", nil})
     for i := range ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath {
+        types.SetYListKey(ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath[i], i)
         ipv6MultiHopMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath[i]), types.YChild{"Ipv6MultiHopMultiPath", ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath[i]})
     }
     ipv6MultiHopMultiPaths.EntityData.Leafs = types.NewOrderedMap()
@@ -8116,6 +8328,7 @@ func (ipv6MultiHopMultiPaths *Bfd_Ipv6MultiHopMultiPaths) GetEntityData() *types
 type Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source address. The type is one of the following types: string with
     // pattern:
@@ -8164,7 +8377,8 @@ func (ipv6MultiHopMultiPath *Bfd_Ipv6MultiHopMultiPaths_Ipv6MultiHopMultiPath) G
     ipv6MultiHopMultiPath.EntityData.YangName = "ipv6-multi-hop-multi-path"
     ipv6MultiHopMultiPath.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopMultiPath.EntityData.ParentYangName = "ipv6-multi-hop-multi-paths"
-    ipv6MultiHopMultiPath.EntityData.SegmentPath = "ipv6-multi-hop-multi-path"
+    ipv6MultiHopMultiPath.EntityData.SegmentPath = "ipv6-multi-hop-multi-path" + types.AddNoKeyToken(ipv6MultiHopMultiPath)
+    ipv6MultiHopMultiPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-multi-paths/" + ipv6MultiHopMultiPath.EntityData.SegmentPath
     ipv6MultiHopMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8203,6 +8417,7 @@ func (ipv4bfDoMplsteHeadCounters *Bfd_Ipv4bfDoMplsteHeadCounters) GetEntityData(
     ipv4bfDoMplsteHeadCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadCounters.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteHeadCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-head-counters"
+    ipv4bfDoMplsteHeadCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteHeadCounters.EntityData.SegmentPath
     ipv4bfDoMplsteHeadCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8233,6 +8448,7 @@ func (ipv4bfDoMplsteHeadPacketCounters *Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoM
     ipv4bfDoMplsteHeadPacketCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadPacketCounters.EntityData.ParentYangName = "ipv4bf-do-mplste-head-counters"
     ipv4bfDoMplsteHeadPacketCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-head-packet-counters"
+    ipv4bfDoMplsteHeadPacketCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-counters/" + ipv4bfDoMplsteHeadPacketCounters.EntityData.SegmentPath
     ipv4bfDoMplsteHeadPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8240,6 +8456,7 @@ func (ipv4bfDoMplsteHeadPacketCounters *Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoM
     ipv4bfDoMplsteHeadPacketCounters.EntityData.Children = types.NewOrderedMap()
     ipv4bfDoMplsteHeadPacketCounters.EntityData.Children.Append("ipv4bf-do-mplste-head-packet-counter", types.YChild{"Ipv4bfDoMplsteHeadPacketCounter", nil})
     for i := range ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter {
+        types.SetYListKey(ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter[i], i)
         ipv4bfDoMplsteHeadPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter[i]), types.YChild{"Ipv4bfDoMplsteHeadPacketCounter", ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter[i]})
     }
     ipv4bfDoMplsteHeadPacketCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -8255,6 +8472,7 @@ func (ipv4bfDoMplsteHeadPacketCounters *Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoM
 type Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMplsteHeadPacketCounters_Ipv4bfDoMplsteHeadPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -8288,7 +8506,8 @@ func (ipv4bfDoMplsteHeadPacketCounter *Bfd_Ipv4bfDoMplsteHeadCounters_Ipv4bfDoMp
     ipv4bfDoMplsteHeadPacketCounter.EntityData.YangName = "ipv4bf-do-mplste-head-packet-counter"
     ipv4bfDoMplsteHeadPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadPacketCounter.EntityData.ParentYangName = "ipv4bf-do-mplste-head-packet-counters"
-    ipv4bfDoMplsteHeadPacketCounter.EntityData.SegmentPath = "ipv4bf-do-mplste-head-packet-counter"
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.SegmentPath = "ipv4bf-do-mplste-head-packet-counter" + types.AddNoKeyToken(ipv4bfDoMplsteHeadPacketCounter)
+    ipv4bfDoMplsteHeadPacketCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-counters/ipv4bf-do-mplste-head-packet-counters/" + ipv4bfDoMplsteHeadPacketCounter.EntityData.SegmentPath
     ipv4bfDoMplsteHeadPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8325,6 +8544,7 @@ func (sessionMibs *Bfd_SessionMibs) GetEntityData() *types.CommonEntityData {
     sessionMibs.EntityData.BundleName = "cisco_ios_xr"
     sessionMibs.EntityData.ParentYangName = "bfd"
     sessionMibs.EntityData.SegmentPath = "session-mibs"
+    sessionMibs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + sessionMibs.EntityData.SegmentPath
     sessionMibs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionMibs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionMibs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8346,6 +8566,7 @@ func (sessionMibs *Bfd_SessionMibs) GetEntityData() *types.CommonEntityData {
 type Bfd_SessionMibs_SessionMib struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Discr. The type is interface{} with range:
     // 1..4294967295.
@@ -8452,6 +8673,7 @@ func (sessionMib *Bfd_SessionMibs_SessionMib) GetEntityData() *types.CommonEntit
     sessionMib.EntityData.BundleName = "cisco_ios_xr"
     sessionMib.EntityData.ParentYangName = "session-mibs"
     sessionMib.EntityData.SegmentPath = "session-mib" + types.AddKeyToken(sessionMib.Discriminator, "discriminator")
+    sessionMib.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-mibs/" + sessionMib.EntityData.SegmentPath
     sessionMib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionMib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionMib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8518,6 +8740,7 @@ func (destAddress *Bfd_SessionMibs_SessionMib_DestAddress) GetEntityData() *type
     destAddress.EntityData.BundleName = "cisco_ios_xr"
     destAddress.EntityData.ParentYangName = "session-mib"
     destAddress.EntityData.SegmentPath = "dest-address"
+    destAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-mibs/session-mib/" + destAddress.EntityData.SegmentPath
     destAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8551,6 +8774,7 @@ func (ipv6MultiHopSummary *Bfd_Ipv6MultiHopSummary) GetEntityData() *types.Commo
     ipv6MultiHopSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopSummary.EntityData.ParentYangName = "bfd"
     ipv6MultiHopSummary.EntityData.SegmentPath = "ipv6-multi-hop-summary"
+    ipv6MultiHopSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6MultiHopSummary.EntityData.SegmentPath
     ipv6MultiHopSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8593,6 +8817,7 @@ func (sessionState *Bfd_Ipv6MultiHopSummary_SessionState) GetEntityData() *types
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv6-multi-hop-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8627,6 +8852,7 @@ func (labelSummaryNodes *Bfd_LabelSummaryNodes) GetEntityData() *types.CommonEnt
     labelSummaryNodes.EntityData.BundleName = "cisco_ios_xr"
     labelSummaryNodes.EntityData.ParentYangName = "bfd"
     labelSummaryNodes.EntityData.SegmentPath = "label-summary-nodes"
+    labelSummaryNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + labelSummaryNodes.EntityData.SegmentPath
     labelSummaryNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSummaryNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSummaryNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8648,6 +8874,7 @@ func (labelSummaryNodes *Bfd_LabelSummaryNodes) GetEntityData() *types.CommonEnt
 type Bfd_LabelSummaryNodes_LabelSummaryNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -8663,6 +8890,7 @@ func (labelSummaryNode *Bfd_LabelSummaryNodes_LabelSummaryNode) GetEntityData() 
     labelSummaryNode.EntityData.BundleName = "cisco_ios_xr"
     labelSummaryNode.EntityData.ParentYangName = "label-summary-nodes"
     labelSummaryNode.EntityData.SegmentPath = "label-summary-node" + types.AddKeyToken(labelSummaryNode.LocationName, "location-name")
+    labelSummaryNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-summary-nodes/" + labelSummaryNode.EntityData.SegmentPath
     labelSummaryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSummaryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSummaryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8714,6 +8942,7 @@ func (sessionState *Bfd_LabelSummaryNodes_LabelSummaryNode_SessionState) GetEnti
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "label-summary-node"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-summary-nodes/label-summary-node/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8750,6 +8979,7 @@ func (ipv6MultiHopSessionBriefs *Bfd_Ipv6MultiHopSessionBriefs) GetEntityData() 
     ipv6MultiHopSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopSessionBriefs.EntityData.ParentYangName = "bfd"
     ipv6MultiHopSessionBriefs.EntityData.SegmentPath = "ipv6-multi-hop-session-briefs"
+    ipv6MultiHopSessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6MultiHopSessionBriefs.EntityData.SegmentPath
     ipv6MultiHopSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8757,6 +8987,7 @@ func (ipv6MultiHopSessionBriefs *Bfd_Ipv6MultiHopSessionBriefs) GetEntityData() 
     ipv6MultiHopSessionBriefs.EntityData.Children = types.NewOrderedMap()
     ipv6MultiHopSessionBriefs.EntityData.Children.Append("ipv6-multi-hop-session-brief", types.YChild{"Ipv6MultiHopSessionBrief", nil})
     for i := range ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief {
+        types.SetYListKey(ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief[i], i)
         ipv6MultiHopSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief[i]), types.YChild{"Ipv6MultiHopSessionBrief", ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief[i]})
     }
     ipv6MultiHopSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -8772,6 +9003,7 @@ func (ipv6MultiHopSessionBriefs *Bfd_Ipv6MultiHopSessionBriefs) GetEntityData() 
 type Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source Address. The type is one of the following types: string with
     // pattern:
@@ -8819,7 +9051,8 @@ func (ipv6MultiHopSessionBrief *Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessio
     ipv6MultiHopSessionBrief.EntityData.YangName = "ipv6-multi-hop-session-brief"
     ipv6MultiHopSessionBrief.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopSessionBrief.EntityData.ParentYangName = "ipv6-multi-hop-session-briefs"
-    ipv6MultiHopSessionBrief.EntityData.SegmentPath = "ipv6-multi-hop-session-brief"
+    ipv6MultiHopSessionBrief.EntityData.SegmentPath = "ipv6-multi-hop-session-brief" + types.AddNoKeyToken(ipv6MultiHopSessionBrief)
+    ipv6MultiHopSessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-briefs/" + ipv6MultiHopSessionBrief.EntityData.SegmentPath
     ipv6MultiHopSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8861,6 +9094,7 @@ func (statusBriefInformation *Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionB
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "ipv6-multi-hop-session-brief"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-briefs/ipv6-multi-hop-session-brief/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8903,6 +9137,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSession
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-briefs/ipv6-multi-hop-session-brief/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8943,6 +9178,7 @@ func (echoIntervalMultiplier *Bfd_Ipv6MultiHopSessionBriefs_Ipv6MultiHopSessionB
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-briefs/ipv6-multi-hop-session-brief/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8976,6 +9212,7 @@ func (sessionBriefs *Bfd_SessionBriefs) GetEntityData() *types.CommonEntityData 
     sessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     sessionBriefs.EntityData.ParentYangName = "bfd"
     sessionBriefs.EntityData.SegmentPath = "session-briefs"
+    sessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + sessionBriefs.EntityData.SegmentPath
     sessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8983,6 +9220,7 @@ func (sessionBriefs *Bfd_SessionBriefs) GetEntityData() *types.CommonEntityData 
     sessionBriefs.EntityData.Children = types.NewOrderedMap()
     sessionBriefs.EntityData.Children.Append("session-brief", types.YChild{"SessionBrief", nil})
     for i := range sessionBriefs.SessionBrief {
+        types.SetYListKey(sessionBriefs.SessionBrief[i], i)
         sessionBriefs.EntityData.Children.Append(types.GetSegmentPath(sessionBriefs.SessionBrief[i]), types.YChild{"SessionBrief", sessionBriefs.SessionBrief[i]})
     }
     sessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -8998,6 +9236,7 @@ func (sessionBriefs *Bfd_SessionBriefs) GetEntityData() *types.CommonEntityData 
 type Bfd_SessionBriefs_SessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -9035,7 +9274,8 @@ func (sessionBrief *Bfd_SessionBriefs_SessionBrief) GetEntityData() *types.Commo
     sessionBrief.EntityData.YangName = "session-brief"
     sessionBrief.EntityData.BundleName = "cisco_ios_xr"
     sessionBrief.EntityData.ParentYangName = "session-briefs"
-    sessionBrief.EntityData.SegmentPath = "session-brief"
+    sessionBrief.EntityData.SegmentPath = "session-brief" + types.AddNoKeyToken(sessionBrief)
+    sessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-briefs/" + sessionBrief.EntityData.SegmentPath
     sessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9076,6 +9316,7 @@ func (statusBriefInformation *Bfd_SessionBriefs_SessionBrief_StatusBriefInformat
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "session-brief"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-briefs/session-brief/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9118,6 +9359,7 @@ func (asyncIntervalMultiplier *Bfd_SessionBriefs_SessionBrief_StatusBriefInforma
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-briefs/session-brief/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9158,6 +9400,7 @@ func (echoIntervalMultiplier *Bfd_SessionBriefs_SessionBrief_StatusBriefInformat
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-briefs/session-brief/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9192,6 +9435,7 @@ func (ipv6SingleHopNodeLocationSummaries *Bfd_Ipv6SingleHopNodeLocationSummaries
     ipv6SingleHopNodeLocationSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopNodeLocationSummaries.EntityData.ParentYangName = "bfd"
     ipv6SingleHopNodeLocationSummaries.EntityData.SegmentPath = "ipv6-single-hop-node-location-summaries"
+    ipv6SingleHopNodeLocationSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6SingleHopNodeLocationSummaries.EntityData.SegmentPath
     ipv6SingleHopNodeLocationSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopNodeLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopNodeLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9214,6 +9458,7 @@ func (ipv6SingleHopNodeLocationSummaries *Bfd_Ipv6SingleHopNodeLocationSummaries
 type Bfd_Ipv6SingleHopNodeLocationSummaries_Ipv6SingleHopNodeLocationSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -9229,6 +9474,7 @@ func (ipv6SingleHopNodeLocationSummary *Bfd_Ipv6SingleHopNodeLocationSummaries_I
     ipv6SingleHopNodeLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopNodeLocationSummary.EntityData.ParentYangName = "ipv6-single-hop-node-location-summaries"
     ipv6SingleHopNodeLocationSummary.EntityData.SegmentPath = "ipv6-single-hop-node-location-summary" + types.AddKeyToken(ipv6SingleHopNodeLocationSummary.Location, "location")
+    ipv6SingleHopNodeLocationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-node-location-summaries/" + ipv6SingleHopNodeLocationSummary.EntityData.SegmentPath
     ipv6SingleHopNodeLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopNodeLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopNodeLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9280,6 +9526,7 @@ func (sessionState *Bfd_Ipv6SingleHopNodeLocationSummaries_Ipv6SingleHopNodeLoca
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv6-single-hop-node-location-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-node-location-summaries/ipv6-single-hop-node-location-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9315,6 +9562,7 @@ func (summary *Bfd_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "bfd"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9357,6 +9605,7 @@ func (sessionState *Bfd_Summary_SessionState) GetEntityData() *types.CommonEntit
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9391,6 +9640,7 @@ func (ipv4bfdMplsteTailNodeSummaries *Bfd_Ipv4bfdMplsteTailNodeSummaries) GetEnt
     ipv4bfdMplsteTailNodeSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfdMplsteTailNodeSummaries.EntityData.ParentYangName = "bfd"
     ipv4bfdMplsteTailNodeSummaries.EntityData.SegmentPath = "ipv4bfd-mplste-tail-node-summaries"
+    ipv4bfdMplsteTailNodeSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfdMplsteTailNodeSummaries.EntityData.SegmentPath
     ipv4bfdMplsteTailNodeSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfdMplsteTailNodeSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfdMplsteTailNodeSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9412,6 +9662,7 @@ func (ipv4bfdMplsteTailNodeSummaries *Bfd_Ipv4bfdMplsteTailNodeSummaries) GetEnt
 type Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -9427,6 +9678,7 @@ func (ipv4bfdMplsteTailNodeSummary *Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMp
     ipv4bfdMplsteTailNodeSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfdMplsteTailNodeSummary.EntityData.ParentYangName = "ipv4bfd-mplste-tail-node-summaries"
     ipv4bfdMplsteTailNodeSummary.EntityData.SegmentPath = "ipv4bfd-mplste-tail-node-summary" + types.AddKeyToken(ipv4bfdMplsteTailNodeSummary.LocationName, "location-name")
+    ipv4bfdMplsteTailNodeSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bfd-mplste-tail-node-summaries/" + ipv4bfdMplsteTailNodeSummary.EntityData.SegmentPath
     ipv4bfdMplsteTailNodeSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfdMplsteTailNodeSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfdMplsteTailNodeSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9478,6 +9730,7 @@ func (sessionState *Bfd_Ipv4bfdMplsteTailNodeSummaries_Ipv4bfdMplsteTailNodeSumm
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4bfd-mplste-tail-node-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bfd-mplste-tail-node-summaries/ipv4bfd-mplste-tail-node-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9515,6 +9768,7 @@ func (ipv4SingleHopLocationSummaries *Bfd_Ipv4SingleHopLocationSummaries) GetEnt
     ipv4SingleHopLocationSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopLocationSummaries.EntityData.ParentYangName = "bfd"
     ipv4SingleHopLocationSummaries.EntityData.SegmentPath = "ipv4-single-hop-location-summaries"
+    ipv4SingleHopLocationSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4SingleHopLocationSummaries.EntityData.SegmentPath
     ipv4SingleHopLocationSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9537,6 +9791,7 @@ func (ipv4SingleHopLocationSummaries *Bfd_Ipv4SingleHopLocationSummaries) GetEnt
 type Bfd_Ipv4SingleHopLocationSummaries_Ipv4SingleHopLocationSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -9552,6 +9807,7 @@ func (ipv4SingleHopLocationSummary *Bfd_Ipv4SingleHopLocationSummaries_Ipv4Singl
     ipv4SingleHopLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopLocationSummary.EntityData.ParentYangName = "ipv4-single-hop-location-summaries"
     ipv4SingleHopLocationSummary.EntityData.SegmentPath = "ipv4-single-hop-location-summary" + types.AddKeyToken(ipv4SingleHopLocationSummary.LocationName, "location-name")
+    ipv4SingleHopLocationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-location-summaries/" + ipv4SingleHopLocationSummary.EntityData.SegmentPath
     ipv4SingleHopLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9603,6 +9859,7 @@ func (sessionState *Bfd_Ipv4SingleHopLocationSummaries_Ipv4SingleHopLocationSumm
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4-single-hop-location-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-location-summaries/ipv4-single-hop-location-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9639,6 +9896,7 @@ func (ipv4bfdMplsteHeadSummaryNodes *Bfd_Ipv4bfdMplsteHeadSummaryNodes) GetEntit
     ipv4bfdMplsteHeadSummaryNodes.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfdMplsteHeadSummaryNodes.EntityData.ParentYangName = "bfd"
     ipv4bfdMplsteHeadSummaryNodes.EntityData.SegmentPath = "ipv4bfd-mplste-head-summary-nodes"
+    ipv4bfdMplsteHeadSummaryNodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfdMplsteHeadSummaryNodes.EntityData.SegmentPath
     ipv4bfdMplsteHeadSummaryNodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfdMplsteHeadSummaryNodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfdMplsteHeadSummaryNodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9660,6 +9918,7 @@ func (ipv4bfdMplsteHeadSummaryNodes *Bfd_Ipv4bfdMplsteHeadSummaryNodes) GetEntit
 type Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -9675,6 +9934,7 @@ func (ipv4bfdMplsteHeadSummaryNode *Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMpl
     ipv4bfdMplsteHeadSummaryNode.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfdMplsteHeadSummaryNode.EntityData.ParentYangName = "ipv4bfd-mplste-head-summary-nodes"
     ipv4bfdMplsteHeadSummaryNode.EntityData.SegmentPath = "ipv4bfd-mplste-head-summary-node" + types.AddKeyToken(ipv4bfdMplsteHeadSummaryNode.LocationName, "location-name")
+    ipv4bfdMplsteHeadSummaryNode.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bfd-mplste-head-summary-nodes/" + ipv4bfdMplsteHeadSummaryNode.EntityData.SegmentPath
     ipv4bfdMplsteHeadSummaryNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfdMplsteHeadSummaryNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfdMplsteHeadSummaryNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9726,6 +9986,7 @@ func (sessionState *Bfd_Ipv4bfdMplsteHeadSummaryNodes_Ipv4bfdMplsteHeadSummaryNo
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4bfd-mplste-head-summary-node"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bfd-mplste-head-summary-nodes/ipv4bfd-mplste-head-summary-node/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9762,6 +10023,7 @@ func (labelSessionDetails *Bfd_LabelSessionDetails) GetEntityData() *types.Commo
     labelSessionDetails.EntityData.BundleName = "cisco_ios_xr"
     labelSessionDetails.EntityData.ParentYangName = "bfd"
     labelSessionDetails.EntityData.SegmentPath = "label-session-details"
+    labelSessionDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + labelSessionDetails.EntityData.SegmentPath
     labelSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9769,6 +10031,7 @@ func (labelSessionDetails *Bfd_LabelSessionDetails) GetEntityData() *types.Commo
     labelSessionDetails.EntityData.Children = types.NewOrderedMap()
     labelSessionDetails.EntityData.Children.Append("label-session-detail", types.YChild{"LabelSessionDetail", nil})
     for i := range labelSessionDetails.LabelSessionDetail {
+        types.SetYListKey(labelSessionDetails.LabelSessionDetail[i], i)
         labelSessionDetails.EntityData.Children.Append(types.GetSegmentPath(labelSessionDetails.LabelSessionDetail[i]), types.YChild{"LabelSessionDetail", labelSessionDetails.LabelSessionDetail[i]})
     }
     labelSessionDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -9783,6 +10046,7 @@ func (labelSessionDetails *Bfd_LabelSessionDetails) GetEntityData() *types.Commo
 type Bfd_LabelSessionDetails_LabelSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -9817,7 +10081,8 @@ func (labelSessionDetail *Bfd_LabelSessionDetails_LabelSessionDetail) GetEntityD
     labelSessionDetail.EntityData.YangName = "label-session-detail"
     labelSessionDetail.EntityData.BundleName = "cisco_ios_xr"
     labelSessionDetail.EntityData.ParentYangName = "label-session-details"
-    labelSessionDetail.EntityData.SegmentPath = "label-session-detail"
+    labelSessionDetail.EntityData.SegmentPath = "label-session-detail" + types.AddNoKeyToken(labelSessionDetail)
+    labelSessionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/" + labelSessionDetail.EntityData.SegmentPath
     labelSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9828,10 +10093,12 @@ func (labelSessionDetail *Bfd_LabelSessionDetails_LabelSessionDetail) GetEntityD
     labelSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &labelSessionDetail.LspPingInfo})
     labelSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range labelSessionDetail.OwnerInformation {
+        types.SetYListKey(labelSessionDetail.OwnerInformation[i], i)
         labelSessionDetail.EntityData.Children.Append(types.GetSegmentPath(labelSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", labelSessionDetail.OwnerInformation[i]})
     }
     labelSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range labelSessionDetail.AssociationInformation {
+        types.SetYListKey(labelSessionDetail.AssociationInformation[i], i)
         labelSessionDetail.EntityData.Children.Append(types.GetSegmentPath(labelSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", labelSessionDetail.AssociationInformation[i]})
     }
     labelSessionDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -9937,6 +10204,7 @@ func (statusInformation *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInform
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
     statusInformation.EntityData.ParentYangName = "label-session-detail"
     statusInformation.EntityData.SegmentPath = "status-information"
+    statusInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/" + statusInformation.EntityData.SegmentPath
     statusInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9999,6 +10267,7 @@ func (sourceAddress *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformatio
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceAddress.EntityData.ParentYangName = "status-information"
     sourceAddress.EntityData.SegmentPath = "source-address"
+    sourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + sourceAddress.EntityData.SegmentPath
     sourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10044,6 +10313,7 @@ func (lastStateChange *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformat
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastStateChange.EntityData.ParentYangName = "status-information"
     lastStateChange.EntityData.SegmentPath = "last-state-change"
+    lastStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + lastStateChange.EntityData.SegmentPath
     lastStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10127,6 +10397,7 @@ func (transmitPacket *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformati
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
     transmitPacket.EntityData.ParentYangName = "status-information"
     transmitPacket.EntityData.SegmentPath = "transmit-packet"
+    transmitPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + transmitPacket.EntityData.SegmentPath
     transmitPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10222,6 +10493,7 @@ func (receivePacket *Bfd_LabelSessionDetails_LabelSessionDetail_StatusInformatio
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
     receivePacket.EntityData.ParentYangName = "status-information"
     receivePacket.EntityData.SegmentPath = "receive-packet"
+    receivePacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + receivePacket.EntityData.SegmentPath
     receivePacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10269,6 +10541,7 @@ func (statusBriefInformation *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "status-information"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10311,6 +10584,7 @@ func (asyncIntervalMultiplier *Bfd_LabelSessionDetails_LabelSessionDetail_Status
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10351,6 +10625,7 @@ func (echoIntervalMultiplier *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10400,6 +10675,7 @@ func (asyncTransmitStatistics *Bfd_LabelSessionDetails_LabelSessionDetail_Status
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncTransmitStatistics.EntityData.ParentYangName = "status-information"
     asyncTransmitStatistics.EntityData.SegmentPath = "async-transmit-statistics"
+    asyncTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + asyncTransmitStatistics.EntityData.SegmentPath
     asyncTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10451,6 +10727,7 @@ func (asyncReceiveStatistics *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncReceiveStatistics.EntityData.ParentYangName = "status-information"
     asyncReceiveStatistics.EntityData.SegmentPath = "async-receive-statistics"
+    asyncReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + asyncReceiveStatistics.EntityData.SegmentPath
     asyncReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10502,6 +10779,7 @@ func (echoTransmitStatistics *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoTransmitStatistics.EntityData.ParentYangName = "status-information"
     echoTransmitStatistics.EntityData.SegmentPath = "echo-transmit-statistics"
+    echoTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + echoTransmitStatistics.EntityData.SegmentPath
     echoTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10553,6 +10831,7 @@ func (echoReceivedStatistics *Bfd_LabelSessionDetails_LabelSessionDetail_StatusI
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoReceivedStatistics.EntityData.ParentYangName = "status-information"
     echoReceivedStatistics.EntityData.SegmentPath = "echo-received-statistics"
+    echoReceivedStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/" + echoReceivedStatistics.EntityData.SegmentPath
     echoReceivedStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10589,6 +10868,7 @@ func (mpDownloadState *Bfd_LabelSessionDetails_LabelSessionDetail_MpDownloadStat
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
     mpDownloadState.EntityData.ParentYangName = "label-session-detail"
     mpDownloadState.EntityData.SegmentPath = "mp-download-state"
+    mpDownloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/" + mpDownloadState.EntityData.SegmentPath
     mpDownloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10624,6 +10904,7 @@ func (changeTime *Bfd_LabelSessionDetails_LabelSessionDetail_MpDownloadState_Cha
     changeTime.EntityData.BundleName = "cisco_ios_xr"
     changeTime.EntityData.ParentYangName = "mp-download-state"
     changeTime.EntityData.SegmentPath = "change-time"
+    changeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/mp-download-state/" + changeTime.EntityData.SegmentPath
     changeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10689,6 +10970,7 @@ func (lspPingInfo *Bfd_LabelSessionDetails_LabelSessionDetail_LspPingInfo) GetEn
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
     lspPingInfo.EntityData.ParentYangName = "label-session-detail"
     lspPingInfo.EntityData.SegmentPath = "lsp-ping-info"
+    lspPingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/" + lspPingInfo.EntityData.SegmentPath
     lspPingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10734,6 +11016,7 @@ func (lspPingTxLastTime *Bfd_LabelSessionDetails_LabelSessionDetail_LspPingInfo_
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastTime.EntityData.SegmentPath = "lsp-ping-tx-last-time"
+    lspPingTxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/lsp-ping-info/" + lspPingTxLastTime.EntityData.SegmentPath
     lspPingTxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10769,6 +11052,7 @@ func (lspPingTxLastErrorTime *Bfd_LabelSessionDetails_LabelSessionDetail_LspPing
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastErrorTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastErrorTime.EntityData.SegmentPath = "lsp-ping-tx-last-error-time"
+    lspPingTxLastErrorTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/lsp-ping-info/" + lspPingTxLastErrorTime.EntityData.SegmentPath
     lspPingTxLastErrorTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10804,6 +11088,7 @@ func (lspPingRxLastTime *Bfd_LabelSessionDetails_LabelSessionDetail_LspPingInfo_
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingRxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingRxLastTime.EntityData.SegmentPath = "lsp-ping-rx-last-time"
+    lspPingRxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/lsp-ping-info/" + lspPingRxLastTime.EntityData.SegmentPath
     lspPingRxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10823,6 +11108,7 @@ func (lspPingRxLastTime *Bfd_LabelSessionDetails_LabelSessionDetail_LspPingInfo_
 type Bfd_LabelSessionDetails_LabelSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -10849,7 +11135,8 @@ func (ownerInformation *Bfd_LabelSessionDetails_LabelSessionDetail_OwnerInformat
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "label-session-detail"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10872,6 +11159,7 @@ func (ownerInformation *Bfd_LabelSessionDetails_LabelSessionDetail_OwnerInformat
 type Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -10896,7 +11184,8 @@ func (associationInformation *Bfd_LabelSessionDetails_LabelSessionDetail_Associa
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "label-session-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10905,6 +11194,7 @@ func (associationInformation *Bfd_LabelSessionDetails_LabelSessionDetail_Associa
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -10944,6 +11234,7 @@ func (ipDestinationAddress *Bfd_LabelSessionDetails_LabelSessionDetail_Associati
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10965,6 +11256,7 @@ func (ipDestinationAddress *Bfd_LabelSessionDetails_LabelSessionDetail_Associati
 type Bfd_LabelSessionDetails_LabelSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -10991,7 +11283,8 @@ func (ownerInformation *Bfd_LabelSessionDetails_LabelSessionDetail_AssociationIn
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11027,6 +11320,7 @@ func (ipv6SingleHopSessionDetails *Bfd_Ipv6SingleHopSessionDetails) GetEntityDat
     ipv6SingleHopSessionDetails.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopSessionDetails.EntityData.ParentYangName = "bfd"
     ipv6SingleHopSessionDetails.EntityData.SegmentPath = "ipv6-single-hop-session-details"
+    ipv6SingleHopSessionDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6SingleHopSessionDetails.EntityData.SegmentPath
     ipv6SingleHopSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11034,6 +11328,7 @@ func (ipv6SingleHopSessionDetails *Bfd_Ipv6SingleHopSessionDetails) GetEntityDat
     ipv6SingleHopSessionDetails.EntityData.Children = types.NewOrderedMap()
     ipv6SingleHopSessionDetails.EntityData.Children.Append("ipv6-single-hop-session-detail", types.YChild{"Ipv6SingleHopSessionDetail", nil})
     for i := range ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail {
+        types.SetYListKey(ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail[i], i)
         ipv6SingleHopSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail[i]), types.YChild{"Ipv6SingleHopSessionDetail", ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail[i]})
     }
     ipv6SingleHopSessionDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -11049,6 +11344,7 @@ func (ipv6SingleHopSessionDetails *Bfd_Ipv6SingleHopSessionDetails) GetEntityDat
 type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -11087,7 +11383,8 @@ func (ipv6SingleHopSessionDetail *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopS
     ipv6SingleHopSessionDetail.EntityData.YangName = "ipv6-single-hop-session-detail"
     ipv6SingleHopSessionDetail.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopSessionDetail.EntityData.ParentYangName = "ipv6-single-hop-session-details"
-    ipv6SingleHopSessionDetail.EntityData.SegmentPath = "ipv6-single-hop-session-detail"
+    ipv6SingleHopSessionDetail.EntityData.SegmentPath = "ipv6-single-hop-session-detail" + types.AddNoKeyToken(ipv6SingleHopSessionDetail)
+    ipv6SingleHopSessionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/" + ipv6SingleHopSessionDetail.EntityData.SegmentPath
     ipv6SingleHopSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11098,10 +11395,12 @@ func (ipv6SingleHopSessionDetail *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopS
     ipv6SingleHopSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv6SingleHopSessionDetail.LspPingInfo})
     ipv6SingleHopSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv6SingleHopSessionDetail.OwnerInformation {
+        types.SetYListKey(ipv6SingleHopSessionDetail.OwnerInformation[i], i)
         ipv6SingleHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv6SingleHopSessionDetail.OwnerInformation[i]})
     }
     ipv6SingleHopSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv6SingleHopSessionDetail.AssociationInformation {
+        types.SetYListKey(ipv6SingleHopSessionDetail.AssociationInformation[i], i)
         ipv6SingleHopSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv6SingleHopSessionDetail.AssociationInformation[i]})
     }
     ipv6SingleHopSessionDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -11207,6 +11506,7 @@ func (statusInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDet
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
     statusInformation.EntityData.ParentYangName = "ipv6-single-hop-session-detail"
     statusInformation.EntityData.SegmentPath = "status-information"
+    statusInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/" + statusInformation.EntityData.SegmentPath
     statusInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11269,6 +11569,7 @@ func (sourceAddress *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceAddress.EntityData.ParentYangName = "status-information"
     sourceAddress.EntityData.SegmentPath = "source-address"
+    sourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + sourceAddress.EntityData.SegmentPath
     sourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11314,6 +11615,7 @@ func (lastStateChange *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetai
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastStateChange.EntityData.ParentYangName = "status-information"
     lastStateChange.EntityData.SegmentPath = "last-state-change"
+    lastStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + lastStateChange.EntityData.SegmentPath
     lastStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11397,6 +11699,7 @@ func (transmitPacket *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
     transmitPacket.EntityData.ParentYangName = "status-information"
     transmitPacket.EntityData.SegmentPath = "transmit-packet"
+    transmitPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + transmitPacket.EntityData.SegmentPath
     transmitPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11492,6 +11795,7 @@ func (receivePacket *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
     receivePacket.EntityData.ParentYangName = "status-information"
     receivePacket.EntityData.SegmentPath = "receive-packet"
+    receivePacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + receivePacket.EntityData.SegmentPath
     receivePacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11539,6 +11843,7 @@ func (statusBriefInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "status-information"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11581,6 +11886,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSess
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11621,6 +11927,7 @@ func (echoIntervalMultiplier *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11670,6 +11977,7 @@ func (asyncTransmitStatistics *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSess
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncTransmitStatistics.EntityData.ParentYangName = "status-information"
     asyncTransmitStatistics.EntityData.SegmentPath = "async-transmit-statistics"
+    asyncTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + asyncTransmitStatistics.EntityData.SegmentPath
     asyncTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11721,6 +12029,7 @@ func (asyncReceiveStatistics *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncReceiveStatistics.EntityData.ParentYangName = "status-information"
     asyncReceiveStatistics.EntityData.SegmentPath = "async-receive-statistics"
+    asyncReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + asyncReceiveStatistics.EntityData.SegmentPath
     asyncReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11772,6 +12081,7 @@ func (echoTransmitStatistics *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoTransmitStatistics.EntityData.ParentYangName = "status-information"
     echoTransmitStatistics.EntityData.SegmentPath = "echo-transmit-statistics"
+    echoTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + echoTransmitStatistics.EntityData.SegmentPath
     echoTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11823,6 +12133,7 @@ func (echoReceivedStatistics *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoReceivedStatistics.EntityData.ParentYangName = "status-information"
     echoReceivedStatistics.EntityData.SegmentPath = "echo-received-statistics"
+    echoReceivedStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/" + echoReceivedStatistics.EntityData.SegmentPath
     echoReceivedStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11859,6 +12170,7 @@ func (mpDownloadState *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetai
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
     mpDownloadState.EntityData.ParentYangName = "ipv6-single-hop-session-detail"
     mpDownloadState.EntityData.SegmentPath = "mp-download-state"
+    mpDownloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/" + mpDownloadState.EntityData.SegmentPath
     mpDownloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11894,6 +12206,7 @@ func (changeTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_MpD
     changeTime.EntityData.BundleName = "cisco_ios_xr"
     changeTime.EntityData.ParentYangName = "mp-download-state"
     changeTime.EntityData.SegmentPath = "change-time"
+    changeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/mp-download-state/" + changeTime.EntityData.SegmentPath
     changeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11959,6 +12272,7 @@ func (lspPingInfo *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_Ls
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
     lspPingInfo.EntityData.ParentYangName = "ipv6-single-hop-session-detail"
     lspPingInfo.EntityData.SegmentPath = "lsp-ping-info"
+    lspPingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/" + lspPingInfo.EntityData.SegmentPath
     lspPingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12004,6 +12318,7 @@ func (lspPingTxLastTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDet
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastTime.EntityData.SegmentPath = "lsp-ping-tx-last-time"
+    lspPingTxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/lsp-ping-info/" + lspPingTxLastTime.EntityData.SegmentPath
     lspPingTxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12039,6 +12354,7 @@ func (lspPingTxLastErrorTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastErrorTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastErrorTime.EntityData.SegmentPath = "lsp-ping-tx-last-error-time"
+    lspPingTxLastErrorTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/lsp-ping-info/" + lspPingTxLastErrorTime.EntityData.SegmentPath
     lspPingTxLastErrorTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12074,6 +12390,7 @@ func (lspPingRxLastTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDet
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingRxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingRxLastTime.EntityData.SegmentPath = "lsp-ping-rx-last-time"
+    lspPingRxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/lsp-ping-info/" + lspPingRxLastTime.EntityData.SegmentPath
     lspPingRxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12093,6 +12410,7 @@ func (lspPingRxLastTime *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDet
 type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -12119,7 +12437,8 @@ func (ownerInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDeta
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "ipv6-single-hop-session-detail"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12142,6 +12461,7 @@ func (ownerInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDeta
 type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -12166,7 +12486,8 @@ func (associationInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "ipv6-single-hop-session-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12175,6 +12496,7 @@ func (associationInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessi
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -12214,6 +12536,7 @@ func (ipDestinationAddress *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSession
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12235,6 +12558,7 @@ func (ipDestinationAddress *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSession
 type Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -12261,7 +12585,8 @@ func (ownerInformation *Bfd_Ipv6SingleHopSessionDetails_Ipv6SingleHopSessionDeta
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12295,6 +12620,7 @@ func (ipv4MultiHopCounters *Bfd_Ipv4MultiHopCounters) GetEntityData() *types.Com
     ipv4MultiHopCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopCounters.EntityData.ParentYangName = "bfd"
     ipv4MultiHopCounters.EntityData.SegmentPath = "ipv4-multi-hop-counters"
+    ipv4MultiHopCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4MultiHopCounters.EntityData.SegmentPath
     ipv4MultiHopCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12325,6 +12651,7 @@ func (ipv4MultiHopPacketCounters *Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCou
     ipv4MultiHopPacketCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopPacketCounters.EntityData.ParentYangName = "ipv4-multi-hop-counters"
     ipv4MultiHopPacketCounters.EntityData.SegmentPath = "ipv4-multi-hop-packet-counters"
+    ipv4MultiHopPacketCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-counters/" + ipv4MultiHopPacketCounters.EntityData.SegmentPath
     ipv4MultiHopPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12332,6 +12659,7 @@ func (ipv4MultiHopPacketCounters *Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCou
     ipv4MultiHopPacketCounters.EntityData.Children = types.NewOrderedMap()
     ipv4MultiHopPacketCounters.EntityData.Children.Append("ipv4-multi-hop-packet-counter", types.YChild{"Ipv4MultiHopPacketCounter", nil})
     for i := range ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter {
+        types.SetYListKey(ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter[i], i)
         ipv4MultiHopPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter[i]), types.YChild{"Ipv4MultiHopPacketCounter", ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter[i]})
     }
     ipv4MultiHopPacketCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -12346,6 +12674,7 @@ func (ipv4MultiHopPacketCounters *Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCou
 type Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCounters_Ipv4MultiHopPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source Address. The type is one of the following types: string with
     // pattern:
@@ -12393,7 +12722,8 @@ func (ipv4MultiHopPacketCounter *Bfd_Ipv4MultiHopCounters_Ipv4MultiHopPacketCoun
     ipv4MultiHopPacketCounter.EntityData.YangName = "ipv4-multi-hop-packet-counter"
     ipv4MultiHopPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopPacketCounter.EntityData.ParentYangName = "ipv4-multi-hop-packet-counters"
-    ipv4MultiHopPacketCounter.EntityData.SegmentPath = "ipv4-multi-hop-packet-counter"
+    ipv4MultiHopPacketCounter.EntityData.SegmentPath = "ipv4-multi-hop-packet-counter" + types.AddNoKeyToken(ipv4MultiHopPacketCounter)
+    ipv4MultiHopPacketCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-counters/ipv4-multi-hop-packet-counters/" + ipv4MultiHopPacketCounter.EntityData.SegmentPath
     ipv4MultiHopPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12433,6 +12763,7 @@ func (sessionDetails *Bfd_SessionDetails) GetEntityData() *types.CommonEntityDat
     sessionDetails.EntityData.BundleName = "cisco_ios_xr"
     sessionDetails.EntityData.ParentYangName = "bfd"
     sessionDetails.EntityData.SegmentPath = "session-details"
+    sessionDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + sessionDetails.EntityData.SegmentPath
     sessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12440,6 +12771,7 @@ func (sessionDetails *Bfd_SessionDetails) GetEntityData() *types.CommonEntityDat
     sessionDetails.EntityData.Children = types.NewOrderedMap()
     sessionDetails.EntityData.Children.Append("session-detail", types.YChild{"SessionDetail", nil})
     for i := range sessionDetails.SessionDetail {
+        types.SetYListKey(sessionDetails.SessionDetail[i], i)
         sessionDetails.EntityData.Children.Append(types.GetSegmentPath(sessionDetails.SessionDetail[i]), types.YChild{"SessionDetail", sessionDetails.SessionDetail[i]})
     }
     sessionDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -12455,6 +12787,7 @@ func (sessionDetails *Bfd_SessionDetails) GetEntityData() *types.CommonEntityDat
 type Bfd_SessionDetails_SessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -12490,7 +12823,8 @@ func (sessionDetail *Bfd_SessionDetails_SessionDetail) GetEntityData() *types.Co
     sessionDetail.EntityData.YangName = "session-detail"
     sessionDetail.EntityData.BundleName = "cisco_ios_xr"
     sessionDetail.EntityData.ParentYangName = "session-details"
-    sessionDetail.EntityData.SegmentPath = "session-detail"
+    sessionDetail.EntityData.SegmentPath = "session-detail" + types.AddNoKeyToken(sessionDetail)
+    sessionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/" + sessionDetail.EntityData.SegmentPath
     sessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12501,10 +12835,12 @@ func (sessionDetail *Bfd_SessionDetails_SessionDetail) GetEntityData() *types.Co
     sessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &sessionDetail.LspPingInfo})
     sessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range sessionDetail.OwnerInformation {
+        types.SetYListKey(sessionDetail.OwnerInformation[i], i)
         sessionDetail.EntityData.Children.Append(types.GetSegmentPath(sessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", sessionDetail.OwnerInformation[i]})
     }
     sessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range sessionDetail.AssociationInformation {
+        types.SetYListKey(sessionDetail.AssociationInformation[i], i)
         sessionDetail.EntityData.Children.Append(types.GetSegmentPath(sessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", sessionDetail.AssociationInformation[i]})
     }
     sessionDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -12610,6 +12946,7 @@ func (statusInformation *Bfd_SessionDetails_SessionDetail_StatusInformation) Get
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
     statusInformation.EntityData.ParentYangName = "session-detail"
     statusInformation.EntityData.SegmentPath = "status-information"
+    statusInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/" + statusInformation.EntityData.SegmentPath
     statusInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12672,6 +13009,7 @@ func (sourceAddress *Bfd_SessionDetails_SessionDetail_StatusInformation_SourceAd
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceAddress.EntityData.ParentYangName = "status-information"
     sourceAddress.EntityData.SegmentPath = "source-address"
+    sourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + sourceAddress.EntityData.SegmentPath
     sourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12717,6 +13055,7 @@ func (lastStateChange *Bfd_SessionDetails_SessionDetail_StatusInformation_LastSt
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastStateChange.EntityData.ParentYangName = "status-information"
     lastStateChange.EntityData.SegmentPath = "last-state-change"
+    lastStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + lastStateChange.EntityData.SegmentPath
     lastStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12800,6 +13139,7 @@ func (transmitPacket *Bfd_SessionDetails_SessionDetail_StatusInformation_Transmi
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
     transmitPacket.EntityData.ParentYangName = "status-information"
     transmitPacket.EntityData.SegmentPath = "transmit-packet"
+    transmitPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + transmitPacket.EntityData.SegmentPath
     transmitPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12895,6 +13235,7 @@ func (receivePacket *Bfd_SessionDetails_SessionDetail_StatusInformation_ReceiveP
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
     receivePacket.EntityData.ParentYangName = "status-information"
     receivePacket.EntityData.SegmentPath = "receive-packet"
+    receivePacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + receivePacket.EntityData.SegmentPath
     receivePacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12942,6 +13283,7 @@ func (statusBriefInformation *Bfd_SessionDetails_SessionDetail_StatusInformation
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "status-information"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12984,6 +13326,7 @@ func (asyncIntervalMultiplier *Bfd_SessionDetails_SessionDetail_StatusInformatio
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13024,6 +13367,7 @@ func (echoIntervalMultiplier *Bfd_SessionDetails_SessionDetail_StatusInformation
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13073,6 +13417,7 @@ func (asyncTransmitStatistics *Bfd_SessionDetails_SessionDetail_StatusInformatio
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncTransmitStatistics.EntityData.ParentYangName = "status-information"
     asyncTransmitStatistics.EntityData.SegmentPath = "async-transmit-statistics"
+    asyncTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + asyncTransmitStatistics.EntityData.SegmentPath
     asyncTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13124,6 +13469,7 @@ func (asyncReceiveStatistics *Bfd_SessionDetails_SessionDetail_StatusInformation
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncReceiveStatistics.EntityData.ParentYangName = "status-information"
     asyncReceiveStatistics.EntityData.SegmentPath = "async-receive-statistics"
+    asyncReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + asyncReceiveStatistics.EntityData.SegmentPath
     asyncReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13175,6 +13521,7 @@ func (echoTransmitStatistics *Bfd_SessionDetails_SessionDetail_StatusInformation
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoTransmitStatistics.EntityData.ParentYangName = "status-information"
     echoTransmitStatistics.EntityData.SegmentPath = "echo-transmit-statistics"
+    echoTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + echoTransmitStatistics.EntityData.SegmentPath
     echoTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13226,6 +13573,7 @@ func (echoReceivedStatistics *Bfd_SessionDetails_SessionDetail_StatusInformation
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoReceivedStatistics.EntityData.ParentYangName = "status-information"
     echoReceivedStatistics.EntityData.SegmentPath = "echo-received-statistics"
+    echoReceivedStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/" + echoReceivedStatistics.EntityData.SegmentPath
     echoReceivedStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13262,6 +13610,7 @@ func (mpDownloadState *Bfd_SessionDetails_SessionDetail_MpDownloadState) GetEnti
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
     mpDownloadState.EntityData.ParentYangName = "session-detail"
     mpDownloadState.EntityData.SegmentPath = "mp-download-state"
+    mpDownloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/" + mpDownloadState.EntityData.SegmentPath
     mpDownloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13297,6 +13646,7 @@ func (changeTime *Bfd_SessionDetails_SessionDetail_MpDownloadState_ChangeTime) G
     changeTime.EntityData.BundleName = "cisco_ios_xr"
     changeTime.EntityData.ParentYangName = "mp-download-state"
     changeTime.EntityData.SegmentPath = "change-time"
+    changeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/mp-download-state/" + changeTime.EntityData.SegmentPath
     changeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13362,6 +13712,7 @@ func (lspPingInfo *Bfd_SessionDetails_SessionDetail_LspPingInfo) GetEntityData()
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
     lspPingInfo.EntityData.ParentYangName = "session-detail"
     lspPingInfo.EntityData.SegmentPath = "lsp-ping-info"
+    lspPingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/" + lspPingInfo.EntityData.SegmentPath
     lspPingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13407,6 +13758,7 @@ func (lspPingTxLastTime *Bfd_SessionDetails_SessionDetail_LspPingInfo_LspPingTxL
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastTime.EntityData.SegmentPath = "lsp-ping-tx-last-time"
+    lspPingTxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/lsp-ping-info/" + lspPingTxLastTime.EntityData.SegmentPath
     lspPingTxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13442,6 +13794,7 @@ func (lspPingTxLastErrorTime *Bfd_SessionDetails_SessionDetail_LspPingInfo_LspPi
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastErrorTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastErrorTime.EntityData.SegmentPath = "lsp-ping-tx-last-error-time"
+    lspPingTxLastErrorTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/lsp-ping-info/" + lspPingTxLastErrorTime.EntityData.SegmentPath
     lspPingTxLastErrorTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13477,6 +13830,7 @@ func (lspPingRxLastTime *Bfd_SessionDetails_SessionDetail_LspPingInfo_LspPingRxL
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingRxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingRxLastTime.EntityData.SegmentPath = "lsp-ping-rx-last-time"
+    lspPingRxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/lsp-ping-info/" + lspPingRxLastTime.EntityData.SegmentPath
     lspPingRxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13496,6 +13850,7 @@ func (lspPingRxLastTime *Bfd_SessionDetails_SessionDetail_LspPingInfo_LspPingRxL
 type Bfd_SessionDetails_SessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -13522,7 +13877,8 @@ func (ownerInformation *Bfd_SessionDetails_SessionDetail_OwnerInformation) GetEn
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "session-detail"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13545,6 +13901,7 @@ func (ownerInformation *Bfd_SessionDetails_SessionDetail_OwnerInformation) GetEn
 type Bfd_SessionDetails_SessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -13569,7 +13926,8 @@ func (associationInformation *Bfd_SessionDetails_SessionDetail_AssociationInform
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "session-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13578,6 +13936,7 @@ func (associationInformation *Bfd_SessionDetails_SessionDetail_AssociationInform
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -13617,6 +13976,7 @@ func (ipDestinationAddress *Bfd_SessionDetails_SessionDetail_AssociationInformat
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13638,6 +13998,7 @@ func (ipDestinationAddress *Bfd_SessionDetails_SessionDetail_AssociationInformat
 type Bfd_SessionDetails_SessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -13664,7 +14025,8 @@ func (ownerInformation *Bfd_SessionDetails_SessionDetail_AssociationInformation_
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13699,6 +14061,7 @@ func (ipv4SingleHopMultiPaths *Bfd_Ipv4SingleHopMultiPaths) GetEntityData() *typ
     ipv4SingleHopMultiPaths.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopMultiPaths.EntityData.ParentYangName = "bfd"
     ipv4SingleHopMultiPaths.EntityData.SegmentPath = "ipv4-single-hop-multi-paths"
+    ipv4SingleHopMultiPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4SingleHopMultiPaths.EntityData.SegmentPath
     ipv4SingleHopMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13706,6 +14069,7 @@ func (ipv4SingleHopMultiPaths *Bfd_Ipv4SingleHopMultiPaths) GetEntityData() *typ
     ipv4SingleHopMultiPaths.EntityData.Children = types.NewOrderedMap()
     ipv4SingleHopMultiPaths.EntityData.Children.Append("ipv4-single-hop-multi-path", types.YChild{"Ipv4SingleHopMultiPath", nil})
     for i := range ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath {
+        types.SetYListKey(ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath[i], i)
         ipv4SingleHopMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath[i]), types.YChild{"Ipv4SingleHopMultiPath", ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath[i]})
     }
     ipv4SingleHopMultiPaths.EntityData.Leafs = types.NewOrderedMap()
@@ -13720,6 +14084,7 @@ func (ipv4SingleHopMultiPaths *Bfd_Ipv4SingleHopMultiPaths) GetEntityData() *typ
 type Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -13758,7 +14123,8 @@ func (ipv4SingleHopMultiPath *Bfd_Ipv4SingleHopMultiPaths_Ipv4SingleHopMultiPath
     ipv4SingleHopMultiPath.EntityData.YangName = "ipv4-single-hop-multi-path"
     ipv4SingleHopMultiPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopMultiPath.EntityData.ParentYangName = "ipv4-single-hop-multi-paths"
-    ipv4SingleHopMultiPath.EntityData.SegmentPath = "ipv4-single-hop-multi-path"
+    ipv4SingleHopMultiPath.EntityData.SegmentPath = "ipv4-single-hop-multi-path" + types.AddNoKeyToken(ipv4SingleHopMultiPath)
+    ipv4SingleHopMultiPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-multi-paths/" + ipv4SingleHopMultiPath.EntityData.SegmentPath
     ipv4SingleHopMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13798,6 +14164,7 @@ func (ipv4SingleHopSessionBriefs *Bfd_Ipv4SingleHopSessionBriefs) GetEntityData(
     ipv4SingleHopSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopSessionBriefs.EntityData.ParentYangName = "bfd"
     ipv4SingleHopSessionBriefs.EntityData.SegmentPath = "ipv4-single-hop-session-briefs"
+    ipv4SingleHopSessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4SingleHopSessionBriefs.EntityData.SegmentPath
     ipv4SingleHopSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13805,6 +14172,7 @@ func (ipv4SingleHopSessionBriefs *Bfd_Ipv4SingleHopSessionBriefs) GetEntityData(
     ipv4SingleHopSessionBriefs.EntityData.Children = types.NewOrderedMap()
     ipv4SingleHopSessionBriefs.EntityData.Children.Append("ipv4-single-hop-session-brief", types.YChild{"Ipv4SingleHopSessionBrief", nil})
     for i := range ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief {
+        types.SetYListKey(ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief[i], i)
         ipv4SingleHopSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief[i]), types.YChild{"Ipv4SingleHopSessionBrief", ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief[i]})
     }
     ipv4SingleHopSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -13820,6 +14188,7 @@ func (ipv4SingleHopSessionBriefs *Bfd_Ipv4SingleHopSessionBriefs) GetEntityData(
 type Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -13857,7 +14226,8 @@ func (ipv4SingleHopSessionBrief *Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSes
     ipv4SingleHopSessionBrief.EntityData.YangName = "ipv4-single-hop-session-brief"
     ipv4SingleHopSessionBrief.EntityData.BundleName = "cisco_ios_xr"
     ipv4SingleHopSessionBrief.EntityData.ParentYangName = "ipv4-single-hop-session-briefs"
-    ipv4SingleHopSessionBrief.EntityData.SegmentPath = "ipv4-single-hop-session-brief"
+    ipv4SingleHopSessionBrief.EntityData.SegmentPath = "ipv4-single-hop-session-brief" + types.AddNoKeyToken(ipv4SingleHopSessionBrief)
+    ipv4SingleHopSessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-briefs/" + ipv4SingleHopSessionBrief.EntityData.SegmentPath
     ipv4SingleHopSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4SingleHopSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4SingleHopSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13898,6 +14268,7 @@ func (statusBriefInformation *Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessio
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "ipv4-single-hop-session-brief"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-briefs/ipv4-single-hop-session-brief/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13940,6 +14311,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessi
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-briefs/ipv4-single-hop-session-brief/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13980,6 +14352,7 @@ func (echoIntervalMultiplier *Bfd_Ipv4SingleHopSessionBriefs_Ipv4SingleHopSessio
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-briefs/ipv4-single-hop-session-brief/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14011,6 +14384,7 @@ func (ipv6MultiHopCounters *Bfd_Ipv6MultiHopCounters) GetEntityData() *types.Com
     ipv6MultiHopCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopCounters.EntityData.ParentYangName = "bfd"
     ipv6MultiHopCounters.EntityData.SegmentPath = "ipv6-multi-hop-counters"
+    ipv6MultiHopCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6MultiHopCounters.EntityData.SegmentPath
     ipv6MultiHopCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14041,6 +14415,7 @@ func (ipv6MultiHopPacketCounters *Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCou
     ipv6MultiHopPacketCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopPacketCounters.EntityData.ParentYangName = "ipv6-multi-hop-counters"
     ipv6MultiHopPacketCounters.EntityData.SegmentPath = "ipv6-multi-hop-packet-counters"
+    ipv6MultiHopPacketCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-counters/" + ipv6MultiHopPacketCounters.EntityData.SegmentPath
     ipv6MultiHopPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14048,6 +14423,7 @@ func (ipv6MultiHopPacketCounters *Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCou
     ipv6MultiHopPacketCounters.EntityData.Children = types.NewOrderedMap()
     ipv6MultiHopPacketCounters.EntityData.Children.Append("ipv6-multi-hop-packet-counter", types.YChild{"Ipv6MultiHopPacketCounter", nil})
     for i := range ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter {
+        types.SetYListKey(ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter[i], i)
         ipv6MultiHopPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter[i]), types.YChild{"Ipv6MultiHopPacketCounter", ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter[i]})
     }
     ipv6MultiHopPacketCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -14062,6 +14438,7 @@ func (ipv6MultiHopPacketCounters *Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCou
 type Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCounters_Ipv6MultiHopPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source Address. The type is one of the following types: string with
     // pattern:
@@ -14109,7 +14486,8 @@ func (ipv6MultiHopPacketCounter *Bfd_Ipv6MultiHopCounters_Ipv6MultiHopPacketCoun
     ipv6MultiHopPacketCounter.EntityData.YangName = "ipv6-multi-hop-packet-counter"
     ipv6MultiHopPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv6MultiHopPacketCounter.EntityData.ParentYangName = "ipv6-multi-hop-packet-counters"
-    ipv6MultiHopPacketCounter.EntityData.SegmentPath = "ipv6-multi-hop-packet-counter"
+    ipv6MultiHopPacketCounter.EntityData.SegmentPath = "ipv6-multi-hop-packet-counter" + types.AddNoKeyToken(ipv6MultiHopPacketCounter)
+    ipv6MultiHopPacketCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-counters/ipv6-multi-hop-packet-counters/" + ipv6MultiHopPacketCounter.EntityData.SegmentPath
     ipv6MultiHopPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6MultiHopPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6MultiHopPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14150,6 +14528,7 @@ func (ipv6SingleHopLocationSummaries *Bfd_Ipv6SingleHopLocationSummaries) GetEnt
     ipv6SingleHopLocationSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopLocationSummaries.EntityData.ParentYangName = "bfd"
     ipv6SingleHopLocationSummaries.EntityData.SegmentPath = "ipv6-single-hop-location-summaries"
+    ipv6SingleHopLocationSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6SingleHopLocationSummaries.EntityData.SegmentPath
     ipv6SingleHopLocationSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopLocationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopLocationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14172,6 +14551,7 @@ func (ipv6SingleHopLocationSummaries *Bfd_Ipv6SingleHopLocationSummaries) GetEnt
 type Bfd_Ipv6SingleHopLocationSummaries_Ipv6SingleHopLocationSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -14187,6 +14567,7 @@ func (ipv6SingleHopLocationSummary *Bfd_Ipv6SingleHopLocationSummaries_Ipv6Singl
     ipv6SingleHopLocationSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopLocationSummary.EntityData.ParentYangName = "ipv6-single-hop-location-summaries"
     ipv6SingleHopLocationSummary.EntityData.SegmentPath = "ipv6-single-hop-location-summary" + types.AddKeyToken(ipv6SingleHopLocationSummary.LocationName, "location-name")
+    ipv6SingleHopLocationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-location-summaries/" + ipv6SingleHopLocationSummary.EntityData.SegmentPath
     ipv6SingleHopLocationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopLocationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopLocationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14238,6 +14619,7 @@ func (sessionState *Bfd_Ipv6SingleHopLocationSummaries_Ipv6SingleHopLocationSumm
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv6-single-hop-location-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-location-summaries/ipv6-single-hop-location-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14272,6 +14654,7 @@ func (labelCounters *Bfd_LabelCounters) GetEntityData() *types.CommonEntityData 
     labelCounters.EntityData.BundleName = "cisco_ios_xr"
     labelCounters.EntityData.ParentYangName = "bfd"
     labelCounters.EntityData.SegmentPath = "label-counters"
+    labelCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + labelCounters.EntityData.SegmentPath
     labelCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14302,6 +14685,7 @@ func (labelPacketCounters *Bfd_LabelCounters_LabelPacketCounters) GetEntityData(
     labelPacketCounters.EntityData.BundleName = "cisco_ios_xr"
     labelPacketCounters.EntityData.ParentYangName = "label-counters"
     labelPacketCounters.EntityData.SegmentPath = "label-packet-counters"
+    labelPacketCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-counters/" + labelPacketCounters.EntityData.SegmentPath
     labelPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14309,6 +14693,7 @@ func (labelPacketCounters *Bfd_LabelCounters_LabelPacketCounters) GetEntityData(
     labelPacketCounters.EntityData.Children = types.NewOrderedMap()
     labelPacketCounters.EntityData.Children.Append("label-packet-counter", types.YChild{"LabelPacketCounter", nil})
     for i := range labelPacketCounters.LabelPacketCounter {
+        types.SetYListKey(labelPacketCounters.LabelPacketCounter[i], i)
         labelPacketCounters.EntityData.Children.Append(types.GetSegmentPath(labelPacketCounters.LabelPacketCounter[i]), types.YChild{"LabelPacketCounter", labelPacketCounters.LabelPacketCounter[i]})
     }
     labelPacketCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -14323,6 +14708,7 @@ func (labelPacketCounters *Bfd_LabelCounters_LabelPacketCounters) GetEntityData(
 type Bfd_LabelCounters_LabelPacketCounters_LabelPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -14356,7 +14742,8 @@ func (labelPacketCounter *Bfd_LabelCounters_LabelPacketCounters_LabelPacketCount
     labelPacketCounter.EntityData.YangName = "label-packet-counter"
     labelPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     labelPacketCounter.EntityData.ParentYangName = "label-packet-counters"
-    labelPacketCounter.EntityData.SegmentPath = "label-packet-counter"
+    labelPacketCounter.EntityData.SegmentPath = "label-packet-counter" + types.AddNoKeyToken(labelPacketCounter)
+    labelPacketCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/label-counters/label-packet-counters/" + labelPacketCounter.EntityData.SegmentPath
     labelPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14395,6 +14782,7 @@ func (ipv4bfDoMplsteHeadSessionDetails *Bfd_Ipv4bfDoMplsteHeadSessionDetails) Ge
     ipv4bfDoMplsteHeadSessionDetails.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadSessionDetails.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteHeadSessionDetails.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-details"
+    ipv4bfDoMplsteHeadSessionDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteHeadSessionDetails.EntityData.SegmentPath
     ipv4bfDoMplsteHeadSessionDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadSessionDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadSessionDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14402,6 +14790,7 @@ func (ipv4bfDoMplsteHeadSessionDetails *Bfd_Ipv4bfDoMplsteHeadSessionDetails) Ge
     ipv4bfDoMplsteHeadSessionDetails.EntityData.Children = types.NewOrderedMap()
     ipv4bfDoMplsteHeadSessionDetails.EntityData.Children.Append("ipv4bf-do-mplste-head-session-detail", types.YChild{"Ipv4bfDoMplsteHeadSessionDetail", nil})
     for i := range ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail {
+        types.SetYListKey(ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail[i], i)
         ipv4bfDoMplsteHeadSessionDetails.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail[i]), types.YChild{"Ipv4bfDoMplsteHeadSessionDetail", ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail[i]})
     }
     ipv4bfDoMplsteHeadSessionDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -14417,6 +14806,7 @@ func (ipv4bfDoMplsteHeadSessionDetails *Bfd_Ipv4bfDoMplsteHeadSessionDetails) Ge
 type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -14488,7 +14878,8 @@ func (ipv4bfDoMplsteHeadSessionDetail *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4
     ipv4bfDoMplsteHeadSessionDetail.EntityData.YangName = "ipv4bf-do-mplste-head-session-detail"
     ipv4bfDoMplsteHeadSessionDetail.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadSessionDetail.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-details"
-    ipv4bfDoMplsteHeadSessionDetail.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-detail"
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.SegmentPath = "ipv4bf-do-mplste-head-session-detail" + types.AddNoKeyToken(ipv4bfDoMplsteHeadSessionDetail)
+    ipv4bfDoMplsteHeadSessionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/" + ipv4bfDoMplsteHeadSessionDetail.EntityData.SegmentPath
     ipv4bfDoMplsteHeadSessionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadSessionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadSessionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14499,10 +14890,12 @@ func (ipv4bfDoMplsteHeadSessionDetail *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4
     ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append("lsp-ping-info", types.YChild{"LspPingInfo", &ipv4bfDoMplsteHeadSessionDetail.LspPingInfo})
     ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range ipv4bfDoMplsteHeadSessionDetail.OwnerInformation {
+        types.SetYListKey(ipv4bfDoMplsteHeadSessionDetail.OwnerInformation[i], i)
         ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadSessionDetail.OwnerInformation[i]), types.YChild{"OwnerInformation", ipv4bfDoMplsteHeadSessionDetail.OwnerInformation[i]})
     }
     ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range ipv4bfDoMplsteHeadSessionDetail.AssociationInformation {
+        types.SetYListKey(ipv4bfDoMplsteHeadSessionDetail.AssociationInformation[i], i)
         ipv4bfDoMplsteHeadSessionDetail.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadSessionDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", ipv4bfDoMplsteHeadSessionDetail.AssociationInformation[i]})
     }
     ipv4bfDoMplsteHeadSessionDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -14619,6 +15012,7 @@ func (statusInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHead
     statusInformation.EntityData.BundleName = "cisco_ios_xr"
     statusInformation.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-detail"
     statusInformation.EntityData.SegmentPath = "status-information"
+    statusInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/" + statusInformation.EntityData.SegmentPath
     statusInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14681,6 +15075,7 @@ func (sourceAddress *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSess
     sourceAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceAddress.EntityData.ParentYangName = "status-information"
     sourceAddress.EntityData.SegmentPath = "source-address"
+    sourceAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + sourceAddress.EntityData.SegmentPath
     sourceAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14726,6 +15121,7 @@ func (lastStateChange *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSe
     lastStateChange.EntityData.BundleName = "cisco_ios_xr"
     lastStateChange.EntityData.ParentYangName = "status-information"
     lastStateChange.EntityData.SegmentPath = "last-state-change"
+    lastStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + lastStateChange.EntityData.SegmentPath
     lastStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14809,6 +15205,7 @@ func (transmitPacket *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSes
     transmitPacket.EntityData.BundleName = "cisco_ios_xr"
     transmitPacket.EntityData.ParentYangName = "status-information"
     transmitPacket.EntityData.SegmentPath = "transmit-packet"
+    transmitPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + transmitPacket.EntityData.SegmentPath
     transmitPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmitPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmitPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14904,6 +15301,7 @@ func (receivePacket *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSess
     receivePacket.EntityData.BundleName = "cisco_ios_xr"
     receivePacket.EntityData.ParentYangName = "status-information"
     receivePacket.EntityData.SegmentPath = "receive-packet"
+    receivePacket.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + receivePacket.EntityData.SegmentPath
     receivePacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivePacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivePacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14951,6 +15349,7 @@ func (statusBriefInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplst
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "status-information"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14993,6 +15392,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMpls
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15033,6 +15433,7 @@ func (echoIntervalMultiplier *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplst
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15082,6 +15483,7 @@ func (asyncTransmitStatistics *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMpls
     asyncTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncTransmitStatistics.EntityData.ParentYangName = "status-information"
     asyncTransmitStatistics.EntityData.SegmentPath = "async-transmit-statistics"
+    asyncTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + asyncTransmitStatistics.EntityData.SegmentPath
     asyncTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15133,6 +15535,7 @@ func (asyncReceiveStatistics *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplst
     asyncReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
     asyncReceiveStatistics.EntityData.ParentYangName = "status-information"
     asyncReceiveStatistics.EntityData.SegmentPath = "async-receive-statistics"
+    asyncReceiveStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + asyncReceiveStatistics.EntityData.SegmentPath
     asyncReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15184,6 +15587,7 @@ func (echoTransmitStatistics *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplst
     echoTransmitStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoTransmitStatistics.EntityData.ParentYangName = "status-information"
     echoTransmitStatistics.EntityData.SegmentPath = "echo-transmit-statistics"
+    echoTransmitStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + echoTransmitStatistics.EntityData.SegmentPath
     echoTransmitStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoTransmitStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoTransmitStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15235,6 +15639,7 @@ func (echoReceivedStatistics *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplst
     echoReceivedStatistics.EntityData.BundleName = "cisco_ios_xr"
     echoReceivedStatistics.EntityData.ParentYangName = "status-information"
     echoReceivedStatistics.EntityData.SegmentPath = "echo-received-statistics"
+    echoReceivedStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/" + echoReceivedStatistics.EntityData.SegmentPath
     echoReceivedStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoReceivedStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoReceivedStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15271,6 +15676,7 @@ func (mpDownloadState *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSe
     mpDownloadState.EntityData.BundleName = "cisco_ios_xr"
     mpDownloadState.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-detail"
     mpDownloadState.EntityData.SegmentPath = "mp-download-state"
+    mpDownloadState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/" + mpDownloadState.EntityData.SegmentPath
     mpDownloadState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpDownloadState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpDownloadState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15306,6 +15712,7 @@ func (changeTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSession
     changeTime.EntityData.BundleName = "cisco_ios_xr"
     changeTime.EntityData.ParentYangName = "mp-download-state"
     changeTime.EntityData.SegmentPath = "change-time"
+    changeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/mp-download-state/" + changeTime.EntityData.SegmentPath
     changeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15371,6 +15778,7 @@ func (lspPingInfo *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessio
     lspPingInfo.EntityData.BundleName = "cisco_ios_xr"
     lspPingInfo.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-detail"
     lspPingInfo.EntityData.SegmentPath = "lsp-ping-info"
+    lspPingInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/" + lspPingInfo.EntityData.SegmentPath
     lspPingInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15416,6 +15824,7 @@ func (lspPingTxLastTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHead
     lspPingTxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastTime.EntityData.SegmentPath = "lsp-ping-tx-last-time"
+    lspPingTxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/lsp-ping-info/" + lspPingTxLastTime.EntityData.SegmentPath
     lspPingTxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15451,6 +15860,7 @@ func (lspPingTxLastErrorTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplst
     lspPingTxLastErrorTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingTxLastErrorTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingTxLastErrorTime.EntityData.SegmentPath = "lsp-ping-tx-last-error-time"
+    lspPingTxLastErrorTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/lsp-ping-info/" + lspPingTxLastErrorTime.EntityData.SegmentPath
     lspPingTxLastErrorTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingTxLastErrorTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingTxLastErrorTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15486,6 +15896,7 @@ func (lspPingRxLastTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHead
     lspPingRxLastTime.EntityData.BundleName = "cisco_ios_xr"
     lspPingRxLastTime.EntityData.ParentYangName = "lsp-ping-info"
     lspPingRxLastTime.EntityData.SegmentPath = "lsp-ping-rx-last-time"
+    lspPingRxLastTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/lsp-ping-info/" + lspPingRxLastTime.EntityData.SegmentPath
     lspPingRxLastTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspPingRxLastTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspPingRxLastTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15505,6 +15916,7 @@ func (lspPingRxLastTime *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHead
 type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -15531,7 +15943,8 @@ func (ownerInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadS
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-detail"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15554,6 +15967,7 @@ func (ownerInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadS
 type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -15578,7 +15992,8 @@ func (associationInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplst
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "ipv4bf-do-mplste-head-session-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15587,6 +16002,7 @@ func (associationInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplst
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -15626,6 +16042,7 @@ func (ipDestinationAddress *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteH
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15647,6 +16064,7 @@ func (ipDestinationAddress *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteH
 type Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadSessionDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -15673,7 +16091,8 @@ func (ownerInformation *Bfd_Ipv4bfDoMplsteHeadSessionDetails_Ipv4bfDoMplsteHeadS
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15709,6 +16128,7 @@ func (relationBriefs *Bfd_RelationBriefs) GetEntityData() *types.CommonEntityDat
     relationBriefs.EntityData.BundleName = "cisco_ios_xr"
     relationBriefs.EntityData.ParentYangName = "bfd"
     relationBriefs.EntityData.SegmentPath = "relation-briefs"
+    relationBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + relationBriefs.EntityData.SegmentPath
     relationBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relationBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relationBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15716,6 +16136,7 @@ func (relationBriefs *Bfd_RelationBriefs) GetEntityData() *types.CommonEntityDat
     relationBriefs.EntityData.Children = types.NewOrderedMap()
     relationBriefs.EntityData.Children.Append("relation-brief", types.YChild{"RelationBrief", nil})
     for i := range relationBriefs.RelationBrief {
+        types.SetYListKey(relationBriefs.RelationBrief[i], i)
         relationBriefs.EntityData.Children.Append(types.GetSegmentPath(relationBriefs.RelationBrief[i]), types.YChild{"RelationBrief", relationBriefs.RelationBrief[i]})
     }
     relationBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -15731,6 +16152,7 @@ func (relationBriefs *Bfd_RelationBriefs) GetEntityData() *types.CommonEntityDat
 type Bfd_RelationBriefs_RelationBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -15755,7 +16177,8 @@ func (relationBrief *Bfd_RelationBriefs_RelationBrief) GetEntityData() *types.Co
     relationBrief.EntityData.YangName = "relation-brief"
     relationBrief.EntityData.BundleName = "cisco_ios_xr"
     relationBrief.EntityData.ParentYangName = "relation-briefs"
-    relationBrief.EntityData.SegmentPath = "relation-brief"
+    relationBrief.EntityData.SegmentPath = "relation-brief" + types.AddNoKeyToken(relationBrief)
+    relationBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-briefs/" + relationBrief.EntityData.SegmentPath
     relationBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relationBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relationBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15763,6 +16186,7 @@ func (relationBrief *Bfd_RelationBriefs_RelationBrief) GetEntityData() *types.Co
     relationBrief.EntityData.Children = types.NewOrderedMap()
     relationBrief.EntityData.Children.Append("link-information", types.YChild{"LinkInformation", nil})
     for i := range relationBrief.LinkInformation {
+        types.SetYListKey(relationBrief.LinkInformation[i], i)
         relationBrief.EntityData.Children.Append(types.GetSegmentPath(relationBrief.LinkInformation[i]), types.YChild{"LinkInformation", relationBrief.LinkInformation[i]})
     }
     relationBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -15780,6 +16204,7 @@ func (relationBrief *Bfd_RelationBriefs_RelationBrief) GetEntityData() *types.Co
 type Bfd_RelationBriefs_RelationBrief_LinkInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // State. The type is BfdMgmtSessionState.
     State interface{}
@@ -15793,7 +16218,8 @@ func (linkInformation *Bfd_RelationBriefs_RelationBrief_LinkInformation) GetEnti
     linkInformation.EntityData.YangName = "link-information"
     linkInformation.EntityData.BundleName = "cisco_ios_xr"
     linkInformation.EntityData.ParentYangName = "relation-brief"
-    linkInformation.EntityData.SegmentPath = "link-information"
+    linkInformation.EntityData.SegmentPath = "link-information" + types.AddNoKeyToken(linkInformation)
+    linkInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-briefs/relation-brief/" + linkInformation.EntityData.SegmentPath
     linkInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15825,6 +16251,7 @@ func (clientBriefs *Bfd_ClientBriefs) GetEntityData() *types.CommonEntityData {
     clientBriefs.EntityData.BundleName = "cisco_ios_xr"
     clientBriefs.EntityData.ParentYangName = "bfd"
     clientBriefs.EntityData.SegmentPath = "client-briefs"
+    clientBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + clientBriefs.EntityData.SegmentPath
     clientBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15846,6 +16273,7 @@ func (clientBriefs *Bfd_ClientBriefs) GetEntityData() *types.CommonEntityData {
 type Bfd_ClientBriefs_ClientBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Client Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -15869,6 +16297,7 @@ func (clientBrief *Bfd_ClientBriefs_ClientBrief) GetEntityData() *types.CommonEn
     clientBrief.EntityData.BundleName = "cisco_ios_xr"
     clientBrief.EntityData.ParentYangName = "client-briefs"
     clientBrief.EntityData.SegmentPath = "client-brief" + types.AddKeyToken(clientBrief.Name, "name")
+    clientBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/client-briefs/" + clientBrief.EntityData.SegmentPath
     clientBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15902,6 +16331,7 @@ func (ipv4bfDoMplsteHeadMultiPaths *Bfd_Ipv4bfDoMplsteHeadMultiPaths) GetEntityD
     ipv4bfDoMplsteHeadMultiPaths.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadMultiPaths.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteHeadMultiPaths.EntityData.SegmentPath = "ipv4bf-do-mplste-head-multi-paths"
+    ipv4bfDoMplsteHeadMultiPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteHeadMultiPaths.EntityData.SegmentPath
     ipv4bfDoMplsteHeadMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15909,6 +16339,7 @@ func (ipv4bfDoMplsteHeadMultiPaths *Bfd_Ipv4bfDoMplsteHeadMultiPaths) GetEntityD
     ipv4bfDoMplsteHeadMultiPaths.EntityData.Children = types.NewOrderedMap()
     ipv4bfDoMplsteHeadMultiPaths.EntityData.Children.Append("ipv4bf-do-mplste-head-multi-path", types.YChild{"Ipv4bfDoMplsteHeadMultiPath", nil})
     for i := range ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath {
+        types.SetYListKey(ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath[i], i)
         ipv4bfDoMplsteHeadMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath[i]), types.YChild{"Ipv4bfDoMplsteHeadMultiPath", ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath[i]})
     }
     ipv4bfDoMplsteHeadMultiPaths.EntityData.Leafs = types.NewOrderedMap()
@@ -15923,6 +16354,7 @@ func (ipv4bfDoMplsteHeadMultiPaths *Bfd_Ipv4bfDoMplsteHeadMultiPaths) GetEntityD
 type Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMplsteHeadMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -15997,7 +16429,8 @@ func (ipv4bfDoMplsteHeadMultiPath *Bfd_Ipv4bfDoMplsteHeadMultiPaths_Ipv4bfDoMpls
     ipv4bfDoMplsteHeadMultiPath.EntityData.YangName = "ipv4bf-do-mplste-head-multi-path"
     ipv4bfDoMplsteHeadMultiPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadMultiPath.EntityData.ParentYangName = "ipv4bf-do-mplste-head-multi-paths"
-    ipv4bfDoMplsteHeadMultiPath.EntityData.SegmentPath = "ipv4bf-do-mplste-head-multi-path"
+    ipv4bfDoMplsteHeadMultiPath.EntityData.SegmentPath = "ipv4bf-do-mplste-head-multi-path" + types.AddNoKeyToken(ipv4bfDoMplsteHeadMultiPath)
+    ipv4bfDoMplsteHeadMultiPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-multi-paths/" + ipv4bfDoMplsteHeadMultiPath.EntityData.SegmentPath
     ipv4bfDoMplsteHeadMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16048,6 +16481,7 @@ func (relationDetails *Bfd_RelationDetails) GetEntityData() *types.CommonEntityD
     relationDetails.EntityData.BundleName = "cisco_ios_xr"
     relationDetails.EntityData.ParentYangName = "bfd"
     relationDetails.EntityData.SegmentPath = "relation-details"
+    relationDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + relationDetails.EntityData.SegmentPath
     relationDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16055,6 +16489,7 @@ func (relationDetails *Bfd_RelationDetails) GetEntityData() *types.CommonEntityD
     relationDetails.EntityData.Children = types.NewOrderedMap()
     relationDetails.EntityData.Children.Append("relation-detail", types.YChild{"RelationDetail", nil})
     for i := range relationDetails.RelationDetail {
+        types.SetYListKey(relationDetails.RelationDetail[i], i)
         relationDetails.EntityData.Children.Append(types.GetSegmentPath(relationDetails.RelationDetail[i]), types.YChild{"RelationDetail", relationDetails.RelationDetail[i]})
     }
     relationDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -16070,6 +16505,7 @@ func (relationDetails *Bfd_RelationDetails) GetEntityData() *types.CommonEntityD
 type Bfd_RelationDetails_RelationDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -16102,7 +16538,8 @@ func (relationDetail *Bfd_RelationDetails_RelationDetail) GetEntityData() *types
     relationDetail.EntityData.YangName = "relation-detail"
     relationDetail.EntityData.BundleName = "cisco_ios_xr"
     relationDetail.EntityData.ParentYangName = "relation-details"
-    relationDetail.EntityData.SegmentPath = "relation-detail"
+    relationDetail.EntityData.SegmentPath = "relation-detail" + types.AddNoKeyToken(relationDetail)
+    relationDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/" + relationDetail.EntityData.SegmentPath
     relationDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     relationDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     relationDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16110,10 +16547,12 @@ func (relationDetail *Bfd_RelationDetails_RelationDetail) GetEntityData() *types
     relationDetail.EntityData.Children = types.NewOrderedMap()
     relationDetail.EntityData.Children.Append("link-information", types.YChild{"LinkInformation", nil})
     for i := range relationDetail.LinkInformation {
+        types.SetYListKey(relationDetail.LinkInformation[i], i)
         relationDetail.EntityData.Children.Append(types.GetSegmentPath(relationDetail.LinkInformation[i]), types.YChild{"LinkInformation", relationDetail.LinkInformation[i]})
     }
     relationDetail.EntityData.Children.Append("association-information", types.YChild{"AssociationInformation", nil})
     for i := range relationDetail.AssociationInformation {
+        types.SetYListKey(relationDetail.AssociationInformation[i], i)
         relationDetail.EntityData.Children.Append(types.GetSegmentPath(relationDetail.AssociationInformation[i]), types.YChild{"AssociationInformation", relationDetail.AssociationInformation[i]})
     }
     relationDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -16132,6 +16571,7 @@ func (relationDetail *Bfd_RelationDetails_RelationDetail) GetEntityData() *types
 type Bfd_RelationDetails_RelationDetail_LinkInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // State. The type is BfdMgmtSessionState.
     State interface{}
@@ -16149,7 +16589,8 @@ func (linkInformation *Bfd_RelationDetails_RelationDetail_LinkInformation) GetEn
     linkInformation.EntityData.YangName = "link-information"
     linkInformation.EntityData.BundleName = "cisco_ios_xr"
     linkInformation.EntityData.ParentYangName = "relation-detail"
-    linkInformation.EntityData.SegmentPath = "link-information"
+    linkInformation.EntityData.SegmentPath = "link-information" + types.AddNoKeyToken(linkInformation)
+    linkInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/relation-detail/" + linkInformation.EntityData.SegmentPath
     linkInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16170,6 +16611,7 @@ func (linkInformation *Bfd_RelationDetails_RelationDetail_LinkInformation) GetEn
 type Bfd_RelationDetails_RelationDetail_AssociationInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Interface Name. The type is string with length: 0..64.
     InterfaceName interface{}
@@ -16194,7 +16636,8 @@ func (associationInformation *Bfd_RelationDetails_RelationDetail_AssociationInfo
     associationInformation.EntityData.YangName = "association-information"
     associationInformation.EntityData.BundleName = "cisco_ios_xr"
     associationInformation.EntityData.ParentYangName = "relation-detail"
-    associationInformation.EntityData.SegmentPath = "association-information"
+    associationInformation.EntityData.SegmentPath = "association-information" + types.AddNoKeyToken(associationInformation)
+    associationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/relation-detail/" + associationInformation.EntityData.SegmentPath
     associationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16203,6 +16646,7 @@ func (associationInformation *Bfd_RelationDetails_RelationDetail_AssociationInfo
     associationInformation.EntityData.Children.Append("ip-destination-address", types.YChild{"IpDestinationAddress", &associationInformation.IpDestinationAddress})
     associationInformation.EntityData.Children.Append("owner-information", types.YChild{"OwnerInformation", nil})
     for i := range associationInformation.OwnerInformation {
+        types.SetYListKey(associationInformation.OwnerInformation[i], i)
         associationInformation.EntityData.Children.Append(types.GetSegmentPath(associationInformation.OwnerInformation[i]), types.YChild{"OwnerInformation", associationInformation.OwnerInformation[i]})
     }
     associationInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -16242,6 +16686,7 @@ func (ipDestinationAddress *Bfd_RelationDetails_RelationDetail_AssociationInform
     ipDestinationAddress.EntityData.BundleName = "cisco_ios_xr"
     ipDestinationAddress.EntityData.ParentYangName = "association-information"
     ipDestinationAddress.EntityData.SegmentPath = "ip-destination-address"
+    ipDestinationAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/relation-detail/association-information/" + ipDestinationAddress.EntityData.SegmentPath
     ipDestinationAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipDestinationAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipDestinationAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16263,6 +16708,7 @@ func (ipDestinationAddress *Bfd_RelationDetails_RelationDetail_AssociationInform
 type Bfd_RelationDetails_RelationDetail_AssociationInformation_OwnerInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Client specified minimum transmit interval in micro-seconds. The type is
     // interface{} with range: 0..4294967295. Units are microsecond.
@@ -16289,7 +16735,8 @@ func (ownerInformation *Bfd_RelationDetails_RelationDetail_AssociationInformatio
     ownerInformation.EntityData.YangName = "owner-information"
     ownerInformation.EntityData.BundleName = "cisco_ios_xr"
     ownerInformation.EntityData.ParentYangName = "association-information"
-    ownerInformation.EntityData.SegmentPath = "owner-information"
+    ownerInformation.EntityData.SegmentPath = "owner-information" + types.AddNoKeyToken(ownerInformation)
+    ownerInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/relation-detail/association-information/" + ownerInformation.EntityData.SegmentPath
     ownerInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ownerInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ownerInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16323,6 +16770,7 @@ func (ipv4bfDoMplsteTailCounters *Bfd_Ipv4bfDoMplsteTailCounters) GetEntityData(
     ipv4bfDoMplsteTailCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailCounters.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteTailCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-counters"
+    ipv4bfDoMplsteTailCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteTailCounters.EntityData.SegmentPath
     ipv4bfDoMplsteTailCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16353,6 +16801,7 @@ func (ipv4bfDoMplsteTailPacketCounters *Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoM
     ipv4bfDoMplsteTailPacketCounters.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailPacketCounters.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-counters"
     ipv4bfDoMplsteTailPacketCounters.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-packet-counters"
+    ipv4bfDoMplsteTailPacketCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-counters/" + ipv4bfDoMplsteTailPacketCounters.EntityData.SegmentPath
     ipv4bfDoMplsteTailPacketCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailPacketCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailPacketCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16360,6 +16809,7 @@ func (ipv4bfDoMplsteTailPacketCounters *Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoM
     ipv4bfDoMplsteTailPacketCounters.EntityData.Children = types.NewOrderedMap()
     ipv4bfDoMplsteTailPacketCounters.EntityData.Children.Append("ipv4bf-do-mplste-tail-packet-counter", types.YChild{"Ipv4bfDoMplsteTailPacketCounter", nil})
     for i := range ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter {
+        types.SetYListKey(ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter[i], i)
         ipv4bfDoMplsteTailPacketCounters.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter[i]), types.YChild{"Ipv4bfDoMplsteTailPacketCounter", ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter[i]})
     }
     ipv4bfDoMplsteTailPacketCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -16375,6 +16825,7 @@ func (ipv4bfDoMplsteTailPacketCounters *Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoM
 type Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMplsteTailPacketCounters_Ipv4bfDoMplsteTailPacketCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
@@ -16445,7 +16896,8 @@ func (ipv4bfDoMplsteTailPacketCounter *Bfd_Ipv4bfDoMplsteTailCounters_Ipv4bfDoMp
     ipv4bfDoMplsteTailPacketCounter.EntityData.YangName = "ipv4bf-do-mplste-tail-packet-counter"
     ipv4bfDoMplsteTailPacketCounter.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailPacketCounter.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-packet-counters"
-    ipv4bfDoMplsteTailPacketCounter.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-packet-counter"
+    ipv4bfDoMplsteTailPacketCounter.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-packet-counter" + types.AddNoKeyToken(ipv4bfDoMplsteTailPacketCounter)
+    ipv4bfDoMplsteTailPacketCounter.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-counters/ipv4bf-do-mplste-tail-packet-counters/" + ipv4bfDoMplsteTailPacketCounter.EntityData.SegmentPath
     ipv4bfDoMplsteTailPacketCounter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailPacketCounter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailPacketCounter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16494,6 +16946,7 @@ func (ipv6SingleHopSessionBriefs *Bfd_Ipv6SingleHopSessionBriefs) GetEntityData(
     ipv6SingleHopSessionBriefs.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopSessionBriefs.EntityData.ParentYangName = "bfd"
     ipv6SingleHopSessionBriefs.EntityData.SegmentPath = "ipv6-single-hop-session-briefs"
+    ipv6SingleHopSessionBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv6SingleHopSessionBriefs.EntityData.SegmentPath
     ipv6SingleHopSessionBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopSessionBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSessionBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16501,6 +16954,7 @@ func (ipv6SingleHopSessionBriefs *Bfd_Ipv6SingleHopSessionBriefs) GetEntityData(
     ipv6SingleHopSessionBriefs.EntityData.Children = types.NewOrderedMap()
     ipv6SingleHopSessionBriefs.EntityData.Children.Append("ipv6-single-hop-session-brief", types.YChild{"Ipv6SingleHopSessionBrief", nil})
     for i := range ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief {
+        types.SetYListKey(ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief[i], i)
         ipv6SingleHopSessionBriefs.EntityData.Children.Append(types.GetSegmentPath(ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief[i]), types.YChild{"Ipv6SingleHopSessionBrief", ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief[i]})
     }
     ipv6SingleHopSessionBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -16516,6 +16970,7 @@ func (ipv6SingleHopSessionBriefs *Bfd_Ipv6SingleHopSessionBriefs) GetEntityData(
 type Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessionBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -16556,7 +17011,8 @@ func (ipv6SingleHopSessionBrief *Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSes
     ipv6SingleHopSessionBrief.EntityData.YangName = "ipv6-single-hop-session-brief"
     ipv6SingleHopSessionBrief.EntityData.BundleName = "cisco_ios_xr"
     ipv6SingleHopSessionBrief.EntityData.ParentYangName = "ipv6-single-hop-session-briefs"
-    ipv6SingleHopSessionBrief.EntityData.SegmentPath = "ipv6-single-hop-session-brief"
+    ipv6SingleHopSessionBrief.EntityData.SegmentPath = "ipv6-single-hop-session-brief" + types.AddNoKeyToken(ipv6SingleHopSessionBrief)
+    ipv6SingleHopSessionBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-briefs/" + ipv6SingleHopSessionBrief.EntityData.SegmentPath
     ipv6SingleHopSessionBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6SingleHopSessionBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6SingleHopSessionBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16597,6 +17053,7 @@ func (statusBriefInformation *Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessio
     statusBriefInformation.EntityData.BundleName = "cisco_ios_xr"
     statusBriefInformation.EntityData.ParentYangName = "ipv6-single-hop-session-brief"
     statusBriefInformation.EntityData.SegmentPath = "status-brief-information"
+    statusBriefInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-briefs/ipv6-single-hop-session-brief/" + statusBriefInformation.EntityData.SegmentPath
     statusBriefInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statusBriefInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statusBriefInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16639,6 +17096,7 @@ func (asyncIntervalMultiplier *Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessi
     asyncIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     asyncIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     asyncIntervalMultiplier.EntityData.SegmentPath = "async-interval-multiplier"
+    asyncIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-briefs/ipv6-single-hop-session-brief/status-brief-information/" + asyncIntervalMultiplier.EntityData.SegmentPath
     asyncIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asyncIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asyncIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16679,6 +17137,7 @@ func (echoIntervalMultiplier *Bfd_Ipv6SingleHopSessionBriefs_Ipv6SingleHopSessio
     echoIntervalMultiplier.EntityData.BundleName = "cisco_ios_xr"
     echoIntervalMultiplier.EntityData.ParentYangName = "status-brief-information"
     echoIntervalMultiplier.EntityData.SegmentPath = "echo-interval-multiplier"
+    echoIntervalMultiplier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-briefs/ipv6-single-hop-session-brief/status-brief-information/" + echoIntervalMultiplier.EntityData.SegmentPath
     echoIntervalMultiplier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     echoIntervalMultiplier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     echoIntervalMultiplier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16711,6 +17170,7 @@ func (ipv4bfDoMplsteTailMultiPaths *Bfd_Ipv4bfDoMplsteTailMultiPaths) GetEntityD
     ipv4bfDoMplsteTailMultiPaths.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailMultiPaths.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteTailMultiPaths.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-multi-paths"
+    ipv4bfDoMplsteTailMultiPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteTailMultiPaths.EntityData.SegmentPath
     ipv4bfDoMplsteTailMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16718,6 +17178,7 @@ func (ipv4bfDoMplsteTailMultiPaths *Bfd_Ipv4bfDoMplsteTailMultiPaths) GetEntityD
     ipv4bfDoMplsteTailMultiPaths.EntityData.Children = types.NewOrderedMap()
     ipv4bfDoMplsteTailMultiPaths.EntityData.Children.Append("ipv4bf-do-mplste-tail-multi-path", types.YChild{"Ipv4bfDoMplsteTailMultiPath", nil})
     for i := range ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath {
+        types.SetYListKey(ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath[i], i)
         ipv4bfDoMplsteTailMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath[i]), types.YChild{"Ipv4bfDoMplsteTailMultiPath", ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath[i]})
     }
     ipv4bfDoMplsteTailMultiPaths.EntityData.Leafs = types.NewOrderedMap()
@@ -16732,6 +17193,7 @@ func (ipv4bfDoMplsteTailMultiPaths *Bfd_Ipv4bfDoMplsteTailMultiPaths) GetEntityD
 type Bfd_Ipv4bfDoMplsteTailMultiPaths_Ipv4bfDoMplsteTailMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
@@ -16803,7 +17265,8 @@ func (ipv4bfDoMplsteTailMultiPath *Bfd_Ipv4bfDoMplsteTailMultiPaths_Ipv4bfDoMpls
     ipv4bfDoMplsteTailMultiPath.EntityData.YangName = "ipv4bf-do-mplste-tail-multi-path"
     ipv4bfDoMplsteTailMultiPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteTailMultiPath.EntityData.ParentYangName = "ipv4bf-do-mplste-tail-multi-paths"
-    ipv4bfDoMplsteTailMultiPath.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-multi-path"
+    ipv4bfDoMplsteTailMultiPath.EntityData.SegmentPath = "ipv4bf-do-mplste-tail-multi-path" + types.AddNoKeyToken(ipv4bfDoMplsteTailMultiPath)
+    ipv4bfDoMplsteTailMultiPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-multi-paths/" + ipv4bfDoMplsteTailMultiPath.EntityData.SegmentPath
     ipv4bfDoMplsteTailMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteTailMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteTailMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16852,6 +17315,7 @@ func (ipv4MultiHopMultiPaths *Bfd_Ipv4MultiHopMultiPaths) GetEntityData() *types
     ipv4MultiHopMultiPaths.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopMultiPaths.EntityData.ParentYangName = "bfd"
     ipv4MultiHopMultiPaths.EntityData.SegmentPath = "ipv4-multi-hop-multi-paths"
+    ipv4MultiHopMultiPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4MultiHopMultiPaths.EntityData.SegmentPath
     ipv4MultiHopMultiPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopMultiPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopMultiPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16859,6 +17323,7 @@ func (ipv4MultiHopMultiPaths *Bfd_Ipv4MultiHopMultiPaths) GetEntityData() *types
     ipv4MultiHopMultiPaths.EntityData.Children = types.NewOrderedMap()
     ipv4MultiHopMultiPaths.EntityData.Children.Append("ipv4-multi-hop-multi-path", types.YChild{"Ipv4MultiHopMultiPath", nil})
     for i := range ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath {
+        types.SetYListKey(ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath[i], i)
         ipv4MultiHopMultiPaths.EntityData.Children.Append(types.GetSegmentPath(ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath[i]), types.YChild{"Ipv4MultiHopMultiPath", ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath[i]})
     }
     ipv4MultiHopMultiPaths.EntityData.Leafs = types.NewOrderedMap()
@@ -16873,6 +17338,7 @@ func (ipv4MultiHopMultiPaths *Bfd_Ipv4MultiHopMultiPaths) GetEntityData() *types
 type Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Source Address. The type is one of the following types: string with
     // pattern:
@@ -16921,7 +17387,8 @@ func (ipv4MultiHopMultiPath *Bfd_Ipv4MultiHopMultiPaths_Ipv4MultiHopMultiPath) G
     ipv4MultiHopMultiPath.EntityData.YangName = "ipv4-multi-hop-multi-path"
     ipv4MultiHopMultiPath.EntityData.BundleName = "cisco_ios_xr"
     ipv4MultiHopMultiPath.EntityData.ParentYangName = "ipv4-multi-hop-multi-paths"
-    ipv4MultiHopMultiPath.EntityData.SegmentPath = "ipv4-multi-hop-multi-path"
+    ipv4MultiHopMultiPath.EntityData.SegmentPath = "ipv4-multi-hop-multi-path" + types.AddNoKeyToken(ipv4MultiHopMultiPath)
+    ipv4MultiHopMultiPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-multi-paths/" + ipv4MultiHopMultiPath.EntityData.SegmentPath
     ipv4MultiHopMultiPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4MultiHopMultiPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4MultiHopMultiPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16961,6 +17428,7 @@ func (ipv4bfDoMplsteHeadSummary *Bfd_Ipv4bfDoMplsteHeadSummary) GetEntityData() 
     ipv4bfDoMplsteHeadSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4bfDoMplsteHeadSummary.EntityData.ParentYangName = "bfd"
     ipv4bfDoMplsteHeadSummary.EntityData.SegmentPath = "ipv4bf-do-mplste-head-summary"
+    ipv4bfDoMplsteHeadSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/" + ipv4bfDoMplsteHeadSummary.EntityData.SegmentPath
     ipv4bfDoMplsteHeadSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4bfDoMplsteHeadSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4bfDoMplsteHeadSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17003,6 +17471,7 @@ func (sessionState *Bfd_Ipv4bfDoMplsteHeadSummary_SessionState) GetEntityData() 
     sessionState.EntityData.BundleName = "cisco_ios_xr"
     sessionState.EntityData.ParentYangName = "ipv4bf-do-mplste-head-summary"
     sessionState.EntityData.SegmentPath = "session-state"
+    sessionState.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-summary/" + sessionState.EntityData.SegmentPath
     sessionState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

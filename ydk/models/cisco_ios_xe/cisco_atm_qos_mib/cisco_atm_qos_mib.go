@@ -92,6 +92,7 @@ func (cISCOATMQOSMIB *CISCOATMQOSMIB) GetEntityData() *types.CommonEntityData {
     cISCOATMQOSMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOATMQOSMIB.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
     cISCOATMQOSMIB.EntityData.SegmentPath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB"
+    cISCOATMQOSMIB.EntityData.AbsolutePath = cISCOATMQOSMIB.EntityData.SegmentPath
     cISCOATMQOSMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOATMQOSMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOATMQOSMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -126,6 +127,7 @@ func (caqVccParamsTable *CISCOATMQOSMIB_CaqVccParamsTable) GetEntityData() *type
     caqVccParamsTable.EntityData.BundleName = "cisco_ios_xe"
     caqVccParamsTable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
     caqVccParamsTable.EntityData.SegmentPath = "caqVccParamsTable"
+    caqVccParamsTable.EntityData.AbsolutePath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/" + caqVccParamsTable.EntityData.SegmentPath
     caqVccParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     caqVccParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     caqVccParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -148,6 +150,7 @@ func (caqVccParamsTable *CISCOATMQOSMIB_CaqVccParamsTable) GetEntityData() *type
 type CISCOATMQOSMIB_CaqVccParamsTable_CaqVccParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -285,6 +288,7 @@ func (caqVccParamsEntry *CISCOATMQOSMIB_CaqVccParamsTable_CaqVccParamsEntry) Get
     caqVccParamsEntry.EntityData.BundleName = "cisco_ios_xe"
     caqVccParamsEntry.EntityData.ParentYangName = "caqVccParamsTable"
     caqVccParamsEntry.EntityData.SegmentPath = "caqVccParamsEntry" + types.AddKeyToken(caqVccParamsEntry.IfIndex, "ifIndex") + types.AddKeyToken(caqVccParamsEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(caqVccParamsEntry.AtmVclVci, "atmVclVci")
+    caqVccParamsEntry.EntityData.AbsolutePath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqVccParamsTable/" + caqVccParamsEntry.EntityData.SegmentPath
     caqVccParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     caqVccParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     caqVccParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -346,6 +350,7 @@ func (caqVpcParamsTable *CISCOATMQOSMIB_CaqVpcParamsTable) GetEntityData() *type
     caqVpcParamsTable.EntityData.BundleName = "cisco_ios_xe"
     caqVpcParamsTable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
     caqVpcParamsTable.EntityData.SegmentPath = "caqVpcParamsTable"
+    caqVpcParamsTable.EntityData.AbsolutePath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/" + caqVpcParamsTable.EntityData.SegmentPath
     caqVpcParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     caqVpcParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     caqVpcParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -368,6 +373,7 @@ func (caqVpcParamsTable *CISCOATMQOSMIB_CaqVpcParamsTable) GetEntityData() *type
 type CISCOATMQOSMIB_CaqVpcParamsTable_CaqVpcParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -423,6 +429,7 @@ func (caqVpcParamsEntry *CISCOATMQOSMIB_CaqVpcParamsTable_CaqVpcParamsEntry) Get
     caqVpcParamsEntry.EntityData.BundleName = "cisco_ios_xe"
     caqVpcParamsEntry.EntityData.ParentYangName = "caqVpcParamsTable"
     caqVpcParamsEntry.EntityData.SegmentPath = "caqVpcParamsEntry" + types.AddKeyToken(caqVpcParamsEntry.IfIndex, "ifIndex") + types.AddKeyToken(caqVpcParamsEntry.AtmVplVpi, "atmVplVpi")
+    caqVpcParamsEntry.EntityData.AbsolutePath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqVpcParamsTable/" + caqVpcParamsEntry.EntityData.SegmentPath
     caqVpcParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     caqVpcParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     caqVpcParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -465,6 +472,7 @@ func (caqQueuingParamsTable *CISCOATMQOSMIB_CaqQueuingParamsTable) GetEntityData
     caqQueuingParamsTable.EntityData.BundleName = "cisco_ios_xe"
     caqQueuingParamsTable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
     caqQueuingParamsTable.EntityData.SegmentPath = "caqQueuingParamsTable"
+    caqQueuingParamsTable.EntityData.AbsolutePath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/" + caqQueuingParamsTable.EntityData.SegmentPath
     caqQueuingParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     caqQueuingParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     caqQueuingParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -486,6 +494,7 @@ func (caqQueuingParamsTable *CISCOATMQOSMIB_CaqQueuingParamsTable) GetEntityData
 type CISCOATMQOSMIB_CaqQueuingParamsTable_CaqQueuingParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -511,6 +520,7 @@ func (caqQueuingParamsEntry *CISCOATMQOSMIB_CaqQueuingParamsTable_CaqQueuingPara
     caqQueuingParamsEntry.EntityData.BundleName = "cisco_ios_xe"
     caqQueuingParamsEntry.EntityData.ParentYangName = "caqQueuingParamsTable"
     caqQueuingParamsEntry.EntityData.SegmentPath = "caqQueuingParamsEntry" + types.AddKeyToken(caqQueuingParamsEntry.IfIndex, "ifIndex") + types.AddKeyToken(caqQueuingParamsEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(caqQueuingParamsEntry.AtmVclVci, "atmVclVci")
+    caqQueuingParamsEntry.EntityData.AbsolutePath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqQueuingParamsTable/" + caqQueuingParamsEntry.EntityData.SegmentPath
     caqQueuingParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     caqQueuingParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     caqQueuingParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -546,6 +556,7 @@ func (caqQueuingParamsClassTable *CISCOATMQOSMIB_CaqQueuingParamsClassTable) Get
     caqQueuingParamsClassTable.EntityData.BundleName = "cisco_ios_xe"
     caqQueuingParamsClassTable.EntityData.ParentYangName = "CISCO-ATM-QOS-MIB"
     caqQueuingParamsClassTable.EntityData.SegmentPath = "caqQueuingParamsClassTable"
+    caqQueuingParamsClassTable.EntityData.AbsolutePath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/" + caqQueuingParamsClassTable.EntityData.SegmentPath
     caqQueuingParamsClassTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     caqQueuingParamsClassTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     caqQueuingParamsClassTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -568,6 +579,7 @@ func (caqQueuingParamsClassTable *CISCOATMQOSMIB_CaqQueuingParamsClassTable) Get
 type CISCOATMQOSMIB_CaqQueuingParamsClassTable_CaqQueuingParamsClassEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -616,6 +628,7 @@ func (caqQueuingParamsClassEntry *CISCOATMQOSMIB_CaqQueuingParamsClassTable_CaqQ
     caqQueuingParamsClassEntry.EntityData.BundleName = "cisco_ios_xe"
     caqQueuingParamsClassEntry.EntityData.ParentYangName = "caqQueuingParamsClassTable"
     caqQueuingParamsClassEntry.EntityData.SegmentPath = "caqQueuingParamsClassEntry" + types.AddKeyToken(caqQueuingParamsClassEntry.IfIndex, "ifIndex") + types.AddKeyToken(caqQueuingParamsClassEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(caqQueuingParamsClassEntry.AtmVclVci, "atmVclVci") + types.AddKeyToken(caqQueuingParamsClassEntry.CaqQueuingParamsClassIndex, "caqQueuingParamsClassIndex")
+    caqQueuingParamsClassEntry.EntityData.AbsolutePath = "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqQueuingParamsClassTable/" + caqQueuingParamsClassEntry.EntityData.SegmentPath
     caqQueuingParamsClassEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     caqQueuingParamsClassEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     caqQueuingParamsClassEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

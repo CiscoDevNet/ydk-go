@@ -333,6 +333,7 @@ func (platformQos *PlatformQos) GetEntityData() *types.CommonEntityData {
     platformQos.EntityData.BundleName = "cisco_ios_xr"
     platformQos.EntityData.ParentYangName = "Cisco-IOS-XR-ncs5500-qos-oper"
     platformQos.EntityData.SegmentPath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos"
+    platformQos.EntityData.AbsolutePath = platformQos.EntityData.SegmentPath
     platformQos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platformQos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformQos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -364,6 +365,7 @@ func (nodes *PlatformQos_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "platform-qos"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -385,6 +387,7 @@ func (nodes *PlatformQos_Nodes) GetEntityData() *types.CommonEntityData {
 type PlatformQos_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -412,6 +415,7 @@ func (node *PlatformQos_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -447,6 +451,7 @@ func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetEntityData()
     bundleInterfaces.EntityData.BundleName = "cisco_ios_xr"
     bundleInterfaces.EntityData.ParentYangName = "node"
     bundleInterfaces.EntityData.SegmentPath = "bundle-interfaces"
+    bundleInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/" + bundleInterfaces.EntityData.SegmentPath
     bundleInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -454,6 +459,7 @@ func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetEntityData()
     bundleInterfaces.EntityData.Children = types.NewOrderedMap()
     bundleInterfaces.EntityData.Children.Append("bundle-interface", types.YChild{"BundleInterface", nil})
     for i := range bundleInterfaces.BundleInterface {
+        types.SetYListKey(bundleInterfaces.BundleInterface[i], i)
         bundleInterfaces.EntityData.Children.Append(types.GetSegmentPath(bundleInterfaces.BundleInterface[i]), types.YChild{"BundleInterface", bundleInterfaces.BundleInterface[i]})
     }
     bundleInterfaces.EntityData.Leafs = types.NewOrderedMap()
@@ -468,6 +474,7 @@ func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetEntityData()
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -493,7 +500,8 @@ func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) 
     bundleInterface.EntityData.YangName = "bundle-interface"
     bundleInterface.EntityData.BundleName = "cisco_ios_xr"
     bundleInterface.EntityData.ParentYangName = "bundle-interfaces"
-    bundleInterface.EntityData.SegmentPath = "bundle-interface"
+    bundleInterface.EntityData.SegmentPath = "bundle-interface" + types.AddNoKeyToken(bundleInterface)
+    bundleInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/" + bundleInterface.EntityData.SegmentPath
     bundleInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -557,6 +565,7 @@ func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Pol
     policyDetails.EntityData.BundleName = "cisco_ios_xr"
     policyDetails.EntityData.ParentYangName = "bundle-interface"
     policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/" + policyDetails.EntityData.SegmentPath
     policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -596,6 +605,7 @@ func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     memberInterfaces.EntityData.BundleName = "cisco_ios_xr"
     memberInterfaces.EntityData.ParentYangName = "bundle-interface"
     memberInterfaces.EntityData.SegmentPath = "member-interfaces"
+    memberInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/" + memberInterfaces.EntityData.SegmentPath
     memberInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -617,6 +627,7 @@ func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -635,6 +646,7 @@ func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_M
     memberInterface.EntityData.BundleName = "cisco_ios_xr"
     memberInterface.EntityData.ParentYangName = "member-interfaces"
     memberInterface.EntityData.SegmentPath = "member-interface" + types.AddKeyToken(memberInterface.InterfaceName, "interface-name")
+    memberInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/" + memberInterface.EntityData.SegmentPath
     memberInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -695,6 +707,7 @@ func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     policyDetails.EntityData.BundleName = "cisco_ios_xr"
     policyDetails.EntityData.ParentYangName = "member-interface"
     policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/" + policyDetails.EntityData.SegmentPath
     policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -734,6 +747,7 @@ func (classTable *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
     classTable.EntityData.BundleName = "cisco_ios_xr"
     classTable.EntityData.ParentYangName = "member-interface"
     classTable.EntityData.SegmentPath = "class-table"
+    classTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/" + classTable.EntityData.SegmentPath
     classTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -755,6 +769,7 @@ func (classTable *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. QoS policy class name at level 1. The type is
     // string.
@@ -884,6 +899,7 @@ func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "class-table"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.LevelOneClassName, "level-one-class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -901,18 +917,22 @@ func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     class.EntityData.Children.Append("violate-action", types.YChild{"ViolateAction", &class.ViolateAction})
     class.EntityData.Children.Append("ip-mark", types.YChild{"IpMark", nil})
     for i := range class.IpMark {
+        types.SetYListKey(class.IpMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.IpMark[i]), types.YChild{"IpMark", class.IpMark[i]})
     }
     class.EntityData.Children.Append("common-mark", types.YChild{"CommonMark", nil})
     for i := range class.CommonMark {
+        types.SetYListKey(class.CommonMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.CommonMark[i]), types.YChild{"CommonMark", class.CommonMark[i]})
     }
     class.EntityData.Children.Append("mpls-mark", types.YChild{"MplsMark", nil})
     for i := range class.MplsMark {
+        types.SetYListKey(class.MplsMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.MplsMark[i]), types.YChild{"MplsMark", class.MplsMark[i]})
     }
     class.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range class.Wred {
+        types.SetYListKey(class.Wred[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.Wred[i]), types.YChild{"Wred", class.Wred[i]})
     }
     class.EntityData.Leafs = types.NewOrderedMap()
@@ -961,6 +981,7 @@ func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     configMaxRate.EntityData.BundleName = "cisco_ios_xr"
     configMaxRate.EntityData.ParentYangName = "class"
     configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + configMaxRate.EntityData.SegmentPath
     configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -994,6 +1015,7 @@ func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     configMinRate.EntityData.BundleName = "cisco_ios_xr"
     configMinRate.EntityData.ParentYangName = "class"
     configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + configMinRate.EntityData.SegmentPath
     configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1027,6 +1049,7 @@ func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
     configQueueLimit.EntityData.ParentYangName = "class"
     configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + configQueueLimit.EntityData.SegmentPath
     configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1060,6 +1083,7 @@ func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleIn
     configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerAverageRate.EntityData.ParentYangName = "class"
     configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + configPolicerAverageRate.EntityData.SegmentPath
     configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1093,6 +1117,7 @@ func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInter
     configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerPeakRate.EntityData.ParentYangName = "class"
     configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + configPolicerPeakRate.EntityData.SegmentPath
     configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1126,6 +1151,7 @@ func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleI
     configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerConformBurst.EntityData.ParentYangName = "class"
     configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + configPolicerConformBurst.EntityData.SegmentPath
     configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1159,6 +1185,7 @@ func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleIn
     configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerExcessBurst.EntityData.ParentYangName = "class"
     configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + configPolicerExcessBurst.EntityData.SegmentPath
     configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1193,6 +1220,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "class"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1200,6 +1228,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     conformAction.EntityData.Children = types.NewOrderedMap()
     conformAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range conformAction.Mark {
+        types.SetYListKey(conformAction.Mark[i], i)
         conformAction.EntityData.Children.Append(types.GetSegmentPath(conformAction.Mark[i]), types.YChild{"Mark", conformAction.Mark[i]})
     }
     conformAction.EntityData.Leafs = types.NewOrderedMap()
@@ -1215,6 +1244,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class_ConformAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -1228,7 +1258,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterf
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "conform-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/conform-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1263,6 +1294,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "class"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1270,6 +1302,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
     exceedAction.EntityData.Children = types.NewOrderedMap()
     exceedAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range exceedAction.Mark {
+        types.SetYListKey(exceedAction.Mark[i], i)
         exceedAction.EntityData.Children.Append(types.GetSegmentPath(exceedAction.Mark[i]), types.YChild{"Mark", exceedAction.Mark[i]})
     }
     exceedAction.EntityData.Leafs = types.NewOrderedMap()
@@ -1285,6 +1318,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class_ExceedAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -1298,7 +1332,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterf
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "exceed-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/exceed-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1333,6 +1368,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "class"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1340,6 +1376,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     violateAction.EntityData.Children = types.NewOrderedMap()
     violateAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range violateAction.Mark {
+        types.SetYListKey(violateAction.Mark[i], i)
         violateAction.EntityData.Children.Append(types.GetSegmentPath(violateAction.Mark[i]), types.YChild{"Mark", violateAction.Mark[i]})
     }
     violateAction.EntityData.Leafs = types.NewOrderedMap()
@@ -1355,6 +1392,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class_ViolateAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -1368,7 +1406,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterf
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "violate-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/violate-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1388,6 +1427,7 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterf
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class_IpMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -1401,7 +1441,8 @@ func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInte
     ipMark.EntityData.YangName = "ip-mark"
     ipMark.EntityData.BundleName = "cisco_ios_xr"
     ipMark.EntityData.ParentYangName = "class"
-    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.SegmentPath = "ip-mark" + types.AddNoKeyToken(ipMark)
+    ipMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + ipMark.EntityData.SegmentPath
     ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1421,6 +1462,7 @@ func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInte
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class_CommonMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -1434,7 +1476,8 @@ func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
     commonMark.EntityData.YangName = "common-mark"
     commonMark.EntityData.BundleName = "cisco_ios_xr"
     commonMark.EntityData.ParentYangName = "class"
-    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.SegmentPath = "common-mark" + types.AddNoKeyToken(commonMark)
+    commonMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + commonMark.EntityData.SegmentPath
     commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1454,6 +1497,7 @@ func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class_MplsMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -1467,7 +1511,8 @@ func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     mplsMark.EntityData.YangName = "mpls-mark"
     mplsMark.EntityData.BundleName = "cisco_ios_xr"
     mplsMark.EntityData.ParentYangName = "class"
-    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.SegmentPath = "mpls-mark" + types.AddNoKeyToken(mplsMark)
+    mplsMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + mplsMark.EntityData.SegmentPath
     mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1487,6 +1532,7 @@ func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // WREDMatchType. The type is DnxQoseaShowWred.
     WredMatchType interface{}
@@ -1520,7 +1566,8 @@ func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterf
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1558,6 +1605,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Me
     wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
     wredMatchValue.EntityData.ParentYangName = "wred"
     wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/wred/" + wredMatchValue.EntityData.SegmentPath
     wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1565,6 +1613,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Me
     wredMatchValue.EntityData.Children = types.NewOrderedMap()
     wredMatchValue.EntityData.Children.Append("dnx-qosea-show-red-match-value", types.YChild{"DnxQoseaShowRedMatchValue", nil})
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        types.SetYListKey(wredMatchValue.DnxQoseaShowRedMatchValue[i], i)
         wredMatchValue.EntityData.Children.Append(types.GetSegmentPath(wredMatchValue.DnxQoseaShowRedMatchValue[i]), types.YChild{"DnxQoseaShowRedMatchValue", wredMatchValue.DnxQoseaShowRedMatchValue[i]})
     }
     wredMatchValue.EntityData.Leafs = types.NewOrderedMap()
@@ -1579,6 +1628,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Me
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_ClassTable_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start value of a range. The type is interface{} with range: 0..255.
     RangeStart interface{}
@@ -1592,7 +1642,8 @@ func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleI
     dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
     dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
     dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
-    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value" + types.AddNoKeyToken(dnxQoseaShowRedMatchValue)
+    dnxQoseaShowRedMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/wred/wred-match-value/" + dnxQoseaShowRedMatchValue.EntityData.SegmentPath
     dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1626,6 +1677,7 @@ func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfac
     configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMinThreshold.EntityData.ParentYangName = "wred"
     configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/wred/" + configMinThreshold.EntityData.SegmentPath
     configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1659,6 +1711,7 @@ func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfac
     configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMaxThreshold.EntityData.ParentYangName = "wred"
     configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/class-table/class/wred/" + configMaxThreshold.EntityData.SegmentPath
     configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1690,6 +1743,7 @@ func (classTable *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassT
     classTable.EntityData.BundleName = "cisco_ios_xr"
     classTable.EntityData.ParentYangName = "bundle-interface"
     classTable.EntityData.SegmentPath = "class-table"
+    classTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/" + classTable.EntityData.SegmentPath
     classTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1711,6 +1765,7 @@ func (classTable *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassT
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. QoS policy class name at level 1. The type is
     // string.
@@ -1840,6 +1895,7 @@ func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "class-table"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.LevelOneClassName, "level-one-class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1857,18 +1913,22 @@ func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_
     class.EntityData.Children.Append("violate-action", types.YChild{"ViolateAction", &class.ViolateAction})
     class.EntityData.Children.Append("ip-mark", types.YChild{"IpMark", nil})
     for i := range class.IpMark {
+        types.SetYListKey(class.IpMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.IpMark[i]), types.YChild{"IpMark", class.IpMark[i]})
     }
     class.EntityData.Children.Append("common-mark", types.YChild{"CommonMark", nil})
     for i := range class.CommonMark {
+        types.SetYListKey(class.CommonMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.CommonMark[i]), types.YChild{"CommonMark", class.CommonMark[i]})
     }
     class.EntityData.Children.Append("mpls-mark", types.YChild{"MplsMark", nil})
     for i := range class.MplsMark {
+        types.SetYListKey(class.MplsMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.MplsMark[i]), types.YChild{"MplsMark", class.MplsMark[i]})
     }
     class.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range class.Wred {
+        types.SetYListKey(class.Wred[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.Wred[i]), types.YChild{"Wred", class.Wred[i]})
     }
     class.EntityData.Leafs = types.NewOrderedMap()
@@ -1917,6 +1977,7 @@ func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cla
     configMaxRate.EntityData.BundleName = "cisco_ios_xr"
     configMaxRate.EntityData.ParentYangName = "class"
     configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + configMaxRate.EntityData.SegmentPath
     configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1950,6 +2011,7 @@ func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cla
     configMinRate.EntityData.BundleName = "cisco_ios_xr"
     configMinRate.EntityData.ParentYangName = "class"
     configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + configMinRate.EntityData.SegmentPath
     configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1983,6 +2045,7 @@ func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
     configQueueLimit.EntityData.ParentYangName = "class"
     configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + configQueueLimit.EntityData.SegmentPath
     configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2016,6 +2079,7 @@ func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleIn
     configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerAverageRate.EntityData.ParentYangName = "class"
     configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + configPolicerAverageRate.EntityData.SegmentPath
     configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2049,6 +2113,7 @@ func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInter
     configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerPeakRate.EntityData.ParentYangName = "class"
     configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + configPolicerPeakRate.EntityData.SegmentPath
     configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2082,6 +2147,7 @@ func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleI
     configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerConformBurst.EntityData.ParentYangName = "class"
     configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + configPolicerConformBurst.EntityData.SegmentPath
     configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2115,6 +2181,7 @@ func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleIn
     configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerExcessBurst.EntityData.ParentYangName = "class"
     configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + configPolicerExcessBurst.EntityData.SegmentPath
     configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2149,6 +2216,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cla
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "class"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2156,6 +2224,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cla
     conformAction.EntityData.Children = types.NewOrderedMap()
     conformAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range conformAction.Mark {
+        types.SetYListKey(conformAction.Mark[i], i)
         conformAction.EntityData.Children.Append(types.GetSegmentPath(conformAction.Mark[i]), types.YChild{"Mark", conformAction.Mark[i]})
     }
     conformAction.EntityData.Leafs = types.NewOrderedMap()
@@ -2171,6 +2240,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cla
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class_ConformAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -2184,7 +2254,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_C
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "conform-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/conform-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2219,6 +2290,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Clas
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "class"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2226,6 +2298,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Clas
     exceedAction.EntityData.Children = types.NewOrderedMap()
     exceedAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range exceedAction.Mark {
+        types.SetYListKey(exceedAction.Mark[i], i)
         exceedAction.EntityData.Children.Append(types.GetSegmentPath(exceedAction.Mark[i]), types.YChild{"Mark", exceedAction.Mark[i]})
     }
     exceedAction.EntityData.Leafs = types.NewOrderedMap()
@@ -2241,6 +2314,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Clas
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class_ExceedAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -2254,7 +2328,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_C
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "exceed-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/exceed-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2289,6 +2364,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cla
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "class"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2296,6 +2372,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cla
     violateAction.EntityData.Children = types.NewOrderedMap()
     violateAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range violateAction.Mark {
+        types.SetYListKey(violateAction.Mark[i], i)
         violateAction.EntityData.Children.Append(types.GetSegmentPath(violateAction.Mark[i]), types.YChild{"Mark", violateAction.Mark[i]})
     }
     violateAction.EntityData.Leafs = types.NewOrderedMap()
@@ -2311,6 +2388,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cla
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class_ViolateAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -2324,7 +2402,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_C
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "violate-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/violate-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2344,6 +2423,7 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_C
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class_IpMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -2357,7 +2437,8 @@ func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable
     ipMark.EntityData.YangName = "ip-mark"
     ipMark.EntityData.BundleName = "cisco_ios_xr"
     ipMark.EntityData.ParentYangName = "class"
-    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.SegmentPath = "ip-mark" + types.AddNoKeyToken(ipMark)
+    ipMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + ipMark.EntityData.SegmentPath
     ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2377,6 +2458,7 @@ func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class_CommonMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -2390,7 +2472,8 @@ func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassT
     commonMark.EntityData.YangName = "common-mark"
     commonMark.EntityData.BundleName = "cisco_ios_xr"
     commonMark.EntityData.ParentYangName = "class"
-    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.SegmentPath = "common-mark" + types.AddNoKeyToken(commonMark)
+    commonMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + commonMark.EntityData.SegmentPath
     commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2410,6 +2493,7 @@ func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassT
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class_MplsMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -2423,7 +2507,8 @@ func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTab
     mplsMark.EntityData.YangName = "mpls-mark"
     mplsMark.EntityData.BundleName = "cisco_ios_xr"
     mplsMark.EntityData.ParentYangName = "class"
-    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.SegmentPath = "mpls-mark" + types.AddNoKeyToken(mplsMark)
+    mplsMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + mplsMark.EntityData.SegmentPath
     mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2443,6 +2528,7 @@ func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTab
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // WREDMatchType. The type is DnxQoseaShowWred.
     WredMatchType interface{}
@@ -2476,7 +2562,8 @@ func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_C
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2514,6 +2601,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cl
     wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
     wredMatchValue.EntityData.ParentYangName = "wred"
     wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/wred/" + wredMatchValue.EntityData.SegmentPath
     wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2521,6 +2609,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cl
     wredMatchValue.EntityData.Children = types.NewOrderedMap()
     wredMatchValue.EntityData.Children.Append("dnx-qosea-show-red-match-value", types.YChild{"DnxQoseaShowRedMatchValue", nil})
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        types.SetYListKey(wredMatchValue.DnxQoseaShowRedMatchValue[i], i)
         wredMatchValue.EntityData.Children.Append(types.GetSegmentPath(wredMatchValue.DnxQoseaShowRedMatchValue[i]), types.YChild{"DnxQoseaShowRedMatchValue", wredMatchValue.DnxQoseaShowRedMatchValue[i]})
     }
     wredMatchValue.EntityData.Leafs = types.NewOrderedMap()
@@ -2535,6 +2624,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Cl
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_ClassTable_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start value of a range. The type is interface{} with range: 0..255.
     RangeStart interface{}
@@ -2548,7 +2638,8 @@ func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleI
     dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
     dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
     dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
-    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value" + types.AddNoKeyToken(dnxQoseaShowRedMatchValue)
+    dnxQoseaShowRedMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/wred/wred-match-value/" + dnxQoseaShowRedMatchValue.EntityData.SegmentPath
     dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2582,6 +2673,7 @@ func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfac
     configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMinThreshold.EntityData.ParentYangName = "wred"
     configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/wred/" + configMinThreshold.EntityData.SegmentPath
     configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2615,6 +2707,7 @@ func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfac
     configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMaxThreshold.EntityData.ParentYangName = "wred"
     configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/class-table/class/wred/" + configMaxThreshold.EntityData.SegmentPath
     configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2646,6 +2739,7 @@ func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetEntityData() *types.Comm
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2667,6 +2761,7 @@ func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetEntityData() *types.Comm
 type PlatformQos_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2688,6 +2783,7 @@ func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetEntityData() *types.
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2749,6 +2845,7 @@ func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) 
     policyDetails.EntityData.BundleName = "cisco_ios_xr"
     policyDetails.EntityData.ParentYangName = "interface"
     policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/" + policyDetails.EntityData.SegmentPath
     policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2787,6 +2884,7 @@ func (output *PlatformQos_Nodes_Node_Interfaces_Interface_Output) GetEntityData(
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "interface"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2817,6 +2915,7 @@ func (qosClassTable *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
     qosClassTable.EntityData.BundleName = "cisco_ios_xr"
     qosClassTable.EntityData.ParentYangName = "output"
     qosClassTable.EntityData.SegmentPath = "qos-class-table"
+    qosClassTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/" + qosClassTable.EntityData.SegmentPath
     qosClassTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosClassTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosClassTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2838,6 +2937,7 @@ func (qosClassTable *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. QoS policy class name at level 1. The type is
     // string.
@@ -2967,6 +3067,7 @@ func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Cl
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "qos-class-table"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.LevelOneClassName, "level-one-class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2984,18 +3085,22 @@ func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Cl
     class.EntityData.Children.Append("violate-action", types.YChild{"ViolateAction", &class.ViolateAction})
     class.EntityData.Children.Append("ip-mark", types.YChild{"IpMark", nil})
     for i := range class.IpMark {
+        types.SetYListKey(class.IpMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.IpMark[i]), types.YChild{"IpMark", class.IpMark[i]})
     }
     class.EntityData.Children.Append("common-mark", types.YChild{"CommonMark", nil})
     for i := range class.CommonMark {
+        types.SetYListKey(class.CommonMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.CommonMark[i]), types.YChild{"CommonMark", class.CommonMark[i]})
     }
     class.EntityData.Children.Append("mpls-mark", types.YChild{"MplsMark", nil})
     for i := range class.MplsMark {
+        types.SetYListKey(class.MplsMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.MplsMark[i]), types.YChild{"MplsMark", class.MplsMark[i]})
     }
     class.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range class.Wred {
+        types.SetYListKey(class.Wred[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.Wred[i]), types.YChild{"Wred", class.Wred[i]})
     }
     class.EntityData.Leafs = types.NewOrderedMap()
@@ -3044,6 +3149,7 @@ func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
     configMaxRate.EntityData.BundleName = "cisco_ios_xr"
     configMaxRate.EntityData.ParentYangName = "class"
     configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + configMaxRate.EntityData.SegmentPath
     configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3077,6 +3183,7 @@ func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
     configMinRate.EntityData.BundleName = "cisco_ios_xr"
     configMinRate.EntityData.ParentYangName = "class"
     configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + configMinRate.EntityData.SegmentPath
     configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3110,6 +3217,7 @@ func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosCl
     configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
     configQueueLimit.EntityData.ParentYangName = "class"
     configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + configQueueLimit.EntityData.SegmentPath
     configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3143,6 +3251,7 @@ func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Outp
     configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerAverageRate.EntityData.ParentYangName = "class"
     configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + configPolicerAverageRate.EntityData.SegmentPath
     configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3176,6 +3285,7 @@ func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_
     configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerPeakRate.EntityData.ParentYangName = "class"
     configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + configPolicerPeakRate.EntityData.SegmentPath
     configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3209,6 +3319,7 @@ func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Out
     configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerConformBurst.EntityData.ParentYangName = "class"
     configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + configPolicerConformBurst.EntityData.SegmentPath
     configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3242,6 +3353,7 @@ func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Outp
     configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerExcessBurst.EntityData.ParentYangName = "class"
     configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + configPolicerExcessBurst.EntityData.SegmentPath
     configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3276,6 +3388,7 @@ func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "class"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3283,6 +3396,7 @@ func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
     conformAction.EntityData.Children = types.NewOrderedMap()
     conformAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range conformAction.Mark {
+        types.SetYListKey(conformAction.Mark[i], i)
         conformAction.EntityData.Children.Append(types.GetSegmentPath(conformAction.Mark[i]), types.YChild{"Mark", conformAction.Mark[i]})
     }
     conformAction.EntityData.Leafs = types.NewOrderedMap()
@@ -3298,6 +3412,7 @@ func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class_ConformAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -3311,7 +3426,8 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Cla
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "conform-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/conform-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3346,6 +3462,7 @@ func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassT
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "class"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3353,6 +3470,7 @@ func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassT
     exceedAction.EntityData.Children = types.NewOrderedMap()
     exceedAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range exceedAction.Mark {
+        types.SetYListKey(exceedAction.Mark[i], i)
         exceedAction.EntityData.Children.Append(types.GetSegmentPath(exceedAction.Mark[i]), types.YChild{"Mark", exceedAction.Mark[i]})
     }
     exceedAction.EntityData.Leafs = types.NewOrderedMap()
@@ -3368,6 +3486,7 @@ func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassT
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class_ExceedAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -3381,7 +3500,8 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Cla
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "exceed-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/exceed-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3416,6 +3536,7 @@ func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "class"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3423,6 +3544,7 @@ func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
     violateAction.EntityData.Children = types.NewOrderedMap()
     violateAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range violateAction.Mark {
+        types.SetYListKey(violateAction.Mark[i], i)
         violateAction.EntityData.Children.Append(types.GetSegmentPath(violateAction.Mark[i]), types.YChild{"Mark", violateAction.Mark[i]})
     }
     violateAction.EntityData.Leafs = types.NewOrderedMap()
@@ -3438,6 +3560,7 @@ func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClass
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class_ViolateAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -3451,7 +3574,8 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Cla
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "violate-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/violate-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3471,6 +3595,7 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Cla
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class_IpMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -3484,7 +3609,8 @@ func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_C
     ipMark.EntityData.YangName = "ip-mark"
     ipMark.EntityData.BundleName = "cisco_ios_xr"
     ipMark.EntityData.ParentYangName = "class"
-    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.SegmentPath = "ip-mark" + types.AddNoKeyToken(ipMark)
+    ipMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + ipMark.EntityData.SegmentPath
     ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3504,6 +3630,7 @@ func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_C
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class_CommonMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -3517,7 +3644,8 @@ func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTab
     commonMark.EntityData.YangName = "common-mark"
     commonMark.EntityData.BundleName = "cisco_ios_xr"
     commonMark.EntityData.ParentYangName = "class"
-    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.SegmentPath = "common-mark" + types.AddNoKeyToken(commonMark)
+    commonMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + commonMark.EntityData.SegmentPath
     commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3537,6 +3665,7 @@ func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTab
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class_MplsMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -3550,7 +3679,8 @@ func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable
     mplsMark.EntityData.YangName = "mpls-mark"
     mplsMark.EntityData.BundleName = "cisco_ios_xr"
     mplsMark.EntityData.ParentYangName = "class"
-    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.SegmentPath = "mpls-mark" + types.AddNoKeyToken(mplsMark)
+    mplsMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + mplsMark.EntityData.SegmentPath
     mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3570,6 +3700,7 @@ func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // WREDMatchType. The type is DnxQoseaShowWred.
     WredMatchType interface{}
@@ -3603,7 +3734,8 @@ func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Cla
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3641,6 +3773,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClas
     wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
     wredMatchValue.EntityData.ParentYangName = "wred"
     wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/wred/" + wredMatchValue.EntityData.SegmentPath
     wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3648,6 +3781,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClas
     wredMatchValue.EntityData.Children = types.NewOrderedMap()
     wredMatchValue.EntityData.Children.Append("dnx-qosea-show-red-match-value", types.YChild{"DnxQoseaShowRedMatchValue", nil})
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        types.SetYListKey(wredMatchValue.DnxQoseaShowRedMatchValue[i], i)
         wredMatchValue.EntityData.Children.Append(types.GetSegmentPath(wredMatchValue.DnxQoseaShowRedMatchValue[i]), types.YChild{"DnxQoseaShowRedMatchValue", wredMatchValue.DnxQoseaShowRedMatchValue[i]})
     }
     wredMatchValue.EntityData.Leafs = types.NewOrderedMap()
@@ -3662,6 +3796,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClas
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_QosClassTable_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start value of a range. The type is interface{} with range: 0..255.
     RangeStart interface{}
@@ -3675,7 +3810,8 @@ func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Out
     dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
     dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
     dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
-    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value" + types.AddNoKeyToken(dnxQoseaShowRedMatchValue)
+    dnxQoseaShowRedMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/wred/wred-match-value/" + dnxQoseaShowRedMatchValue.EntityData.SegmentPath
     dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3709,6 +3845,7 @@ func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Qos
     configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMinThreshold.EntityData.ParentYangName = "wred"
     configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/wred/" + configMinThreshold.EntityData.SegmentPath
     configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3742,6 +3879,7 @@ func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Qos
     configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMaxThreshold.EntityData.ParentYangName = "wred"
     configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/output/qos-class-table/class/wred/" + configMaxThreshold.EntityData.SegmentPath
     configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3773,6 +3911,7 @@ func (classTable *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable) GetEnt
     classTable.EntityData.BundleName = "cisco_ios_xr"
     classTable.EntityData.ParentYangName = "interface"
     classTable.EntityData.SegmentPath = "class-table"
+    classTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/" + classTable.EntityData.SegmentPath
     classTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3794,6 +3933,7 @@ func (classTable *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable) GetEnt
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. QoS policy class name at level 1. The type is
     // string.
@@ -3923,6 +4063,7 @@ func (class *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class) GetEn
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "class-table"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.LevelOneClassName, "level-one-class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3940,18 +4081,22 @@ func (class *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class) GetEn
     class.EntityData.Children.Append("violate-action", types.YChild{"ViolateAction", &class.ViolateAction})
     class.EntityData.Children.Append("ip-mark", types.YChild{"IpMark", nil})
     for i := range class.IpMark {
+        types.SetYListKey(class.IpMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.IpMark[i]), types.YChild{"IpMark", class.IpMark[i]})
     }
     class.EntityData.Children.Append("common-mark", types.YChild{"CommonMark", nil})
     for i := range class.CommonMark {
+        types.SetYListKey(class.CommonMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.CommonMark[i]), types.YChild{"CommonMark", class.CommonMark[i]})
     }
     class.EntityData.Children.Append("mpls-mark", types.YChild{"MplsMark", nil})
     for i := range class.MplsMark {
+        types.SetYListKey(class.MplsMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.MplsMark[i]), types.YChild{"MplsMark", class.MplsMark[i]})
     }
     class.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range class.Wred {
+        types.SetYListKey(class.Wred[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.Wred[i]), types.YChild{"Wred", class.Wred[i]})
     }
     class.EntityData.Leafs = types.NewOrderedMap()
@@ -4000,6 +4145,7 @@ func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Clas
     configMaxRate.EntityData.BundleName = "cisco_ios_xr"
     configMaxRate.EntityData.ParentYangName = "class"
     configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + configMaxRate.EntityData.SegmentPath
     configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4033,6 +4179,7 @@ func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Clas
     configMinRate.EntityData.BundleName = "cisco_ios_xr"
     configMinRate.EntityData.ParentYangName = "class"
     configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + configMinRate.EntityData.SegmentPath
     configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4066,6 +4213,7 @@ func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_C
     configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
     configQueueLimit.EntityData.ParentYangName = "class"
     configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + configQueueLimit.EntityData.SegmentPath
     configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4099,6 +4247,7 @@ func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Clas
     configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerAverageRate.EntityData.ParentYangName = "class"
     configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + configPolicerAverageRate.EntityData.SegmentPath
     configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4132,6 +4281,7 @@ func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTa
     configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerPeakRate.EntityData.ParentYangName = "class"
     configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + configPolicerPeakRate.EntityData.SegmentPath
     configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4165,6 +4315,7 @@ func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Cla
     configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerConformBurst.EntityData.ParentYangName = "class"
     configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + configPolicerConformBurst.EntityData.SegmentPath
     configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4198,6 +4349,7 @@ func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Clas
     configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerExcessBurst.EntityData.ParentYangName = "class"
     configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + configPolicerExcessBurst.EntityData.SegmentPath
     configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4232,6 +4384,7 @@ func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Clas
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "class"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4239,6 +4392,7 @@ func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Clas
     conformAction.EntityData.Children = types.NewOrderedMap()
     conformAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range conformAction.Mark {
+        types.SetYListKey(conformAction.Mark[i], i)
         conformAction.EntityData.Children.Append(types.GetSegmentPath(conformAction.Mark[i]), types.YChild{"Mark", conformAction.Mark[i]})
     }
     conformAction.EntityData.Leafs = types.NewOrderedMap()
@@ -4254,6 +4408,7 @@ func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Clas
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_ConformAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -4267,7 +4422,8 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_Conform
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "conform-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/conform-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4302,6 +4458,7 @@ func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "class"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4309,6 +4466,7 @@ func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class
     exceedAction.EntityData.Children = types.NewOrderedMap()
     exceedAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range exceedAction.Mark {
+        types.SetYListKey(exceedAction.Mark[i], i)
         exceedAction.EntityData.Children.Append(types.GetSegmentPath(exceedAction.Mark[i]), types.YChild{"Mark", exceedAction.Mark[i]})
     }
     exceedAction.EntityData.Leafs = types.NewOrderedMap()
@@ -4324,6 +4482,7 @@ func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_ExceedAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -4337,7 +4496,8 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_ExceedA
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "exceed-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/exceed-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4372,6 +4532,7 @@ func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Clas
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "class"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4379,6 +4540,7 @@ func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Clas
     violateAction.EntityData.Children = types.NewOrderedMap()
     violateAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range violateAction.Mark {
+        types.SetYListKey(violateAction.Mark[i], i)
         violateAction.EntityData.Children.Append(types.GetSegmentPath(violateAction.Mark[i]), types.YChild{"Mark", violateAction.Mark[i]})
     }
     violateAction.EntityData.Leafs = types.NewOrderedMap()
@@ -4394,6 +4556,7 @@ func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Clas
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_ViolateAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -4407,7 +4570,8 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_Violate
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "violate-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/violate-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4427,6 +4591,7 @@ func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_Violate
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_IpMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -4440,7 +4605,8 @@ func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_IpMar
     ipMark.EntityData.YangName = "ip-mark"
     ipMark.EntityData.BundleName = "cisco_ios_xr"
     ipMark.EntityData.ParentYangName = "class"
-    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.SegmentPath = "ip-mark" + types.AddNoKeyToken(ipMark)
+    ipMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + ipMark.EntityData.SegmentPath
     ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4460,6 +4626,7 @@ func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_IpMar
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_CommonMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -4473,7 +4640,8 @@ func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_C
     commonMark.EntityData.YangName = "common-mark"
     commonMark.EntityData.BundleName = "cisco_ios_xr"
     commonMark.EntityData.ParentYangName = "class"
-    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.SegmentPath = "common-mark" + types.AddNoKeyToken(commonMark)
+    commonMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + commonMark.EntityData.SegmentPath
     commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4493,6 +4661,7 @@ func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_C
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_MplsMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -4506,7 +4675,8 @@ func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_Mpl
     mplsMark.EntityData.YangName = "mpls-mark"
     mplsMark.EntityData.BundleName = "cisco_ios_xr"
     mplsMark.EntityData.ParentYangName = "class"
-    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.SegmentPath = "mpls-mark" + types.AddNoKeyToken(mplsMark)
+    mplsMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + mplsMark.EntityData.SegmentPath
     mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4526,6 +4696,7 @@ func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_Mpl
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // WREDMatchType. The type is DnxQoseaShowWred.
     WredMatchType interface{}
@@ -4559,7 +4730,8 @@ func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_Wred) G
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4597,6 +4769,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Cla
     wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
     wredMatchValue.EntityData.ParentYangName = "wred"
     wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/wred/" + wredMatchValue.EntityData.SegmentPath
     wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4604,6 +4777,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Cla
     wredMatchValue.EntityData.Children = types.NewOrderedMap()
     wredMatchValue.EntityData.Children.Append("dnx-qosea-show-red-match-value", types.YChild{"DnxQoseaShowRedMatchValue", nil})
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        types.SetYListKey(wredMatchValue.DnxQoseaShowRedMatchValue[i], i)
         wredMatchValue.EntityData.Children.Append(types.GetSegmentPath(wredMatchValue.DnxQoseaShowRedMatchValue[i]), types.YChild{"DnxQoseaShowRedMatchValue", wredMatchValue.DnxQoseaShowRedMatchValue[i]})
     }
     wredMatchValue.EntityData.Leafs = types.NewOrderedMap()
@@ -4618,6 +4792,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Cla
 type PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start value of a range. The type is interface{} with range: 0..255.
     RangeStart interface{}
@@ -4631,7 +4806,8 @@ func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Cla
     dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
     dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
     dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
-    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value" + types.AddNoKeyToken(dnxQoseaShowRedMatchValue)
+    dnxQoseaShowRedMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/wred/wred-match-value/" + dnxQoseaShowRedMatchValue.EntityData.SegmentPath
     dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4665,6 +4841,7 @@ func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable
     configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMinThreshold.EntityData.ParentYangName = "wred"
     configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/wred/" + configMinThreshold.EntityData.SegmentPath
     configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4698,6 +4875,7 @@ func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_ClassTable
     configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMaxThreshold.EntityData.ParentYangName = "wred"
     configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/interfaces/interface/class-table/class/wred/" + configMaxThreshold.EntityData.SegmentPath
     configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4729,6 +4907,7 @@ func (qosInterfaces *PlatformQos_Nodes_Node_QosInterfaces) GetEntityData() *type
     qosInterfaces.EntityData.BundleName = "cisco_ios_xr"
     qosInterfaces.EntityData.ParentYangName = "node"
     qosInterfaces.EntityData.SegmentPath = "qos-interfaces"
+    qosInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/" + qosInterfaces.EntityData.SegmentPath
     qosInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4750,6 +4929,7 @@ func (qosInterfaces *PlatformQos_Nodes_Node_QosInterfaces) GetEntityData() *type
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4768,6 +4948,7 @@ func (qosInterface *PlatformQos_Nodes_Node_QosInterfaces_QosInterface) GetEntity
     qosInterface.EntityData.BundleName = "cisco_ios_xr"
     qosInterface.EntityData.ParentYangName = "qos-interfaces"
     qosInterface.EntityData.SegmentPath = "qos-interface" + types.AddKeyToken(qosInterface.InterfaceName, "interface-name")
+    qosInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/" + qosInterface.EntityData.SegmentPath
     qosInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4799,6 +4980,7 @@ func (input *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "qos-interface"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4829,6 +5011,7 @@ func (qosClassTable *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
     qosClassTable.EntityData.BundleName = "cisco_ios_xr"
     qosClassTable.EntityData.ParentYangName = "input"
     qosClassTable.EntityData.SegmentPath = "qos-class-table"
+    qosClassTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/" + qosClassTable.EntityData.SegmentPath
     qosClassTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosClassTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosClassTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4850,6 +5033,7 @@ func (qosClassTable *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. QoS policy class name at level 1. The type is
     // string.
@@ -4979,6 +5163,7 @@ func (class *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTab
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "qos-class-table"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.LevelOneClassName, "level-one-class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4996,18 +5181,22 @@ func (class *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTab
     class.EntityData.Children.Append("violate-action", types.YChild{"ViolateAction", &class.ViolateAction})
     class.EntityData.Children.Append("ip-mark", types.YChild{"IpMark", nil})
     for i := range class.IpMark {
+        types.SetYListKey(class.IpMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.IpMark[i]), types.YChild{"IpMark", class.IpMark[i]})
     }
     class.EntityData.Children.Append("common-mark", types.YChild{"CommonMark", nil})
     for i := range class.CommonMark {
+        types.SetYListKey(class.CommonMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.CommonMark[i]), types.YChild{"CommonMark", class.CommonMark[i]})
     }
     class.EntityData.Children.Append("mpls-mark", types.YChild{"MplsMark", nil})
     for i := range class.MplsMark {
+        types.SetYListKey(class.MplsMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.MplsMark[i]), types.YChild{"MplsMark", class.MplsMark[i]})
     }
     class.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range class.Wred {
+        types.SetYListKey(class.Wred[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.Wred[i]), types.YChild{"Wred", class.Wred[i]})
     }
     class.EntityData.Leafs = types.NewOrderedMap()
@@ -5056,6 +5245,7 @@ func (configMaxRate *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
     configMaxRate.EntityData.BundleName = "cisco_ios_xr"
     configMaxRate.EntityData.ParentYangName = "class"
     configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + configMaxRate.EntityData.SegmentPath
     configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5089,6 +5279,7 @@ func (configMinRate *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
     configMinRate.EntityData.BundleName = "cisco_ios_xr"
     configMinRate.EntityData.ParentYangName = "class"
     configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + configMinRate.EntityData.SegmentPath
     configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5122,6 +5313,7 @@ func (configQueueLimit *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_
     configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
     configQueueLimit.EntityData.ParentYangName = "class"
     configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + configQueueLimit.EntityData.SegmentPath
     configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5155,6 +5347,7 @@ func (configPolicerAverageRate *PlatformQos_Nodes_Node_QosInterfaces_QosInterfac
     configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerAverageRate.EntityData.ParentYangName = "class"
     configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + configPolicerAverageRate.EntityData.SegmentPath
     configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5188,6 +5381,7 @@ func (configPolicerPeakRate *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_I
     configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerPeakRate.EntityData.ParentYangName = "class"
     configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + configPolicerPeakRate.EntityData.SegmentPath
     configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5221,6 +5415,7 @@ func (configPolicerConformBurst *PlatformQos_Nodes_Node_QosInterfaces_QosInterfa
     configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerConformBurst.EntityData.ParentYangName = "class"
     configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + configPolicerConformBurst.EntityData.SegmentPath
     configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5254,6 +5449,7 @@ func (configPolicerExcessBurst *PlatformQos_Nodes_Node_QosInterfaces_QosInterfac
     configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerExcessBurst.EntityData.ParentYangName = "class"
     configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + configPolicerExcessBurst.EntityData.SegmentPath
     configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5288,6 +5484,7 @@ func (conformAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "class"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5295,6 +5492,7 @@ func (conformAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
     conformAction.EntityData.Children = types.NewOrderedMap()
     conformAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range conformAction.Mark {
+        types.SetYListKey(conformAction.Mark[i], i)
         conformAction.EntityData.Children.Append(types.GetSegmentPath(conformAction.Mark[i]), types.YChild{"Mark", conformAction.Mark[i]})
     }
     conformAction.EntityData.Leafs = types.NewOrderedMap()
@@ -5310,6 +5508,7 @@ func (conformAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class_ConformAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -5323,7 +5522,8 @@ func (mark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTabl
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "conform-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/conform-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5358,6 +5558,7 @@ func (exceedAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosC
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "class"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5365,6 +5566,7 @@ func (exceedAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosC
     exceedAction.EntityData.Children = types.NewOrderedMap()
     exceedAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range exceedAction.Mark {
+        types.SetYListKey(exceedAction.Mark[i], i)
         exceedAction.EntityData.Children.Append(types.GetSegmentPath(exceedAction.Mark[i]), types.YChild{"Mark", exceedAction.Mark[i]})
     }
     exceedAction.EntityData.Leafs = types.NewOrderedMap()
@@ -5380,6 +5582,7 @@ func (exceedAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosC
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class_ExceedAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -5393,7 +5596,8 @@ func (mark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTabl
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "exceed-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/exceed-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5428,6 +5632,7 @@ func (violateAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "class"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5435,6 +5640,7 @@ func (violateAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
     violateAction.EntityData.Children = types.NewOrderedMap()
     violateAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range violateAction.Mark {
+        types.SetYListKey(violateAction.Mark[i], i)
         violateAction.EntityData.Children.Append(types.GetSegmentPath(violateAction.Mark[i]), types.YChild{"Mark", violateAction.Mark[i]})
     }
     violateAction.EntityData.Leafs = types.NewOrderedMap()
@@ -5450,6 +5656,7 @@ func (violateAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qos
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class_ViolateAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -5463,7 +5670,8 @@ func (mark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTabl
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "violate-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/violate-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5483,6 +5691,7 @@ func (mark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTabl
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class_IpMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -5496,7 +5705,8 @@ func (ipMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTa
     ipMark.EntityData.YangName = "ip-mark"
     ipMark.EntityData.BundleName = "cisco_ios_xr"
     ipMark.EntityData.ParentYangName = "class"
-    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.SegmentPath = "ip-mark" + types.AddNoKeyToken(ipMark)
+    ipMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + ipMark.EntityData.SegmentPath
     ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5516,6 +5726,7 @@ func (ipMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTa
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class_CommonMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -5529,7 +5740,8 @@ func (commonMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosCla
     commonMark.EntityData.YangName = "common-mark"
     commonMark.EntityData.BundleName = "cisco_ios_xr"
     commonMark.EntityData.ParentYangName = "class"
-    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.SegmentPath = "common-mark" + types.AddNoKeyToken(commonMark)
+    commonMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + commonMark.EntityData.SegmentPath
     commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5549,6 +5761,7 @@ func (commonMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosCla
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class_MplsMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -5562,7 +5775,8 @@ func (mplsMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClass
     mplsMark.EntityData.YangName = "mpls-mark"
     mplsMark.EntityData.BundleName = "cisco_ios_xr"
     mplsMark.EntityData.ParentYangName = "class"
-    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.SegmentPath = "mpls-mark" + types.AddNoKeyToken(mplsMark)
+    mplsMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + mplsMark.EntityData.SegmentPath
     mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5582,6 +5796,7 @@ func (mplsMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClass
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // WREDMatchType. The type is DnxQoseaShowWred.
     WredMatchType interface{}
@@ -5615,7 +5830,8 @@ func (wred *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTabl
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5653,6 +5869,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qo
     wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
     wredMatchValue.EntityData.ParentYangName = "wred"
     wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/wred/" + wredMatchValue.EntityData.SegmentPath
     wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5660,6 +5877,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qo
     wredMatchValue.EntityData.Children = types.NewOrderedMap()
     wredMatchValue.EntityData.Children.Append("dnx-qosea-show-red-match-value", types.YChild{"DnxQoseaShowRedMatchValue", nil})
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        types.SetYListKey(wredMatchValue.DnxQoseaShowRedMatchValue[i], i)
         wredMatchValue.EntityData.Children.Append(types.GetSegmentPath(wredMatchValue.DnxQoseaShowRedMatchValue[i]), types.YChild{"DnxQoseaShowRedMatchValue", wredMatchValue.DnxQoseaShowRedMatchValue[i]})
     }
     wredMatchValue.EntityData.Leafs = types.NewOrderedMap()
@@ -5674,6 +5892,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_Qo
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Input_QosClassTable_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start value of a range. The type is interface{} with range: 0..255.
     RangeStart interface{}
@@ -5687,7 +5906,8 @@ func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_QosInterfaces_QosInterfa
     dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
     dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
     dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
-    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value" + types.AddNoKeyToken(dnxQoseaShowRedMatchValue)
+    dnxQoseaShowRedMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/wred/wred-match-value/" + dnxQoseaShowRedMatchValue.EntityData.SegmentPath
     dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5721,6 +5941,7 @@ func (configMinThreshold *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Inpu
     configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMinThreshold.EntityData.ParentYangName = "wred"
     configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/wred/" + configMinThreshold.EntityData.SegmentPath
     configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5754,6 +5975,7 @@ func (configMaxThreshold *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Inpu
     configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMaxThreshold.EntityData.ParentYangName = "wred"
     configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/input/qos-class-table/class/wred/" + configMaxThreshold.EntityData.SegmentPath
     configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5784,6 +6006,7 @@ func (output *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output) GetEntit
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "qos-interface"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5814,6 +6037,7 @@ func (qosClassTable *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
     qosClassTable.EntityData.BundleName = "cisco_ios_xr"
     qosClassTable.EntityData.ParentYangName = "output"
     qosClassTable.EntityData.SegmentPath = "qos-class-table"
+    qosClassTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/" + qosClassTable.EntityData.SegmentPath
     qosClassTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosClassTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosClassTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5835,6 +6059,7 @@ func (qosClassTable *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. QoS policy class name at level 1. The type is
     // string.
@@ -5964,6 +6189,7 @@ func (class *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTa
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "qos-class-table"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.LevelOneClassName, "level-one-class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5981,18 +6207,22 @@ func (class *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTa
     class.EntityData.Children.Append("violate-action", types.YChild{"ViolateAction", &class.ViolateAction})
     class.EntityData.Children.Append("ip-mark", types.YChild{"IpMark", nil})
     for i := range class.IpMark {
+        types.SetYListKey(class.IpMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.IpMark[i]), types.YChild{"IpMark", class.IpMark[i]})
     }
     class.EntityData.Children.Append("common-mark", types.YChild{"CommonMark", nil})
     for i := range class.CommonMark {
+        types.SetYListKey(class.CommonMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.CommonMark[i]), types.YChild{"CommonMark", class.CommonMark[i]})
     }
     class.EntityData.Children.Append("mpls-mark", types.YChild{"MplsMark", nil})
     for i := range class.MplsMark {
+        types.SetYListKey(class.MplsMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.MplsMark[i]), types.YChild{"MplsMark", class.MplsMark[i]})
     }
     class.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range class.Wred {
+        types.SetYListKey(class.Wred[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.Wred[i]), types.YChild{"Wred", class.Wred[i]})
     }
     class.EntityData.Leafs = types.NewOrderedMap()
@@ -6041,6 +6271,7 @@ func (configMaxRate *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
     configMaxRate.EntityData.BundleName = "cisco_ios_xr"
     configMaxRate.EntityData.ParentYangName = "class"
     configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + configMaxRate.EntityData.SegmentPath
     configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6074,6 +6305,7 @@ func (configMinRate *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
     configMinRate.EntityData.BundleName = "cisco_ios_xr"
     configMinRate.EntityData.ParentYangName = "class"
     configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + configMinRate.EntityData.SegmentPath
     configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6107,6 +6339,7 @@ func (configQueueLimit *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output
     configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
     configQueueLimit.EntityData.ParentYangName = "class"
     configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + configQueueLimit.EntityData.SegmentPath
     configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6140,6 +6373,7 @@ func (configPolicerAverageRate *PlatformQos_Nodes_Node_QosInterfaces_QosInterfac
     configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerAverageRate.EntityData.ParentYangName = "class"
     configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + configPolicerAverageRate.EntityData.SegmentPath
     configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6173,6 +6407,7 @@ func (configPolicerPeakRate *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_O
     configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerPeakRate.EntityData.ParentYangName = "class"
     configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + configPolicerPeakRate.EntityData.SegmentPath
     configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6206,6 +6441,7 @@ func (configPolicerConformBurst *PlatformQos_Nodes_Node_QosInterfaces_QosInterfa
     configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerConformBurst.EntityData.ParentYangName = "class"
     configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + configPolicerConformBurst.EntityData.SegmentPath
     configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6239,6 +6475,7 @@ func (configPolicerExcessBurst *PlatformQos_Nodes_Node_QosInterfaces_QosInterfac
     configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerExcessBurst.EntityData.ParentYangName = "class"
     configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + configPolicerExcessBurst.EntityData.SegmentPath
     configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6273,6 +6510,7 @@ func (conformAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "class"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6280,6 +6518,7 @@ func (conformAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
     conformAction.EntityData.Children = types.NewOrderedMap()
     conformAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range conformAction.Mark {
+        types.SetYListKey(conformAction.Mark[i], i)
         conformAction.EntityData.Children.Append(types.GetSegmentPath(conformAction.Mark[i]), types.YChild{"Mark", conformAction.Mark[i]})
     }
     conformAction.EntityData.Leafs = types.NewOrderedMap()
@@ -6295,6 +6534,7 @@ func (conformAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class_ConformAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -6308,7 +6548,8 @@ func (mark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTab
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "conform-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/conform-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6343,6 +6584,7 @@ func (exceedAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qos
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "class"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6350,6 +6592,7 @@ func (exceedAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qos
     exceedAction.EntityData.Children = types.NewOrderedMap()
     exceedAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range exceedAction.Mark {
+        types.SetYListKey(exceedAction.Mark[i], i)
         exceedAction.EntityData.Children.Append(types.GetSegmentPath(exceedAction.Mark[i]), types.YChild{"Mark", exceedAction.Mark[i]})
     }
     exceedAction.EntityData.Leafs = types.NewOrderedMap()
@@ -6365,6 +6608,7 @@ func (exceedAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qos
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class_ExceedAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -6378,7 +6622,8 @@ func (mark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTab
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "exceed-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/exceed-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6413,6 +6658,7 @@ func (violateAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "class"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6420,6 +6666,7 @@ func (violateAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
     violateAction.EntityData.Children = types.NewOrderedMap()
     violateAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range violateAction.Mark {
+        types.SetYListKey(violateAction.Mark[i], i)
         violateAction.EntityData.Children.Append(types.GetSegmentPath(violateAction.Mark[i]), types.YChild{"Mark", violateAction.Mark[i]})
     }
     violateAction.EntityData.Leafs = types.NewOrderedMap()
@@ -6435,6 +6682,7 @@ func (violateAction *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Qo
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class_ViolateAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -6448,7 +6696,8 @@ func (mark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTab
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "violate-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/violate-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6468,6 +6717,7 @@ func (mark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTab
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class_IpMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -6481,7 +6731,8 @@ func (ipMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassT
     ipMark.EntityData.YangName = "ip-mark"
     ipMark.EntityData.BundleName = "cisco_ios_xr"
     ipMark.EntityData.ParentYangName = "class"
-    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.SegmentPath = "ip-mark" + types.AddNoKeyToken(ipMark)
+    ipMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + ipMark.EntityData.SegmentPath
     ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6501,6 +6752,7 @@ func (ipMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassT
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class_CommonMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -6514,7 +6766,8 @@ func (commonMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosCl
     commonMark.EntityData.YangName = "common-mark"
     commonMark.EntityData.BundleName = "cisco_ios_xr"
     commonMark.EntityData.ParentYangName = "class"
-    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.SegmentPath = "common-mark" + types.AddNoKeyToken(commonMark)
+    commonMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + commonMark.EntityData.SegmentPath
     commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6534,6 +6787,7 @@ func (commonMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosCl
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class_MplsMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -6547,7 +6801,8 @@ func (mplsMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClas
     mplsMark.EntityData.YangName = "mpls-mark"
     mplsMark.EntityData.BundleName = "cisco_ios_xr"
     mplsMark.EntityData.ParentYangName = "class"
-    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.SegmentPath = "mpls-mark" + types.AddNoKeyToken(mplsMark)
+    mplsMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + mplsMark.EntityData.SegmentPath
     mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6567,6 +6822,7 @@ func (mplsMark *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClas
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // WREDMatchType. The type is DnxQoseaShowWred.
     WredMatchType interface{}
@@ -6600,7 +6856,8 @@ func (wred *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTab
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6638,6 +6895,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Q
     wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
     wredMatchValue.EntityData.ParentYangName = "wred"
     wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/wred/" + wredMatchValue.EntityData.SegmentPath
     wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6645,6 +6903,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Q
     wredMatchValue.EntityData.Children = types.NewOrderedMap()
     wredMatchValue.EntityData.Children.Append("dnx-qosea-show-red-match-value", types.YChild{"DnxQoseaShowRedMatchValue", nil})
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        types.SetYListKey(wredMatchValue.DnxQoseaShowRedMatchValue[i], i)
         wredMatchValue.EntityData.Children.Append(types.GetSegmentPath(wredMatchValue.DnxQoseaShowRedMatchValue[i]), types.YChild{"DnxQoseaShowRedMatchValue", wredMatchValue.DnxQoseaShowRedMatchValue[i]})
     }
     wredMatchValue.EntityData.Leafs = types.NewOrderedMap()
@@ -6659,6 +6918,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_Q
 type PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Output_QosClassTable_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start value of a range. The type is interface{} with range: 0..255.
     RangeStart interface{}
@@ -6672,7 +6932,8 @@ func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_QosInterfaces_QosInterfa
     dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
     dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
     dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
-    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value" + types.AddNoKeyToken(dnxQoseaShowRedMatchValue)
+    dnxQoseaShowRedMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/wred/wred-match-value/" + dnxQoseaShowRedMatchValue.EntityData.SegmentPath
     dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6706,6 +6967,7 @@ func (configMinThreshold *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Outp
     configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMinThreshold.EntityData.ParentYangName = "wred"
     configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/wred/" + configMinThreshold.EntityData.SegmentPath
     configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6739,6 +7001,7 @@ func (configMaxThreshold *PlatformQos_Nodes_Node_QosInterfaces_QosInterface_Outp
     configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMaxThreshold.EntityData.ParentYangName = "wred"
     configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/qos-interfaces/qos-interface/output/qos-class-table/class/wred/" + configMaxThreshold.EntityData.SegmentPath
     configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6770,6 +7033,7 @@ func (bundleInterfaceSingles *PlatformQos_Nodes_Node_BundleInterfaceSingles) Get
     bundleInterfaceSingles.EntityData.BundleName = "cisco_ios_xr"
     bundleInterfaceSingles.EntityData.ParentYangName = "node"
     bundleInterfaceSingles.EntityData.SegmentPath = "bundle-interface-singles"
+    bundleInterfaceSingles.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/" + bundleInterfaceSingles.EntityData.SegmentPath
     bundleInterfaceSingles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterfaceSingles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterfaceSingles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6791,6 +7055,7 @@ func (bundleInterfaceSingles *PlatformQos_Nodes_Node_BundleInterfaceSingles) Get
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -6812,6 +7077,7 @@ func (bundleInterfaceSingle *PlatformQos_Nodes_Node_BundleInterfaceSingles_Bundl
     bundleInterfaceSingle.EntityData.BundleName = "cisco_ios_xr"
     bundleInterfaceSingle.EntityData.ParentYangName = "bundle-interface-singles"
     bundleInterfaceSingle.EntityData.SegmentPath = "bundle-interface-single" + types.AddKeyToken(bundleInterfaceSingle.InterfaceName, "interface-name")
+    bundleInterfaceSingle.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/" + bundleInterfaceSingle.EntityData.SegmentPath
     bundleInterfaceSingle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterfaceSingle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterfaceSingle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6873,6 +7139,7 @@ func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     policyDetails.EntityData.BundleName = "cisco_ios_xr"
     policyDetails.EntityData.ParentYangName = "bundle-interface-single"
     policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/" + policyDetails.EntityData.SegmentPath
     policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6912,6 +7179,7 @@ func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInte
     memberInterfaces.EntityData.BundleName = "cisco_ios_xr"
     memberInterfaces.EntityData.ParentYangName = "bundle-interface-single"
     memberInterfaces.EntityData.SegmentPath = "member-interfaces"
+    memberInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/" + memberInterfaces.EntityData.SegmentPath
     memberInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6933,6 +7201,7 @@ func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInte
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Member interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -6951,6 +7220,7 @@ func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInter
     memberInterface.EntityData.BundleName = "cisco_ios_xr"
     memberInterface.EntityData.ParentYangName = "member-interfaces"
     memberInterface.EntityData.SegmentPath = "member-interface" + types.AddKeyToken(memberInterface.InterfaceName, "interface-name")
+    memberInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/" + memberInterface.EntityData.SegmentPath
     memberInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7011,6 +7281,7 @@ func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     policyDetails.EntityData.BundleName = "cisco_ios_xr"
     policyDetails.EntityData.ParentYangName = "member-interface"
     policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/" + policyDetails.EntityData.SegmentPath
     policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7050,6 +7321,7 @@ func (classTable *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceS
     classTable.EntityData.BundleName = "cisco_ios_xr"
     classTable.EntityData.ParentYangName = "member-interface"
     classTable.EntityData.SegmentPath = "class-table"
+    classTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/" + classTable.EntityData.SegmentPath
     classTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7071,6 +7343,7 @@ func (classTable *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceS
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. QoS policy class name at level 1. The type is
     // string.
@@ -7200,6 +7473,7 @@ func (class *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "class-table"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.LevelOneClassName, "level-one-class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7217,18 +7491,22 @@ func (class *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle
     class.EntityData.Children.Append("violate-action", types.YChild{"ViolateAction", &class.ViolateAction})
     class.EntityData.Children.Append("ip-mark", types.YChild{"IpMark", nil})
     for i := range class.IpMark {
+        types.SetYListKey(class.IpMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.IpMark[i]), types.YChild{"IpMark", class.IpMark[i]})
     }
     class.EntityData.Children.Append("common-mark", types.YChild{"CommonMark", nil})
     for i := range class.CommonMark {
+        types.SetYListKey(class.CommonMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.CommonMark[i]), types.YChild{"CommonMark", class.CommonMark[i]})
     }
     class.EntityData.Children.Append("mpls-mark", types.YChild{"MplsMark", nil})
     for i := range class.MplsMark {
+        types.SetYListKey(class.MplsMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.MplsMark[i]), types.YChild{"MplsMark", class.MplsMark[i]})
     }
     class.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range class.Wred {
+        types.SetYListKey(class.Wred[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.Wred[i]), types.YChild{"Wred", class.Wred[i]})
     }
     class.EntityData.Leafs = types.NewOrderedMap()
@@ -7277,6 +7555,7 @@ func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     configMaxRate.EntityData.BundleName = "cisco_ios_xr"
     configMaxRate.EntityData.ParentYangName = "class"
     configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + configMaxRate.EntityData.SegmentPath
     configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7310,6 +7589,7 @@ func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     configMinRate.EntityData.BundleName = "cisco_ios_xr"
     configMinRate.EntityData.ParentYangName = "class"
     configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + configMinRate.EntityData.SegmentPath
     configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7343,6 +7623,7 @@ func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInte
     configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
     configQueueLimit.EntityData.ParentYangName = "class"
     configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + configQueueLimit.EntityData.SegmentPath
     configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7376,6 +7657,7 @@ func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_Bu
     configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerAverageRate.EntityData.ParentYangName = "class"
     configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + configPolicerAverageRate.EntityData.SegmentPath
     configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7409,6 +7691,7 @@ func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_Bundl
     configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerPeakRate.EntityData.ParentYangName = "class"
     configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + configPolicerPeakRate.EntityData.SegmentPath
     configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7442,6 +7725,7 @@ func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaceSingles_B
     configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerConformBurst.EntityData.ParentYangName = "class"
     configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + configPolicerConformBurst.EntityData.SegmentPath
     configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7475,6 +7759,7 @@ func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaceSingles_Bu
     configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerExcessBurst.EntityData.ParentYangName = "class"
     configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + configPolicerExcessBurst.EntityData.SegmentPath
     configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7509,6 +7794,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "class"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7516,6 +7802,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     conformAction.EntityData.Children = types.NewOrderedMap()
     conformAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range conformAction.Mark {
+        types.SetYListKey(conformAction.Mark[i], i)
         conformAction.EntityData.Children.Append(types.GetSegmentPath(conformAction.Mark[i]), types.YChild{"Mark", conformAction.Mark[i]})
     }
     conformAction.EntityData.Leafs = types.NewOrderedMap()
@@ -7531,6 +7818,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class_ConformAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -7544,7 +7832,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "conform-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/conform-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7579,6 +7868,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfac
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "class"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7586,6 +7876,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfac
     exceedAction.EntityData.Children = types.NewOrderedMap()
     exceedAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range exceedAction.Mark {
+        types.SetYListKey(exceedAction.Mark[i], i)
         exceedAction.EntityData.Children.Append(types.GetSegmentPath(exceedAction.Mark[i]), types.YChild{"Mark", exceedAction.Mark[i]})
     }
     exceedAction.EntityData.Leafs = types.NewOrderedMap()
@@ -7601,6 +7892,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfac
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class_ExceedAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -7614,7 +7906,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "exceed-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/exceed-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7649,6 +7942,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "class"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7656,6 +7950,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     violateAction.EntityData.Children = types.NewOrderedMap()
     violateAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range violateAction.Mark {
+        types.SetYListKey(violateAction.Mark[i], i)
         violateAction.EntityData.Children.Append(types.GetSegmentPath(violateAction.Mark[i]), types.YChild{"Mark", violateAction.Mark[i]})
     }
     violateAction.EntityData.Leafs = types.NewOrderedMap()
@@ -7671,6 +7966,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class_ViolateAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -7684,7 +7980,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "violate-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/violate-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7704,6 +8001,7 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class_IpMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -7717,7 +8015,8 @@ func (ipMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingl
     ipMark.EntityData.YangName = "ip-mark"
     ipMark.EntityData.BundleName = "cisco_ios_xr"
     ipMark.EntityData.ParentYangName = "class"
-    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.SegmentPath = "ip-mark" + types.AddNoKeyToken(ipMark)
+    ipMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + ipMark.EntityData.SegmentPath
     ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7737,6 +8036,7 @@ func (ipMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingl
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class_CommonMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -7750,7 +8050,8 @@ func (commonMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceS
     commonMark.EntityData.YangName = "common-mark"
     commonMark.EntityData.BundleName = "cisco_ios_xr"
     commonMark.EntityData.ParentYangName = "class"
-    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.SegmentPath = "common-mark" + types.AddNoKeyToken(commonMark)
+    commonMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + commonMark.EntityData.SegmentPath
     commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7770,6 +8071,7 @@ func (commonMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceS
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class_MplsMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -7783,7 +8085,8 @@ func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSin
     mplsMark.EntityData.YangName = "mpls-mark"
     mplsMark.EntityData.BundleName = "cisco_ios_xr"
     mplsMark.EntityData.ParentYangName = "class"
-    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.SegmentPath = "mpls-mark" + types.AddNoKeyToken(mplsMark)
+    mplsMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + mplsMark.EntityData.SegmentPath
     mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7803,6 +8106,7 @@ func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSin
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // WREDMatchType. The type is DnxQoseaShowWred.
     WredMatchType interface{}
@@ -7836,7 +8140,8 @@ func (wred *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7874,6 +8179,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterf
     wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
     wredMatchValue.EntityData.ParentYangName = "wred"
     wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/wred/" + wredMatchValue.EntityData.SegmentPath
     wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7881,6 +8187,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterf
     wredMatchValue.EntityData.Children = types.NewOrderedMap()
     wredMatchValue.EntityData.Children.Append("dnx-qosea-show-red-match-value", types.YChild{"DnxQoseaShowRedMatchValue", nil})
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        types.SetYListKey(wredMatchValue.DnxQoseaShowRedMatchValue[i], i)
         wredMatchValue.EntityData.Children.Append(types.GetSegmentPath(wredMatchValue.DnxQoseaShowRedMatchValue[i]), types.YChild{"DnxQoseaShowRedMatchValue", wredMatchValue.DnxQoseaShowRedMatchValue[i]})
     }
     wredMatchValue.EntityData.Leafs = types.NewOrderedMap()
@@ -7895,6 +8202,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterf
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_ClassTable_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start value of a range. The type is interface{} with range: 0..255.
     RangeStart interface{}
@@ -7908,7 +8216,8 @@ func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_B
     dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
     dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
     dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
-    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value" + types.AddNoKeyToken(dnxQoseaShowRedMatchValue)
+    dnxQoseaShowRedMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/wred/wred-match-value/" + dnxQoseaShowRedMatchValue.EntityData.SegmentPath
     dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7942,6 +8251,7 @@ func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleIn
     configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMinThreshold.EntityData.ParentYangName = "wred"
     configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/wred/" + configMinThreshold.EntityData.SegmentPath
     configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7975,6 +8285,7 @@ func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleIn
     configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMaxThreshold.EntityData.ParentYangName = "wred"
     configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/member-interfaces/member-interface/class-table/class/wred/" + configMaxThreshold.EntityData.SegmentPath
     configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8006,6 +8317,7 @@ func (classTable *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceS
     classTable.EntityData.BundleName = "cisco_ios_xr"
     classTable.EntityData.ParentYangName = "bundle-interface-single"
     classTable.EntityData.SegmentPath = "class-table"
+    classTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/" + classTable.EntityData.SegmentPath
     classTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8027,6 +8339,7 @@ func (classTable *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceS
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. QoS policy class name at level 1. The type is
     // string.
@@ -8156,6 +8469,7 @@ func (class *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "class-table"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.LevelOneClassName, "level-one-class-name")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8173,18 +8487,22 @@ func (class *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle
     class.EntityData.Children.Append("violate-action", types.YChild{"ViolateAction", &class.ViolateAction})
     class.EntityData.Children.Append("ip-mark", types.YChild{"IpMark", nil})
     for i := range class.IpMark {
+        types.SetYListKey(class.IpMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.IpMark[i]), types.YChild{"IpMark", class.IpMark[i]})
     }
     class.EntityData.Children.Append("common-mark", types.YChild{"CommonMark", nil})
     for i := range class.CommonMark {
+        types.SetYListKey(class.CommonMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.CommonMark[i]), types.YChild{"CommonMark", class.CommonMark[i]})
     }
     class.EntityData.Children.Append("mpls-mark", types.YChild{"MplsMark", nil})
     for i := range class.MplsMark {
+        types.SetYListKey(class.MplsMark[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.MplsMark[i]), types.YChild{"MplsMark", class.MplsMark[i]})
     }
     class.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range class.Wred {
+        types.SetYListKey(class.Wred[i], i)
         class.EntityData.Children.Append(types.GetSegmentPath(class.Wred[i]), types.YChild{"Wred", class.Wred[i]})
     }
     class.EntityData.Leafs = types.NewOrderedMap()
@@ -8233,6 +8551,7 @@ func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     configMaxRate.EntityData.BundleName = "cisco_ios_xr"
     configMaxRate.EntityData.ParentYangName = "class"
     configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + configMaxRate.EntityData.SegmentPath
     configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8266,6 +8585,7 @@ func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     configMinRate.EntityData.BundleName = "cisco_ios_xr"
     configMinRate.EntityData.ParentYangName = "class"
     configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + configMinRate.EntityData.SegmentPath
     configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8299,6 +8619,7 @@ func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInte
     configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
     configQueueLimit.EntityData.ParentYangName = "class"
     configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + configQueueLimit.EntityData.SegmentPath
     configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8332,6 +8653,7 @@ func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_Bu
     configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerAverageRate.EntityData.ParentYangName = "class"
     configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + configPolicerAverageRate.EntityData.SegmentPath
     configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8365,6 +8687,7 @@ func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_Bundl
     configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
     configPolicerPeakRate.EntityData.ParentYangName = "class"
     configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + configPolicerPeakRate.EntityData.SegmentPath
     configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8398,6 +8721,7 @@ func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaceSingles_B
     configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerConformBurst.EntityData.ParentYangName = "class"
     configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + configPolicerConformBurst.EntityData.SegmentPath
     configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8431,6 +8755,7 @@ func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaceSingles_Bu
     configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
     configPolicerExcessBurst.EntityData.ParentYangName = "class"
     configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + configPolicerExcessBurst.EntityData.SegmentPath
     configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8465,6 +8790,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     conformAction.EntityData.BundleName = "cisco_ios_xr"
     conformAction.EntityData.ParentYangName = "class"
     conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + conformAction.EntityData.SegmentPath
     conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8472,6 +8798,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     conformAction.EntityData.Children = types.NewOrderedMap()
     conformAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range conformAction.Mark {
+        types.SetYListKey(conformAction.Mark[i], i)
         conformAction.EntityData.Children.Append(types.GetSegmentPath(conformAction.Mark[i]), types.YChild{"Mark", conformAction.Mark[i]})
     }
     conformAction.EntityData.Leafs = types.NewOrderedMap()
@@ -8487,6 +8814,7 @@ func (conformAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class_ConformAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -8500,7 +8828,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "conform-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/conform-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8535,6 +8864,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfac
     exceedAction.EntityData.BundleName = "cisco_ios_xr"
     exceedAction.EntityData.ParentYangName = "class"
     exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + exceedAction.EntityData.SegmentPath
     exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8542,6 +8872,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfac
     exceedAction.EntityData.Children = types.NewOrderedMap()
     exceedAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range exceedAction.Mark {
+        types.SetYListKey(exceedAction.Mark[i], i)
         exceedAction.EntityData.Children.Append(types.GetSegmentPath(exceedAction.Mark[i]), types.YChild{"Mark", exceedAction.Mark[i]})
     }
     exceedAction.EntityData.Leafs = types.NewOrderedMap()
@@ -8557,6 +8888,7 @@ func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfac
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class_ExceedAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -8570,7 +8902,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "exceed-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/exceed-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8605,6 +8938,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     violateAction.EntityData.BundleName = "cisco_ios_xr"
     violateAction.EntityData.ParentYangName = "class"
     violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + violateAction.EntityData.SegmentPath
     violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8612,6 +8946,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
     violateAction.EntityData.Children = types.NewOrderedMap()
     violateAction.EntityData.Children.Append("mark", types.YChild{"Mark", nil})
     for i := range violateAction.Mark {
+        types.SetYListKey(violateAction.Mark[i], i)
         violateAction.EntityData.Children.Append(types.GetSegmentPath(violateAction.Mark[i]), types.YChild{"Mark", violateAction.Mark[i]})
     }
     violateAction.EntityData.Leafs = types.NewOrderedMap()
@@ -8627,6 +8962,7 @@ func (violateAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfa
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class_ViolateAction_Mark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -8640,7 +8976,8 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
     mark.EntityData.YangName = "mark"
     mark.EntityData.BundleName = "cisco_ios_xr"
     mark.EntityData.ParentYangName = "violate-action"
-    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.SegmentPath = "mark" + types.AddNoKeyToken(mark)
+    mark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/violate-action/" + mark.EntityData.SegmentPath
     mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8660,6 +8997,7 @@ func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class_IpMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -8673,7 +9011,8 @@ func (ipMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingl
     ipMark.EntityData.YangName = "ip-mark"
     ipMark.EntityData.BundleName = "cisco_ios_xr"
     ipMark.EntityData.ParentYangName = "class"
-    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.SegmentPath = "ip-mark" + types.AddNoKeyToken(ipMark)
+    ipMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + ipMark.EntityData.SegmentPath
     ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8693,6 +9032,7 @@ func (ipMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingl
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class_CommonMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -8706,7 +9046,8 @@ func (commonMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceS
     commonMark.EntityData.YangName = "common-mark"
     commonMark.EntityData.BundleName = "cisco_ios_xr"
     commonMark.EntityData.ParentYangName = "class"
-    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.SegmentPath = "common-mark" + types.AddNoKeyToken(commonMark)
+    commonMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + commonMark.EntityData.SegmentPath
     commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8726,6 +9067,7 @@ func (commonMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceS
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class_MplsMark struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark type. The type is DnxQoseaShowMark.
     MarkType interface{}
@@ -8739,7 +9081,8 @@ func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSin
     mplsMark.EntityData.YangName = "mpls-mark"
     mplsMark.EntityData.BundleName = "cisco_ios_xr"
     mplsMark.EntityData.ParentYangName = "class"
-    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.SegmentPath = "mpls-mark" + types.AddNoKeyToken(mplsMark)
+    mplsMark.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + mplsMark.EntityData.SegmentPath
     mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8759,6 +9102,7 @@ func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSin
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // WREDMatchType. The type is DnxQoseaShowWred.
     WredMatchType interface{}
@@ -8792,7 +9136,8 @@ func (wred *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8830,6 +9175,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterf
     wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
     wredMatchValue.EntityData.ParentYangName = "wred"
     wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/wred/" + wredMatchValue.EntityData.SegmentPath
     wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8837,6 +9183,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterf
     wredMatchValue.EntityData.Children = types.NewOrderedMap()
     wredMatchValue.EntityData.Children.Append("dnx-qosea-show-red-match-value", types.YChild{"DnxQoseaShowRedMatchValue", nil})
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        types.SetYListKey(wredMatchValue.DnxQoseaShowRedMatchValue[i], i)
         wredMatchValue.EntityData.Children.Append(types.GetSegmentPath(wredMatchValue.DnxQoseaShowRedMatchValue[i]), types.YChild{"DnxQoseaShowRedMatchValue", wredMatchValue.DnxQoseaShowRedMatchValue[i]})
     }
     wredMatchValue.EntityData.Leafs = types.NewOrderedMap()
@@ -8851,6 +9198,7 @@ func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterf
 type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_ClassTable_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Start value of a range. The type is interface{} with range: 0..255.
     RangeStart interface{}
@@ -8864,7 +9212,8 @@ func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_B
     dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
     dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
     dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
-    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value" + types.AddNoKeyToken(dnxQoseaShowRedMatchValue)
+    dnxQoseaShowRedMatchValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/wred/wred-match-value/" + dnxQoseaShowRedMatchValue.EntityData.SegmentPath
     dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8898,6 +9247,7 @@ func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleIn
     configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMinThreshold.EntityData.ParentYangName = "wred"
     configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/wred/" + configMinThreshold.EntityData.SegmentPath
     configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8931,6 +9281,7 @@ func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleIn
     configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
     configMaxThreshold.EntityData.ParentYangName = "wred"
     configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/bundle-interface-singles/bundle-interface-single/class-table/class/wred/" + configMaxThreshold.EntityData.SegmentPath
     configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8962,6 +9313,7 @@ func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetEntityData()
     remoteInterfaces.EntityData.BundleName = "cisco_ios_xr"
     remoteInterfaces.EntityData.ParentYangName = "node"
     remoteInterfaces.EntityData.SegmentPath = "remote-interfaces"
+    remoteInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/" + remoteInterfaces.EntityData.SegmentPath
     remoteInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8983,6 +9335,7 @@ func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetEntityData()
 type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the remote interface. The type is
     // string with pattern: [a-zA-Z0-9._/-]+.
@@ -9016,6 +9369,7 @@ func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) 
     remoteInterface.EntityData.BundleName = "cisco_ios_xr"
     remoteInterface.EntityData.ParentYangName = "remote-interfaces"
     remoteInterface.EntityData.SegmentPath = "remote-interface" + types.AddKeyToken(remoteInterface.InterfaceName, "interface-name")
+    remoteInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/remote-interfaces/" + remoteInterface.EntityData.SegmentPath
     remoteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9023,6 +9377,7 @@ func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) 
     remoteInterface.EntityData.Children = types.NewOrderedMap()
     remoteInterface.EntityData.Children.Append("remote-class", types.YChild{"RemoteClass", nil})
     for i := range remoteInterface.RemoteClass {
+        types.SetYListKey(remoteInterface.RemoteClass[i], i)
         remoteInterface.EntityData.Children.Append(types.GetSegmentPath(remoteInterface.RemoteClass[i]), types.YChild{"RemoteClass", remoteInterface.RemoteClass[i]})
     }
     remoteInterface.EntityData.Leafs = types.NewOrderedMap()
@@ -9043,6 +9398,7 @@ func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) 
 type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class Name. The type is string with length: 0..64.
     ClassName interface{}
@@ -9075,7 +9431,8 @@ func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_Remot
     remoteClass.EntityData.YangName = "remote-class"
     remoteClass.EntityData.BundleName = "cisco_ios_xr"
     remoteClass.EntityData.ParentYangName = "remote-interface"
-    remoteClass.EntityData.SegmentPath = "remote-class"
+    remoteClass.EntityData.SegmentPath = "remote-class" + types.AddNoKeyToken(remoteClass)
+    remoteClass.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/remote-interfaces/remote-interface/" + remoteClass.EntityData.SegmentPath
     remoteClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9083,10 +9440,12 @@ func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_Remot
     remoteClass.EntityData.Children = types.NewOrderedMap()
     remoteClass.EntityData.Children.Append("wred", types.YChild{"Wred", nil})
     for i := range remoteClass.Wred {
+        types.SetYListKey(remoteClass.Wred[i], i)
         remoteClass.EntityData.Children.Append(types.GetSegmentPath(remoteClass.Wred[i]), types.YChild{"Wred", remoteClass.Wred[i]})
     }
     remoteClass.EntityData.Children.Append("hw-wred", types.YChild{"HwWred", nil})
     for i := range remoteClass.HwWred {
+        types.SetYListKey(remoteClass.HwWred[i], i)
         remoteClass.EntityData.Children.Append(types.GetSegmentPath(remoteClass.HwWred[i]), types.YChild{"HwWred", remoteClass.HwWred[i]})
     }
     remoteClass.EntityData.Leafs = types.NewOrderedMap()
@@ -9106,6 +9465,7 @@ func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_Remot
 type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Minimum Threshold. The type is interface{} with range: 0..4294967295.
     MinThreshold interface{}
@@ -9122,7 +9482,8 @@ func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_
     wred.EntityData.YangName = "wred"
     wred.EntityData.BundleName = "cisco_ios_xr"
     wred.EntityData.ParentYangName = "remote-class"
-    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.SegmentPath = "wred" + types.AddNoKeyToken(wred)
+    wred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/remote-interfaces/remote-interface/remote-class/" + wred.EntityData.SegmentPath
     wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9143,6 +9504,7 @@ func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_
 type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Minimum Threshold. The type is interface{} with range: 0..4294967295.
     MinThreshold interface{}
@@ -9159,7 +9521,8 @@ func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClas
     hwWred.EntityData.YangName = "hw-wred"
     hwWred.EntityData.BundleName = "cisco_ios_xr"
     hwWred.EntityData.ParentYangName = "remote-class"
-    hwWred.EntityData.SegmentPath = "hw-wred"
+    hwWred.EntityData.SegmentPath = "hw-wred" + types.AddNoKeyToken(hwWred)
+    hwWred.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos/nodes/node/remote-interfaces/remote-interface/remote-class/" + hwWred.EntityData.SegmentPath
     hwWred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwWred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwWred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

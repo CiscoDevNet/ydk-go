@@ -99,6 +99,7 @@ func (bridgeDomainConfig *BridgeDomainConfig) GetEntityData() *types.CommonEntit
     bridgeDomainConfig.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomainConfig.EntityData.ParentYangName = "cisco-bridge-domain"
     bridgeDomainConfig.EntityData.SegmentPath = "cisco-bridge-domain:bridge-domain-config"
+    bridgeDomainConfig.EntityData.AbsolutePath = bridgeDomainConfig.EntityData.SegmentPath
     bridgeDomainConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomainConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomainConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -140,6 +141,7 @@ func (global *BridgeDomainConfig_Global) GetEntityData() *types.CommonEntityData
     global.EntityData.BundleName = "cisco_ios_xe"
     global.EntityData.ParentYangName = "bridge-domain-config"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -173,6 +175,7 @@ func (pbb *BridgeDomainConfig_Global_Pbb) GetEntityData() *types.CommonEntityDat
     pbb.EntityData.BundleName = "cisco_ios_xe"
     pbb.EntityData.ParentYangName = "global"
     pbb.EntityData.SegmentPath = "pbb"
+    pbb.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/global/" + pbb.EntityData.SegmentPath
     pbb.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pbb.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pbb.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -209,6 +212,7 @@ func (bridgeGroups *BridgeDomainConfig_BridgeGroups) GetEntityData() *types.Comm
     bridgeGroups.EntityData.BundleName = "cisco_ios_xe"
     bridgeGroups.EntityData.ParentYangName = "bridge-domain-config"
     bridgeGroups.EntityData.SegmentPath = "bridge-groups"
+    bridgeGroups.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/" + bridgeGroups.EntityData.SegmentPath
     bridgeGroups.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeGroups.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeGroups.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -230,6 +234,7 @@ func (bridgeGroups *BridgeDomainConfig_BridgeGroups) GetEntityData() *types.Comm
 type BridgeDomainConfig_BridgeGroups_BridgeGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bridge-group name. The type is string with length:
     // 1..32.
@@ -242,6 +247,7 @@ func (bridgeGroup *BridgeDomainConfig_BridgeGroups_BridgeGroup) GetEntityData() 
     bridgeGroup.EntityData.BundleName = "cisco_ios_xe"
     bridgeGroup.EntityData.ParentYangName = "bridge-groups"
     bridgeGroup.EntityData.SegmentPath = "bridge-group" + types.AddKeyToken(bridgeGroup.Name, "name")
+    bridgeGroup.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-groups/" + bridgeGroup.EntityData.SegmentPath
     bridgeGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -272,6 +278,7 @@ func (bridgeDomains *BridgeDomainConfig_BridgeDomains) GetEntityData() *types.Co
     bridgeDomains.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomains.EntityData.ParentYangName = "bridge-domain-config"
     bridgeDomains.EntityData.SegmentPath = "bridge-domains"
+    bridgeDomains.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/" + bridgeDomains.EntityData.SegmentPath
     bridgeDomains.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomains.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -293,6 +300,7 @@ func (bridgeDomains *BridgeDomainConfig_BridgeDomains) GetEntityData() *types.Co
 type BridgeDomainConfig_BridgeDomains_BridgeDomain struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bridge domain name or number. The type is string.
     Id interface{}
@@ -352,6 +360,7 @@ func (bridgeDomain *BridgeDomainConfig_BridgeDomains_BridgeDomain) GetEntityData
     bridgeDomain.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomain.EntityData.ParentYangName = "bridge-domains"
     bridgeDomain.EntityData.SegmentPath = "bridge-domain" + types.AddKeyToken(bridgeDomain.Id, "id")
+    bridgeDomain.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/" + bridgeDomain.EntityData.SegmentPath
     bridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -406,6 +415,7 @@ func (members *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members) GetEntityD
     members.EntityData.BundleName = "cisco_ios_xe"
     members.EntityData.ParentYangName = "bridge-domain"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     members.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -433,6 +443,7 @@ func (members *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members) GetEntityD
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to an attchment circuit interface
     // instance which is configured to be part of this bridge-domain. The type is
@@ -478,6 +489,7 @@ func (acMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember) 
     acMember.EntityData.BundleName = "cisco_ios_xe"
     acMember.EntityData.ParentYangName = "members"
     acMember.EntityData.SegmentPath = "ac-member" + types.AddKeyToken(acMember.Interface, "interface")
+    acMember.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/" + acMember.EntityData.SegmentPath
     acMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     acMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     acMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -525,6 +537,7 @@ func (splitHorizonGroup *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_A
     splitHorizonGroup.EntityData.BundleName = "cisco_ios_xe"
     splitHorizonGroup.EntityData.ParentYangName = "ac-member"
     splitHorizonGroup.EntityData.SegmentPath = "split-horizon-group"
+    splitHorizonGroup.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + splitHorizonGroup.EntityData.SegmentPath
     splitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     splitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     splitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -566,6 +579,7 @@ func (mac *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac) G
     mac.EntityData.BundleName = "cisco_ios_xe"
     mac.EntityData.ParentYangName = "ac-member"
     mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -607,6 +621,7 @@ func (limit *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac_
     limit.EntityData.BundleName = "cisco_ios_xe"
     limit.EntityData.ParentYangName = "mac"
     limit.EntityData.SegmentPath = "limit"
+    limit.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/mac/" + limit.EntityData.SegmentPath
     limit.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     limit.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     limit.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -643,6 +658,7 @@ func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac_
     aging.EntityData.BundleName = "cisco_ios_xe"
     aging.EntityData.ParentYangName = "mac"
     aging.EntityData.SegmentPath = "aging"
+    aging.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/mac/" + aging.EntityData.SegmentPath
     aging.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -674,6 +690,7 @@ func (portDown *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_M
     portDown.EntityData.BundleName = "cisco_ios_xe"
     portDown.EntityData.ParentYangName = "mac"
     portDown.EntityData.SegmentPath = "port-down"
+    portDown.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/mac/" + portDown.EntityData.SegmentPath
     portDown.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     portDown.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portDown.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -710,6 +727,7 @@ func (secure *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac
     secure.EntityData.BundleName = "cisco_ios_xe"
     secure.EntityData.ParentYangName = "mac"
     secure.EntityData.SegmentPath = "secure"
+    secure.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/mac/" + secure.EntityData.SegmentPath
     secure.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     secure.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     secure.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -742,6 +760,7 @@ func (igmpSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMemb
     igmpSnooping.EntityData.BundleName = "cisco_ios_xe"
     igmpSnooping.EntityData.ParentYangName = "ac-member"
     igmpSnooping.EntityData.SegmentPath = "igmp-snooping"
+    igmpSnooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + igmpSnooping.EntityData.SegmentPath
     igmpSnooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     igmpSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -771,6 +790,7 @@ func (mldSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMembe
     mldSnooping.EntityData.BundleName = "cisco_ios_xe"
     mldSnooping.EntityData.ParentYangName = "ac-member"
     mldSnooping.EntityData.SegmentPath = "mld-snooping"
+    mldSnooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + mldSnooping.EntityData.SegmentPath
     mldSnooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mldSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mldSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -801,6 +821,7 @@ func (dhcpIpv4Snooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Ac
     dhcpIpv4Snooping.EntityData.BundleName = "cisco_ios_xe"
     dhcpIpv4Snooping.EntityData.ParentYangName = "ac-member"
     dhcpIpv4Snooping.EntityData.SegmentPath = "dhcp-ipv4-snooping"
+    dhcpIpv4Snooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + dhcpIpv4Snooping.EntityData.SegmentPath
     dhcpIpv4Snooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcpIpv4Snooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpIpv4Snooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -833,6 +854,7 @@ func (flooding *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_F
     flooding.EntityData.BundleName = "cisco_ios_xe"
     flooding.EntityData.ParentYangName = "ac-member"
     flooding.EntityData.SegmentPath = "flooding"
+    flooding.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + flooding.EntityData.SegmentPath
     flooding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -871,6 +893,7 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMemb
     stormControl.EntityData.BundleName = "cisco_ios_xe"
     stormControl.EntityData.ParentYangName = "ac-member"
     stormControl.EntityData.SegmentPath = "storm-control"
+    stormControl.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + stormControl.EntityData.SegmentPath
     stormControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stormControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stormControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -894,6 +917,7 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMemb
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_StormControl_Thresholds struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf identifies a ethernet traffic type for
     // which an administrator desires to configure storm control. The type is
@@ -915,6 +939,7 @@ func (thresholds *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember
     thresholds.EntityData.BundleName = "cisco_ios_xe"
     thresholds.EntityData.ParentYangName = "storm-control"
     thresholds.EntityData.SegmentPath = "thresholds" + types.AddKeyToken(thresholds.TrafficClass, "traffic-class")
+    thresholds.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/storm-control/" + thresholds.EntityData.SegmentPath
     thresholds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     thresholds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     thresholds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -966,6 +991,7 @@ func (dynamicArpInspection *BridgeDomainConfig_BridgeDomains_BridgeDomain_Member
     dynamicArpInspection.EntityData.BundleName = "cisco_ios_xe"
     dynamicArpInspection.EntityData.ParentYangName = "ac-member"
     dynamicArpInspection.EntityData.SegmentPath = "dynamic-arp-inspection"
+    dynamicArpInspection.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + dynamicArpInspection.EntityData.SegmentPath
     dynamicArpInspection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dynamicArpInspection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dynamicArpInspection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1005,6 +1031,7 @@ func (addressValidation *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_A
     addressValidation.EntityData.BundleName = "cisco_ios_xe"
     addressValidation.EntityData.ParentYangName = "dynamic-arp-inspection"
     addressValidation.EntityData.SegmentPath = "address-validation"
+    addressValidation.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/dynamic-arp-inspection/" + addressValidation.EntityData.SegmentPath
     addressValidation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressValidation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1039,6 +1066,7 @@ func (ipSourceGuard *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMem
     ipSourceGuard.EntityData.BundleName = "cisco_ios_xe"
     ipSourceGuard.EntityData.ParentYangName = "ac-member"
     ipSourceGuard.EntityData.SegmentPath = "ip-source-guard"
+    ipSourceGuard.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/ac-member/" + ipSourceGuard.EntityData.SegmentPath
     ipSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipSourceGuard.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1059,6 +1087,7 @@ func (ipSourceGuard *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMem
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_VfiMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to an Virtual Forwarding Interface
     // instance which is configured to be part of this bridge-domain. The type is
@@ -1072,6 +1101,7 @@ func (vfiMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_VfiMember
     vfiMember.EntityData.BundleName = "cisco_ios_xe"
     vfiMember.EntityData.ParentYangName = "members"
     vfiMember.EntityData.SegmentPath = "vfi-member" + types.AddKeyToken(vfiMember.Interface, "interface")
+    vfiMember.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/" + vfiMember.EntityData.SegmentPath
     vfiMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vfiMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vfiMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1113,6 +1143,7 @@ func (accessPwMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Acce
     accessPwMember.EntityData.BundleName = "cisco_ios_xe"
     accessPwMember.EntityData.ParentYangName = "members"
     accessPwMember.EntityData.SegmentPath = "access-pw-member"
+    accessPwMember.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/" + accessPwMember.EntityData.SegmentPath
     accessPwMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessPwMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessPwMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1139,6 +1170,7 @@ func (accessPwMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Acce
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_AccessPwIfMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to an access pseudo-wire interface
     // instance which is configured to be part of this bridge domain. The type is
@@ -1152,6 +1184,7 @@ func (accessPwIfMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Ac
     accessPwIfMember.EntityData.BundleName = "cisco_ios_xe"
     accessPwIfMember.EntityData.ParentYangName = "access-pw-member"
     accessPwIfMember.EntityData.SegmentPath = "access-pw-if-member" + types.AddKeyToken(accessPwIfMember.Interface, "interface")
+    accessPwIfMember.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/" + accessPwIfMember.EntityData.SegmentPath
     accessPwIfMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessPwIfMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessPwIfMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1171,6 +1204,7 @@ func (accessPwIfMember *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Ac
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 or IPv6 address of the neighbor. The type is
     // one of the following types: string with pattern:
@@ -1239,6 +1273,7 @@ func (pwNeighborSpec *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Acce
     pwNeighborSpec.EntityData.BundleName = "cisco_ios_xe"
     pwNeighborSpec.EntityData.ParentYangName = "access-pw-member"
     pwNeighborSpec.EntityData.SegmentPath = "pw-neighbor-spec" + types.AddKeyToken(pwNeighborSpec.NeighborIpAddress, "neighbor-ip-address") + types.AddKeyToken(pwNeighborSpec.VcId, "vc-id")
+    pwNeighborSpec.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/" + pwNeighborSpec.EntityData.SegmentPath
     pwNeighborSpec.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pwNeighborSpec.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pwNeighborSpec.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1285,6 +1320,7 @@ func (staticLabel *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessP
     staticLabel.EntityData.BundleName = "cisco_ios_xe"
     staticLabel.EntityData.ParentYangName = "pw-neighbor-spec"
     staticLabel.EntityData.SegmentPath = "static-label"
+    staticLabel.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + staticLabel.EntityData.SegmentPath
     staticLabel.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     staticLabel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     staticLabel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1324,6 +1360,7 @@ func (splitHorizonGroup *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_A
     splitHorizonGroup.EntityData.BundleName = "cisco_ios_xe"
     splitHorizonGroup.EntityData.ParentYangName = "pw-neighbor-spec"
     splitHorizonGroup.EntityData.SegmentPath = "split-horizon-group"
+    splitHorizonGroup.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + splitHorizonGroup.EntityData.SegmentPath
     splitHorizonGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     splitHorizonGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     splitHorizonGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1365,6 +1402,7 @@ func (mac *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_
     mac.EntityData.BundleName = "cisco_ios_xe"
     mac.EntityData.ParentYangName = "pw-neighbor-spec"
     mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1406,6 +1444,7 @@ func (limit *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMembe
     limit.EntityData.BundleName = "cisco_ios_xe"
     limit.EntityData.ParentYangName = "mac"
     limit.EntityData.SegmentPath = "limit"
+    limit.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/mac/" + limit.EntityData.SegmentPath
     limit.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     limit.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     limit.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1442,6 +1481,7 @@ func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMembe
     aging.EntityData.BundleName = "cisco_ios_xe"
     aging.EntityData.ParentYangName = "mac"
     aging.EntityData.SegmentPath = "aging"
+    aging.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/mac/" + aging.EntityData.SegmentPath
     aging.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1473,6 +1513,7 @@ func (portDown *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMe
     portDown.EntityData.BundleName = "cisco_ios_xe"
     portDown.EntityData.ParentYangName = "mac"
     portDown.EntityData.SegmentPath = "port-down"
+    portDown.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/mac/" + portDown.EntityData.SegmentPath
     portDown.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     portDown.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portDown.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1509,6 +1550,7 @@ func (secure *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMemb
     secure.EntityData.BundleName = "cisco_ios_xe"
     secure.EntityData.ParentYangName = "mac"
     secure.EntityData.SegmentPath = "secure"
+    secure.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/mac/" + secure.EntityData.SegmentPath
     secure.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     secure.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     secure.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1541,6 +1583,7 @@ func (igmpSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Access
     igmpSnooping.EntityData.BundleName = "cisco_ios_xe"
     igmpSnooping.EntityData.ParentYangName = "pw-neighbor-spec"
     igmpSnooping.EntityData.SegmentPath = "igmp-snooping"
+    igmpSnooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + igmpSnooping.EntityData.SegmentPath
     igmpSnooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     igmpSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1570,6 +1613,7 @@ func (mldSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessP
     mldSnooping.EntityData.BundleName = "cisco_ios_xe"
     mldSnooping.EntityData.ParentYangName = "pw-neighbor-spec"
     mldSnooping.EntityData.SegmentPath = "mld-snooping"
+    mldSnooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + mldSnooping.EntityData.SegmentPath
     mldSnooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mldSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mldSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1600,6 +1644,7 @@ func (dhcpIpv4Snooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Ac
     dhcpIpv4Snooping.EntityData.BundleName = "cisco_ios_xe"
     dhcpIpv4Snooping.EntityData.ParentYangName = "pw-neighbor-spec"
     dhcpIpv4Snooping.EntityData.SegmentPath = "dhcp-ipv4-snooping"
+    dhcpIpv4Snooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + dhcpIpv4Snooping.EntityData.SegmentPath
     dhcpIpv4Snooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcpIpv4Snooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpIpv4Snooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1632,6 +1677,7 @@ func (flooding *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMe
     flooding.EntityData.BundleName = "cisco_ios_xe"
     flooding.EntityData.ParentYangName = "pw-neighbor-spec"
     flooding.EntityData.SegmentPath = "flooding"
+    flooding.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + flooding.EntityData.SegmentPath
     flooding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1670,6 +1716,7 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Access
     stormControl.EntityData.BundleName = "cisco_ios_xe"
     stormControl.EntityData.ParentYangName = "pw-neighbor-spec"
     stormControl.EntityData.SegmentPath = "storm-control"
+    stormControl.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + stormControl.EntityData.SegmentPath
     stormControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stormControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stormControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1693,6 +1740,7 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_Access
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeighborSpec_StormControl_Thresholds struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf identifies a ethernet traffic type for
     // which an administrator desires to configure storm control. The type is
@@ -1714,6 +1762,7 @@ func (thresholds *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPw
     thresholds.EntityData.BundleName = "cisco_ios_xe"
     thresholds.EntityData.ParentYangName = "storm-control"
     thresholds.EntityData.SegmentPath = "thresholds" + types.AddKeyToken(thresholds.TrafficClass, "traffic-class")
+    thresholds.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/storm-control/" + thresholds.EntityData.SegmentPath
     thresholds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     thresholds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     thresholds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1770,6 +1819,7 @@ func (backup *BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMemb
     backup.EntityData.BundleName = "cisco_ios_xe"
     backup.EntityData.ParentYangName = "pw-neighbor-spec"
     backup.EntityData.SegmentPath = "backup"
+    backup.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/members/access-pw-member/pw-neighbor-spec/" + backup.EntityData.SegmentPath
     backup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     backup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     backup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1819,6 +1869,7 @@ func (mac *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac) GetEntityData() *t
     mac.EntityData.BundleName = "cisco_ios_xe"
     mac.EntityData.ParentYangName = "bridge-domain"
     mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1862,6 +1913,7 @@ func (limit *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Limit) GetEntityD
     limit.EntityData.BundleName = "cisco_ios_xe"
     limit.EntityData.ParentYangName = "mac"
     limit.EntityData.SegmentPath = "limit"
+    limit.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/mac/" + limit.EntityData.SegmentPath
     limit.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     limit.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     limit.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1898,6 +1950,7 @@ func (aging *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Aging) GetEntityD
     aging.EntityData.BundleName = "cisco_ios_xe"
     aging.EntityData.ParentYangName = "mac"
     aging.EntityData.SegmentPath = "aging"
+    aging.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/mac/" + aging.EntityData.SegmentPath
     aging.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1929,6 +1982,7 @@ func (portDown *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_PortDown) GetE
     portDown.EntityData.BundleName = "cisco_ios_xe"
     portDown.EntityData.ParentYangName = "mac"
     portDown.EntityData.SegmentPath = "port-down"
+    portDown.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/mac/" + portDown.EntityData.SegmentPath
     portDown.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     portDown.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     portDown.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1961,6 +2015,7 @@ func (flooding *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Flooding) GetE
     flooding.EntityData.BundleName = "cisco_ios_xe"
     flooding.EntityData.ParentYangName = "mac"
     flooding.EntityData.SegmentPath = "flooding"
+    flooding.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/mac/" + flooding.EntityData.SegmentPath
     flooding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1997,6 +2052,7 @@ func (secure *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Secure) GetEntit
     secure.EntityData.BundleName = "cisco_ios_xe"
     secure.EntityData.ParentYangName = "mac"
     secure.EntityData.SegmentPath = "secure"
+    secure.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/mac/" + secure.EntityData.SegmentPath
     secure.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     secure.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     secure.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2028,6 +2084,7 @@ func (static *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static) GetEntit
     static.EntityData.BundleName = "cisco_ios_xe"
     static.EntityData.ParentYangName = "mac"
     static.EntityData.SegmentPath = "static"
+    static.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/mac/" + static.EntityData.SegmentPath
     static.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     static.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     static.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2049,6 +2106,7 @@ func (static *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static) GetEntit
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_MacAddresses struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -2064,6 +2122,7 @@ func (macAddresses *BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_Mac
     macAddresses.EntityData.BundleName = "cisco_ios_xe"
     macAddresses.EntityData.ParentYangName = "static"
     macAddresses.EntityData.SegmentPath = "mac-addresses" + types.AddKeyToken(macAddresses.MacAddr, "mac-addr")
+    macAddresses.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/mac/static/" + macAddresses.EntityData.SegmentPath
     macAddresses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     macAddresses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     macAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2099,6 +2158,7 @@ func (dynamicArpInspection *BridgeDomainConfig_BridgeDomains_BridgeDomain_Dynami
     dynamicArpInspection.EntityData.BundleName = "cisco_ios_xe"
     dynamicArpInspection.EntityData.ParentYangName = "bridge-domain"
     dynamicArpInspection.EntityData.SegmentPath = "dynamic-arp-inspection"
+    dynamicArpInspection.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/" + dynamicArpInspection.EntityData.SegmentPath
     dynamicArpInspection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dynamicArpInspection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dynamicArpInspection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2137,6 +2197,7 @@ func (addressValidation *BridgeDomainConfig_BridgeDomains_BridgeDomain_DynamicAr
     addressValidation.EntityData.BundleName = "cisco_ios_xe"
     addressValidation.EntityData.ParentYangName = "dynamic-arp-inspection"
     addressValidation.EntityData.SegmentPath = "address-validation"
+    addressValidation.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/dynamic-arp-inspection/" + addressValidation.EntityData.SegmentPath
     addressValidation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressValidation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressValidation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2170,6 +2231,7 @@ func (ipSourceGuard *BridgeDomainConfig_BridgeDomains_BridgeDomain_IpSourceGuard
     ipSourceGuard.EntityData.BundleName = "cisco_ios_xe"
     ipSourceGuard.EntityData.ParentYangName = "bridge-domain"
     ipSourceGuard.EntityData.SegmentPath = "ip-source-guard"
+    ipSourceGuard.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/" + ipSourceGuard.EntityData.SegmentPath
     ipSourceGuard.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipSourceGuard.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSourceGuard.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2207,6 +2269,7 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl) 
     stormControl.EntityData.BundleName = "cisco_ios_xe"
     stormControl.EntityData.ParentYangName = "bridge-domain"
     stormControl.EntityData.SegmentPath = "storm-control"
+    stormControl.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/" + stormControl.EntityData.SegmentPath
     stormControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stormControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stormControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2230,6 +2293,7 @@ func (stormControl *BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl) 
 type BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl_Thresholds struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf identifies a ethernet traffic type for
     // which an administrator desires to configure storm control. The type is
@@ -2251,6 +2315,7 @@ func (thresholds *BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl_Thr
     thresholds.EntityData.BundleName = "cisco_ios_xe"
     thresholds.EntityData.ParentYangName = "storm-control"
     thresholds.EntityData.SegmentPath = "thresholds" + types.AddKeyToken(thresholds.TrafficClass, "traffic-class")
+    thresholds.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/storm-control/" + thresholds.EntityData.SegmentPath
     thresholds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     thresholds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     thresholds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2299,6 +2364,7 @@ func (igmpSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_IgmpSnooping) 
     igmpSnooping.EntityData.BundleName = "cisco_ios_xe"
     igmpSnooping.EntityData.ParentYangName = "bridge-domain"
     igmpSnooping.EntityData.SegmentPath = "igmp-snooping"
+    igmpSnooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/" + igmpSnooping.EntityData.SegmentPath
     igmpSnooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     igmpSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2329,6 +2395,7 @@ func (mldSnooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_MldSnooping) Ge
     mldSnooping.EntityData.BundleName = "cisco_ios_xe"
     mldSnooping.EntityData.ParentYangName = "bridge-domain"
     mldSnooping.EntityData.SegmentPath = "mld-snooping"
+    mldSnooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/" + mldSnooping.EntityData.SegmentPath
     mldSnooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mldSnooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mldSnooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2359,6 +2426,7 @@ func (dhcpIpv4Snooping *BridgeDomainConfig_BridgeDomains_BridgeDomain_DhcpIpv4Sn
     dhcpIpv4Snooping.EntityData.BundleName = "cisco_ios_xe"
     dhcpIpv4Snooping.EntityData.ParentYangName = "bridge-domain"
     dhcpIpv4Snooping.EntityData.SegmentPath = "dhcp-ipv4-snooping"
+    dhcpIpv4Snooping.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-config/bridge-domains/bridge-domain/" + dhcpIpv4Snooping.EntityData.SegmentPath
     dhcpIpv4Snooping.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcpIpv4Snooping.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcpIpv4Snooping.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2409,6 +2477,7 @@ func (bridgeDomainState *BridgeDomainState) GetEntityData() *types.CommonEntityD
     bridgeDomainState.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomainState.EntityData.ParentYangName = "cisco-bridge-domain"
     bridgeDomainState.EntityData.SegmentPath = "cisco-bridge-domain:bridge-domain-state"
+    bridgeDomainState.EntityData.AbsolutePath = bridgeDomainState.EntityData.SegmentPath
     bridgeDomainState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomainState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomainState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2466,6 +2535,7 @@ func (systemCapabilities *BridgeDomainState_SystemCapabilities) GetEntityData() 
     systemCapabilities.EntityData.BundleName = "cisco_ios_xe"
     systemCapabilities.EntityData.ParentYangName = "bridge-domain-state"
     systemCapabilities.EntityData.SegmentPath = "system-capabilities"
+    systemCapabilities.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/" + systemCapabilities.EntityData.SegmentPath
     systemCapabilities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     systemCapabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     systemCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2502,6 +2572,7 @@ func (moduleCapabilities *BridgeDomainState_ModuleCapabilities) GetEntityData() 
     moduleCapabilities.EntityData.BundleName = "cisco_ios_xe"
     moduleCapabilities.EntityData.ParentYangName = "bridge-domain-state"
     moduleCapabilities.EntityData.SegmentPath = "module-capabilities"
+    moduleCapabilities.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/" + moduleCapabilities.EntityData.SegmentPath
     moduleCapabilities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     moduleCapabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     moduleCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2524,6 +2595,7 @@ func (moduleCapabilities *BridgeDomainState_ModuleCapabilities) GetEntityData() 
 type BridgeDomainState_ModuleCapabilities_Modules struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the hardware module such as linecards, for
     // which capability is described. The type is string.
@@ -2564,6 +2636,7 @@ func (modules *BridgeDomainState_ModuleCapabilities_Modules) GetEntityData() *ty
     modules.EntityData.BundleName = "cisco_ios_xe"
     modules.EntityData.ParentYangName = "module-capabilities"
     modules.EntityData.SegmentPath = "modules" + types.AddKeyToken(modules.Name, "name")
+    modules.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/module-capabilities/" + modules.EntityData.SegmentPath
     modules.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     modules.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     modules.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2601,6 +2674,7 @@ func (bridgeDomains *BridgeDomainState_BridgeDomains) GetEntityData() *types.Com
     bridgeDomains.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomains.EntityData.ParentYangName = "bridge-domain-state"
     bridgeDomains.EntityData.SegmentPath = "bridge-domains"
+    bridgeDomains.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/" + bridgeDomains.EntityData.SegmentPath
     bridgeDomains.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomains.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2622,6 +2696,7 @@ func (bridgeDomains *BridgeDomainState_BridgeDomains) GetEntityData() *types.Com
 type BridgeDomainState_BridgeDomains_BridgeDomain struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bridge domain name or number. The type is string.
     Id interface{}
@@ -2655,6 +2730,7 @@ func (bridgeDomain *BridgeDomainState_BridgeDomains_BridgeDomain) GetEntityData(
     bridgeDomain.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomain.EntityData.ParentYangName = "bridge-domains"
     bridgeDomain.EntityData.SegmentPath = "bridge-domain" + types.AddKeyToken(bridgeDomain.Id, "id")
+    bridgeDomain.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/" + bridgeDomain.EntityData.SegmentPath
     bridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2701,6 +2777,7 @@ func (members *BridgeDomainState_BridgeDomains_BridgeDomain_Members) GetEntityDa
     members.EntityData.BundleName = "cisco_ios_xe"
     members.EntityData.ParentYangName = "bridge-domain"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     members.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2730,6 +2807,7 @@ func (members *BridgeDomainState_BridgeDomains_BridgeDomain_Members) GetEntityDa
 type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to an instance of Bridge domain
     // attachment circuit (AC) interface name. The type is string. Refers to
@@ -2756,6 +2834,7 @@ func (acMember *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember) G
     acMember.EntityData.BundleName = "cisco_ios_xe"
     acMember.EntityData.ParentYangName = "members"
     acMember.EntityData.SegmentPath = "ac-member" + types.AddKeyToken(acMember.Interface, "interface")
+    acMember.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/" + acMember.EntityData.SegmentPath
     acMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     acMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     acMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2794,6 +2873,7 @@ func (daiStats *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_Da
     daiStats.EntityData.BundleName = "cisco_ios_xe"
     daiStats.EntityData.ParentYangName = "ac-member"
     daiStats.EntityData.SegmentPath = "dai-stats"
+    daiStats.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/ac-member/" + daiStats.EntityData.SegmentPath
     daiStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     daiStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     daiStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2829,6 +2909,7 @@ func (ipsgStats *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_I
     ipsgStats.EntityData.BundleName = "cisco_ios_xe"
     ipsgStats.EntityData.ParentYangName = "ac-member"
     ipsgStats.EntityData.SegmentPath = "ipsg-stats"
+    ipsgStats.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/ac-member/" + ipsgStats.EntityData.SegmentPath
     ipsgStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipsgStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipsgStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2861,6 +2942,7 @@ func (stormControl *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMembe
     stormControl.EntityData.BundleName = "cisco_ios_xe"
     stormControl.EntityData.ParentYangName = "ac-member"
     stormControl.EntityData.SegmentPath = "storm-control"
+    stormControl.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/ac-member/" + stormControl.EntityData.SegmentPath
     stormControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stormControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stormControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2883,6 +2965,7 @@ func (stormControl *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMembe
 type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember_StormControl_DropCounter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ethernet traffic class i.e. broadcast, multicast
     // or unknown unicast. The type is EthTrafficClass.
@@ -2903,6 +2986,7 @@ func (dropCounter *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember
     dropCounter.EntityData.BundleName = "cisco_ios_xe"
     dropCounter.EntityData.ParentYangName = "storm-control"
     dropCounter.EntityData.SegmentPath = "drop-counter" + types.AddKeyToken(dropCounter.TrafficClass, "traffic-class")
+    dropCounter.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/ac-member/storm-control/" + dropCounter.EntityData.SegmentPath
     dropCounter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dropCounter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dropCounter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2924,6 +3008,7 @@ func (dropCounter *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AcMember
 type BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bridge domain memeber interface name. The type is
     // string. Refers to ietf_interfaces.InterfacesState_Interface_Name
@@ -2939,6 +3024,7 @@ func (vfiMember *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember)
     vfiMember.EntityData.BundleName = "cisco_ios_xe"
     vfiMember.EntityData.ParentYangName = "members"
     vfiMember.EntityData.SegmentPath = "vfi-member" + types.AddKeyToken(vfiMember.Interface, "interface")
+    vfiMember.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/" + vfiMember.EntityData.SegmentPath
     vfiMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vfiMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vfiMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2971,6 +3057,7 @@ func (flooding *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_F
     flooding.EntityData.BundleName = "cisco_ios_xe"
     flooding.EntityData.ParentYangName = "vfi-member"
     flooding.EntityData.SegmentPath = "flooding"
+    flooding.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/vfi-member/" + flooding.EntityData.SegmentPath
     flooding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2993,6 +3080,7 @@ func (flooding *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_F
 type BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flooding_Status struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf identifies a ethernet traffic type. The
     // type is EthTrafficClass.
@@ -3009,6 +3097,7 @@ func (status *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flo
     status.EntityData.BundleName = "cisco_ios_xe"
     status.EntityData.ParentYangName = "flooding"
     status.EntityData.SegmentPath = "status" + types.AddKeyToken(status.TrafficClass, "traffic-class")
+    status.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/vfi-member/flooding/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3029,6 +3118,7 @@ func (status *BridgeDomainState_BridgeDomains_BridgeDomain_Members_VfiMember_Flo
 type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to peer ip address of a pseudowire
     // instance. The type is one of the following types: string with pattern:
@@ -3052,6 +3142,7 @@ func (accessPwMember *BridgeDomainState_BridgeDomains_BridgeDomain_Members_Acces
     accessPwMember.EntityData.BundleName = "cisco_ios_xe"
     accessPwMember.EntityData.ParentYangName = "members"
     accessPwMember.EntityData.SegmentPath = "access-pw-member" + types.AddKeyToken(accessPwMember.VcPeerAddress, "vc-peer-address") + types.AddKeyToken(accessPwMember.VcId, "vc-id")
+    accessPwMember.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/" + accessPwMember.EntityData.SegmentPath
     accessPwMember.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     accessPwMember.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     accessPwMember.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3085,6 +3176,7 @@ func (flooding *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMem
     flooding.EntityData.BundleName = "cisco_ios_xe"
     flooding.EntityData.ParentYangName = "access-pw-member"
     flooding.EntityData.SegmentPath = "flooding"
+    flooding.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/access-pw-member/" + flooding.EntityData.SegmentPath
     flooding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flooding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flooding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3107,6 +3199,7 @@ func (flooding *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMem
 type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember_Flooding_Status struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf identifies a ethernet traffic type. The
     // type is EthTrafficClass.
@@ -3123,6 +3216,7 @@ func (status *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMembe
     status.EntityData.BundleName = "cisco_ios_xe"
     status.EntityData.ParentYangName = "flooding"
     status.EntityData.SegmentPath = "status" + types.AddKeyToken(status.TrafficClass, "traffic-class")
+    status.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/bridge-domains/bridge-domain/members/access-pw-member/flooding/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3143,6 +3237,7 @@ func (status *BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMembe
 type BridgeDomainState_MacTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bridge-domain name where MAC entry is learnt. The
     // type is string.
@@ -3180,6 +3275,7 @@ func (macTable *BridgeDomainState_MacTable) GetEntityData() *types.CommonEntityD
     macTable.EntityData.BundleName = "cisco_ios_xe"
     macTable.EntityData.ParentYangName = "bridge-domain-state"
     macTable.EntityData.SegmentPath = "mac-table" + types.AddKeyToken(macTable.BdId, "bd-id") + types.AddKeyToken(macTable.MacAddress, "mac-address")
+    macTable.EntityData.AbsolutePath = "cisco-bridge-domain:bridge-domain-state/" + macTable.EntityData.SegmentPath
     macTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     macTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     macTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3232,6 +3328,7 @@ func (clearBridgeDomain *ClearBridgeDomain) GetEntityData() *types.CommonEntityD
     clearBridgeDomain.EntityData.BundleName = "cisco_ios_xe"
     clearBridgeDomain.EntityData.ParentYangName = "cisco-bridge-domain"
     clearBridgeDomain.EntityData.SegmentPath = "cisco-bridge-domain:clear-bridge-domain"
+    clearBridgeDomain.EntityData.AbsolutePath = clearBridgeDomain.EntityData.SegmentPath
     clearBridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clearBridgeDomain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clearBridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3267,6 +3364,7 @@ func (input *ClearBridgeDomain_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "clear-bridge-domain"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "cisco-bridge-domain:clear-bridge-domain/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3297,6 +3395,7 @@ func (output *ClearBridgeDomain_Output) GetEntityData() *types.CommonEntityData 
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "clear-bridge-domain"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-bridge-domain:clear-bridge-domain/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3330,6 +3429,7 @@ func (clearMacAddress *ClearMacAddress) GetEntityData() *types.CommonEntityData 
     clearMacAddress.EntityData.BundleName = "cisco_ios_xe"
     clearMacAddress.EntityData.ParentYangName = "cisco-bridge-domain"
     clearMacAddress.EntityData.SegmentPath = "cisco-bridge-domain:clear-mac-address"
+    clearMacAddress.EntityData.AbsolutePath = clearMacAddress.EntityData.SegmentPath
     clearMacAddress.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clearMacAddress.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clearMacAddress.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3367,6 +3467,7 @@ func (input *ClearMacAddress_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "clear-mac-address"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "cisco-bridge-domain:clear-mac-address/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3404,6 +3505,7 @@ func (bridgeDomain *ClearMacAddress_Input_BridgeDomain) GetEntityData() *types.C
     bridgeDomain.EntityData.BundleName = "cisco_ios_xe"
     bridgeDomain.EntityData.ParentYangName = "input"
     bridgeDomain.EntityData.SegmentPath = "bridge-domain"
+    bridgeDomain.EntityData.AbsolutePath = "cisco-bridge-domain:clear-mac-address/input/" + bridgeDomain.EntityData.SegmentPath
     bridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeDomain.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3433,6 +3535,7 @@ func (output *ClearMacAddress_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "clear-mac-address"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-bridge-domain:clear-mac-address/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3466,6 +3569,7 @@ func (createParameterizedBridgeDomains *CreateParameterizedBridgeDomains) GetEnt
     createParameterizedBridgeDomains.EntityData.BundleName = "cisco_ios_xe"
     createParameterizedBridgeDomains.EntityData.ParentYangName = "cisco-bridge-domain"
     createParameterizedBridgeDomains.EntityData.SegmentPath = "cisco-bridge-domain:create-parameterized-bridge-domains"
+    createParameterizedBridgeDomains.EntityData.AbsolutePath = createParameterizedBridgeDomains.EntityData.SegmentPath
     createParameterizedBridgeDomains.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     createParameterizedBridgeDomains.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     createParameterizedBridgeDomains.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3499,6 +3603,7 @@ func (input *CreateParameterizedBridgeDomains_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "create-parameterized-bridge-domains"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "cisco-bridge-domain:create-parameterized-bridge-domains/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3521,6 +3626,7 @@ func (input *CreateParameterizedBridgeDomains_Input) GetEntityData() *types.Comm
 type CreateParameterizedBridgeDomains_Input_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to an interface instance which is
     // configured to be part of this bridge domain. The type is string. Refers to
@@ -3534,6 +3640,7 @@ func (member *CreateParameterizedBridgeDomains_Input_Member) GetEntityData() *ty
     member.EntityData.BundleName = "cisco_ios_xe"
     member.EntityData.ParentYangName = "input"
     member.EntityData.SegmentPath = "member" + types.AddKeyToken(member.Interface, "interface")
+    member.EntityData.AbsolutePath = "cisco-bridge-domain:create-parameterized-bridge-domains/input/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3571,6 +3678,7 @@ func (output *CreateParameterizedBridgeDomains_Output) GetEntityData() *types.Co
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "create-parameterized-bridge-domains"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "cisco-bridge-domain:create-parameterized-bridge-domains/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -50,6 +50,7 @@ func (ipUdp *IpUdp) GetEntityData() *types.CommonEntityData {
     ipUdp.EntityData.BundleName = "cisco_ios_xr"
     ipUdp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-udp-cfg"
     ipUdp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-cfg:ip-udp"
+    ipUdp.EntityData.AbsolutePath = ipUdp.EntityData.SegmentPath
     ipUdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipUdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipUdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -88,6 +89,7 @@ func (numThread *IpUdp_NumThread) GetEntityData() *types.CommonEntityData {
     numThread.EntityData.BundleName = "cisco_ios_xr"
     numThread.EntityData.ParentYangName = "ip-udp"
     numThread.EntityData.SegmentPath = "num-thread"
+    numThread.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-cfg:ip-udp/" + numThread.EntityData.SegmentPath
     numThread.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numThread.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numThread.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -128,6 +130,7 @@ func (directory *IpUdp_Directory) GetEntityData() *types.CommonEntityData {
     directory.EntityData.BundleName = "cisco_ios_xr"
     directory.EntityData.ParentYangName = "ip-udp"
     directory.EntityData.SegmentPath = "directory"
+    directory.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-cfg:ip-udp/" + directory.EntityData.SegmentPath
     directory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     directory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     directory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

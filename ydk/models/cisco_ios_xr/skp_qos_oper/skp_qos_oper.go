@@ -333,6 +333,7 @@ func (platformQos *PlatformQos) GetEntityData() *types.CommonEntityData {
     platformQos.EntityData.BundleName = "cisco_ios_xr"
     platformQos.EntityData.ParentYangName = "Cisco-IOS-XR-skp-qos-oper"
     platformQos.EntityData.SegmentPath = "Cisco-IOS-XR-skp-qos-oper:platform-qos"
+    platformQos.EntityData.AbsolutePath = platformQos.EntityData.SegmentPath
     platformQos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platformQos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformQos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -364,6 +365,7 @@ func (nodes *PlatformQos_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "platform-qos"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -385,6 +387,7 @@ func (nodes *PlatformQos_Nodes) GetEntityData() *types.CommonEntityData {
 type PlatformQos_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -406,6 +409,7 @@ func (node *PlatformQos_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -439,6 +443,7 @@ func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetEntityData()
     bundleInterfaces.EntityData.BundleName = "cisco_ios_xr"
     bundleInterfaces.EntityData.ParentYangName = "node"
     bundleInterfaces.EntityData.SegmentPath = "bundle-interfaces"
+    bundleInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/" + bundleInterfaces.EntityData.SegmentPath
     bundleInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -460,6 +465,7 @@ func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetEntityData()
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -475,6 +481,7 @@ func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) 
     bundleInterface.EntityData.BundleName = "cisco_ios_xr"
     bundleInterface.EntityData.ParentYangName = "bundle-interfaces"
     bundleInterface.EntityData.SegmentPath = "bundle-interface" + types.AddKeyToken(bundleInterface.InterfaceName, "interface-name")
+    bundleInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/" + bundleInterface.EntityData.SegmentPath
     bundleInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -506,6 +513,7 @@ func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
     memberInterfaces.EntityData.BundleName = "cisco_ios_xr"
     memberInterfaces.EntityData.ParentYangName = "bundle-interface"
     memberInterfaces.EntityData.SegmentPath = "member-interfaces"
+    memberInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/" + memberInterfaces.EntityData.SegmentPath
     memberInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -527,6 +535,7 @@ func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Memeber interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -545,6 +554,7 @@ func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_M
     memberInterface.EntityData.BundleName = "cisco_ios_xr"
     memberInterface.EntityData.ParentYangName = "member-interfaces"
     memberInterface.EntityData.SegmentPath = "member-interface" + types.AddKeyToken(memberInterface.InterfaceName, "interface-name")
+    memberInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/" + memberInterface.EntityData.SegmentPath
     memberInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -582,6 +592,7 @@ func (bundleInput *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Membe
     bundleInput.EntityData.BundleName = "cisco_ios_xr"
     bundleInput.EntityData.ParentYangName = "member-interface"
     bundleInput.EntityData.SegmentPath = "bundle-input"
+    bundleInput.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/" + bundleInput.EntityData.SegmentPath
     bundleInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -622,6 +633,7 @@ func (header *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInte
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "bundle-input"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -660,6 +672,7 @@ func (interfaceParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     interfaceParameters.EntityData.BundleName = "cisco_ios_xr"
     interfaceParameters.EntityData.ParentYangName = "bundle-input"
     interfaceParameters.EntityData.SegmentPath = "interface-parameters"
+    interfaceParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/" + interfaceParameters.EntityData.SegmentPath
     interfaceParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -694,6 +707,7 @@ func (interfaceConfigRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     interfaceConfigRate.EntityData.BundleName = "cisco_ios_xr"
     interfaceConfigRate.EntityData.ParentYangName = "interface-parameters"
     interfaceConfigRate.EntityData.SegmentPath = "interface-config-rate"
+    interfaceConfigRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/interface-parameters/" + interfaceConfigRate.EntityData.SegmentPath
     interfaceConfigRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConfigRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConfigRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -727,6 +741,7 @@ func (interfaceProgramRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterf
     interfaceProgramRate.EntityData.BundleName = "cisco_ios_xr"
     interfaceProgramRate.EntityData.ParentYangName = "interface-parameters"
     interfaceProgramRate.EntityData.SegmentPath = "interface-program-rate"
+    interfaceProgramRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/interface-parameters/" + interfaceProgramRate.EntityData.SegmentPath
     interfaceProgramRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProgramRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProgramRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -760,6 +775,7 @@ func (portShaperRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Me
     portShaperRate.EntityData.BundleName = "cisco_ios_xr"
     portShaperRate.EntityData.ParentYangName = "interface-parameters"
     portShaperRate.EntityData.SegmentPath = "port-shaper-rate"
+    portShaperRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/interface-parameters/" + portShaperRate.EntityData.SegmentPath
     portShaperRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portShaperRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portShaperRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -791,6 +807,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_BundleInterfaces_BundleInter
     skywarpQosPolicyClass.EntityData.BundleName = "cisco_ios_xr"
     skywarpQosPolicyClass.EntityData.ParentYangName = "bundle-input"
     skywarpQosPolicyClass.EntityData.SegmentPath = "skywarp-qos-policy-class"
+    skywarpQosPolicyClass.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/" + skywarpQosPolicyClass.EntityData.SegmentPath
     skywarpQosPolicyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     skywarpQosPolicyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     skywarpQosPolicyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -798,6 +815,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_BundleInterfaces_BundleInter
     skywarpQosPolicyClass.EntityData.Children = types.NewOrderedMap()
     skywarpQosPolicyClass.EntityData.Children.Append("qos-show-pclass-st", types.YChild{"QosShowPclassSt", nil})
     for i := range skywarpQosPolicyClass.QosShowPclassSt {
+        types.SetYListKey(skywarpQosPolicyClass.QosShowPclassSt[i], i)
         skywarpQosPolicyClass.EntityData.Children.Append(types.GetSegmentPath(skywarpQosPolicyClass.QosShowPclassSt[i]), types.YChild{"QosShowPclassSt", skywarpQosPolicyClass.QosShowPclassSt[i]})
     }
     skywarpQosPolicyClass.EntityData.Leafs = types.NewOrderedMap()
@@ -812,6 +830,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_BundleInterfaces_BundleInter
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleInput_SkywarpQosPolicyClass_QosShowPclassSt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class level. The type is interface{} with range: 0..255.
     ClassLevel interface{}
@@ -840,7 +859,8 @@ func (qosShowPclassSt *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_M
     qosShowPclassSt.EntityData.YangName = "qos-show-pclass-st"
     qosShowPclassSt.EntityData.BundleName = "cisco_ios_xr"
     qosShowPclassSt.EntityData.ParentYangName = "skywarp-qos-policy-class"
-    qosShowPclassSt.EntityData.SegmentPath = "qos-show-pclass-st"
+    qosShowPclassSt.EntityData.SegmentPath = "qos-show-pclass-st" + types.AddNoKeyToken(qosShowPclassSt)
+    qosShowPclassSt.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/" + qosShowPclassSt.EntityData.SegmentPath
     qosShowPclassSt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosShowPclassSt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowPclassSt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -879,6 +899,7 @@ func (queue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "qos-show-pclass-st"
     queue.EntityData.SegmentPath = "queue"
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -912,6 +933,7 @@ func (shape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "qos-show-pclass-st"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -945,6 +967,7 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     pir.EntityData.BundleName = "cisco_ios_xr"
     pir.EntityData.ParentYangName = "shape"
     pir.EntityData.SegmentPath = "pir"
+    pir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/shape/" + pir.EntityData.SegmentPath
     pir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -978,6 +1001,7 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     pbs.EntityData.BundleName = "cisco_ios_xr"
     pbs.EntityData.ParentYangName = "shape"
     pbs.EntityData.SegmentPath = "pbs"
+    pbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/shape/" + pbs.EntityData.SegmentPath
     pbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1014,6 +1038,7 @@ func (wfq *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     wfq.EntityData.BundleName = "cisco_ios_xr"
     wfq.EntityData.ParentYangName = "qos-show-pclass-st"
     wfq.EntityData.SegmentPath = "wfq"
+    wfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/" + wfq.EntityData.SegmentPath
     wfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1048,6 +1073,7 @@ func (committedWeight *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_M
     committedWeight.EntityData.BundleName = "cisco_ios_xr"
     committedWeight.EntityData.ParentYangName = "wfq"
     committedWeight.EntityData.SegmentPath = "committed-weight"
+    committedWeight.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/wfq/" + committedWeight.EntityData.SegmentPath
     committedWeight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     committedWeight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committedWeight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1084,6 +1110,7 @@ func (programmedWfq *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     programmedWfq.EntityData.BundleName = "cisco_ios_xr"
     programmedWfq.EntityData.ParentYangName = "wfq"
     programmedWfq.EntityData.SegmentPath = "programmed-wfq"
+    programmedWfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/wfq/" + programmedWfq.EntityData.SegmentPath
     programmedWfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     programmedWfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     programmedWfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1118,6 +1145,7 @@ func (bandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberI
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "programmed-wfq"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/wfq/programmed-wfq/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1151,6 +1179,7 @@ func (sumOfBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Me
     sumOfBandwidth.EntityData.BundleName = "cisco_ios_xr"
     sumOfBandwidth.EntityData.ParentYangName = "programmed-wfq"
     sumOfBandwidth.EntityData.SegmentPath = "sum-of-bandwidth"
+    sumOfBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/wfq/programmed-wfq/" + sumOfBandwidth.EntityData.SegmentPath
     sumOfBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumOfBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumOfBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1190,6 +1219,7 @@ func (police *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInte
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "qos-show-pclass-st"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1225,6 +1255,7 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     cir.EntityData.BundleName = "cisco_ios_xr"
     cir.EntityData.ParentYangName = "police"
     cir.EntityData.SegmentPath = "cir"
+    cir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/police/" + cir.EntityData.SegmentPath
     cir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1258,6 +1289,7 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     cbs.EntityData.BundleName = "cisco_ios_xr"
     cbs.EntityData.ParentYangName = "police"
     cbs.EntityData.SegmentPath = "cbs"
+    cbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/police/" + cbs.EntityData.SegmentPath
     cbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1294,6 +1326,7 @@ func (marking *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInt
     marking.EntityData.BundleName = "cisco_ios_xr"
     marking.EntityData.ParentYangName = "qos-show-pclass-st"
     marking.EntityData.SegmentPath = "marking"
+    marking.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/" + marking.EntityData.SegmentPath
     marking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     marking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     marking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1329,6 +1362,7 @@ func (markOnly *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     markOnly.EntityData.BundleName = "cisco_ios_xr"
     markOnly.EntityData.ParentYangName = "marking"
     markOnly.EntityData.SegmentPath = "mark-only"
+    markOnly.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + markOnly.EntityData.SegmentPath
     markOnly.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markOnly.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markOnly.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1336,6 +1370,7 @@ func (markOnly *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     markOnly.EntityData.Children = types.NewOrderedMap()
     markOnly.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range markOnly.MarkDetail {
+        types.SetYListKey(markOnly.MarkDetail[i], i)
         markOnly.EntityData.Children.Append(types.GetSegmentPath(markOnly.MarkDetail[i]), types.YChild{"MarkDetail", markOnly.MarkDetail[i]})
     }
     markOnly.EntityData.Leafs = types.NewOrderedMap()
@@ -1351,6 +1386,7 @@ func (markOnly *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleInput_SkywarpQosPolicyClass_QosShowPclassSt_Marking_MarkOnly_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -1364,7 +1400,8 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "mark-only"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/marking/mark-only/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1399,6 +1436,7 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     policeConform.EntityData.BundleName = "cisco_ios_xr"
     policeConform.EntityData.ParentYangName = "marking"
     policeConform.EntityData.SegmentPath = "police-conform"
+    policeConform.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + policeConform.EntityData.SegmentPath
     policeConform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1406,6 +1444,7 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     policeConform.EntityData.Children = types.NewOrderedMap()
     policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
+        types.SetYListKey(policeConform.MarkDetail[i], i)
         policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
     policeConform.EntityData.Leafs = types.NewOrderedMap()
@@ -1421,6 +1460,7 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleInput_SkywarpQosPolicyClass_QosShowPclassSt_Marking_PoliceConform_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -1434,7 +1474,8 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "police-conform"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/marking/police-conform/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1469,6 +1510,7 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
     policeExceed.EntityData.BundleName = "cisco_ios_xr"
     policeExceed.EntityData.ParentYangName = "marking"
     policeExceed.EntityData.SegmentPath = "police-exceed"
+    policeExceed.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + policeExceed.EntityData.SegmentPath
     policeExceed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1476,6 +1518,7 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
     policeExceed.EntityData.Children = types.NewOrderedMap()
     policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
+        types.SetYListKey(policeExceed.MarkDetail[i], i)
         policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
     policeExceed.EntityData.Leafs = types.NewOrderedMap()
@@ -1491,6 +1534,7 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleInput_SkywarpQosPolicyClass_QosShowPclassSt_Marking_PoliceExceed_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -1504,7 +1548,8 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "police-exceed"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/skywarp-qos-policy-class/qos-show-pclass-st/marking/police-exceed/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1541,6 +1586,7 @@ func (bundleOutput *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
     bundleOutput.EntityData.BundleName = "cisco_ios_xr"
     bundleOutput.EntityData.ParentYangName = "member-interface"
     bundleOutput.EntityData.SegmentPath = "bundle-output"
+    bundleOutput.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/" + bundleOutput.EntityData.SegmentPath
     bundleOutput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleOutput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleOutput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1581,6 +1627,7 @@ func (header *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInte
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "bundle-output"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1619,6 +1666,7 @@ func (interfaceParameters *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     interfaceParameters.EntityData.BundleName = "cisco_ios_xr"
     interfaceParameters.EntityData.ParentYangName = "bundle-output"
     interfaceParameters.EntityData.SegmentPath = "interface-parameters"
+    interfaceParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/" + interfaceParameters.EntityData.SegmentPath
     interfaceParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1653,6 +1701,7 @@ func (interfaceConfigRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterfa
     interfaceConfigRate.EntityData.BundleName = "cisco_ios_xr"
     interfaceConfigRate.EntityData.ParentYangName = "interface-parameters"
     interfaceConfigRate.EntityData.SegmentPath = "interface-config-rate"
+    interfaceConfigRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/interface-parameters/" + interfaceConfigRate.EntityData.SegmentPath
     interfaceConfigRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConfigRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConfigRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1686,6 +1735,7 @@ func (interfaceProgramRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterf
     interfaceProgramRate.EntityData.BundleName = "cisco_ios_xr"
     interfaceProgramRate.EntityData.ParentYangName = "interface-parameters"
     interfaceProgramRate.EntityData.SegmentPath = "interface-program-rate"
+    interfaceProgramRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/interface-parameters/" + interfaceProgramRate.EntityData.SegmentPath
     interfaceProgramRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProgramRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProgramRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1719,6 +1769,7 @@ func (portShaperRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Me
     portShaperRate.EntityData.BundleName = "cisco_ios_xr"
     portShaperRate.EntityData.ParentYangName = "interface-parameters"
     portShaperRate.EntityData.SegmentPath = "port-shaper-rate"
+    portShaperRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/interface-parameters/" + portShaperRate.EntityData.SegmentPath
     portShaperRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portShaperRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portShaperRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1750,6 +1801,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_BundleInterfaces_BundleInter
     skywarpQosPolicyClass.EntityData.BundleName = "cisco_ios_xr"
     skywarpQosPolicyClass.EntityData.ParentYangName = "bundle-output"
     skywarpQosPolicyClass.EntityData.SegmentPath = "skywarp-qos-policy-class"
+    skywarpQosPolicyClass.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/" + skywarpQosPolicyClass.EntityData.SegmentPath
     skywarpQosPolicyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     skywarpQosPolicyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     skywarpQosPolicyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1757,6 +1809,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_BundleInterfaces_BundleInter
     skywarpQosPolicyClass.EntityData.Children = types.NewOrderedMap()
     skywarpQosPolicyClass.EntityData.Children.Append("qos-show-pclass-st", types.YChild{"QosShowPclassSt", nil})
     for i := range skywarpQosPolicyClass.QosShowPclassSt {
+        types.SetYListKey(skywarpQosPolicyClass.QosShowPclassSt[i], i)
         skywarpQosPolicyClass.EntityData.Children.Append(types.GetSegmentPath(skywarpQosPolicyClass.QosShowPclassSt[i]), types.YChild{"QosShowPclassSt", skywarpQosPolicyClass.QosShowPclassSt[i]})
     }
     skywarpQosPolicyClass.EntityData.Leafs = types.NewOrderedMap()
@@ -1771,6 +1824,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_BundleInterfaces_BundleInter
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleOutput_SkywarpQosPolicyClass_QosShowPclassSt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class level. The type is interface{} with range: 0..255.
     ClassLevel interface{}
@@ -1799,7 +1853,8 @@ func (qosShowPclassSt *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_M
     qosShowPclassSt.EntityData.YangName = "qos-show-pclass-st"
     qosShowPclassSt.EntityData.BundleName = "cisco_ios_xr"
     qosShowPclassSt.EntityData.ParentYangName = "skywarp-qos-policy-class"
-    qosShowPclassSt.EntityData.SegmentPath = "qos-show-pclass-st"
+    qosShowPclassSt.EntityData.SegmentPath = "qos-show-pclass-st" + types.AddNoKeyToken(qosShowPclassSt)
+    qosShowPclassSt.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/" + qosShowPclassSt.EntityData.SegmentPath
     qosShowPclassSt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosShowPclassSt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowPclassSt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1838,6 +1893,7 @@ func (queue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "qos-show-pclass-st"
     queue.EntityData.SegmentPath = "queue"
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1871,6 +1927,7 @@ func (shape *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "qos-show-pclass-st"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1904,6 +1961,7 @@ func (pir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     pir.EntityData.BundleName = "cisco_ios_xr"
     pir.EntityData.ParentYangName = "shape"
     pir.EntityData.SegmentPath = "pir"
+    pir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/shape/" + pir.EntityData.SegmentPath
     pir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1937,6 +1995,7 @@ func (pbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     pbs.EntityData.BundleName = "cisco_ios_xr"
     pbs.EntityData.ParentYangName = "shape"
     pbs.EntityData.SegmentPath = "pbs"
+    pbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/shape/" + pbs.EntityData.SegmentPath
     pbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1973,6 +2032,7 @@ func (wfq *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     wfq.EntityData.BundleName = "cisco_ios_xr"
     wfq.EntityData.ParentYangName = "qos-show-pclass-st"
     wfq.EntityData.SegmentPath = "wfq"
+    wfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/" + wfq.EntityData.SegmentPath
     wfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2007,6 +2067,7 @@ func (committedWeight *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_M
     committedWeight.EntityData.BundleName = "cisco_ios_xr"
     committedWeight.EntityData.ParentYangName = "wfq"
     committedWeight.EntityData.SegmentPath = "committed-weight"
+    committedWeight.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/wfq/" + committedWeight.EntityData.SegmentPath
     committedWeight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     committedWeight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committedWeight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2043,6 +2104,7 @@ func (programmedWfq *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     programmedWfq.EntityData.BundleName = "cisco_ios_xr"
     programmedWfq.EntityData.ParentYangName = "wfq"
     programmedWfq.EntityData.SegmentPath = "programmed-wfq"
+    programmedWfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/wfq/" + programmedWfq.EntityData.SegmentPath
     programmedWfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     programmedWfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     programmedWfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2077,6 +2139,7 @@ func (bandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberI
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "programmed-wfq"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/wfq/programmed-wfq/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2110,6 +2173,7 @@ func (sumOfBandwidth *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Me
     sumOfBandwidth.EntityData.BundleName = "cisco_ios_xr"
     sumOfBandwidth.EntityData.ParentYangName = "programmed-wfq"
     sumOfBandwidth.EntityData.SegmentPath = "sum-of-bandwidth"
+    sumOfBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/wfq/programmed-wfq/" + sumOfBandwidth.EntityData.SegmentPath
     sumOfBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumOfBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumOfBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2149,6 +2213,7 @@ func (police *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInte
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "qos-show-pclass-st"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2184,6 +2249,7 @@ func (cir *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     cir.EntityData.BundleName = "cisco_ios_xr"
     cir.EntityData.ParentYangName = "police"
     cir.EntityData.SegmentPath = "cir"
+    cir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/police/" + cir.EntityData.SegmentPath
     cir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2217,6 +2283,7 @@ func (cbs *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfa
     cbs.EntityData.BundleName = "cisco_ios_xr"
     cbs.EntityData.ParentYangName = "police"
     cbs.EntityData.SegmentPath = "cbs"
+    cbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/police/" + cbs.EntityData.SegmentPath
     cbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2253,6 +2320,7 @@ func (marking *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInt
     marking.EntityData.BundleName = "cisco_ios_xr"
     marking.EntityData.ParentYangName = "qos-show-pclass-st"
     marking.EntityData.SegmentPath = "marking"
+    marking.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/" + marking.EntityData.SegmentPath
     marking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     marking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     marking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2288,6 +2356,7 @@ func (markOnly *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     markOnly.EntityData.BundleName = "cisco_ios_xr"
     markOnly.EntityData.ParentYangName = "marking"
     markOnly.EntityData.SegmentPath = "mark-only"
+    markOnly.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + markOnly.EntityData.SegmentPath
     markOnly.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markOnly.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markOnly.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2295,6 +2364,7 @@ func (markOnly *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     markOnly.EntityData.Children = types.NewOrderedMap()
     markOnly.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range markOnly.MarkDetail {
+        types.SetYListKey(markOnly.MarkDetail[i], i)
         markOnly.EntityData.Children.Append(types.GetSegmentPath(markOnly.MarkDetail[i]), types.YChild{"MarkDetail", markOnly.MarkDetail[i]})
     }
     markOnly.EntityData.Leafs = types.NewOrderedMap()
@@ -2310,6 +2380,7 @@ func (markOnly *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleOutput_SkywarpQosPolicyClass_QosShowPclassSt_Marking_MarkOnly_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -2323,7 +2394,8 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "mark-only"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/marking/mark-only/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2358,6 +2430,7 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     policeConform.EntityData.BundleName = "cisco_ios_xr"
     policeConform.EntityData.ParentYangName = "marking"
     policeConform.EntityData.SegmentPath = "police-conform"
+    policeConform.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + policeConform.EntityData.SegmentPath
     policeConform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2365,6 +2438,7 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     policeConform.EntityData.Children = types.NewOrderedMap()
     policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
+        types.SetYListKey(policeConform.MarkDetail[i], i)
         policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
     policeConform.EntityData.Leafs = types.NewOrderedMap()
@@ -2380,6 +2454,7 @@ func (policeConform *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Mem
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleOutput_SkywarpQosPolicyClass_QosShowPclassSt_Marking_PoliceConform_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -2393,7 +2468,8 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "police-conform"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/marking/police-conform/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2428,6 +2504,7 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
     policeExceed.EntityData.BundleName = "cisco_ios_xr"
     policeExceed.EntityData.ParentYangName = "marking"
     policeExceed.EntityData.SegmentPath = "police-exceed"
+    policeExceed.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + policeExceed.EntityData.SegmentPath
     policeExceed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2435,6 +2512,7 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
     policeExceed.EntityData.Children = types.NewOrderedMap()
     policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
+        types.SetYListKey(policeExceed.MarkDetail[i], i)
         policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
     policeExceed.EntityData.Leafs = types.NewOrderedMap()
@@ -2450,6 +2528,7 @@ func (policeExceed *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Memb
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleOutput_SkywarpQosPolicyClass_QosShowPclassSt_Marking_PoliceExceed_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -2463,7 +2542,8 @@ func (markDetail *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Member
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "police-exceed"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/skywarp-qos-policy-class/qos-show-pclass-st/marking/police-exceed/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2526,6 +2606,7 @@ func (capability *PlatformQos_Nodes_Node_Capability) GetEntityData() *types.Comm
     capability.EntityData.BundleName = "cisco_ios_xr"
     capability.EntityData.ParentYangName = "node"
     capability.EntityData.SegmentPath = "capability"
+    capability.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/" + capability.EntityData.SegmentPath
     capability.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     capability.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     capability.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2564,6 +2645,7 @@ func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetEntityData() *types.Comm
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2585,6 +2667,7 @@ func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetEntityData() *types.Comm
 type PlatformQos_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2603,6 +2686,7 @@ func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetEntityData() *types.
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2640,6 +2724,7 @@ func (output *PlatformQos_Nodes_Node_Interfaces_Interface_Output) GetEntityData(
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "interface"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2680,6 +2765,7 @@ func (header *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Header) GetEnti
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "output"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2718,6 +2804,7 @@ func (interfaceParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Output_In
     interfaceParameters.EntityData.BundleName = "cisco_ios_xr"
     interfaceParameters.EntityData.ParentYangName = "output"
     interfaceParameters.EntityData.SegmentPath = "interface-parameters"
+    interfaceParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/" + interfaceParameters.EntityData.SegmentPath
     interfaceParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2752,6 +2839,7 @@ func (interfaceConfigRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_In
     interfaceConfigRate.EntityData.BundleName = "cisco_ios_xr"
     interfaceConfigRate.EntityData.ParentYangName = "interface-parameters"
     interfaceConfigRate.EntityData.SegmentPath = "interface-config-rate"
+    interfaceConfigRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/interface-parameters/" + interfaceConfigRate.EntityData.SegmentPath
     interfaceConfigRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConfigRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConfigRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2785,6 +2873,7 @@ func (interfaceProgramRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_I
     interfaceProgramRate.EntityData.BundleName = "cisco_ios_xr"
     interfaceProgramRate.EntityData.ParentYangName = "interface-parameters"
     interfaceProgramRate.EntityData.SegmentPath = "interface-program-rate"
+    interfaceProgramRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/interface-parameters/" + interfaceProgramRate.EntityData.SegmentPath
     interfaceProgramRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProgramRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProgramRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2818,6 +2907,7 @@ func (portShaperRate *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Interfa
     portShaperRate.EntityData.BundleName = "cisco_ios_xr"
     portShaperRate.EntityData.ParentYangName = "interface-parameters"
     portShaperRate.EntityData.SegmentPath = "port-shaper-rate"
+    portShaperRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/interface-parameters/" + portShaperRate.EntityData.SegmentPath
     portShaperRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portShaperRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portShaperRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2849,6 +2939,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_Interfaces_Interface_Output_
     skywarpQosPolicyClass.EntityData.BundleName = "cisco_ios_xr"
     skywarpQosPolicyClass.EntityData.ParentYangName = "output"
     skywarpQosPolicyClass.EntityData.SegmentPath = "skywarp-qos-policy-class"
+    skywarpQosPolicyClass.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/" + skywarpQosPolicyClass.EntityData.SegmentPath
     skywarpQosPolicyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     skywarpQosPolicyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     skywarpQosPolicyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2856,6 +2947,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_Interfaces_Interface_Output_
     skywarpQosPolicyClass.EntityData.Children = types.NewOrderedMap()
     skywarpQosPolicyClass.EntityData.Children.Append("qos-show-pclass-st", types.YChild{"QosShowPclassSt", nil})
     for i := range skywarpQosPolicyClass.QosShowPclassSt {
+        types.SetYListKey(skywarpQosPolicyClass.QosShowPclassSt[i], i)
         skywarpQosPolicyClass.EntityData.Children.Append(types.GetSegmentPath(skywarpQosPolicyClass.QosShowPclassSt[i]), types.YChild{"QosShowPclassSt", skywarpQosPolicyClass.QosShowPclassSt[i]})
     }
     skywarpQosPolicyClass.EntityData.Leafs = types.NewOrderedMap()
@@ -2870,6 +2962,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_Interfaces_Interface_Output_
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyClass_QosShowPclassSt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class level. The type is interface{} with range: 0..255.
     ClassLevel interface{}
@@ -2898,7 +2991,8 @@ func (qosShowPclassSt *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Skywar
     qosShowPclassSt.EntityData.YangName = "qos-show-pclass-st"
     qosShowPclassSt.EntityData.BundleName = "cisco_ios_xr"
     qosShowPclassSt.EntityData.ParentYangName = "skywarp-qos-policy-class"
-    qosShowPclassSt.EntityData.SegmentPath = "qos-show-pclass-st"
+    qosShowPclassSt.EntityData.SegmentPath = "qos-show-pclass-st" + types.AddNoKeyToken(qosShowPclassSt)
+    qosShowPclassSt.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/" + qosShowPclassSt.EntityData.SegmentPath
     qosShowPclassSt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosShowPclassSt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowPclassSt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2937,6 +3031,7 @@ func (queue *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicy
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "qos-show-pclass-st"
     queue.EntityData.SegmentPath = "queue"
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2970,6 +3065,7 @@ func (shape *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicy
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "qos-show-pclass-st"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3003,6 +3099,7 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyCl
     pir.EntityData.BundleName = "cisco_ios_xr"
     pir.EntityData.ParentYangName = "shape"
     pir.EntityData.SegmentPath = "pir"
+    pir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/shape/" + pir.EntityData.SegmentPath
     pir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3036,6 +3133,7 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyCl
     pbs.EntityData.BundleName = "cisco_ios_xr"
     pbs.EntityData.ParentYangName = "shape"
     pbs.EntityData.SegmentPath = "pbs"
+    pbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/shape/" + pbs.EntityData.SegmentPath
     pbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3072,6 +3170,7 @@ func (wfq *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyCl
     wfq.EntityData.BundleName = "cisco_ios_xr"
     wfq.EntityData.ParentYangName = "qos-show-pclass-st"
     wfq.EntityData.SegmentPath = "wfq"
+    wfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/" + wfq.EntityData.SegmentPath
     wfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3106,6 +3205,7 @@ func (committedWeight *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Skywar
     committedWeight.EntityData.BundleName = "cisco_ios_xr"
     committedWeight.EntityData.ParentYangName = "wfq"
     committedWeight.EntityData.SegmentPath = "committed-weight"
+    committedWeight.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/wfq/" + committedWeight.EntityData.SegmentPath
     committedWeight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     committedWeight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committedWeight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3142,6 +3242,7 @@ func (programmedWfq *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQ
     programmedWfq.EntityData.BundleName = "cisco_ios_xr"
     programmedWfq.EntityData.ParentYangName = "wfq"
     programmedWfq.EntityData.SegmentPath = "programmed-wfq"
+    programmedWfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/wfq/" + programmedWfq.EntityData.SegmentPath
     programmedWfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     programmedWfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     programmedWfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3176,6 +3277,7 @@ func (bandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPo
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "programmed-wfq"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/wfq/programmed-wfq/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3209,6 +3311,7 @@ func (sumOfBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Output_Skywarp
     sumOfBandwidth.EntityData.BundleName = "cisco_ios_xr"
     sumOfBandwidth.EntityData.ParentYangName = "programmed-wfq"
     sumOfBandwidth.EntityData.SegmentPath = "sum-of-bandwidth"
+    sumOfBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/wfq/programmed-wfq/" + sumOfBandwidth.EntityData.SegmentPath
     sumOfBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumOfBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumOfBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3248,6 +3351,7 @@ func (police *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolic
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "qos-show-pclass-st"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3283,6 +3387,7 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyCl
     cir.EntityData.BundleName = "cisco_ios_xr"
     cir.EntityData.ParentYangName = "police"
     cir.EntityData.SegmentPath = "cir"
+    cir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/police/" + cir.EntityData.SegmentPath
     cir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3316,6 +3421,7 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyCl
     cbs.EntityData.BundleName = "cisco_ios_xr"
     cbs.EntityData.ParentYangName = "police"
     cbs.EntityData.SegmentPath = "cbs"
+    cbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/police/" + cbs.EntityData.SegmentPath
     cbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3352,6 +3458,7 @@ func (marking *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPoli
     marking.EntityData.BundleName = "cisco_ios_xr"
     marking.EntityData.ParentYangName = "qos-show-pclass-st"
     marking.EntityData.SegmentPath = "marking"
+    marking.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/" + marking.EntityData.SegmentPath
     marking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     marking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     marking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3387,6 +3494,7 @@ func (markOnly *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPol
     markOnly.EntityData.BundleName = "cisco_ios_xr"
     markOnly.EntityData.ParentYangName = "marking"
     markOnly.EntityData.SegmentPath = "mark-only"
+    markOnly.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + markOnly.EntityData.SegmentPath
     markOnly.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markOnly.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markOnly.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3394,6 +3502,7 @@ func (markOnly *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPol
     markOnly.EntityData.Children = types.NewOrderedMap()
     markOnly.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range markOnly.MarkDetail {
+        types.SetYListKey(markOnly.MarkDetail[i], i)
         markOnly.EntityData.Children.Append(types.GetSegmentPath(markOnly.MarkDetail[i]), types.YChild{"MarkDetail", markOnly.MarkDetail[i]})
     }
     markOnly.EntityData.Leafs = types.NewOrderedMap()
@@ -3409,6 +3518,7 @@ func (markOnly *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPol
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyClass_QosShowPclassSt_Marking_MarkOnly_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -3422,7 +3532,8 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosP
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "mark-only"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/marking/mark-only/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3457,6 +3568,7 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQ
     policeConform.EntityData.BundleName = "cisco_ios_xr"
     policeConform.EntityData.ParentYangName = "marking"
     policeConform.EntityData.SegmentPath = "police-conform"
+    policeConform.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + policeConform.EntityData.SegmentPath
     policeConform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3464,6 +3576,7 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQ
     policeConform.EntityData.Children = types.NewOrderedMap()
     policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
+        types.SetYListKey(policeConform.MarkDetail[i], i)
         policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
     policeConform.EntityData.Leafs = types.NewOrderedMap()
@@ -3479,6 +3592,7 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQ
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyClass_QosShowPclassSt_Marking_PoliceConform_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -3492,7 +3606,8 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosP
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "police-conform"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/marking/police-conform/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3527,6 +3642,7 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQo
     policeExceed.EntityData.BundleName = "cisco_ios_xr"
     policeExceed.EntityData.ParentYangName = "marking"
     policeExceed.EntityData.SegmentPath = "police-exceed"
+    policeExceed.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + policeExceed.EntityData.SegmentPath
     policeExceed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3534,6 +3650,7 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQo
     policeExceed.EntityData.Children = types.NewOrderedMap()
     policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
+        types.SetYListKey(policeExceed.MarkDetail[i], i)
         policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
     policeExceed.EntityData.Leafs = types.NewOrderedMap()
@@ -3549,6 +3666,7 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQo
 type PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosPolicyClass_QosShowPclassSt_Marking_PoliceExceed_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -3562,7 +3680,8 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Output_SkywarpQosP
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "police-exceed"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/output/skywarp-qos-policy-class/qos-show-pclass-st/marking/police-exceed/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3599,6 +3718,7 @@ func (input *PlatformQos_Nodes_Node_Interfaces_Interface_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "interface"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3639,6 +3759,7 @@ func (header *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Header) GetEntit
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "input"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3677,6 +3798,7 @@ func (interfaceParameters *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Int
     interfaceParameters.EntityData.BundleName = "cisco_ios_xr"
     interfaceParameters.EntityData.ParentYangName = "input"
     interfaceParameters.EntityData.SegmentPath = "interface-parameters"
+    interfaceParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/" + interfaceParameters.EntityData.SegmentPath
     interfaceParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3711,6 +3833,7 @@ func (interfaceConfigRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Int
     interfaceConfigRate.EntityData.BundleName = "cisco_ios_xr"
     interfaceConfigRate.EntityData.ParentYangName = "interface-parameters"
     interfaceConfigRate.EntityData.SegmentPath = "interface-config-rate"
+    interfaceConfigRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/interface-parameters/" + interfaceConfigRate.EntityData.SegmentPath
     interfaceConfigRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceConfigRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceConfigRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3744,6 +3867,7 @@ func (interfaceProgramRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_In
     interfaceProgramRate.EntityData.BundleName = "cisco_ios_xr"
     interfaceProgramRate.EntityData.ParentYangName = "interface-parameters"
     interfaceProgramRate.EntityData.SegmentPath = "interface-program-rate"
+    interfaceProgramRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/interface-parameters/" + interfaceProgramRate.EntityData.SegmentPath
     interfaceProgramRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProgramRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProgramRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3777,6 +3901,7 @@ func (portShaperRate *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Interfac
     portShaperRate.EntityData.BundleName = "cisco_ios_xr"
     portShaperRate.EntityData.ParentYangName = "interface-parameters"
     portShaperRate.EntityData.SegmentPath = "port-shaper-rate"
+    portShaperRate.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/interface-parameters/" + portShaperRate.EntityData.SegmentPath
     portShaperRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portShaperRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portShaperRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3808,6 +3933,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_Interfaces_Interface_Input_S
     skywarpQosPolicyClass.EntityData.BundleName = "cisco_ios_xr"
     skywarpQosPolicyClass.EntityData.ParentYangName = "input"
     skywarpQosPolicyClass.EntityData.SegmentPath = "skywarp-qos-policy-class"
+    skywarpQosPolicyClass.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/" + skywarpQosPolicyClass.EntityData.SegmentPath
     skywarpQosPolicyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     skywarpQosPolicyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     skywarpQosPolicyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3815,6 +3941,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_Interfaces_Interface_Input_S
     skywarpQosPolicyClass.EntityData.Children = types.NewOrderedMap()
     skywarpQosPolicyClass.EntityData.Children.Append("qos-show-pclass-st", types.YChild{"QosShowPclassSt", nil})
     for i := range skywarpQosPolicyClass.QosShowPclassSt {
+        types.SetYListKey(skywarpQosPolicyClass.QosShowPclassSt[i], i)
         skywarpQosPolicyClass.EntityData.Children.Append(types.GetSegmentPath(skywarpQosPolicyClass.QosShowPclassSt[i]), types.YChild{"QosShowPclassSt", skywarpQosPolicyClass.QosShowPclassSt[i]})
     }
     skywarpQosPolicyClass.EntityData.Leafs = types.NewOrderedMap()
@@ -3829,6 +3956,7 @@ func (skywarpQosPolicyClass *PlatformQos_Nodes_Node_Interfaces_Interface_Input_S
 type PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyClass_QosShowPclassSt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class level. The type is interface{} with range: 0..255.
     ClassLevel interface{}
@@ -3857,7 +3985,8 @@ func (qosShowPclassSt *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Skywarp
     qosShowPclassSt.EntityData.YangName = "qos-show-pclass-st"
     qosShowPclassSt.EntityData.BundleName = "cisco_ios_xr"
     qosShowPclassSt.EntityData.ParentYangName = "skywarp-qos-policy-class"
-    qosShowPclassSt.EntityData.SegmentPath = "qos-show-pclass-st"
+    qosShowPclassSt.EntityData.SegmentPath = "qos-show-pclass-st" + types.AddNoKeyToken(qosShowPclassSt)
+    qosShowPclassSt.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/" + qosShowPclassSt.EntityData.SegmentPath
     qosShowPclassSt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosShowPclassSt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowPclassSt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3896,6 +4025,7 @@ func (queue *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyC
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "qos-show-pclass-st"
     queue.EntityData.SegmentPath = "queue"
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3929,6 +4059,7 @@ func (shape *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyC
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "qos-show-pclass-st"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3962,6 +4093,7 @@ func (pir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyCla
     pir.EntityData.BundleName = "cisco_ios_xr"
     pir.EntityData.ParentYangName = "shape"
     pir.EntityData.SegmentPath = "pir"
+    pir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/shape/" + pir.EntityData.SegmentPath
     pir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3995,6 +4127,7 @@ func (pbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyCla
     pbs.EntityData.BundleName = "cisco_ios_xr"
     pbs.EntityData.ParentYangName = "shape"
     pbs.EntityData.SegmentPath = "pbs"
+    pbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/shape/" + pbs.EntityData.SegmentPath
     pbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4031,6 +4164,7 @@ func (wfq *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyCla
     wfq.EntityData.BundleName = "cisco_ios_xr"
     wfq.EntityData.ParentYangName = "qos-show-pclass-st"
     wfq.EntityData.SegmentPath = "wfq"
+    wfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/" + wfq.EntityData.SegmentPath
     wfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4065,6 +4199,7 @@ func (committedWeight *PlatformQos_Nodes_Node_Interfaces_Interface_Input_Skywarp
     committedWeight.EntityData.BundleName = "cisco_ios_xr"
     committedWeight.EntityData.ParentYangName = "wfq"
     committedWeight.EntityData.SegmentPath = "committed-weight"
+    committedWeight.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/wfq/" + committedWeight.EntityData.SegmentPath
     committedWeight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     committedWeight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     committedWeight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4101,6 +4236,7 @@ func (programmedWfq *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQo
     programmedWfq.EntityData.BundleName = "cisco_ios_xr"
     programmedWfq.EntityData.ParentYangName = "wfq"
     programmedWfq.EntityData.SegmentPath = "programmed-wfq"
+    programmedWfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/wfq/" + programmedWfq.EntityData.SegmentPath
     programmedWfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     programmedWfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     programmedWfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4135,6 +4271,7 @@ func (bandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPol
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "programmed-wfq"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/wfq/programmed-wfq/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4168,6 +4305,7 @@ func (sumOfBandwidth *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQ
     sumOfBandwidth.EntityData.BundleName = "cisco_ios_xr"
     sumOfBandwidth.EntityData.ParentYangName = "programmed-wfq"
     sumOfBandwidth.EntityData.SegmentPath = "sum-of-bandwidth"
+    sumOfBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/wfq/programmed-wfq/" + sumOfBandwidth.EntityData.SegmentPath
     sumOfBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumOfBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumOfBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4207,6 +4345,7 @@ func (police *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicy
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "qos-show-pclass-st"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4242,6 +4381,7 @@ func (cir *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyCla
     cir.EntityData.BundleName = "cisco_ios_xr"
     cir.EntityData.ParentYangName = "police"
     cir.EntityData.SegmentPath = "cir"
+    cir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/police/" + cir.EntityData.SegmentPath
     cir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4275,6 +4415,7 @@ func (cbs *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyCla
     cbs.EntityData.BundleName = "cisco_ios_xr"
     cbs.EntityData.ParentYangName = "police"
     cbs.EntityData.SegmentPath = "cbs"
+    cbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/police/" + cbs.EntityData.SegmentPath
     cbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4311,6 +4452,7 @@ func (marking *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolic
     marking.EntityData.BundleName = "cisco_ios_xr"
     marking.EntityData.ParentYangName = "qos-show-pclass-st"
     marking.EntityData.SegmentPath = "marking"
+    marking.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/" + marking.EntityData.SegmentPath
     marking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     marking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     marking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4346,6 +4488,7 @@ func (markOnly *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPoli
     markOnly.EntityData.BundleName = "cisco_ios_xr"
     markOnly.EntityData.ParentYangName = "marking"
     markOnly.EntityData.SegmentPath = "mark-only"
+    markOnly.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + markOnly.EntityData.SegmentPath
     markOnly.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markOnly.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markOnly.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4353,6 +4496,7 @@ func (markOnly *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPoli
     markOnly.EntityData.Children = types.NewOrderedMap()
     markOnly.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range markOnly.MarkDetail {
+        types.SetYListKey(markOnly.MarkDetail[i], i)
         markOnly.EntityData.Children.Append(types.GetSegmentPath(markOnly.MarkDetail[i]), types.YChild{"MarkDetail", markOnly.MarkDetail[i]})
     }
     markOnly.EntityData.Leafs = types.NewOrderedMap()
@@ -4368,6 +4512,7 @@ func (markOnly *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPoli
 type PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyClass_QosShowPclassSt_Marking_MarkOnly_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -4381,7 +4526,8 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPo
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "mark-only"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/marking/mark-only/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4416,6 +4562,7 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQo
     policeConform.EntityData.BundleName = "cisco_ios_xr"
     policeConform.EntityData.ParentYangName = "marking"
     policeConform.EntityData.SegmentPath = "police-conform"
+    policeConform.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + policeConform.EntityData.SegmentPath
     policeConform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeConform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeConform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4423,6 +4570,7 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQo
     policeConform.EntityData.Children = types.NewOrderedMap()
     policeConform.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeConform.MarkDetail {
+        types.SetYListKey(policeConform.MarkDetail[i], i)
         policeConform.EntityData.Children.Append(types.GetSegmentPath(policeConform.MarkDetail[i]), types.YChild{"MarkDetail", policeConform.MarkDetail[i]})
     }
     policeConform.EntityData.Leafs = types.NewOrderedMap()
@@ -4438,6 +4586,7 @@ func (policeConform *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQo
 type PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyClass_QosShowPclassSt_Marking_PoliceConform_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -4451,7 +4600,8 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPo
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "police-conform"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/marking/police-conform/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4486,6 +4636,7 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQos
     policeExceed.EntityData.BundleName = "cisco_ios_xr"
     policeExceed.EntityData.ParentYangName = "marking"
     policeExceed.EntityData.SegmentPath = "police-exceed"
+    policeExceed.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/marking/" + policeExceed.EntityData.SegmentPath
     policeExceed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeExceed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeExceed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4493,6 +4644,7 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQos
     policeExceed.EntityData.Children = types.NewOrderedMap()
     policeExceed.EntityData.Children.Append("mark-detail", types.YChild{"MarkDetail", nil})
     for i := range policeExceed.MarkDetail {
+        types.SetYListKey(policeExceed.MarkDetail[i], i)
         policeExceed.EntityData.Children.Append(types.GetSegmentPath(policeExceed.MarkDetail[i]), types.YChild{"MarkDetail", policeExceed.MarkDetail[i]})
     }
     policeExceed.EntityData.Leafs = types.NewOrderedMap()
@@ -4508,6 +4660,7 @@ func (policeExceed *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQos
 type PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPolicyClass_QosShowPclassSt_Marking_PoliceExceed_MarkDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mark value. The type is interface{} with range: 0..255.
     MarkValue interface{}
@@ -4521,7 +4674,8 @@ func (markDetail *PlatformQos_Nodes_Node_Interfaces_Interface_Input_SkywarpQosPo
     markDetail.EntityData.YangName = "mark-detail"
     markDetail.EntityData.BundleName = "cisco_ios_xr"
     markDetail.EntityData.ParentYangName = "police-exceed"
-    markDetail.EntityData.SegmentPath = "mark-detail"
+    markDetail.EntityData.SegmentPath = "mark-detail" + types.AddNoKeyToken(markDetail)
+    markDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/node/interfaces/interface/input/skywarp-qos-policy-class/qos-show-pclass-st/marking/police-exceed/" + markDetail.EntityData.SegmentPath
     markDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     markDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     markDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4552,6 +4706,7 @@ func (platformQosEa *PlatformQosEa) GetEntityData() *types.CommonEntityData {
     platformQosEa.EntityData.BundleName = "cisco_ios_xr"
     platformQosEa.EntityData.ParentYangName = "Cisco-IOS-XR-skp-qos-oper"
     platformQosEa.EntityData.SegmentPath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea"
+    platformQosEa.EntityData.AbsolutePath = platformQosEa.EntityData.SegmentPath
     platformQosEa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platformQosEa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformQosEa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4583,6 +4738,7 @@ func (nodes *PlatformQosEa_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "platform-qos-ea"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4605,6 +4761,7 @@ func (nodes *PlatformQosEa_Nodes) GetEntityData() *types.CommonEntityData {
 type PlatformQosEa_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -4623,6 +4780,7 @@ func (node *PlatformQosEa_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4655,6 +4813,7 @@ func (bundleInterfaces *PlatformQosEa_Nodes_Node_BundleInterfaces) GetEntityData
     bundleInterfaces.EntityData.BundleName = "cisco_ios_xr"
     bundleInterfaces.EntityData.ParentYangName = "node"
     bundleInterfaces.EntityData.SegmentPath = "bundle-interfaces"
+    bundleInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/" + bundleInterfaces.EntityData.SegmentPath
     bundleInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4676,6 +4835,7 @@ func (bundleInterfaces *PlatformQosEa_Nodes_Node_BundleInterfaces) GetEntityData
 type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bundle interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4691,6 +4851,7 @@ func (bundleInterface *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface
     bundleInterface.EntityData.BundleName = "cisco_ios_xr"
     bundleInterface.EntityData.ParentYangName = "bundle-interfaces"
     bundleInterface.EntityData.SegmentPath = "bundle-interface" + types.AddKeyToken(bundleInterface.InterfaceName, "interface-name")
+    bundleInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/" + bundleInterface.EntityData.SegmentPath
     bundleInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4722,6 +4883,7 @@ func (memberInterfaces *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterfac
     memberInterfaces.EntityData.BundleName = "cisco_ios_xr"
     memberInterfaces.EntityData.ParentYangName = "bundle-interface"
     memberInterfaces.EntityData.SegmentPath = "member-interfaces"
+    memberInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/" + memberInterfaces.EntityData.SegmentPath
     memberInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4743,6 +4905,7 @@ func (memberInterfaces *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterfac
 type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Memeber interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4761,6 +4924,7 @@ func (memberInterface *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface
     memberInterface.EntityData.BundleName = "cisco_ios_xr"
     memberInterface.EntityData.ParentYangName = "member-interfaces"
     memberInterface.EntityData.SegmentPath = "member-interface" + types.AddKeyToken(memberInterface.InterfaceName, "interface-name")
+    memberInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/" + memberInterface.EntityData.SegmentPath
     memberInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4792,6 +4956,7 @@ func (bundleOutput *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_Me
     bundleOutput.EntityData.BundleName = "cisco_ios_xr"
     bundleOutput.EntityData.ParentYangName = "member-interface"
     bundleOutput.EntityData.SegmentPath = "bundle-output"
+    bundleOutput.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/" + bundleOutput.EntityData.SegmentPath
     bundleOutput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleOutput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleOutput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4827,6 +4992,7 @@ func (details *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberI
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "bundle-output"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4867,6 +5033,7 @@ func (header *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "details"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4935,6 +5102,7 @@ func (interfaceParameters *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInter
     interfaceParameters.EntityData.BundleName = "cisco_ios_xr"
     interfaceParameters.EntityData.ParentYangName = "details"
     interfaceParameters.EntityData.SegmentPath = "interface-parameters"
+    interfaceParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/" + interfaceParameters.EntityData.SegmentPath
     interfaceParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4976,6 +5144,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInt
     skywarpQosPolicyClass.EntityData.BundleName = "cisco_ios_xr"
     skywarpQosPolicyClass.EntityData.ParentYangName = "details"
     skywarpQosPolicyClass.EntityData.SegmentPath = "skywarp-qos-policy-class"
+    skywarpQosPolicyClass.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/" + skywarpQosPolicyClass.EntityData.SegmentPath
     skywarpQosPolicyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     skywarpQosPolicyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     skywarpQosPolicyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4983,6 +5152,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInt
     skywarpQosPolicyClass.EntityData.Children = types.NewOrderedMap()
     skywarpQosPolicyClass.EntityData.Children.Append("qos-show-ea-pclass-st", types.YChild{"QosShowEaPclassSt", nil})
     for i := range skywarpQosPolicyClass.QosShowEaPclassSt {
+        types.SetYListKey(skywarpQosPolicyClass.QosShowEaPclassSt[i], i)
         skywarpQosPolicyClass.EntityData.Children.Append(types.GetSegmentPath(skywarpQosPolicyClass.QosShowEaPclassSt[i]), types.YChild{"QosShowEaPclassSt", skywarpQosPolicyClass.QosShowEaPclassSt[i]})
     }
     skywarpQosPolicyClass.EntityData.Leafs = types.NewOrderedMap()
@@ -4997,6 +5167,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInt
 type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleOutput_Details_SkywarpQosPolicyClass_QosShowEaPclassSt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class Index. The type is interface{} with range: 0..65535.
     Index interface{}
@@ -5028,7 +5199,8 @@ func (qosShowEaPclassSt *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterfa
     qosShowEaPclassSt.EntityData.YangName = "qos-show-ea-pclass-st"
     qosShowEaPclassSt.EntityData.BundleName = "cisco_ios_xr"
     qosShowEaPclassSt.EntityData.ParentYangName = "skywarp-qos-policy-class"
-    qosShowEaPclassSt.EntityData.SegmentPath = "qos-show-ea-pclass-st"
+    qosShowEaPclassSt.EntityData.SegmentPath = "qos-show-ea-pclass-st" + types.AddNoKeyToken(qosShowEaPclassSt)
+    qosShowEaPclassSt.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/" + qosShowEaPclassSt.EntityData.SegmentPath
     qosShowEaPclassSt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosShowEaPclassSt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaPclassSt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5074,6 +5246,7 @@ func (config *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "qos-show-ea-pclass-st"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5115,6 +5288,7 @@ func (police *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "config"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5150,6 +5324,7 @@ func (cir *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     cir.EntityData.BundleName = "cisco_ios_xr"
     cir.EntityData.ParentYangName = "police"
     cir.EntityData.SegmentPath = "cir"
+    cir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/police/" + cir.EntityData.SegmentPath
     cir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5183,6 +5358,7 @@ func (cbs *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     cbs.EntityData.BundleName = "cisco_ios_xr"
     cbs.EntityData.ParentYangName = "police"
     cbs.EntityData.SegmentPath = "cbs"
+    cbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/police/" + cbs.EntityData.SegmentPath
     cbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5216,6 +5392,7 @@ func (shape *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInt
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "config"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5249,6 +5426,7 @@ func (pir *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     pir.EntityData.BundleName = "cisco_ios_xr"
     pir.EntityData.ParentYangName = "shape"
     pir.EntityData.SegmentPath = "pir"
+    pir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/shape/" + pir.EntityData.SegmentPath
     pir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5282,6 +5460,7 @@ func (pbs *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     pbs.EntityData.BundleName = "cisco_ios_xr"
     pbs.EntityData.ParentYangName = "shape"
     pbs.EntityData.SegmentPath = "pbs"
+    pbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/shape/" + pbs.EntityData.SegmentPath
     pbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5318,6 +5497,7 @@ func (wfq *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     wfq.EntityData.BundleName = "cisco_ios_xr"
     wfq.EntityData.ParentYangName = "config"
     wfq.EntityData.SegmentPath = "wfq"
+    wfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + wfq.EntityData.SegmentPath
     wfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5352,6 +5532,7 @@ func (bandwidth *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_Membe
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "wfq"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/wfq/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5385,6 +5566,7 @@ func (sumOfBandwidth *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_
     sumOfBandwidth.EntityData.BundleName = "cisco_ios_xr"
     sumOfBandwidth.EntityData.ParentYangName = "wfq"
     sumOfBandwidth.EntityData.SegmentPath = "sum-of-bandwidth"
+    sumOfBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/wfq/" + sumOfBandwidth.EntityData.SegmentPath
     sumOfBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumOfBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumOfBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5421,6 +5603,7 @@ func (result *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     result.EntityData.BundleName = "cisco_ios_xr"
     result.EntityData.ParentYangName = "qos-show-ea-pclass-st"
     result.EntityData.SegmentPath = "result"
+    result.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/" + result.EntityData.SegmentPath
     result.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     result.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     result.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5461,6 +5644,7 @@ func (queue *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInt
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "result"
     queue.EntityData.SegmentPath = "queue"
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/result/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5502,6 +5686,7 @@ func (police *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "result"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/result/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5534,6 +5719,7 @@ func (bundleInput *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_Mem
     bundleInput.EntityData.BundleName = "cisco_ios_xr"
     bundleInput.EntityData.ParentYangName = "member-interface"
     bundleInput.EntityData.SegmentPath = "bundle-input"
+    bundleInput.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/" + bundleInput.EntityData.SegmentPath
     bundleInput.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInput.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInput.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5569,6 +5755,7 @@ func (details *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberI
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "bundle-input"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5609,6 +5796,7 @@ func (header *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "details"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5677,6 +5865,7 @@ func (interfaceParameters *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInter
     interfaceParameters.EntityData.BundleName = "cisco_ios_xr"
     interfaceParameters.EntityData.ParentYangName = "details"
     interfaceParameters.EntityData.SegmentPath = "interface-parameters"
+    interfaceParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/" + interfaceParameters.EntityData.SegmentPath
     interfaceParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5718,6 +5907,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInt
     skywarpQosPolicyClass.EntityData.BundleName = "cisco_ios_xr"
     skywarpQosPolicyClass.EntityData.ParentYangName = "details"
     skywarpQosPolicyClass.EntityData.SegmentPath = "skywarp-qos-policy-class"
+    skywarpQosPolicyClass.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/" + skywarpQosPolicyClass.EntityData.SegmentPath
     skywarpQosPolicyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     skywarpQosPolicyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     skywarpQosPolicyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5725,6 +5915,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInt
     skywarpQosPolicyClass.EntityData.Children = types.NewOrderedMap()
     skywarpQosPolicyClass.EntityData.Children.Append("qos-show-ea-pclass-st", types.YChild{"QosShowEaPclassSt", nil})
     for i := range skywarpQosPolicyClass.QosShowEaPclassSt {
+        types.SetYListKey(skywarpQosPolicyClass.QosShowEaPclassSt[i], i)
         skywarpQosPolicyClass.EntityData.Children.Append(types.GetSegmentPath(skywarpQosPolicyClass.QosShowEaPclassSt[i]), types.YChild{"QosShowEaPclassSt", skywarpQosPolicyClass.QosShowEaPclassSt[i]})
     }
     skywarpQosPolicyClass.EntityData.Leafs = types.NewOrderedMap()
@@ -5739,6 +5930,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInt
 type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_BundleInput_Details_SkywarpQosPolicyClass_QosShowEaPclassSt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class Index. The type is interface{} with range: 0..65535.
     Index interface{}
@@ -5770,7 +5962,8 @@ func (qosShowEaPclassSt *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterfa
     qosShowEaPclassSt.EntityData.YangName = "qos-show-ea-pclass-st"
     qosShowEaPclassSt.EntityData.BundleName = "cisco_ios_xr"
     qosShowEaPclassSt.EntityData.ParentYangName = "skywarp-qos-policy-class"
-    qosShowEaPclassSt.EntityData.SegmentPath = "qos-show-ea-pclass-st"
+    qosShowEaPclassSt.EntityData.SegmentPath = "qos-show-ea-pclass-st" + types.AddNoKeyToken(qosShowEaPclassSt)
+    qosShowEaPclassSt.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/" + qosShowEaPclassSt.EntityData.SegmentPath
     qosShowEaPclassSt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosShowEaPclassSt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaPclassSt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5816,6 +6009,7 @@ func (config *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "qos-show-ea-pclass-st"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5857,6 +6051,7 @@ func (police *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "config"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5892,6 +6087,7 @@ func (cir *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     cir.EntityData.BundleName = "cisco_ios_xr"
     cir.EntityData.ParentYangName = "police"
     cir.EntityData.SegmentPath = "cir"
+    cir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/police/" + cir.EntityData.SegmentPath
     cir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5925,6 +6121,7 @@ func (cbs *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     cbs.EntityData.BundleName = "cisco_ios_xr"
     cbs.EntityData.ParentYangName = "police"
     cbs.EntityData.SegmentPath = "cbs"
+    cbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/police/" + cbs.EntityData.SegmentPath
     cbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5958,6 +6155,7 @@ func (shape *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInt
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "config"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5991,6 +6189,7 @@ func (pir *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     pir.EntityData.BundleName = "cisco_ios_xr"
     pir.EntityData.ParentYangName = "shape"
     pir.EntityData.SegmentPath = "pir"
+    pir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/shape/" + pir.EntityData.SegmentPath
     pir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6024,6 +6223,7 @@ func (pbs *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     pbs.EntityData.BundleName = "cisco_ios_xr"
     pbs.EntityData.ParentYangName = "shape"
     pbs.EntityData.SegmentPath = "pbs"
+    pbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/shape/" + pbs.EntityData.SegmentPath
     pbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6060,6 +6260,7 @@ func (wfq *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInter
     wfq.EntityData.BundleName = "cisco_ios_xr"
     wfq.EntityData.ParentYangName = "config"
     wfq.EntityData.SegmentPath = "wfq"
+    wfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + wfq.EntityData.SegmentPath
     wfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6094,6 +6295,7 @@ func (bandwidth *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_Membe
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "wfq"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/wfq/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6127,6 +6329,7 @@ func (sumOfBandwidth *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_
     sumOfBandwidth.EntityData.BundleName = "cisco_ios_xr"
     sumOfBandwidth.EntityData.ParentYangName = "wfq"
     sumOfBandwidth.EntityData.SegmentPath = "sum-of-bandwidth"
+    sumOfBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/wfq/" + sumOfBandwidth.EntityData.SegmentPath
     sumOfBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumOfBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumOfBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6163,6 +6366,7 @@ func (result *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     result.EntityData.BundleName = "cisco_ios_xr"
     result.EntityData.ParentYangName = "qos-show-ea-pclass-st"
     result.EntityData.SegmentPath = "result"
+    result.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/" + result.EntityData.SegmentPath
     result.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     result.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     result.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6203,6 +6407,7 @@ func (queue *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInt
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "result"
     queue.EntityData.SegmentPath = "queue"
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/result/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6244,6 +6449,7 @@ func (police *PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberIn
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "result"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/bundle-interfaces/bundle-interface/member-interfaces/member-interface/bundle-input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/result/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6277,6 +6483,7 @@ func (interfaces *PlatformQosEa_Nodes_Node_Interfaces) GetEntityData() *types.Co
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6298,6 +6505,7 @@ func (interfaces *PlatformQosEa_Nodes_Node_Interfaces) GetEntityData() *types.Co
 type PlatformQosEa_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -6316,6 +6524,7 @@ func (self *PlatformQosEa_Nodes_Node_Interfaces_Interface) GetEntityData() *type
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6347,6 +6556,7 @@ func (output *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output) GetEntityDat
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "interface"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6382,6 +6592,7 @@ func (details *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details) Get
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "output"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6422,6 +6633,7 @@ func (header *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_Heade
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "details"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6490,6 +6702,7 @@ func (interfaceParameters *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_
     interfaceParameters.EntityData.BundleName = "cisco_ios_xr"
     interfaceParameters.EntityData.ParentYangName = "details"
     interfaceParameters.EntityData.SegmentPath = "interface-parameters"
+    interfaceParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/" + interfaceParameters.EntityData.SegmentPath
     interfaceParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6531,6 +6744,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_Interfaces_Interface_Outpu
     skywarpQosPolicyClass.EntityData.BundleName = "cisco_ios_xr"
     skywarpQosPolicyClass.EntityData.ParentYangName = "details"
     skywarpQosPolicyClass.EntityData.SegmentPath = "skywarp-qos-policy-class"
+    skywarpQosPolicyClass.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/" + skywarpQosPolicyClass.EntityData.SegmentPath
     skywarpQosPolicyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     skywarpQosPolicyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     skywarpQosPolicyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6538,6 +6752,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_Interfaces_Interface_Outpu
     skywarpQosPolicyClass.EntityData.Children = types.NewOrderedMap()
     skywarpQosPolicyClass.EntityData.Children.Append("qos-show-ea-pclass-st", types.YChild{"QosShowEaPclassSt", nil})
     for i := range skywarpQosPolicyClass.QosShowEaPclassSt {
+        types.SetYListKey(skywarpQosPolicyClass.QosShowEaPclassSt[i], i)
         skywarpQosPolicyClass.EntityData.Children.Append(types.GetSegmentPath(skywarpQosPolicyClass.QosShowEaPclassSt[i]), types.YChild{"QosShowEaPclassSt", skywarpQosPolicyClass.QosShowEaPclassSt[i]})
     }
     skywarpQosPolicyClass.EntityData.Leafs = types.NewOrderedMap()
@@ -6552,6 +6767,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_Interfaces_Interface_Outpu
 type PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_SkywarpQosPolicyClass_QosShowEaPclassSt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class Index. The type is interface{} with range: 0..65535.
     Index interface{}
@@ -6583,7 +6799,8 @@ func (qosShowEaPclassSt *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_De
     qosShowEaPclassSt.EntityData.YangName = "qos-show-ea-pclass-st"
     qosShowEaPclassSt.EntityData.BundleName = "cisco_ios_xr"
     qosShowEaPclassSt.EntityData.ParentYangName = "skywarp-qos-policy-class"
-    qosShowEaPclassSt.EntityData.SegmentPath = "qos-show-ea-pclass-st"
+    qosShowEaPclassSt.EntityData.SegmentPath = "qos-show-ea-pclass-st" + types.AddNoKeyToken(qosShowEaPclassSt)
+    qosShowEaPclassSt.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/" + qosShowEaPclassSt.EntityData.SegmentPath
     qosShowEaPclassSt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosShowEaPclassSt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaPclassSt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6629,6 +6846,7 @@ func (config *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_Skywa
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "qos-show-ea-pclass-st"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6670,6 +6888,7 @@ func (police *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_Skywa
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "config"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6705,6 +6924,7 @@ func (cir *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_SkywarpQ
     cir.EntityData.BundleName = "cisco_ios_xr"
     cir.EntityData.ParentYangName = "police"
     cir.EntityData.SegmentPath = "cir"
+    cir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/police/" + cir.EntityData.SegmentPath
     cir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6738,6 +6958,7 @@ func (cbs *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_SkywarpQ
     cbs.EntityData.BundleName = "cisco_ios_xr"
     cbs.EntityData.ParentYangName = "police"
     cbs.EntityData.SegmentPath = "cbs"
+    cbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/police/" + cbs.EntityData.SegmentPath
     cbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6771,6 +6992,7 @@ func (shape *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_Skywar
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "config"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6804,6 +7026,7 @@ func (pir *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_SkywarpQ
     pir.EntityData.BundleName = "cisco_ios_xr"
     pir.EntityData.ParentYangName = "shape"
     pir.EntityData.SegmentPath = "pir"
+    pir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/shape/" + pir.EntityData.SegmentPath
     pir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6837,6 +7060,7 @@ func (pbs *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_SkywarpQ
     pbs.EntityData.BundleName = "cisco_ios_xr"
     pbs.EntityData.ParentYangName = "shape"
     pbs.EntityData.SegmentPath = "pbs"
+    pbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/shape/" + pbs.EntityData.SegmentPath
     pbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6873,6 +7097,7 @@ func (wfq *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_SkywarpQ
     wfq.EntityData.BundleName = "cisco_ios_xr"
     wfq.EntityData.ParentYangName = "config"
     wfq.EntityData.SegmentPath = "wfq"
+    wfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + wfq.EntityData.SegmentPath
     wfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6907,6 +7132,7 @@ func (bandwidth *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_Sk
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "wfq"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/wfq/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6940,6 +7166,7 @@ func (sumOfBandwidth *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Detai
     sumOfBandwidth.EntityData.BundleName = "cisco_ios_xr"
     sumOfBandwidth.EntityData.ParentYangName = "wfq"
     sumOfBandwidth.EntityData.SegmentPath = "sum-of-bandwidth"
+    sumOfBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/wfq/" + sumOfBandwidth.EntityData.SegmentPath
     sumOfBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumOfBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumOfBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6976,6 +7203,7 @@ func (result *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_Skywa
     result.EntityData.BundleName = "cisco_ios_xr"
     result.EntityData.ParentYangName = "qos-show-ea-pclass-st"
     result.EntityData.SegmentPath = "result"
+    result.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/" + result.EntityData.SegmentPath
     result.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     result.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     result.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7016,6 +7244,7 @@ func (queue *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_Skywar
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "result"
     queue.EntityData.SegmentPath = "queue"
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/result/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7057,6 +7286,7 @@ func (police *PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_Skywa
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "result"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/output/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/result/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7089,6 +7319,7 @@ func (input *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "interface"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7124,6 +7355,7 @@ func (details *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details) GetE
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "input"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7164,6 +7396,7 @@ func (header *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_Header
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "details"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7232,6 +7465,7 @@ func (interfaceParameters *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_D
     interfaceParameters.EntityData.BundleName = "cisco_ios_xr"
     interfaceParameters.EntityData.ParentYangName = "details"
     interfaceParameters.EntityData.SegmentPath = "interface-parameters"
+    interfaceParameters.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/" + interfaceParameters.EntityData.SegmentPath
     interfaceParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7273,6 +7507,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input
     skywarpQosPolicyClass.EntityData.BundleName = "cisco_ios_xr"
     skywarpQosPolicyClass.EntityData.ParentYangName = "details"
     skywarpQosPolicyClass.EntityData.SegmentPath = "skywarp-qos-policy-class"
+    skywarpQosPolicyClass.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/" + skywarpQosPolicyClass.EntityData.SegmentPath
     skywarpQosPolicyClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     skywarpQosPolicyClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     skywarpQosPolicyClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7280,6 +7515,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input
     skywarpQosPolicyClass.EntityData.Children = types.NewOrderedMap()
     skywarpQosPolicyClass.EntityData.Children.Append("qos-show-ea-pclass-st", types.YChild{"QosShowEaPclassSt", nil})
     for i := range skywarpQosPolicyClass.QosShowEaPclassSt {
+        types.SetYListKey(skywarpQosPolicyClass.QosShowEaPclassSt[i], i)
         skywarpQosPolicyClass.EntityData.Children.Append(types.GetSegmentPath(skywarpQosPolicyClass.QosShowEaPclassSt[i]), types.YChild{"QosShowEaPclassSt", skywarpQosPolicyClass.QosShowEaPclassSt[i]})
     }
     skywarpQosPolicyClass.EntityData.Leafs = types.NewOrderedMap()
@@ -7294,6 +7530,7 @@ func (skywarpQosPolicyClass *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input
 type PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_SkywarpQosPolicyClass_QosShowEaPclassSt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Class Index. The type is interface{} with range: 0..65535.
     Index interface{}
@@ -7325,7 +7562,8 @@ func (qosShowEaPclassSt *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Det
     qosShowEaPclassSt.EntityData.YangName = "qos-show-ea-pclass-st"
     qosShowEaPclassSt.EntityData.BundleName = "cisco_ios_xr"
     qosShowEaPclassSt.EntityData.ParentYangName = "skywarp-qos-policy-class"
-    qosShowEaPclassSt.EntityData.SegmentPath = "qos-show-ea-pclass-st"
+    qosShowEaPclassSt.EntityData.SegmentPath = "qos-show-ea-pclass-st" + types.AddNoKeyToken(qosShowEaPclassSt)
+    qosShowEaPclassSt.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/" + qosShowEaPclassSt.EntityData.SegmentPath
     qosShowEaPclassSt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qosShowEaPclassSt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qosShowEaPclassSt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7371,6 +7609,7 @@ func (config *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_Skywar
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "qos-show-ea-pclass-st"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7412,6 +7651,7 @@ func (police *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_Skywar
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "config"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7447,6 +7687,7 @@ func (cir *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_SkywarpQo
     cir.EntityData.BundleName = "cisco_ios_xr"
     cir.EntityData.ParentYangName = "police"
     cir.EntityData.SegmentPath = "cir"
+    cir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/police/" + cir.EntityData.SegmentPath
     cir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7480,6 +7721,7 @@ func (cbs *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_SkywarpQo
     cbs.EntityData.BundleName = "cisco_ios_xr"
     cbs.EntityData.ParentYangName = "police"
     cbs.EntityData.SegmentPath = "cbs"
+    cbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/police/" + cbs.EntityData.SegmentPath
     cbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7513,6 +7755,7 @@ func (shape *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_Skywarp
     shape.EntityData.BundleName = "cisco_ios_xr"
     shape.EntityData.ParentYangName = "config"
     shape.EntityData.SegmentPath = "shape"
+    shape.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + shape.EntityData.SegmentPath
     shape.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shape.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shape.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7546,6 +7789,7 @@ func (pir *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_SkywarpQo
     pir.EntityData.BundleName = "cisco_ios_xr"
     pir.EntityData.ParentYangName = "shape"
     pir.EntityData.SegmentPath = "pir"
+    pir.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/shape/" + pir.EntityData.SegmentPath
     pir.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pir.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pir.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7579,6 +7823,7 @@ func (pbs *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_SkywarpQo
     pbs.EntityData.BundleName = "cisco_ios_xr"
     pbs.EntityData.ParentYangName = "shape"
     pbs.EntityData.SegmentPath = "pbs"
+    pbs.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/shape/" + pbs.EntityData.SegmentPath
     pbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7615,6 +7860,7 @@ func (wfq *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_SkywarpQo
     wfq.EntityData.BundleName = "cisco_ios_xr"
     wfq.EntityData.ParentYangName = "config"
     wfq.EntityData.SegmentPath = "wfq"
+    wfq.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/" + wfq.EntityData.SegmentPath
     wfq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     wfq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     wfq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7649,6 +7895,7 @@ func (bandwidth *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_Sky
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "wfq"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/wfq/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7682,6 +7929,7 @@ func (sumOfBandwidth *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Detail
     sumOfBandwidth.EntityData.BundleName = "cisco_ios_xr"
     sumOfBandwidth.EntityData.ParentYangName = "wfq"
     sumOfBandwidth.EntityData.SegmentPath = "sum-of-bandwidth"
+    sumOfBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/config/wfq/" + sumOfBandwidth.EntityData.SegmentPath
     sumOfBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sumOfBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sumOfBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7718,6 +7966,7 @@ func (result *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_Skywar
     result.EntityData.BundleName = "cisco_ios_xr"
     result.EntityData.ParentYangName = "qos-show-ea-pclass-st"
     result.EntityData.SegmentPath = "result"
+    result.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/" + result.EntityData.SegmentPath
     result.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     result.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     result.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7758,6 +8007,7 @@ func (queue *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_Skywarp
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "result"
     queue.EntityData.SegmentPath = "queue"
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/result/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7799,6 +8049,7 @@ func (police *PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_Skywar
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "result"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/node/interfaces/interface/input/details/skywarp-qos-policy-class/qos-show-ea-pclass-st/result/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

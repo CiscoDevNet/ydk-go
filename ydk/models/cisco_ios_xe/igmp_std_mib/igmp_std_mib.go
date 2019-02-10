@@ -35,6 +35,7 @@ func (iGMPSTDMIB *IGMPSTDMIB) GetEntityData() *types.CommonEntityData {
     iGMPSTDMIB.EntityData.BundleName = "cisco_ios_xe"
     iGMPSTDMIB.EntityData.ParentYangName = "IGMP-STD-MIB"
     iGMPSTDMIB.EntityData.SegmentPath = "IGMP-STD-MIB:IGMP-STD-MIB"
+    iGMPSTDMIB.EntityData.AbsolutePath = iGMPSTDMIB.EntityData.SegmentPath
     iGMPSTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iGMPSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iGMPSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -68,6 +69,7 @@ func (igmpInterfaceTable *IGMPSTDMIB_IgmpInterfaceTable) GetEntityData() *types.
     igmpInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     igmpInterfaceTable.EntityData.ParentYangName = "IGMP-STD-MIB"
     igmpInterfaceTable.EntityData.SegmentPath = "igmpInterfaceTable"
+    igmpInterfaceTable.EntityData.AbsolutePath = "IGMP-STD-MIB:IGMP-STD-MIB/" + igmpInterfaceTable.EntityData.SegmentPath
     igmpInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     igmpInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -90,6 +92,7 @@ func (igmpInterfaceTable *IGMPSTDMIB_IgmpInterfaceTable) GetEntityData() *types.
 type IGMPSTDMIB_IgmpInterfaceTable_IgmpInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex value of the interface for which IGMP
     // is enabled. The type is interface{} with range: 1..2147483647.
@@ -186,6 +189,7 @@ func (igmpInterfaceEntry *IGMPSTDMIB_IgmpInterfaceTable_IgmpInterfaceEntry) GetE
     igmpInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     igmpInterfaceEntry.EntityData.ParentYangName = "igmpInterfaceTable"
     igmpInterfaceEntry.EntityData.SegmentPath = "igmpInterfaceEntry" + types.AddKeyToken(igmpInterfaceEntry.IgmpInterfaceIfIndex, "igmpInterfaceIfIndex")
+    igmpInterfaceEntry.EntityData.AbsolutePath = "IGMP-STD-MIB:IGMP-STD-MIB/igmpInterfaceTable/" + igmpInterfaceEntry.EntityData.SegmentPath
     igmpInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     igmpInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -231,6 +235,7 @@ func (igmpCacheTable *IGMPSTDMIB_IgmpCacheTable) GetEntityData() *types.CommonEn
     igmpCacheTable.EntityData.BundleName = "cisco_ios_xe"
     igmpCacheTable.EntityData.ParentYangName = "IGMP-STD-MIB"
     igmpCacheTable.EntityData.SegmentPath = "igmpCacheTable"
+    igmpCacheTable.EntityData.AbsolutePath = "IGMP-STD-MIB:IGMP-STD-MIB/" + igmpCacheTable.EntityData.SegmentPath
     igmpCacheTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     igmpCacheTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpCacheTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -252,6 +257,7 @@ func (igmpCacheTable *IGMPSTDMIB_IgmpCacheTable) GetEntityData() *types.CommonEn
 type IGMPSTDMIB_IgmpCacheTable_IgmpCacheEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP multicast group address for which this
     // entry contains information. The type is string with pattern:
@@ -306,6 +312,7 @@ func (igmpCacheEntry *IGMPSTDMIB_IgmpCacheTable_IgmpCacheEntry) GetEntityData() 
     igmpCacheEntry.EntityData.BundleName = "cisco_ios_xe"
     igmpCacheEntry.EntityData.ParentYangName = "igmpCacheTable"
     igmpCacheEntry.EntityData.SegmentPath = "igmpCacheEntry" + types.AddKeyToken(igmpCacheEntry.IgmpCacheAddress, "igmpCacheAddress") + types.AddKeyToken(igmpCacheEntry.IgmpCacheIfIndex, "igmpCacheIfIndex")
+    igmpCacheEntry.EntityData.AbsolutePath = "IGMP-STD-MIB:IGMP-STD-MIB/igmpCacheTable/" + igmpCacheEntry.EntityData.SegmentPath
     igmpCacheEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     igmpCacheEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     igmpCacheEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

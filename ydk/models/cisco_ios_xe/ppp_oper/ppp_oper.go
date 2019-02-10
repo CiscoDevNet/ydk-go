@@ -75,6 +75,7 @@ func (pppData *PppData) GetEntityData() *types.CommonEntityData {
     pppData.EntityData.BundleName = "cisco_ios_xe"
     pppData.EntityData.ParentYangName = "Cisco-IOS-XE-ppp-oper"
     pppData.EntityData.SegmentPath = "Cisco-IOS-XE-ppp-oper:ppp-data"
+    pppData.EntityData.AbsolutePath = pppData.EntityData.SegmentPath
     pppData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pppData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pppData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -98,6 +99,7 @@ func (pppData *PppData) GetEntityData() *types.CommonEntityData {
 type PppData_PppInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ifname of Physical Access (Parent) Interface . The
     // type is string.
@@ -114,6 +116,7 @@ func (pppInterface *PppData_PppInterface) GetEntityData() *types.CommonEntityDat
     pppInterface.EntityData.BundleName = "cisco_ios_xe"
     pppInterface.EntityData.ParentYangName = "ppp-data"
     pppInterface.EntityData.SegmentPath = "ppp-interface" + types.AddKeyToken(pppInterface.PhyIfname, "phy-ifname")
+    pppInterface.EntityData.AbsolutePath = "Cisco-IOS-XE-ppp-oper:ppp-data/" + pppInterface.EntityData.SegmentPath
     pppInterface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pppInterface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pppInterface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -121,6 +124,7 @@ func (pppInterface *PppData_PppInterface) GetEntityData() *types.CommonEntityDat
     pppInterface.EntityData.Children = types.NewOrderedMap()
     pppInterface.EntityData.Children.Append("ppp-va", types.YChild{"PppVa", nil})
     for i := range pppInterface.PppVa {
+        types.SetYListKey(pppInterface.PppVa[i], i)
         pppInterface.EntityData.Children.Append(types.GetSegmentPath(pppInterface.PppVa[i]), types.YChild{"PppVa", pppInterface.PppVa[i]})
     }
     pppInterface.EntityData.Leafs = types.NewOrderedMap()
@@ -136,6 +140,7 @@ func (pppInterface *PppData_PppInterface) GetEntityData() *types.CommonEntityDat
 type PppData_PppInterface_PppVa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // PPP Virtual Access Interface Name. The type is string.
     VaIfname interface{}
@@ -183,7 +188,8 @@ func (pppVa *PppData_PppInterface_PppVa) GetEntityData() *types.CommonEntityData
     pppVa.EntityData.YangName = "ppp-va"
     pppVa.EntityData.BundleName = "cisco_ios_xe"
     pppVa.EntityData.ParentYangName = "ppp-interface"
-    pppVa.EntityData.SegmentPath = "ppp-va"
+    pppVa.EntityData.SegmentPath = "ppp-va" + types.AddNoKeyToken(pppVa)
+    pppVa.EntityData.AbsolutePath = "Cisco-IOS-XE-ppp-oper:ppp-data/ppp-interface/" + pppVa.EntityData.SegmentPath
     pppVa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pppVa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pppVa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -229,6 +235,7 @@ func (pppStatistics *PppData_PppStatistics) GetEntityData() *types.CommonEntityD
     pppStatistics.EntityData.BundleName = "cisco_ios_xe"
     pppStatistics.EntityData.ParentYangName = "ppp-data"
     pppStatistics.EntityData.SegmentPath = "ppp-statistics"
+    pppStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-ppp-oper:ppp-data/" + pppStatistics.EntityData.SegmentPath
     pppStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pppStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pppStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -268,6 +275,7 @@ func (pppoe *PppData_Pppoe) GetEntityData() *types.CommonEntityData {
     pppoe.EntityData.BundleName = "cisco_ios_xe"
     pppoe.EntityData.ParentYangName = "ppp-data"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XE-ppp-oper:ppp-data/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -291,6 +299,7 @@ func (pppoe *PppData_Pppoe) GetEntityData() *types.CommonEntityData {
 type PppData_Pppoe_PppoeSessionList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ifname of Physical Access (Parent) Interface. The
     // type is string.
@@ -307,6 +316,7 @@ func (pppoeSessionList *PppData_Pppoe_PppoeSessionList) GetEntityData() *types.C
     pppoeSessionList.EntityData.BundleName = "cisco_ios_xe"
     pppoeSessionList.EntityData.ParentYangName = "pppoe"
     pppoeSessionList.EntityData.SegmentPath = "pppoe-session-list" + types.AddKeyToken(pppoeSessionList.Ifname, "ifname")
+    pppoeSessionList.EntityData.AbsolutePath = "Cisco-IOS-XE-ppp-oper:ppp-data/pppoe/" + pppoeSessionList.EntityData.SegmentPath
     pppoeSessionList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pppoeSessionList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pppoeSessionList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -314,6 +324,7 @@ func (pppoeSessionList *PppData_Pppoe_PppoeSessionList) GetEntityData() *types.C
     pppoeSessionList.EntityData.Children = types.NewOrderedMap()
     pppoeSessionList.EntityData.Children.Append("session", types.YChild{"Session", nil})
     for i := range pppoeSessionList.Session {
+        types.SetYListKey(pppoeSessionList.Session[i], i)
         pppoeSessionList.EntityData.Children.Append(types.GetSegmentPath(pppoeSessionList.Session[i]), types.YChild{"Session", pppoeSessionList.Session[i]})
     }
     pppoeSessionList.EntityData.Leafs = types.NewOrderedMap()
@@ -329,6 +340,7 @@ func (pppoeSessionList *PppData_Pppoe_PppoeSessionList) GetEntityData() *types.C
 type PppData_Pppoe_PppoeSessionList_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session Id of PPPoE sessions. The type is interface{} with range: 0..65535.
     SessionId interface{}
@@ -380,7 +392,8 @@ func (session *PppData_Pppoe_PppoeSessionList_Session) GetEntityData() *types.Co
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xe"
     session.EntityData.ParentYangName = "pppoe-session-list"
-    session.EntityData.SegmentPath = "session"
+    session.EntityData.SegmentPath = "session" + types.AddNoKeyToken(session)
+    session.EntityData.AbsolutePath = "Cisco-IOS-XE-ppp-oper:ppp-data/pppoe/pppoe-session-list/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -444,6 +457,7 @@ func (pppoeStatistics *PppData_Pppoe_PppoeStatistics) GetEntityData() *types.Com
     pppoeStatistics.EntityData.BundleName = "cisco_ios_xe"
     pppoeStatistics.EntityData.ParentYangName = "pppoe"
     pppoeStatistics.EntityData.SegmentPath = "pppoe-statistics"
+    pppoeStatistics.EntityData.AbsolutePath = "Cisco-IOS-XE-ppp-oper:ppp-data/pppoe/" + pppoeStatistics.EntityData.SegmentPath
     pppoeStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     pppoeStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     pppoeStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

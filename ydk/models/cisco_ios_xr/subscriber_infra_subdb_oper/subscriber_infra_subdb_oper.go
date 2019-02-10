@@ -95,6 +95,7 @@ func (subscriberDatabase *SubscriberDatabase) GetEntityData() *types.CommonEntit
     subscriberDatabase.EntityData.BundleName = "cisco_ios_xr"
     subscriberDatabase.EntityData.ParentYangName = "Cisco-IOS-XR-Subscriber-infra-subdb-oper"
     subscriberDatabase.EntityData.SegmentPath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database"
+    subscriberDatabase.EntityData.AbsolutePath = subscriberDatabase.EntityData.SegmentPath
     subscriberDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -126,6 +127,7 @@ func (nodes *SubscriberDatabase_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "subscriber-database"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -147,6 +149,7 @@ func (nodes *SubscriberDatabase_Nodes) GetEntityData() *types.CommonEntityData {
 type SubscriberDatabase_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -168,6 +171,7 @@ func (node *SubscriberDatabase_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -200,6 +204,7 @@ func (association *SubscriberDatabase_Nodes_Node_Association) GetEntityData() *t
     association.EntityData.BundleName = "cisco_ios_xr"
     association.EntityData.ParentYangName = "node"
     association.EntityData.SegmentPath = "association"
+    association.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/" + association.EntityData.SegmentPath
     association.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     association.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     association.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -230,6 +235,7 @@ func (labels *SubscriberDatabase_Nodes_Node_Association_Labels) GetEntityData() 
     labels.EntityData.BundleName = "cisco_ios_xr"
     labels.EntityData.ParentYangName = "association"
     labels.EntityData.SegmentPath = "labels"
+    labels.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/association/" + labels.EntityData.SegmentPath
     labels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -251,6 +257,7 @@ func (labels *SubscriberDatabase_Nodes_Node_Association_Labels) GetEntityData() 
 type SubscriberDatabase_Nodes_Node_Association_Labels_Label struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subscriber label. The type is string with pattern:
     // [0-9a-fA-F]{1,8}.
@@ -276,6 +283,7 @@ func (label *SubscriberDatabase_Nodes_Node_Association_Labels_Label) GetEntityDa
     label.EntityData.BundleName = "cisco_ios_xr"
     label.EntityData.ParentYangName = "labels"
     label.EntityData.SegmentPath = "label" + types.AddKeyToken(label.SubscriberLabel, "subscriber-label")
+    label.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/association/labels/" + label.EntityData.SegmentPath
     label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -310,6 +318,7 @@ func (template *SubscriberDatabase_Nodes_Node_Association_Labels_Label_Template)
     template.EntityData.BundleName = "cisco_ios_xr"
     template.EntityData.ParentYangName = "label"
     template.EntityData.SegmentPath = "template"
+    template.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/association/labels/label/" + template.EntityData.SegmentPath
     template.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     template.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     template.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -317,6 +326,7 @@ func (template *SubscriberDatabase_Nodes_Node_Association_Labels_Label_Template)
     template.EntityData.Children = types.NewOrderedMap()
     template.EntityData.Children.Append("associated-template", types.YChild{"AssociatedTemplate", nil})
     for i := range template.AssociatedTemplate {
+        types.SetYListKey(template.AssociatedTemplate[i], i)
         template.EntityData.Children.Append(types.GetSegmentPath(template.AssociatedTemplate[i]), types.YChild{"AssociatedTemplate", template.AssociatedTemplate[i]})
     }
     template.EntityData.Leafs = types.NewOrderedMap()
@@ -331,6 +341,7 @@ func (template *SubscriberDatabase_Nodes_Node_Association_Labels_Label_Template)
 type SubscriberDatabase_Nodes_Node_Association_Labels_Label_Template_AssociatedTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Template type. The type is SubdbObjectTypeData.
     TemplateType interface{}
@@ -347,7 +358,8 @@ func (associatedTemplate *SubscriberDatabase_Nodes_Node_Association_Labels_Label
     associatedTemplate.EntityData.YangName = "associated-template"
     associatedTemplate.EntityData.BundleName = "cisco_ios_xr"
     associatedTemplate.EntityData.ParentYangName = "template"
-    associatedTemplate.EntityData.SegmentPath = "associated-template"
+    associatedTemplate.EntityData.SegmentPath = "associated-template" + types.AddNoKeyToken(associatedTemplate)
+    associatedTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/association/labels/label/template/" + associatedTemplate.EntityData.SegmentPath
     associatedTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     associatedTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     associatedTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -420,6 +432,7 @@ func (summary *SubscriberDatabase_Nodes_Node_Summary) GetEntityData() *types.Com
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -459,6 +472,7 @@ func (session *SubscriberDatabase_Nodes_Node_Session) GetEntityData() *types.Com
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "node"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -490,6 +504,7 @@ func (labels *SubscriberDatabase_Nodes_Node_Session_Labels) GetEntityData() *typ
     labels.EntityData.BundleName = "cisco_ios_xr"
     labels.EntityData.ParentYangName = "session"
     labels.EntityData.SegmentPath = "labels"
+    labels.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/session/" + labels.EntityData.SegmentPath
     labels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -511,6 +526,7 @@ func (labels *SubscriberDatabase_Nodes_Node_Session_Labels) GetEntityData() *typ
 type SubscriberDatabase_Nodes_Node_Session_Labels_Label struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subscriber label. The type is string with pattern:
     // [0-9a-fA-F]{1,8}.
@@ -596,6 +612,7 @@ func (label *SubscriberDatabase_Nodes_Node_Session_Labels_Label) GetEntityData()
     label.EntityData.BundleName = "cisco_ios_xr"
     label.EntityData.ParentYangName = "labels"
     label.EntityData.SegmentPath = "label" + types.AddKeyToken(label.SubscriberLabel, "subscriber-label")
+    label.EntityData.AbsolutePath = "Cisco-IOS-XR-Subscriber-infra-subdb-oper:subscriber-database/nodes/node/session/labels/" + label.EntityData.SegmentPath
     label.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     label.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     label.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

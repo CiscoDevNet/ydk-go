@@ -82,6 +82,7 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
     hardwareModule.EntityData.BundleName = "cisco_ios_xr"
     hardwareModule.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1k-mxp-cfg"
     hardwareModule.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1k-mxp-cfg:hardware-module"
+    hardwareModule.EntityData.AbsolutePath = hardwareModule.EntityData.SegmentPath
     hardwareModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -103,6 +104,7 @@ func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
 type HardwareModule_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fully qualified line card specification. The type
     // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -118,6 +120,7 @@ func (node *HardwareModule_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "hardware-module"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Location, "location")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-cfg:hardware-module/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -140,6 +143,7 @@ func (node *HardwareModule_Node) GetEntityData() *types.CommonEntityData {
 type HardwareModule_Node_Slice struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Set Slice. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -161,6 +165,7 @@ func (slice *HardwareModule_Node_Slice) GetEntityData() *types.CommonEntityData 
     slice.EntityData.BundleName = "cisco_ios_xr"
     slice.EntityData.ParentYangName = "node"
     slice.EntityData.SegmentPath = "slice" + types.AddKeyToken(slice.SliceId, "slice-id")
+    slice.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-cfg:hardware-module/node/" + slice.EntityData.SegmentPath
     slice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -202,6 +207,7 @@ func (values *HardwareModule_Node_Slice_Values) GetEntityData() *types.CommonEnt
     values.EntityData.BundleName = "cisco_ios_xr"
     values.EntityData.ParentYangName = "slice"
     values.EntityData.SegmentPath = "values"
+    values.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-cfg:hardware-module/node/slice/" + values.EntityData.SegmentPath
     values.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     values.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     values.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -237,6 +243,7 @@ func (clientAins *HardwareModule_Node_Slice_ClientAins) GetEntityData() *types.C
     clientAins.EntityData.BundleName = "cisco_ios_xr"
     clientAins.EntityData.ParentYangName = "slice"
     clientAins.EntityData.SegmentPath = "client-ains"
+    clientAins.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-cfg:hardware-module/node/slice/" + clientAins.EntityData.SegmentPath
     clientAins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientAins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientAins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

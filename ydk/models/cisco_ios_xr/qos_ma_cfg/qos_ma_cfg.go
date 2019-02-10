@@ -70,6 +70,7 @@ func (qos *Qos) GetEntityData() *types.CommonEntityData {
     qos.EntityData.BundleName = "cisco_ios_xr"
     qos.EntityData.ParentYangName = "Cisco-IOS-XR-qos-ma-cfg"
     qos.EntityData.SegmentPath = "Cisco-IOS-XR-qos-ma-cfg:qos"
+    qos.EntityData.AbsolutePath = qos.EntityData.SegmentPath
     qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

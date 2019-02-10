@@ -52,6 +52,7 @@ func (aaaNacm *AaaNacm) GetEntityData() *types.CommonEntityData {
     aaaNacm.EntityData.BundleName = "cisco_ios_xr"
     aaaNacm.EntityData.ParentYangName = "Cisco-IOS-XR-aaa-nacm-oper"
     aaaNacm.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm"
+    aaaNacm.EntityData.AbsolutePath = aaaNacm.EntityData.SegmentPath
     aaaNacm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaaNacm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaaNacm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +95,7 @@ func (counters *AaaNacm_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "aaa-nacm"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -125,6 +127,7 @@ func (users *AaaNacm_Users) GetEntityData() *types.CommonEntityData {
     users.EntityData.BundleName = "cisco_ios_xr"
     users.EntityData.ParentYangName = "aaa-nacm"
     users.EntityData.SegmentPath = "users"
+    users.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/" + users.EntityData.SegmentPath
     users.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     users.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     users.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -146,6 +149,7 @@ func (users *AaaNacm_Users) GetEntityData() *types.CommonEntityData {
 type AaaNacm_Users_User struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. User. The type is string with length: 1..256.
     User interface{}
@@ -163,6 +167,7 @@ func (user *AaaNacm_Users_User) GetEntityData() *types.CommonEntityData {
     user.EntityData.BundleName = "cisco_ios_xr"
     user.EntityData.ParentYangName = "users"
     user.EntityData.SegmentPath = "user" + types.AddKeyToken(user.User, "user")
+    user.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/users/" + user.EntityData.SegmentPath
     user.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     user.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     user.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -170,6 +175,7 @@ func (user *AaaNacm_Users_User) GetEntityData() *types.CommonEntityData {
     user.EntityData.Children = types.NewOrderedMap()
     user.EntityData.Children.Append("group-name", types.YChild{"GroupName", nil})
     for i := range user.GroupName {
+        types.SetYListKey(user.GroupName[i], i)
         user.EntityData.Children.Append(types.GetSegmentPath(user.GroupName[i]), types.YChild{"GroupName", user.GroupName[i]})
     }
     user.EntityData.Leafs = types.NewOrderedMap()
@@ -186,6 +192,7 @@ func (user *AaaNacm_Users_User) GetEntityData() *types.CommonEntityData {
 type AaaNacm_Users_User_GroupName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name. The type is string with length: 0..256.
     Name interface{}
@@ -196,7 +203,8 @@ func (groupName *AaaNacm_Users_User_GroupName) GetEntityData() *types.CommonEnti
     groupName.EntityData.YangName = "group-name"
     groupName.EntityData.BundleName = "cisco_ios_xr"
     groupName.EntityData.ParentYangName = "user"
-    groupName.EntityData.SegmentPath = "group-name"
+    groupName.EntityData.SegmentPath = "group-name" + types.AddNoKeyToken(groupName)
+    groupName.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/users/user/" + groupName.EntityData.SegmentPath
     groupName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groupName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groupName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +258,7 @@ func (summary *AaaNacm_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "aaa-nacm"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -287,6 +296,7 @@ func (rules *AaaNacm_Rules) GetEntityData() *types.CommonEntityData {
     rules.EntityData.BundleName = "cisco_ios_xr"
     rules.EntityData.ParentYangName = "aaa-nacm"
     rules.EntityData.SegmentPath = "rules"
+    rules.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/" + rules.EntityData.SegmentPath
     rules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -294,6 +304,7 @@ func (rules *AaaNacm_Rules) GetEntityData() *types.CommonEntityData {
     rules.EntityData.Children = types.NewOrderedMap()
     rules.EntityData.Children.Append("rule", types.YChild{"Rule", nil})
     for i := range rules.Rule {
+        types.SetYListKey(rules.Rule[i], i)
         rules.EntityData.Children.Append(types.GetSegmentPath(rules.Rule[i]), types.YChild{"Rule", rules.Rule[i]})
     }
     rules.EntityData.Leafs = types.NewOrderedMap()
@@ -308,6 +319,7 @@ func (rules *AaaNacm_Rules) GetEntityData() *types.CommonEntityData {
 type AaaNacm_Rules_Rule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Rulelist Ordering Index. The type is string with length: 1..256.
     OrderingIndex interface{}
@@ -324,7 +336,8 @@ func (rule *AaaNacm_Rules_Rule) GetEntityData() *types.CommonEntityData {
     rule.EntityData.YangName = "rule"
     rule.EntityData.BundleName = "cisco_ios_xr"
     rule.EntityData.ParentYangName = "rules"
-    rule.EntityData.SegmentPath = "rule"
+    rule.EntityData.SegmentPath = "rule" + types.AddNoKeyToken(rule)
+    rule.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/rules/" + rule.EntityData.SegmentPath
     rule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,6 +370,7 @@ func (rulelistRules *AaaNacm_Rules_Rule_RulelistRules) GetEntityData() *types.Co
     rulelistRules.EntityData.BundleName = "cisco_ios_xr"
     rulelistRules.EntityData.ParentYangName = "rule"
     rulelistRules.EntityData.SegmentPath = "rulelist-rules"
+    rulelistRules.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/rules/rule/" + rulelistRules.EntityData.SegmentPath
     rulelistRules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rulelistRules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rulelistRules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -378,6 +392,7 @@ func (rulelistRules *AaaNacm_Rules_Rule_RulelistRules) GetEntityData() *types.Co
 type AaaNacm_Rules_Rule_RulelistRules_RulelistRule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Rule. The type is string with length: 1..256.
     Rule interface{}
@@ -419,6 +434,7 @@ func (rulelistRule *AaaNacm_Rules_Rule_RulelistRules_RulelistRule) GetEntityData
     rulelistRule.EntityData.BundleName = "cisco_ios_xr"
     rulelistRule.EntityData.ParentYangName = "rulelist-rules"
     rulelistRule.EntityData.SegmentPath = "rulelist-rule" + types.AddKeyToken(rulelistRule.Rule, "rule")
+    rulelistRule.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/rules/rule/rulelist-rules/" + rulelistRule.EntityData.SegmentPath
     rulelistRule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rulelistRule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rulelistRule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -458,6 +474,7 @@ func (groups *AaaNacm_Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "aaa-nacm"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +496,7 @@ func (groups *AaaNacm_Groups) GetEntityData() *types.CommonEntityData {
 type AaaNacm_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group. The type is string with length: 1..256.
     Group interface{}
@@ -499,6 +517,7 @@ func (group *AaaNacm_Groups_Group) GetEntityData() *types.CommonEntityData {
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Group, "group")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -506,10 +525,12 @@ func (group *AaaNacm_Groups_Group) GetEntityData() *types.CommonEntityData {
     group.EntityData.Children = types.NewOrderedMap()
     group.EntityData.Children.Append("user-name", types.YChild{"UserName", nil})
     for i := range group.UserName {
+        types.SetYListKey(group.UserName[i], i)
         group.EntityData.Children.Append(types.GetSegmentPath(group.UserName[i]), types.YChild{"UserName", group.UserName[i]})
     }
     group.EntityData.Children.Append("rule-name", types.YChild{"RuleName", nil})
     for i := range group.RuleName {
+        types.SetYListKey(group.RuleName[i], i)
         group.EntityData.Children.Append(types.GetSegmentPath(group.RuleName[i]), types.YChild{"RuleName", group.RuleName[i]})
     }
     group.EntityData.Leafs = types.NewOrderedMap()
@@ -526,6 +547,7 @@ func (group *AaaNacm_Groups_Group) GetEntityData() *types.CommonEntityData {
 type AaaNacm_Groups_Group_UserName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name. The type is string with length: 0..256.
     Name interface{}
@@ -536,7 +558,8 @@ func (userName *AaaNacm_Groups_Group_UserName) GetEntityData() *types.CommonEnti
     userName.EntityData.YangName = "user-name"
     userName.EntityData.BundleName = "cisco_ios_xr"
     userName.EntityData.ParentYangName = "group"
-    userName.EntityData.SegmentPath = "user-name"
+    userName.EntityData.SegmentPath = "user-name" + types.AddNoKeyToken(userName)
+    userName.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/groups/group/" + userName.EntityData.SegmentPath
     userName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     userName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -555,6 +578,7 @@ func (userName *AaaNacm_Groups_Group_UserName) GetEntityData() *types.CommonEnti
 type AaaNacm_Groups_Group_RuleName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name. The type is string with length: 0..256.
     Name interface{}
@@ -565,7 +589,8 @@ func (ruleName *AaaNacm_Groups_Group_RuleName) GetEntityData() *types.CommonEnti
     ruleName.EntityData.YangName = "rule-name"
     ruleName.EntityData.BundleName = "cisco_ios_xr"
     ruleName.EntityData.ParentYangName = "group"
-    ruleName.EntityData.SegmentPath = "rule-name"
+    ruleName.EntityData.SegmentPath = "rule-name" + types.AddNoKeyToken(ruleName)
+    ruleName.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/groups/group/" + ruleName.EntityData.SegmentPath
     ruleName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ruleName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ruleName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

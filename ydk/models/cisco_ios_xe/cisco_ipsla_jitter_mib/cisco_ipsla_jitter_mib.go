@@ -44,6 +44,7 @@ func (cISCOIPSLAJITTERMIB *CISCOIPSLAJITTERMIB) GetEntityData() *types.CommonEnt
     cISCOIPSLAJITTERMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIPSLAJITTERMIB.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
     cISCOIPSLAJITTERMIB.EntityData.SegmentPath = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB"
+    cISCOIPSLAJITTERMIB.EntityData.AbsolutePath = cISCOIPSLAJITTERMIB.EntityData.SegmentPath
     cISCOIPSLAJITTERMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIPSLAJITTERMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIPSLAJITTERMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -75,6 +76,7 @@ func (cipslaUdpJitterTmplTable *CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable) Ge
     cipslaUdpJitterTmplTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaUdpJitterTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
     cipslaUdpJitterTmplTable.EntityData.SegmentPath = "cipslaUdpJitterTmplTable"
+    cipslaUdpJitterTmplTable.EntityData.AbsolutePath = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/" + cipslaUdpJitterTmplTable.EntityData.SegmentPath
     cipslaUdpJitterTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaUdpJitterTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaUdpJitterTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -96,6 +98,7 @@ func (cipslaUdpJitterTmplTable *CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable) Ge
 type CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_CipslaUdpJitterTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A string which specifies the UDP Jitter template
     // name. The type is string with length: 1..64.
@@ -279,6 +282,7 @@ func (cipslaUdpJitterTmplEntry *CISCOIPSLAJITTERMIB_CipslaUdpJitterTmplTable_Cip
     cipslaUdpJitterTmplEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaUdpJitterTmplEntry.EntityData.ParentYangName = "cipslaUdpJitterTmplTable"
     cipslaUdpJitterTmplEntry.EntityData.SegmentPath = "cipslaUdpJitterTmplEntry" + types.AddKeyToken(cipslaUdpJitterTmplEntry.CipslaUdpJitterTmplName, "cipslaUdpJitterTmplName")
+    cipslaUdpJitterTmplEntry.EntityData.AbsolutePath = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/cipslaUdpJitterTmplTable/" + cipslaUdpJitterTmplEntry.EntityData.SegmentPath
     cipslaUdpJitterTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaUdpJitterTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaUdpJitterTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -364,6 +368,7 @@ func (cipslaIcmpJitterTmplTable *CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable) 
     cipslaIcmpJitterTmplTable.EntityData.BundleName = "cisco_ios_xe"
     cipslaIcmpJitterTmplTable.EntityData.ParentYangName = "CISCO-IPSLA-JITTER-MIB"
     cipslaIcmpJitterTmplTable.EntityData.SegmentPath = "cipslaIcmpJitterTmplTable"
+    cipslaIcmpJitterTmplTable.EntityData.AbsolutePath = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/" + cipslaIcmpJitterTmplTable.EntityData.SegmentPath
     cipslaIcmpJitterTmplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaIcmpJitterTmplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaIcmpJitterTmplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -385,6 +390,7 @@ func (cipslaIcmpJitterTmplTable *CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable) 
 type CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable_CipslaIcmpJitterTmplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A string which specifies the ICMP jitter template
     // name. The type is string with length: 1..64.
@@ -484,6 +490,7 @@ func (cipslaIcmpJitterTmplEntry *CISCOIPSLAJITTERMIB_CipslaIcmpJitterTmplTable_C
     cipslaIcmpJitterTmplEntry.EntityData.BundleName = "cisco_ios_xe"
     cipslaIcmpJitterTmplEntry.EntityData.ParentYangName = "cipslaIcmpJitterTmplTable"
     cipslaIcmpJitterTmplEntry.EntityData.SegmentPath = "cipslaIcmpJitterTmplEntry" + types.AddKeyToken(cipslaIcmpJitterTmplEntry.CipslaIcmpJitterTmplName, "cipslaIcmpJitterTmplName")
+    cipslaIcmpJitterTmplEntry.EntityData.AbsolutePath = "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/cipslaIcmpJitterTmplTable/" + cipslaIcmpJitterTmplEntry.EntityData.SegmentPath
     cipslaIcmpJitterTmplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cipslaIcmpJitterTmplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cipslaIcmpJitterTmplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

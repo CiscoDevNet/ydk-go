@@ -95,6 +95,7 @@ func (bfdState *BfdState) GetEntityData() *types.CommonEntityData {
     bfdState.EntityData.BundleName = "cisco_ios_xe"
     bfdState.EntityData.ParentYangName = "Cisco-IOS-XE-bfd-oper"
     bfdState.EntityData.SegmentPath = "Cisco-IOS-XE-bfd-oper:bfd-state"
+    bfdState.EntityData.AbsolutePath = bfdState.EntityData.SegmentPath
     bfdState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -124,6 +125,7 @@ func (sessions *BfdState_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.BundleName = "cisco_ios_xe"
     sessions.EntityData.ParentYangName = "bfd-state"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -145,6 +147,7 @@ func (sessions *BfdState_Sessions) GetEntityData() *types.CommonEntityData {
 type BfdState_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session type. The type is BfdOperSessionType.
     Type interface{}
@@ -172,6 +175,7 @@ func (session *BfdState_Sessions_Session) GetEntityData() *types.CommonEntityDat
     session.EntityData.BundleName = "cisco_ios_xe"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.Type, "type")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -207,6 +211,7 @@ func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetEntityData() 
     bfdTunnelPaths.EntityData.BundleName = "cisco_ios_xe"
     bfdTunnelPaths.EntityData.ParentYangName = "session"
     bfdTunnelPaths.EntityData.SegmentPath = "bfd-tunnel-paths"
+    bfdTunnelPaths.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/" + bfdTunnelPaths.EntityData.SegmentPath
     bfdTunnelPaths.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdTunnelPaths.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdTunnelPaths.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -228,6 +233,7 @@ func (bfdTunnelPaths *BfdState_Sessions_Session_BfdTunnelPaths) GetEntityData() 
 type BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Associated interface. The type is string.
     Interface interface{}
@@ -255,6 +261,7 @@ func (bfdTunnelPath *BfdState_Sessions_Session_BfdTunnelPaths_BfdTunnelPath) Get
     bfdTunnelPath.EntityData.BundleName = "cisco_ios_xe"
     bfdTunnelPath.EntityData.ParentYangName = "bfd-tunnel-paths"
     bfdTunnelPath.EntityData.SegmentPath = "bfd-tunnel-path" + types.AddKeyToken(bfdTunnelPath.Interface, "interface") + types.AddKeyToken(bfdTunnelPath.LspType, "lsp-type")
+    bfdTunnelPath.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/bfd-tunnel-paths/" + bfdTunnelPath.EntityData.SegmentPath
     bfdTunnelPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdTunnelPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdTunnelPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -290,6 +297,7 @@ func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetEntityData() *types
     bfdCircuits.EntityData.BundleName = "cisco_ios_xe"
     bfdCircuits.EntityData.ParentYangName = "session"
     bfdCircuits.EntityData.SegmentPath = "bfd-circuits"
+    bfdCircuits.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/" + bfdCircuits.EntityData.SegmentPath
     bfdCircuits.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdCircuits.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdCircuits.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -311,6 +319,7 @@ func (bfdCircuits *BfdState_Sessions_Session_BfdCircuits) GetEntityData() *types
 type BfdState_Sessions_Session_BfdCircuits_BfdCircuit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Associated interface. The type is string.
     Interface interface{}
@@ -339,6 +348,7 @@ func (bfdCircuit *BfdState_Sessions_Session_BfdCircuits_BfdCircuit) GetEntityDat
     bfdCircuit.EntityData.BundleName = "cisco_ios_xe"
     bfdCircuit.EntityData.ParentYangName = "bfd-circuits"
     bfdCircuit.EntityData.SegmentPath = "bfd-circuit" + types.AddKeyToken(bfdCircuit.Interface, "interface") + types.AddKeyToken(bfdCircuit.Vcid, "vcid")
+    bfdCircuit.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/bfd-circuits/" + bfdCircuit.EntityData.SegmentPath
     bfdCircuit.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdCircuit.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdCircuit.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -374,6 +384,7 @@ func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetEntityData() *types.CommonE
     bfdNbrs.EntityData.BundleName = "cisco_ios_xe"
     bfdNbrs.EntityData.ParentYangName = "session"
     bfdNbrs.EntityData.SegmentPath = "bfd-nbrs"
+    bfdNbrs.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/" + bfdNbrs.EntityData.SegmentPath
     bfdNbrs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdNbrs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdNbrs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -395,6 +406,7 @@ func (bfdNbrs *BfdState_Sessions_Session_BfdNbrs) GetEntityData() *types.CommonE
 type BfdState_Sessions_Session_BfdNbrs_BfdNbr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
@@ -426,6 +438,7 @@ func (bfdNbr *BfdState_Sessions_Session_BfdNbrs_BfdNbr) GetEntityData() *types.C
     bfdNbr.EntityData.BundleName = "cisco_ios_xe"
     bfdNbr.EntityData.ParentYangName = "bfd-nbrs"
     bfdNbr.EntityData.SegmentPath = "bfd-nbr" + types.AddKeyToken(bfdNbr.Ip, "ip") + types.AddKeyToken(bfdNbr.Interface, "interface")
+    bfdNbr.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/bfd-nbrs/" + bfdNbr.EntityData.SegmentPath
     bfdNbr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdNbr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdNbr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -462,6 +475,7 @@ func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetEntityData() *types
     bfdMhopNbrs.EntityData.BundleName = "cisco_ios_xe"
     bfdMhopNbrs.EntityData.ParentYangName = "session"
     bfdMhopNbrs.EntityData.SegmentPath = "bfd-mhop-nbrs"
+    bfdMhopNbrs.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/" + bfdMhopNbrs.EntityData.SegmentPath
     bfdMhopNbrs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdMhopNbrs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdMhopNbrs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -483,6 +497,7 @@ func (bfdMhopNbrs *BfdState_Sessions_Session_BfdMhopNbrs) GetEntityData() *types
 type BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
@@ -518,6 +533,7 @@ func (bfdMhopNbr *BfdState_Sessions_Session_BfdMhopNbrs_BfdMhopNbr) GetEntityDat
     bfdMhopNbr.EntityData.BundleName = "cisco_ios_xe"
     bfdMhopNbr.EntityData.ParentYangName = "bfd-mhop-nbrs"
     bfdMhopNbr.EntityData.SegmentPath = "bfd-mhop-nbr" + types.AddKeyToken(bfdMhopNbr.Ip, "ip") + types.AddKeyToken(bfdMhopNbr.SrcIp, "src-ip")
+    bfdMhopNbr.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/bfd-mhop-nbrs/" + bfdMhopNbr.EntityData.SegmentPath
     bfdMhopNbr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdMhopNbr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdMhopNbr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -554,6 +570,7 @@ func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetEntityData() 
     bfdMhopVrfNbrs.EntityData.BundleName = "cisco_ios_xe"
     bfdMhopVrfNbrs.EntityData.ParentYangName = "session"
     bfdMhopVrfNbrs.EntityData.SegmentPath = "bfd-mhop-vrf-nbrs"
+    bfdMhopVrfNbrs.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/" + bfdMhopVrfNbrs.EntityData.SegmentPath
     bfdMhopVrfNbrs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdMhopVrfNbrs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdMhopVrfNbrs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -575,6 +592,7 @@ func (bfdMhopVrfNbrs *BfdState_Sessions_Session_BfdMhopVrfNbrs) GetEntityData() 
 type BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
@@ -613,6 +631,7 @@ func (bfdMhopVrfNbr *BfdState_Sessions_Session_BfdMhopVrfNbrs_BfdMhopVrfNbr) Get
     bfdMhopVrfNbr.EntityData.BundleName = "cisco_ios_xe"
     bfdMhopVrfNbr.EntityData.ParentYangName = "bfd-mhop-vrf-nbrs"
     bfdMhopVrfNbr.EntityData.SegmentPath = "bfd-mhop-vrf-nbr" + types.AddKeyToken(bfdMhopVrfNbr.Ip, "ip") + types.AddKeyToken(bfdMhopVrfNbr.Vrf, "vrf") + types.AddKeyToken(bfdMhopVrfNbr.SrcIp, "src-ip")
+    bfdMhopVrfNbr.EntityData.AbsolutePath = "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/session/bfd-mhop-vrf-nbrs/" + bfdMhopVrfNbr.EntityData.SegmentPath
     bfdMhopVrfNbr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bfdMhopVrfNbr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bfdMhopVrfNbr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

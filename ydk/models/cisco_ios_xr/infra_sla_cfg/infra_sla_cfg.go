@@ -40,6 +40,7 @@ func (sla *Sla) GetEntityData() *types.CommonEntityData {
     sla.EntityData.BundleName = "cisco_ios_xr"
     sla.EntityData.ParentYangName = "Cisco-IOS-XR-infra-sla-cfg"
     sla.EntityData.SegmentPath = "Cisco-IOS-XR-infra-sla-cfg:sla"
+    sla.EntityData.AbsolutePath = sla.EntityData.SegmentPath
     sla.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sla.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sla.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (protocols *Sla_Protocols) GetEntityData() *types.CommonEntityData {
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "sla"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -98,6 +100,7 @@ func (ethernet *Sla_Protocols_Ethernet) GetEntityData() *types.CommonEntityData 
     ethernet.EntityData.BundleName = "cisco_ios_xr"
     ethernet.EntityData.ParentYangName = "protocols"
     ethernet.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"
+    ethernet.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/" + ethernet.EntityData.SegmentPath
     ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -128,6 +131,7 @@ func (profiles *Sla_Protocols_Ethernet_Profiles) GetEntityData() *types.CommonEn
     profiles.EntityData.BundleName = "cisco_ios_xr"
     profiles.EntityData.ParentYangName = "ethernet"
     profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/" + profiles.EntityData.SegmentPath
     profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -149,6 +153,7 @@ func (profiles *Sla_Protocols_Ethernet_Profiles) GetEntityData() *types.CommonEn
 type Sla_Protocols_Ethernet_Profiles_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -175,6 +180,7 @@ func (profile *Sla_Protocols_Ethernet_Profiles_Profile) GetEntityData() *types.C
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
     profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.ProfileName, "profile-name")
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -209,6 +215,7 @@ func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetEntityD
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "profile"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -230,6 +237,7 @@ func (statistics *Sla_Protocols_Ethernet_Profiles_Profile_Statistics) GetEntityD
 type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of statistic to measure. The type is
     // SlaStatisticTypeEnum.
@@ -258,6 +266,7 @@ func (statistic *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic) G
     statistic.EntityData.BundleName = "cisco_ios_xr"
     statistic.EntityData.ParentYangName = "statistics"
     statistic.EntityData.SegmentPath = "statistic" + types.AddKeyToken(statistic.StatisticName, "statistic-name")
+    statistic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/statistics/" + statistic.EntityData.SegmentPath
     statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -300,6 +309,7 @@ func (bucketsSize *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_
     bucketsSize.EntityData.BundleName = "cisco_ios_xr"
     bucketsSize.EntityData.ParentYangName = "statistic"
     bucketsSize.EntityData.SegmentPath = "buckets-size"
+    bucketsSize.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/statistics/statistic/" + bucketsSize.EntityData.SegmentPath
     bucketsSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bucketsSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bucketsSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -332,6 +342,7 @@ func (actions *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Acti
     actions.EntityData.BundleName = "cisco_ios_xr"
     actions.EntityData.ParentYangName = "statistic"
     actions.EntityData.SegmentPath = "actions"
+    actions.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/statistics/statistic/" + actions.EntityData.SegmentPath
     actions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -354,6 +365,7 @@ func (actions *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Acti
 type Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actions_Action struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Threshold type. The type is SlaThresholdTypeEnum.
     ThresholdType interface{}
@@ -382,6 +394,7 @@ func (action *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_Actio
     action.EntityData.BundleName = "cisco_ios_xr"
     action.EntityData.ParentYangName = "actions"
     action.EntityData.SegmentPath = "action" + types.AddKeyToken(action.ThresholdType, "threshold-type") + types.AddKeyToken(action.ActionType, "action-type") + types.AddKeyToken(action.Condition, "condition")
+    action.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/statistics/statistic/actions/" + action.EntityData.SegmentPath
     action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -425,6 +438,7 @@ func (aggregation *Sla_Protocols_Ethernet_Profiles_Profile_Statistics_Statistic_
     aggregation.EntityData.BundleName = "cisco_ios_xr"
     aggregation.EntityData.ParentYangName = "statistic"
     aggregation.EntityData.SegmentPath = "aggregation"
+    aggregation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/statistics/statistic/" + aggregation.EntityData.SegmentPath
     aggregation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -495,6 +509,7 @@ func (schedule *Sla_Protocols_Ethernet_Profiles_Profile_Schedule) GetEntityData(
     schedule.EntityData.BundleName = "cisco_ios_xr"
     schedule.EntityData.ParentYangName = "profile"
     schedule.EntityData.SegmentPath = "schedule"
+    schedule.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/" + schedule.EntityData.SegmentPath
     schedule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     schedule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     schedule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -543,6 +558,7 @@ func (probe *Sla_Protocols_Ethernet_Profiles_Profile_Probe) GetEntityData() *typ
     probe.EntityData.BundleName = "cisco_ios_xr"
     probe.EntityData.ParentYangName = "profile"
     probe.EntityData.SegmentPath = "probe"
+    probe.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/" + probe.EntityData.SegmentPath
     probe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     probe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     probe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -603,6 +619,7 @@ func (send *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Send) GetEntityData() 
     send.EntityData.BundleName = "cisco_ios_xr"
     send.EntityData.ParentYangName = "probe"
     send.EntityData.SegmentPath = "send"
+    send.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/probe/" + send.EntityData.SegmentPath
     send.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     send.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     send.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -648,6 +665,7 @@ func (packetSizeAndPadding *Sla_Protocols_Ethernet_Profiles_Profile_Probe_Packet
     packetSizeAndPadding.EntityData.BundleName = "cisco_ios_xr"
     packetSizeAndPadding.EntityData.ParentYangName = "probe"
     packetSizeAndPadding.EntityData.SegmentPath = "packet-size-and-padding"
+    packetSizeAndPadding.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/profile/probe/" + packetSizeAndPadding.EntityData.SegmentPath
     packetSizeAndPadding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetSizeAndPadding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetSizeAndPadding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

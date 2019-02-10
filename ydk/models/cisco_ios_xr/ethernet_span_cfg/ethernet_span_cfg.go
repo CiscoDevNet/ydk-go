@@ -96,6 +96,7 @@ func (spanMonitorSession *SpanMonitorSession) GetEntityData() *types.CommonEntit
     spanMonitorSession.EntityData.BundleName = "cisco_ios_xr"
     spanMonitorSession.EntityData.ParentYangName = "Cisco-IOS-XR-Ethernet-SPAN-cfg"
     spanMonitorSession.EntityData.SegmentPath = "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session"
+    spanMonitorSession.EntityData.AbsolutePath = spanMonitorSession.EntityData.SegmentPath
     spanMonitorSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spanMonitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spanMonitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -126,6 +127,7 @@ func (sessions *SpanMonitorSession_Sessions) GetEntityData() *types.CommonEntity
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "span-monitor-session"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -147,6 +149,7 @@ func (sessions *SpanMonitorSession_Sessions) GetEntityData() *types.CommonEntity
 type SpanMonitorSession_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session Name. The type is string with length:
     // 1..79.
@@ -170,6 +173,7 @@ func (session *SpanMonitorSession_Sessions_Session) GetEntityData() *types.Commo
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.Session, "session")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -216,6 +220,7 @@ func (destination *SpanMonitorSession_Sessions_Session_Destination) GetEntityDat
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "session"
     destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/sessions/session/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -55,6 +55,7 @@ func (iPMROUTESTDMIB *IPMROUTESTDMIB) GetEntityData() *types.CommonEntityData {
     iPMROUTESTDMIB.EntityData.BundleName = "cisco_ios_xe"
     iPMROUTESTDMIB.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
     iPMROUTESTDMIB.EntityData.SegmentPath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB"
+    iPMROUTESTDMIB.EntityData.AbsolutePath = iPMROUTESTDMIB.EntityData.SegmentPath
     iPMROUTESTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iPMROUTESTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iPMROUTESTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -94,6 +95,7 @@ func (ipMRoute *IPMROUTESTDMIB_IpMRoute) GetEntityData() *types.CommonEntityData
     ipMRoute.EntityData.BundleName = "cisco_ios_xe"
     ipMRoute.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
     ipMRoute.EntityData.SegmentPath = "ipMRoute"
+    ipMRoute.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/" + ipMRoute.EntityData.SegmentPath
     ipMRoute.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRoute.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRoute.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -139,6 +141,7 @@ func (ipMRouteTable *IPMROUTESTDMIB_IpMRouteTable) GetEntityData() *types.Common
     ipMRouteTable.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteTable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
     ipMRouteTable.EntityData.SegmentPath = "ipMRouteTable"
+    ipMRouteTable.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/" + ipMRouteTable.EntityData.SegmentPath
     ipMRouteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -164,6 +167,7 @@ func (ipMRouteTable *IPMROUTESTDMIB_IpMRouteTable) GetEntityData() *types.Common
 type IPMROUTESTDMIB_IpMRouteTable_IpMRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP multicast group address for which this
     // entry contains multicast routing information. The type is string with
@@ -376,6 +380,7 @@ func (ipMRouteEntry *IPMROUTESTDMIB_IpMRouteTable_IpMRouteEntry) GetEntityData()
     ipMRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteEntry.EntityData.ParentYangName = "ipMRouteTable"
     ipMRouteEntry.EntityData.SegmentPath = "ipMRouteEntry" + types.AddKeyToken(ipMRouteEntry.IpMRouteGroup, "ipMRouteGroup") + types.AddKeyToken(ipMRouteEntry.IpMRouteSource, "ipMRouteSource") + types.AddKeyToken(ipMRouteEntry.IpMRouteSourceMask, "ipMRouteSourceMask")
+    ipMRouteEntry.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteTable/" + ipMRouteEntry.EntityData.SegmentPath
     ipMRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -458,6 +463,7 @@ func (ipMRouteNextHopTable *IPMROUTESTDMIB_IpMRouteNextHopTable) GetEntityData()
     ipMRouteNextHopTable.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteNextHopTable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
     ipMRouteNextHopTable.EntityData.SegmentPath = "ipMRouteNextHopTable"
+    ipMRouteNextHopTable.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/" + ipMRouteNextHopTable.EntityData.SegmentPath
     ipMRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -483,6 +489,7 @@ func (ipMRouteNextHopTable *IPMROUTESTDMIB_IpMRouteNextHopTable) GetEntityData()
 type IPMROUTESTDMIB_IpMRouteNextHopTable_IpMRouteNextHopEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IP multicast group for which this entry
     // specifies a next-hop on an outgoing interface. The type is string with
@@ -571,6 +578,7 @@ func (ipMRouteNextHopEntry *IPMROUTESTDMIB_IpMRouteNextHopTable_IpMRouteNextHopE
     ipMRouteNextHopEntry.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteNextHopEntry.EntityData.ParentYangName = "ipMRouteNextHopTable"
     ipMRouteNextHopEntry.EntityData.SegmentPath = "ipMRouteNextHopEntry" + types.AddKeyToken(ipMRouteNextHopEntry.IpMRouteNextHopGroup, "ipMRouteNextHopGroup") + types.AddKeyToken(ipMRouteNextHopEntry.IpMRouteNextHopSource, "ipMRouteNextHopSource") + types.AddKeyToken(ipMRouteNextHopEntry.IpMRouteNextHopSourceMask, "ipMRouteNextHopSourceMask") + types.AddKeyToken(ipMRouteNextHopEntry.IpMRouteNextHopIfIndex, "ipMRouteNextHopIfIndex") + types.AddKeyToken(ipMRouteNextHopEntry.IpMRouteNextHopAddress, "ipMRouteNextHopAddress")
+    ipMRouteNextHopEntry.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteNextHopTable/" + ipMRouteNextHopEntry.EntityData.SegmentPath
     ipMRouteNextHopEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteNextHopEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteNextHopEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -625,6 +633,7 @@ func (ipMRouteInterfaceTable *IPMROUTESTDMIB_IpMRouteInterfaceTable) GetEntityDa
     ipMRouteInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteInterfaceTable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
     ipMRouteInterfaceTable.EntityData.SegmentPath = "ipMRouteInterfaceTable"
+    ipMRouteInterfaceTable.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/" + ipMRouteInterfaceTable.EntityData.SegmentPath
     ipMRouteInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -647,6 +656,7 @@ func (ipMRouteInterfaceTable *IPMROUTESTDMIB_IpMRouteInterfaceTable) GetEntityDa
 type IPMROUTESTDMIB_IpMRouteInterfaceTable_IpMRouteInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex value of the interface for which this
     // entry contains information. The type is interface{} with range:
@@ -728,6 +738,7 @@ func (ipMRouteInterfaceEntry *IPMROUTESTDMIB_IpMRouteInterfaceTable_IpMRouteInte
     ipMRouteInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteInterfaceEntry.EntityData.ParentYangName = "ipMRouteInterfaceTable"
     ipMRouteInterfaceEntry.EntityData.SegmentPath = "ipMRouteInterfaceEntry" + types.AddKeyToken(ipMRouteInterfaceEntry.IpMRouteInterfaceIfIndex, "ipMRouteInterfaceIfIndex")
+    ipMRouteInterfaceEntry.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteInterfaceTable/" + ipMRouteInterfaceEntry.EntityData.SegmentPath
     ipMRouteInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -773,6 +784,7 @@ func (ipMRouteBoundaryTable *IPMROUTESTDMIB_IpMRouteBoundaryTable) GetEntityData
     ipMRouteBoundaryTable.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteBoundaryTable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
     ipMRouteBoundaryTable.EntityData.SegmentPath = "ipMRouteBoundaryTable"
+    ipMRouteBoundaryTable.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/" + ipMRouteBoundaryTable.EntityData.SegmentPath
     ipMRouteBoundaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteBoundaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteBoundaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -795,6 +807,7 @@ func (ipMRouteBoundaryTable *IPMROUTESTDMIB_IpMRouteBoundaryTable) GetEntityData
 type IPMROUTESTDMIB_IpMRouteBoundaryTable_IpMRouteBoundaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The IfIndex value for the interface to which this
     // boundary applies.  Packets with a destination address in the associated
@@ -828,6 +841,7 @@ func (ipMRouteBoundaryEntry *IPMROUTESTDMIB_IpMRouteBoundaryTable_IpMRouteBounda
     ipMRouteBoundaryEntry.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteBoundaryEntry.EntityData.ParentYangName = "ipMRouteBoundaryTable"
     ipMRouteBoundaryEntry.EntityData.SegmentPath = "ipMRouteBoundaryEntry" + types.AddKeyToken(ipMRouteBoundaryEntry.IpMRouteBoundaryIfIndex, "ipMRouteBoundaryIfIndex") + types.AddKeyToken(ipMRouteBoundaryEntry.IpMRouteBoundaryAddress, "ipMRouteBoundaryAddress") + types.AddKeyToken(ipMRouteBoundaryEntry.IpMRouteBoundaryAddressMask, "ipMRouteBoundaryAddressMask")
+    ipMRouteBoundaryEntry.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteBoundaryTable/" + ipMRouteBoundaryEntry.EntityData.SegmentPath
     ipMRouteBoundaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteBoundaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteBoundaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -862,6 +876,7 @@ func (ipMRouteScopeNameTable *IPMROUTESTDMIB_IpMRouteScopeNameTable) GetEntityDa
     ipMRouteScopeNameTable.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteScopeNameTable.EntityData.ParentYangName = "IPMROUTE-STD-MIB"
     ipMRouteScopeNameTable.EntityData.SegmentPath = "ipMRouteScopeNameTable"
+    ipMRouteScopeNameTable.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/" + ipMRouteScopeNameTable.EntityData.SegmentPath
     ipMRouteScopeNameTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteScopeNameTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteScopeNameTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -884,6 +899,7 @@ func (ipMRouteScopeNameTable *IPMROUTESTDMIB_IpMRouteScopeNameTable) GetEntityDa
 type IPMROUTESTDMIB_IpMRouteScopeNameTable_IpMRouteScopeNameEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The group address which when combined with the
     // corresponding value of ipMRouteScopeNameAddressMask identifies the group
@@ -926,6 +942,7 @@ func (ipMRouteScopeNameEntry *IPMROUTESTDMIB_IpMRouteScopeNameTable_IpMRouteScop
     ipMRouteScopeNameEntry.EntityData.BundleName = "cisco_ios_xe"
     ipMRouteScopeNameEntry.EntityData.ParentYangName = "ipMRouteScopeNameTable"
     ipMRouteScopeNameEntry.EntityData.SegmentPath = "ipMRouteScopeNameEntry" + types.AddKeyToken(ipMRouteScopeNameEntry.IpMRouteScopeNameAddress, "ipMRouteScopeNameAddress") + types.AddKeyToken(ipMRouteScopeNameEntry.IpMRouteScopeNameAddressMask, "ipMRouteScopeNameAddressMask") + types.AddKeyToken(ipMRouteScopeNameEntry.IpMRouteScopeNameLanguage, "ipMRouteScopeNameLanguage")
+    ipMRouteScopeNameEntry.EntityData.AbsolutePath = "IPMROUTE-STD-MIB:IPMROUTE-STD-MIB/ipMRouteScopeNameTable/" + ipMRouteScopeNameEntry.EntityData.SegmentPath
     ipMRouteScopeNameEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipMRouteScopeNameEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipMRouteScopeNameEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

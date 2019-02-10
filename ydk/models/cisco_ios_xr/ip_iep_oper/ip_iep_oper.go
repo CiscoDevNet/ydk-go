@@ -81,6 +81,7 @@ func (explicitPaths *ExplicitPaths) GetEntityData() *types.CommonEntityData {
     explicitPaths.EntityData.BundleName = "cisco_ios_xr"
     explicitPaths.EntityData.ParentYangName = "Cisco-IOS-XR-ip-iep-oper"
     explicitPaths.EntityData.SegmentPath = "Cisco-IOS-XR-ip-iep-oper:explicit-paths"
+    explicitPaths.EntityData.AbsolutePath = explicitPaths.EntityData.SegmentPath
     explicitPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     explicitPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     explicitPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -113,6 +114,7 @@ func (identifiers *ExplicitPaths_Identifiers) GetEntityData() *types.CommonEntit
     identifiers.EntityData.BundleName = "cisco_ios_xr"
     identifiers.EntityData.ParentYangName = "explicit-paths"
     identifiers.EntityData.SegmentPath = "identifiers"
+    identifiers.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-oper:explicit-paths/" + identifiers.EntityData.SegmentPath
     identifiers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     identifiers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     identifiers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -135,6 +137,7 @@ func (identifiers *ExplicitPaths_Identifiers) GetEntityData() *types.CommonEntit
 type ExplicitPaths_Identifiers_Identifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Identifier ID. The type is interface{} with range:
     // 0..4294967295.
@@ -154,6 +157,7 @@ func (identifier *ExplicitPaths_Identifiers_Identifier) GetEntityData() *types.C
     identifier.EntityData.BundleName = "cisco_ios_xr"
     identifier.EntityData.ParentYangName = "identifiers"
     identifier.EntityData.SegmentPath = "identifier" + types.AddKeyToken(identifier.IdentifierId, "identifier-id")
+    identifier.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-oper:explicit-paths/identifiers/" + identifier.EntityData.SegmentPath
     identifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     identifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     identifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -161,6 +165,7 @@ func (identifier *ExplicitPaths_Identifiers_Identifier) GetEntityData() *types.C
     identifier.EntityData.Children = types.NewOrderedMap()
     identifier.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range identifier.Address {
+        types.SetYListKey(identifier.Address[i], i)
         identifier.EntityData.Children.Append(types.GetSegmentPath(identifier.Address[i]), types.YChild{"Address", identifier.Address[i]})
     }
     identifier.EntityData.Leafs = types.NewOrderedMap()
@@ -178,6 +183,7 @@ func (identifier *ExplicitPaths_Identifiers_Identifier) GetEntityData() *types.C
 type ExplicitPaths_Identifiers_Identifier_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Index number at which the path entry is inserted or modified. The type is
     // interface{} with range: 0..4294967295.
@@ -207,7 +213,8 @@ func (address *ExplicitPaths_Identifiers_Identifier_Address) GetEntityData() *ty
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "identifier"
-    address.EntityData.SegmentPath = "address"
+    address.EntityData.SegmentPath = "address" + types.AddNoKeyToken(address)
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-oper:explicit-paths/identifiers/identifier/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -244,6 +251,7 @@ func (names *ExplicitPaths_Names) GetEntityData() *types.CommonEntityData {
     names.EntityData.BundleName = "cisco_ios_xr"
     names.EntityData.ParentYangName = "explicit-paths"
     names.EntityData.SegmentPath = "names"
+    names.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-oper:explicit-paths/" + names.EntityData.SegmentPath
     names.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     names.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     names.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -266,6 +274,7 @@ func (names *ExplicitPaths_Names) GetEntityData() *types.CommonEntityData {
 type ExplicitPaths_Names_Name struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -285,6 +294,7 @@ func (name *ExplicitPaths_Names_Name) GetEntityData() *types.CommonEntityData {
     name.EntityData.BundleName = "cisco_ios_xr"
     name.EntityData.ParentYangName = "names"
     name.EntityData.SegmentPath = "name" + types.AddKeyToken(name.PathName, "path-name")
+    name.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-oper:explicit-paths/names/" + name.EntityData.SegmentPath
     name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -292,6 +302,7 @@ func (name *ExplicitPaths_Names_Name) GetEntityData() *types.CommonEntityData {
     name.EntityData.Children = types.NewOrderedMap()
     name.EntityData.Children.Append("address", types.YChild{"Address", nil})
     for i := range name.Address {
+        types.SetYListKey(name.Address[i], i)
         name.EntityData.Children.Append(types.GetSegmentPath(name.Address[i]), types.YChild{"Address", name.Address[i]})
     }
     name.EntityData.Leafs = types.NewOrderedMap()
@@ -309,6 +320,7 @@ func (name *ExplicitPaths_Names_Name) GetEntityData() *types.CommonEntityData {
 type ExplicitPaths_Names_Name_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Index number at which the path entry is inserted or modified. The type is
     // interface{} with range: 0..4294967295.
@@ -338,7 +350,8 @@ func (address *ExplicitPaths_Names_Name_Address) GetEntityData() *types.CommonEn
     address.EntityData.YangName = "address"
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "name"
-    address.EntityData.SegmentPath = "address"
+    address.EntityData.SegmentPath = "address" + types.AddNoKeyToken(address)
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-iep-oper:explicit-paths/names/name/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -62,6 +62,7 @@ func (pppoeCfg *PppoeCfg) GetEntityData() *types.CommonEntityData {
     pppoeCfg.EntityData.BundleName = "cisco_ios_xr"
     pppoeCfg.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg"
     pppoeCfg.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg"
+    pppoeCfg.EntityData.AbsolutePath = pppoeCfg.EntityData.SegmentPath
     pppoeCfg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoeCfg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeCfg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +95,7 @@ func (pppoeBbaGroups *PppoeCfg_PppoeBbaGroups) GetEntityData() *types.CommonEnti
     pppoeBbaGroups.EntityData.BundleName = "cisco_ios_xr"
     pppoeBbaGroups.EntityData.ParentYangName = "pppoe-cfg"
     pppoeBbaGroups.EntityData.SegmentPath = "pppoe-bba-groups"
+    pppoeBbaGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/" + pppoeBbaGroups.EntityData.SegmentPath
     pppoeBbaGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoeBbaGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeBbaGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -115,6 +117,7 @@ func (pppoeBbaGroups *PppoeCfg_PppoeBbaGroups) GetEntityData() *types.CommonEnti
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. BBA-Group name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -152,6 +155,7 @@ func (pppoeBbaGroup *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup) GetEntityData() *typ
     pppoeBbaGroup.EntityData.BundleName = "cisco_ios_xr"
     pppoeBbaGroup.EntityData.ParentYangName = "pppoe-bba-groups"
     pppoeBbaGroup.EntityData.SegmentPath = "pppoe-bba-group" + types.AddKeyToken(pppoeBbaGroup.BbaGroup, "bba-group")
+    pppoeBbaGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/" + pppoeBbaGroup.EntityData.SegmentPath
     pppoeBbaGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoeBbaGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeBbaGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -204,6 +208,7 @@ func (tag *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag) GetEntityData() *types.Com
     tag.EntityData.BundleName = "cisco_ios_xr"
     tag.EntityData.ParentYangName = "pppoe-bba-group"
     tag.EntityData.SegmentPath = "tag"
+    tag.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/" + tag.EntityData.SegmentPath
     tag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -242,6 +247,7 @@ func (padr *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_Padr) GetEntityData() *typ
     padr.EntityData.BundleName = "cisco_ios_xr"
     padr.EntityData.ParentYangName = "tag"
     padr.EntityData.SegmentPath = "padr"
+    padr.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/tag/" + padr.EntityData.SegmentPath
     padr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     padr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     padr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +279,7 @@ func (serviceNameConfigureds *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceN
     serviceNameConfigureds.EntityData.BundleName = "cisco_ios_xr"
     serviceNameConfigureds.EntityData.ParentYangName = "tag"
     serviceNameConfigureds.EntityData.SegmentPath = "service-name-configureds"
+    serviceNameConfigureds.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/tag/" + serviceNameConfigureds.EntityData.SegmentPath
     serviceNameConfigureds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameConfigureds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameConfigureds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -294,6 +301,7 @@ func (serviceNameConfigureds *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceN
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNameConfigureds_ServiceNameConfigured struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Service name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -306,6 +314,7 @@ func (serviceNameConfigured *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNa
     serviceNameConfigured.EntityData.BundleName = "cisco_ios_xr"
     serviceNameConfigured.EntityData.ParentYangName = "service-name-configureds"
     serviceNameConfigured.EntityData.SegmentPath = "service-name-configured" + types.AddKeyToken(serviceNameConfigured.Name, "name")
+    serviceNameConfigured.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/tag/service-name-configureds/" + serviceNameConfigured.EntityData.SegmentPath
     serviceNameConfigured.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameConfigured.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameConfigured.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -342,6 +351,7 @@ func (pppMaxPayload *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_PppMaxPayload) Ge
     pppMaxPayload.EntityData.BundleName = "cisco_ios_xr"
     pppMaxPayload.EntityData.ParentYangName = "tag"
     pppMaxPayload.EntityData.SegmentPath = "ppp-max-payload"
+    pppMaxPayload.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/tag/" + pppMaxPayload.EntityData.SegmentPath
     pppMaxPayload.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppMaxPayload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppMaxPayload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -432,6 +442,7 @@ func (sessions *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions) GetEntityData() 
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "pppoe-bba-group"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -493,6 +504,7 @@ func (vlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_VlanThrottle)
     vlanThrottle.EntityData.BundleName = "cisco_ios_xr"
     vlanThrottle.EntityData.ParentYangName = "sessions"
     vlanThrottle.EntityData.SegmentPath = "vlan-throttle"
+    vlanThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + vlanThrottle.EntityData.SegmentPath
     vlanThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -535,6 +547,7 @@ func (innerVlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_InnerVla
     innerVlanThrottle.EntityData.BundleName = "cisco_ios_xr"
     innerVlanThrottle.EntityData.ParentYangName = "sessions"
     innerVlanThrottle.EntityData.SegmentPath = "inner-vlan-throttle"
+    innerVlanThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + innerVlanThrottle.EntityData.SegmentPath
     innerVlanThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     innerVlanThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     innerVlanThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -572,6 +585,7 @@ func (remoteIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_RemoteIdLimi
     remoteIdLimit.EntityData.BundleName = "cisco_ios_xr"
     remoteIdLimit.EntityData.ParentYangName = "sessions"
     remoteIdLimit.EntityData.SegmentPath = "remote-id-limit"
+    remoteIdLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + remoteIdLimit.EntityData.SegmentPath
     remoteIdLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteIdLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -614,6 +628,7 @@ func (macIwfAccessInterfaceThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessi
     macIwfAccessInterfaceThrottle.EntityData.BundleName = "cisco_ios_xr"
     macIwfAccessInterfaceThrottle.EntityData.ParentYangName = "sessions"
     macIwfAccessInterfaceThrottle.EntityData.SegmentPath = "mac-iwf-access-interface-throttle"
+    macIwfAccessInterfaceThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + macIwfAccessInterfaceThrottle.EntityData.SegmentPath
     macIwfAccessInterfaceThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macIwfAccessInterfaceThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIwfAccessInterfaceThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -652,6 +667,7 @@ func (accessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_Acces
     accessInterfaceLimit.EntityData.BundleName = "cisco_ios_xr"
     accessInterfaceLimit.EntityData.ParentYangName = "sessions"
     accessInterfaceLimit.EntityData.SegmentPath = "access-interface-limit"
+    accessInterfaceLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + accessInterfaceLimit.EntityData.SegmentPath
     accessInterfaceLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterfaceLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaceLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -693,6 +709,7 @@ func (macAccessInterfaceThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions
     macAccessInterfaceThrottle.EntityData.BundleName = "cisco_ios_xr"
     macAccessInterfaceThrottle.EntityData.ParentYangName = "sessions"
     macAccessInterfaceThrottle.EntityData.SegmentPath = "mac-access-interface-throttle"
+    macAccessInterfaceThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + macAccessInterfaceThrottle.EntityData.SegmentPath
     macAccessInterfaceThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAccessInterfaceThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAccessInterfaceThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -730,6 +747,7 @@ func (outerVlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_OuterVlanLi
     outerVlanLimit.EntityData.BundleName = "cisco_ios_xr"
     outerVlanLimit.EntityData.ParentYangName = "sessions"
     outerVlanLimit.EntityData.SegmentPath = "outer-vlan-limit"
+    outerVlanLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + outerVlanLimit.EntityData.SegmentPath
     outerVlanLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outerVlanLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outerVlanLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -771,6 +789,7 @@ func (circuitIdThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitI
     circuitIdThrottle.EntityData.BundleName = "cisco_ios_xr"
     circuitIdThrottle.EntityData.ParentYangName = "sessions"
     circuitIdThrottle.EntityData.SegmentPath = "circuit-id-throttle"
+    circuitIdThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + circuitIdThrottle.EntityData.SegmentPath
     circuitIdThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -809,6 +828,7 @@ func (macLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacLimit) GetEnti
     macLimit.EntityData.BundleName = "cisco_ios_xr"
     macLimit.EntityData.ParentYangName = "sessions"
     macLimit.EntityData.SegmentPath = "mac-limit"
+    macLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + macLimit.EntityData.SegmentPath
     macLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -845,6 +865,7 @@ func (circuitIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_CircuitIdLi
     circuitIdLimit.EntityData.BundleName = "cisco_ios_xr"
     circuitIdLimit.EntityData.ParentYangName = "sessions"
     circuitIdLimit.EntityData.SegmentPath = "circuit-id-limit"
+    circuitIdLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + circuitIdLimit.EntityData.SegmentPath
     circuitIdLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -883,6 +904,7 @@ func (macIwfLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacIwfLimit) G
     macIwfLimit.EntityData.BundleName = "cisco_ios_xr"
     macIwfLimit.EntityData.ParentYangName = "sessions"
     macIwfLimit.EntityData.SegmentPath = "mac-iwf-limit"
+    macIwfLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + macIwfLimit.EntityData.SegmentPath
     macIwfLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macIwfLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIwfLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -921,6 +943,7 @@ func (macIwfAccessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions
     macIwfAccessInterfaceLimit.EntityData.BundleName = "cisco_ios_xr"
     macIwfAccessInterfaceLimit.EntityData.ParentYangName = "sessions"
     macIwfAccessInterfaceLimit.EntityData.SegmentPath = "mac-iwf-access-interface-limit"
+    macIwfAccessInterfaceLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + macIwfAccessInterfaceLimit.EntityData.SegmentPath
     macIwfAccessInterfaceLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macIwfAccessInterfaceLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macIwfAccessInterfaceLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -957,6 +980,7 @@ func (innerVlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_InnerVlanLi
     innerVlanLimit.EntityData.BundleName = "cisco_ios_xr"
     innerVlanLimit.EntityData.ParentYangName = "sessions"
     innerVlanLimit.EntityData.SegmentPath = "inner-vlan-limit"
+    innerVlanLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + innerVlanLimit.EntityData.SegmentPath
     innerVlanLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     innerVlanLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     innerVlanLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -998,6 +1022,7 @@ func (outerVlanThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_OuterVla
     outerVlanThrottle.EntityData.BundleName = "cisco_ios_xr"
     outerVlanThrottle.EntityData.ParentYangName = "sessions"
     outerVlanThrottle.EntityData.SegmentPath = "outer-vlan-throttle"
+    outerVlanThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + outerVlanThrottle.EntityData.SegmentPath
     outerVlanThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outerVlanThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outerVlanThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1040,6 +1065,7 @@ func (macThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MacThrottle) G
     macThrottle.EntityData.BundleName = "cisco_ios_xr"
     macThrottle.EntityData.ParentYangName = "sessions"
     macThrottle.EntityData.SegmentPath = "mac-throttle"
+    macThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + macThrottle.EntityData.SegmentPath
     macThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1078,6 +1104,7 @@ func (circuitIdAndRemoteIdLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_
     circuitIdAndRemoteIdLimit.EntityData.BundleName = "cisco_ios_xr"
     circuitIdAndRemoteIdLimit.EntityData.ParentYangName = "sessions"
     circuitIdAndRemoteIdLimit.EntityData.SegmentPath = "circuit-id-and-remote-id-limit"
+    circuitIdAndRemoteIdLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + circuitIdAndRemoteIdLimit.EntityData.SegmentPath
     circuitIdAndRemoteIdLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdAndRemoteIdLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdAndRemoteIdLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1116,6 +1143,7 @@ func (vlanLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_VlanLimit) GetEn
     vlanLimit.EntityData.BundleName = "cisco_ios_xr"
     vlanLimit.EntityData.ParentYangName = "sessions"
     vlanLimit.EntityData.SegmentPath = "vlan-limit"
+    vlanLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + vlanLimit.EntityData.SegmentPath
     vlanLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1154,6 +1182,7 @@ func (macAccessInterfaceLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_Ma
     macAccessInterfaceLimit.EntityData.BundleName = "cisco_ios_xr"
     macAccessInterfaceLimit.EntityData.ParentYangName = "sessions"
     macAccessInterfaceLimit.EntityData.SegmentPath = "mac-access-interface-limit"
+    macAccessInterfaceLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + macAccessInterfaceLimit.EntityData.SegmentPath
     macAccessInterfaceLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAccessInterfaceLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAccessInterfaceLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1195,6 +1224,7 @@ func (remoteIdThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_RemoteIdT
     remoteIdThrottle.EntityData.BundleName = "cisco_ios_xr"
     remoteIdThrottle.EntityData.ParentYangName = "sessions"
     remoteIdThrottle.EntityData.SegmentPath = "remote-id-throttle"
+    remoteIdThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + remoteIdThrottle.EntityData.SegmentPath
     remoteIdThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteIdThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1232,6 +1262,7 @@ func (maxLimit *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessions_MaxLimit) GetEnti
     maxLimit.EntityData.BundleName = "cisco_ios_xr"
     maxLimit.EntityData.ParentYangName = "sessions"
     maxLimit.EntityData.SegmentPath = "max-limit"
+    maxLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + maxLimit.EntityData.SegmentPath
     maxLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maxLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maxLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1273,6 +1304,7 @@ func (circuitIdAndRemoteIdThrottle *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Sessio
     circuitIdAndRemoteIdThrottle.EntityData.BundleName = "cisco_ios_xr"
     circuitIdAndRemoteIdThrottle.EntityData.ParentYangName = "sessions"
     circuitIdAndRemoteIdThrottle.EntityData.SegmentPath = "circuit-id-and-remote-id-throttle"
+    circuitIdAndRemoteIdThrottle.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/sessions/" + circuitIdAndRemoteIdThrottle.EntityData.SegmentPath
     circuitIdAndRemoteIdThrottle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdAndRemoteIdThrottle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdAndRemoteIdThrottle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1305,6 +1337,7 @@ func (controlPackets *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_ControlPackets) GetE
     controlPackets.EntityData.BundleName = "cisco_ios_xr"
     controlPackets.EntityData.ParentYangName = "pppoe-bba-group"
     controlPackets.EntityData.SegmentPath = "control-packets"
+    controlPackets.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/" + controlPackets.EntityData.SegmentPath
     controlPackets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controlPackets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controlPackets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1369,6 +1402,7 @@ func (paDoDelay *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay) GetEntityData(
     paDoDelay.EntityData.BundleName = "cisco_ios_xr"
     paDoDelay.EntityData.ParentYangName = "pppoe-bba-group"
     paDoDelay.EntityData.SegmentPath = "pa-do-delay"
+    paDoDelay.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/" + paDoDelay.EntityData.SegmentPath
     paDoDelay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paDoDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paDoDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1409,6 +1443,7 @@ func (remoteIdSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Remote
     remoteIdSubstrings.EntityData.BundleName = "cisco_ios_xr"
     remoteIdSubstrings.EntityData.ParentYangName = "pa-do-delay"
     remoteIdSubstrings.EntityData.SegmentPath = "remote-id-substrings"
+    remoteIdSubstrings.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/" + remoteIdSubstrings.EntityData.SegmentPath
     remoteIdSubstrings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteIdSubstrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdSubstrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1431,6 +1466,7 @@ func (remoteIdSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Remote
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSubstrings_RemoteIdSubstring struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The string to be contained within the received
     // Remote ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1447,6 +1483,7 @@ func (remoteIdSubstring *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteI
     remoteIdSubstring.EntityData.BundleName = "cisco_ios_xr"
     remoteIdSubstring.EntityData.ParentYangName = "remote-id-substrings"
     remoteIdSubstring.EntityData.SegmentPath = "remote-id-substring" + types.AddKeyToken(remoteIdSubstring.Name, "name")
+    remoteIdSubstring.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/remote-id-substrings/" + remoteIdSubstring.EntityData.SegmentPath
     remoteIdSubstring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteIdSubstring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdSubstring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1480,6 +1517,7 @@ func (remoteIdStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdS
     remoteIdStrings.EntityData.BundleName = "cisco_ios_xr"
     remoteIdStrings.EntityData.ParentYangName = "pa-do-delay"
     remoteIdStrings.EntityData.SegmentPath = "remote-id-strings"
+    remoteIdStrings.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/" + remoteIdStrings.EntityData.SegmentPath
     remoteIdStrings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteIdStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1502,6 +1540,7 @@ func (remoteIdStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdS
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdStrings_RemoteIdString struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The string to exactly match the received Remote
     // ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1518,6 +1557,7 @@ func (remoteIdString *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSt
     remoteIdString.EntityData.BundleName = "cisco_ios_xr"
     remoteIdString.EntityData.ParentYangName = "remote-id-strings"
     remoteIdString.EntityData.SegmentPath = "remote-id-string" + types.AddKeyToken(remoteIdString.Name, "name")
+    remoteIdString.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/remote-id-strings/" + remoteIdString.EntityData.SegmentPath
     remoteIdString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteIdString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteIdString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1551,6 +1591,7 @@ func (serviceNameStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Servic
     serviceNameStrings.EntityData.BundleName = "cisco_ios_xr"
     serviceNameStrings.EntityData.ParentYangName = "pa-do-delay"
     serviceNameStrings.EntityData.SegmentPath = "service-name-strings"
+    serviceNameStrings.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/" + serviceNameStrings.EntityData.SegmentPath
     serviceNameStrings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1573,6 +1614,7 @@ func (serviceNameStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Servic
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameStrings_ServiceNameString struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The string to exactly match the received Service
     // Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1589,6 +1631,7 @@ func (serviceNameString *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Service
     serviceNameString.EntityData.BundleName = "cisco_ios_xr"
     serviceNameString.EntityData.ParentYangName = "service-name-strings"
     serviceNameString.EntityData.SegmentPath = "service-name-string" + types.AddKeyToken(serviceNameString.Name, "name")
+    serviceNameString.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/service-name-strings/" + serviceNameString.EntityData.SegmentPath
     serviceNameString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1622,6 +1665,7 @@ func (circuitIdSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Circu
     circuitIdSubstrings.EntityData.BundleName = "cisco_ios_xr"
     circuitIdSubstrings.EntityData.ParentYangName = "pa-do-delay"
     circuitIdSubstrings.EntityData.SegmentPath = "circuit-id-substrings"
+    circuitIdSubstrings.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/" + circuitIdSubstrings.EntityData.SegmentPath
     circuitIdSubstrings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdSubstrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdSubstrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1644,6 +1688,7 @@ func (circuitIdSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Circu
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdSubstrings_CircuitIdSubstring struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The string to be contained within the received
     // Circuit ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1660,6 +1705,7 @@ func (circuitIdSubstring *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Circui
     circuitIdSubstring.EntityData.BundleName = "cisco_ios_xr"
     circuitIdSubstring.EntityData.ParentYangName = "circuit-id-substrings"
     circuitIdSubstring.EntityData.SegmentPath = "circuit-id-substring" + types.AddKeyToken(circuitIdSubstring.Name, "name")
+    circuitIdSubstring.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/circuit-id-substrings/" + circuitIdSubstring.EntityData.SegmentPath
     circuitIdSubstring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdSubstring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdSubstring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1693,6 +1739,7 @@ func (serviceNameSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Ser
     serviceNameSubstrings.EntityData.BundleName = "cisco_ios_xr"
     serviceNameSubstrings.EntityData.ParentYangName = "pa-do-delay"
     serviceNameSubstrings.EntityData.SegmentPath = "service-name-substrings"
+    serviceNameSubstrings.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/" + serviceNameSubstrings.EntityData.SegmentPath
     serviceNameSubstrings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameSubstrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameSubstrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1715,6 +1762,7 @@ func (serviceNameSubstrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Ser
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameSubstrings_ServiceNameSubstring struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The string to be contained within the received
     // Service Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1731,6 +1779,7 @@ func (serviceNameSubstring *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_Serv
     serviceNameSubstring.EntityData.BundleName = "cisco_ios_xr"
     serviceNameSubstring.EntityData.ParentYangName = "service-name-substrings"
     serviceNameSubstring.EntityData.SegmentPath = "service-name-substring" + types.AddKeyToken(serviceNameSubstring.Name, "name")
+    serviceNameSubstring.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/service-name-substrings/" + serviceNameSubstring.EntityData.SegmentPath
     serviceNameSubstring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceNameSubstring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceNameSubstring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1764,6 +1813,7 @@ func (circuitIdStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitI
     circuitIdStrings.EntityData.BundleName = "cisco_ios_xr"
     circuitIdStrings.EntityData.ParentYangName = "pa-do-delay"
     circuitIdStrings.EntityData.SegmentPath = "circuit-id-strings"
+    circuitIdStrings.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/" + circuitIdStrings.EntityData.SegmentPath
     circuitIdStrings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdStrings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdStrings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1786,6 +1836,7 @@ func (circuitIdStrings *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitI
 type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdStrings_CircuitIdString struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The string to exactly match the received Circuit
     // ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1802,6 +1853,7 @@ func (circuitIdString *PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitId
     circuitIdString.EntityData.BundleName = "cisco_ios_xr"
     circuitIdString.EntityData.ParentYangName = "circuit-id-strings"
     circuitIdString.EntityData.SegmentPath = "circuit-id-string" + types.AddKeyToken(circuitIdString.Name, "name")
+    circuitIdString.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/pppoe-bba-group/pa-do-delay/circuit-id-strings/" + circuitIdString.EntityData.SegmentPath
     circuitIdString.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     circuitIdString.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     circuitIdString.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

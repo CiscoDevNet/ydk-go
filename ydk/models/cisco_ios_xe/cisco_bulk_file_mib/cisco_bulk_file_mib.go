@@ -44,6 +44,7 @@ func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetEntityData() *types.CommonEntityDat
     cISCOBULKFILEMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOBULKFILEMIB.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
     cISCOBULKFILEMIB.EntityData.SegmentPath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB"
+    cISCOBULKFILEMIB.EntityData.AbsolutePath = cISCOBULKFILEMIB.EntityData.SegmentPath
     cISCOBULKFILEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOBULKFILEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOBULKFILEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -114,6 +115,7 @@ func (cbfDefine *CISCOBULKFILEMIB_CbfDefine) GetEntityData() *types.CommonEntity
     cbfDefine.EntityData.BundleName = "cisco_ios_xe"
     cbfDefine.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
     cbfDefine.EntityData.SegmentPath = "cbfDefine"
+    cbfDefine.EntityData.AbsolutePath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/" + cbfDefine.EntityData.SegmentPath
     cbfDefine.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbfDefine.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbfDefine.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -165,6 +167,7 @@ func (cbfStatus *CISCOBULKFILEMIB_CbfStatus) GetEntityData() *types.CommonEntity
     cbfStatus.EntityData.BundleName = "cisco_ios_xe"
     cbfStatus.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
     cbfStatus.EntityData.SegmentPath = "cbfStatus"
+    cbfStatus.EntityData.AbsolutePath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/" + cbfStatus.EntityData.SegmentPath
     cbfStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbfStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbfStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -206,6 +209,7 @@ func (cbfDefineFileTable *CISCOBULKFILEMIB_CbfDefineFileTable) GetEntityData() *
     cbfDefineFileTable.EntityData.BundleName = "cisco_ios_xe"
     cbfDefineFileTable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
     cbfDefineFileTable.EntityData.SegmentPath = "cbfDefineFileTable"
+    cbfDefineFileTable.EntityData.AbsolutePath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/" + cbfDefineFileTable.EntityData.SegmentPath
     cbfDefineFileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbfDefineFileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbfDefineFileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -242,6 +246,7 @@ func (cbfDefineFileTable *CISCOBULKFILEMIB_CbfDefineFileTable) GetEntityData() *
 type CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary integer to uniquely identify this
     // entry.  To create an entry a management application should pick a random
@@ -303,6 +308,7 @@ func (cbfDefineFileEntry *CISCOBULKFILEMIB_CbfDefineFileTable_CbfDefineFileEntry
     cbfDefineFileEntry.EntityData.BundleName = "cisco_ios_xe"
     cbfDefineFileEntry.EntityData.ParentYangName = "cbfDefineFileTable"
     cbfDefineFileEntry.EntityData.SegmentPath = "cbfDefineFileEntry" + types.AddKeyToken(cbfDefineFileEntry.CbfDefineFileIndex, "cbfDefineFileIndex")
+    cbfDefineFileEntry.EntityData.AbsolutePath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineFileTable/" + cbfDefineFileEntry.EntityData.SegmentPath
     cbfDefineFileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbfDefineFileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbfDefineFileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -384,6 +390,7 @@ func (cbfDefineObjectTable *CISCOBULKFILEMIB_CbfDefineObjectTable) GetEntityData
     cbfDefineObjectTable.EntityData.BundleName = "cisco_ios_xe"
     cbfDefineObjectTable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
     cbfDefineObjectTable.EntityData.SegmentPath = "cbfDefineObjectTable"
+    cbfDefineObjectTable.EntityData.AbsolutePath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/" + cbfDefineObjectTable.EntityData.SegmentPath
     cbfDefineObjectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbfDefineObjectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbfDefineObjectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -412,6 +419,7 @@ func (cbfDefineObjectTable *CISCOBULKFILEMIB_CbfDefineObjectTable) GetEntityData
 type CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -496,6 +504,7 @@ func (cbfDefineObjectEntry *CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjec
     cbfDefineObjectEntry.EntityData.BundleName = "cisco_ios_xe"
     cbfDefineObjectEntry.EntityData.ParentYangName = "cbfDefineObjectTable"
     cbfDefineObjectEntry.EntityData.SegmentPath = "cbfDefineObjectEntry" + types.AddKeyToken(cbfDefineObjectEntry.CbfDefineFileIndex, "cbfDefineFileIndex") + types.AddKeyToken(cbfDefineObjectEntry.CbfDefineObjectIndex, "cbfDefineObjectIndex")
+    cbfDefineObjectEntry.EntityData.AbsolutePath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineObjectTable/" + cbfDefineObjectEntry.EntityData.SegmentPath
     cbfDefineObjectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbfDefineObjectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbfDefineObjectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -549,6 +558,7 @@ func (cbfStatusFileTable *CISCOBULKFILEMIB_CbfStatusFileTable) GetEntityData() *
     cbfStatusFileTable.EntityData.BundleName = "cisco_ios_xe"
     cbfStatusFileTable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
     cbfStatusFileTable.EntityData.SegmentPath = "cbfStatusFileTable"
+    cbfStatusFileTable.EntityData.AbsolutePath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/" + cbfStatusFileTable.EntityData.SegmentPath
     cbfStatusFileTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbfStatusFileTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbfStatusFileTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -581,6 +591,7 @@ func (cbfStatusFileTable *CISCOBULKFILEMIB_CbfStatusFileTable) GetEntityData() *
 type CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -621,6 +632,7 @@ func (cbfStatusFileEntry *CISCOBULKFILEMIB_CbfStatusFileTable_CbfStatusFileEntry
     cbfStatusFileEntry.EntityData.BundleName = "cisco_ios_xe"
     cbfStatusFileEntry.EntityData.ParentYangName = "cbfStatusFileTable"
     cbfStatusFileEntry.EntityData.SegmentPath = "cbfStatusFileEntry" + types.AddKeyToken(cbfStatusFileEntry.CbfDefineFileIndex, "cbfDefineFileIndex") + types.AddKeyToken(cbfStatusFileEntry.CbfStatusFileIndex, "cbfStatusFileIndex")
+    cbfStatusFileEntry.EntityData.AbsolutePath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfStatusFileTable/" + cbfStatusFileEntry.EntityData.SegmentPath
     cbfStatusFileEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbfStatusFileEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbfStatusFileEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

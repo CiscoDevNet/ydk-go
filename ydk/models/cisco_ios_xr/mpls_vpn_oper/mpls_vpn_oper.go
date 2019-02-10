@@ -82,6 +82,7 @@ func (l3vpn *L3vpn) GetEntityData() *types.CommonEntityData {
     l3vpn.EntityData.BundleName = "cisco_ios_xr"
     l3vpn.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-vpn-oper"
     l3vpn.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn"
+    l3vpn.EntityData.AbsolutePath = l3vpn.EntityData.SegmentPath
     l3vpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l3vpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l3vpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -114,6 +115,7 @@ func (invalidVrfs *L3vpn_InvalidVrfs) GetEntityData() *types.CommonEntityData {
     invalidVrfs.EntityData.BundleName = "cisco_ios_xr"
     invalidVrfs.EntityData.ParentYangName = "l3vpn"
     invalidVrfs.EntityData.SegmentPath = "invalid-vrfs"
+    invalidVrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/" + invalidVrfs.EntityData.SegmentPath
     invalidVrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidVrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidVrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -135,6 +137,7 @@ func (invalidVrfs *L3vpn_InvalidVrfs) GetEntityData() *types.CommonEntityData {
 type L3vpn_InvalidVrfs_InvalidVrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Name for an invalid VRF. The type is string.
     VrfName interface{}
@@ -165,6 +168,7 @@ func (invalidVrf *L3vpn_InvalidVrfs_InvalidVrf) GetEntityData() *types.CommonEnt
     invalidVrf.EntityData.BundleName = "cisco_ios_xr"
     invalidVrf.EntityData.ParentYangName = "invalid-vrfs"
     invalidVrf.EntityData.SegmentPath = "invalid-vrf" + types.AddKeyToken(invalidVrf.VrfName, "vrf-name")
+    invalidVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/invalid-vrfs/" + invalidVrf.EntityData.SegmentPath
     invalidVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,10 +176,12 @@ func (invalidVrf *L3vpn_InvalidVrfs_InvalidVrf) GetEntityData() *types.CommonEnt
     invalidVrf.EntityData.Children = types.NewOrderedMap()
     invalidVrf.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range invalidVrf.Interface {
+        types.SetYListKey(invalidVrf.Interface[i], i)
         invalidVrf.EntityData.Children.Append(types.GetSegmentPath(invalidVrf.Interface[i]), types.YChild{"Interface", invalidVrf.Interface[i]})
     }
     invalidVrf.EntityData.Children.Append("af", types.YChild{"Af", nil})
     for i := range invalidVrf.Af {
+        types.SetYListKey(invalidVrf.Af[i], i)
         invalidVrf.EntityData.Children.Append(types.GetSegmentPath(invalidVrf.Af[i]), types.YChild{"Af", invalidVrf.Af[i]})
     }
     invalidVrf.EntityData.Leafs = types.NewOrderedMap()
@@ -195,6 +201,7 @@ func (invalidVrf *L3vpn_InvalidVrfs_InvalidVrf) GetEntityData() *types.CommonEnt
 type L3vpn_InvalidVrfs_InvalidVrf_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -205,7 +212,8 @@ func (self *L3vpn_InvalidVrfs_InvalidVrf_Interface) GetEntityData() *types.Commo
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "invalid-vrf"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/invalid-vrfs/invalid-vrf/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +232,7 @@ func (self *L3vpn_InvalidVrfs_InvalidVrf_Interface) GetEntityData() *types.Commo
 type L3vpn_InvalidVrfs_InvalidVrf_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AF name. The type is MplsVpnAfi.
     AfName interface{}
@@ -247,7 +256,8 @@ func (af *L3vpn_InvalidVrfs_InvalidVrf_Af) GetEntityData() *types.CommonEntityDa
     af.EntityData.YangName = "af"
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "invalid-vrf"
-    af.EntityData.SegmentPath = "af"
+    af.EntityData.SegmentPath = "af" + types.AddNoKeyToken(af)
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/invalid-vrfs/invalid-vrf/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +265,7 @@ func (af *L3vpn_InvalidVrfs_InvalidVrf_Af) GetEntityData() *types.CommonEntityDa
     af.EntityData.Children = types.NewOrderedMap()
     af.EntityData.Children.Append("route-target", types.YChild{"RouteTarget", nil})
     for i := range af.RouteTarget {
+        types.SetYListKey(af.RouteTarget[i], i)
         af.EntityData.Children.Append(types.GetSegmentPath(af.RouteTarget[i]), types.YChild{"RouteTarget", af.RouteTarget[i]})
     }
     af.EntityData.Leafs = types.NewOrderedMap()
@@ -273,6 +284,7 @@ func (af *L3vpn_InvalidVrfs_InvalidVrf_Af) GetEntityData() *types.CommonEntityDa
 type L3vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route Target Type. The type is MplsVpnRt.
     RouteTargetType interface{}
@@ -292,7 +304,8 @@ func (routeTarget *L3vpn_InvalidVrfs_InvalidVrf_Af_RouteTarget) GetEntityData() 
     routeTarget.EntityData.YangName = "route-target"
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "af"
-    routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.SegmentPath = "route-target" + types.AddNoKeyToken(routeTarget)
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/invalid-vrfs/invalid-vrf/af/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -325,6 +338,7 @@ func (vrfs *L3vpn_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "l3vpn"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -346,6 +360,7 @@ func (vrfs *L3vpn_Vrfs) GetEntityData() *types.CommonEntityData {
 type L3vpn_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Name for a VRF. The type is string.
     VrfName interface{}
@@ -375,6 +390,7 @@ func (vrf *L3vpn_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -382,10 +398,12 @@ func (vrf *L3vpn_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.Children = types.NewOrderedMap()
     vrf.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range vrf.Interface {
+        types.SetYListKey(vrf.Interface[i], i)
         vrf.EntityData.Children.Append(types.GetSegmentPath(vrf.Interface[i]), types.YChild{"Interface", vrf.Interface[i]})
     }
     vrf.EntityData.Children.Append("af", types.YChild{"Af", nil})
     for i := range vrf.Af {
+        types.SetYListKey(vrf.Af[i], i)
         vrf.EntityData.Children.Append(types.GetSegmentPath(vrf.Af[i]), types.YChild{"Af", vrf.Af[i]})
     }
     vrf.EntityData.Leafs = types.NewOrderedMap()
@@ -405,6 +423,7 @@ func (vrf *L3vpn_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
 type L3vpn_Vrfs_Vrf_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string.
     InterfaceName interface{}
@@ -415,7 +434,8 @@ func (self *L3vpn_Vrfs_Vrf_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "vrf"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/vrfs/vrf/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -434,6 +454,7 @@ func (self *L3vpn_Vrfs_Vrf_Interface) GetEntityData() *types.CommonEntityData {
 type L3vpn_Vrfs_Vrf_Af struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // AF name. The type is MplsVpnAfi.
     AfName interface{}
@@ -456,7 +477,8 @@ func (af *L3vpn_Vrfs_Vrf_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.YangName = "af"
     af.EntityData.BundleName = "cisco_ios_xr"
     af.EntityData.ParentYangName = "vrf"
-    af.EntityData.SegmentPath = "af"
+    af.EntityData.SegmentPath = "af" + types.AddNoKeyToken(af)
+    af.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/vrfs/vrf/" + af.EntityData.SegmentPath
     af.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     af.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     af.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -464,6 +486,7 @@ func (af *L3vpn_Vrfs_Vrf_Af) GetEntityData() *types.CommonEntityData {
     af.EntityData.Children = types.NewOrderedMap()
     af.EntityData.Children.Append("route-target", types.YChild{"RouteTarget", nil})
     for i := range af.RouteTarget {
+        types.SetYListKey(af.RouteTarget[i], i)
         af.EntityData.Children.Append(types.GetSegmentPath(af.RouteTarget[i]), types.YChild{"RouteTarget", af.RouteTarget[i]})
     }
     af.EntityData.Leafs = types.NewOrderedMap()
@@ -482,6 +505,7 @@ func (af *L3vpn_Vrfs_Vrf_Af) GetEntityData() *types.CommonEntityData {
 type L3vpn_Vrfs_Vrf_Af_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route Target Type. The type is MplsVpnRt.
     RouteTargetType interface{}
@@ -501,7 +525,8 @@ func (routeTarget *L3vpn_Vrfs_Vrf_Af_RouteTarget) GetEntityData() *types.CommonE
     routeTarget.EntityData.YangName = "route-target"
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "af"
-    routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.SegmentPath = "route-target" + types.AddNoKeyToken(routeTarget)
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/vrfs/vrf/af/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

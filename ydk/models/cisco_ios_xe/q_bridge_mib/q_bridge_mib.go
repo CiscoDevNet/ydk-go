@@ -136,6 +136,7 @@ func (qBRIDGEMIB *QBRIDGEMIB) GetEntityData() *types.CommonEntityData {
     qBRIDGEMIB.EntityData.BundleName = "cisco_ios_xe"
     qBRIDGEMIB.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     qBRIDGEMIB.EntityData.SegmentPath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB"
+    qBRIDGEMIB.EntityData.AbsolutePath = qBRIDGEMIB.EntityData.SegmentPath
     qBRIDGEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qBRIDGEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qBRIDGEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -203,6 +204,7 @@ func (dot1qBase *QBRIDGEMIB_Dot1qBase) GetEntityData() *types.CommonEntityData {
     dot1qBase.EntityData.BundleName = "cisco_ios_xe"
     dot1qBase.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qBase.EntityData.SegmentPath = "dot1qBase"
+    dot1qBase.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qBase.EntityData.SegmentPath
     dot1qBase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qBase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qBase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -272,6 +274,7 @@ func (dot1qVlan *QBRIDGEMIB_Dot1qVlan) GetEntityData() *types.CommonEntityData {
     dot1qVlan.EntityData.BundleName = "cisco_ios_xe"
     dot1qVlan.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qVlan.EntityData.SegmentPath = "dot1qVlan"
+    dot1qVlan.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qVlan.EntityData.SegmentPath
     dot1qVlan.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qVlan.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qVlan.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -318,6 +321,7 @@ func (dot1qFdbTable *QBRIDGEMIB_Dot1qFdbTable) GetEntityData() *types.CommonEnti
     dot1qFdbTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qFdbTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qFdbTable.EntityData.SegmentPath = "dot1qFdbTable"
+    dot1qFdbTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qFdbTable.EntityData.SegmentPath
     dot1qFdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qFdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qFdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -339,6 +343,7 @@ func (dot1qFdbTable *QBRIDGEMIB_Dot1qFdbTable) GetEntityData() *types.CommonEnti
 type QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identity of this Filtering Database. The type
     // is interface{} with range: 0..4294967295.
@@ -355,6 +360,7 @@ func (dot1qFdbEntry *QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry) GetEntityData() *ty
     dot1qFdbEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qFdbEntry.EntityData.ParentYangName = "dot1qFdbTable"
     dot1qFdbEntry.EntityData.SegmentPath = "dot1qFdbEntry" + types.AddKeyToken(dot1qFdbEntry.Dot1qFdbId, "dot1qFdbId")
+    dot1qFdbEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qFdbTable/" + dot1qFdbEntry.EntityData.SegmentPath
     dot1qFdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qFdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qFdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -391,6 +397,7 @@ func (dot1qTpFdbTable *QBRIDGEMIB_Dot1qTpFdbTable) GetEntityData() *types.Common
     dot1qTpFdbTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qTpFdbTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qTpFdbTable.EntityData.SegmentPath = "dot1qTpFdbTable"
+    dot1qTpFdbTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qTpFdbTable.EntityData.SegmentPath
     dot1qTpFdbTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qTpFdbTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qTpFdbTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -414,6 +421,7 @@ func (dot1qTpFdbTable *QBRIDGEMIB_Dot1qTpFdbTable) GetEntityData() *types.Common
 type QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to q_bridge_mib.QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry_Dot1qFdbId
@@ -460,6 +468,7 @@ func (dot1qTpFdbEntry *QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry) GetEntityData
     dot1qTpFdbEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qTpFdbEntry.EntityData.ParentYangName = "dot1qTpFdbTable"
     dot1qTpFdbEntry.EntityData.SegmentPath = "dot1qTpFdbEntry" + types.AddKeyToken(dot1qTpFdbEntry.Dot1qFdbId, "dot1qFdbId") + types.AddKeyToken(dot1qTpFdbEntry.Dot1qTpFdbAddress, "dot1qTpFdbAddress")
+    dot1qTpFdbEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qTpFdbTable/" + dot1qTpFdbEntry.EntityData.SegmentPath
     dot1qTpFdbEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qTpFdbEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qTpFdbEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -516,6 +525,7 @@ func (dot1qTpGroupTable *QBRIDGEMIB_Dot1qTpGroupTable) GetEntityData() *types.Co
     dot1qTpGroupTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qTpGroupTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qTpGroupTable.EntityData.SegmentPath = "dot1qTpGroupTable"
+    dot1qTpGroupTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qTpGroupTable.EntityData.SegmentPath
     dot1qTpGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qTpGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qTpGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -542,6 +552,7 @@ func (dot1qTpGroupTable *QBRIDGEMIB_Dot1qTpGroupTable) GetEntityData() *types.Co
 type QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -571,6 +582,7 @@ func (dot1qTpGroupEntry *QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry) GetEnti
     dot1qTpGroupEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qTpGroupEntry.EntityData.ParentYangName = "dot1qTpGroupTable"
     dot1qTpGroupEntry.EntityData.SegmentPath = "dot1qTpGroupEntry" + types.AddKeyToken(dot1qTpGroupEntry.Dot1qVlanIndex, "dot1qVlanIndex") + types.AddKeyToken(dot1qTpGroupEntry.Dot1qTpGroupAddress, "dot1qTpGroupAddress")
+    dot1qTpGroupEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qTpGroupTable/" + dot1qTpGroupEntry.EntityData.SegmentPath
     dot1qTpGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qTpGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qTpGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -612,6 +624,7 @@ func (dot1qForwardAllTable *QBRIDGEMIB_Dot1qForwardAllTable) GetEntityData() *ty
     dot1qForwardAllTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qForwardAllTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qForwardAllTable.EntityData.SegmentPath = "dot1qForwardAllTable"
+    dot1qForwardAllTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qForwardAllTable.EntityData.SegmentPath
     dot1qForwardAllTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qForwardAllTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qForwardAllTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -636,6 +649,7 @@ func (dot1qForwardAllTable *QBRIDGEMIB_Dot1qForwardAllTable) GetEntityData() *ty
 type QBRIDGEMIB_Dot1qForwardAllTable_Dot1qForwardAllEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -678,6 +692,7 @@ func (dot1qForwardAllEntry *QBRIDGEMIB_Dot1qForwardAllTable_Dot1qForwardAllEntry
     dot1qForwardAllEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qForwardAllEntry.EntityData.ParentYangName = "dot1qForwardAllTable"
     dot1qForwardAllEntry.EntityData.SegmentPath = "dot1qForwardAllEntry" + types.AddKeyToken(dot1qForwardAllEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qForwardAllEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qForwardAllTable/" + dot1qForwardAllEntry.EntityData.SegmentPath
     dot1qForwardAllEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qForwardAllEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qForwardAllEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -720,6 +735,7 @@ func (dot1qForwardUnregisteredTable *QBRIDGEMIB_Dot1qForwardUnregisteredTable) G
     dot1qForwardUnregisteredTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qForwardUnregisteredTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qForwardUnregisteredTable.EntityData.SegmentPath = "dot1qForwardUnregisteredTable"
+    dot1qForwardUnregisteredTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qForwardUnregisteredTable.EntityData.SegmentPath
     dot1qForwardUnregisteredTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qForwardUnregisteredTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qForwardUnregisteredTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -745,6 +761,7 @@ func (dot1qForwardUnregisteredTable *QBRIDGEMIB_Dot1qForwardUnregisteredTable) G
 type QBRIDGEMIB_Dot1qForwardUnregisteredTable_Dot1qForwardUnregisteredEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -788,6 +805,7 @@ func (dot1qForwardUnregisteredEntry *QBRIDGEMIB_Dot1qForwardUnregisteredTable_Do
     dot1qForwardUnregisteredEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qForwardUnregisteredEntry.EntityData.ParentYangName = "dot1qForwardUnregisteredTable"
     dot1qForwardUnregisteredEntry.EntityData.SegmentPath = "dot1qForwardUnregisteredEntry" + types.AddKeyToken(dot1qForwardUnregisteredEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qForwardUnregisteredEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qForwardUnregisteredTable/" + dot1qForwardUnregisteredEntry.EntityData.SegmentPath
     dot1qForwardUnregisteredEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qForwardUnregisteredEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qForwardUnregisteredEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -836,6 +854,7 @@ func (dot1qStaticUnicastTable *QBRIDGEMIB_Dot1qStaticUnicastTable) GetEntityData
     dot1qStaticUnicastTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qStaticUnicastTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qStaticUnicastTable.EntityData.SegmentPath = "dot1qStaticUnicastTable"
+    dot1qStaticUnicastTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qStaticUnicastTable.EntityData.SegmentPath
     dot1qStaticUnicastTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qStaticUnicastTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qStaticUnicastTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -861,6 +880,7 @@ func (dot1qStaticUnicastTable *QBRIDGEMIB_Dot1qStaticUnicastTable) GetEntityData
 type QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to q_bridge_mib.QBRIDGEMIB_Dot1qFdbTable_Dot1qFdbEntry_Dot1qFdbId
@@ -910,6 +930,7 @@ func (dot1qStaticUnicastEntry *QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUni
     dot1qStaticUnicastEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qStaticUnicastEntry.EntityData.ParentYangName = "dot1qStaticUnicastTable"
     dot1qStaticUnicastEntry.EntityData.SegmentPath = "dot1qStaticUnicastEntry" + types.AddKeyToken(dot1qStaticUnicastEntry.Dot1qFdbId, "dot1qFdbId") + types.AddKeyToken(dot1qStaticUnicastEntry.Dot1qStaticUnicastAddress, "dot1qStaticUnicastAddress") + types.AddKeyToken(dot1qStaticUnicastEntry.Dot1qStaticUnicastReceivePort, "dot1qStaticUnicastReceivePort")
+    dot1qStaticUnicastEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qStaticUnicastTable/" + dot1qStaticUnicastEntry.EntityData.SegmentPath
     dot1qStaticUnicastEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qStaticUnicastEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qStaticUnicastEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -973,6 +994,7 @@ func (dot1qStaticMulticastTable *QBRIDGEMIB_Dot1qStaticMulticastTable) GetEntity
     dot1qStaticMulticastTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qStaticMulticastTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qStaticMulticastTable.EntityData.SegmentPath = "dot1qStaticMulticastTable"
+    dot1qStaticMulticastTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qStaticMulticastTable.EntityData.SegmentPath
     dot1qStaticMulticastTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qStaticMulticastTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qStaticMulticastTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -999,6 +1021,7 @@ func (dot1qStaticMulticastTable *QBRIDGEMIB_Dot1qStaticMulticastTable) GetEntity
 type QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1057,6 +1080,7 @@ func (dot1qStaticMulticastEntry *QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStati
     dot1qStaticMulticastEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qStaticMulticastEntry.EntityData.ParentYangName = "dot1qStaticMulticastTable"
     dot1qStaticMulticastEntry.EntityData.SegmentPath = "dot1qStaticMulticastEntry" + types.AddKeyToken(dot1qStaticMulticastEntry.Dot1qVlanIndex, "dot1qVlanIndex") + types.AddKeyToken(dot1qStaticMulticastEntry.Dot1qStaticMulticastAddress, "dot1qStaticMulticastAddress") + types.AddKeyToken(dot1qStaticMulticastEntry.Dot1qStaticMulticastReceivePort, "dot1qStaticMulticastReceivePort")
+    dot1qStaticMulticastEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qStaticMulticastTable/" + dot1qStaticMulticastEntry.EntityData.SegmentPath
     dot1qStaticMulticastEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qStaticMulticastEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qStaticMulticastEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1112,6 +1136,7 @@ func (dot1qVlanCurrentTable *QBRIDGEMIB_Dot1qVlanCurrentTable) GetEntityData() *
     dot1qVlanCurrentTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qVlanCurrentTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qVlanCurrentTable.EntityData.SegmentPath = "dot1qVlanCurrentTable"
+    dot1qVlanCurrentTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qVlanCurrentTable.EntityData.SegmentPath
     dot1qVlanCurrentTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qVlanCurrentTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qVlanCurrentTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1136,6 +1161,7 @@ func (dot1qVlanCurrentTable *QBRIDGEMIB_Dot1qVlanCurrentTable) GetEntityData() *
 type QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
@@ -1187,6 +1213,7 @@ func (dot1qVlanCurrentEntry *QBRIDGEMIB_Dot1qVlanCurrentTable_Dot1qVlanCurrentEn
     dot1qVlanCurrentEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qVlanCurrentEntry.EntityData.ParentYangName = "dot1qVlanCurrentTable"
     dot1qVlanCurrentEntry.EntityData.SegmentPath = "dot1qVlanCurrentEntry" + types.AddKeyToken(dot1qVlanCurrentEntry.Dot1qVlanTimeMark, "dot1qVlanTimeMark") + types.AddKeyToken(dot1qVlanCurrentEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qVlanCurrentEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qVlanCurrentTable/" + dot1qVlanCurrentEntry.EntityData.SegmentPath
     dot1qVlanCurrentEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qVlanCurrentEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qVlanCurrentEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1238,6 +1265,7 @@ func (dot1qVlanStaticTable *QBRIDGEMIB_Dot1qVlanStaticTable) GetEntityData() *ty
     dot1qVlanStaticTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qVlanStaticTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qVlanStaticTable.EntityData.SegmentPath = "dot1qVlanStaticTable"
+    dot1qVlanStaticTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qVlanStaticTable.EntityData.SegmentPath
     dot1qVlanStaticTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qVlanStaticTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qVlanStaticTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1260,6 +1288,7 @@ func (dot1qVlanStaticTable *QBRIDGEMIB_Dot1qVlanStaticTable) GetEntityData() *ty
 type QBRIDGEMIB_Dot1qVlanStaticTable_Dot1qVlanStaticEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to
@@ -1309,6 +1338,7 @@ func (dot1qVlanStaticEntry *QBRIDGEMIB_Dot1qVlanStaticTable_Dot1qVlanStaticEntry
     dot1qVlanStaticEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qVlanStaticEntry.EntityData.ParentYangName = "dot1qVlanStaticTable"
     dot1qVlanStaticEntry.EntityData.SegmentPath = "dot1qVlanStaticEntry" + types.AddKeyToken(dot1qVlanStaticEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qVlanStaticEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qVlanStaticTable/" + dot1qVlanStaticEntry.EntityData.SegmentPath
     dot1qVlanStaticEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qVlanStaticEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qVlanStaticEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1359,6 +1389,7 @@ func (dot1qPortVlanStatisticsTable *QBRIDGEMIB_Dot1qPortVlanStatisticsTable) Get
     dot1qPortVlanStatisticsTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qPortVlanStatisticsTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qPortVlanStatisticsTable.EntityData.SegmentPath = "dot1qPortVlanStatisticsTable"
+    dot1qPortVlanStatisticsTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qPortVlanStatisticsTable.EntityData.SegmentPath
     dot1qPortVlanStatisticsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qPortVlanStatisticsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qPortVlanStatisticsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1380,6 +1411,7 @@ func (dot1qPortVlanStatisticsTable *QBRIDGEMIB_Dot1qPortVlanStatisticsTable) Get
 type QBRIDGEMIB_Dot1qPortVlanStatisticsTable_Dot1qPortVlanStatisticsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // bridge_mib.BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry_Dot1dBasePort
@@ -1432,6 +1464,7 @@ func (dot1qPortVlanStatisticsEntry *QBRIDGEMIB_Dot1qPortVlanStatisticsTable_Dot1
     dot1qPortVlanStatisticsEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qPortVlanStatisticsEntry.EntityData.ParentYangName = "dot1qPortVlanStatisticsTable"
     dot1qPortVlanStatisticsEntry.EntityData.SegmentPath = "dot1qPortVlanStatisticsEntry" + types.AddKeyToken(dot1qPortVlanStatisticsEntry.Dot1dBasePort, "dot1dBasePort") + types.AddKeyToken(dot1qPortVlanStatisticsEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qPortVlanStatisticsEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qPortVlanStatisticsTable/" + dot1qPortVlanStatisticsEntry.EntityData.SegmentPath
     dot1qPortVlanStatisticsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qPortVlanStatisticsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qPortVlanStatisticsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1471,6 +1504,7 @@ func (dot1qPortVlanHCStatisticsTable *QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable)
     dot1qPortVlanHCStatisticsTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qPortVlanHCStatisticsTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qPortVlanHCStatisticsTable.EntityData.SegmentPath = "dot1qPortVlanHCStatisticsTable"
+    dot1qPortVlanHCStatisticsTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qPortVlanHCStatisticsTable.EntityData.SegmentPath
     dot1qPortVlanHCStatisticsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qPortVlanHCStatisticsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qPortVlanHCStatisticsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1493,6 +1527,7 @@ func (dot1qPortVlanHCStatisticsTable *QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable)
 type QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable_Dot1qPortVlanHCStatisticsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // bridge_mib.BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry_Dot1dBasePort
@@ -1533,6 +1568,7 @@ func (dot1qPortVlanHCStatisticsEntry *QBRIDGEMIB_Dot1qPortVlanHCStatisticsTable_
     dot1qPortVlanHCStatisticsEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qPortVlanHCStatisticsEntry.EntityData.ParentYangName = "dot1qPortVlanHCStatisticsTable"
     dot1qPortVlanHCStatisticsEntry.EntityData.SegmentPath = "dot1qPortVlanHCStatisticsEntry" + types.AddKeyToken(dot1qPortVlanHCStatisticsEntry.Dot1dBasePort, "dot1dBasePort") + types.AddKeyToken(dot1qPortVlanHCStatisticsEntry.Dot1qVlanIndex, "dot1qVlanIndex")
+    dot1qPortVlanHCStatisticsEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qPortVlanHCStatisticsTable/" + dot1qPortVlanHCStatisticsEntry.EntityData.SegmentPath
     dot1qPortVlanHCStatisticsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qPortVlanHCStatisticsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qPortVlanHCStatisticsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1568,6 +1604,7 @@ func (dot1qLearningConstraintsTable *QBRIDGEMIB_Dot1qLearningConstraintsTable) G
     dot1qLearningConstraintsTable.EntityData.BundleName = "cisco_ios_xe"
     dot1qLearningConstraintsTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1qLearningConstraintsTable.EntityData.SegmentPath = "dot1qLearningConstraintsTable"
+    dot1qLearningConstraintsTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1qLearningConstraintsTable.EntityData.SegmentPath
     dot1qLearningConstraintsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qLearningConstraintsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qLearningConstraintsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1589,6 +1626,7 @@ func (dot1qLearningConstraintsTable *QBRIDGEMIB_Dot1qLearningConstraintsTable) G
 type QBRIDGEMIB_Dot1qLearningConstraintsTable_Dot1qLearningConstraintsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The index of the row in dot1qVlanCurrentTable for
     // the VLAN constrained by this entry. The type is interface{} with range:
@@ -1618,6 +1656,7 @@ func (dot1qLearningConstraintsEntry *QBRIDGEMIB_Dot1qLearningConstraintsTable_Do
     dot1qLearningConstraintsEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1qLearningConstraintsEntry.EntityData.ParentYangName = "dot1qLearningConstraintsTable"
     dot1qLearningConstraintsEntry.EntityData.SegmentPath = "dot1qLearningConstraintsEntry" + types.AddKeyToken(dot1qLearningConstraintsEntry.Dot1qConstraintVlan, "dot1qConstraintVlan") + types.AddKeyToken(dot1qLearningConstraintsEntry.Dot1qConstraintSet, "dot1qConstraintSet")
+    dot1qLearningConstraintsEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1qLearningConstraintsTable/" + dot1qLearningConstraintsEntry.EntityData.SegmentPath
     dot1qLearningConstraintsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1qLearningConstraintsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1qLearningConstraintsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1662,6 +1701,7 @@ func (dot1vProtocolGroupTable *QBRIDGEMIB_Dot1vProtocolGroupTable) GetEntityData
     dot1vProtocolGroupTable.EntityData.BundleName = "cisco_ios_xe"
     dot1vProtocolGroupTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1vProtocolGroupTable.EntityData.SegmentPath = "dot1vProtocolGroupTable"
+    dot1vProtocolGroupTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1vProtocolGroupTable.EntityData.SegmentPath
     dot1vProtocolGroupTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1vProtocolGroupTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1vProtocolGroupTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1684,6 +1724,7 @@ func (dot1vProtocolGroupTable *QBRIDGEMIB_Dot1vProtocolGroupTable) GetEntityData
 type QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolGroupEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The data-link encapsulation format or the
     // 'detagged_frame_type' in a Protocol Template. The type is
@@ -1715,6 +1756,7 @@ func (dot1vProtocolGroupEntry *QBRIDGEMIB_Dot1vProtocolGroupTable_Dot1vProtocolG
     dot1vProtocolGroupEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1vProtocolGroupEntry.EntityData.ParentYangName = "dot1vProtocolGroupTable"
     dot1vProtocolGroupEntry.EntityData.SegmentPath = "dot1vProtocolGroupEntry" + types.AddKeyToken(dot1vProtocolGroupEntry.Dot1vProtocolTemplateFrameType, "dot1vProtocolTemplateFrameType") + types.AddKeyToken(dot1vProtocolGroupEntry.Dot1vProtocolTemplateProtocolValue, "dot1vProtocolTemplateProtocolValue")
+    dot1vProtocolGroupEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1vProtocolGroupTable/" + dot1vProtocolGroupEntry.EntityData.SegmentPath
     dot1vProtocolGroupEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1vProtocolGroupEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1vProtocolGroupEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1764,6 +1806,7 @@ func (dot1vProtocolPortTable *QBRIDGEMIB_Dot1vProtocolPortTable) GetEntityData()
     dot1vProtocolPortTable.EntityData.BundleName = "cisco_ios_xe"
     dot1vProtocolPortTable.EntityData.ParentYangName = "Q-BRIDGE-MIB"
     dot1vProtocolPortTable.EntityData.SegmentPath = "dot1vProtocolPortTable"
+    dot1vProtocolPortTable.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/" + dot1vProtocolPortTable.EntityData.SegmentPath
     dot1vProtocolPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1vProtocolPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1vProtocolPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1785,6 +1828,7 @@ func (dot1vProtocolPortTable *QBRIDGEMIB_Dot1vProtocolPortTable) GetEntityData()
 type QBRIDGEMIB_Dot1vProtocolPortTable_Dot1vProtocolPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // bridge_mib.BRIDGEMIB_Dot1dBasePortTable_Dot1dBasePortEntry_Dot1dBasePort
@@ -1808,6 +1852,7 @@ func (dot1vProtocolPortEntry *QBRIDGEMIB_Dot1vProtocolPortTable_Dot1vProtocolPor
     dot1vProtocolPortEntry.EntityData.BundleName = "cisco_ios_xe"
     dot1vProtocolPortEntry.EntityData.ParentYangName = "dot1vProtocolPortTable"
     dot1vProtocolPortEntry.EntityData.SegmentPath = "dot1vProtocolPortEntry" + types.AddKeyToken(dot1vProtocolPortEntry.Dot1dBasePort, "dot1dBasePort") + types.AddKeyToken(dot1vProtocolPortEntry.Dot1vProtocolPortGroupId, "dot1vProtocolPortGroupId")
+    dot1vProtocolPortEntry.EntityData.AbsolutePath = "Q-BRIDGE-MIB:Q-BRIDGE-MIB/dot1vProtocolPortTable/" + dot1vProtocolPortEntry.EntityData.SegmentPath
     dot1vProtocolPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dot1vProtocolPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dot1vProtocolPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

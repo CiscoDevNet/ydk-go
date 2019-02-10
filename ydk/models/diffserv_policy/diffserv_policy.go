@@ -53,6 +53,7 @@ func (policies *Policies) GetEntityData() *types.CommonEntityData {
     policies.EntityData.BundleName = "ietf"
     policies.EntityData.ParentYangName = "ietf-diffserv-policy"
     policies.EntityData.SegmentPath = "ietf-diffserv-policy:policies"
+    policies.EntityData.AbsolutePath = policies.EntityData.SegmentPath
     policies.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     policies.EntityData.NamespaceTable = ietf.GetNamespaces()
     policies.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -74,6 +75,7 @@ func (policies *Policies) GetEntityData() *types.CommonEntityData {
 type Policies_PolicyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Diffserv policy name. The type is string.
     PolicyName interface{}
@@ -92,6 +94,7 @@ func (policyEntry *Policies_PolicyEntry) GetEntityData() *types.CommonEntityData
     policyEntry.EntityData.BundleName = "ietf"
     policyEntry.EntityData.ParentYangName = "policies"
     policyEntry.EntityData.SegmentPath = "policy-entry" + types.AddKeyToken(policyEntry.PolicyName, "policy-name")
+    policyEntry.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/" + policyEntry.EntityData.SegmentPath
     policyEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     policyEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     policyEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -115,6 +118,7 @@ func (policyEntry *Policies_PolicyEntry) GetEntityData() *types.CommonEntityData
 type Policies_PolicyEntry_ClassifierEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Diffserv classifier entry name. The type is
     // string.
@@ -144,6 +148,7 @@ func (classifierEntry *Policies_PolicyEntry_ClassifierEntry) GetEntityData() *ty
     classifierEntry.EntityData.BundleName = "ietf"
     classifierEntry.EntityData.ParentYangName = "policy-entry"
     classifierEntry.EntityData.SegmentPath = "classifier-entry" + types.AddKeyToken(classifierEntry.ClassifierEntryName, "classifier-entry-name")
+    classifierEntry.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/" + classifierEntry.EntityData.SegmentPath
     classifierEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     classifierEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     classifierEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -172,6 +177,7 @@ func (classifierEntry *Policies_PolicyEntry_ClassifierEntry) GetEntityData() *ty
 type Policies_PolicyEntry_ClassifierEntry_FilterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf defines type of the filter. The type is
     // one of the following:
@@ -214,6 +220,7 @@ func (filterEntry *Policies_PolicyEntry_ClassifierEntry_FilterEntry) GetEntityDa
     filterEntry.EntityData.BundleName = "ietf"
     filterEntry.EntityData.ParentYangName = "classifier-entry"
     filterEntry.EntityData.SegmentPath = "filter-entry" + types.AddKeyToken(filterEntry.FilterType, "filter-type") + types.AddKeyToken(filterEntry.FilterLogicalNot, "filter-logical-not")
+    filterEntry.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/" + filterEntry.EntityData.SegmentPath
     filterEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     filterEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     filterEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -257,6 +264,7 @@ func (filterEntry *Policies_PolicyEntry_ClassifierEntry_FilterEntry) GetEntityDa
 type Policies_PolicyEntry_ClassifierEntry_FilterEntry_DscpCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Minimum value of dscp range. The type is
     // interface{} with range: 0..63.
@@ -273,6 +281,7 @@ func (dscpCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_DscpCfg) GetEnti
     dscpCfg.EntityData.BundleName = "ietf"
     dscpCfg.EntityData.ParentYangName = "filter-entry"
     dscpCfg.EntityData.SegmentPath = "dscp-cfg" + types.AddKeyToken(dscpCfg.DscpMin, "dscp-min") + types.AddKeyToken(dscpCfg.DscpMax, "dscp-max")
+    dscpCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/filter-entry/" + dscpCfg.EntityData.SegmentPath
     dscpCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     dscpCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     dscpCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -292,6 +301,7 @@ func (dscpCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_DscpCfg) GetEnti
 type Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourceIpAddressCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. source ip prefix. The type is one of the following
     // types: string with pattern:
@@ -307,6 +317,7 @@ func (sourceIpAddressCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_Sourc
     sourceIpAddressCfg.EntityData.BundleName = "ietf"
     sourceIpAddressCfg.EntityData.ParentYangName = "filter-entry"
     sourceIpAddressCfg.EntityData.SegmentPath = "source-ip-address-cfg" + types.AddKeyToken(sourceIpAddressCfg.SourceIpAddr, "source-ip-addr")
+    sourceIpAddressCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/filter-entry/" + sourceIpAddressCfg.EntityData.SegmentPath
     sourceIpAddressCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sourceIpAddressCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     sourceIpAddressCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -325,6 +336,7 @@ func (sourceIpAddressCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_Sourc
 type Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationIpAddressCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. destination ip prefix. The type is one of the
     // following types: string with pattern:
@@ -340,6 +352,7 @@ func (destinationIpAddressCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_
     destinationIpAddressCfg.EntityData.BundleName = "ietf"
     destinationIpAddressCfg.EntityData.ParentYangName = "filter-entry"
     destinationIpAddressCfg.EntityData.SegmentPath = "destination-ip-address-cfg" + types.AddKeyToken(destinationIpAddressCfg.DestinationIpAddr, "destination-ip-addr")
+    destinationIpAddressCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/filter-entry/" + destinationIpAddressCfg.EntityData.SegmentPath
     destinationIpAddressCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     destinationIpAddressCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     destinationIpAddressCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -358,6 +371,7 @@ func (destinationIpAddressCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_
 type Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourcePortCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. minimum value of source port range. The type is
     // interface{} with range: 0..65535.
@@ -374,6 +388,7 @@ func (sourcePortCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourcePort
     sourcePortCfg.EntityData.BundleName = "ietf"
     sourcePortCfg.EntityData.ParentYangName = "filter-entry"
     sourcePortCfg.EntityData.SegmentPath = "source-port-cfg" + types.AddKeyToken(sourcePortCfg.SourcePortMin, "source-port-min") + types.AddKeyToken(sourcePortCfg.SourcePortMax, "source-port-max")
+    sourcePortCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/filter-entry/" + sourcePortCfg.EntityData.SegmentPath
     sourcePortCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sourcePortCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     sourcePortCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -393,6 +408,7 @@ func (sourcePortCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourcePort
 type Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationPortCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. minimum value of destination port range. The type
     // is interface{} with range: 0..65535.
@@ -409,6 +425,7 @@ func (destinationPortCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_Desti
     destinationPortCfg.EntityData.BundleName = "ietf"
     destinationPortCfg.EntityData.ParentYangName = "filter-entry"
     destinationPortCfg.EntityData.SegmentPath = "destination-port-cfg" + types.AddKeyToken(destinationPortCfg.DestinationPortMin, "destination-port-min") + types.AddKeyToken(destinationPortCfg.DestinationPortMax, "destination-port-max")
+    destinationPortCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/filter-entry/" + destinationPortCfg.EntityData.SegmentPath
     destinationPortCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     destinationPortCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     destinationPortCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -428,6 +445,7 @@ func (destinationPortCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_Desti
 type Policies_PolicyEntry_ClassifierEntry_FilterEntry_ProtocolCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. minimum value of protocol range. The type is
     // interface{} with range: 0..255.
@@ -444,6 +462,7 @@ func (protocolCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_ProtocolCfg)
     protocolCfg.EntityData.BundleName = "ietf"
     protocolCfg.EntityData.ParentYangName = "filter-entry"
     protocolCfg.EntityData.SegmentPath = "protocol-cfg" + types.AddKeyToken(protocolCfg.ProtocolMin, "protocol-min") + types.AddKeyToken(protocolCfg.ProtocolMax, "protocol-max")
+    protocolCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/filter-entry/" + protocolCfg.EntityData.SegmentPath
     protocolCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     protocolCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     protocolCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -463,6 +482,7 @@ func (protocolCfg *Policies_PolicyEntry_ClassifierEntry_FilterEntry_ProtocolCfg)
 type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This defines action type . The type is one of the
     // following: MarkingMinRateMeterPriorityMaxRateAlgorithmicDrop.
@@ -499,6 +519,7 @@ func (classifierActionEntryCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierA
     classifierActionEntryCfg.EntityData.BundleName = "ietf"
     classifierActionEntryCfg.EntityData.ParentYangName = "classifier-entry"
     classifierActionEntryCfg.EntityData.SegmentPath = "classifier-action-entry-cfg" + types.AddKeyToken(classifierActionEntryCfg.ActionType, "action-type")
+    classifierActionEntryCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/" + classifierActionEntryCfg.EntityData.SegmentPath
     classifierActionEntryCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     classifierActionEntryCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     classifierActionEntryCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -536,6 +557,7 @@ func (markingCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_
     markingCfg.EntityData.BundleName = "ietf"
     markingCfg.EntityData.ParentYangName = "classifier-action-entry-cfg"
     markingCfg.EntityData.SegmentPath = "ietf-diffserv-action:marking-cfg"
+    markingCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/" + markingCfg.EntityData.SegmentPath
     markingCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     markingCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     markingCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -568,6 +590,7 @@ func (priorityCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg
     priorityCfg.EntityData.BundleName = "ietf"
     priorityCfg.EntityData.ParentYangName = "classifier-action-entry-cfg"
     priorityCfg.EntityData.SegmentPath = "ietf-diffserv-action:priority-cfg"
+    priorityCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/" + priorityCfg.EntityData.SegmentPath
     priorityCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     priorityCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     priorityCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -619,6 +642,7 @@ func (rateBurst *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_P
     rateBurst.EntityData.BundleName = "ietf"
     rateBurst.EntityData.ParentYangName = "priority-cfg"
     rateBurst.EntityData.SegmentPath = "rate-burst"
+    rateBurst.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:priority-cfg/" + rateBurst.EntityData.SegmentPath
     rateBurst.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     rateBurst.EntityData.NamespaceTable = ietf.GetNamespaces()
     rateBurst.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -655,6 +679,7 @@ func (meterCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_Me
     meterCfg.EntityData.BundleName = "ietf"
     meterCfg.EntityData.ParentYangName = "classifier-action-entry-cfg"
     meterCfg.EntityData.SegmentPath = "ietf-diffserv-action:meter-cfg"
+    meterCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/" + meterCfg.EntityData.SegmentPath
     meterCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     meterCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     meterCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -676,6 +701,7 @@ func (meterCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_Me
 type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_MeterCfg_MeterList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. meter identifier. The type is interface{} with
     // range: 0..65535.
@@ -709,6 +735,7 @@ func (meterList *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_M
     meterList.EntityData.BundleName = "ietf"
     meterList.EntityData.ParentYangName = "meter-cfg"
     meterList.EntityData.SegmentPath = "meter-list" + types.AddKeyToken(meterList.MeterId, "meter-id")
+    meterList.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:meter-cfg/" + meterList.EntityData.SegmentPath
     meterList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     meterList.EntityData.NamespaceTable = ietf.GetNamespaces()
     meterList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -752,6 +779,7 @@ func (color *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_Meter
     color.EntityData.BundleName = "ietf"
     color.EntityData.ParentYangName = "meter-list"
     color.EntityData.SegmentPath = "color"
+    color.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:meter-cfg/meter-list/" + color.EntityData.SegmentPath
     color.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     color.EntityData.NamespaceTable = ietf.GetNamespaces()
     color.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -793,6 +821,7 @@ func (succeedAction *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryC
     succeedAction.EntityData.BundleName = "ietf"
     succeedAction.EntityData.ParentYangName = "meter-list"
     succeedAction.EntityData.SegmentPath = "succeed-action"
+    succeedAction.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:meter-cfg/meter-list/" + succeedAction.EntityData.SegmentPath
     succeedAction.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     succeedAction.EntityData.NamespaceTable = ietf.GetNamespaces()
     succeedAction.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -835,6 +864,7 @@ func (failAction *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_
     failAction.EntityData.BundleName = "ietf"
     failAction.EntityData.ParentYangName = "meter-list"
     failAction.EntityData.SegmentPath = "fail-action"
+    failAction.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:meter-cfg/meter-list/" + failAction.EntityData.SegmentPath
     failAction.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     failAction.EntityData.NamespaceTable = ietf.GetNamespaces()
     failAction.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -883,6 +913,7 @@ func (minRateCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_
     minRateCfg.EntityData.BundleName = "ietf"
     minRateCfg.EntityData.ParentYangName = "classifier-action-entry-cfg"
     minRateCfg.EntityData.SegmentPath = "ietf-diffserv-action:min-rate-cfg"
+    minRateCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/" + minRateCfg.EntityData.SegmentPath
     minRateCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     minRateCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     minRateCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -930,6 +961,7 @@ func (bwExcessShareCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEnt
     bwExcessShareCfg.EntityData.BundleName = "ietf"
     bwExcessShareCfg.EntityData.ParentYangName = "min-rate-cfg"
     bwExcessShareCfg.EntityData.SegmentPath = "bw-excess-share-cfg"
+    bwExcessShareCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:min-rate-cfg/" + bwExcessShareCfg.EntityData.SegmentPath
     bwExcessShareCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     bwExcessShareCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     bwExcessShareCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -984,6 +1016,7 @@ func (maxRateCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_
     maxRateCfg.EntityData.BundleName = "ietf"
     maxRateCfg.EntityData.ParentYangName = "classifier-action-entry-cfg"
     maxRateCfg.EntityData.SegmentPath = "ietf-diffserv-action:max-rate-cfg"
+    maxRateCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/" + maxRateCfg.EntityData.SegmentPath
     maxRateCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     maxRateCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     maxRateCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1019,6 +1052,7 @@ func (dropCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_Dro
     dropCfg.EntityData.BundleName = "ietf"
     dropCfg.EntityData.ParentYangName = "classifier-action-entry-cfg"
     dropCfg.EntityData.SegmentPath = "ietf-diffserv-action:drop-cfg"
+    dropCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/" + dropCfg.EntityData.SegmentPath
     dropCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     dropCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     dropCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1049,6 +1083,7 @@ func (tailDropCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg
     tailDropCfg.EntityData.BundleName = "ietf"
     tailDropCfg.EntityData.ParentYangName = "classifier-action-entry-cfg"
     tailDropCfg.EntityData.SegmentPath = "ietf-diffserv-action:tail-drop-cfg"
+    tailDropCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/" + tailDropCfg.EntityData.SegmentPath
     tailDropCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     tailDropCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     tailDropCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1070,6 +1105,7 @@ func (tailDropCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg
 type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_TailDropCfg_QlimitDscpThresh struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Minimum of dscp range. The type is interface{}
     // with range: 0..63.
@@ -1089,6 +1125,7 @@ func (qlimitDscpThresh *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEnt
     qlimitDscpThresh.EntityData.BundleName = "ietf"
     qlimitDscpThresh.EntityData.ParentYangName = "tail-drop-cfg"
     qlimitDscpThresh.EntityData.SegmentPath = "qlimit-dscp-thresh" + types.AddKeyToken(qlimitDscpThresh.DscpMin, "dscp-min") + types.AddKeyToken(qlimitDscpThresh.DscpMax, "dscp-max")
+    qlimitDscpThresh.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:tail-drop-cfg/" + qlimitDscpThresh.EntityData.SegmentPath
     qlimitDscpThresh.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     qlimitDscpThresh.EntityData.NamespaceTable = ietf.GetNamespaces()
     qlimitDscpThresh.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1125,6 +1162,7 @@ func (threshold *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_T
     threshold.EntityData.BundleName = "ietf"
     threshold.EntityData.ParentYangName = "qlimit-dscp-thresh"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:tail-drop-cfg/qlimit-dscp-thresh/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     threshold.EntityData.NamespaceTable = ietf.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1165,6 +1203,7 @@ func (randomDetectCfg *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntr
     randomDetectCfg.EntityData.BundleName = "ietf"
     randomDetectCfg.EntityData.ParentYangName = "classifier-action-entry-cfg"
     randomDetectCfg.EntityData.SegmentPath = "ietf-diffserv-action:random-detect-cfg"
+    randomDetectCfg.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/" + randomDetectCfg.EntityData.SegmentPath
     randomDetectCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     randomDetectCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     randomDetectCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1197,6 +1236,7 @@ func (redMinThresh *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCf
     redMinThresh.EntityData.BundleName = "ietf"
     redMinThresh.EntityData.ParentYangName = "random-detect-cfg"
     redMinThresh.EntityData.SegmentPath = "red-min-thresh"
+    redMinThresh.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:random-detect-cfg/" + redMinThresh.EntityData.SegmentPath
     redMinThresh.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     redMinThresh.EntityData.NamespaceTable = ietf.GetNamespaces()
     redMinThresh.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1231,6 +1271,7 @@ func (threshold *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_R
     threshold.EntityData.BundleName = "ietf"
     threshold.EntityData.ParentYangName = "red-min-thresh"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:random-detect-cfg/red-min-thresh/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     threshold.EntityData.NamespaceTable = ietf.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1261,6 +1302,7 @@ func (redMaxThresh *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCf
     redMaxThresh.EntityData.BundleName = "ietf"
     redMaxThresh.EntityData.ParentYangName = "random-detect-cfg"
     redMaxThresh.EntityData.SegmentPath = "red-max-thresh"
+    redMaxThresh.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:random-detect-cfg/" + redMaxThresh.EntityData.SegmentPath
     redMaxThresh.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     redMaxThresh.EntityData.NamespaceTable = ietf.GetNamespaces()
     redMaxThresh.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1295,6 +1337,7 @@ func (threshold *Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_R
     threshold.EntityData.BundleName = "ietf"
     threshold.EntityData.ParentYangName = "red-max-thresh"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "ietf-diffserv-policy:policies/policy-entry/classifier-entry/classifier-action-entry-cfg/ietf-diffserv-action:random-detect-cfg/red-max-thresh/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     threshold.EntityData.NamespaceTable = ietf.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

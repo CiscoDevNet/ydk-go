@@ -48,6 +48,7 @@ func (mgmt *Mgmt) GetEntityData() *types.CommonEntityData {
     mgmt.EntityData.BundleName = "cisco_ios_xr"
     mgmt.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-system"
     mgmt.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-system:mgmt"
+    mgmt.EntityData.AbsolutePath = mgmt.EntityData.SegmentPath
     mgmt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mgmt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mgmt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -84,6 +85,7 @@ func (ipv4 *Mgmt_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "mgmt"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-system:mgmt/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -117,6 +119,7 @@ func (ipv6 *Mgmt_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "mgmt"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-system:mgmt/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -40,6 +40,7 @@ func (memorySummary *MemorySummary) GetEntityData() *types.CommonEntityData {
     memorySummary.EntityData.BundleName = "cisco_ios_xr"
     memorySummary.EntityData.ParentYangName = "Cisco-IOS-XR-nto-misc-oper"
     memorySummary.EntityData.SegmentPath = "Cisco-IOS-XR-nto-misc-oper:memory-summary"
+    memorySummary.EntityData.AbsolutePath = memorySummary.EntityData.SegmentPath
     memorySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memorySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memorySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (nodes *MemorySummary_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "memory-summary"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-nto-misc-oper:memory-summary/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (nodes *MemorySummary_Nodes) GetEntityData() *types.CommonEntityData {
 type MemorySummary_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -108,6 +111,7 @@ func (node *MemorySummary_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -176,6 +180,7 @@ func (summary *MemorySummary_Nodes_Node_Summary) GetEntityData() *types.CommonEn
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -283,6 +288,7 @@ func (detail *MemorySummary_Nodes_Node_Detail) GetEntityData() *types.CommonEnti
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "node"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -290,6 +296,7 @@ func (detail *MemorySummary_Nodes_Node_Detail) GetEntityData() *types.CommonEnti
     detail.EntityData.Children = types.NewOrderedMap()
     detail.EntityData.Children.Append("shared-window", types.YChild{"SharedWindow", nil})
     for i := range detail.SharedWindow {
+        types.SetYListKey(detail.SharedWindow[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.SharedWindow[i]), types.YChild{"SharedWindow", detail.SharedWindow[i]})
     }
     detail.EntityData.Leafs = types.NewOrderedMap()
@@ -321,6 +328,7 @@ func (detail *MemorySummary_Nodes_Node_Detail) GetEntityData() *types.CommonEnti
 type MemorySummary_Nodes_Node_Detail_SharedWindow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name of shared window. The type is string.
     SharedWindow interface{}
@@ -335,7 +343,8 @@ func (sharedWindow *MemorySummary_Nodes_Node_Detail_SharedWindow) GetEntityData(
     sharedWindow.EntityData.YangName = "shared-window"
     sharedWindow.EntityData.BundleName = "cisco_ios_xr"
     sharedWindow.EntityData.ParentYangName = "detail"
-    sharedWindow.EntityData.SegmentPath = "shared-window"
+    sharedWindow.EntityData.SegmentPath = "shared-window" + types.AddNoKeyToken(sharedWindow)
+    sharedWindow.EntityData.AbsolutePath = "Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/detail/" + sharedWindow.EntityData.SegmentPath
     sharedWindow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sharedWindow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sharedWindow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -40,6 +40,7 @@ func (drop *Drop) GetEntityData() *types.CommonEntityData {
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper"
     drop.EntityData.SegmentPath = "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper:drop"
+    drop.EntityData.AbsolutePath = drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *Drop_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "drop"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper:drop/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +93,7 @@ func (nodes *Drop_Nodes) GetEntityData() *types.CommonEntityData {
 type Drop_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -106,6 +109,7 @@ func (node *Drop_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper:drop/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -137,6 +141,7 @@ func (npuNumberForDropStats *Drop_Nodes_Node_NpuNumberForDropStats) GetEntityDat
     npuNumberForDropStats.EntityData.BundleName = "cisco_ios_xr"
     npuNumberForDropStats.EntityData.ParentYangName = "node"
     npuNumberForDropStats.EntityData.SegmentPath = "npu-number-for-drop-stats"
+    npuNumberForDropStats.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper:drop/nodes/node/" + npuNumberForDropStats.EntityData.SegmentPath
     npuNumberForDropStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npuNumberForDropStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npuNumberForDropStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -158,6 +163,7 @@ func (npuNumberForDropStats *Drop_Nodes_Node_NpuNumberForDropStats) GetEntityDat
 type Drop_Nodes_Node_NpuNumberForDropStats_NpuNumberForDropStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. NPU number. The type is interface{} with range:
     // 0..4294967295.
@@ -174,6 +180,7 @@ func (npuNumberForDropStat *Drop_Nodes_Node_NpuNumberForDropStats_NpuNumberForDr
     npuNumberForDropStat.EntityData.BundleName = "cisco_ios_xr"
     npuNumberForDropStat.EntityData.ParentYangName = "npu-number-for-drop-stats"
     npuNumberForDropStat.EntityData.SegmentPath = "npu-number-for-drop-stat" + types.AddKeyToken(npuNumberForDropStat.NpuId, "npu-id")
+    npuNumberForDropStat.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper:drop/nodes/node/npu-number-for-drop-stats/" + npuNumberForDropStat.EntityData.SegmentPath
     npuNumberForDropStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     npuNumberForDropStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     npuNumberForDropStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -196,6 +203,7 @@ func (npuNumberForDropStat *Drop_Nodes_Node_NpuNumberForDropStats_NpuNumberForDr
 type Drop_Nodes_Node_NpuNumberForDropStats_NpuNumberForDropStat_DropSpecificStatsData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Drop ID. The type is interface{} with range:
     // 0..4294967295.
@@ -217,6 +225,7 @@ func (dropSpecificStatsData *Drop_Nodes_Node_NpuNumberForDropStats_NpuNumberForD
     dropSpecificStatsData.EntityData.BundleName = "cisco_ios_xr"
     dropSpecificStatsData.EntityData.ParentYangName = "npu-number-for-drop-stat"
     dropSpecificStatsData.EntityData.SegmentPath = "drop-specific-stats-data" + types.AddKeyToken(dropSpecificStatsData.DropData, "drop-data")
+    dropSpecificStatsData.EntityData.AbsolutePath = "Cisco-IOS-XR-fretta-bcm-dpa-drop-stats-oper:drop/nodes/node/npu-number-for-drop-stats/npu-number-for-drop-stat/" + dropSpecificStatsData.EntityData.SegmentPath
     dropSpecificStatsData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dropSpecificStatsData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dropSpecificStatsData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

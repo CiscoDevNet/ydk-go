@@ -119,6 +119,7 @@ func (cISCOIFEXTENSIONMIB *CISCOIFEXTENSIONMIB) GetEntityData() *types.CommonEnt
     cISCOIFEXTENSIONMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIFEXTENSIONMIB.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cISCOIFEXTENSIONMIB.EntityData.SegmentPath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB"
+    cISCOIFEXTENSIONMIB.EntityData.AbsolutePath = cISCOIFEXTENSIONMIB.EntityData.SegmentPath
     cISCOIFEXTENSIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIFEXTENSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIFEXTENSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -247,6 +248,7 @@ func (ciscoIfExtSystemConfig *CISCOIFEXTENSIONMIB_CiscoIfExtSystemConfig) GetEnt
     ciscoIfExtSystemConfig.EntityData.BundleName = "cisco_ios_xe"
     ciscoIfExtSystemConfig.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     ciscoIfExtSystemConfig.EntityData.SegmentPath = "ciscoIfExtSystemConfig"
+    ciscoIfExtSystemConfig.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + ciscoIfExtSystemConfig.EntityData.SegmentPath
     ciscoIfExtSystemConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ciscoIfExtSystemConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ciscoIfExtSystemConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -313,6 +315,7 @@ func (cieIfPacketStatsTable *CISCOIFEXTENSIONMIB_CieIfPacketStatsTable) GetEntit
     cieIfPacketStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfPacketStatsTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfPacketStatsTable.EntityData.SegmentPath = "cieIfPacketStatsTable"
+    cieIfPacketStatsTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfPacketStatsTable.EntityData.SegmentPath
     cieIfPacketStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfPacketStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfPacketStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -334,6 +337,7 @@ func (cieIfPacketStatsTable *CISCOIFEXTENSIONMIB_CieIfPacketStatsTable) GetEntit
 type CISCOIFEXTENSIONMIB_CieIfPacketStatsTable_CieIfPacketStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -446,6 +450,7 @@ func (cieIfPacketStatsEntry *CISCOIFEXTENSIONMIB_CieIfPacketStatsTable_CieIfPack
     cieIfPacketStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfPacketStatsEntry.EntityData.ParentYangName = "cieIfPacketStatsTable"
     cieIfPacketStatsEntry.EntityData.SegmentPath = "cieIfPacketStatsEntry" + types.AddKeyToken(cieIfPacketStatsEntry.IfIndex, "ifIndex")
+    cieIfPacketStatsEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfPacketStatsTable/" + cieIfPacketStatsEntry.EntityData.SegmentPath
     cieIfPacketStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfPacketStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfPacketStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -496,6 +501,7 @@ func (cieIfInterfaceTable *CISCOIFEXTENSIONMIB_CieIfInterfaceTable) GetEntityDat
     cieIfInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfInterfaceTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfInterfaceTable.EntityData.SegmentPath = "cieIfInterfaceTable"
+    cieIfInterfaceTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfInterfaceTable.EntityData.SegmentPath
     cieIfInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -517,6 +523,7 @@ func (cieIfInterfaceTable *CISCOIFEXTENSIONMIB_CieIfInterfaceTable) GetEntityDat
 type CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -703,6 +710,7 @@ func (cieIfInterfaceEntry *CISCOIFEXTENSIONMIB_CieIfInterfaceTable_CieIfInterfac
     cieIfInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfInterfaceEntry.EntityData.ParentYangName = "cieIfInterfaceTable"
     cieIfInterfaceEntry.EntityData.SegmentPath = "cieIfInterfaceEntry" + types.AddKeyToken(cieIfInterfaceEntry.IfIndex, "ifIndex")
+    cieIfInterfaceEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfInterfaceTable/" + cieIfInterfaceEntry.EntityData.SegmentPath
     cieIfInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -812,6 +820,7 @@ func (cieIfStatusListTable *CISCOIFEXTENSIONMIB_CieIfStatusListTable) GetEntityD
     cieIfStatusListTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfStatusListTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfStatusListTable.EntityData.SegmentPath = "cieIfStatusListTable"
+    cieIfStatusListTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfStatusListTable.EntityData.SegmentPath
     cieIfStatusListTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfStatusListTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfStatusListTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -836,6 +845,7 @@ func (cieIfStatusListTable *CISCOIFEXTENSIONMIB_CieIfStatusListTable) GetEntityD
 type CISCOIFEXTENSIONMIB_CieIfStatusListTable_CieIfStatusListEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -872,6 +882,7 @@ func (cieIfStatusListEntry *CISCOIFEXTENSIONMIB_CieIfStatusListTable_CieIfStatus
     cieIfStatusListEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfStatusListEntry.EntityData.ParentYangName = "cieIfStatusListTable"
     cieIfStatusListEntry.EntityData.SegmentPath = "cieIfStatusListEntry" + types.AddKeyToken(cieIfStatusListEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cieIfStatusListEntry.CieIfStatusListIndex, "cieIfStatusListIndex")
+    cieIfStatusListEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfStatusListTable/" + cieIfStatusListEntry.EntityData.SegmentPath
     cieIfStatusListEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfStatusListEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfStatusListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -912,6 +923,7 @@ func (cieIfVlStatsTable *CISCOIFEXTENSIONMIB_CieIfVlStatsTable) GetEntityData() 
     cieIfVlStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfVlStatsTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfVlStatsTable.EntityData.SegmentPath = "cieIfVlStatsTable"
+    cieIfVlStatsTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfVlStatsTable.EntityData.SegmentPath
     cieIfVlStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfVlStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfVlStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -935,6 +947,7 @@ func (cieIfVlStatsTable *CISCOIFEXTENSIONMIB_CieIfVlStatsTable) GetEntityData() 
 type CISCOIFEXTENSIONMIB_CieIfVlStatsTable_CieIfVlStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -987,6 +1000,7 @@ func (cieIfVlStatsEntry *CISCOIFEXTENSIONMIB_CieIfVlStatsTable_CieIfVlStatsEntry
     cieIfVlStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfVlStatsEntry.EntityData.ParentYangName = "cieIfVlStatsTable"
     cieIfVlStatsEntry.EntityData.SegmentPath = "cieIfVlStatsEntry" + types.AddKeyToken(cieIfVlStatsEntry.IfIndex, "ifIndex")
+    cieIfVlStatsEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfVlStatsTable/" + cieIfVlStatsEntry.EntityData.SegmentPath
     cieIfVlStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfVlStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfVlStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1035,6 +1049,7 @@ func (cieIfIndexPersistenceTable *CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable
     cieIfIndexPersistenceTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfIndexPersistenceTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfIndexPersistenceTable.EntityData.SegmentPath = "cieIfIndexPersistenceTable"
+    cieIfIndexPersistenceTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfIndexPersistenceTable.EntityData.SegmentPath
     cieIfIndexPersistenceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfIndexPersistenceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfIndexPersistenceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1062,6 +1077,7 @@ func (cieIfIndexPersistenceTable *CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable
 type CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable_CieIfIndexPersistenceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1085,6 +1101,7 @@ func (cieIfIndexPersistenceEntry *CISCOIFEXTENSIONMIB_CieIfIndexPersistenceTable
     cieIfIndexPersistenceEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfIndexPersistenceEntry.EntityData.ParentYangName = "cieIfIndexPersistenceTable"
     cieIfIndexPersistenceEntry.EntityData.SegmentPath = "cieIfIndexPersistenceEntry" + types.AddKeyToken(cieIfIndexPersistenceEntry.IfIndex, "ifIndex")
+    cieIfIndexPersistenceEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfIndexPersistenceTable/" + cieIfIndexPersistenceEntry.EntityData.SegmentPath
     cieIfIndexPersistenceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfIndexPersistenceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfIndexPersistenceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1120,6 +1137,7 @@ func (cieIfDot1qCustomEtherTypeTable *CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherT
     cieIfDot1qCustomEtherTypeTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfDot1qCustomEtherTypeTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfDot1qCustomEtherTypeTable.EntityData.SegmentPath = "cieIfDot1qCustomEtherTypeTable"
+    cieIfDot1qCustomEtherTypeTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfDot1qCustomEtherTypeTable.EntityData.SegmentPath
     cieIfDot1qCustomEtherTypeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfDot1qCustomEtherTypeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfDot1qCustomEtherTypeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1146,6 +1164,7 @@ func (cieIfDot1qCustomEtherTypeTable *CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherT
 type CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherTypeTable_CieIfDot1qCustomEtherTypeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1179,6 +1198,7 @@ func (cieIfDot1qCustomEtherTypeEntry *CISCOIFEXTENSIONMIB_CieIfDot1qCustomEtherT
     cieIfDot1qCustomEtherTypeEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfDot1qCustomEtherTypeEntry.EntityData.ParentYangName = "cieIfDot1qCustomEtherTypeTable"
     cieIfDot1qCustomEtherTypeEntry.EntityData.SegmentPath = "cieIfDot1qCustomEtherTypeEntry" + types.AddKeyToken(cieIfDot1qCustomEtherTypeEntry.IfIndex, "ifIndex")
+    cieIfDot1qCustomEtherTypeEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfDot1qCustomEtherTypeTable/" + cieIfDot1qCustomEtherTypeEntry.EntityData.SegmentPath
     cieIfDot1qCustomEtherTypeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfDot1qCustomEtherTypeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfDot1qCustomEtherTypeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1215,6 +1235,7 @@ func (cieIfUtilTable *CISCOIFEXTENSIONMIB_CieIfUtilTable) GetEntityData() *types
     cieIfUtilTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfUtilTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfUtilTable.EntityData.SegmentPath = "cieIfUtilTable"
+    cieIfUtilTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfUtilTable.EntityData.SegmentPath
     cieIfUtilTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfUtilTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfUtilTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1241,6 +1262,7 @@ func (cieIfUtilTable *CISCOIFEXTENSIONMIB_CieIfUtilTable) GetEntityData() *types
 type CISCOIFEXTENSIONMIB_CieIfUtilTable_CieIfUtilEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1294,6 +1316,7 @@ func (cieIfUtilEntry *CISCOIFEXTENSIONMIB_CieIfUtilTable_CieIfUtilEntry) GetEnti
     cieIfUtilEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfUtilEntry.EntityData.ParentYangName = "cieIfUtilTable"
     cieIfUtilEntry.EntityData.SegmentPath = "cieIfUtilEntry" + types.AddKeyToken(cieIfUtilEntry.IfIndex, "ifIndex")
+    cieIfUtilEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfUtilTable/" + cieIfUtilEntry.EntityData.SegmentPath
     cieIfUtilEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfUtilEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfUtilEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1334,6 +1357,7 @@ func (cieIfDot1dBaseMappingTable *CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable
     cieIfDot1dBaseMappingTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfDot1dBaseMappingTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfDot1dBaseMappingTable.EntityData.SegmentPath = "cieIfDot1dBaseMappingTable"
+    cieIfDot1dBaseMappingTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfDot1dBaseMappingTable.EntityData.SegmentPath
     cieIfDot1dBaseMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfDot1dBaseMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfDot1dBaseMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1361,6 +1385,7 @@ func (cieIfDot1dBaseMappingTable *CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable
 type CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable_CieIfDot1dBaseMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1377,6 +1402,7 @@ func (cieIfDot1dBaseMappingEntry *CISCOIFEXTENSIONMIB_CieIfDot1dBaseMappingTable
     cieIfDot1dBaseMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfDot1dBaseMappingEntry.EntityData.ParentYangName = "cieIfDot1dBaseMappingTable"
     cieIfDot1dBaseMappingEntry.EntityData.SegmentPath = "cieIfDot1dBaseMappingEntry" + types.AddKeyToken(cieIfDot1dBaseMappingEntry.IfIndex, "ifIndex")
+    cieIfDot1dBaseMappingEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfDot1dBaseMappingTable/" + cieIfDot1dBaseMappingEntry.EntityData.SegmentPath
     cieIfDot1dBaseMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfDot1dBaseMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfDot1dBaseMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1416,6 +1442,7 @@ func (cieIfNameMappingTable *CISCOIFEXTENSIONMIB_CieIfNameMappingTable) GetEntit
     cieIfNameMappingTable.EntityData.BundleName = "cisco_ios_xe"
     cieIfNameMappingTable.EntityData.ParentYangName = "CISCO-IF-EXTENSION-MIB"
     cieIfNameMappingTable.EntityData.SegmentPath = "cieIfNameMappingTable"
+    cieIfNameMappingTable.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/" + cieIfNameMappingTable.EntityData.SegmentPath
     cieIfNameMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfNameMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfNameMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1437,6 +1464,7 @@ func (cieIfNameMappingTable *CISCOIFEXTENSIONMIB_CieIfNameMappingTable) GetEntit
 type CISCOIFEXTENSIONMIB_CieIfNameMappingTable_CieIfNameMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Represents an interface name mentioned in the
     // 'ifName' object of this system. The type is string with length: 1..112.
@@ -1457,6 +1485,7 @@ func (cieIfNameMappingEntry *CISCOIFEXTENSIONMIB_CieIfNameMappingTable_CieIfName
     cieIfNameMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     cieIfNameMappingEntry.EntityData.ParentYangName = "cieIfNameMappingTable"
     cieIfNameMappingEntry.EntityData.SegmentPath = "cieIfNameMappingEntry" + types.AddKeyToken(cieIfNameMappingEntry.CieIfName, "cieIfName")
+    cieIfNameMappingEntry.EntityData.AbsolutePath = "CISCO-IF-EXTENSION-MIB:CISCO-IF-EXTENSION-MIB/cieIfNameMappingTable/" + cieIfNameMappingEntry.EntityData.SegmentPath
     cieIfNameMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cieIfNameMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cieIfNameMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

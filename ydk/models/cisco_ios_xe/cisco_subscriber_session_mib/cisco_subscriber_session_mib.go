@@ -285,6 +285,7 @@ func (cISCOSUBSCRIBERSESSIONMIB *CISCOSUBSCRIBERSESSIONMIB) GetEntityData() *typ
     cISCOSUBSCRIBERSESSIONMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOSUBSCRIBERSESSIONMIB.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     cISCOSUBSCRIBERSESSIONMIB.EntityData.SegmentPath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB"
+    cISCOSUBSCRIBERSESSIONMIB.EntityData.AbsolutePath = cISCOSUBSCRIBERSESSIONMIB.EntityData.SegmentPath
     cISCOSUBSCRIBERSESSIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOSUBSCRIBERSESSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOSUBSCRIBERSESSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -360,6 +361,7 @@ func (csubJob *CISCOSUBSCRIBERSESSIONMIB_CsubJob) GetEntityData() *types.CommonE
     csubJob.EntityData.BundleName = "cisco_ios_xe"
     csubJob.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubJob.EntityData.SegmentPath = "csubJob"
+    csubJob.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubJob.EntityData.SegmentPath
     csubJob.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJob.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJob.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -394,6 +396,7 @@ func (csubAggThresh *CISCOSUBSCRIBERSESSIONMIB_CsubAggThresh) GetEntityData() *t
     csubAggThresh.EntityData.BundleName = "cisco_ios_xe"
     csubAggThresh.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubAggThresh.EntityData.SegmentPath = "csubAggThresh"
+    csubAggThresh.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubAggThresh.EntityData.SegmentPath
     csubAggThresh.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubAggThresh.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubAggThresh.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -436,6 +439,7 @@ func (csubSessionTable *CISCOSUBSCRIBERSESSIONMIB_CsubSessionTable) GetEntityDat
     csubSessionTable.EntityData.BundleName = "cisco_ios_xe"
     csubSessionTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubSessionTable.EntityData.SegmentPath = "csubSessionTable"
+    csubSessionTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubSessionTable.EntityData.SegmentPath
     csubSessionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubSessionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubSessionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -470,6 +474,7 @@ func (csubSessionTable *CISCOSUBSCRIBERSESSIONMIB_CsubSessionTable) GetEntityDat
 type CISCOSUBSCRIBERSESSIONMIB_CsubSessionTable_CsubSessionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -736,6 +741,7 @@ func (csubSessionEntry *CISCOSUBSCRIBERSESSIONMIB_CsubSessionTable_CsubSessionEn
     csubSessionEntry.EntityData.BundleName = "cisco_ios_xe"
     csubSessionEntry.EntityData.ParentYangName = "csubSessionTable"
     csubSessionEntry.EntityData.SegmentPath = "csubSessionEntry" + types.AddKeyToken(csubSessionEntry.IfIndex, "ifIndex")
+    csubSessionEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubSessionTable/" + csubSessionEntry.EntityData.SegmentPath
     csubSessionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubSessionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubSessionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -835,6 +841,7 @@ func (csubSessionByTypeTable *CISCOSUBSCRIBERSESSIONMIB_CsubSessionByTypeTable) 
     csubSessionByTypeTable.EntityData.BundleName = "cisco_ios_xe"
     csubSessionByTypeTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubSessionByTypeTable.EntityData.SegmentPath = "csubSessionByTypeTable"
+    csubSessionByTypeTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubSessionByTypeTable.EntityData.SegmentPath
     csubSessionByTypeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubSessionByTypeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubSessionByTypeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -868,6 +875,7 @@ func (csubSessionByTypeTable *CISCOSUBSCRIBERSESSIONMIB_CsubSessionByTypeTable) 
 type CISCOSUBSCRIBERSESSIONMIB_CsubSessionByTypeTable_CsubSessionByTypeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indicates the type of the subscriber
     // session. The type is SubSessionType.
@@ -884,6 +892,7 @@ func (csubSessionByTypeEntry *CISCOSUBSCRIBERSESSIONMIB_CsubSessionByTypeTable_C
     csubSessionByTypeEntry.EntityData.BundleName = "cisco_ios_xe"
     csubSessionByTypeEntry.EntityData.ParentYangName = "csubSessionByTypeTable"
     csubSessionByTypeEntry.EntityData.SegmentPath = "csubSessionByTypeEntry" + types.AddKeyToken(csubSessionByTypeEntry.CsubSessionByType, "csubSessionByType") + types.AddKeyToken(csubSessionByTypeEntry.CsubSessionIfIndex, "csubSessionIfIndex")
+    csubSessionByTypeEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubSessionByTypeTable/" + csubSessionByTypeEntry.EntityData.SegmentPath
     csubSessionByTypeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubSessionByTypeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubSessionByTypeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -966,6 +975,7 @@ func (csubAggStatsTable *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsTable) GetEntityD
     csubAggStatsTable.EntityData.BundleName = "cisco_ios_xe"
     csubAggStatsTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubAggStatsTable.EntityData.SegmentPath = "csubAggStatsTable"
+    csubAggStatsTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubAggStatsTable.EntityData.SegmentPath
     csubAggStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubAggStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubAggStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1066,6 +1076,7 @@ func (csubAggStatsTable *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsTable) GetEntityD
 type CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsTable_CsubAggStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indicates format of the
     // csubAggStatsPoint for this entry.   The format for the csubAggStatsPoint is
@@ -1348,6 +1359,7 @@ func (csubAggStatsEntry *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsTable_CsubAggStat
     csubAggStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     csubAggStatsEntry.EntityData.ParentYangName = "csubAggStatsTable"
     csubAggStatsEntry.EntityData.SegmentPath = "csubAggStatsEntry" + types.AddKeyToken(csubAggStatsEntry.CsubAggStatsPointType, "csubAggStatsPointType") + types.AddKeyToken(csubAggStatsEntry.CsubAggStatsPoint, "csubAggStatsPoint") + types.AddKeyToken(csubAggStatsEntry.CsubAggStatsSessionType, "csubAggStatsSessionType")
+    csubAggStatsEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsTable/" + csubAggStatsEntry.EntityData.SegmentPath
     csubAggStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubAggStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubAggStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1438,6 +1450,7 @@ func (csubAggStatsIntTable *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsIntTable) GetE
     csubAggStatsIntTable.EntityData.BundleName = "cisco_ios_xe"
     csubAggStatsIntTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubAggStatsIntTable.EntityData.SegmentPath = "csubAggStatsIntTable"
+    csubAggStatsIntTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubAggStatsIntTable.EntityData.SegmentPath
     csubAggStatsIntTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubAggStatsIntTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubAggStatsIntTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1463,6 +1476,7 @@ func (csubAggStatsIntTable *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsIntTable) GetE
 type CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsIntTable_CsubAggStatsIntEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is CsubAggStatsPointType. Refers to
     // cisco_subscriber_session_mib.CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsTable_CsubAggStatsEntry_CsubAggStatsPointType
@@ -1525,6 +1539,7 @@ func (csubAggStatsIntEntry *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsIntTable_CsubA
     csubAggStatsIntEntry.EntityData.BundleName = "cisco_ios_xe"
     csubAggStatsIntEntry.EntityData.ParentYangName = "csubAggStatsIntTable"
     csubAggStatsIntEntry.EntityData.SegmentPath = "csubAggStatsIntEntry" + types.AddKeyToken(csubAggStatsIntEntry.CsubAggStatsPointType, "csubAggStatsPointType") + types.AddKeyToken(csubAggStatsIntEntry.CsubAggStatsPoint, "csubAggStatsPoint") + types.AddKeyToken(csubAggStatsIntEntry.CsubAggStatsSessionType, "csubAggStatsSessionType") + types.AddKeyToken(csubAggStatsIntEntry.CsubAggStatsIntNumber, "csubAggStatsIntNumber")
+    csubAggStatsIntEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsIntTable/" + csubAggStatsIntEntry.EntityData.SegmentPath
     csubAggStatsIntEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubAggStatsIntEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubAggStatsIntEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1566,6 +1581,7 @@ func (csubAggStatsThreshTable *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsThreshTable
     csubAggStatsThreshTable.EntityData.BundleName = "cisco_ios_xe"
     csubAggStatsThreshTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubAggStatsThreshTable.EntityData.SegmentPath = "csubAggStatsThreshTable"
+    csubAggStatsThreshTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubAggStatsThreshTable.EntityData.SegmentPath
     csubAggStatsThreshTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubAggStatsThreshTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubAggStatsThreshTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1590,6 +1606,7 @@ func (csubAggStatsThreshTable *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsThreshTable
 type CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsThreshTable_CsubAggStatsThreshEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This threshold, if non-zero, indicates the rising
     // threshold for the value of csubAggStatsUpSessions for the aggregation
@@ -1636,6 +1653,7 @@ func (csubAggStatsThreshEntry *CISCOSUBSCRIBERSESSIONMIB_CsubAggStatsThreshTable
     csubAggStatsThreshEntry.EntityData.BundleName = "cisco_ios_xe"
     csubAggStatsThreshEntry.EntityData.ParentYangName = "csubAggStatsThreshTable"
     csubAggStatsThreshEntry.EntityData.SegmentPath = "csubAggStatsThreshEntry" + types.AddKeyToken(csubAggStatsThreshEntry.CsubSessionRisingThresh, "csubSessionRisingThresh")
+    csubAggStatsThreshEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubAggStatsThreshTable/" + csubAggStatsThreshEntry.EntityData.SegmentPath
     csubAggStatsThreshEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubAggStatsThreshEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubAggStatsThreshEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1714,6 +1732,7 @@ func (csubJobTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobTable) GetEntityData() *typ
     csubJobTable.EntityData.BundleName = "cisco_ios_xe"
     csubJobTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubJobTable.EntityData.SegmentPath = "csubJobTable"
+    csubJobTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubJobTable.EntityData.SegmentPath
     csubJobTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1805,6 +1824,7 @@ func (csubJobTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobTable) GetEntityData() *typ
 type CISCOSUBSCRIBERSESSIONMIB_CsubJobTable_CsubJobEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indicates an arbitrary, positive
     // integer-value uniquely identifying the subscriber session job. The type is
@@ -1916,6 +1936,7 @@ func (csubJobEntry *CISCOSUBSCRIBERSESSIONMIB_CsubJobTable_CsubJobEntry) GetEnti
     csubJobEntry.EntityData.BundleName = "cisco_ios_xe"
     csubJobEntry.EntityData.ParentYangName = "csubJobTable"
     csubJobEntry.EntityData.SegmentPath = "csubJobEntry" + types.AddKeyToken(csubJobEntry.CsubJobId, "csubJobId")
+    csubJobEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobTable/" + csubJobEntry.EntityData.SegmentPath
     csubJobEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2025,6 +2046,7 @@ func (csubJobMatchParamsTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobMatchParamsTable
     csubJobMatchParamsTable.EntityData.BundleName = "cisco_ios_xe"
     csubJobMatchParamsTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubJobMatchParamsTable.EntityData.SegmentPath = "csubJobMatchParamsTable"
+    csubJobMatchParamsTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubJobMatchParamsTable.EntityData.SegmentPath
     csubJobMatchParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobMatchParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobMatchParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2067,6 +2089,7 @@ func (csubJobMatchParamsTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobMatchParamsTable
 type CISCOSUBSCRIBERSESSIONMIB_CsubJobMatchParamsTable_CsubJobMatchParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -2308,6 +2331,7 @@ func (csubJobMatchParamsEntry *CISCOSUBSCRIBERSESSIONMIB_CsubJobMatchParamsTable
     csubJobMatchParamsEntry.EntityData.BundleName = "cisco_ios_xe"
     csubJobMatchParamsEntry.EntityData.ParentYangName = "csubJobMatchParamsTable"
     csubJobMatchParamsEntry.EntityData.SegmentPath = "csubJobMatchParamsEntry" + types.AddKeyToken(csubJobMatchParamsEntry.CsubJobId, "csubJobId")
+    csubJobMatchParamsEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobMatchParamsTable/" + csubJobMatchParamsEntry.EntityData.SegmentPath
     csubJobMatchParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobMatchParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobMatchParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2379,6 +2403,7 @@ func (csubJobQueryParamsTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobQueryParamsTable
     csubJobQueryParamsTable.EntityData.BundleName = "cisco_ios_xe"
     csubJobQueryParamsTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubJobQueryParamsTable.EntityData.SegmentPath = "csubJobQueryParamsTable"
+    csubJobQueryParamsTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubJobQueryParamsTable.EntityData.SegmentPath
     csubJobQueryParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobQueryParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobQueryParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2411,6 +2436,7 @@ func (csubJobQueryParamsTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobQueryParamsTable
 type CISCOSUBSCRIBERSESSIONMIB_CsubJobQueryParamsTable_CsubJobQueryParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -2452,6 +2478,7 @@ func (csubJobQueryParamsEntry *CISCOSUBSCRIBERSESSIONMIB_CsubJobQueryParamsTable
     csubJobQueryParamsEntry.EntityData.BundleName = "cisco_ios_xe"
     csubJobQueryParamsEntry.EntityData.ParentYangName = "csubJobQueryParamsTable"
     csubJobQueryParamsEntry.EntityData.SegmentPath = "csubJobQueryParamsEntry" + types.AddKeyToken(csubJobQueryParamsEntry.CsubJobId, "csubJobId")
+    csubJobQueryParamsEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobQueryParamsTable/" + csubJobQueryParamsEntry.EntityData.SegmentPath
     csubJobQueryParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobQueryParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobQueryParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2496,6 +2523,7 @@ func (csubJobQueueTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobQueueTable) GetEntityD
     csubJobQueueTable.EntityData.BundleName = "cisco_ios_xe"
     csubJobQueueTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubJobQueueTable.EntityData.SegmentPath = "csubJobQueueTable"
+    csubJobQueueTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubJobQueueTable.EntityData.SegmentPath
     csubJobQueueTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobQueueTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobQueueTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2532,6 +2560,7 @@ func (csubJobQueueTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobQueueTable) GetEntityD
 type CISCOSUBSCRIBERSESSIONMIB_CsubJobQueueTable_CsubJobQueueEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indicates an positive, integer-value
     // that uniquely identifies the entry in the table. The value of this object
@@ -2553,6 +2582,7 @@ func (csubJobQueueEntry *CISCOSUBSCRIBERSESSIONMIB_CsubJobQueueTable_CsubJobQueu
     csubJobQueueEntry.EntityData.BundleName = "cisco_ios_xe"
     csubJobQueueEntry.EntityData.ParentYangName = "csubJobQueueTable"
     csubJobQueueEntry.EntityData.SegmentPath = "csubJobQueueEntry" + types.AddKeyToken(csubJobQueueEntry.CsubJobQueueNumber, "csubJobQueueNumber")
+    csubJobQueueEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobQueueTable/" + csubJobQueueEntry.EntityData.SegmentPath
     csubJobQueueEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobQueueEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobQueueEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2601,6 +2631,7 @@ func (csubJobReportTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobReportTable) GetEntit
     csubJobReportTable.EntityData.BundleName = "cisco_ios_xe"
     csubJobReportTable.EntityData.ParentYangName = "CISCO-SUBSCRIBER-SESSION-MIB"
     csubJobReportTable.EntityData.SegmentPath = "csubJobReportTable"
+    csubJobReportTable.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/" + csubJobReportTable.EntityData.SegmentPath
     csubJobReportTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobReportTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobReportTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2644,6 +2675,7 @@ func (csubJobReportTable *CISCOSUBSCRIBERSESSIONMIB_CsubJobReportTable) GetEntit
 type CISCOSUBSCRIBERSESSIONMIB_CsubJobReportTable_CsubJobReportEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..4294967295.
     // Refers to
@@ -2671,6 +2703,7 @@ func (csubJobReportEntry *CISCOSUBSCRIBERSESSIONMIB_CsubJobReportTable_CsubJobRe
     csubJobReportEntry.EntityData.BundleName = "cisco_ios_xe"
     csubJobReportEntry.EntityData.ParentYangName = "csubJobReportTable"
     csubJobReportEntry.EntityData.SegmentPath = "csubJobReportEntry" + types.AddKeyToken(csubJobReportEntry.CsubJobId, "csubJobId") + types.AddKeyToken(csubJobReportEntry.CsubJobReportId, "csubJobReportId")
+    csubJobReportEntry.EntityData.AbsolutePath = "CISCO-SUBSCRIBER-SESSION-MIB:CISCO-SUBSCRIBER-SESSION-MIB/csubJobReportTable/" + csubJobReportEntry.EntityData.SegmentPath
     csubJobReportEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     csubJobReportEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     csubJobReportEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

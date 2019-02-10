@@ -488,7 +488,7 @@ func getEntityLookupKey(
 	switch encoding {
 
 	case encodingFmt.XML:
-		ydk.YLogDebug("Using XML encoding...")
+		ydk.YLogDebug(fmt.Sprintf("services.getEntityLookupKey: Using XML encoding for payload:\n%s", payload))
 
 		type XMLObj struct {
 			XMLName xml.Name
@@ -504,7 +504,7 @@ func getEntityLookupKey(
 		nmsp = fmt.Sprintf("%v", xmlObj.XMLName)
 
 	case encodingFmt.JSON:
-		ydk.YLogDebug("Using JSON encoding...")
+		ydk.YLogDebug(fmt.Sprintf("services.getEntityLookupKey: Using JSON encoding for payload:\n%s", payload))
 
 		var jsonObj interface{}
 		err := json.Unmarshal([]byte(payload), &jsonObj)
@@ -526,6 +526,6 @@ func getEntityLookupKey(
 	default:
 		panic("Encoding not supported!")
 	}
-
+	ydk.YLogDebug(fmt.Sprintf("services.getEntityLookupKey: Got namespace: '%s'", nmsp))
 	return nmsp
 }

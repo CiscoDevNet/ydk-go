@@ -43,6 +43,7 @@ func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
     grpc.EntityData.BundleName = "cisco_ios_xr"
     grpc.EntityData.ParentYangName = "Cisco-IOS-XR-man-ems-oper"
     grpc.EntityData.SegmentPath = "Cisco-IOS-XR-man-ems-oper:grpc"
+    grpc.EntityData.AbsolutePath = grpc.EntityData.SegmentPath
     grpc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     grpc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     grpc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -154,6 +155,7 @@ func (statistics *Grpc_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "grpc"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ems-oper:grpc/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -232,6 +234,7 @@ func (status *Grpc_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.BundleName = "cisco_ios_xr"
     status.EntityData.ParentYangName = "grpc"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XR-man-ems-oper:grpc/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

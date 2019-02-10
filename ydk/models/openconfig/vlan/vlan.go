@@ -34,6 +34,7 @@ func (vlans *Vlans) GetEntityData() *types.CommonEntityData {
     vlans.EntityData.BundleName = "openconfig"
     vlans.EntityData.ParentYangName = "openconfig-vlan"
     vlans.EntityData.SegmentPath = "openconfig-vlan:vlans"
+    vlans.EntityData.AbsolutePath = vlans.EntityData.SegmentPath
     vlans.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vlans.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vlans.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -55,6 +56,7 @@ func (vlans *Vlans) GetEntityData() *types.CommonEntityData {
 type Vlans_Vlan struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. references the configured vlan-id. The type is
     // string with range: 1..4094. Refers to vlan.Vlans_Vlan_Config_VlanId
@@ -76,6 +78,7 @@ func (vlan *Vlans_Vlan) GetEntityData() *types.CommonEntityData {
     vlan.EntityData.BundleName = "openconfig"
     vlan.EntityData.ParentYangName = "vlans"
     vlan.EntityData.SegmentPath = "vlan" + types.AddKeyToken(vlan.VlanId, "vlan-id")
+    vlan.EntityData.AbsolutePath = "openconfig-vlan:vlans/" + vlan.EntityData.SegmentPath
     vlan.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     vlan.EntityData.NamespaceTable = openconfig.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -120,6 +123,7 @@ func (config *Vlans_Vlan_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "vlan"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-vlan:vlans/vlan/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -175,6 +179,7 @@ func (state *Vlans_Vlan_State) GetEntityData() *types.CommonEntityData {
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "vlan"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-vlan:vlans/vlan/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -219,6 +224,7 @@ func (members *Vlans_Vlan_Members) GetEntityData() *types.CommonEntityData {
     members.EntityData.BundleName = "openconfig"
     members.EntityData.ParentYangName = "vlan"
     members.EntityData.SegmentPath = "members"
+    members.EntityData.AbsolutePath = "openconfig-vlan:vlans/vlan/" + members.EntityData.SegmentPath
     members.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     members.EntityData.NamespaceTable = openconfig.GetNamespaces()
     members.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -226,6 +232,7 @@ func (members *Vlans_Vlan_Members) GetEntityData() *types.CommonEntityData {
     members.EntityData.Children = types.NewOrderedMap()
     members.EntityData.Children.Append("member", types.YChild{"Member", nil})
     for i := range members.Member {
+        types.SetYListKey(members.Member[i], i)
         members.EntityData.Children.Append(types.GetSegmentPath(members.Member[i]), types.YChild{"Member", members.Member[i]})
     }
     members.EntityData.Leafs = types.NewOrderedMap()
@@ -241,6 +248,7 @@ func (members *Vlans_Vlan_Members) GetEntityData() *types.CommonEntityData {
 type Vlans_Vlan_Members_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Reference to an interface or subinterface.
     InterfaceRef Vlans_Vlan_Members_Member_InterfaceRef
@@ -251,7 +259,8 @@ func (member *Vlans_Vlan_Members_Member) GetEntityData() *types.CommonEntityData
     member.EntityData.YangName = "member"
     member.EntityData.BundleName = "openconfig"
     member.EntityData.ParentYangName = "members"
-    member.EntityData.SegmentPath = "member"
+    member.EntityData.SegmentPath = "member" + types.AddNoKeyToken(member)
+    member.EntityData.AbsolutePath = "openconfig-vlan:vlans/vlan/members/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     member.EntityData.NamespaceTable = openconfig.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -281,6 +290,7 @@ func (interfaceRef *Vlans_Vlan_Members_Member_InterfaceRef) GetEntityData() *typ
     interfaceRef.EntityData.BundleName = "openconfig"
     interfaceRef.EntityData.ParentYangName = "member"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "openconfig-vlan:vlans/vlan/members/member/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = openconfig.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -319,6 +329,7 @@ func (state *Vlans_Vlan_Members_Member_InterfaceRef_State) GetEntityData() *type
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-vlan:vlans/vlan/members/member/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()

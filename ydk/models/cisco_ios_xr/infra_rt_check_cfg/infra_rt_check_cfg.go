@@ -43,6 +43,7 @@ func (rcc *Rcc) GetEntityData() *types.CommonEntityData {
     rcc.EntityData.BundleName = "cisco_ios_xr"
     rcc.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rt-check-cfg"
     rcc.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc"
+    rcc.EntityData.AbsolutePath = rcc.EntityData.SegmentPath
     rcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -79,6 +80,7 @@ func (ipv6 *Rcc_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "rcc"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -115,6 +117,7 @@ func (lcc *Rcc_Ipv6_Lcc) GetEntityData() *types.CommonEntityData {
     lcc.EntityData.BundleName = "cisco_ios_xr"
     lcc.EntityData.ParentYangName = "ipv6"
     lcc.EntityData.SegmentPath = "lcc"
+    lcc.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc/ipv6/" + lcc.EntityData.SegmentPath
     lcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -149,6 +152,7 @@ func (unicast *Rcc_Ipv6_Unicast) GetEntityData() *types.CommonEntityData {
     unicast.EntityData.BundleName = "cisco_ios_xr"
     unicast.EntityData.ParentYangName = "ipv6"
     unicast.EntityData.SegmentPath = "unicast"
+    unicast.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc/ipv6/" + unicast.EntityData.SegmentPath
     unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -183,6 +187,7 @@ func (multicast *Rcc_Ipv6_Multicast) GetEntityData() *types.CommonEntityData {
     multicast.EntityData.BundleName = "cisco_ios_xr"
     multicast.EntityData.ParentYangName = "ipv6"
     multicast.EntityData.SegmentPath = "multicast"
+    multicast.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc/ipv6/" + multicast.EntityData.SegmentPath
     multicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -219,6 +224,7 @@ func (ipv4 *Rcc_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "rcc"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +261,7 @@ func (lcc *Rcc_Ipv4_Lcc) GetEntityData() *types.CommonEntityData {
     lcc.EntityData.BundleName = "cisco_ios_xr"
     lcc.EntityData.ParentYangName = "ipv4"
     lcc.EntityData.SegmentPath = "lcc"
+    lcc.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc/ipv4/" + lcc.EntityData.SegmentPath
     lcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -289,6 +296,7 @@ func (unicast *Rcc_Ipv4_Unicast) GetEntityData() *types.CommonEntityData {
     unicast.EntityData.BundleName = "cisco_ios_xr"
     unicast.EntityData.ParentYangName = "ipv4"
     unicast.EntityData.SegmentPath = "unicast"
+    unicast.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc/ipv4/" + unicast.EntityData.SegmentPath
     unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -323,6 +331,7 @@ func (multicast *Rcc_Ipv4_Multicast) GetEntityData() *types.CommonEntityData {
     multicast.EntityData.BundleName = "cisco_ios_xr"
     multicast.EntityData.ParentYangName = "ipv4"
     multicast.EntityData.SegmentPath = "multicast"
+    multicast.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rt-check-cfg:rcc/ipv4/" + multicast.EntityData.SegmentPath
     multicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

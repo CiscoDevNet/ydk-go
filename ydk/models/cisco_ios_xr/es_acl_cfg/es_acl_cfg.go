@@ -51,6 +51,7 @@ func (esAcl *EsAcl) GetEntityData() *types.CommonEntityData {
     esAcl.EntityData.BundleName = "cisco_ios_xr"
     esAcl.EntityData.ParentYangName = "Cisco-IOS-XR-es-acl-cfg"
     esAcl.EntityData.SegmentPath = "Cisco-IOS-XR-es-acl-cfg:es-acl"
+    esAcl.EntityData.AbsolutePath = esAcl.EntityData.SegmentPath
     esAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -80,6 +81,7 @@ func (accesses *EsAcl_Accesses) GetEntityData() *types.CommonEntityData {
     accesses.EntityData.BundleName = "cisco_ios_xr"
     accesses.EntityData.ParentYangName = "es-acl"
     accesses.EntityData.SegmentPath = "accesses"
+    accesses.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-cfg:es-acl/" + accesses.EntityData.SegmentPath
     accesses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -101,6 +103,7 @@ func (accesses *EsAcl_Accesses) GetEntityData() *types.CommonEntityData {
 type EsAcl_Accesses_Access struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the access list. The type is string with
     // length: 1..64.
@@ -116,6 +119,7 @@ func (access *EsAcl_Accesses_Access) GetEntityData() *types.CommonEntityData {
     access.EntityData.BundleName = "cisco_ios_xr"
     access.EntityData.ParentYangName = "accesses"
     access.EntityData.SegmentPath = "access" + types.AddKeyToken(access.Name, "name")
+    access.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-cfg:es-acl/accesses/" + access.EntityData.SegmentPath
     access.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     access.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     access.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -149,6 +153,7 @@ func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetEntityData(
     accessListEntries.EntityData.BundleName = "cisco_ios_xr"
     accessListEntries.EntityData.ParentYangName = "access"
     accessListEntries.EntityData.SegmentPath = "access-list-entries"
+    accessListEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-cfg:es-acl/accesses/access/" + accessListEntries.EntityData.SegmentPath
     accessListEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessListEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -171,6 +176,7 @@ func (accessListEntries *EsAcl_Accesses_Access_AccessListEntries) GetEntityData(
 type EsAcl_Accesses_Access_AccessListEntries_AccessListEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sequence number of access list entry. The type is
     // interface{} with range: 1..2147483646.
@@ -251,6 +257,7 @@ func (accessListEntry *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry) 
     accessListEntry.EntityData.BundleName = "cisco_ios_xr"
     accessListEntry.EntityData.ParentYangName = "access-list-entries"
     accessListEntry.EntityData.SegmentPath = "access-list-entry" + types.AddKeyToken(accessListEntry.SequenceNumber, "sequence-number")
+    accessListEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-cfg:es-acl/accesses/access/access-list-entries/" + accessListEntry.EntityData.SegmentPath
     accessListEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessListEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -302,6 +309,7 @@ func (sourceNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntry_Sou
     sourceNetwork.EntityData.BundleName = "cisco_ios_xr"
     sourceNetwork.EntityData.ParentYangName = "access-list-entry"
     sourceNetwork.EntityData.SegmentPath = "source-network"
+    sourceNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-cfg:es-acl/accesses/access/access-list-entries/access-list-entry/" + sourceNetwork.EntityData.SegmentPath
     sourceNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -339,6 +347,7 @@ func (destinationNetwork *EsAcl_Accesses_Access_AccessListEntries_AccessListEntr
     destinationNetwork.EntityData.BundleName = "cisco_ios_xr"
     destinationNetwork.EntityData.ParentYangName = "access-list-entry"
     destinationNetwork.EntityData.SegmentPath = "destination-network"
+    destinationNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-cfg:es-acl/accesses/access/access-list-entries/access-list-entry/" + destinationNetwork.EntityData.SegmentPath
     destinationNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

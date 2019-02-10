@@ -37,6 +37,7 @@ func (oSPFTRAPMIB *OSPFTRAPMIB) GetEntityData() *types.CommonEntityData {
     oSPFTRAPMIB.EntityData.BundleName = "cisco_ios_xe"
     oSPFTRAPMIB.EntityData.ParentYangName = "OSPF-TRAP-MIB"
     oSPFTRAPMIB.EntityData.SegmentPath = "OSPF-TRAP-MIB:OSPF-TRAP-MIB"
+    oSPFTRAPMIB.EntityData.AbsolutePath = oSPFTRAPMIB.EntityData.SegmentPath
     oSPFTRAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     oSPFTRAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     oSPFTRAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -89,6 +90,7 @@ func (ospfTrapControl *OSPFTRAPMIB_OspfTrapControl) GetEntityData() *types.Commo
     ospfTrapControl.EntityData.BundleName = "cisco_ios_xe"
     ospfTrapControl.EntityData.ParentYangName = "OSPF-TRAP-MIB"
     ospfTrapControl.EntityData.SegmentPath = "ospfTrapControl"
+    ospfTrapControl.EntityData.AbsolutePath = "OSPF-TRAP-MIB:OSPF-TRAP-MIB/" + ospfTrapControl.EntityData.SegmentPath
     ospfTrapControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospfTrapControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospfTrapControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

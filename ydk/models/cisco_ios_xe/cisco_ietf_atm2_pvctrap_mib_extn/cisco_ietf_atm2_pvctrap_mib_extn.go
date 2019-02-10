@@ -40,6 +40,7 @@ func (cISCOIETFATM2PVCTRAPMIBEXTN *CISCOIETFATM2PVCTRAPMIBEXTN) GetEntityData() 
     cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
     cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.SegmentPath = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
+    cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.AbsolutePath = cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.SegmentPath
     cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFATM2PVCTRAPMIBEXTN.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -77,6 +78,7 @@ func (atmCurrentStatusChangePVclTable *CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentSta
     atmCurrentStatusChangePVclTable.EntityData.BundleName = "cisco_ios_xe"
     atmCurrentStatusChangePVclTable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
     atmCurrentStatusChangePVclTable.EntityData.SegmentPath = "atmCurrentStatusChangePVclTable"
+    atmCurrentStatusChangePVclTable.EntityData.AbsolutePath = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/" + atmCurrentStatusChangePVclTable.EntityData.SegmentPath
     atmCurrentStatusChangePVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmCurrentStatusChangePVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmCurrentStatusChangePVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -101,6 +103,7 @@ func (atmCurrentStatusChangePVclTable *CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentSta
 type CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentStatusChangePVclTable_AtmCurrentStatusChangePVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -134,6 +137,7 @@ func (atmCurrentStatusChangePVclEntry *CISCOIETFATM2PVCTRAPMIBEXTN_AtmCurrentSta
     atmCurrentStatusChangePVclEntry.EntityData.BundleName = "cisco_ios_xe"
     atmCurrentStatusChangePVclEntry.EntityData.ParentYangName = "atmCurrentStatusChangePVclTable"
     atmCurrentStatusChangePVclEntry.EntityData.SegmentPath = "atmCurrentStatusChangePVclEntry" + types.AddKeyToken(atmCurrentStatusChangePVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmCurrentStatusChangePVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(atmCurrentStatusChangePVclEntry.AtmVclVci, "atmVclVci")
+    atmCurrentStatusChangePVclEntry.EntityData.AbsolutePath = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/atmCurrentStatusChangePVclTable/" + atmCurrentStatusChangePVclEntry.EntityData.SegmentPath
     atmCurrentStatusChangePVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmCurrentStatusChangePVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmCurrentStatusChangePVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -176,6 +180,7 @@ func (atmStatusChangePVclRangeTable *CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChange
     atmStatusChangePVclRangeTable.EntityData.BundleName = "cisco_ios_xe"
     atmStatusChangePVclRangeTable.EntityData.ParentYangName = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
     atmStatusChangePVclRangeTable.EntityData.SegmentPath = "atmStatusChangePVclRangeTable"
+    atmStatusChangePVclRangeTable.EntityData.AbsolutePath = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/" + atmStatusChangePVclRangeTable.EntityData.SegmentPath
     atmStatusChangePVclRangeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmStatusChangePVclRangeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmStatusChangePVclRangeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -201,6 +206,7 @@ func (atmStatusChangePVclRangeTable *CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChange
 type CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChangePVclRangeTable_AtmStatusChangePVclRangeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -242,6 +248,7 @@ func (atmStatusChangePVclRangeEntry *CISCOIETFATM2PVCTRAPMIBEXTN_AtmStatusChange
     atmStatusChangePVclRangeEntry.EntityData.BundleName = "cisco_ios_xe"
     atmStatusChangePVclRangeEntry.EntityData.ParentYangName = "atmStatusChangePVclRangeTable"
     atmStatusChangePVclRangeEntry.EntityData.SegmentPath = "atmStatusChangePVclRangeEntry" + types.AddKeyToken(atmStatusChangePVclRangeEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmStatusChangePVclRangeEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(atmStatusChangePVclRangeEntry.RangeIndex, "rangeIndex")
+    atmStatusChangePVclRangeEntry.EntityData.AbsolutePath = "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/atmStatusChangePVclRangeTable/" + atmStatusChangePVclRangeEntry.EntityData.SegmentPath
     atmStatusChangePVclRangeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmStatusChangePVclRangeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmStatusChangePVclRangeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -92,6 +92,7 @@ func (vservice *Vservice) GetEntityData() *types.CommonEntityData {
     vservice.EntityData.BundleName = "cisco_ios_xr"
     vservice.EntityData.ParentYangName = "Cisco-IOS-XR-vservice-cfg"
     vservice.EntityData.SegmentPath = "Cisco-IOS-XR-vservice-cfg:vservice"
+    vservice.EntityData.AbsolutePath = vservice.EntityData.SegmentPath
     vservice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vservice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vservice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -125,6 +126,7 @@ func (serviceFunctionLocator *Vservice_ServiceFunctionLocator) GetEntityData() *
     serviceFunctionLocator.EntityData.BundleName = "cisco_ios_xr"
     serviceFunctionLocator.EntityData.ParentYangName = "vservice"
     serviceFunctionLocator.EntityData.SegmentPath = "service-function-locator"
+    serviceFunctionLocator.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/" + serviceFunctionLocator.EntityData.SegmentPath
     serviceFunctionLocator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceFunctionLocator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionLocator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -155,6 +157,7 @@ func (names *Vservice_ServiceFunctionLocator_Names) GetEntityData() *types.Commo
     names.EntityData.BundleName = "cisco_ios_xr"
     names.EntityData.ParentYangName = "service-function-locator"
     names.EntityData.SegmentPath = "names"
+    names.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-locator/" + names.EntityData.SegmentPath
     names.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     names.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     names.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -176,6 +179,7 @@ func (names *Vservice_ServiceFunctionLocator_Names) GetEntityData() *types.Commo
 type Vservice_ServiceFunctionLocator_Names_Name struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Service function/forwarder name. The type is
     // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -195,6 +199,7 @@ func (name *Vservice_ServiceFunctionLocator_Names_Name) GetEntityData() *types.C
     name.EntityData.BundleName = "cisco_ios_xr"
     name.EntityData.ParentYangName = "names"
     name.EntityData.SegmentPath = "name" + types.AddKeyToken(name.FunctionName, "function-name") + types.AddKeyToken(name.LocatorId, "locator-id")
+    name.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-locator/names/" + name.EntityData.SegmentPath
     name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -237,6 +242,7 @@ func (node *Vservice_ServiceFunctionLocator_Names_Name_Node) GetEntityData() *ty
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "name"
     node.EntityData.SegmentPath = "node"
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-locator/names/name/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -270,6 +276,7 @@ func (metadataDispositions *Vservice_MetadataDispositions) GetEntityData() *type
     metadataDispositions.EntityData.BundleName = "cisco_ios_xr"
     metadataDispositions.EntityData.ParentYangName = "vservice"
     metadataDispositions.EntityData.SegmentPath = "metadata-dispositions"
+    metadataDispositions.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/" + metadataDispositions.EntityData.SegmentPath
     metadataDispositions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metadataDispositions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metadataDispositions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -291,6 +298,7 @@ func (metadataDispositions *Vservice_MetadataDispositions) GetEntityData() *type
 type Vservice_MetadataDispositions_MetadataDisposition struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. disposition name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -311,6 +319,7 @@ func (metadataDisposition *Vservice_MetadataDispositions_MetadataDisposition) Ge
     metadataDisposition.EntityData.BundleName = "cisco_ios_xr"
     metadataDisposition.EntityData.ParentYangName = "metadata-dispositions"
     metadataDisposition.EntityData.SegmentPath = "metadata-disposition" + types.AddKeyToken(metadataDisposition.DispositionName, "disposition-name") + types.AddKeyToken(metadataDisposition.Format, "format")
+    metadataDisposition.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/metadata-dispositions/" + metadataDisposition.EntityData.SegmentPath
     metadataDisposition.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metadataDisposition.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metadataDisposition.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -334,6 +343,7 @@ func (metadataDisposition *Vservice_MetadataDispositions_MetadataDisposition) Ge
 type Vservice_MetadataDispositions_MetadataDisposition_MatchEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. match entry name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -349,6 +359,7 @@ func (matchEntry *Vservice_MetadataDispositions_MetadataDisposition_MatchEntry) 
     matchEntry.EntityData.BundleName = "cisco_ios_xr"
     matchEntry.EntityData.ParentYangName = "metadata-disposition"
     matchEntry.EntityData.SegmentPath = "match-entry" + types.AddKeyToken(matchEntry.MatchEntryName, "match-entry-name")
+    matchEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/metadata-dispositions/metadata-disposition/" + matchEntry.EntityData.SegmentPath
     matchEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     matchEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     matchEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -393,6 +404,7 @@ func (node *Vservice_MetadataDispositions_MetadataDisposition_MatchEntry_Node) G
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "match-entry"
     node.EntityData.SegmentPath = "node"
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/metadata-dispositions/metadata-disposition/match-entry/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -426,6 +438,7 @@ func (serviceFunctionForwardLocator *Vservice_ServiceFunctionForwardLocator) Get
     serviceFunctionForwardLocator.EntityData.BundleName = "cisco_ios_xr"
     serviceFunctionForwardLocator.EntityData.ParentYangName = "vservice"
     serviceFunctionForwardLocator.EntityData.SegmentPath = "service-function-forward-locator"
+    serviceFunctionForwardLocator.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/" + serviceFunctionForwardLocator.EntityData.SegmentPath
     serviceFunctionForwardLocator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceFunctionForwardLocator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionForwardLocator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -456,6 +469,7 @@ func (names *Vservice_ServiceFunctionForwardLocator_Names) GetEntityData() *type
     names.EntityData.BundleName = "cisco_ios_xr"
     names.EntityData.ParentYangName = "service-function-forward-locator"
     names.EntityData.SegmentPath = "names"
+    names.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/" + names.EntityData.SegmentPath
     names.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     names.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     names.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -477,6 +491,7 @@ func (names *Vservice_ServiceFunctionForwardLocator_Names) GetEntityData() *type
 type Vservice_ServiceFunctionForwardLocator_Names_Name struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Service function/forwarder name. The type is
     // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -496,6 +511,7 @@ func (name *Vservice_ServiceFunctionForwardLocator_Names_Name) GetEntityData() *
     name.EntityData.BundleName = "cisco_ios_xr"
     name.EntityData.ParentYangName = "names"
     name.EntityData.SegmentPath = "name" + types.AddKeyToken(name.FunctionName, "function-name") + types.AddKeyToken(name.LocatorId, "locator-id")
+    name.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/names/" + name.EntityData.SegmentPath
     name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -538,6 +554,7 @@ func (node *Vservice_ServiceFunctionForwardLocator_Names_Name_Node) GetEntityDat
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "name"
     node.EntityData.SegmentPath = "node"
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/names/name/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -571,6 +588,7 @@ func (metadataTemplates *Vservice_MetadataTemplates) GetEntityData() *types.Comm
     metadataTemplates.EntityData.BundleName = "cisco_ios_xr"
     metadataTemplates.EntityData.ParentYangName = "vservice"
     metadataTemplates.EntityData.SegmentPath = "metadata-templates"
+    metadataTemplates.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/" + metadataTemplates.EntityData.SegmentPath
     metadataTemplates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metadataTemplates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metadataTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -592,6 +610,7 @@ func (metadataTemplates *Vservice_MetadataTemplates) GetEntityData() *types.Comm
 type Vservice_MetadataTemplates_MetadataTemplate struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. metadata name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -614,6 +633,7 @@ func (metadataTemplate *Vservice_MetadataTemplates_MetadataTemplate) GetEntityDa
     metadataTemplate.EntityData.BundleName = "cisco_ios_xr"
     metadataTemplate.EntityData.ParentYangName = "metadata-templates"
     metadataTemplate.EntityData.SegmentPath = "metadata-template" + types.AddKeyToken(metadataTemplate.MetadataName, "metadata-name") + types.AddKeyToken(metadataTemplate.Type, "type") + types.AddKeyToken(metadataTemplate.Format, "format")
+    metadataTemplate.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/metadata-templates/" + metadataTemplate.EntityData.SegmentPath
     metadataTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metadataTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metadataTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -646,6 +666,7 @@ func (serviceFunctionPath *Vservice_ServiceFunctionPath) GetEntityData() *types.
     serviceFunctionPath.EntityData.BundleName = "cisco_ios_xr"
     serviceFunctionPath.EntityData.ParentYangName = "vservice"
     serviceFunctionPath.EntityData.SegmentPath = "service-function-path"
+    serviceFunctionPath.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/" + serviceFunctionPath.EntityData.SegmentPath
     serviceFunctionPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceFunctionPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceFunctionPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -676,6 +697,7 @@ func (paths *Vservice_ServiceFunctionPath_Paths) GetEntityData() *types.CommonEn
     paths.EntityData.BundleName = "cisco_ios_xr"
     paths.EntityData.ParentYangName = "service-function-path"
     paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/" + paths.EntityData.SegmentPath
     paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -697,6 +719,7 @@ func (paths *Vservice_ServiceFunctionPath_Paths) GetEntityData() *types.CommonEn
 type Vservice_ServiceFunctionPath_Paths_Path struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify the service function path id. The type is
     // interface{} with range: 1..16777215.
@@ -713,6 +736,7 @@ func (path *Vservice_ServiceFunctionPath_Paths_Path) GetEntityData() *types.Comm
     path.EntityData.BundleName = "cisco_ios_xr"
     path.EntityData.ParentYangName = "paths"
     path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.PathId, "path-id")
+    path.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/" + path.EntityData.SegmentPath
     path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -735,6 +759,7 @@ func (path *Vservice_ServiceFunctionPath_Paths_Path) GetEntityData() *types.Comm
 type Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify the id of service function. The type is
     // interface{} with range: 1..255.
@@ -756,6 +781,7 @@ func (serviceIndex *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex) GetEnt
     serviceIndex.EntityData.BundleName = "cisco_ios_xr"
     serviceIndex.EntityData.ParentYangName = "path"
     serviceIndex.EntityData.SegmentPath = "service-index" + types.AddKeyToken(serviceIndex.Index, "index")
+    serviceIndex.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/" + serviceIndex.EntityData.SegmentPath
     serviceIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -788,6 +814,7 @@ func (terminate *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_Terminate)
     terminate.EntityData.BundleName = "cisco_ios_xr"
     terminate.EntityData.ParentYangName = "service-index"
     terminate.EntityData.SegmentPath = "terminate"
+    terminate.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/service-index/" + terminate.EntityData.SegmentPath
     terminate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     terminate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     terminate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -827,6 +854,7 @@ func (node *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_Terminate_Node)
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "terminate"
     node.EntityData.SegmentPath = "node"
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/service-index/terminate/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -860,6 +888,7 @@ func (sffNames *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SffNames) G
     sffNames.EntityData.BundleName = "cisco_ios_xr"
     sffNames.EntityData.ParentYangName = "service-index"
     sffNames.EntityData.SegmentPath = "sff-names"
+    sffNames.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/service-index/" + sffNames.EntityData.SegmentPath
     sffNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -881,6 +910,7 @@ func (sffNames *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SffNames) G
 type Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SffNames_SffName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SFF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -896,6 +926,7 @@ func (sffName *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SffNames_Sff
     sffName.EntityData.BundleName = "cisco_ios_xr"
     sffName.EntityData.ParentYangName = "sff-names"
     sffName.EntityData.SegmentPath = "sff-name" + types.AddKeyToken(sffName.Name, "name")
+    sffName.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/service-index/sff-names/" + sffName.EntityData.SegmentPath
     sffName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sffName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sffName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -929,6 +960,7 @@ func (node *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SffNames_SffNam
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "sff-name"
     node.EntityData.SegmentPath = "node"
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/service-index/sff-names/sff-name/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -960,6 +992,7 @@ func (sfNames *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SfNames) Get
     sfNames.EntityData.BundleName = "cisco_ios_xr"
     sfNames.EntityData.ParentYangName = "service-index"
     sfNames.EntityData.SegmentPath = "sf-names"
+    sfNames.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/service-index/" + sfNames.EntityData.SegmentPath
     sfNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -981,6 +1014,7 @@ func (sfNames *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SfNames) Get
 type Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SfNames_SfName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -996,6 +1030,7 @@ func (sfName *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SfNames_SfNam
     sfName.EntityData.BundleName = "cisco_ios_xr"
     sfName.EntityData.ParentYangName = "sf-names"
     sfName.EntityData.SegmentPath = "sf-name" + types.AddKeyToken(sfName.Name, "name")
+    sfName.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/service-index/sf-names/" + sfName.EntityData.SegmentPath
     sfName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1029,6 +1064,7 @@ func (node *Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SfNames_SfName_
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "sf-name"
     node.EntityData.SegmentPath = "node"
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/path/service-index/sf-names/sf-name/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

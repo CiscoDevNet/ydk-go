@@ -90,6 +90,7 @@ func (cISCOETHERCFMMIB *CISCOETHERCFMMIB) GetEntityData() *types.CommonEntityDat
     cISCOETHERCFMMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOETHERCFMMIB.EntityData.ParentYangName = "CISCO-ETHER-CFM-MIB"
     cISCOETHERCFMMIB.EntityData.SegmentPath = "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB"
+    cISCOETHERCFMMIB.EntityData.AbsolutePath = cISCOETHERCFMMIB.EntityData.SegmentPath
     cISCOETHERCFMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOETHERCFMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOETHERCFMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -121,6 +122,7 @@ func (cecCfmEvents *CISCOETHERCFMMIB_CecCfmEvents) GetEntityData() *types.Common
     cecCfmEvents.EntityData.BundleName = "cisco_ios_xe"
     cecCfmEvents.EntityData.ParentYangName = "CISCO-ETHER-CFM-MIB"
     cecCfmEvents.EntityData.SegmentPath = "cecCfmEvents"
+    cecCfmEvents.EntityData.AbsolutePath = "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/" + cecCfmEvents.EntityData.SegmentPath
     cecCfmEvents.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cecCfmEvents.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cecCfmEvents.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -188,6 +190,7 @@ func (cEtherCfmEventTable *CISCOETHERCFMMIB_CEtherCfmEventTable) GetEntityData()
     cEtherCfmEventTable.EntityData.BundleName = "cisco_ios_xe"
     cEtherCfmEventTable.EntityData.ParentYangName = "CISCO-ETHER-CFM-MIB"
     cEtherCfmEventTable.EntityData.SegmentPath = "cEtherCfmEventTable"
+    cEtherCfmEventTable.EntityData.AbsolutePath = "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/" + cEtherCfmEventTable.EntityData.SegmentPath
     cEtherCfmEventTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEtherCfmEventTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEtherCfmEventTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -210,6 +213,7 @@ func (cEtherCfmEventTable *CISCOETHERCFMMIB_CEtherCfmEventTable) GetEntityData()
 type CISCOETHERCFMMIB_CEtherCfmEventTable_CEtherCfmEventEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object represents the ID which uniquely
     // identifies  a CFM maintenance domain on the device. Every domain can be
@@ -361,6 +365,7 @@ func (cEtherCfmEventEntry *CISCOETHERCFMMIB_CEtherCfmEventTable_CEtherCfmEventEn
     cEtherCfmEventEntry.EntityData.BundleName = "cisco_ios_xe"
     cEtherCfmEventEntry.EntityData.ParentYangName = "cEtherCfmEventTable"
     cEtherCfmEventEntry.EntityData.SegmentPath = "cEtherCfmEventEntry" + types.AddKeyToken(cEtherCfmEventEntry.CEtherCfmEventDomainIndex, "cEtherCfmEventDomainIndex") + types.AddKeyToken(cEtherCfmEventEntry.CEtherCfmEventSvlan, "cEtherCfmEventSvlan") + types.AddKeyToken(cEtherCfmEventEntry.CEtherCfmEventIndex, "cEtherCfmEventIndex")
+    cEtherCfmEventEntry.EntityData.AbsolutePath = "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/cEtherCfmEventTable/" + cEtherCfmEventEntry.EntityData.SegmentPath
     cEtherCfmEventEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cEtherCfmEventEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cEtherCfmEventEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

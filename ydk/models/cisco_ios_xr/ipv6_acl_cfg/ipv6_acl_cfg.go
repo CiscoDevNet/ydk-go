@@ -57,6 +57,7 @@ func (ipv6AclAndPrefixList *Ipv6AclAndPrefixList) GetEntityData() *types.CommonE
     ipv6AclAndPrefixList.EntityData.BundleName = "cisco_ios_xr"
     ipv6AclAndPrefixList.EntityData.ParentYangName = "Cisco-IOS-XR-ipv6-acl-cfg"
     ipv6AclAndPrefixList.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list"
+    ipv6AclAndPrefixList.EntityData.AbsolutePath = ipv6AclAndPrefixList.EntityData.SegmentPath
     ipv6AclAndPrefixList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6AclAndPrefixList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6AclAndPrefixList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -89,6 +90,7 @@ func (prefixes *Ipv6AclAndPrefixList_Prefixes) GetEntityData() *types.CommonEnti
     prefixes.EntityData.BundleName = "cisco_ios_xr"
     prefixes.EntityData.ParentYangName = "ipv6-acl-and-prefix-list"
     prefixes.EntityData.SegmentPath = "prefixes"
+    prefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/" + prefixes.EntityData.SegmentPath
     prefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -110,6 +112,7 @@ func (prefixes *Ipv6AclAndPrefixList_Prefixes) GetEntityData() *types.CommonEnti
 type Ipv6AclAndPrefixList_Prefixes_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of a prefix list. The type is string with
     // length: 1..64.
@@ -125,6 +128,7 @@ func (prefix *Ipv6AclAndPrefixList_Prefixes_Prefix) GetEntityData() *types.Commo
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "prefixes"
     prefix.EntityData.SegmentPath = "prefix" + types.AddKeyToken(prefix.Name, "name")
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/prefixes/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -157,6 +161,7 @@ func (prefixListEntries *Ipv6AclAndPrefixList_Prefixes_Prefix_PrefixListEntries)
     prefixListEntries.EntityData.BundleName = "cisco_ios_xr"
     prefixListEntries.EntityData.ParentYangName = "prefix"
     prefixListEntries.EntityData.SegmentPath = "prefix-list-entries"
+    prefixListEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/prefixes/prefix/" + prefixListEntries.EntityData.SegmentPath
     prefixListEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixListEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -179,6 +184,7 @@ func (prefixListEntries *Ipv6AclAndPrefixList_Prefixes_Prefix_PrefixListEntries)
 type Ipv6AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sequence number of prefix list. The type is
     // interface{} with range: 1..2147483646.
@@ -240,6 +246,7 @@ func (prefixListEntry *Ipv6AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_Pr
     prefixListEntry.EntityData.BundleName = "cisco_ios_xr"
     prefixListEntry.EntityData.ParentYangName = "prefix-list-entries"
     prefixListEntry.EntityData.SegmentPath = "prefix-list-entry" + types.AddKeyToken(prefixListEntry.SequenceNumber, "sequence-number")
+    prefixListEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/prefixes/prefix/prefix-list-entries/" + prefixListEntry.EntityData.SegmentPath
     prefixListEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixListEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -286,6 +293,7 @@ func (logUpdate *Ipv6AclAndPrefixList_LogUpdate) GetEntityData() *types.CommonEn
     logUpdate.EntityData.BundleName = "cisco_ios_xr"
     logUpdate.EntityData.ParentYangName = "ipv6-acl-and-prefix-list"
     logUpdate.EntityData.SegmentPath = "log-update"
+    logUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/" + logUpdate.EntityData.SegmentPath
     logUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -316,6 +324,7 @@ func (accesses *Ipv6AclAndPrefixList_Accesses) GetEntityData() *types.CommonEnti
     accesses.EntityData.BundleName = "cisco_ios_xr"
     accesses.EntityData.ParentYangName = "ipv6-acl-and-prefix-list"
     accesses.EntityData.SegmentPath = "accesses"
+    accesses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/" + accesses.EntityData.SegmentPath
     accesses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accesses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accesses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -337,6 +346,7 @@ func (accesses *Ipv6AclAndPrefixList_Accesses) GetEntityData() *types.CommonEnti
 type Ipv6AclAndPrefixList_Accesses_Access struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the access list. The type is string with
     // length: 1..64.
@@ -352,6 +362,7 @@ func (access *Ipv6AclAndPrefixList_Accesses_Access) GetEntityData() *types.Commo
     access.EntityData.BundleName = "cisco_ios_xr"
     access.EntityData.ParentYangName = "accesses"
     access.EntityData.SegmentPath = "access" + types.AddKeyToken(access.Name, "name")
+    access.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/" + access.EntityData.SegmentPath
     access.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     access.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     access.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -385,6 +396,7 @@ func (accessListEntries *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries)
     accessListEntries.EntityData.BundleName = "cisco_ios_xr"
     accessListEntries.EntityData.ParentYangName = "access"
     accessListEntries.EntityData.SegmentPath = "access-list-entries"
+    accessListEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/" + accessListEntries.EntityData.SegmentPath
     accessListEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessListEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -407,6 +419,7 @@ func (accessListEntries *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries)
 type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Sequence number of access list entry. The type is
     // interface{} with range: 1..2147483643.
@@ -533,6 +546,7 @@ func (accessListEntry *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_Ac
     accessListEntry.EntityData.BundleName = "cisco_ios_xr"
     accessListEntry.EntityData.ParentYangName = "access-list-entries"
     accessListEntry.EntityData.SegmentPath = "access-list-entry" + types.AddKeyToken(accessListEntry.SequenceNumber, "sequence-number")
+    accessListEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/" + accessListEntry.EntityData.SegmentPath
     accessListEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessListEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessListEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -604,6 +618,7 @@ func (sourceNetwork *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_Acce
     sourceNetwork.EntityData.BundleName = "cisco_ios_xr"
     sourceNetwork.EntityData.ParentYangName = "access-list-entry"
     sourceNetwork.EntityData.SegmentPath = "source-network"
+    sourceNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + sourceNetwork.EntityData.SegmentPath
     sourceNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -648,6 +663,7 @@ func (destinationNetwork *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries
     destinationNetwork.EntityData.BundleName = "cisco_ios_xr"
     destinationNetwork.EntityData.ParentYangName = "access-list-entry"
     destinationNetwork.EntityData.SegmentPath = "destination-network"
+    destinationNetwork.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + destinationNetwork.EntityData.SegmentPath
     destinationNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -695,6 +711,7 @@ func (sourcePort *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessL
     sourcePort.EntityData.BundleName = "cisco_ios_xr"
     sourcePort.EntityData.ParentYangName = "access-list-entry"
     sourcePort.EntityData.SegmentPath = "source-port"
+    sourcePort.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + sourcePort.EntityData.SegmentPath
     sourcePort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourcePort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourcePort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -742,6 +759,7 @@ func (destinationPort *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_Ac
     destinationPort.EntityData.BundleName = "cisco_ios_xr"
     destinationPort.EntityData.ParentYangName = "access-list-entry"
     destinationPort.EntityData.SegmentPath = "destination-port"
+    destinationPort.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + destinationPort.EntityData.SegmentPath
     destinationPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -775,6 +793,7 @@ func (icmp *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEnt
     icmp.EntityData.BundleName = "cisco_ios_xr"
     icmp.EntityData.ParentYangName = "access-list-entry"
     icmp.EntityData.SegmentPath = "icmp"
+    icmp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + icmp.EntityData.SegmentPath
     icmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     icmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     icmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -813,6 +832,7 @@ func (tcp *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntr
     tcp.EntityData.BundleName = "cisco_ios_xr"
     tcp.EntityData.ParentYangName = "access-list-entry"
     tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + tcp.EntityData.SegmentPath
     tcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -857,6 +877,7 @@ func (packetLength *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_Acces
     packetLength.EntityData.BundleName = "cisco_ios_xr"
     packetLength.EntityData.ParentYangName = "access-list-entry"
     packetLength.EntityData.SegmentPath = "packet-length"
+    packetLength.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + packetLength.EntityData.SegmentPath
     packetLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packetLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packetLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -902,6 +923,7 @@ func (timeToLive *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessL
     timeToLive.EntityData.BundleName = "cisco_ios_xr"
     timeToLive.EntityData.ParentYangName = "access-list-entry"
     timeToLive.EntityData.SegmentPath = "time-to-live"
+    timeToLive.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + timeToLive.EntityData.SegmentPath
     timeToLive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timeToLive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timeToLive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -951,6 +973,7 @@ func (dSCPValues *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessL
     dSCPValues.EntityData.BundleName = "cisco_ios_xr"
     dSCPValues.EntityData.ParentYangName = "access-list-entry"
     dSCPValues.EntityData.SegmentPath = "DSCPValues"
+    dSCPValues.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + dSCPValues.EntityData.SegmentPath
     dSCPValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dSCPValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dSCPValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -991,6 +1014,7 @@ func (nextHop *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessList
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "access-list-entry"
     nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1031,6 +1055,7 @@ func (nextHop1 *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessLis
     nextHop1.EntityData.BundleName = "cisco_ios_xr"
     nextHop1.EntityData.ParentYangName = "next-hop"
     nextHop1.EntityData.SegmentPath = "next-hop-1"
+    nextHop1.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/next-hop/" + nextHop1.EntityData.SegmentPath
     nextHop1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1070,6 +1095,7 @@ func (nextHop2 *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessLis
     nextHop2.EntityData.BundleName = "cisco_ios_xr"
     nextHop2.EntityData.ParentYangName = "next-hop"
     nextHop2.EntityData.SegmentPath = "next-hop-2"
+    nextHop2.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/next-hop/" + nextHop2.EntityData.SegmentPath
     nextHop2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1109,6 +1135,7 @@ func (nextHop3 *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessLis
     nextHop3.EntityData.BundleName = "cisco_ios_xr"
     nextHop3.EntityData.ParentYangName = "next-hop"
     nextHop3.EntityData.SegmentPath = "next-hop-3"
+    nextHop3.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/next-hop/" + nextHop3.EntityData.SegmentPath
     nextHop3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1152,6 +1179,7 @@ func (headerFlags *Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_Access
     headerFlags.EntityData.BundleName = "cisco_ios_xr"
     headerFlags.EntityData.ParentYangName = "access-list-entry"
     headerFlags.EntityData.SegmentPath = "header-flags"
+    headerFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/access/access-list-entries/access-list-entry/" + headerFlags.EntityData.SegmentPath
     headerFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     headerFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     headerFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -44,6 +44,7 @@ func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetEntit
     cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.ParentYangName = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
     cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.SegmentPath = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.AbsolutePath = cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.SegmentPath
     cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -92,6 +93,7 @@ func (cviVlanInterfaceIndexTable *CISCOVLANIFTABLERELATIONSHIPMIB_CviVlanInterfa
     cviVlanInterfaceIndexTable.EntityData.BundleName = "cisco_ios_xe"
     cviVlanInterfaceIndexTable.EntityData.ParentYangName = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
     cviVlanInterfaceIndexTable.EntityData.SegmentPath = "cviVlanInterfaceIndexTable"
+    cviVlanInterfaceIndexTable.EntityData.AbsolutePath = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB/" + cviVlanInterfaceIndexTable.EntityData.SegmentPath
     cviVlanInterfaceIndexTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cviVlanInterfaceIndexTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cviVlanInterfaceIndexTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -123,6 +125,7 @@ func (cviVlanInterfaceIndexTable *CISCOVLANIFTABLERELATIONSHIPMIB_CviVlanInterfa
 type CISCOVLANIFTABLERELATIONSHIPMIB_CviVlanInterfaceIndexTable_CviVlanInterfaceIndexEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The VLAN-id number of the routed VLAN interface.
     // The type is interface{} with range: 0..4095.
@@ -145,6 +148,7 @@ func (cviVlanInterfaceIndexEntry *CISCOVLANIFTABLERELATIONSHIPMIB_CviVlanInterfa
     cviVlanInterfaceIndexEntry.EntityData.BundleName = "cisco_ios_xe"
     cviVlanInterfaceIndexEntry.EntityData.ParentYangName = "cviVlanInterfaceIndexTable"
     cviVlanInterfaceIndexEntry.EntityData.SegmentPath = "cviVlanInterfaceIndexEntry" + types.AddKeyToken(cviVlanInterfaceIndexEntry.CviVlanId, "cviVlanId") + types.AddKeyToken(cviVlanInterfaceIndexEntry.CviPhysicalIfIndex, "cviPhysicalIfIndex")
+    cviVlanInterfaceIndexEntry.EntityData.AbsolutePath = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB/cviVlanInterfaceIndexTable/" + cviVlanInterfaceIndexEntry.EntityData.SegmentPath
     cviVlanInterfaceIndexEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cviVlanInterfaceIndexEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cviVlanInterfaceIndexEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

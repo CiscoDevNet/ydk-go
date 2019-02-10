@@ -65,6 +65,7 @@ func (cdp *Cdp) GetEntityData() *types.CommonEntityData {
     cdp.EntityData.BundleName = "cisco_ios_xr"
     cdp.EntityData.ParentYangName = "Cisco-IOS-XR-cdp-oper"
     cdp.EntityData.SegmentPath = "Cisco-IOS-XR-cdp-oper:cdp"
+    cdp.EntityData.AbsolutePath = cdp.EntityData.SegmentPath
     cdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -95,6 +96,7 @@ func (nodes *Cdp_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "cdp"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -116,6 +118,7 @@ func (nodes *Cdp_Nodes) GetEntityData() *types.CommonEntityData {
 type Cdp_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
     // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -137,6 +140,7 @@ func (node *Cdp_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -175,6 +179,7 @@ func (neighbors *Cdp_Nodes_Node_Neighbors) GetEntityData() *types.CommonEntityDa
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "node"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -207,6 +212,7 @@ func (details *Cdp_Nodes_Node_Neighbors_Details) GetEntityData() *types.CommonEn
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "neighbors"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -214,6 +220,7 @@ func (details *Cdp_Nodes_Node_Neighbors_Details) GetEntityData() *types.CommonEn
     details.EntityData.Children = types.NewOrderedMap()
     details.EntityData.Children.Append("detail", types.YChild{"Detail", nil})
     for i := range details.Detail {
+        types.SetYListKey(details.Detail[i], i)
         details.EntityData.Children.Append(types.GetSegmentPath(details.Detail[i]), types.YChild{"Detail", details.Detail[i]})
     }
     details.EntityData.Leafs = types.NewOrderedMap()
@@ -229,6 +236,7 @@ func (details *Cdp_Nodes_Node_Neighbors_Details) GetEntityData() *types.CommonEn
 type Cdp_Nodes_Node_Neighbors_Details_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -246,7 +254,8 @@ func (detail *Cdp_Nodes_Node_Neighbors_Details_Detail) GetEntityData() *types.Co
     detail.EntityData.YangName = "detail"
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "details"
-    detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.SegmentPath = "detail" + types.AddNoKeyToken(detail)
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/details/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -254,6 +263,7 @@ func (detail *Cdp_Nodes_Node_Neighbors_Details_Detail) GetEntityData() *types.Co
     detail.EntityData.Children = types.NewOrderedMap()
     detail.EntityData.Children.Append("cdp-neighbor", types.YChild{"CdpNeighbor", nil})
     for i := range detail.CdpNeighbor {
+        types.SetYListKey(detail.CdpNeighbor[i], i)
         detail.EntityData.Children.Append(types.GetSegmentPath(detail.CdpNeighbor[i]), types.YChild{"CdpNeighbor", detail.CdpNeighbor[i]})
     }
     detail.EntityData.Leafs = types.NewOrderedMap()
@@ -270,6 +280,7 @@ func (detail *Cdp_Nodes_Node_Neighbors_Details_Detail) GetEntityData() *types.Co
 type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -302,7 +313,8 @@ func (cdpNeighbor *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor) GetEntit
     cdpNeighbor.EntityData.YangName = "cdp-neighbor"
     cdpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     cdpNeighbor.EntityData.ParentYangName = "detail"
-    cdpNeighbor.EntityData.SegmentPath = "cdp-neighbor"
+    cdpNeighbor.EntityData.SegmentPath = "cdp-neighbor" + types.AddNoKeyToken(cdpNeighbor)
+    cdpNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/details/detail/" + cdpNeighbor.EntityData.SegmentPath
     cdpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,6 +369,7 @@ func (detail *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail) GetEnt
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "cdp-neighbor"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/details/detail/cdp-neighbor/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -393,6 +406,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Deta
     networkAddresses.EntityData.BundleName = "cisco_ios_xr"
     networkAddresses.EntityData.ParentYangName = "detail"
     networkAddresses.EntityData.SegmentPath = "network-addresses"
+    networkAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/details/detail/cdp-neighbor/detail/" + networkAddresses.EntityData.SegmentPath
     networkAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -400,6 +414,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Deta
     networkAddresses.EntityData.Children = types.NewOrderedMap()
     networkAddresses.EntityData.Children.Append("cdp-addr-entry", types.YChild{"CdpAddrEntry", nil})
     for i := range networkAddresses.CdpAddrEntry {
+        types.SetYListKey(networkAddresses.CdpAddrEntry[i], i)
         networkAddresses.EntityData.Children.Append(types.GetSegmentPath(networkAddresses.CdpAddrEntry[i]), types.YChild{"CdpAddrEntry", networkAddresses.CdpAddrEntry[i]})
     }
     networkAddresses.EntityData.Leafs = types.NewOrderedMap()
@@ -414,6 +429,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Deta
 type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network layer address.
     Address Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry_Address
@@ -424,7 +440,8 @@ func (cdpAddrEntry *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_N
     cdpAddrEntry.EntityData.YangName = "cdp-addr-entry"
     cdpAddrEntry.EntityData.BundleName = "cisco_ios_xr"
     cdpAddrEntry.EntityData.ParentYangName = "network-addresses"
-    cdpAddrEntry.EntityData.SegmentPath = "cdp-addr-entry"
+    cdpAddrEntry.EntityData.SegmentPath = "cdp-addr-entry" + types.AddNoKeyToken(cdpAddrEntry)
+    cdpAddrEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/details/detail/cdp-neighbor/detail/network-addresses/" + cdpAddrEntry.EntityData.SegmentPath
     cdpAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpAddrEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -462,6 +479,7 @@ func (address *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_Networ
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "cdp-addr-entry"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/details/detail/cdp-neighbor/detail/network-addresses/cdp-addr-entry/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -494,6 +512,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Det
     protocolHelloList.EntityData.BundleName = "cisco_ios_xr"
     protocolHelloList.EntityData.ParentYangName = "detail"
     protocolHelloList.EntityData.SegmentPath = "protocol-hello-list"
+    protocolHelloList.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/details/detail/cdp-neighbor/detail/" + protocolHelloList.EntityData.SegmentPath
     protocolHelloList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolHelloList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolHelloList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -501,6 +520,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Det
     protocolHelloList.EntityData.Children = types.NewOrderedMap()
     protocolHelloList.EntityData.Children.Append("cdp-prot-hello-entry", types.YChild{"CdpProtHelloEntry", nil})
     for i := range protocolHelloList.CdpProtHelloEntry {
+        types.SetYListKey(protocolHelloList.CdpProtHelloEntry[i], i)
         protocolHelloList.EntityData.Children.Append(types.GetSegmentPath(protocolHelloList.CdpProtHelloEntry[i]), types.YChild{"CdpProtHelloEntry", protocolHelloList.CdpProtHelloEntry[i]})
     }
     protocolHelloList.EntityData.Leafs = types.NewOrderedMap()
@@ -515,6 +535,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Det
 type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol Hello msg. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -526,7 +547,8 @@ func (cdpProtHelloEntry *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Det
     cdpProtHelloEntry.EntityData.YangName = "cdp-prot-hello-entry"
     cdpProtHelloEntry.EntityData.BundleName = "cisco_ios_xr"
     cdpProtHelloEntry.EntityData.ParentYangName = "protocol-hello-list"
-    cdpProtHelloEntry.EntityData.SegmentPath = "cdp-prot-hello-entry"
+    cdpProtHelloEntry.EntityData.SegmentPath = "cdp-prot-hello-entry" + types.AddNoKeyToken(cdpProtHelloEntry)
+    cdpProtHelloEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/details/detail/cdp-neighbor/detail/protocol-hello-list/" + cdpProtHelloEntry.EntityData.SegmentPath
     cdpProtHelloEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpProtHelloEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpProtHelloEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -557,6 +579,7 @@ func (devices *Cdp_Nodes_Node_Neighbors_Devices) GetEntityData() *types.CommonEn
     devices.EntityData.BundleName = "cisco_ios_xr"
     devices.EntityData.ParentYangName = "neighbors"
     devices.EntityData.SegmentPath = "devices"
+    devices.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/" + devices.EntityData.SegmentPath
     devices.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     devices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     devices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -579,6 +602,7 @@ func (devices *Cdp_Nodes_Node_Neighbors_Devices) GetEntityData() *types.CommonEn
 type Cdp_Nodes_Node_Neighbors_Devices_Device struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The neighboring device identifier. The type is
     // string.
@@ -595,6 +619,7 @@ func (device *Cdp_Nodes_Node_Neighbors_Devices_Device) GetEntityData() *types.Co
     device.EntityData.BundleName = "cisco_ios_xr"
     device.EntityData.ParentYangName = "devices"
     device.EntityData.SegmentPath = "device" + types.AddKeyToken(device.DeviceId, "device-id")
+    device.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/devices/" + device.EntityData.SegmentPath
     device.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     device.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     device.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -602,6 +627,7 @@ func (device *Cdp_Nodes_Node_Neighbors_Devices_Device) GetEntityData() *types.Co
     device.EntityData.Children = types.NewOrderedMap()
     device.EntityData.Children.Append("cdp-neighbor", types.YChild{"CdpNeighbor", nil})
     for i := range device.CdpNeighbor {
+        types.SetYListKey(device.CdpNeighbor[i], i)
         device.EntityData.Children.Append(types.GetSegmentPath(device.CdpNeighbor[i]), types.YChild{"CdpNeighbor", device.CdpNeighbor[i]})
     }
     device.EntityData.Leafs = types.NewOrderedMap()
@@ -617,6 +643,7 @@ func (device *Cdp_Nodes_Node_Neighbors_Devices_Device) GetEntityData() *types.Co
 type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -649,7 +676,8 @@ func (cdpNeighbor *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor) GetEntit
     cdpNeighbor.EntityData.YangName = "cdp-neighbor"
     cdpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     cdpNeighbor.EntityData.ParentYangName = "device"
-    cdpNeighbor.EntityData.SegmentPath = "cdp-neighbor"
+    cdpNeighbor.EntityData.SegmentPath = "cdp-neighbor" + types.AddNoKeyToken(cdpNeighbor)
+    cdpNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/devices/device/" + cdpNeighbor.EntityData.SegmentPath
     cdpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -704,6 +732,7 @@ func (detail *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail) GetEnt
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "cdp-neighbor"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/devices/device/cdp-neighbor/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -740,6 +769,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Deta
     networkAddresses.EntityData.BundleName = "cisco_ios_xr"
     networkAddresses.EntityData.ParentYangName = "detail"
     networkAddresses.EntityData.SegmentPath = "network-addresses"
+    networkAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/devices/device/cdp-neighbor/detail/" + networkAddresses.EntityData.SegmentPath
     networkAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -747,6 +777,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Deta
     networkAddresses.EntityData.Children = types.NewOrderedMap()
     networkAddresses.EntityData.Children.Append("cdp-addr-entry", types.YChild{"CdpAddrEntry", nil})
     for i := range networkAddresses.CdpAddrEntry {
+        types.SetYListKey(networkAddresses.CdpAddrEntry[i], i)
         networkAddresses.EntityData.Children.Append(types.GetSegmentPath(networkAddresses.CdpAddrEntry[i]), types.YChild{"CdpAddrEntry", networkAddresses.CdpAddrEntry[i]})
     }
     networkAddresses.EntityData.Leafs = types.NewOrderedMap()
@@ -761,6 +792,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Deta
 type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network layer address.
     Address Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry_Address
@@ -771,7 +803,8 @@ func (cdpAddrEntry *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_N
     cdpAddrEntry.EntityData.YangName = "cdp-addr-entry"
     cdpAddrEntry.EntityData.BundleName = "cisco_ios_xr"
     cdpAddrEntry.EntityData.ParentYangName = "network-addresses"
-    cdpAddrEntry.EntityData.SegmentPath = "cdp-addr-entry"
+    cdpAddrEntry.EntityData.SegmentPath = "cdp-addr-entry" + types.AddNoKeyToken(cdpAddrEntry)
+    cdpAddrEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/devices/device/cdp-neighbor/detail/network-addresses/" + cdpAddrEntry.EntityData.SegmentPath
     cdpAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpAddrEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -809,6 +842,7 @@ func (address *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_Networ
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "cdp-addr-entry"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/devices/device/cdp-neighbor/detail/network-addresses/cdp-addr-entry/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -841,6 +875,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Det
     protocolHelloList.EntityData.BundleName = "cisco_ios_xr"
     protocolHelloList.EntityData.ParentYangName = "detail"
     protocolHelloList.EntityData.SegmentPath = "protocol-hello-list"
+    protocolHelloList.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/devices/device/cdp-neighbor/detail/" + protocolHelloList.EntityData.SegmentPath
     protocolHelloList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolHelloList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolHelloList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -848,6 +883,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Det
     protocolHelloList.EntityData.Children = types.NewOrderedMap()
     protocolHelloList.EntityData.Children.Append("cdp-prot-hello-entry", types.YChild{"CdpProtHelloEntry", nil})
     for i := range protocolHelloList.CdpProtHelloEntry {
+        types.SetYListKey(protocolHelloList.CdpProtHelloEntry[i], i)
         protocolHelloList.EntityData.Children.Append(types.GetSegmentPath(protocolHelloList.CdpProtHelloEntry[i]), types.YChild{"CdpProtHelloEntry", protocolHelloList.CdpProtHelloEntry[i]})
     }
     protocolHelloList.EntityData.Leafs = types.NewOrderedMap()
@@ -862,6 +898,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Det
 type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol Hello msg. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -873,7 +910,8 @@ func (cdpProtHelloEntry *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Det
     cdpProtHelloEntry.EntityData.YangName = "cdp-prot-hello-entry"
     cdpProtHelloEntry.EntityData.BundleName = "cisco_ios_xr"
     cdpProtHelloEntry.EntityData.ParentYangName = "protocol-hello-list"
-    cdpProtHelloEntry.EntityData.SegmentPath = "cdp-prot-hello-entry"
+    cdpProtHelloEntry.EntityData.SegmentPath = "cdp-prot-hello-entry" + types.AddNoKeyToken(cdpProtHelloEntry)
+    cdpProtHelloEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/devices/device/cdp-neighbor/detail/protocol-hello-list/" + cdpProtHelloEntry.EntityData.SegmentPath
     cdpProtHelloEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpProtHelloEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpProtHelloEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -904,6 +942,7 @@ func (summaries *Cdp_Nodes_Node_Neighbors_Summaries) GetEntityData() *types.Comm
     summaries.EntityData.BundleName = "cisco_ios_xr"
     summaries.EntityData.ParentYangName = "neighbors"
     summaries.EntityData.SegmentPath = "summaries"
+    summaries.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/" + summaries.EntityData.SegmentPath
     summaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -911,6 +950,7 @@ func (summaries *Cdp_Nodes_Node_Neighbors_Summaries) GetEntityData() *types.Comm
     summaries.EntityData.Children = types.NewOrderedMap()
     summaries.EntityData.Children.Append("summary", types.YChild{"Summary", nil})
     for i := range summaries.Summary {
+        types.SetYListKey(summaries.Summary[i], i)
         summaries.EntityData.Children.Append(types.GetSegmentPath(summaries.Summary[i]), types.YChild{"Summary", summaries.Summary[i]})
     }
     summaries.EntityData.Leafs = types.NewOrderedMap()
@@ -925,6 +965,7 @@ func (summaries *Cdp_Nodes_Node_Neighbors_Summaries) GetEntityData() *types.Comm
 type Cdp_Nodes_Node_Neighbors_Summaries_Summary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -942,7 +983,8 @@ func (summary *Cdp_Nodes_Node_Neighbors_Summaries_Summary) GetEntityData() *type
     summary.EntityData.YangName = "summary"
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "summaries"
-    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.SegmentPath = "summary" + types.AddNoKeyToken(summary)
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/summaries/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -950,6 +992,7 @@ func (summary *Cdp_Nodes_Node_Neighbors_Summaries_Summary) GetEntityData() *type
     summary.EntityData.Children = types.NewOrderedMap()
     summary.EntityData.Children.Append("cdp-neighbor", types.YChild{"CdpNeighbor", nil})
     for i := range summary.CdpNeighbor {
+        types.SetYListKey(summary.CdpNeighbor[i], i)
         summary.EntityData.Children.Append(types.GetSegmentPath(summary.CdpNeighbor[i]), types.YChild{"CdpNeighbor", summary.CdpNeighbor[i]})
     }
     summary.EntityData.Leafs = types.NewOrderedMap()
@@ -966,6 +1009,7 @@ func (summary *Cdp_Nodes_Node_Neighbors_Summaries_Summary) GetEntityData() *type
 type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -998,7 +1042,8 @@ func (cdpNeighbor *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor) GetEn
     cdpNeighbor.EntityData.YangName = "cdp-neighbor"
     cdpNeighbor.EntityData.BundleName = "cisco_ios_xr"
     cdpNeighbor.EntityData.ParentYangName = "summary"
-    cdpNeighbor.EntityData.SegmentPath = "cdp-neighbor"
+    cdpNeighbor.EntityData.SegmentPath = "cdp-neighbor" + types.AddNoKeyToken(cdpNeighbor)
+    cdpNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/summaries/summary/" + cdpNeighbor.EntityData.SegmentPath
     cdpNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1053,6 +1098,7 @@ func (detail *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail) Get
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "cdp-neighbor"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/summaries/summary/cdp-neighbor/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1089,6 +1135,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_D
     networkAddresses.EntityData.BundleName = "cisco_ios_xr"
     networkAddresses.EntityData.ParentYangName = "detail"
     networkAddresses.EntityData.SegmentPath = "network-addresses"
+    networkAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/summaries/summary/cdp-neighbor/detail/" + networkAddresses.EntityData.SegmentPath
     networkAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1096,6 +1143,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_D
     networkAddresses.EntityData.Children = types.NewOrderedMap()
     networkAddresses.EntityData.Children.Append("cdp-addr-entry", types.YChild{"CdpAddrEntry", nil})
     for i := range networkAddresses.CdpAddrEntry {
+        types.SetYListKey(networkAddresses.CdpAddrEntry[i], i)
         networkAddresses.EntityData.Children.Append(types.GetSegmentPath(networkAddresses.CdpAddrEntry[i]), types.YChild{"CdpAddrEntry", networkAddresses.CdpAddrEntry[i]})
     }
     networkAddresses.EntityData.Leafs = types.NewOrderedMap()
@@ -1110,6 +1158,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_D
 type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Network layer address.
     Address Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry_Address
@@ -1120,7 +1169,8 @@ func (cdpAddrEntry *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detai
     cdpAddrEntry.EntityData.YangName = "cdp-addr-entry"
     cdpAddrEntry.EntityData.BundleName = "cisco_ios_xr"
     cdpAddrEntry.EntityData.ParentYangName = "network-addresses"
-    cdpAddrEntry.EntityData.SegmentPath = "cdp-addr-entry"
+    cdpAddrEntry.EntityData.SegmentPath = "cdp-addr-entry" + types.AddNoKeyToken(cdpAddrEntry)
+    cdpAddrEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/summaries/summary/cdp-neighbor/detail/network-addresses/" + cdpAddrEntry.EntityData.SegmentPath
     cdpAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpAddrEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1158,6 +1208,7 @@ func (address *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_Net
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "cdp-addr-entry"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/summaries/summary/cdp-neighbor/detail/network-addresses/cdp-addr-entry/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1190,6 +1241,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_
     protocolHelloList.EntityData.BundleName = "cisco_ios_xr"
     protocolHelloList.EntityData.ParentYangName = "detail"
     protocolHelloList.EntityData.SegmentPath = "protocol-hello-list"
+    protocolHelloList.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/summaries/summary/cdp-neighbor/detail/" + protocolHelloList.EntityData.SegmentPath
     protocolHelloList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolHelloList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolHelloList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1197,6 +1249,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_
     protocolHelloList.EntityData.Children = types.NewOrderedMap()
     protocolHelloList.EntityData.Children.Append("cdp-prot-hello-entry", types.YChild{"CdpProtHelloEntry", nil})
     for i := range protocolHelloList.CdpProtHelloEntry {
+        types.SetYListKey(protocolHelloList.CdpProtHelloEntry[i], i)
         protocolHelloList.EntityData.Children.Append(types.GetSegmentPath(protocolHelloList.CdpProtHelloEntry[i]), types.YChild{"CdpProtHelloEntry", protocolHelloList.CdpProtHelloEntry[i]})
     }
     protocolHelloList.EntityData.Leafs = types.NewOrderedMap()
@@ -1211,6 +1264,7 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_
 type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol Hello msg. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -1222,7 +1276,8 @@ func (cdpProtHelloEntry *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_
     cdpProtHelloEntry.EntityData.YangName = "cdp-prot-hello-entry"
     cdpProtHelloEntry.EntityData.BundleName = "cisco_ios_xr"
     cdpProtHelloEntry.EntityData.ParentYangName = "protocol-hello-list"
-    cdpProtHelloEntry.EntityData.SegmentPath = "cdp-prot-hello-entry"
+    cdpProtHelloEntry.EntityData.SegmentPath = "cdp-prot-hello-entry" + types.AddNoKeyToken(cdpProtHelloEntry)
+    cdpProtHelloEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/neighbors/summaries/summary/cdp-neighbor/detail/protocol-hello-list/" + cdpProtHelloEntry.EntityData.SegmentPath
     cdpProtHelloEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cdpProtHelloEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cdpProtHelloEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1294,6 +1349,7 @@ func (statistics *Cdp_Nodes_Node_Statistics) GetEntityData() *types.CommonEntity
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "node"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1338,6 +1394,7 @@ func (interfaces *Cdp_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntity
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1360,6 +1417,7 @@ func (interfaces *Cdp_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntity
 type Cdp_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1385,6 +1443,7 @@ func (self *Cdp_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonEn
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-cdp-oper:cdp/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

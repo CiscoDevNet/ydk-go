@@ -46,6 +46,7 @@ func (ipRaw *IpRaw) GetEntityData() *types.CommonEntityData {
     ipRaw.EntityData.BundleName = "cisco_ios_xr"
     ipRaw.EntityData.ParentYangName = "Cisco-IOS-XR-ip-raw-cfg"
     ipRaw.EntityData.SegmentPath = "Cisco-IOS-XR-ip-raw-cfg:ip-raw"
+    ipRaw.EntityData.AbsolutePath = ipRaw.EntityData.SegmentPath
     ipRaw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipRaw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipRaw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -84,6 +85,7 @@ func (numThread *IpRaw_NumThread) GetEntityData() *types.CommonEntityData {
     numThread.EntityData.BundleName = "cisco_ios_xr"
     numThread.EntityData.ParentYangName = "ip-raw"
     numThread.EntityData.SegmentPath = "num-thread"
+    numThread.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-raw-cfg:ip-raw/" + numThread.EntityData.SegmentPath
     numThread.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numThread.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numThread.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -124,6 +126,7 @@ func (directory *IpRaw_Directory) GetEntityData() *types.CommonEntityData {
     directory.EntityData.BundleName = "cisco_ios_xr"
     directory.EntityData.ParentYangName = "ip-raw"
     directory.EntityData.SegmentPath = "directory"
+    directory.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-raw-cfg:ip-raw/" + directory.EntityData.SegmentPath
     directory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     directory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     directory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

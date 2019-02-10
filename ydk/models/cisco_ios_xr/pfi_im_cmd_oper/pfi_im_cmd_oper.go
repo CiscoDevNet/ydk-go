@@ -2418,6 +2418,7 @@ func (interfaces *Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "Cisco-IOS-XR-pfi-im-cmd-oper"
     interfaces.EntityData.SegmentPath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces"
+    interfaces.EntityData.AbsolutePath = interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2454,6 +2455,7 @@ func (interfaceXr *Interfaces_InterfaceXr) GetEntityData() *types.CommonEntityDa
     interfaceXr.EntityData.BundleName = "cisco_ios_xr"
     interfaceXr.EntityData.ParentYangName = "interfaces"
     interfaceXr.EntityData.SegmentPath = "interface-xr"
+    interfaceXr.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/" + interfaceXr.EntityData.SegmentPath
     interfaceXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2476,6 +2478,7 @@ func (interfaceXr *Interfaces_InterfaceXr) GetEntityData() *types.CommonEntityDa
 type Interfaces_InterfaceXr_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2626,6 +2629,7 @@ func (self *Interfaces_InterfaceXr_Interface) GetEntityData() *types.CommonEntit
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-xr"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2726,6 +2730,7 @@ func (dampeningInformation *Interfaces_InterfaceXr_Interface_DampeningInformatio
     dampeningInformation.EntityData.BundleName = "cisco_ios_xr"
     dampeningInformation.EntityData.ParentYangName = "interface"
     dampeningInformation.EntityData.SegmentPath = "dampening-information"
+    dampeningInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + dampeningInformation.EntityData.SegmentPath
     dampeningInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dampeningInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dampeningInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2763,6 +2768,7 @@ func (macAddress *Interfaces_InterfaceXr_Interface_MacAddress) GetEntityData() *
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "interface"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2793,6 +2799,7 @@ func (burnedInAddress *Interfaces_InterfaceXr_Interface_BurnedInAddress) GetEnti
     burnedInAddress.EntityData.BundleName = "cisco_ios_xr"
     burnedInAddress.EntityData.ParentYangName = "interface"
     burnedInAddress.EntityData.SegmentPath = "burned-in-address"
+    burnedInAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + burnedInAddress.EntityData.SegmentPath
     burnedInAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     burnedInAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     burnedInAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2827,6 +2834,7 @@ func (carrierDelay *Interfaces_InterfaceXr_Interface_CarrierDelay) GetEntityData
     carrierDelay.EntityData.BundleName = "cisco_ios_xr"
     carrierDelay.EntityData.ParentYangName = "interface"
     carrierDelay.EntityData.SegmentPath = "carrier-delay"
+    carrierDelay.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + carrierDelay.EntityData.SegmentPath
     carrierDelay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     carrierDelay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     carrierDelay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2864,6 +2872,7 @@ func (arpInformation *Interfaces_InterfaceXr_Interface_ArpInformation) GetEntity
     arpInformation.EntityData.BundleName = "cisco_ios_xr"
     arpInformation.EntityData.ParentYangName = "interface"
     arpInformation.EntityData.SegmentPath = "arp-information"
+    arpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + arpInformation.EntityData.SegmentPath
     arpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2900,6 +2909,7 @@ func (ipInformation *Interfaces_InterfaceXr_Interface_IpInformation) GetEntityDa
     ipInformation.EntityData.BundleName = "cisco_ios_xr"
     ipInformation.EntityData.ParentYangName = "interface"
     ipInformation.EntityData.SegmentPath = "ip-information"
+    ipInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + ipInformation.EntityData.SegmentPath
     ipInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2939,6 +2949,7 @@ func (encapsulationInformation *Interfaces_InterfaceXr_Interface_EncapsulationIn
     encapsulationInformation.EntityData.BundleName = "cisco_ios_xr"
     encapsulationInformation.EntityData.ParentYangName = "interface"
     encapsulationInformation.EntityData.SegmentPath = "encapsulation-information"
+    encapsulationInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + encapsulationInformation.EntityData.SegmentPath
     encapsulationInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     encapsulationInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encapsulationInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3018,6 +3029,7 @@ func (frameRelayInformation *Interfaces_InterfaceXr_Interface_EncapsulationInfor
     frameRelayInformation.EntityData.BundleName = "cisco_ios_xr"
     frameRelayInformation.EntityData.ParentYangName = "encapsulation-information"
     frameRelayInformation.EntityData.SegmentPath = "frame-relay-information"
+    frameRelayInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/" + frameRelayInformation.EntityData.SegmentPath
     frameRelayInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frameRelayInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frameRelayInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3063,6 +3075,7 @@ func (dot1qInformation *Interfaces_InterfaceXr_Interface_EncapsulationInformatio
     dot1qInformation.EntityData.BundleName = "cisco_ios_xr"
     dot1qInformation.EntityData.ParentYangName = "encapsulation-information"
     dot1qInformation.EntityData.SegmentPath = "dot1q-information"
+    dot1qInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/" + dot1qInformation.EntityData.SegmentPath
     dot1qInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dot1qInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dot1qInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3120,6 +3133,7 @@ func (encapsulationDetails *Interfaces_InterfaceXr_Interface_EncapsulationInform
     encapsulationDetails.EntityData.BundleName = "cisco_ios_xr"
     encapsulationDetails.EntityData.ParentYangName = "dot1q-information"
     encapsulationDetails.EntityData.SegmentPath = "encapsulation-details"
+    encapsulationDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/" + encapsulationDetails.EntityData.SegmentPath
     encapsulationDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     encapsulationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encapsulationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3161,6 +3175,7 @@ func (stack *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInfo
     stack.EntityData.BundleName = "cisco_ios_xr"
     stack.EntityData.ParentYangName = "encapsulation-details"
     stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/encapsulation-details/" + stack.EntityData.SegmentPath
     stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3226,6 +3241,7 @@ func (serviceInstanceDetails *Interfaces_InterfaceXr_Interface_EncapsulationInfo
     serviceInstanceDetails.EntityData.BundleName = "cisco_ios_xr"
     serviceInstanceDetails.EntityData.ParentYangName = "encapsulation-details"
     serviceInstanceDetails.EntityData.SegmentPath = "service-instance-details"
+    serviceInstanceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/encapsulation-details/" + serviceInstanceDetails.EntityData.SegmentPath
     serviceInstanceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3234,10 +3250,12 @@ func (serviceInstanceDetails *Interfaces_InterfaceXr_Interface_EncapsulationInfo
     serviceInstanceDetails.EntityData.Children.Append("local-traffic-stack", types.YChild{"LocalTrafficStack", &serviceInstanceDetails.LocalTrafficStack})
     serviceInstanceDetails.EntityData.Children.Append("tags-to-match", types.YChild{"TagsToMatch", nil})
     for i := range serviceInstanceDetails.TagsToMatch {
+        types.SetYListKey(serviceInstanceDetails.TagsToMatch[i], i)
         serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.TagsToMatch[i]), types.YChild{"TagsToMatch", serviceInstanceDetails.TagsToMatch[i]})
     }
     serviceInstanceDetails.EntityData.Children.Append("pushe", types.YChild{"Pushe", nil})
     for i := range serviceInstanceDetails.Pushe {
+        types.SetYListKey(serviceInstanceDetails.Pushe[i], i)
         serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.Pushe[i]), types.YChild{"Pushe", serviceInstanceDetails.Pushe[i]})
     }
     serviceInstanceDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -3271,6 +3289,7 @@ func (localTrafficStack *Interfaces_InterfaceXr_Interface_EncapsulationInformati
     localTrafficStack.EntityData.BundleName = "cisco_ios_xr"
     localTrafficStack.EntityData.ParentYangName = "service-instance-details"
     localTrafficStack.EntityData.SegmentPath = "local-traffic-stack"
+    localTrafficStack.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/encapsulation-details/service-instance-details/" + localTrafficStack.EntityData.SegmentPath
     localTrafficStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3278,6 +3297,7 @@ func (localTrafficStack *Interfaces_InterfaceXr_Interface_EncapsulationInformati
     localTrafficStack.EntityData.Children = types.NewOrderedMap()
     localTrafficStack.EntityData.Children.Append("local-traffic-tag", types.YChild{"LocalTrafficTag", nil})
     for i := range localTrafficStack.LocalTrafficTag {
+        types.SetYListKey(localTrafficStack.LocalTrafficTag[i], i)
         localTrafficStack.EntityData.Children.Append(types.GetSegmentPath(localTrafficStack.LocalTrafficTag[i]), types.YChild{"LocalTrafficTag", localTrafficStack.LocalTrafficTag[i]})
     }
     localTrafficStack.EntityData.Leafs = types.NewOrderedMap()
@@ -3292,6 +3312,7 @@ func (localTrafficStack *Interfaces_InterfaceXr_Interface_EncapsulationInformati
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -3305,7 +3326,8 @@ func (localTrafficTag *Interfaces_InterfaceXr_Interface_EncapsulationInformation
     localTrafficTag.EntityData.YangName = "local-traffic-tag"
     localTrafficTag.EntityData.BundleName = "cisco_ios_xr"
     localTrafficTag.EntityData.ParentYangName = "local-traffic-stack"
-    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag"
+    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag" + types.AddNoKeyToken(localTrafficTag)
+    localTrafficTag.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/encapsulation-details/service-instance-details/local-traffic-stack/" + localTrafficTag.EntityData.SegmentPath
     localTrafficTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3325,6 +3347,7 @@ func (localTrafficTag *Interfaces_InterfaceXr_Interface_EncapsulationInformation
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag to match. The type is EfpTagEtype.
     Ethertype interface{}
@@ -3342,7 +3365,8 @@ func (tagsToMatch *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot
     tagsToMatch.EntityData.YangName = "tags-to-match"
     tagsToMatch.EntityData.BundleName = "cisco_ios_xr"
     tagsToMatch.EntityData.ParentYangName = "service-instance-details"
-    tagsToMatch.EntityData.SegmentPath = "tags-to-match"
+    tagsToMatch.EntityData.SegmentPath = "tags-to-match" + types.AddNoKeyToken(tagsToMatch)
+    tagsToMatch.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/encapsulation-details/service-instance-details/" + tagsToMatch.EntityData.SegmentPath
     tagsToMatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagsToMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagsToMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3350,6 +3374,7 @@ func (tagsToMatch *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot
     tagsToMatch.EntityData.Children = types.NewOrderedMap()
     tagsToMatch.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range tagsToMatch.VlanRange {
+        types.SetYListKey(tagsToMatch.VlanRange[i], i)
         tagsToMatch.EntityData.Children.Append(types.GetSegmentPath(tagsToMatch.VlanRange[i]), types.YChild{"VlanRange", tagsToMatch.VlanRange[i]})
     }
     tagsToMatch.EntityData.Leafs = types.NewOrderedMap()
@@ -3366,6 +3391,7 @@ func (tagsToMatch *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VLAN ID Low. The type is interface{} with range: 0..65535.
     VlanIdLow interface{}
@@ -3379,7 +3405,8 @@ func (vlanRange *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1q
     vlanRange.EntityData.YangName = "vlan-range"
     vlanRange.EntityData.BundleName = "cisco_ios_xr"
     vlanRange.EntityData.ParentYangName = "tags-to-match"
-    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
+    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/encapsulation-details/service-instance-details/tags-to-match/" + vlanRange.EntityData.SegmentPath
     vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3399,6 +3426,7 @@ func (vlanRange *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1q
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_EncapsulationDetails_ServiceInstanceDetails_Pushe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -3412,7 +3440,8 @@ func (pushe *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInfo
     pushe.EntityData.YangName = "pushe"
     pushe.EntityData.BundleName = "cisco_ios_xr"
     pushe.EntityData.ParentYangName = "service-instance-details"
-    pushe.EntityData.SegmentPath = "pushe"
+    pushe.EntityData.SegmentPath = "pushe" + types.AddNoKeyToken(pushe)
+    pushe.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/encapsulation-details/service-instance-details/" + pushe.EntityData.SegmentPath
     pushe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pushe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pushe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3446,6 +3475,7 @@ func (dot1adDot1qStack *Interfaces_InterfaceXr_Interface_EncapsulationInformatio
     dot1adDot1qStack.EntityData.BundleName = "cisco_ios_xr"
     dot1adDot1qStack.EntityData.ParentYangName = "encapsulation-details"
     dot1adDot1qStack.EntityData.SegmentPath = "dot1ad-dot1q-stack"
+    dot1adDot1qStack.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/encapsulation-details/" + dot1adDot1qStack.EntityData.SegmentPath
     dot1adDot1qStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dot1adDot1qStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dot1adDot1qStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3482,6 +3512,7 @@ func (vlanSwitched *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Do
     vlanSwitched.EntityData.BundleName = "cisco_ios_xr"
     vlanSwitched.EntityData.ParentYangName = "dot1q-information"
     vlanSwitched.EntityData.SegmentPath = "vlan-switched"
+    vlanSwitched.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/" + vlanSwitched.EntityData.SegmentPath
     vlanSwitched.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanSwitched.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanSwitched.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3548,6 +3579,7 @@ func (trunkVlanRanges *Interfaces_InterfaceXr_Interface_EncapsulationInformation
     trunkVlanRanges.EntityData.BundleName = "cisco_ios_xr"
     trunkVlanRanges.EntityData.ParentYangName = "vlan-switched"
     trunkVlanRanges.EntityData.SegmentPath = "trunk-vlan-ranges"
+    trunkVlanRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/vlan-switched/" + trunkVlanRanges.EntityData.SegmentPath
     trunkVlanRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trunkVlanRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trunkVlanRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3556,10 +3588,12 @@ func (trunkVlanRanges *Interfaces_InterfaceXr_Interface_EncapsulationInformation
     trunkVlanRanges.EntityData.Children.Append("local-traffic-stack", types.YChild{"LocalTrafficStack", &trunkVlanRanges.LocalTrafficStack})
     trunkVlanRanges.EntityData.Children.Append("tags-to-match", types.YChild{"TagsToMatch", nil})
     for i := range trunkVlanRanges.TagsToMatch {
+        types.SetYListKey(trunkVlanRanges.TagsToMatch[i], i)
         trunkVlanRanges.EntityData.Children.Append(types.GetSegmentPath(trunkVlanRanges.TagsToMatch[i]), types.YChild{"TagsToMatch", trunkVlanRanges.TagsToMatch[i]})
     }
     trunkVlanRanges.EntityData.Children.Append("pushe", types.YChild{"Pushe", nil})
     for i := range trunkVlanRanges.Pushe {
+        types.SetYListKey(trunkVlanRanges.Pushe[i], i)
         trunkVlanRanges.EntityData.Children.Append(types.GetSegmentPath(trunkVlanRanges.Pushe[i]), types.YChild{"Pushe", trunkVlanRanges.Pushe[i]})
     }
     trunkVlanRanges.EntityData.Leafs = types.NewOrderedMap()
@@ -3593,6 +3627,7 @@ func (localTrafficStack *Interfaces_InterfaceXr_Interface_EncapsulationInformati
     localTrafficStack.EntityData.BundleName = "cisco_ios_xr"
     localTrafficStack.EntityData.ParentYangName = "trunk-vlan-ranges"
     localTrafficStack.EntityData.SegmentPath = "local-traffic-stack"
+    localTrafficStack.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/vlan-switched/trunk-vlan-ranges/" + localTrafficStack.EntityData.SegmentPath
     localTrafficStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3600,6 +3635,7 @@ func (localTrafficStack *Interfaces_InterfaceXr_Interface_EncapsulationInformati
     localTrafficStack.EntityData.Children = types.NewOrderedMap()
     localTrafficStack.EntityData.Children.Append("local-traffic-tag", types.YChild{"LocalTrafficTag", nil})
     for i := range localTrafficStack.LocalTrafficTag {
+        types.SetYListKey(localTrafficStack.LocalTrafficTag[i], i)
         localTrafficStack.EntityData.Children.Append(types.GetSegmentPath(localTrafficStack.LocalTrafficTag[i]), types.YChild{"LocalTrafficTag", localTrafficStack.LocalTrafficTag[i]})
     }
     localTrafficStack.EntityData.Leafs = types.NewOrderedMap()
@@ -3614,6 +3650,7 @@ func (localTrafficStack *Interfaces_InterfaceXr_Interface_EncapsulationInformati
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_LocalTrafficStack_LocalTrafficTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -3627,7 +3664,8 @@ func (localTrafficTag *Interfaces_InterfaceXr_Interface_EncapsulationInformation
     localTrafficTag.EntityData.YangName = "local-traffic-tag"
     localTrafficTag.EntityData.BundleName = "cisco_ios_xr"
     localTrafficTag.EntityData.ParentYangName = "local-traffic-stack"
-    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag"
+    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag" + types.AddNoKeyToken(localTrafficTag)
+    localTrafficTag.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/vlan-switched/trunk-vlan-ranges/local-traffic-stack/" + localTrafficTag.EntityData.SegmentPath
     localTrafficTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3647,6 +3685,7 @@ func (localTrafficTag *Interfaces_InterfaceXr_Interface_EncapsulationInformation
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag to match. The type is EfpTagEtype.
     Ethertype interface{}
@@ -3664,7 +3703,8 @@ func (tagsToMatch *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot
     tagsToMatch.EntityData.YangName = "tags-to-match"
     tagsToMatch.EntityData.BundleName = "cisco_ios_xr"
     tagsToMatch.EntityData.ParentYangName = "trunk-vlan-ranges"
-    tagsToMatch.EntityData.SegmentPath = "tags-to-match"
+    tagsToMatch.EntityData.SegmentPath = "tags-to-match" + types.AddNoKeyToken(tagsToMatch)
+    tagsToMatch.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/vlan-switched/trunk-vlan-ranges/" + tagsToMatch.EntityData.SegmentPath
     tagsToMatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagsToMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagsToMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3672,6 +3712,7 @@ func (tagsToMatch *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot
     tagsToMatch.EntityData.Children = types.NewOrderedMap()
     tagsToMatch.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range tagsToMatch.VlanRange {
+        types.SetYListKey(tagsToMatch.VlanRange[i], i)
         tagsToMatch.EntityData.Children.Append(types.GetSegmentPath(tagsToMatch.VlanRange[i]), types.YChild{"VlanRange", tagsToMatch.VlanRange[i]})
     }
     tagsToMatch.EntityData.Leafs = types.NewOrderedMap()
@@ -3688,6 +3729,7 @@ func (tagsToMatch *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_TagsToMatch_VlanRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VLAN ID Low. The type is interface{} with range: 0..65535.
     VlanIdLow interface{}
@@ -3701,7 +3743,8 @@ func (vlanRange *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1q
     vlanRange.EntityData.YangName = "vlan-range"
     vlanRange.EntityData.BundleName = "cisco_ios_xr"
     vlanRange.EntityData.ParentYangName = "tags-to-match"
-    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
+    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/vlan-switched/trunk-vlan-ranges/tags-to-match/" + vlanRange.EntityData.SegmentPath
     vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3721,6 +3764,7 @@ func (vlanRange *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1q
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_VlanSwitched_TrunkVlanRanges_Pushe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -3734,7 +3778,8 @@ func (pushe *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInfo
     pushe.EntityData.YangName = "pushe"
     pushe.EntityData.BundleName = "cisco_ios_xr"
     pushe.EntityData.ParentYangName = "trunk-vlan-ranges"
-    pushe.EntityData.SegmentPath = "pushe"
+    pushe.EntityData.SegmentPath = "pushe" + types.AddNoKeyToken(pushe)
+    pushe.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/dot1q-information/vlan-switched/trunk-vlan-ranges/" + pushe.EntityData.SegmentPath
     pushe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pushe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pushe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3784,6 +3829,7 @@ func (pppInformation *Interfaces_InterfaceXr_Interface_EncapsulationInformation_
     pppInformation.EntityData.BundleName = "cisco_ios_xr"
     pppInformation.EntityData.ParentYangName = "encapsulation-information"
     pppInformation.EntityData.SegmentPath = "ppp-information"
+    pppInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/" + pppInformation.EntityData.SegmentPath
     pppInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3791,6 +3837,7 @@ func (pppInformation *Interfaces_InterfaceXr_Interface_EncapsulationInformation_
     pppInformation.EntityData.Children = types.NewOrderedMap()
     pppInformation.EntityData.Children.Append("ncp-info-array", types.YChild{"NcpInfoArray", nil})
     for i := range pppInformation.NcpInfoArray {
+        types.SetYListKey(pppInformation.NcpInfoArray[i], i)
         pppInformation.EntityData.Children.Append(types.GetSegmentPath(pppInformation.NcpInfoArray[i]), types.YChild{"NcpInfoArray", pppInformation.NcpInfoArray[i]})
     }
     pppInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -3810,6 +3857,7 @@ func (pppInformation *Interfaces_InterfaceXr_Interface_EncapsulationInformation_
 type Interfaces_InterfaceXr_Interface_EncapsulationInformation_PppInformation_NcpInfoArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NCP state value. The type is PppFsmState.
     NcpState interface{}
@@ -3823,7 +3871,8 @@ func (ncpInfoArray *Interfaces_InterfaceXr_Interface_EncapsulationInformation_Pp
     ncpInfoArray.EntityData.YangName = "ncp-info-array"
     ncpInfoArray.EntityData.BundleName = "cisco_ios_xr"
     ncpInfoArray.EntityData.ParentYangName = "ppp-information"
-    ncpInfoArray.EntityData.SegmentPath = "ncp-info-array"
+    ncpInfoArray.EntityData.SegmentPath = "ncp-info-array" + types.AddNoKeyToken(ncpInfoArray)
+    ncpInfoArray.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/encapsulation-information/ppp-information/" + ncpInfoArray.EntityData.SegmentPath
     ncpInfoArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncpInfoArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncpInfoArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3881,6 +3930,7 @@ func (interfaceTypeInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeIn
     interfaceTypeInformation.EntityData.BundleName = "cisco_ios_xr"
     interfaceTypeInformation.EntityData.ParentYangName = "interface"
     interfaceTypeInformation.EntityData.SegmentPath = "interface-type-information"
+    interfaceTypeInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + interfaceTypeInformation.EntityData.SegmentPath
     interfaceTypeInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTypeInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTypeInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3922,6 +3972,7 @@ func (srpInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_
     srpInformation.EntityData.BundleName = "cisco_ios_xr"
     srpInformation.EntityData.ParentYangName = "interface-type-information"
     srpInformation.EntityData.SegmentPath = "srp-information"
+    srpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + srpInformation.EntityData.SegmentPath
     srpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3961,6 +4012,7 @@ func (srpInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_
     srpInformation.EntityData.BundleName = "cisco_ios_xr"
     srpInformation.EntityData.ParentYangName = "srp-information"
     srpInformation.EntityData.SegmentPath = "srp-information"
+    srpInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/" + srpInformation.EntityData.SegmentPath
     srpInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srpInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3998,6 +4050,7 @@ func (ipsInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInfo
     ipsInfo.EntityData.BundleName = "cisco_ios_xr"
     ipsInfo.EntityData.ParentYangName = "srp-information"
     ipsInfo.EntityData.SegmentPath = "ips-info"
+    ipsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/" + ipsInfo.EntityData.SegmentPath
     ipsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4005,6 +4058,7 @@ func (ipsInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInfo
     ipsInfo.EntityData.Children = types.NewOrderedMap()
     ipsInfo.EntityData.Children.Append("local-information", types.YChild{"LocalInformation", nil})
     for i := range ipsInfo.LocalInformation {
+        types.SetYListKey(ipsInfo.LocalInformation[i], i)
         ipsInfo.EntityData.Children.Append(types.GetSegmentPath(ipsInfo.LocalInformation[i]), types.YChild{"LocalInformation", ipsInfo.LocalInformation[i]})
     }
     ipsInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -4020,6 +4074,7 @@ func (ipsInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInfo
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_IpsInfo_LocalInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // MAC address for node. The type is string.
     MacAddress interface{}
@@ -4044,7 +4099,8 @@ func (localInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformatio
     localInformation.EntityData.YangName = "local-information"
     localInformation.EntityData.BundleName = "cisco_ios_xr"
     localInformation.EntityData.ParentYangName = "ips-info"
-    localInformation.EntityData.SegmentPath = "local-information"
+    localInformation.EntityData.SegmentPath = "local-information" + types.AddNoKeyToken(localInformation)
+    localInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/ips-info/" + localInformation.EntityData.SegmentPath
     localInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4142,6 +4198,7 @@ func (sideA *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInform
     sideA.EntityData.BundleName = "cisco_ios_xr"
     sideA.EntityData.ParentYangName = "local-information"
     sideA.EntityData.SegmentPath = "side-a"
+    sideA.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/ips-info/local-information/" + sideA.EntityData.SegmentPath
     sideA.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sideA.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sideA.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4149,6 +4206,7 @@ func (sideA *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInform
     sideA.EntityData.Children = types.NewOrderedMap()
     sideA.EntityData.Children.Append("asserted-failure", types.YChild{"AssertedFailure", nil})
     for i := range sideA.AssertedFailure {
+        types.SetYListKey(sideA.AssertedFailure[i], i)
         sideA.EntityData.Children.Append(types.GetSegmentPath(sideA.AssertedFailure[i]), types.YChild{"AssertedFailure", sideA.AssertedFailure[i]})
     }
     sideA.EntityData.Leafs = types.NewOrderedMap()
@@ -4181,6 +4239,7 @@ func (sideA *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInform
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_IpsInfo_LocalInformation_SideA_AssertedFailure struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Failure type. The type is SrpMgmtFailureEt.
     Type interface{}
@@ -4206,7 +4265,8 @@ func (assertedFailure *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation
     assertedFailure.EntityData.YangName = "asserted-failure"
     assertedFailure.EntityData.BundleName = "cisco_ios_xr"
     assertedFailure.EntityData.ParentYangName = "side-a"
-    assertedFailure.EntityData.SegmentPath = "asserted-failure"
+    assertedFailure.EntityData.SegmentPath = "asserted-failure" + types.AddNoKeyToken(assertedFailure)
+    assertedFailure.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/ips-info/local-information/side-a/" + assertedFailure.EntityData.SegmentPath
     assertedFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     assertedFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     assertedFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4305,6 +4365,7 @@ func (sideB *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInform
     sideB.EntityData.BundleName = "cisco_ios_xr"
     sideB.EntityData.ParentYangName = "local-information"
     sideB.EntityData.SegmentPath = "side-b"
+    sideB.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/ips-info/local-information/" + sideB.EntityData.SegmentPath
     sideB.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sideB.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sideB.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4312,6 +4373,7 @@ func (sideB *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInform
     sideB.EntityData.Children = types.NewOrderedMap()
     sideB.EntityData.Children.Append("asserted-failure", types.YChild{"AssertedFailure", nil})
     for i := range sideB.AssertedFailure {
+        types.SetYListKey(sideB.AssertedFailure[i], i)
         sideB.EntityData.Children.Append(types.GetSegmentPath(sideB.AssertedFailure[i]), types.YChild{"AssertedFailure", sideB.AssertedFailure[i]})
     }
     sideB.EntityData.Leafs = types.NewOrderedMap()
@@ -4344,6 +4406,7 @@ func (sideB *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInform
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_IpsInfo_LocalInformation_SideB_AssertedFailure struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Failure type. The type is SrpMgmtFailureEt.
     Type interface{}
@@ -4369,7 +4432,8 @@ func (assertedFailure *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation
     assertedFailure.EntityData.YangName = "asserted-failure"
     assertedFailure.EntityData.BundleName = "cisco_ios_xr"
     assertedFailure.EntityData.ParentYangName = "side-b"
-    assertedFailure.EntityData.SegmentPath = "asserted-failure"
+    assertedFailure.EntityData.SegmentPath = "asserted-failure" + types.AddNoKeyToken(assertedFailure)
+    assertedFailure.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/ips-info/local-information/side-b/" + assertedFailure.EntityData.SegmentPath
     assertedFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     assertedFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     assertedFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4409,6 +4473,7 @@ func (topologyInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Sr
     topologyInfo.EntityData.BundleName = "cisco_ios_xr"
     topologyInfo.EntityData.ParentYangName = "srp-information"
     topologyInfo.EntityData.SegmentPath = "topology-info"
+    topologyInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/" + topologyInfo.EntityData.SegmentPath
     topologyInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologyInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologyInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4416,6 +4481,7 @@ func (topologyInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Sr
     topologyInfo.EntityData.Children = types.NewOrderedMap()
     topologyInfo.EntityData.Children.Append("local-information", types.YChild{"LocalInformation", nil})
     for i := range topologyInfo.LocalInformation {
+        types.SetYListKey(topologyInfo.LocalInformation[i], i)
         topologyInfo.EntityData.Children.Append(types.GetSegmentPath(topologyInfo.LocalInformation[i]), types.YChild{"LocalInformation", topologyInfo.LocalInformation[i]})
     }
     topologyInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -4431,6 +4497,7 @@ func (topologyInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Sr
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_TopologyInfo_LocalInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // How often a topology pkt is sent. The type is interface{} with range:
     // 0..4294967295.
@@ -4461,7 +4528,8 @@ func (localInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformatio
     localInformation.EntityData.YangName = "local-information"
     localInformation.EntityData.BundleName = "cisco_ios_xr"
     localInformation.EntityData.ParentYangName = "topology-info"
-    localInformation.EntityData.SegmentPath = "local-information"
+    localInformation.EntityData.SegmentPath = "local-information" + types.AddNoKeyToken(localInformation)
+    localInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/topology-info/" + localInformation.EntityData.SegmentPath
     localInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4469,6 +4537,7 @@ func (localInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformatio
     localInformation.EntityData.Children = types.NewOrderedMap()
     localInformation.EntityData.Children.Append("ring-node", types.YChild{"RingNode", nil})
     for i := range localInformation.RingNode {
+        types.SetYListKey(localInformation.RingNode[i], i)
         localInformation.EntityData.Children.Append(types.GetSegmentPath(localInformation.RingNode[i]), types.YChild{"RingNode", localInformation.RingNode[i]})
     }
     localInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -4488,6 +4557,7 @@ func (localInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformatio
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_TopologyInfo_LocalInformation_RingNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Outer-ring hops to reach this node. The type is interface{} with range:
     // 0..65535.
@@ -4516,7 +4586,8 @@ func (ringNode *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInf
     ringNode.EntityData.YangName = "ring-node"
     ringNode.EntityData.BundleName = "cisco_ios_xr"
     ringNode.EntityData.ParentYangName = "local-information"
-    ringNode.EntityData.SegmentPath = "ring-node"
+    ringNode.EntityData.SegmentPath = "ring-node" + types.AddNoKeyToken(ringNode)
+    ringNode.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/topology-info/local-information/" + ringNode.EntityData.SegmentPath
     ringNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ringNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ringNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4559,6 +4630,7 @@ func (srrInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInfo
     srrInfo.EntityData.BundleName = "cisco_ios_xr"
     srrInfo.EntityData.ParentYangName = "srp-information"
     srrInfo.EntityData.SegmentPath = "srr-info"
+    srrInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/" + srrInfo.EntityData.SegmentPath
     srrInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srrInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srrInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4566,6 +4638,7 @@ func (srrInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInfo
     srrInfo.EntityData.Children = types.NewOrderedMap()
     srrInfo.EntityData.Children.Append("srr-detailed-info", types.YChild{"SrrDetailedInfo", nil})
     for i := range srrInfo.SrrDetailedInfo {
+        types.SetYListKey(srrInfo.SrrDetailedInfo[i], i)
         srrInfo.EntityData.Children.Append(types.GetSegmentPath(srrInfo.SrrDetailedInfo[i]), types.YChild{"SrrDetailedInfo", srrInfo.SrrDetailedInfo[i]})
     }
     srrInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -4582,6 +4655,7 @@ func (srrInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInfo
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_SrrInfo_SrrDetailedInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Version number. The type is interface{} with range: 0..4294967295.
     VersionNumber interface{}
@@ -4656,7 +4730,8 @@ func (srrDetailedInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation
     srrDetailedInfo.EntityData.YangName = "srr-detailed-info"
     srrDetailedInfo.EntityData.BundleName = "cisco_ios_xr"
     srrDetailedInfo.EntityData.ParentYangName = "srr-info"
-    srrDetailedInfo.EntityData.SegmentPath = "srr-detailed-info"
+    srrDetailedInfo.EntityData.SegmentPath = "srr-detailed-info" + types.AddNoKeyToken(srrDetailedInfo)
+    srrDetailedInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/srr-info/" + srrDetailedInfo.EntityData.SegmentPath
     srrDetailedInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srrDetailedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srrDetailedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4664,10 +4739,12 @@ func (srrDetailedInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation
     srrDetailedInfo.EntityData.Children = types.NewOrderedMap()
     srrDetailedInfo.EntityData.Children.Append("nodes-on-ring", types.YChild{"NodesOnRing", nil})
     for i := range srrDetailedInfo.NodesOnRing {
+        types.SetYListKey(srrDetailedInfo.NodesOnRing[i], i)
         srrDetailedInfo.EntityData.Children.Append(types.GetSegmentPath(srrDetailedInfo.NodesOnRing[i]), types.YChild{"NodesOnRing", srrDetailedInfo.NodesOnRing[i]})
     }
     srrDetailedInfo.EntityData.Children.Append("nodes-not-on-ring", types.YChild{"NodesNotOnRing", nil})
     for i := range srrDetailedInfo.NodesNotOnRing {
+        types.SetYListKey(srrDetailedInfo.NodesNotOnRing[i], i)
         srrDetailedInfo.EntityData.Children.Append(types.GetSegmentPath(srrDetailedInfo.NodesNotOnRing[i]), types.YChild{"NodesNotOnRing", srrDetailedInfo.NodesNotOnRing[i]})
     }
     srrDetailedInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -4698,6 +4775,7 @@ func (srrDetailedInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_SrrInfo_SrrDetailedInfo_NodesOnRing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Node name. The type is string.
     NodeName interface{}
@@ -4728,7 +4806,8 @@ func (nodesOnRing *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Srp
     nodesOnRing.EntityData.YangName = "nodes-on-ring"
     nodesOnRing.EntityData.BundleName = "cisco_ios_xr"
     nodesOnRing.EntityData.ParentYangName = "srr-detailed-info"
-    nodesOnRing.EntityData.SegmentPath = "nodes-on-ring"
+    nodesOnRing.EntityData.SegmentPath = "nodes-on-ring" + types.AddNoKeyToken(nodesOnRing)
+    nodesOnRing.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/srr-info/srr-detailed-info/" + nodesOnRing.EntityData.SegmentPath
     nodesOnRing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodesOnRing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodesOnRing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4753,6 +4832,7 @@ func (nodesOnRing *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Srp
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_SrrInfo_SrrDetailedInfo_NodesNotOnRing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Node name. The type is string.
     NodeName interface{}
@@ -4783,7 +4863,8 @@ func (nodesNotOnRing *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_
     nodesNotOnRing.EntityData.YangName = "nodes-not-on-ring"
     nodesNotOnRing.EntityData.BundleName = "cisco_ios_xr"
     nodesNotOnRing.EntityData.ParentYangName = "srr-detailed-info"
-    nodesNotOnRing.EntityData.SegmentPath = "nodes-not-on-ring"
+    nodesNotOnRing.EntityData.SegmentPath = "nodes-not-on-ring" + types.AddNoKeyToken(nodesNotOnRing)
+    nodesNotOnRing.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/srr-info/srr-detailed-info/" + nodesNotOnRing.EntityData.SegmentPath
     nodesNotOnRing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodesNotOnRing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodesNotOnRing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4824,6 +4905,7 @@ func (rateLimitInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_S
     rateLimitInfo.EntityData.BundleName = "cisco_ios_xr"
     rateLimitInfo.EntityData.ParentYangName = "srp-information"
     rateLimitInfo.EntityData.SegmentPath = "rate-limit-info"
+    rateLimitInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/" + rateLimitInfo.EntityData.SegmentPath
     rateLimitInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rateLimitInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rateLimitInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4831,6 +4913,7 @@ func (rateLimitInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_S
     rateLimitInfo.EntityData.Children = types.NewOrderedMap()
     rateLimitInfo.EntityData.Children.Append("rate-limit-detailed-info", types.YChild{"RateLimitDetailedInfo", nil})
     for i := range rateLimitInfo.RateLimitDetailedInfo {
+        types.SetYListKey(rateLimitInfo.RateLimitDetailedInfo[i], i)
         rateLimitInfo.EntityData.Children.Append(types.GetSegmentPath(rateLimitInfo.RateLimitDetailedInfo[i]), types.YChild{"RateLimitDetailedInfo", rateLimitInfo.RateLimitDetailedInfo[i]})
     }
     rateLimitInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -4846,6 +4929,7 @@ func (rateLimitInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_S
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_SrpInformation_RateLimitInfo_RateLimitDetailedInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Minimum SRP priority for high-priority transmit queue. The type is
     // interface{} with range: 0..65535.
@@ -4857,7 +4941,8 @@ func (rateLimitDetailedInfo *Interfaces_InterfaceXr_Interface_InterfaceTypeInfor
     rateLimitDetailedInfo.EntityData.YangName = "rate-limit-detailed-info"
     rateLimitDetailedInfo.EntityData.BundleName = "cisco_ios_xr"
     rateLimitDetailedInfo.EntityData.ParentYangName = "rate-limit-info"
-    rateLimitDetailedInfo.EntityData.SegmentPath = "rate-limit-detailed-info"
+    rateLimitDetailedInfo.EntityData.SegmentPath = "rate-limit-detailed-info" + types.AddNoKeyToken(rateLimitDetailedInfo)
+    rateLimitDetailedInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-information/rate-limit-info/" + rateLimitDetailedInfo.EntityData.SegmentPath
     rateLimitDetailedInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rateLimitDetailedInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rateLimitDetailedInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4900,6 +4985,7 @@ func (srpStatistics *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_S
     srpStatistics.EntityData.BundleName = "cisco_ios_xr"
     srpStatistics.EntityData.ParentYangName = "srp-information"
     srpStatistics.EntityData.SegmentPath = "srp-statistics"
+    srpStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/" + srpStatistics.EntityData.SegmentPath
     srpStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srpStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srpStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4942,6 +5028,7 @@ func (sideADataRate *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_S
     sideADataRate.EntityData.BundleName = "cisco_ios_xr"
     sideADataRate.EntityData.ParentYangName = "srp-statistics"
     sideADataRate.EntityData.SegmentPath = "side-a-data-rate"
+    sideADataRate.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-statistics/" + sideADataRate.EntityData.SegmentPath
     sideADataRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sideADataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sideADataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4983,6 +5070,7 @@ func (sideBDataRate *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_S
     sideBDataRate.EntityData.BundleName = "cisco_ios_xr"
     sideBDataRate.EntityData.ParentYangName = "srp-statistics"
     sideBDataRate.EntityData.SegmentPath = "side-b-data-rate"
+    sideBDataRate.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-statistics/" + sideBDataRate.EntityData.SegmentPath
     sideBDataRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sideBDataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sideBDataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5046,6 +5134,7 @@ func (sideAErrors *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Srp
     sideAErrors.EntityData.BundleName = "cisco_ios_xr"
     sideAErrors.EntityData.ParentYangName = "srp-statistics"
     sideAErrors.EntityData.SegmentPath = "side-a-errors"
+    sideAErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-statistics/" + sideAErrors.EntityData.SegmentPath
     sideAErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sideAErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sideAErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5114,6 +5203,7 @@ func (sideBErrors *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Srp
     sideBErrors.EntityData.BundleName = "cisco_ios_xr"
     sideBErrors.EntityData.ParentYangName = "srp-statistics"
     sideBErrors.EntityData.SegmentPath = "side-b-errors"
+    sideBErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/srp-information/srp-statistics/" + sideBErrors.EntityData.SegmentPath
     sideBErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sideBErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sideBErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5168,6 +5258,7 @@ func (tunnelInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformati
     tunnelInformation.EntityData.BundleName = "cisco_ios_xr"
     tunnelInformation.EntityData.ParentYangName = "interface-type-information"
     tunnelInformation.EntityData.SegmentPath = "tunnel-information"
+    tunnelInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + tunnelInformation.EntityData.SegmentPath
     tunnelInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5203,6 +5294,7 @@ func (bundleInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformati
     bundleInformation.EntityData.BundleName = "cisco_ios_xr"
     bundleInformation.EntityData.ParentYangName = "interface-type-information"
     bundleInformation.EntityData.SegmentPath = "bundle-information"
+    bundleInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + bundleInformation.EntityData.SegmentPath
     bundleInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5210,6 +5302,7 @@ func (bundleInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformati
     bundleInformation.EntityData.Children = types.NewOrderedMap()
     bundleInformation.EntityData.Children.Append("member", types.YChild{"Member", nil})
     for i := range bundleInformation.Member {
+        types.SetYListKey(bundleInformation.Member[i], i)
         bundleInformation.EntityData.Children.Append(types.GetSegmentPath(bundleInformation.Member[i]), types.YChild{"Member", bundleInformation.Member[i]})
     }
     bundleInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -5224,6 +5317,7 @@ func (bundleInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformati
 type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation_Member struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -5274,7 +5368,8 @@ func (member *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleIn
     member.EntityData.YangName = "member"
     member.EntityData.BundleName = "cisco_ios_xr"
     member.EntityData.ParentYangName = "bundle-information"
-    member.EntityData.SegmentPath = "member"
+    member.EntityData.SegmentPath = "member" + types.AddNoKeyToken(member)
+    member.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/bundle-information/" + member.EntityData.SegmentPath
     member.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     member.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     member.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5355,6 +5450,7 @@ func (counters *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Bundle
     counters.EntityData.BundleName = "cisco_ios_xr"
     counters.EntityData.ParentYangName = "member"
     counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/bundle-information/member/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5448,6 +5544,7 @@ func (linkData *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Bundle
     linkData.EntityData.BundleName = "cisco_ios_xr"
     linkData.EntityData.ParentYangName = "member"
     linkData.EntityData.SegmentPath = "link-data"
+    linkData.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/bundle-information/member/" + linkData.EntityData.SegmentPath
     linkData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5507,6 +5604,7 @@ func (memberMuxData *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_B
     memberMuxData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxData.EntityData.ParentYangName = "member"
     memberMuxData.EntityData.SegmentPath = "member-mux-data"
+    memberMuxData.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/bundle-information/member/" + memberMuxData.EntityData.SegmentPath
     memberMuxData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5545,6 +5643,7 @@ func (memberMuxStateReasonData *Interfaces_InterfaceXr_Interface_InterfaceTypeIn
     memberMuxStateReasonData.EntityData.BundleName = "cisco_ios_xr"
     memberMuxStateReasonData.EntityData.ParentYangName = "member-mux-data"
     memberMuxStateReasonData.EntityData.SegmentPath = "member-mux-state-reason-data"
+    memberMuxStateReasonData.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/bundle-information/member/member-mux-data/" + memberMuxStateReasonData.EntityData.SegmentPath
     memberMuxStateReasonData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     memberMuxStateReasonData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     memberMuxStateReasonData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5576,6 +5675,7 @@ func (macAddress *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_Bund
     macAddress.EntityData.BundleName = "cisco_ios_xr"
     macAddress.EntityData.ParentYangName = "member"
     macAddress.EntityData.SegmentPath = "mac-address"
+    macAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/bundle-information/member/" + macAddress.EntityData.SegmentPath
     macAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5607,6 +5707,7 @@ func (serialInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformati
     serialInformation.EntityData.BundleName = "cisco_ios_xr"
     serialInformation.EntityData.ParentYangName = "interface-type-information"
     serialInformation.EntityData.SegmentPath = "serial-information"
+    serialInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + serialInformation.EntityData.SegmentPath
     serialInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serialInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serialInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5636,6 +5737,7 @@ func (sonetPosInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInforma
     sonetPosInformation.EntityData.BundleName = "cisco_ios_xr"
     sonetPosInformation.EntityData.ParentYangName = "interface-type-information"
     sonetPosInformation.EntityData.SegmentPath = "sonet-pos-information"
+    sonetPosInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + sonetPosInformation.EntityData.SegmentPath
     sonetPosInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sonetPosInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sonetPosInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5707,6 +5809,7 @@ func (tunnelGreInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInform
     tunnelGreInformation.EntityData.BundleName = "cisco_ios_xr"
     tunnelGreInformation.EntityData.ParentYangName = "interface-type-information"
     tunnelGreInformation.EntityData.SegmentPath = "tunnel-gre-information"
+    tunnelGreInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + tunnelGreInformation.EntityData.SegmentPath
     tunnelGreInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelGreInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelGreInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5757,6 +5860,7 @@ func (sourceIpAddress *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation
     sourceIpAddress.EntityData.BundleName = "cisco_ios_xr"
     sourceIpAddress.EntityData.ParentYangName = "tunnel-gre-information"
     sourceIpAddress.EntityData.SegmentPath = "source-ip-address"
+    sourceIpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/tunnel-gre-information/" + sourceIpAddress.EntityData.SegmentPath
     sourceIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5796,6 +5900,7 @@ func (destinationIpAddress *Interfaces_InterfaceXr_Interface_InterfaceTypeInform
     destinationIpAddress.EntityData.BundleName = "cisco_ios_xr"
     destinationIpAddress.EntityData.ParentYangName = "tunnel-gre-information"
     destinationIpAddress.EntityData.SegmentPath = "destination-ip-address"
+    destinationIpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/tunnel-gre-information/" + destinationIpAddress.EntityData.SegmentPath
     destinationIpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinationIpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinationIpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5833,6 +5938,7 @@ func (pseudowireHeadEndInformation *Interfaces_InterfaceXr_Interface_InterfaceTy
     pseudowireHeadEndInformation.EntityData.BundleName = "cisco_ios_xr"
     pseudowireHeadEndInformation.EntityData.ParentYangName = "interface-type-information"
     pseudowireHeadEndInformation.EntityData.SegmentPath = "pseudowire-head-end-information"
+    pseudowireHeadEndInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + pseudowireHeadEndInformation.EntityData.SegmentPath
     pseudowireHeadEndInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireHeadEndInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireHeadEndInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5879,6 +5985,7 @@ func (cemInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_
     cemInformation.EntityData.BundleName = "cisco_ios_xr"
     cemInformation.EntityData.ParentYangName = "interface-type-information"
     cemInformation.EntityData.SegmentPath = "cem-information"
+    cemInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + cemInformation.EntityData.SegmentPath
     cemInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cemInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cemInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5914,6 +6021,7 @@ func (gccInformation *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_
     gccInformation.EntityData.BundleName = "cisco_ios_xr"
     gccInformation.EntityData.ParentYangName = "interface-type-information"
     gccInformation.EntityData.SegmentPath = "gcc-information"
+    gccInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-type-information/" + gccInformation.EntityData.SegmentPath
     gccInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gccInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gccInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5990,6 +6098,7 @@ func (dataRates *Interfaces_InterfaceXr_Interface_DataRates) GetEntityData() *ty
     dataRates.EntityData.BundleName = "cisco_ios_xr"
     dataRates.EntityData.ParentYangName = "interface"
     dataRates.EntityData.SegmentPath = "data-rates"
+    dataRates.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + dataRates.EntityData.SegmentPath
     dataRates.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRates.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRates.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6037,6 +6146,7 @@ func (interfaceStatistics *Interfaces_InterfaceXr_Interface_InterfaceStatistics)
     interfaceStatistics.EntityData.BundleName = "cisco_ios_xr"
     interfaceStatistics.EntityData.ParentYangName = "interface"
     interfaceStatistics.EntityData.SegmentPath = "interface-statistics"
+    interfaceStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + interfaceStatistics.EntityData.SegmentPath
     interfaceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6188,6 +6298,7 @@ func (fullInterfaceStats *Interfaces_InterfaceXr_Interface_InterfaceStatistics_F
     fullInterfaceStats.EntityData.BundleName = "cisco_ios_xr"
     fullInterfaceStats.EntityData.ParentYangName = "interface-statistics"
     fullInterfaceStats.EntityData.SegmentPath = "full-interface-stats"
+    fullInterfaceStats.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-statistics/" + fullInterfaceStats.EntityData.SegmentPath
     fullInterfaceStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fullInterfaceStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fullInterfaceStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6306,6 +6417,7 @@ func (basicInterfaceStats *Interfaces_InterfaceXr_Interface_InterfaceStatistics_
     basicInterfaceStats.EntityData.BundleName = "cisco_ios_xr"
     basicInterfaceStats.EntityData.ParentYangName = "interface-statistics"
     basicInterfaceStats.EntityData.SegmentPath = "basic-interface-stats"
+    basicInterfaceStats.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/interface-statistics/" + basicInterfaceStats.EntityData.SegmentPath
     basicInterfaceStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicInterfaceStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicInterfaceStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6364,6 +6476,7 @@ func (l2InterfaceStatistics *Interfaces_InterfaceXr_Interface_L2InterfaceStatist
     l2InterfaceStatistics.EntityData.BundleName = "cisco_ios_xr"
     l2InterfaceStatistics.EntityData.ParentYangName = "interface"
     l2InterfaceStatistics.EntityData.SegmentPath = "l2-interface-statistics"
+    l2InterfaceStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/" + l2InterfaceStatistics.EntityData.SegmentPath
     l2InterfaceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2InterfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2InterfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6372,10 +6485,12 @@ func (l2InterfaceStatistics *Interfaces_InterfaceXr_Interface_L2InterfaceStatist
     l2InterfaceStatistics.EntityData.Children.Append("stats-id", types.YChild{"StatsId", &l2InterfaceStatistics.StatsId})
     l2InterfaceStatistics.EntityData.Children.Append("block-array", types.YChild{"BlockArray", nil})
     for i := range l2InterfaceStatistics.BlockArray {
+        types.SetYListKey(l2InterfaceStatistics.BlockArray[i], i)
         l2InterfaceStatistics.EntityData.Children.Append(types.GetSegmentPath(l2InterfaceStatistics.BlockArray[i]), types.YChild{"BlockArray", l2InterfaceStatistics.BlockArray[i]})
     }
     l2InterfaceStatistics.EntityData.Children.Append("element-array", types.YChild{"ElementArray", nil})
     for i := range l2InterfaceStatistics.ElementArray {
+        types.SetYListKey(l2InterfaceStatistics.ElementArray[i], i)
         l2InterfaceStatistics.EntityData.Children.Append(types.GetSegmentPath(l2InterfaceStatistics.ElementArray[i]), types.YChild{"ElementArray", l2InterfaceStatistics.ElementArray[i]})
     }
     l2InterfaceStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -6419,6 +6534,7 @@ func (statsId *Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_StatsId) G
     statsId.EntityData.BundleName = "cisco_ios_xr"
     statsId.EntityData.ParentYangName = "l2-interface-statistics"
     statsId.EntityData.SegmentPath = "stats-id"
+    statsId.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/l2-interface-statistics/" + statsId.EntityData.SegmentPath
     statsId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statsId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statsId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6442,6 +6558,7 @@ func (statsId *Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_StatsId) G
 type Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_BlockArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is StatsCounter.
     Type interface{}
@@ -6458,7 +6575,8 @@ func (blockArray *Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_BlockAr
     blockArray.EntityData.YangName = "block-array"
     blockArray.EntityData.BundleName = "cisco_ios_xr"
     blockArray.EntityData.ParentYangName = "l2-interface-statistics"
-    blockArray.EntityData.SegmentPath = "block-array"
+    blockArray.EntityData.SegmentPath = "block-array" + types.AddNoKeyToken(blockArray)
+    blockArray.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/l2-interface-statistics/" + blockArray.EntityData.SegmentPath
     blockArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     blockArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     blockArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6479,6 +6597,7 @@ func (blockArray *Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_BlockAr
 type Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_ElementArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // key. The type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Key interface{}
@@ -6493,7 +6612,8 @@ func (elementArray *Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_Eleme
     elementArray.EntityData.YangName = "element-array"
     elementArray.EntityData.BundleName = "cisco_ios_xr"
     elementArray.EntityData.ParentYangName = "l2-interface-statistics"
-    elementArray.EntityData.SegmentPath = "element-array"
+    elementArray.EntityData.SegmentPath = "element-array" + types.AddNoKeyToken(elementArray)
+    elementArray.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/l2-interface-statistics/" + elementArray.EntityData.SegmentPath
     elementArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     elementArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     elementArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6501,6 +6621,7 @@ func (elementArray *Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_Eleme
     elementArray.EntityData.Children = types.NewOrderedMap()
     elementArray.EntityData.Children.Append("block-array", types.YChild{"BlockArray", nil})
     for i := range elementArray.BlockArray {
+        types.SetYListKey(elementArray.BlockArray[i], i)
         elementArray.EntityData.Children.Append(types.GetSegmentPath(elementArray.BlockArray[i]), types.YChild{"BlockArray", elementArray.BlockArray[i]})
     }
     elementArray.EntityData.Leafs = types.NewOrderedMap()
@@ -6516,6 +6637,7 @@ func (elementArray *Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_Eleme
 type Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_ElementArray_BlockArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is StatsCounter.
     Type interface{}
@@ -6532,7 +6654,8 @@ func (blockArray *Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_Element
     blockArray.EntityData.YangName = "block-array"
     blockArray.EntityData.BundleName = "cisco_ios_xr"
     blockArray.EntityData.ParentYangName = "element-array"
-    blockArray.EntityData.SegmentPath = "block-array"
+    blockArray.EntityData.SegmentPath = "block-array" + types.AddNoKeyToken(blockArray)
+    blockArray.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/interface/l2-interface-statistics/element-array/" + blockArray.EntityData.SegmentPath
     blockArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     blockArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     blockArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6566,6 +6689,7 @@ func (nodeTypeSets *Interfaces_NodeTypeSets) GetEntityData() *types.CommonEntity
     nodeTypeSets.EntityData.BundleName = "cisco_ios_xr"
     nodeTypeSets.EntityData.ParentYangName = "interfaces"
     nodeTypeSets.EntityData.SegmentPath = "node-type-sets"
+    nodeTypeSets.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/" + nodeTypeSets.EntityData.SegmentPath
     nodeTypeSets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeTypeSets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeTypeSets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6573,6 +6697,7 @@ func (nodeTypeSets *Interfaces_NodeTypeSets) GetEntityData() *types.CommonEntity
     nodeTypeSets.EntityData.Children = types.NewOrderedMap()
     nodeTypeSets.EntityData.Children.Append("node-type-set", types.YChild{"NodeTypeSet", nil})
     for i := range nodeTypeSets.NodeTypeSet {
+        types.SetYListKey(nodeTypeSets.NodeTypeSet[i], i)
         nodeTypeSets.EntityData.Children.Append(types.GetSegmentPath(nodeTypeSets.NodeTypeSet[i]), types.YChild{"NodeTypeSet", nodeTypeSets.NodeTypeSet[i]})
     }
     nodeTypeSets.EntityData.Leafs = types.NewOrderedMap()
@@ -6588,6 +6713,7 @@ func (nodeTypeSets *Interfaces_NodeTypeSets) GetEntityData() *types.CommonEntity
 type Interfaces_NodeTypeSets_NodeTypeSet struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The location to filter on. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -6605,7 +6731,8 @@ func (nodeTypeSet *Interfaces_NodeTypeSets_NodeTypeSet) GetEntityData() *types.C
     nodeTypeSet.EntityData.YangName = "node-type-set"
     nodeTypeSet.EntityData.BundleName = "cisco_ios_xr"
     nodeTypeSet.EntityData.ParentYangName = "node-type-sets"
-    nodeTypeSet.EntityData.SegmentPath = "node-type-set"
+    nodeTypeSet.EntityData.SegmentPath = "node-type-set" + types.AddNoKeyToken(nodeTypeSet)
+    nodeTypeSet.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/" + nodeTypeSet.EntityData.SegmentPath
     nodeTypeSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodeTypeSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodeTypeSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6641,6 +6768,7 @@ func (interfaceSummary *Interfaces_NodeTypeSets_NodeTypeSet_InterfaceSummary) Ge
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "node-type-set"
     interfaceSummary.EntityData.SegmentPath = "interface-summary"
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6649,6 +6777,7 @@ func (interfaceSummary *Interfaces_NodeTypeSets_NodeTypeSet_InterfaceSummary) Ge
     interfaceSummary.EntityData.Children.Append("interface-counts", types.YChild{"InterfaceCounts", &interfaceSummary.InterfaceCounts})
     interfaceSummary.EntityData.Children.Append("interface-type", types.YChild{"InterfaceType", nil})
     for i := range interfaceSummary.InterfaceType {
+        types.SetYListKey(interfaceSummary.InterfaceType[i], i)
         interfaceSummary.EntityData.Children.Append(types.GetSegmentPath(interfaceSummary.InterfaceType[i]), types.YChild{"InterfaceType", interfaceSummary.InterfaceType[i]})
     }
     interfaceSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -6686,6 +6815,7 @@ func (interfaceCounts *Interfaces_NodeTypeSets_NodeTypeSet_InterfaceSummary_Inte
     interfaceCounts.EntityData.BundleName = "cisco_ios_xr"
     interfaceCounts.EntityData.ParentYangName = "interface-summary"
     interfaceCounts.EntityData.SegmentPath = "interface-counts"
+    interfaceCounts.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/" + interfaceCounts.EntityData.SegmentPath
     interfaceCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6707,6 +6837,7 @@ func (interfaceCounts *Interfaces_NodeTypeSets_NodeTypeSet_InterfaceSummary_Inte
 type Interfaces_NodeTypeSets_NodeTypeSet_InterfaceSummary_InterfaceType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name of the interface type. The type is string.
     InterfaceTypeName interface{}
@@ -6723,7 +6854,8 @@ func (interfaceType *Interfaces_NodeTypeSets_NodeTypeSet_InterfaceSummary_Interf
     interfaceType.EntityData.YangName = "interface-type"
     interfaceType.EntityData.BundleName = "cisco_ios_xr"
     interfaceType.EntityData.ParentYangName = "interface-summary"
-    interfaceType.EntityData.SegmentPath = "interface-type"
+    interfaceType.EntityData.SegmentPath = "interface-type" + types.AddNoKeyToken(interfaceType)
+    interfaceType.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/" + interfaceType.EntityData.SegmentPath
     interfaceType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6767,6 +6899,7 @@ func (interfaceCounts *Interfaces_NodeTypeSets_NodeTypeSet_InterfaceSummary_Inte
     interfaceCounts.EntityData.BundleName = "cisco_ios_xr"
     interfaceCounts.EntityData.ParentYangName = "interface-type"
     interfaceCounts.EntityData.SegmentPath = "interface-counts"
+    interfaceCounts.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/interface-type/" + interfaceCounts.EntityData.SegmentPath
     interfaceCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6800,6 +6933,7 @@ func (interfaceBriefs *Interfaces_InterfaceBriefs) GetEntityData() *types.Common
     interfaceBriefs.EntityData.BundleName = "cisco_ios_xr"
     interfaceBriefs.EntityData.ParentYangName = "interfaces"
     interfaceBriefs.EntityData.SegmentPath = "interface-briefs"
+    interfaceBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/" + interfaceBriefs.EntityData.SegmentPath
     interfaceBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6822,6 +6956,7 @@ func (interfaceBriefs *Interfaces_InterfaceBriefs) GetEntityData() *types.Common
 type Interfaces_InterfaceBriefs_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -6878,6 +7013,7 @@ func (interfaceBrief *Interfaces_InterfaceBriefs_InterfaceBrief) GetEntityData()
     interfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceBrief.EntityData.ParentYangName = "interface-briefs"
     interfaceBrief.EntityData.SegmentPath = "interface-brief" + types.AddKeyToken(interfaceBrief.InterfaceName, "interface-name")
+    interfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-briefs/" + interfaceBrief.EntityData.SegmentPath
     interfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6924,6 +7060,7 @@ func (inventorySummary *Interfaces_InventorySummary) GetEntityData() *types.Comm
     inventorySummary.EntityData.BundleName = "cisco_ios_xr"
     inventorySummary.EntityData.ParentYangName = "interfaces"
     inventorySummary.EntityData.SegmentPath = "inventory-summary"
+    inventorySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/" + inventorySummary.EntityData.SegmentPath
     inventorySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventorySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventorySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6932,6 +7069,7 @@ func (inventorySummary *Interfaces_InventorySummary) GetEntityData() *types.Comm
     inventorySummary.EntityData.Children.Append("interface-counts", types.YChild{"InterfaceCounts", &inventorySummary.InterfaceCounts})
     inventorySummary.EntityData.Children.Append("interface-type", types.YChild{"InterfaceType", nil})
     for i := range inventorySummary.InterfaceType {
+        types.SetYListKey(inventorySummary.InterfaceType[i], i)
         inventorySummary.EntityData.Children.Append(types.GetSegmentPath(inventorySummary.InterfaceType[i]), types.YChild{"InterfaceType", inventorySummary.InterfaceType[i]})
     }
     inventorySummary.EntityData.Leafs = types.NewOrderedMap()
@@ -6969,6 +7107,7 @@ func (interfaceCounts *Interfaces_InventorySummary_InterfaceCounts) GetEntityDat
     interfaceCounts.EntityData.BundleName = "cisco_ios_xr"
     interfaceCounts.EntityData.ParentYangName = "inventory-summary"
     interfaceCounts.EntityData.SegmentPath = "interface-counts"
+    interfaceCounts.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/" + interfaceCounts.EntityData.SegmentPath
     interfaceCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6990,6 +7129,7 @@ func (interfaceCounts *Interfaces_InventorySummary_InterfaceCounts) GetEntityDat
 type Interfaces_InventorySummary_InterfaceType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name of the interface type. The type is string.
     InterfaceTypeName interface{}
@@ -7006,7 +7146,8 @@ func (interfaceType *Interfaces_InventorySummary_InterfaceType) GetEntityData() 
     interfaceType.EntityData.YangName = "interface-type"
     interfaceType.EntityData.BundleName = "cisco_ios_xr"
     interfaceType.EntityData.ParentYangName = "inventory-summary"
-    interfaceType.EntityData.SegmentPath = "interface-type"
+    interfaceType.EntityData.SegmentPath = "interface-type" + types.AddNoKeyToken(interfaceType)
+    interfaceType.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/" + interfaceType.EntityData.SegmentPath
     interfaceType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7050,6 +7191,7 @@ func (interfaceCounts *Interfaces_InventorySummary_InterfaceType_InterfaceCounts
     interfaceCounts.EntityData.BundleName = "cisco_ios_xr"
     interfaceCounts.EntityData.ParentYangName = "interface-type"
     interfaceCounts.EntityData.SegmentPath = "interface-counts"
+    interfaceCounts.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/interface-type/" + interfaceCounts.EntityData.SegmentPath
     interfaceCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7083,6 +7225,7 @@ func (interfaces *Interfaces_Interfaces) GetEntityData() *types.CommonEntityData
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interfaces"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7104,6 +7247,7 @@ func (interfaces *Interfaces_Interfaces) GetEntityData() *types.CommonEntityData
 type Interfaces_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -7130,6 +7274,7 @@ func (self *Interfaces_Interfaces_Interface) GetEntityData() *types.CommonEntity
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7167,6 +7312,7 @@ func (interfaceSummary *Interfaces_InterfaceSummary) GetEntityData() *types.Comm
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "interfaces"
     interfaceSummary.EntityData.SegmentPath = "interface-summary"
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7175,6 +7321,7 @@ func (interfaceSummary *Interfaces_InterfaceSummary) GetEntityData() *types.Comm
     interfaceSummary.EntityData.Children.Append("interface-counts", types.YChild{"InterfaceCounts", &interfaceSummary.InterfaceCounts})
     interfaceSummary.EntityData.Children.Append("interface-type", types.YChild{"InterfaceType", nil})
     for i := range interfaceSummary.InterfaceType {
+        types.SetYListKey(interfaceSummary.InterfaceType[i], i)
         interfaceSummary.EntityData.Children.Append(types.GetSegmentPath(interfaceSummary.InterfaceType[i]), types.YChild{"InterfaceType", interfaceSummary.InterfaceType[i]})
     }
     interfaceSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -7212,6 +7359,7 @@ func (interfaceCounts *Interfaces_InterfaceSummary_InterfaceCounts) GetEntityDat
     interfaceCounts.EntityData.BundleName = "cisco_ios_xr"
     interfaceCounts.EntityData.ParentYangName = "interface-summary"
     interfaceCounts.EntityData.SegmentPath = "interface-counts"
+    interfaceCounts.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/" + interfaceCounts.EntityData.SegmentPath
     interfaceCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7233,6 +7381,7 @@ func (interfaceCounts *Interfaces_InterfaceSummary_InterfaceCounts) GetEntityDat
 type Interfaces_InterfaceSummary_InterfaceType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Name of the interface type. The type is string.
     InterfaceTypeName interface{}
@@ -7249,7 +7398,8 @@ func (interfaceType *Interfaces_InterfaceSummary_InterfaceType) GetEntityData() 
     interfaceType.EntityData.YangName = "interface-type"
     interfaceType.EntityData.BundleName = "cisco_ios_xr"
     interfaceType.EntityData.ParentYangName = "interface-summary"
-    interfaceType.EntityData.SegmentPath = "interface-type"
+    interfaceType.EntityData.SegmentPath = "interface-type" + types.AddNoKeyToken(interfaceType)
+    interfaceType.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/" + interfaceType.EntityData.SegmentPath
     interfaceType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7293,6 +7443,7 @@ func (interfaceCounts *Interfaces_InterfaceSummary_InterfaceType_InterfaceCounts
     interfaceCounts.EntityData.BundleName = "cisco_ios_xr"
     interfaceCounts.EntityData.ParentYangName = "interface-type"
     interfaceCounts.EntityData.SegmentPath = "interface-counts"
+    interfaceCounts.EntityData.AbsolutePath = "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/interface-type/" + interfaceCounts.EntityData.SegmentPath
     interfaceCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

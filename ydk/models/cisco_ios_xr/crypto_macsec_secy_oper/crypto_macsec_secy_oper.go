@@ -40,6 +40,7 @@ func (macsec *Macsec) GetEntityData() *types.CommonEntityData {
     macsec.EntityData.BundleName = "cisco_ios_xr"
     macsec.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-macsec-secy-oper"
     macsec.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec"
+    macsec.EntityData.AbsolutePath = macsec.EntityData.SegmentPath
     macsec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (secy *Macsec_Secy) GetEntityData() *types.CommonEntityData {
     secy.EntityData.BundleName = "cisco_ios_xr"
     secy.EntityData.ParentYangName = "macsec"
     secy.EntityData.SegmentPath = "secy"
+    secy.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/" + secy.EntityData.SegmentPath
     secy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -99,6 +101,7 @@ func (interfaces *Macsec_Secy_Interfaces) GetEntityData() *types.CommonEntityDat
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "secy"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -120,6 +123,7 @@ func (interfaces *Macsec_Secy_Interfaces) GetEntityData() *types.CommonEntityDat
 type Macsec_Secy_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -135,6 +139,7 @@ func (self *Macsec_Secy_Interfaces_Interface) GetEntityData() *types.CommonEntit
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Name, "name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -172,6 +177,7 @@ func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetEntityData() *types.Comm
     stats.EntityData.BundleName = "cisco_ios_xr"
     stats.EntityData.ParentYangName = "interface"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/interface/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -181,6 +187,7 @@ func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetEntityData() *types.Comm
     stats.EntityData.Children.Append("tx-sc-stats", types.YChild{"TxScStats", &stats.TxScStats})
     stats.EntityData.Children.Append("rx-sc-stats", types.YChild{"RxScStats", nil})
     for i := range stats.RxScStats {
+        types.SetYListKey(stats.RxScStats[i], i)
         stats.EntityData.Children.Append(types.GetSegmentPath(stats.RxScStats[i]), types.YChild{"RxScStats", stats.RxScStats[i]})
     }
     stats.EntityData.Leafs = types.NewOrderedMap()
@@ -247,6 +254,7 @@ func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetEntityData
     intfStats.EntityData.BundleName = "cisco_ios_xr"
     intfStats.EntityData.ParentYangName = "stats"
     intfStats.EntityData.SegmentPath = "intf-stats"
+    intfStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/interface/stats/" + intfStats.EntityData.SegmentPath
     intfStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intfStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -311,6 +319,7 @@ func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetEntityData
     txScStats.EntityData.BundleName = "cisco_ios_xr"
     txScStats.EntityData.ParentYangName = "stats"
     txScStats.EntityData.SegmentPath = "tx-sc-stats"
+    txScStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/interface/stats/" + txScStats.EntityData.SegmentPath
     txScStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txScStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txScStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -318,6 +327,7 @@ func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetEntityData
     txScStats.EntityData.Children = types.NewOrderedMap()
     txScStats.EntityData.Children.Append("txsa-stat", types.YChild{"TxsaStat", nil})
     for i := range txScStats.TxsaStat {
+        types.SetYListKey(txScStats.TxsaStat[i], i)
         txScStats.EntityData.Children.Append(types.GetSegmentPath(txScStats.TxsaStat[i]), types.YChild{"TxsaStat", txScStats.TxsaStat[i]})
     }
     txScStats.EntityData.Leafs = types.NewOrderedMap()
@@ -338,6 +348,7 @@ func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetEntityData
 type Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OutPktsProtected. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -356,7 +367,8 @@ func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetEn
     txsaStat.EntityData.YangName = "txsa-stat"
     txsaStat.EntityData.BundleName = "cisco_ios_xr"
     txsaStat.EntityData.ParentYangName = "tx-sc-stats"
-    txsaStat.EntityData.SegmentPath = "txsa-stat"
+    txsaStat.EntityData.SegmentPath = "txsa-stat" + types.AddNoKeyToken(txsaStat)
+    txsaStat.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/interface/stats/tx-sc-stats/" + txsaStat.EntityData.SegmentPath
     txsaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     txsaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     txsaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -377,6 +389,7 @@ func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetEn
 type Macsec_Secy_Interfaces_Interface_Stats_RxScStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Rx SCI. The type is interface{} with range: 0..18446744073709551615.
     RxSci interface{}
@@ -431,7 +444,8 @@ func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetEntityData
     rxScStats.EntityData.YangName = "rx-sc-stats"
     rxScStats.EntityData.BundleName = "cisco_ios_xr"
     rxScStats.EntityData.ParentYangName = "stats"
-    rxScStats.EntityData.SegmentPath = "rx-sc-stats"
+    rxScStats.EntityData.SegmentPath = "rx-sc-stats" + types.AddNoKeyToken(rxScStats)
+    rxScStats.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/interface/stats/" + rxScStats.EntityData.SegmentPath
     rxScStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxScStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxScStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -439,6 +453,7 @@ func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetEntityData
     rxScStats.EntityData.Children = types.NewOrderedMap()
     rxScStats.EntityData.Children.Append("rxsa-stat", types.YChild{"RxsaStat", nil})
     for i := range rxScStats.RxsaStat {
+        types.SetYListKey(rxScStats.RxsaStat[i], i)
         rxScStats.EntityData.Children.Append(types.GetSegmentPath(rxScStats.RxsaStat[i]), types.YChild{"RxsaStat", rxScStats.RxsaStat[i]})
     }
     rxScStats.EntityData.Leafs = types.NewOrderedMap()
@@ -465,6 +480,7 @@ func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetEntityData
 type Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // InPktsOK. The type is interface{} with range: 0..18446744073709551615.
     InPktsOk interface{}
@@ -493,7 +509,8 @@ func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetEn
     rxsaStat.EntityData.YangName = "rxsa-stat"
     rxsaStat.EntityData.BundleName = "cisco_ios_xr"
     rxsaStat.EntityData.ParentYangName = "rx-sc-stats"
-    rxsaStat.EntityData.SegmentPath = "rxsa-stat"
+    rxsaStat.EntityData.SegmentPath = "rxsa-stat" + types.AddNoKeyToken(rxsaStat)
+    rxsaStat.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/interface/stats/rx-sc-stats/" + rxsaStat.EntityData.SegmentPath
     rxsaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rxsaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rxsaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

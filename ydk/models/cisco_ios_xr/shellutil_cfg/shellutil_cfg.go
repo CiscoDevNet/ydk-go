@@ -40,6 +40,7 @@ func (hostNames *HostNames) GetEntityData() *types.CommonEntityData {
     hostNames.EntityData.BundleName = "cisco_ios_xr"
     hostNames.EntityData.ParentYangName = "Cisco-IOS-XR-shellutil-cfg"
     hostNames.EntityData.SegmentPath = "Cisco-IOS-XR-shellutil-cfg:host-names"
+    hostNames.EntityData.AbsolutePath = hostNames.EntityData.SegmentPath
     hostNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hostNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hostNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

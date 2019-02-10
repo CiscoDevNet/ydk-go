@@ -51,6 +51,7 @@ func (dISMANEXPRESSIONMIB *DISMANEXPRESSIONMIB) GetEntityData() *types.CommonEnt
     dISMANEXPRESSIONMIB.EntityData.BundleName = "cisco_ios_xe"
     dISMANEXPRESSIONMIB.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
     dISMANEXPRESSIONMIB.EntityData.SegmentPath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB"
+    dISMANEXPRESSIONMIB.EntityData.AbsolutePath = dISMANEXPRESSIONMIB.EntityData.SegmentPath
     dISMANEXPRESSIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dISMANEXPRESSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dISMANEXPRESSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -126,6 +127,7 @@ func (expResource *DISMANEXPRESSIONMIB_ExpResource) GetEntityData() *types.Commo
     expResource.EntityData.BundleName = "cisco_ios_xe"
     expResource.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
     expResource.EntityData.SegmentPath = "expResource"
+    expResource.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/" + expResource.EntityData.SegmentPath
     expResource.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expResource.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expResource.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -183,6 +185,7 @@ func (expExpressionTable *DISMANEXPRESSIONMIB_ExpExpressionTable) GetEntityData(
     expExpressionTable.EntityData.BundleName = "cisco_ios_xe"
     expExpressionTable.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
     expExpressionTable.EntityData.SegmentPath = "expExpressionTable"
+    expExpressionTable.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/" + expExpressionTable.EntityData.SegmentPath
     expExpressionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expExpressionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expExpressionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -240,6 +243,7 @@ func (expExpressionTable *DISMANEXPRESSIONMIB_ExpExpressionTable) GetEntityData(
 type DISMANEXPRESSIONMIB_ExpExpressionTable_ExpExpressionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The owner of this entry. The exact semantics of
     // this string are subject to the security policy defined by the security
@@ -414,6 +418,7 @@ func (expExpressionEntry *DISMANEXPRESSIONMIB_ExpExpressionTable_ExpExpressionEn
     expExpressionEntry.EntityData.BundleName = "cisco_ios_xe"
     expExpressionEntry.EntityData.ParentYangName = "expExpressionTable"
     expExpressionEntry.EntityData.SegmentPath = "expExpressionEntry" + types.AddKeyToken(expExpressionEntry.ExpExpressionOwner, "expExpressionOwner") + types.AddKeyToken(expExpressionEntry.ExpExpressionName, "expExpressionName")
+    expExpressionEntry.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expExpressionTable/" + expExpressionEntry.EntityData.SegmentPath
     expExpressionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expExpressionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expExpressionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -476,6 +481,7 @@ func (expErrorTable *DISMANEXPRESSIONMIB_ExpErrorTable) GetEntityData() *types.C
     expErrorTable.EntityData.BundleName = "cisco_ios_xe"
     expErrorTable.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
     expErrorTable.EntityData.SegmentPath = "expErrorTable"
+    expErrorTable.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/" + expErrorTable.EntityData.SegmentPath
     expErrorTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expErrorTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expErrorTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -502,6 +508,7 @@ func (expErrorTable *DISMANEXPRESSIONMIB_ExpErrorTable) GetEntityData() *types.C
 type DISMANEXPRESSIONMIB_ExpErrorTable_ExpErrorEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_expression_mib.DISMANEXPRESSIONMIB_ExpExpressionTable_ExpExpressionEntry_ExpExpressionOwner
@@ -565,6 +572,7 @@ func (expErrorEntry *DISMANEXPRESSIONMIB_ExpErrorTable_ExpErrorEntry) GetEntityD
     expErrorEntry.EntityData.BundleName = "cisco_ios_xe"
     expErrorEntry.EntityData.ParentYangName = "expErrorTable"
     expErrorEntry.EntityData.SegmentPath = "expErrorEntry" + types.AddKeyToken(expErrorEntry.ExpExpressionOwner, "expExpressionOwner") + types.AddKeyToken(expErrorEntry.ExpExpressionName, "expExpressionName")
+    expErrorEntry.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expErrorTable/" + expErrorEntry.EntityData.SegmentPath
     expErrorEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expErrorEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expErrorEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -642,6 +650,7 @@ func (expObjectTable *DISMANEXPRESSIONMIB_ExpObjectTable) GetEntityData() *types
     expObjectTable.EntityData.BundleName = "cisco_ios_xe"
     expObjectTable.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
     expObjectTable.EntityData.SegmentPath = "expObjectTable"
+    expObjectTable.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/" + expObjectTable.EntityData.SegmentPath
     expObjectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expObjectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expObjectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -668,6 +677,7 @@ func (expObjectTable *DISMANEXPRESSIONMIB_ExpObjectTable) GetEntityData() *types
 type DISMANEXPRESSIONMIB_ExpObjectTable_ExpObjectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_expression_mib.DISMANEXPRESSIONMIB_ExpExpressionTable_ExpExpressionEntry_ExpExpressionOwner
@@ -780,6 +790,7 @@ func (expObjectEntry *DISMANEXPRESSIONMIB_ExpObjectTable_ExpObjectEntry) GetEnti
     expObjectEntry.EntityData.BundleName = "cisco_ios_xe"
     expObjectEntry.EntityData.ParentYangName = "expObjectTable"
     expObjectEntry.EntityData.SegmentPath = "expObjectEntry" + types.AddKeyToken(expObjectEntry.ExpExpressionOwner, "expExpressionOwner") + types.AddKeyToken(expObjectEntry.ExpExpressionName, "expExpressionName") + types.AddKeyToken(expObjectEntry.ExpObjectIndex, "expObjectIndex")
+    expObjectEntry.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expObjectTable/" + expObjectEntry.EntityData.SegmentPath
     expObjectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expObjectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expObjectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -864,6 +875,7 @@ func (expValueTable *DISMANEXPRESSIONMIB_ExpValueTable) GetEntityData() *types.C
     expValueTable.EntityData.BundleName = "cisco_ios_xe"
     expValueTable.EntityData.ParentYangName = "DISMAN-EXPRESSION-MIB"
     expValueTable.EntityData.SegmentPath = "expValueTable"
+    expValueTable.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/" + expValueTable.EntityData.SegmentPath
     expValueTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expValueTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expValueTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -915,6 +927,7 @@ func (expValueTable *DISMANEXPRESSIONMIB_ExpValueTable) GetEntityData() *types.C
 type DISMANEXPRESSIONMIB_ExpValueTable_ExpValueEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
     // disman_expression_mib.DISMANEXPRESSIONMIB_ExpExpressionTable_ExpExpressionEntry_ExpExpressionOwner
@@ -978,6 +991,7 @@ func (expValueEntry *DISMANEXPRESSIONMIB_ExpValueTable_ExpValueEntry) GetEntityD
     expValueEntry.EntityData.BundleName = "cisco_ios_xe"
     expValueEntry.EntityData.ParentYangName = "expValueTable"
     expValueEntry.EntityData.SegmentPath = "expValueEntry" + types.AddKeyToken(expValueEntry.ExpExpressionOwner, "expExpressionOwner") + types.AddKeyToken(expValueEntry.ExpExpressionName, "expExpressionName") + types.AddKeyToken(expValueEntry.ExpValueInstance, "expValueInstance")
+    expValueEntry.EntityData.AbsolutePath = "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expValueTable/" + expValueEntry.EntityData.SegmentPath
     expValueEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     expValueEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     expValueEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -61,6 +61,7 @@ func (headlessFuncData *HeadlessFuncData) GetEntityData() *types.CommonEntityDat
     headlessFuncData.EntityData.BundleName = "cisco_ios_xr"
     headlessFuncData.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1k-mxp-headless-oper"
     headlessFuncData.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data"
+    headlessFuncData.EntityData.AbsolutePath = headlessFuncData.EntityData.SegmentPath
     headlessFuncData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     headlessFuncData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     headlessFuncData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +93,7 @@ func (otnPortNames *HeadlessFuncData_OtnPortNames) GetEntityData() *types.Common
     otnPortNames.EntityData.BundleName = "cisco_ios_xr"
     otnPortNames.EntityData.ParentYangName = "headless-func-data"
     otnPortNames.EntityData.SegmentPath = "otn-port-names"
+    otnPortNames.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/" + otnPortNames.EntityData.SegmentPath
     otnPortNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otnPortNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otnPortNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -113,6 +115,7 @@ func (otnPortNames *HeadlessFuncData_OtnPortNames) GetEntityData() *types.Common
 type HeadlessFuncData_OtnPortNames_OtnPortName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -140,6 +143,7 @@ func (otnPortName *HeadlessFuncData_OtnPortNames_OtnPortName) GetEntityData() *t
     otnPortName.EntityData.BundleName = "cisco_ios_xr"
     otnPortName.EntityData.ParentYangName = "otn-port-names"
     otnPortName.EntityData.SegmentPath = "otn-port-name" + types.AddKeyToken(otnPortName.Name, "name")
+    otnPortName.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/otn-port-names/" + otnPortName.EntityData.SegmentPath
     otnPortName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otnPortName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otnPortName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -183,6 +187,7 @@ func (otnStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_OtnStatistics) Ge
     otnStatistics.EntityData.BundleName = "cisco_ios_xr"
     otnStatistics.EntityData.ParentYangName = "otn-port-name"
     otnStatistics.EntityData.SegmentPath = "otn-statistics"
+    otnStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/otn-port-names/otn-port-name/" + otnStatistics.EntityData.SegmentPath
     otnStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otnStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otnStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -218,6 +223,7 @@ func (prbsStatistics *HeadlessFuncData_OtnPortNames_OtnPortName_PrbsStatistics) 
     prbsStatistics.EntityData.BundleName = "cisco_ios_xr"
     prbsStatistics.EntityData.ParentYangName = "otn-port-name"
     prbsStatistics.EntityData.SegmentPath = "prbs-statistics"
+    prbsStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/otn-port-names/otn-port-name/" + prbsStatistics.EntityData.SegmentPath
     prbsStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prbsStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prbsStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +256,7 @@ func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetEntityData() *ty
     ethernetPortNames.EntityData.BundleName = "cisco_ios_xr"
     ethernetPortNames.EntityData.ParentYangName = "headless-func-data"
     ethernetPortNames.EntityData.SegmentPath = "ethernet-port-names"
+    ethernetPortNames.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/" + ethernetPortNames.EntityData.SegmentPath
     ethernetPortNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetPortNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetPortNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -271,6 +278,7 @@ func (ethernetPortNames *HeadlessFuncData_EthernetPortNames) GetEntityData() *ty
 type HeadlessFuncData_EthernetPortNames_EthernetPortName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -295,6 +303,7 @@ func (ethernetPortName *HeadlessFuncData_EthernetPortNames_EthernetPortName) Get
     ethernetPortName.EntityData.BundleName = "cisco_ios_xr"
     ethernetPortName.EntityData.ParentYangName = "ethernet-port-names"
     ethernetPortName.EntityData.SegmentPath = "ethernet-port-name" + types.AddKeyToken(ethernetPortName.Name, "name")
+    ethernetPortName.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/ethernet-port-names/" + ethernetPortName.EntityData.SegmentPath
     ethernetPortName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetPortName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetPortName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -434,6 +443,7 @@ func (etherStatistics *HeadlessFuncData_EthernetPortNames_EthernetPortName_Ether
     etherStatistics.EntityData.BundleName = "cisco_ios_xr"
     etherStatistics.EntityData.ParentYangName = "ethernet-port-name"
     etherStatistics.EntityData.SegmentPath = "ether-statistics"
+    etherStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-headless-oper:headless-func-data/ethernet-port-names/ethernet-port-name/" + etherStatistics.EntityData.SegmentPath
     etherStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     etherStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     etherStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -38,6 +38,7 @@ func (cISCOIETFPWATMMIB *CISCOIETFPWATMMIB) GetEntityData() *types.CommonEntityD
     cISCOIETFPWATMMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOIETFPWATMMIB.EntityData.ParentYangName = "CISCO-IETF-PW-ATM-MIB"
     cISCOIETFPWATMMIB.EntityData.SegmentPath = "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB"
+    cISCOIETFPWATMMIB.EntityData.AbsolutePath = cISCOIETFPWATMMIB.EntityData.SegmentPath
     cISCOIETFPWATMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOIETFPWATMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOIETFPWATMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -71,6 +72,7 @@ func (cpwVcAtmTable *CISCOIETFPWATMMIB_CpwVcAtmTable) GetEntityData() *types.Com
     cpwVcAtmTable.EntityData.BundleName = "cisco_ios_xe"
     cpwVcAtmTable.EntityData.ParentYangName = "CISCO-IETF-PW-ATM-MIB"
     cpwVcAtmTable.EntityData.SegmentPath = "cpwVcAtmTable"
+    cpwVcAtmTable.EntityData.AbsolutePath = "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB/" + cpwVcAtmTable.EntityData.SegmentPath
     cpwVcAtmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcAtmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcAtmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -94,6 +96,7 @@ func (cpwVcAtmTable *CISCOIETFPWATMMIB_CpwVcAtmTable) GetEntityData() *types.Com
 type CISCOIETFPWATMMIB_CpwVcAtmTable_CpwVcAtmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..4294967295.
     // Refers to cisco_ietf_pw_mib.CISCOIETFPWMIB_CpwVcTable_CpwVcEntry_CpwVcIndex
@@ -208,6 +211,7 @@ func (cpwVcAtmEntry *CISCOIETFPWATMMIB_CpwVcAtmTable_CpwVcAtmEntry) GetEntityDat
     cpwVcAtmEntry.EntityData.BundleName = "cisco_ios_xe"
     cpwVcAtmEntry.EntityData.ParentYangName = "cpwVcAtmTable"
     cpwVcAtmEntry.EntityData.SegmentPath = "cpwVcAtmEntry" + types.AddKeyToken(cpwVcAtmEntry.CpwVcIndex, "cpwVcIndex")
+    cpwVcAtmEntry.EntityData.AbsolutePath = "CISCO-IETF-PW-ATM-MIB:CISCO-IETF-PW-ATM-MIB/cpwVcAtmTable/" + cpwVcAtmEntry.EntityData.SegmentPath
     cpwVcAtmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cpwVcAtmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cpwVcAtmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

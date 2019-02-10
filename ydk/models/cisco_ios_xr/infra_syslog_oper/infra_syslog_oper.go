@@ -79,6 +79,7 @@ func (getSyslog *GetSyslog) GetEntityData() *types.CommonEntityData {
     getSyslog.EntityData.BundleName = "cisco_ios_xr"
     getSyslog.EntityData.ParentYangName = "Cisco-IOS-XR-infra-syslog-oper"
     getSyslog.EntityData.SegmentPath = "Cisco-IOS-XR-infra-syslog-oper:get-syslog"
+    getSyslog.EntityData.AbsolutePath = getSyslog.EntityData.SegmentPath
     getSyslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     getSyslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     getSyslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -108,6 +109,7 @@ func (input *GetSyslog_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "get-syslog"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:get-syslog/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -142,6 +144,7 @@ func (filters *GetSyslog_Input_Filters) GetEntityData() *types.CommonEntityData 
     filters.EntityData.BundleName = "cisco_ios_xr"
     filters.EntityData.ParentYangName = "input"
     filters.EntityData.SegmentPath = "filters"
+    filters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:get-syslog/input/" + filters.EntityData.SegmentPath
     filters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     filters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     filters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -171,6 +174,7 @@ func (output *GetSyslog_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xr"
     output.EntityData.ParentYangName = "get-syslog"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:get-syslog/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -200,6 +204,7 @@ func (data *GetSyslog_Output_Data) GetEntityData() *types.CommonEntityData {
     data.EntityData.BundleName = "cisco_ios_xr"
     data.EntityData.ParentYangName = "output"
     data.EntityData.SegmentPath = "data"
+    data.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:get-syslog/output/" + data.EntityData.SegmentPath
     data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -229,6 +234,7 @@ func (syslog *GetSyslog_Output_Data_Syslog) GetEntityData() *types.CommonEntityD
     syslog.EntityData.BundleName = "cisco_ios_xr"
     syslog.EntityData.ParentYangName = "data"
     syslog.EntityData.SegmentPath = "syslog"
+    syslog.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:get-syslog/output/data/" + syslog.EntityData.SegmentPath
     syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -259,6 +265,7 @@ func (messages *GetSyslog_Output_Data_Syslog_Messages) GetEntityData() *types.Co
     messages.EntityData.BundleName = "cisco_ios_xr"
     messages.EntityData.ParentYangName = "syslog"
     messages.EntityData.SegmentPath = "messages"
+    messages.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:get-syslog/output/data/syslog/" + messages.EntityData.SegmentPath
     messages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     messages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -280,6 +287,7 @@ func (messages *GetSyslog_Output_Data_Syslog_Messages) GetEntityData() *types.Co
 type GetSyslog_Output_Data_Syslog_Messages_Message struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Message ID of the system message. The type is
     // interface{} with range: 0..4294967295.
@@ -330,6 +338,7 @@ func (message *GetSyslog_Output_Data_Syslog_Messages_Message) GetEntityData() *t
     message.EntityData.BundleName = "cisco_ios_xr"
     message.EntityData.ParentYangName = "messages"
     message.EntityData.SegmentPath = "message" + types.AddKeyToken(message.MessageId, "message-id")
+    message.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:get-syslog/output/data/syslog/messages/" + message.EntityData.SegmentPath
     message.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     message.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     message.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -370,6 +379,7 @@ func (logging *Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "Cisco-IOS-XR-infra-syslog-oper"
     logging.EntityData.SegmentPath = "Cisco-IOS-XR-infra-syslog-oper:logging"
+    logging.EntityData.AbsolutePath = logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -402,6 +412,7 @@ func (history *Logging_History) GetEntityData() *types.CommonEntityData {
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "logging"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:logging/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -441,6 +452,7 @@ func (syslog *Syslog) GetEntityData() *types.CommonEntityData {
     syslog.EntityData.BundleName = "cisco_ios_xr"
     syslog.EntityData.ParentYangName = "Cisco-IOS-XR-infra-syslog-oper"
     syslog.EntityData.SegmentPath = "Cisco-IOS-XR-infra-syslog-oper:syslog"
+    syslog.EntityData.AbsolutePath = syslog.EntityData.SegmentPath
     syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -473,6 +485,7 @@ func (loggingFiles *Syslog_LoggingFiles) GetEntityData() *types.CommonEntityData
     loggingFiles.EntityData.BundleName = "cisco_ios_xr"
     loggingFiles.EntityData.ParentYangName = "syslog"
     loggingFiles.EntityData.SegmentPath = "logging-files"
+    loggingFiles.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/" + loggingFiles.EntityData.SegmentPath
     loggingFiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loggingFiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loggingFiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -480,6 +493,7 @@ func (loggingFiles *Syslog_LoggingFiles) GetEntityData() *types.CommonEntityData
     loggingFiles.EntityData.Children = types.NewOrderedMap()
     loggingFiles.EntityData.Children.Append("file-log-detail", types.YChild{"FileLogDetail", nil})
     for i := range loggingFiles.FileLogDetail {
+        types.SetYListKey(loggingFiles.FileLogDetail[i], i)
         loggingFiles.EntityData.Children.Append(types.GetSegmentPath(loggingFiles.FileLogDetail[i]), types.YChild{"FileLogDetail", loggingFiles.FileLogDetail[i]})
     }
     loggingFiles.EntityData.Leafs = types.NewOrderedMap()
@@ -494,6 +508,7 @@ func (loggingFiles *Syslog_LoggingFiles) GetEntityData() *types.CommonEntityData
 type Syslog_LoggingFiles_FileLogDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // File path for logging messages. The type is string.
     FilePath interface{}
@@ -507,7 +522,8 @@ func (fileLogDetail *Syslog_LoggingFiles_FileLogDetail) GetEntityData() *types.C
     fileLogDetail.EntityData.YangName = "file-log-detail"
     fileLogDetail.EntityData.BundleName = "cisco_ios_xr"
     fileLogDetail.EntityData.ParentYangName = "logging-files"
-    fileLogDetail.EntityData.SegmentPath = "file-log-detail"
+    fileLogDetail.EntityData.SegmentPath = "file-log-detail" + types.AddNoKeyToken(fileLogDetail)
+    fileLogDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-files/" + fileLogDetail.EntityData.SegmentPath
     fileLogDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fileLogDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fileLogDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -539,6 +555,7 @@ func (anRemoteServers *Syslog_AnRemoteServers) GetEntityData() *types.CommonEnti
     anRemoteServers.EntityData.BundleName = "cisco_ios_xr"
     anRemoteServers.EntityData.ParentYangName = "syslog"
     anRemoteServers.EntityData.SegmentPath = "an-remote-servers"
+    anRemoteServers.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/" + anRemoteServers.EntityData.SegmentPath
     anRemoteServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     anRemoteServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     anRemoteServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +563,7 @@ func (anRemoteServers *Syslog_AnRemoteServers) GetEntityData() *types.CommonEnti
     anRemoteServers.EntityData.Children = types.NewOrderedMap()
     anRemoteServers.EntityData.Children.Append("an-remote-log-server", types.YChild{"AnRemoteLogServer", nil})
     for i := range anRemoteServers.AnRemoteLogServer {
+        types.SetYListKey(anRemoteServers.AnRemoteLogServer[i], i)
         anRemoteServers.EntityData.Children.Append(types.GetSegmentPath(anRemoteServers.AnRemoteLogServer[i]), types.YChild{"AnRemoteLogServer", anRemoteServers.AnRemoteLogServer[i]})
     }
     anRemoteServers.EntityData.Leafs = types.NewOrderedMap()
@@ -560,6 +578,7 @@ func (anRemoteServers *Syslog_AnRemoteServers) GetEntityData() *types.CommonEnti
 type Syslog_AnRemoteServers_AnRemoteLogServer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP Address. The type is string.
     IpAddress interface{}
@@ -579,7 +598,8 @@ func (anRemoteLogServer *Syslog_AnRemoteServers_AnRemoteLogServer) GetEntityData
     anRemoteLogServer.EntityData.YangName = "an-remote-log-server"
     anRemoteLogServer.EntityData.BundleName = "cisco_ios_xr"
     anRemoteLogServer.EntityData.ParentYangName = "an-remote-servers"
-    anRemoteLogServer.EntityData.SegmentPath = "an-remote-log-server"
+    anRemoteLogServer.EntityData.SegmentPath = "an-remote-log-server" + types.AddNoKeyToken(anRemoteLogServer)
+    anRemoteLogServer.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/an-remote-servers/" + anRemoteLogServer.EntityData.SegmentPath
     anRemoteLogServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     anRemoteLogServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     anRemoteLogServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -612,6 +632,7 @@ func (messages *Syslog_Messages) GetEntityData() *types.CommonEntityData {
     messages.EntityData.BundleName = "cisco_ios_xr"
     messages.EntityData.ParentYangName = "syslog"
     messages.EntityData.SegmentPath = "messages"
+    messages.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/" + messages.EntityData.SegmentPath
     messages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     messages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     messages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -633,6 +654,7 @@ func (messages *Syslog_Messages) GetEntityData() *types.CommonEntityData {
 type Syslog_Messages_Message struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Message ID of the system message. The type is
     // interface{} with range: 0..4294967295.
@@ -683,6 +705,7 @@ func (message *Syslog_Messages_Message) GetEntityData() *types.CommonEntityData 
     message.EntityData.BundleName = "cisco_ios_xr"
     message.EntityData.ParentYangName = "messages"
     message.EntityData.SegmentPath = "message" + types.AddKeyToken(message.MessageId, "message-id")
+    message.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/messages/" + message.EntityData.SegmentPath
     message.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     message.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     message.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -747,6 +770,7 @@ func (loggingStatistics *Syslog_LoggingStatistics) GetEntityData() *types.Common
     loggingStatistics.EntityData.BundleName = "cisco_ios_xr"
     loggingStatistics.EntityData.ParentYangName = "syslog"
     loggingStatistics.EntityData.SegmentPath = "logging-statistics"
+    loggingStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/" + loggingStatistics.EntityData.SegmentPath
     loggingStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loggingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loggingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -759,14 +783,17 @@ func (loggingStatistics *Syslog_LoggingStatistics) GetEntityData() *types.Common
     loggingStatistics.EntityData.Children.Append("buffer-logging-stats", types.YChild{"BufferLoggingStats", &loggingStatistics.BufferLoggingStats})
     loggingStatistics.EntityData.Children.Append("remote-logging-stat", types.YChild{"RemoteLoggingStat", nil})
     for i := range loggingStatistics.RemoteLoggingStat {
+        types.SetYListKey(loggingStatistics.RemoteLoggingStat[i], i)
         loggingStatistics.EntityData.Children.Append(types.GetSegmentPath(loggingStatistics.RemoteLoggingStat[i]), types.YChild{"RemoteLoggingStat", loggingStatistics.RemoteLoggingStat[i]})
     }
     loggingStatistics.EntityData.Children.Append("tls-remote-logging-stat", types.YChild{"TlsRemoteLoggingStat", nil})
     for i := range loggingStatistics.TlsRemoteLoggingStat {
+        types.SetYListKey(loggingStatistics.TlsRemoteLoggingStat[i], i)
         loggingStatistics.EntityData.Children.Append(types.GetSegmentPath(loggingStatistics.TlsRemoteLoggingStat[i]), types.YChild{"TlsRemoteLoggingStat", loggingStatistics.TlsRemoteLoggingStat[i]})
     }
     loggingStatistics.EntityData.Children.Append("file-logging-stat", types.YChild{"FileLoggingStat", nil})
     for i := range loggingStatistics.FileLoggingStat {
+        types.SetYListKey(loggingStatistics.FileLoggingStat[i], i)
         loggingStatistics.EntityData.Children.Append(types.GetSegmentPath(loggingStatistics.FileLoggingStat[i]), types.YChild{"FileLoggingStat", loggingStatistics.FileLoggingStat[i]})
     }
     loggingStatistics.EntityData.Leafs = types.NewOrderedMap()
@@ -804,6 +831,7 @@ func (loggingStats *Syslog_LoggingStatistics_LoggingStats) GetEntityData() *type
     loggingStats.EntityData.BundleName = "cisco_ios_xr"
     loggingStats.EntityData.ParentYangName = "logging-statistics"
     loggingStats.EntityData.SegmentPath = "logging-stats"
+    loggingStats.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/" + loggingStats.EntityData.SegmentPath
     loggingStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loggingStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loggingStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -846,6 +874,7 @@ func (consoleLoggingStats *Syslog_LoggingStatistics_ConsoleLoggingStats) GetEnti
     consoleLoggingStats.EntityData.BundleName = "cisco_ios_xr"
     consoleLoggingStats.EntityData.ParentYangName = "logging-statistics"
     consoleLoggingStats.EntityData.SegmentPath = "console-logging-stats"
+    consoleLoggingStats.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/" + consoleLoggingStats.EntityData.SegmentPath
     consoleLoggingStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     consoleLoggingStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     consoleLoggingStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -888,6 +917,7 @@ func (monitorLoggingStats *Syslog_LoggingStatistics_MonitorLoggingStats) GetEnti
     monitorLoggingStats.EntityData.BundleName = "cisco_ios_xr"
     monitorLoggingStats.EntityData.ParentYangName = "logging-statistics"
     monitorLoggingStats.EntityData.SegmentPath = "monitor-logging-stats"
+    monitorLoggingStats.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/" + monitorLoggingStats.EntityData.SegmentPath
     monitorLoggingStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     monitorLoggingStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     monitorLoggingStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -930,6 +960,7 @@ func (trapLoggingStats *Syslog_LoggingStatistics_TrapLoggingStats) GetEntityData
     trapLoggingStats.EntityData.BundleName = "cisco_ios_xr"
     trapLoggingStats.EntityData.ParentYangName = "logging-statistics"
     trapLoggingStats.EntityData.SegmentPath = "trap-logging-stats"
+    trapLoggingStats.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/" + trapLoggingStats.EntityData.SegmentPath
     trapLoggingStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trapLoggingStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trapLoggingStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -972,6 +1003,7 @@ func (bufferLoggingStats *Syslog_LoggingStatistics_BufferLoggingStats) GetEntity
     bufferLoggingStats.EntityData.BundleName = "cisco_ios_xr"
     bufferLoggingStats.EntityData.ParentYangName = "logging-statistics"
     bufferLoggingStats.EntityData.SegmentPath = "buffer-logging-stats"
+    bufferLoggingStats.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/" + bufferLoggingStats.EntityData.SegmentPath
     bufferLoggingStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bufferLoggingStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bufferLoggingStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -993,6 +1025,7 @@ func (bufferLoggingStats *Syslog_LoggingStatistics_BufferLoggingStats) GetEntity
 type Syslog_LoggingStatistics_RemoteLoggingStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Remote hostname. The type is string.
     RemoteHostName interface{}
@@ -1006,7 +1039,8 @@ func (remoteLoggingStat *Syslog_LoggingStatistics_RemoteLoggingStat) GetEntityDa
     remoteLoggingStat.EntityData.YangName = "remote-logging-stat"
     remoteLoggingStat.EntityData.BundleName = "cisco_ios_xr"
     remoteLoggingStat.EntityData.ParentYangName = "logging-statistics"
-    remoteLoggingStat.EntityData.SegmentPath = "remote-logging-stat"
+    remoteLoggingStat.EntityData.SegmentPath = "remote-logging-stat" + types.AddNoKeyToken(remoteLoggingStat)
+    remoteLoggingStat.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/" + remoteLoggingStat.EntityData.SegmentPath
     remoteLoggingStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteLoggingStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteLoggingStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1026,6 +1060,7 @@ func (remoteLoggingStat *Syslog_LoggingStatistics_RemoteLoggingStat) GetEntityDa
 type Syslog_LoggingStatistics_TlsRemoteLoggingStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // TLS Remote hostname. The type is string.
     RemoteHostName interface{}
@@ -1039,7 +1074,8 @@ func (tlsRemoteLoggingStat *Syslog_LoggingStatistics_TlsRemoteLoggingStat) GetEn
     tlsRemoteLoggingStat.EntityData.YangName = "tls-remote-logging-stat"
     tlsRemoteLoggingStat.EntityData.BundleName = "cisco_ios_xr"
     tlsRemoteLoggingStat.EntityData.ParentYangName = "logging-statistics"
-    tlsRemoteLoggingStat.EntityData.SegmentPath = "tls-remote-logging-stat"
+    tlsRemoteLoggingStat.EntityData.SegmentPath = "tls-remote-logging-stat" + types.AddNoKeyToken(tlsRemoteLoggingStat)
+    tlsRemoteLoggingStat.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/" + tlsRemoteLoggingStat.EntityData.SegmentPath
     tlsRemoteLoggingStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tlsRemoteLoggingStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tlsRemoteLoggingStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1059,6 +1095,7 @@ func (tlsRemoteLoggingStat *Syslog_LoggingStatistics_TlsRemoteLoggingStat) GetEn
 type Syslog_LoggingStatistics_FileLoggingStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // File name for logging messages. The type is string.
     FileName interface{}
@@ -1072,7 +1109,8 @@ func (fileLoggingStat *Syslog_LoggingStatistics_FileLoggingStat) GetEntityData()
     fileLoggingStat.EntityData.YangName = "file-logging-stat"
     fileLoggingStat.EntityData.BundleName = "cisco_ios_xr"
     fileLoggingStat.EntityData.ParentYangName = "logging-statistics"
-    fileLoggingStat.EntityData.SegmentPath = "file-logging-stat"
+    fileLoggingStat.EntityData.SegmentPath = "file-logging-stat" + types.AddNoKeyToken(fileLoggingStat)
+    fileLoggingStat.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/" + fileLoggingStat.EntityData.SegmentPath
     fileLoggingStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fileLoggingStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fileLoggingStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -89,6 +89,7 @@ func (keychain *Keychain) GetEntityData() *types.CommonEntityData {
     keychain.EntityData.BundleName = "cisco_ios_xr"
     keychain.EntityData.ParentYangName = "Cisco-IOS-XR-lib-keychain-oper"
     keychain.EntityData.SegmentPath = "Cisco-IOS-XR-lib-keychain-oper:keychain"
+    keychain.EntityData.AbsolutePath = keychain.EntityData.SegmentPath
     keychain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keychain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keychain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -118,6 +119,7 @@ func (keys *Keychain_Keys) GetEntityData() *types.CommonEntityData {
     keys.EntityData.BundleName = "cisco_ios_xr"
     keys.EntityData.ParentYangName = "keychain"
     keys.EntityData.SegmentPath = "keys"
+    keys.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-oper:keychain/" + keys.EntityData.SegmentPath
     keys.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keys.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keys.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -139,6 +141,7 @@ func (keys *Keychain_Keys) GetEntityData() *types.CommonEntityData {
 type Keychain_Keys_Key struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Key name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -157,6 +160,7 @@ func (key *Keychain_Keys_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.BundleName = "cisco_ios_xr"
     key.EntityData.ParentYangName = "keys"
     key.EntityData.SegmentPath = "key" + types.AddKeyToken(key.KeyName, "key-name")
+    key.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-oper:keychain/keys/" + key.EntityData.SegmentPath
     key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -188,6 +192,7 @@ func (key *Keychain_Keys_Key_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.BundleName = "cisco_ios_xr"
     key.EntityData.ParentYangName = "key"
     key.EntityData.SegmentPath = "key"
+    key.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-oper:keychain/keys/key/" + key.EntityData.SegmentPath
     key.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     key.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     key.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -195,6 +200,7 @@ func (key *Keychain_Keys_Key_Key) GetEntityData() *types.CommonEntityData {
     key.EntityData.Children = types.NewOrderedMap()
     key.EntityData.Children.Append("key-id", types.YChild{"KeyId", nil})
     for i := range key.KeyId {
+        types.SetYListKey(key.KeyId[i], i)
         key.EntityData.Children.Append(types.GetSegmentPath(key.KeyId[i]), types.YChild{"KeyId", key.KeyId[i]})
     }
     key.EntityData.Leafs = types.NewOrderedMap()
@@ -209,6 +215,7 @@ func (key *Keychain_Keys_Key_Key) GetEntityData() *types.CommonEntityData {
 type Keychain_Keys_Key_Key_KeyId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Key string. The type is string.
     KeyString interface{}
@@ -237,7 +244,8 @@ func (keyId *Keychain_Keys_Key_Key_KeyId) GetEntityData() *types.CommonEntityDat
     keyId.EntityData.YangName = "key-id"
     keyId.EntityData.BundleName = "cisco_ios_xr"
     keyId.EntityData.ParentYangName = "key"
-    keyId.EntityData.SegmentPath = "key-id"
+    keyId.EntityData.SegmentPath = "key-id" + types.AddNoKeyToken(keyId)
+    keyId.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-oper:keychain/keys/key/key/" + keyId.EntityData.SegmentPath
     keyId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     keyId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     keyId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +281,7 @@ func (macsec *Keychain_Keys_Key_Key_KeyId_Macsec) GetEntityData() *types.CommonE
     macsec.EntityData.BundleName = "cisco_ios_xr"
     macsec.EntityData.ParentYangName = "key-id"
     macsec.EntityData.SegmentPath = "macsec"
+    macsec.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-oper:keychain/keys/key/key/key-id/" + macsec.EntityData.SegmentPath
     macsec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macsec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macsec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -318,6 +327,7 @@ func (sendLifetime *Keychain_Keys_Key_Key_KeyId_SendLifetime) GetEntityData() *t
     sendLifetime.EntityData.BundleName = "cisco_ios_xr"
     sendLifetime.EntityData.ParentYangName = "key-id"
     sendLifetime.EntityData.SegmentPath = "send-lifetime"
+    sendLifetime.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-oper:keychain/keys/key/key/key-id/" + sendLifetime.EntityData.SegmentPath
     sendLifetime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendLifetime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendLifetime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +377,7 @@ func (acceptLifetime *Keychain_Keys_Key_Key_KeyId_AcceptLifetime) GetEntityData(
     acceptLifetime.EntityData.BundleName = "cisco_ios_xr"
     acceptLifetime.EntityData.ParentYangName = "key-id"
     acceptLifetime.EntityData.SegmentPath = "accept-lifetime"
+    acceptLifetime.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-oper:keychain/keys/key/key/key-id/" + acceptLifetime.EntityData.SegmentPath
     acceptLifetime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acceptLifetime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acceptLifetime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -51,6 +51,7 @@ func (ocniNiBase *OcniNiBase) GetEntityData() *types.CommonEntityData {
     ocniNiBase.EntityData.BundleName = "cisco_ios_xr"
     ocniNiBase.EntityData.ParentYangName = "Cisco-IOS-XR-ocni-oper"
     ocniNiBase.EntityData.SegmentPath = "Cisco-IOS-XR-ocni-oper:ocni-ni-base"
+    ocniNiBase.EntityData.AbsolutePath = ocniNiBase.EntityData.SegmentPath
     ocniNiBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ocniNiBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ocniNiBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -81,6 +82,7 @@ func (networkInstances *OcniNiBase_NetworkInstances) GetEntityData() *types.Comm
     networkInstances.EntityData.BundleName = "cisco_ios_xr"
     networkInstances.EntityData.ParentYangName = "ocni-ni-base"
     networkInstances.EntityData.SegmentPath = "network-instances"
+    networkInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-oper:ocni-ni-base/" + networkInstances.EntityData.SegmentPath
     networkInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -103,6 +105,7 @@ func (networkInstances *OcniNiBase_NetworkInstances) GetEntityData() *types.Comm
 type OcniNiBase_NetworkInstances_NetworkInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique name identifying the network instance.
     // The type is string.
@@ -118,6 +121,7 @@ func (networkInstance *OcniNiBase_NetworkInstances_NetworkInstance) GetEntityDat
     networkInstance.EntityData.BundleName = "cisco_ios_xr"
     networkInstance.EntityData.ParentYangName = "network-instances"
     networkInstance.EntityData.SegmentPath = "network-instance" + types.AddKeyToken(networkInstance.Name, "name")
+    networkInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-oper:ocni-ni-base/network-instances/" + networkInstance.EntityData.SegmentPath
     networkInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -167,6 +171,7 @@ func (state *OcniNiBase_NetworkInstances_NetworkInstance_State) GetEntityData() 
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "network-instance"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-oper:ocni-ni-base/network-instances/network-instance/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

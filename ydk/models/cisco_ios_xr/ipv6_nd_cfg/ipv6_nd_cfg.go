@@ -115,6 +115,7 @@ func (ipv6Neighbor *Ipv6Neighbor) GetEntityData() *types.CommonEntityData {
     ipv6Neighbor.EntityData.BundleName = "cisco_ios_xr"
     ipv6Neighbor.EntityData.ParentYangName = "Cisco-IOS-XR-ipv6-nd-cfg"
     ipv6Neighbor.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor"
+    ipv6Neighbor.EntityData.AbsolutePath = ipv6Neighbor.EntityData.SegmentPath
     ipv6Neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -146,6 +147,7 @@ func (neighbors *Ipv6Neighbor_Neighbors) GetEntityData() *types.CommonEntityData
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "ipv6-neighbor"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -167,6 +169,7 @@ func (neighbors *Ipv6Neighbor_Neighbors) GetEntityData() *types.CommonEntityData
 type Ipv6Neighbor_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -194,6 +197,7 @@ func (neighbor *Ipv6Neighbor_Neighbors_Neighbor) GetEntityData() *types.CommonEn
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
     neighbor.EntityData.SegmentPath = "neighbor" + types.AddKeyToken(neighbor.NeighborAddress, "neighbor-address") + types.AddKeyToken(neighbor.InterfaceName, "interface-name")
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

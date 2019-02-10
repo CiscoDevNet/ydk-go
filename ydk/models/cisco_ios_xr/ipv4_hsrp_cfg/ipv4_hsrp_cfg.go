@@ -62,6 +62,7 @@ func (hsrp *Hsrp) GetEntityData() *types.CommonEntityData {
     hsrp.EntityData.BundleName = "cisco_ios_xr"
     hsrp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-hsrp-cfg"
     hsrp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
+    hsrp.EntityData.AbsolutePath = hsrp.EntityData.SegmentPath
     hsrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hsrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hsrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -93,6 +94,7 @@ func (interfaces *Hsrp_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "hsrp"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -114,6 +116,7 @@ func (interfaces *Hsrp_Interfaces) GetEntityData() *types.CommonEntityData {
 type Hsrp_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -148,6 +151,7 @@ func (self *Hsrp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -187,6 +191,7 @@ func (ipv6 *Hsrp_Interfaces_Interface_Ipv6) GetEntityData() *types.CommonEntityD
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "interface"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -217,6 +222,7 @@ func (version2 *Hsrp_Interfaces_Interface_Ipv6_Version2) GetEntityData() *types.
     version2.EntityData.BundleName = "cisco_ios_xr"
     version2.EntityData.ParentYangName = "ipv6"
     version2.EntityData.SegmentPath = "version2"
+    version2.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/" + version2.EntityData.SegmentPath
     version2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     version2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -247,6 +253,7 @@ func (groups *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups) GetEntityData() *t
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "version2"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -268,6 +275,7 @@ func (groups *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups) GetEntityData() *t
 type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP group number. The type is interface{} with
     // range: 0..4095.
@@ -313,6 +321,7 @@ func (group *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group) GetEntityData
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupNumber, "group-number")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -358,6 +367,7 @@ func (bfd *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Bfd) GetEntityDa
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "group"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -390,6 +400,7 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Tr
     trackedInterfaces.EntityData.BundleName = "cisco_ios_xr"
     trackedInterfaces.EntityData.ParentYangName = "group"
     trackedInterfaces.EntityData.SegmentPath = "tracked-interfaces"
+    trackedInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/" + trackedInterfaces.EntityData.SegmentPath
     trackedInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -411,6 +422,7 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Tr
 type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedInterfaces_TrackedInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -427,6 +439,7 @@ func (trackedInterface *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Tra
     trackedInterface.EntityData.BundleName = "cisco_ios_xr"
     trackedInterface.EntityData.ParentYangName = "tracked-interfaces"
     trackedInterface.EntityData.SegmentPath = "tracked-interface" + types.AddKeyToken(trackedInterface.InterfaceName, "interface-name")
+    trackedInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/tracked-interfaces/" + trackedInterface.EntityData.SegmentPath
     trackedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -459,6 +472,7 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Track
     trackedObjects.EntityData.BundleName = "cisco_ios_xr"
     trackedObjects.EntityData.ParentYangName = "group"
     trackedObjects.EntityData.SegmentPath = "tracked-objects"
+    trackedObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/" + trackedObjects.EntityData.SegmentPath
     trackedObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -480,6 +494,7 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Track
 type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_TrackedObjects_TrackedObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -496,6 +511,7 @@ func (trackedObject *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Tracke
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
     trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
+    trackedObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/tracked-objects/" + trackedObject.EntityData.SegmentPath
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -547,6 +563,7 @@ func (timers *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Timers) GetEn
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "group"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -586,6 +603,7 @@ func (linkLocalIpv6Address *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group
     linkLocalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     linkLocalIpv6Address.EntityData.ParentYangName = "group"
     linkLocalIpv6Address.EntityData.SegmentPath = "link-local-ipv6-address"
+    linkLocalIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/" + linkLocalIpv6Address.EntityData.SegmentPath
     linkLocalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLocalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLocalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -618,6 +636,7 @@ func (globalIpv6Addresses *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_
     globalIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Addresses.EntityData.ParentYangName = "group"
     globalIpv6Addresses.EntityData.SegmentPath = "global-ipv6-addresses"
+    globalIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/" + globalIpv6Addresses.EntityData.SegmentPath
     globalIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -639,6 +658,7 @@ func (globalIpv6Addresses *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_
 type Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_GlobalIpv6Addresses_GlobalIpv6Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP virtual global IPv6 address. The type is
     // string with pattern:
@@ -652,6 +672,7 @@ func (globalIpv6Address *Hsrp_Interfaces_Interface_Ipv6_Version2_Groups_Group_Gl
     globalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Address.EntityData.ParentYangName = "global-ipv6-addresses"
     globalIpv6Address.EntityData.SegmentPath = "global-ipv6-address" + types.AddKeyToken(globalIpv6Address.Address, "address")
+    globalIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/version2/groups/group/global-ipv6-addresses/" + globalIpv6Address.EntityData.SegmentPath
     globalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -682,6 +703,7 @@ func (slaveGroups *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups) GetEntityData() *
     slaveGroups.EntityData.BundleName = "cisco_ios_xr"
     slaveGroups.EntityData.ParentYangName = "ipv6"
     slaveGroups.EntityData.SegmentPath = "slave-groups"
+    slaveGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/" + slaveGroups.EntityData.SegmentPath
     slaveGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -703,6 +725,7 @@ func (slaveGroups *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups) GetEntityData() *
 type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP group number. The type is interface{} with
     // range: 0..4095.
@@ -728,6 +751,7 @@ func (slaveGroup *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup) GetEnti
     slaveGroup.EntityData.BundleName = "cisco_ios_xr"
     slaveGroup.EntityData.ParentYangName = "slave-groups"
     slaveGroup.EntityData.SegmentPath = "slave-group" + types.AddKeyToken(slaveGroup.SlaveGroupNumber, "slave-group-number")
+    slaveGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/slave-groups/" + slaveGroup.EntityData.SegmentPath
     slaveGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -766,6 +790,7 @@ func (linkLocalIpv6Address *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGrou
     linkLocalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     linkLocalIpv6Address.EntityData.ParentYangName = "slave-group"
     linkLocalIpv6Address.EntityData.SegmentPath = "link-local-ipv6-address"
+    linkLocalIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/slave-groups/slave-group/" + linkLocalIpv6Address.EntityData.SegmentPath
     linkLocalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLocalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLocalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -798,6 +823,7 @@ func (globalIpv6Addresses *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup
     globalIpv6Addresses.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Addresses.EntityData.ParentYangName = "slave-group"
     globalIpv6Addresses.EntityData.SegmentPath = "global-ipv6-addresses"
+    globalIpv6Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/slave-groups/slave-group/" + globalIpv6Addresses.EntityData.SegmentPath
     globalIpv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -819,6 +845,7 @@ func (globalIpv6Addresses *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup
 type Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_GlobalIpv6Addresses_GlobalIpv6Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP virtual global IPv6 address. The type is
     // string with pattern:
@@ -832,6 +859,7 @@ func (globalIpv6Address *Hsrp_Interfaces_Interface_Ipv6_SlaveGroups_SlaveGroup_G
     globalIpv6Address.EntityData.BundleName = "cisco_ios_xr"
     globalIpv6Address.EntityData.ParentYangName = "global-ipv6-addresses"
     globalIpv6Address.EntityData.SegmentPath = "global-ipv6-address" + types.AddKeyToken(globalIpv6Address.Address, "address")
+    globalIpv6Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv6/slave-groups/slave-group/global-ipv6-addresses/" + globalIpv6Address.EntityData.SegmentPath
     globalIpv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalIpv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalIpv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +894,7 @@ func (bfd *Hsrp_Interfaces_Interface_Bfd) GetEntityData() *types.CommonEntityDat
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "interface"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -903,6 +932,7 @@ func (delay *Hsrp_Interfaces_Interface_Delay) GetEntityData() *types.CommonEntit
     delay.EntityData.BundleName = "cisco_ios_xr"
     delay.EntityData.ParentYangName = "interface"
     delay.EntityData.SegmentPath = "delay"
+    delay.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/" + delay.EntityData.SegmentPath
     delay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -939,6 +969,7 @@ func (ipv4 *Hsrp_Interfaces_Interface_Ipv4) GetEntityData() *types.CommonEntityD
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "interface"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -971,6 +1002,7 @@ func (slaveGroups *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups) GetEntityData() *
     slaveGroups.EntityData.BundleName = "cisco_ios_xr"
     slaveGroups.EntityData.ParentYangName = "ipv4"
     slaveGroups.EntityData.SegmentPath = "slave-groups"
+    slaveGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/" + slaveGroups.EntityData.SegmentPath
     slaveGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -992,6 +1024,7 @@ func (slaveGroups *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups) GetEntityData() *
 type Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP group number. The type is interface{} with
     // range: 0..4095.
@@ -1018,6 +1051,7 @@ func (slaveGroup *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup) GetEnti
     slaveGroup.EntityData.BundleName = "cisco_ios_xr"
     slaveGroup.EntityData.ParentYangName = "slave-groups"
     slaveGroup.EntityData.SegmentPath = "slave-group" + types.AddKeyToken(slaveGroup.SlaveGroupNumber, "slave-group-number")
+    slaveGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/slave-groups/" + slaveGroup.EntityData.SegmentPath
     slaveGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     slaveGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     slaveGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1052,6 +1086,7 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGr
     secondaryIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Addresses.EntityData.ParentYangName = "slave-group"
     secondaryIpv4Addresses.EntityData.SegmentPath = "secondary-ipv4-addresses"
+    secondaryIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/slave-groups/slave-group/" + secondaryIpv4Addresses.EntityData.SegmentPath
     secondaryIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1073,6 +1108,7 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGr
 type Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGroup_SecondaryIpv4Addresses_SecondaryIpv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1085,6 +1121,7 @@ func (secondaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_SlaveGroups_SlaveGrou
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
     secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.Address, "address")
+    secondaryIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/slave-groups/slave-group/secondary-ipv4-addresses/" + secondaryIpv4Address.EntityData.SegmentPath
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1114,6 +1151,7 @@ func (version1 *Hsrp_Interfaces_Interface_Ipv4_Version1) GetEntityData() *types.
     version1.EntityData.BundleName = "cisco_ios_xr"
     version1.EntityData.ParentYangName = "ipv4"
     version1.EntityData.SegmentPath = "version1"
+    version1.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/" + version1.EntityData.SegmentPath
     version1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     version1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1144,6 +1182,7 @@ func (groups *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups) GetEntityData() *t
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "version1"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1165,6 +1204,7 @@ func (groups *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups) GetEntityData() *t
 type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP group number. The type is interface{} with
     // range: 0..255.
@@ -1214,6 +1254,7 @@ func (group *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group) GetEntityData
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupNumber, "group-number")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1256,6 +1297,7 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Tr
     trackedInterfaces.EntityData.BundleName = "cisco_ios_xr"
     trackedInterfaces.EntityData.ParentYangName = "group"
     trackedInterfaces.EntityData.SegmentPath = "tracked-interfaces"
+    trackedInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/" + trackedInterfaces.EntityData.SegmentPath
     trackedInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1277,6 +1319,7 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Tr
 type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedInterfaces_TrackedInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1293,6 +1336,7 @@ func (trackedInterface *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Tra
     trackedInterface.EntityData.BundleName = "cisco_ios_xr"
     trackedInterface.EntityData.ParentYangName = "tracked-interfaces"
     trackedInterface.EntityData.SegmentPath = "tracked-interface" + types.AddKeyToken(trackedInterface.InterfaceName, "interface-name")
+    trackedInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/tracked-interfaces/" + trackedInterface.EntityData.SegmentPath
     trackedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1329,6 +1373,7 @@ func (bfd *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Bfd) GetEntityDa
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "group"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1361,6 +1406,7 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Track
     trackedObjects.EntityData.BundleName = "cisco_ios_xr"
     trackedObjects.EntityData.ParentYangName = "group"
     trackedObjects.EntityData.SegmentPath = "tracked-objects"
+    trackedObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/" + trackedObjects.EntityData.SegmentPath
     trackedObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1382,6 +1428,7 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Track
 type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_TrackedObjects_TrackedObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1398,6 +1445,7 @@ func (trackedObject *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Tracke
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
     trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
+    trackedObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/tracked-objects/" + trackedObject.EntityData.SegmentPath
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1449,6 +1497,7 @@ func (timers *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_Timers) GetEn
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "group"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1488,6 +1537,7 @@ func (primaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_P
     primaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     primaryIpv4Address.EntityData.ParentYangName = "group"
     primaryIpv4Address.EntityData.SegmentPath = "primary-ipv4-address"
+    primaryIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/" + primaryIpv4Address.EntityData.SegmentPath
     primaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1519,6 +1569,7 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Gro
     secondaryIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Addresses.EntityData.ParentYangName = "group"
     secondaryIpv4Addresses.EntityData.SegmentPath = "secondary-ipv4-addresses"
+    secondaryIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/" + secondaryIpv4Addresses.EntityData.SegmentPath
     secondaryIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1540,6 +1591,7 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Gro
 type Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group_SecondaryIpv4Addresses_SecondaryIpv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1552,6 +1604,7 @@ func (secondaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_Version1_Groups_Group
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
     secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.Address, "address")
+    secondaryIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version1/groups/group/secondary-ipv4-addresses/" + secondaryIpv4Address.EntityData.SegmentPath
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1581,6 +1634,7 @@ func (version2 *Hsrp_Interfaces_Interface_Ipv4_Version2) GetEntityData() *types.
     version2.EntityData.BundleName = "cisco_ios_xr"
     version2.EntityData.ParentYangName = "ipv4"
     version2.EntityData.SegmentPath = "version2"
+    version2.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/" + version2.EntityData.SegmentPath
     version2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     version2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     version2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1611,6 +1665,7 @@ func (groups *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups) GetEntityData() *t
     groups.EntityData.BundleName = "cisco_ios_xr"
     groups.EntityData.ParentYangName = "version2"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     groups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1632,6 +1687,7 @@ func (groups *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups) GetEntityData() *t
 type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP group number. The type is interface{} with
     // range: 0..4095.
@@ -1677,6 +1733,7 @@ func (group *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group) GetEntityData
     group.EntityData.BundleName = "cisco_ios_xr"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.GroupNumber, "group-number")
+    group.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     group.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1717,6 +1774,7 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Gro
     secondaryIpv4Addresses.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Addresses.EntityData.ParentYangName = "group"
     secondaryIpv4Addresses.EntityData.SegmentPath = "secondary-ipv4-addresses"
+    secondaryIpv4Addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/" + secondaryIpv4Addresses.EntityData.SegmentPath
     secondaryIpv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1738,6 +1796,7 @@ func (secondaryIpv4Addresses *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Gro
 type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_SecondaryIpv4Addresses_SecondaryIpv4Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. HSRP IP address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1750,6 +1809,7 @@ func (secondaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group
     secondaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     secondaryIpv4Address.EntityData.ParentYangName = "secondary-ipv4-addresses"
     secondaryIpv4Address.EntityData.SegmentPath = "secondary-ipv4-address" + types.AddKeyToken(secondaryIpv4Address.Address, "address")
+    secondaryIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/secondary-ipv4-addresses/" + secondaryIpv4Address.EntityData.SegmentPath
     secondaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1785,6 +1845,7 @@ func (bfd *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Bfd) GetEntityDa
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "group"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1820,6 +1881,7 @@ func (primaryIpv4Address *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_P
     primaryIpv4Address.EntityData.BundleName = "cisco_ios_xr"
     primaryIpv4Address.EntityData.ParentYangName = "group"
     primaryIpv4Address.EntityData.SegmentPath = "primary-ipv4-address"
+    primaryIpv4Address.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/" + primaryIpv4Address.EntityData.SegmentPath
     primaryIpv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryIpv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryIpv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1852,6 +1914,7 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Track
     trackedObjects.EntityData.BundleName = "cisco_ios_xr"
     trackedObjects.EntityData.ParentYangName = "group"
     trackedObjects.EntityData.SegmentPath = "tracked-objects"
+    trackedObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/" + trackedObjects.EntityData.SegmentPath
     trackedObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1873,6 +1936,7 @@ func (trackedObjects *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Track
 type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedObjects_TrackedObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1889,6 +1953,7 @@ func (trackedObject *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Tracke
     trackedObject.EntityData.BundleName = "cisco_ios_xr"
     trackedObject.EntityData.ParentYangName = "tracked-objects"
     trackedObject.EntityData.SegmentPath = "tracked-object" + types.AddKeyToken(trackedObject.ObjectName, "object-name")
+    trackedObject.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/tracked-objects/" + trackedObject.EntityData.SegmentPath
     trackedObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1921,6 +1986,7 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Tr
     trackedInterfaces.EntityData.BundleName = "cisco_ios_xr"
     trackedInterfaces.EntityData.ParentYangName = "group"
     trackedInterfaces.EntityData.SegmentPath = "tracked-interfaces"
+    trackedInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/" + trackedInterfaces.EntityData.SegmentPath
     trackedInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1942,6 +2008,7 @@ func (trackedInterfaces *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Tr
 type Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_TrackedInterfaces_TrackedInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface being tracked. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1958,6 +2025,7 @@ func (trackedInterface *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Tra
     trackedInterface.EntityData.BundleName = "cisco_ios_xr"
     trackedInterface.EntityData.ParentYangName = "tracked-interfaces"
     trackedInterface.EntityData.SegmentPath = "tracked-interface" + types.AddKeyToken(trackedInterface.InterfaceName, "interface-name")
+    trackedInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/tracked-interfaces/" + trackedInterface.EntityData.SegmentPath
     trackedInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trackedInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trackedInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2009,6 +2077,7 @@ func (timers *Hsrp_Interfaces_Interface_Ipv4_Version2_Groups_Group_Timers) GetEn
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "group"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/interface/ipv4/version2/groups/group/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2043,6 +2112,7 @@ func (logging *Hsrp_Logging) GetEntityData() *types.CommonEntityData {
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "hsrp"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

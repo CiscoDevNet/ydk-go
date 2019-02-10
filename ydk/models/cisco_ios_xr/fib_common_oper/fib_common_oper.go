@@ -422,6 +422,7 @@ func (fibStatistics *FibStatistics) GetEntityData() *types.CommonEntityData {
     fibStatistics.EntityData.BundleName = "cisco_ios_xr"
     fibStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-fib-common-oper"
     fibStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-fib-common-oper:fib-statistics"
+    fibStatistics.EntityData.AbsolutePath = fibStatistics.EntityData.SegmentPath
     fibStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -452,6 +453,7 @@ func (nodes *FibStatistics_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "fib-statistics"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib-statistics/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -473,6 +475,7 @@ func (nodes *FibStatistics_Nodes) GetEntityData() *types.CommonEntityData {
 type FibStatistics_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -488,6 +491,7 @@ func (node *FibStatistics_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib-statistics/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -612,6 +616,7 @@ func (drops *FibStatistics_Nodes_Node_Drops) GetEntityData() *types.CommonEntity
     drops.EntityData.BundleName = "cisco_ios_xr"
     drops.EntityData.ParentYangName = "node"
     drops.EntityData.SegmentPath = "drops"
+    drops.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib-statistics/nodes/node/" + drops.EntityData.SegmentPath
     drops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -665,6 +670,7 @@ func (fib *Fib) GetEntityData() *types.CommonEntityData {
     fib.EntityData.BundleName = "cisco_ios_xr"
     fib.EntityData.ParentYangName = "Cisco-IOS-XR-fib-common-oper"
     fib.EntityData.SegmentPath = "Cisco-IOS-XR-fib-common-oper:fib"
+    fib.EntityData.AbsolutePath = fib.EntityData.SegmentPath
     fib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -694,6 +700,7 @@ func (nodes *Fib_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "fib"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -715,6 +722,7 @@ func (nodes *Fib_Nodes) GetEntityData() *types.CommonEntityData {
 type Fib_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -733,6 +741,7 @@ func (node *Fib_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -770,6 +779,7 @@ func (global *Fib_Nodes_Node_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "node"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -804,6 +814,7 @@ func (fibCofo *Fib_Nodes_Node_Global_FibCofo) GetEntityData() *types.CommonEntit
     fibCofo.EntityData.BundleName = "cisco_ios_xr"
     fibCofo.EntityData.ParentYangName = "global"
     fibCofo.EntityData.SegmentPath = "fib-cofo"
+    fibCofo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/" + fibCofo.EntityData.SegmentPath
     fibCofo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibCofo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibCofo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -834,6 +845,7 @@ func (fibCofoIdb *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb) GetEntityData() *typ
     fibCofoIdb.EntityData.BundleName = "cisco_ios_xr"
     fibCofoIdb.EntityData.ParentYangName = "fib-cofo"
     fibCofoIdb.EntityData.SegmentPath = "fib-cofo-idb"
+    fibCofoIdb.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/" + fibCofoIdb.EntityData.SegmentPath
     fibCofoIdb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibCofoIdb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibCofoIdb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -864,6 +876,7 @@ func (fibCofoIdbTableEntries *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoId
     fibCofoIdbTableEntries.EntityData.BundleName = "cisco_ios_xr"
     fibCofoIdbTableEntries.EntityData.ParentYangName = "fib-cofo-idb"
     fibCofoIdbTableEntries.EntityData.SegmentPath = "fib-cofo-idb-table-entries"
+    fibCofoIdbTableEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-idb/" + fibCofoIdbTableEntries.EntityData.SegmentPath
     fibCofoIdbTableEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibCofoIdbTableEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibCofoIdbTableEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -871,6 +884,7 @@ func (fibCofoIdbTableEntries *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoId
     fibCofoIdbTableEntries.EntityData.Children = types.NewOrderedMap()
     fibCofoIdbTableEntries.EntityData.Children.Append("fib-cofo-idb-table-entry", types.YChild{"FibCofoIdbTableEntry", nil})
     for i := range fibCofoIdbTableEntries.FibCofoIdbTableEntry {
+        types.SetYListKey(fibCofoIdbTableEntries.FibCofoIdbTableEntry[i], i)
         fibCofoIdbTableEntries.EntityData.Children.Append(types.GetSegmentPath(fibCofoIdbTableEntries.FibCofoIdbTableEntry[i]), types.YChild{"FibCofoIdbTableEntry", fibCofoIdbTableEntries.FibCofoIdbTableEntry[i]})
     }
     fibCofoIdbTableEntries.EntityData.Leafs = types.NewOrderedMap()
@@ -885,6 +899,7 @@ func (fibCofoIdbTableEntries *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoId
 type Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbTableEntries_FibCofoIdbTableEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SDR ID value. The type is interface{} with range: 0..4294967295.
     SdrId interface{}
@@ -944,7 +959,8 @@ func (fibCofoIdbTableEntry *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbT
     fibCofoIdbTableEntry.EntityData.YangName = "fib-cofo-idb-table-entry"
     fibCofoIdbTableEntry.EntityData.BundleName = "cisco_ios_xr"
     fibCofoIdbTableEntry.EntityData.ParentYangName = "fib-cofo-idb-table-entries"
-    fibCofoIdbTableEntry.EntityData.SegmentPath = "fib-cofo-idb-table-entry"
+    fibCofoIdbTableEntry.EntityData.SegmentPath = "fib-cofo-idb-table-entry" + types.AddNoKeyToken(fibCofoIdbTableEntry)
+    fibCofoIdbTableEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-idb/fib-cofo-idb-table-entries/" + fibCofoIdbTableEntry.EntityData.SegmentPath
     fibCofoIdbTableEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibCofoIdbTableEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibCofoIdbTableEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -953,6 +969,7 @@ func (fibCofoIdbTableEntry *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbT
     fibCofoIdbTableEntry.EntityData.Children.Append("object-base", types.YChild{"ObjectBase", &fibCofoIdbTableEntry.ObjectBase})
     fibCofoIdbTableEntry.EntityData.Children.Append("bundle-member-info", types.YChild{"BundleMemberInfo", nil})
     for i := range fibCofoIdbTableEntry.BundleMemberInfo {
+        types.SetYListKey(fibCofoIdbTableEntry.BundleMemberInfo[i], i)
         fibCofoIdbTableEntry.EntityData.Children.Append(types.GetSegmentPath(fibCofoIdbTableEntry.BundleMemberInfo[i]), types.YChild{"BundleMemberInfo", fibCofoIdbTableEntry.BundleMemberInfo[i]})
     }
     fibCofoIdbTableEntry.EntityData.Leafs = types.NewOrderedMap()
@@ -1007,6 +1024,7 @@ func (objectBase *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbTableEntrie
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "fib-cofo-idb-table-entry"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-idb/fib-cofo-idb-table-entries/fib-cofo-idb-table-entry/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1029,6 +1047,7 @@ func (objectBase *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbTableEntrie
 type Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbTableEntries_FibCofoIdbTableEntry_BundleMemberInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
     IntfIndex interface{}
@@ -1052,7 +1071,8 @@ func (bundleMemberInfo *Fib_Nodes_Node_Global_FibCofo_FibCofoIdb_FibCofoIdbTable
     bundleMemberInfo.EntityData.YangName = "bundle-member-info"
     bundleMemberInfo.EntityData.BundleName = "cisco_ios_xr"
     bundleMemberInfo.EntityData.ParentYangName = "fib-cofo-idb-table-entry"
-    bundleMemberInfo.EntityData.SegmentPath = "bundle-member-info"
+    bundleMemberInfo.EntityData.SegmentPath = "bundle-member-info" + types.AddNoKeyToken(bundleMemberInfo)
+    bundleMemberInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-idb/fib-cofo-idb-table-entries/fib-cofo-idb-table-entry/" + bundleMemberInfo.EntityData.SegmentPath
     bundleMemberInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bundleMemberInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bundleMemberInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1089,6 +1109,7 @@ func (fibCofoTableId *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId) GetEntityDat
     fibCofoTableId.EntityData.BundleName = "cisco_ios_xr"
     fibCofoTableId.EntityData.ParentYangName = "fib-cofo"
     fibCofoTableId.EntityData.SegmentPath = "fib-cofo-table-id"
+    fibCofoTableId.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/" + fibCofoTableId.EntityData.SegmentPath
     fibCofoTableId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibCofoTableId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibCofoTableId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1120,6 +1141,7 @@ func (fibCofoTableIdEntries *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCof
     fibCofoTableIdEntries.EntityData.BundleName = "cisco_ios_xr"
     fibCofoTableIdEntries.EntityData.ParentYangName = "fib-cofo-table-id"
     fibCofoTableIdEntries.EntityData.SegmentPath = "fib-cofo-table-id-entries"
+    fibCofoTableIdEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-table-id/" + fibCofoTableIdEntries.EntityData.SegmentPath
     fibCofoTableIdEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibCofoTableIdEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibCofoTableIdEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1127,6 +1149,7 @@ func (fibCofoTableIdEntries *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCof
     fibCofoTableIdEntries.EntityData.Children = types.NewOrderedMap()
     fibCofoTableIdEntries.EntityData.Children.Append("fib-cofo-table-id-entry", types.YChild{"FibCofoTableIdEntry", nil})
     for i := range fibCofoTableIdEntries.FibCofoTableIdEntry {
+        types.SetYListKey(fibCofoTableIdEntries.FibCofoTableIdEntry[i], i)
         fibCofoTableIdEntries.EntityData.Children.Append(types.GetSegmentPath(fibCofoTableIdEntries.FibCofoTableIdEntry[i]), types.YChild{"FibCofoTableIdEntry", fibCofoTableIdEntries.FibCofoTableIdEntry[i]})
     }
     fibCofoTableIdEntries.EntityData.Leafs = types.NewOrderedMap()
@@ -1141,6 +1164,7 @@ func (fibCofoTableIdEntries *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCof
 type Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCofoTableIdEntries_FibCofoTableIdEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SDR ID value. The type is interface{} with range: 0..4294967295.
     SdrId interface{}
@@ -1183,7 +1207,8 @@ func (fibCofoTableIdEntry *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCofoT
     fibCofoTableIdEntry.EntityData.YangName = "fib-cofo-table-id-entry"
     fibCofoTableIdEntry.EntityData.BundleName = "cisco_ios_xr"
     fibCofoTableIdEntry.EntityData.ParentYangName = "fib-cofo-table-id-entries"
-    fibCofoTableIdEntry.EntityData.SegmentPath = "fib-cofo-table-id-entry"
+    fibCofoTableIdEntry.EntityData.SegmentPath = "fib-cofo-table-id-entry" + types.AddNoKeyToken(fibCofoTableIdEntry)
+    fibCofoTableIdEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-table-id/fib-cofo-table-id-entries/" + fibCofoTableIdEntry.EntityData.SegmentPath
     fibCofoTableIdEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibCofoTableIdEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibCofoTableIdEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1238,6 +1263,7 @@ func (objectBase *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCofoTableIdEnt
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "fib-cofo-table-id-entry"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-table-id/fib-cofo-table-id-entries/fib-cofo-table-id-entry/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1299,6 +1325,7 @@ func (fibCofoTableIdSummary *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCof
     fibCofoTableIdSummary.EntityData.BundleName = "cisco_ios_xr"
     fibCofoTableIdSummary.EntityData.ParentYangName = "fib-cofo-table-id"
     fibCofoTableIdSummary.EntityData.SegmentPath = "fib-cofo-table-id-summary"
+    fibCofoTableIdSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-table-id/" + fibCofoTableIdSummary.EntityData.SegmentPath
     fibCofoTableIdSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibCofoTableIdSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibCofoTableIdSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1306,6 +1333,7 @@ func (fibCofoTableIdSummary *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCof
     fibCofoTableIdSummary.EntityData.Children = types.NewOrderedMap()
     fibCofoTableIdSummary.EntityData.Children.Append("per-sdr-stat", types.YChild{"PerSdrStat", nil})
     for i := range fibCofoTableIdSummary.PerSdrStat {
+        types.SetYListKey(fibCofoTableIdSummary.PerSdrStat[i], i)
         fibCofoTableIdSummary.EntityData.Children.Append(types.GetSegmentPath(fibCofoTableIdSummary.PerSdrStat[i]), types.YChild{"PerSdrStat", fibCofoTableIdSummary.PerSdrStat[i]})
     }
     fibCofoTableIdSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -1327,6 +1355,7 @@ func (fibCofoTableIdSummary *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCof
 type Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCofoTableIdSummary_PerSdrStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SDR ID. The type is interface{} with range: 0..4294967295.
     Sdrid interface{}
@@ -1346,7 +1375,8 @@ func (perSdrStat *Fib_Nodes_Node_Global_FibCofo_FibCofoTableId_FibCofoTableIdSum
     perSdrStat.EntityData.YangName = "per-sdr-stat"
     perSdrStat.EntityData.BundleName = "cisco_ios_xr"
     perSdrStat.EntityData.ParentYangName = "fib-cofo-table-id-summary"
-    perSdrStat.EntityData.SegmentPath = "per-sdr-stat"
+    perSdrStat.EntityData.SegmentPath = "per-sdr-stat" + types.AddNoKeyToken(perSdrStat)
+    perSdrStat.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/fib-cofo/fib-cofo-table-id/fib-cofo-table-id-summary/" + perSdrStat.EntityData.SegmentPath
     perSdrStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     perSdrStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     perSdrStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1382,6 +1412,7 @@ func (summary *Fib_Nodes_Node_Global_Summary) GetEntityData() *types.CommonEntit
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "global"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1415,6 +1446,7 @@ func (total *Fib_Nodes_Node_Global_Summary_Total) GetEntityData() *types.CommonE
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "summary"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1446,6 +1478,7 @@ func (commonInfo *Fib_Nodes_Node_Global_Summary_Total_CommonInfo) GetEntityData(
     commonInfo.EntityData.BundleName = "cisco_ios_xr"
     commonInfo.EntityData.ParentYangName = "total"
     commonInfo.EntityData.SegmentPath = "common-info"
+    commonInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/total/" + commonInfo.EntityData.SegmentPath
     commonInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1488,6 +1521,7 @@ func (totalCounters *Fib_Nodes_Node_Global_Summary_Total_TotalCounters) GetEntit
     totalCounters.EntityData.BundleName = "cisco_ios_xr"
     totalCounters.EntityData.ParentYangName = "total"
     totalCounters.EntityData.SegmentPath = "total-counters"
+    totalCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/total/" + totalCounters.EntityData.SegmentPath
     totalCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     totalCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     totalCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1495,10 +1529,12 @@ func (totalCounters *Fib_Nodes_Node_Global_Summary_Total_TotalCounters) GetEntit
     totalCounters.EntityData.Children = types.NewOrderedMap()
     totalCounters.EntityData.Children.Append("array-number-of-retry", types.YChild{"ArrayNumberOfRetry", nil})
     for i := range totalCounters.ArrayNumberOfRetry {
+        types.SetYListKey(totalCounters.ArrayNumberOfRetry[i], i)
         totalCounters.EntityData.Children.Append(types.GetSegmentPath(totalCounters.ArrayNumberOfRetry[i]), types.YChild{"ArrayNumberOfRetry", totalCounters.ArrayNumberOfRetry[i]})
     }
     totalCounters.EntityData.Children.Append("array-number-of-object", types.YChild{"ArrayNumberOfObject", nil})
     for i := range totalCounters.ArrayNumberOfObject {
+        types.SetYListKey(totalCounters.ArrayNumberOfObject[i], i)
         totalCounters.EntityData.Children.Append(types.GetSegmentPath(totalCounters.ArrayNumberOfObject[i]), types.YChild{"ArrayNumberOfObject", totalCounters.ArrayNumberOfObject[i]})
     }
     totalCounters.EntityData.Leafs = types.NewOrderedMap()
@@ -1515,6 +1551,7 @@ func (totalCounters *Fib_Nodes_Node_Global_Summary_Total_TotalCounters) GetEntit
 type Fib_Nodes_Node_Global_Summary_Total_TotalCounters_ArrayNumberOfRetry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // retry object. The type is string with length: 0..30.
     RetryObjectType interface{}
@@ -1529,7 +1566,8 @@ func (arrayNumberOfRetry *Fib_Nodes_Node_Global_Summary_Total_TotalCounters_Arra
     arrayNumberOfRetry.EntityData.YangName = "array-number-of-retry"
     arrayNumberOfRetry.EntityData.BundleName = "cisco_ios_xr"
     arrayNumberOfRetry.EntityData.ParentYangName = "total-counters"
-    arrayNumberOfRetry.EntityData.SegmentPath = "array-number-of-retry"
+    arrayNumberOfRetry.EntityData.SegmentPath = "array-number-of-retry" + types.AddNoKeyToken(arrayNumberOfRetry)
+    arrayNumberOfRetry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/total/total-counters/" + arrayNumberOfRetry.EntityData.SegmentPath
     arrayNumberOfRetry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arrayNumberOfRetry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arrayNumberOfRetry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1549,6 +1587,7 @@ func (arrayNumberOfRetry *Fib_Nodes_Node_Global_Summary_Total_TotalCounters_Arra
 type Fib_Nodes_Node_Global_Summary_Total_TotalCounters_ArrayNumberOfObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // object. The type is string with length: 0..30.
     ObjectType interface{}
@@ -1563,7 +1602,8 @@ func (arrayNumberOfObject *Fib_Nodes_Node_Global_Summary_Total_TotalCounters_Arr
     arrayNumberOfObject.EntityData.YangName = "array-number-of-object"
     arrayNumberOfObject.EntityData.BundleName = "cisco_ios_xr"
     arrayNumberOfObject.EntityData.ParentYangName = "total-counters"
-    arrayNumberOfObject.EntityData.SegmentPath = "array-number-of-object"
+    arrayNumberOfObject.EntityData.SegmentPath = "array-number-of-object" + types.AddNoKeyToken(arrayNumberOfObject)
+    arrayNumberOfObject.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/total/total-counters/" + arrayNumberOfObject.EntityData.SegmentPath
     arrayNumberOfObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arrayNumberOfObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arrayNumberOfObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1595,6 +1635,7 @@ func (protos *Fib_Nodes_Node_Global_Summary_Protos) GetEntityData() *types.Commo
     protos.EntityData.BundleName = "cisco_ios_xr"
     protos.EntityData.ParentYangName = "summary"
     protos.EntityData.SegmentPath = "protos"
+    protos.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/" + protos.EntityData.SegmentPath
     protos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1616,6 +1657,7 @@ func (protos *Fib_Nodes_Node_Global_Summary_Protos) GetEntityData() *types.Commo
 type Fib_Nodes_Node_Global_Summary_Protos_Proto struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol Name. The type is FibafiProto.
     ProtocolName interface{}
@@ -1633,6 +1675,7 @@ func (proto *Fib_Nodes_Node_Global_Summary_Protos_Proto) GetEntityData() *types.
     proto.EntityData.BundleName = "cisco_ios_xr"
     proto.EntityData.ParentYangName = "protos"
     proto.EntityData.SegmentPath = "proto" + types.AddKeyToken(proto.ProtocolName, "protocol-name")
+    proto.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/protos/" + proto.EntityData.SegmentPath
     proto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1665,6 +1708,7 @@ func (commonInfo *Fib_Nodes_Node_Global_Summary_Protos_Proto_CommonInfo) GetEnti
     commonInfo.EntityData.BundleName = "cisco_ios_xr"
     commonInfo.EntityData.ParentYangName = "proto"
     commonInfo.EntityData.SegmentPath = "common-info"
+    commonInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/protos/proto/" + commonInfo.EntityData.SegmentPath
     commonInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1700,6 +1744,7 @@ func (summary *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary) GetEntityData
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "proto"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/protos/proto/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1731,6 +1776,7 @@ func (baseObject *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_BaseObject)
     baseObject.EntityData.BundleName = "cisco_ios_xr"
     baseObject.EntityData.ParentYangName = "summary"
     baseObject.EntityData.SegmentPath = "base-object"
+    baseObject.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/protos/proto/summary/" + baseObject.EntityData.SegmentPath
     baseObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1773,6 +1819,7 @@ func (summaryCounts *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_SummaryC
     summaryCounts.EntityData.BundleName = "cisco_ios_xr"
     summaryCounts.EntityData.ParentYangName = "summary"
     summaryCounts.EntityData.SegmentPath = "summary-counts"
+    summaryCounts.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/protos/proto/summary/" + summaryCounts.EntityData.SegmentPath
     summaryCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1780,10 +1827,12 @@ func (summaryCounts *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_SummaryC
     summaryCounts.EntityData.Children = types.NewOrderedMap()
     summaryCounts.EntityData.Children.Append("array-number-of-retry", types.YChild{"ArrayNumberOfRetry", nil})
     for i := range summaryCounts.ArrayNumberOfRetry {
+        types.SetYListKey(summaryCounts.ArrayNumberOfRetry[i], i)
         summaryCounts.EntityData.Children.Append(types.GetSegmentPath(summaryCounts.ArrayNumberOfRetry[i]), types.YChild{"ArrayNumberOfRetry", summaryCounts.ArrayNumberOfRetry[i]})
     }
     summaryCounts.EntityData.Children.Append("array-number-of-object", types.YChild{"ArrayNumberOfObject", nil})
     for i := range summaryCounts.ArrayNumberOfObject {
+        types.SetYListKey(summaryCounts.ArrayNumberOfObject[i], i)
         summaryCounts.EntityData.Children.Append(types.GetSegmentPath(summaryCounts.ArrayNumberOfObject[i]), types.YChild{"ArrayNumberOfObject", summaryCounts.ArrayNumberOfObject[i]})
     }
     summaryCounts.EntityData.Leafs = types.NewOrderedMap()
@@ -1800,6 +1849,7 @@ func (summaryCounts *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_SummaryC
 type Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_SummaryCounts_ArrayNumberOfRetry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // retry object. The type is string with length: 0..30.
     RetryObjectType interface{}
@@ -1814,7 +1864,8 @@ func (arrayNumberOfRetry *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_Sum
     arrayNumberOfRetry.EntityData.YangName = "array-number-of-retry"
     arrayNumberOfRetry.EntityData.BundleName = "cisco_ios_xr"
     arrayNumberOfRetry.EntityData.ParentYangName = "summary-counts"
-    arrayNumberOfRetry.EntityData.SegmentPath = "array-number-of-retry"
+    arrayNumberOfRetry.EntityData.SegmentPath = "array-number-of-retry" + types.AddNoKeyToken(arrayNumberOfRetry)
+    arrayNumberOfRetry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/protos/proto/summary/summary-counts/" + arrayNumberOfRetry.EntityData.SegmentPath
     arrayNumberOfRetry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arrayNumberOfRetry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arrayNumberOfRetry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1834,6 +1885,7 @@ func (arrayNumberOfRetry *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_Sum
 type Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_SummaryCounts_ArrayNumberOfObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // object. The type is string with length: 0..30.
     ObjectType interface{}
@@ -1848,7 +1900,8 @@ func (arrayNumberOfObject *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_Su
     arrayNumberOfObject.EntityData.YangName = "array-number-of-object"
     arrayNumberOfObject.EntityData.BundleName = "cisco_ios_xr"
     arrayNumberOfObject.EntityData.ParentYangName = "summary-counts"
-    arrayNumberOfObject.EntityData.SegmentPath = "array-number-of-object"
+    arrayNumberOfObject.EntityData.SegmentPath = "array-number-of-object" + types.AddNoKeyToken(arrayNumberOfObject)
+    arrayNumberOfObject.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/protos/proto/summary/summary-counts/" + arrayNumberOfObject.EntityData.SegmentPath
     arrayNumberOfObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     arrayNumberOfObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     arrayNumberOfObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1879,6 +1932,7 @@ func (health *Fib_Nodes_Node_Global_Summary_Protos_Proto_Summary_Health) GetEnti
     health.EntityData.BundleName = "cisco_ios_xr"
     health.EntityData.ParentYangName = "summary"
     health.EntityData.SegmentPath = "health"
+    health.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/summary/protos/proto/summary/" + health.EntityData.SegmentPath
     health.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     health.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     health.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1908,6 +1962,7 @@ func (objectHistory *Fib_Nodes_Node_Global_ObjectHistory) GetEntityData() *types
     objectHistory.EntityData.BundleName = "cisco_ios_xr"
     objectHistory.EntityData.ParentYangName = "global"
     objectHistory.EntityData.SegmentPath = "object-history"
+    objectHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/" + objectHistory.EntityData.SegmentPath
     objectHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1938,6 +1993,7 @@ func (objHistoryProtos *Fib_Nodes_Node_Global_ObjectHistory_ObjHistoryProtos) Ge
     objHistoryProtos.EntityData.BundleName = "cisco_ios_xr"
     objHistoryProtos.EntityData.ParentYangName = "object-history"
     objHistoryProtos.EntityData.SegmentPath = "obj-history-protos"
+    objHistoryProtos.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/object-history/" + objHistoryProtos.EntityData.SegmentPath
     objHistoryProtos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objHistoryProtos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objHistoryProtos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1959,6 +2015,7 @@ func (objHistoryProtos *Fib_Nodes_Node_Global_ObjectHistory_ObjHistoryProtos) Ge
 type Fib_Nodes_Node_Global_ObjectHistory_ObjHistoryProtos_ObjHistoryProto struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol Name. The type is FibafiProto.
     ProtocolName interface{}
@@ -1976,6 +2033,7 @@ func (objHistoryProto *Fib_Nodes_Node_Global_ObjectHistory_ObjHistoryProtos_ObjH
     objHistoryProto.EntityData.BundleName = "cisco_ios_xr"
     objHistoryProto.EntityData.ParentYangName = "obj-history-protos"
     objHistoryProto.EntityData.SegmentPath = "obj-history-proto" + types.AddKeyToken(objHistoryProto.ProtocolName, "protocol-name")
+    objHistoryProto.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/object-history/obj-history-protos/" + objHistoryProto.EntityData.SegmentPath
     objHistoryProto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objHistoryProto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objHistoryProto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2007,6 +2065,7 @@ func (baseObject *Fib_Nodes_Node_Global_ObjectHistory_ObjHistoryProtos_ObjHistor
     baseObject.EntityData.BundleName = "cisco_ios_xr"
     baseObject.EntityData.ParentYangName = "obj-history-proto"
     baseObject.EntityData.SegmentPath = "base-object"
+    baseObject.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/object-history/obj-history-protos/obj-history-proto/" + baseObject.EntityData.SegmentPath
     baseObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     baseObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     baseObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2037,6 +2096,7 @@ func (objectHistory *Fib_Nodes_Node_Global_ObjectHistory_ObjHistoryProtos_ObjHis
     objectHistory.EntityData.BundleName = "cisco_ios_xr"
     objectHistory.EntityData.ParentYangName = "obj-history-proto"
     objectHistory.EntityData.SegmentPath = "object-history"
+    objectHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/global/object-history/obj-history-protos/obj-history-proto/" + objectHistory.EntityData.SegmentPath
     objectHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2067,6 +2127,7 @@ func (protocols *Fib_Nodes_Node_Protocols) GetEntityData() *types.CommonEntityDa
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "node"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2088,6 +2149,7 @@ func (protocols *Fib_Nodes_Node_Protocols) GetEntityData() *types.CommonEntityDa
 type Fib_Nodes_Node_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Protocol Name . The type is FibProtocol.
     ProtocolName interface{}
@@ -2135,6 +2197,7 @@ func (protocol *Fib_Nodes_Node_Protocols_Protocol) GetEntityData() *types.Common
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
     protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2216,6 +2279,7 @@ func (issuState *Fib_Nodes_Node_Protocols_Protocol_IssuState) GetEntityData() *t
     issuState.EntityData.BundleName = "cisco_ios_xr"
     issuState.EntityData.ParentYangName = "protocol"
     issuState.EntityData.SegmentPath = "issu-state"
+    issuState.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + issuState.EntityData.SegmentPath
     issuState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issuState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2223,6 +2287,7 @@ func (issuState *Fib_Nodes_Node_Protocols_Protocol_IssuState) GetEntityData() *t
     issuState.EntityData.Children = types.NewOrderedMap()
     issuState.EntityData.Children.Append("fis-proto-state", types.YChild{"FisProtoState", nil})
     for i := range issuState.FisProtoState {
+        types.SetYListKey(issuState.FisProtoState[i], i)
         issuState.EntityData.Children.Append(types.GetSegmentPath(issuState.FisProtoState[i]), types.YChild{"FisProtoState", issuState.FisProtoState[i]})
     }
     issuState.EntityData.Leafs = types.NewOrderedMap()
@@ -2248,6 +2313,7 @@ func (issuState *Fib_Nodes_Node_Protocols_Protocol_IssuState) GetEntityData() *t
 type Fib_Nodes_Node_Protocols_Protocol_IssuState_FisProtoState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol name. The type is string with length: 0..6.
     ProtocolName interface{}
@@ -2298,7 +2364,8 @@ func (fisProtoState *Fib_Nodes_Node_Protocols_Protocol_IssuState_FisProtoState) 
     fisProtoState.EntityData.YangName = "fis-proto-state"
     fisProtoState.EntityData.BundleName = "cisco_ios_xr"
     fisProtoState.EntityData.ParentYangName = "issu-state"
-    fisProtoState.EntityData.SegmentPath = "fis-proto-state"
+    fisProtoState.EntityData.SegmentPath = "fis-proto-state" + types.AddNoKeyToken(fisProtoState)
+    fisProtoState.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/issu-state/" + fisProtoState.EntityData.SegmentPath
     fisProtoState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fisProtoState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fisProtoState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2350,6 +2417,7 @@ func (resource *Fib_Nodes_Node_Protocols_Protocol_Resource) GetEntityData() *typ
     resource.EntityData.BundleName = "cisco_ios_xr"
     resource.EntityData.ParentYangName = "protocol"
     resource.EntityData.SegmentPath = "resource"
+    resource.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + resource.EntityData.SegmentPath
     resource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2407,6 +2475,7 @@ func (resourceDetailInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDet
     resourceDetailInfo.EntityData.BundleName = "cisco_ios_xr"
     resourceDetailInfo.EntityData.ParentYangName = "resource"
     resourceDetailInfo.EntityData.SegmentPath = "resource-detail-info"
+    resourceDetailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/" + resourceDetailInfo.EntityData.SegmentPath
     resourceDetailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resourceDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resourceDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2414,10 +2483,12 @@ func (resourceDetailInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDet
     resourceDetailInfo.EntityData.Children = types.NewOrderedMap()
     resourceDetailInfo.EntityData.Children.Append("sr-hwrsrc-mode", types.YChild{"SrHwrsrcMode", nil})
     for i := range resourceDetailInfo.SrHwrsrcMode {
+        types.SetYListKey(resourceDetailInfo.SrHwrsrcMode[i], i)
         resourceDetailInfo.EntityData.Children.Append(types.GetSegmentPath(resourceDetailInfo.SrHwrsrcMode[i]), types.YChild{"SrHwrsrcMode", resourceDetailInfo.SrHwrsrcMode[i]})
     }
     resourceDetailInfo.EntityData.Children.Append("sr-shm-state", types.YChild{"SrShmState", nil})
     for i := range resourceDetailInfo.SrShmState {
+        types.SetYListKey(resourceDetailInfo.SrShmState[i], i)
         resourceDetailInfo.EntityData.Children.Append(types.GetSegmentPath(resourceDetailInfo.SrShmState[i]), types.YChild{"SrShmState", resourceDetailInfo.SrShmState[i]})
     }
     resourceDetailInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -2438,6 +2509,7 @@ func (resourceDetailInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDet
 type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDetailInfo_SrHwrsrcMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2448,7 +2520,8 @@ func (srHwrsrcMode *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDetailInf
     srHwrsrcMode.EntityData.YangName = "sr-hwrsrc-mode"
     srHwrsrcMode.EntityData.BundleName = "cisco_ios_xr"
     srHwrsrcMode.EntityData.ParentYangName = "resource-detail-info"
-    srHwrsrcMode.EntityData.SegmentPath = "sr-hwrsrc-mode"
+    srHwrsrcMode.EntityData.SegmentPath = "sr-hwrsrc-mode" + types.AddNoKeyToken(srHwrsrcMode)
+    srHwrsrcMode.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/resource-detail-info/" + srHwrsrcMode.EntityData.SegmentPath
     srHwrsrcMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srHwrsrcMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srHwrsrcMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2467,6 +2540,7 @@ func (srHwrsrcMode *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDetailInf
 type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDetailInfo_SrShmState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OOR mode for this shared memory window. The type is interface{} with range:
     // 0..4294967295.
@@ -2486,7 +2560,8 @@ func (srShmState *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceDetailInfo_
     srShmState.EntityData.YangName = "sr-shm-state"
     srShmState.EntityData.BundleName = "cisco_ios_xr"
     srShmState.EntityData.ParentYangName = "resource-detail-info"
-    srShmState.EntityData.SegmentPath = "sr-shm-state"
+    srShmState.EntityData.SegmentPath = "sr-shm-state" + types.AddNoKeyToken(srShmState)
+    srShmState.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/resource-detail-info/" + srShmState.EntityData.SegmentPath
     srShmState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srShmState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srShmState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2543,6 +2618,7 @@ func (resourceHardwareIngressInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_Re
     resourceHardwareIngressInfo.EntityData.BundleName = "cisco_ios_xr"
     resourceHardwareIngressInfo.EntityData.ParentYangName = "resource"
     resourceHardwareIngressInfo.EntityData.SegmentPath = "resource-hardware-ingress-info"
+    resourceHardwareIngressInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/" + resourceHardwareIngressInfo.EntityData.SegmentPath
     resourceHardwareIngressInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resourceHardwareIngressInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resourceHardwareIngressInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2550,10 +2626,12 @@ func (resourceHardwareIngressInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_Re
     resourceHardwareIngressInfo.EntityData.Children = types.NewOrderedMap()
     resourceHardwareIngressInfo.EntityData.Children.Append("sr-hwrsrc-mode", types.YChild{"SrHwrsrcMode", nil})
     for i := range resourceHardwareIngressInfo.SrHwrsrcMode {
+        types.SetYListKey(resourceHardwareIngressInfo.SrHwrsrcMode[i], i)
         resourceHardwareIngressInfo.EntityData.Children.Append(types.GetSegmentPath(resourceHardwareIngressInfo.SrHwrsrcMode[i]), types.YChild{"SrHwrsrcMode", resourceHardwareIngressInfo.SrHwrsrcMode[i]})
     }
     resourceHardwareIngressInfo.EntityData.Children.Append("sr-shm-state", types.YChild{"SrShmState", nil})
     for i := range resourceHardwareIngressInfo.SrShmState {
+        types.SetYListKey(resourceHardwareIngressInfo.SrShmState[i], i)
         resourceHardwareIngressInfo.EntityData.Children.Append(types.GetSegmentPath(resourceHardwareIngressInfo.SrShmState[i]), types.YChild{"SrShmState", resourceHardwareIngressInfo.SrShmState[i]})
     }
     resourceHardwareIngressInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -2574,6 +2652,7 @@ func (resourceHardwareIngressInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_Re
 type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareIngressInfo_SrHwrsrcMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2584,7 +2663,8 @@ func (srHwrsrcMode *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareI
     srHwrsrcMode.EntityData.YangName = "sr-hwrsrc-mode"
     srHwrsrcMode.EntityData.BundleName = "cisco_ios_xr"
     srHwrsrcMode.EntityData.ParentYangName = "resource-hardware-ingress-info"
-    srHwrsrcMode.EntityData.SegmentPath = "sr-hwrsrc-mode"
+    srHwrsrcMode.EntityData.SegmentPath = "sr-hwrsrc-mode" + types.AddNoKeyToken(srHwrsrcMode)
+    srHwrsrcMode.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/resource-hardware-ingress-info/" + srHwrsrcMode.EntityData.SegmentPath
     srHwrsrcMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srHwrsrcMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srHwrsrcMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2603,6 +2683,7 @@ func (srHwrsrcMode *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareI
 type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareIngressInfo_SrShmState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OOR mode for this shared memory window. The type is interface{} with range:
     // 0..4294967295.
@@ -2622,7 +2703,8 @@ func (srShmState *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareIng
     srShmState.EntityData.YangName = "sr-shm-state"
     srShmState.EntityData.BundleName = "cisco_ios_xr"
     srShmState.EntityData.ParentYangName = "resource-hardware-ingress-info"
-    srShmState.EntityData.SegmentPath = "sr-shm-state"
+    srShmState.EntityData.SegmentPath = "sr-shm-state" + types.AddNoKeyToken(srShmState)
+    srShmState.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/resource-hardware-ingress-info/" + srShmState.EntityData.SegmentPath
     srShmState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srShmState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srShmState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2679,6 +2761,7 @@ func (resourceHardwareEgressInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_Res
     resourceHardwareEgressInfo.EntityData.BundleName = "cisco_ios_xr"
     resourceHardwareEgressInfo.EntityData.ParentYangName = "resource"
     resourceHardwareEgressInfo.EntityData.SegmentPath = "resource-hardware-egress-info"
+    resourceHardwareEgressInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/" + resourceHardwareEgressInfo.EntityData.SegmentPath
     resourceHardwareEgressInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resourceHardwareEgressInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resourceHardwareEgressInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2686,10 +2769,12 @@ func (resourceHardwareEgressInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_Res
     resourceHardwareEgressInfo.EntityData.Children = types.NewOrderedMap()
     resourceHardwareEgressInfo.EntityData.Children.Append("sr-hwrsrc-mode", types.YChild{"SrHwrsrcMode", nil})
     for i := range resourceHardwareEgressInfo.SrHwrsrcMode {
+        types.SetYListKey(resourceHardwareEgressInfo.SrHwrsrcMode[i], i)
         resourceHardwareEgressInfo.EntityData.Children.Append(types.GetSegmentPath(resourceHardwareEgressInfo.SrHwrsrcMode[i]), types.YChild{"SrHwrsrcMode", resourceHardwareEgressInfo.SrHwrsrcMode[i]})
     }
     resourceHardwareEgressInfo.EntityData.Children.Append("sr-shm-state", types.YChild{"SrShmState", nil})
     for i := range resourceHardwareEgressInfo.SrShmState {
+        types.SetYListKey(resourceHardwareEgressInfo.SrShmState[i], i)
         resourceHardwareEgressInfo.EntityData.Children.Append(types.GetSegmentPath(resourceHardwareEgressInfo.SrShmState[i]), types.YChild{"SrShmState", resourceHardwareEgressInfo.SrShmState[i]})
     }
     resourceHardwareEgressInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -2710,6 +2795,7 @@ func (resourceHardwareEgressInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_Res
 type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareEgressInfo_SrHwrsrcMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2720,7 +2806,8 @@ func (srHwrsrcMode *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareE
     srHwrsrcMode.EntityData.YangName = "sr-hwrsrc-mode"
     srHwrsrcMode.EntityData.BundleName = "cisco_ios_xr"
     srHwrsrcMode.EntityData.ParentYangName = "resource-hardware-egress-info"
-    srHwrsrcMode.EntityData.SegmentPath = "sr-hwrsrc-mode"
+    srHwrsrcMode.EntityData.SegmentPath = "sr-hwrsrc-mode" + types.AddNoKeyToken(srHwrsrcMode)
+    srHwrsrcMode.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/resource-hardware-egress-info/" + srHwrsrcMode.EntityData.SegmentPath
     srHwrsrcMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srHwrsrcMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srHwrsrcMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2739,6 +2826,7 @@ func (srHwrsrcMode *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareE
 type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareEgressInfo_SrShmState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OOR mode for this shared memory window. The type is interface{} with range:
     // 0..4294967295.
@@ -2758,7 +2846,8 @@ func (srShmState *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceHardwareEgr
     srShmState.EntityData.YangName = "sr-shm-state"
     srShmState.EntityData.BundleName = "cisco_ios_xr"
     srShmState.EntityData.ParentYangName = "resource-hardware-egress-info"
-    srShmState.EntityData.SegmentPath = "sr-shm-state"
+    srShmState.EntityData.SegmentPath = "sr-shm-state" + types.AddNoKeyToken(srShmState)
+    srShmState.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/resource-hardware-egress-info/" + srShmState.EntityData.SegmentPath
     srShmState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srShmState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srShmState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2815,6 +2904,7 @@ func (resourceSummaryInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSu
     resourceSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     resourceSummaryInfo.EntityData.ParentYangName = "resource"
     resourceSummaryInfo.EntityData.SegmentPath = "resource-summary-info"
+    resourceSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/" + resourceSummaryInfo.EntityData.SegmentPath
     resourceSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     resourceSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     resourceSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2822,10 +2912,12 @@ func (resourceSummaryInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSu
     resourceSummaryInfo.EntityData.Children = types.NewOrderedMap()
     resourceSummaryInfo.EntityData.Children.Append("sr-hwrsrc-mode", types.YChild{"SrHwrsrcMode", nil})
     for i := range resourceSummaryInfo.SrHwrsrcMode {
+        types.SetYListKey(resourceSummaryInfo.SrHwrsrcMode[i], i)
         resourceSummaryInfo.EntityData.Children.Append(types.GetSegmentPath(resourceSummaryInfo.SrHwrsrcMode[i]), types.YChild{"SrHwrsrcMode", resourceSummaryInfo.SrHwrsrcMode[i]})
     }
     resourceSummaryInfo.EntityData.Children.Append("sr-shm-state", types.YChild{"SrShmState", nil})
     for i := range resourceSummaryInfo.SrShmState {
+        types.SetYListKey(resourceSummaryInfo.SrShmState[i], i)
         resourceSummaryInfo.EntityData.Children.Append(types.GetSegmentPath(resourceSummaryInfo.SrShmState[i]), types.YChild{"SrShmState", resourceSummaryInfo.SrShmState[i]})
     }
     resourceSummaryInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -2846,6 +2938,7 @@ func (resourceSummaryInfo *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSu
 type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSummaryInfo_SrHwrsrcMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -2856,7 +2949,8 @@ func (srHwrsrcMode *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSummaryIn
     srHwrsrcMode.EntityData.YangName = "sr-hwrsrc-mode"
     srHwrsrcMode.EntityData.BundleName = "cisco_ios_xr"
     srHwrsrcMode.EntityData.ParentYangName = "resource-summary-info"
-    srHwrsrcMode.EntityData.SegmentPath = "sr-hwrsrc-mode"
+    srHwrsrcMode.EntityData.SegmentPath = "sr-hwrsrc-mode" + types.AddNoKeyToken(srHwrsrcMode)
+    srHwrsrcMode.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/resource-summary-info/" + srHwrsrcMode.EntityData.SegmentPath
     srHwrsrcMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srHwrsrcMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srHwrsrcMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2875,6 +2969,7 @@ func (srHwrsrcMode *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSummaryIn
 type Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSummaryInfo_SrShmState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OOR mode for this shared memory window. The type is interface{} with range:
     // 0..4294967295.
@@ -2894,7 +2989,8 @@ func (srShmState *Fib_Nodes_Node_Protocols_Protocol_Resource_ResourceSummaryInfo
     srShmState.EntityData.YangName = "sr-shm-state"
     srShmState.EntityData.BundleName = "cisco_ios_xr"
     srShmState.EntityData.ParentYangName = "resource-summary-info"
-    srShmState.EntityData.SegmentPath = "sr-shm-state"
+    srShmState.EntityData.SegmentPath = "sr-shm-state" + types.AddNoKeyToken(srShmState)
+    srShmState.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/resource/resource-summary-info/" + srShmState.EntityData.SegmentPath
     srShmState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srShmState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srShmState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2927,6 +3023,7 @@ func (fibSummaries *Fib_Nodes_Node_Protocols_Protocol_FibSummaries) GetEntityDat
     fibSummaries.EntityData.BundleName = "cisco_ios_xr"
     fibSummaries.EntityData.ParentYangName = "protocol"
     fibSummaries.EntityData.SegmentPath = "fib-summaries"
+    fibSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + fibSummaries.EntityData.SegmentPath
     fibSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2934,6 +3031,7 @@ func (fibSummaries *Fib_Nodes_Node_Protocols_Protocol_FibSummaries) GetEntityDat
     fibSummaries.EntityData.Children = types.NewOrderedMap()
     fibSummaries.EntityData.Children.Append("fib-summary", types.YChild{"FibSummary", nil})
     for i := range fibSummaries.FibSummary {
+        types.SetYListKey(fibSummaries.FibSummary[i], i)
         fibSummaries.EntityData.Children.Append(types.GetSegmentPath(fibSummaries.FibSummary[i]), types.YChild{"FibSummary", fibSummaries.FibSummary[i]})
     }
     fibSummaries.EntityData.Leafs = types.NewOrderedMap()
@@ -2948,6 +3046,7 @@ func (fibSummaries *Fib_Nodes_Node_Protocols_Protocol_FibSummaries) GetEntityDat
 type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
@@ -3129,7 +3228,8 @@ func (fibSummary *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary) Get
     fibSummary.EntityData.YangName = "fib-summary"
     fibSummary.EntityData.BundleName = "cisco_ios_xr"
     fibSummary.EntityData.ParentYangName = "fib-summaries"
-    fibSummary.EntityData.SegmentPath = "fib-summary"
+    fibSummary.EntityData.SegmentPath = "fib-summary" + types.AddNoKeyToken(fibSummary)
+    fibSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/" + fibSummary.EntityData.SegmentPath
     fibSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3242,6 +3342,7 @@ func (exclusiveLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_FibSummarie
     exclusiveLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
     exclusiveLoadSharingElement.EntityData.ParentYangName = "fib-summary"
     exclusiveLoadSharingElement.EntityData.SegmentPath = "exclusive-load-sharing-element"
+    exclusiveLoadSharingElement.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary/" + exclusiveLoadSharingElement.EntityData.SegmentPath
     exclusiveLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclusiveLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclusiveLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3317,6 +3418,7 @@ func (sharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_F
     sharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
     sharedLoadSharingElement.EntityData.ParentYangName = "fib-summary"
     sharedLoadSharingElement.EntityData.SegmentPath = "shared-load-sharing-element"
+    sharedLoadSharingElement.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary/" + sharedLoadSharingElement.EntityData.SegmentPath
     sharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3392,6 +3494,7 @@ func (crossSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_FibSummar
     crossSharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
     crossSharedLoadSharingElement.EntityData.ParentYangName = "fib-summary"
     crossSharedLoadSharingElement.EntityData.SegmentPath = "cross-shared-load-sharing-element"
+    crossSharedLoadSharingElement.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary/" + crossSharedLoadSharingElement.EntityData.SegmentPath
     crossSharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crossSharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crossSharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3467,6 +3570,7 @@ func (encapSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_FibSummar
     encapSharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
     encapSharedLoadSharingElement.EntityData.ParentYangName = "fib-summary"
     encapSharedLoadSharingElement.EntityData.SegmentPath = "encap-shared-load-sharing-element"
+    encapSharedLoadSharingElement.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary/" + encapSharedLoadSharingElement.EntityData.SegmentPath
     encapSharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     encapSharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encapSharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3514,6 +3618,7 @@ func (prefixMasklenDistribution *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_
     prefixMasklenDistribution.EntityData.BundleName = "cisco_ios_xr"
     prefixMasklenDistribution.EntityData.ParentYangName = "fib-summary"
     prefixMasklenDistribution.EntityData.SegmentPath = "prefix-masklen-distribution"
+    prefixMasklenDistribution.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary/" + prefixMasklenDistribution.EntityData.SegmentPath
     prefixMasklenDistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixMasklenDistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixMasklenDistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3521,14 +3626,17 @@ func (prefixMasklenDistribution *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_
     prefixMasklenDistribution.EntityData.Children = types.NewOrderedMap()
     prefixMasklenDistribution.EntityData.Children.Append("unicast-prefixe", types.YChild{"UnicastPrefixe", nil})
     for i := range prefixMasklenDistribution.UnicastPrefixe {
+        types.SetYListKey(prefixMasklenDistribution.UnicastPrefixe[i], i)
         prefixMasklenDistribution.EntityData.Children.Append(types.GetSegmentPath(prefixMasklenDistribution.UnicastPrefixe[i]), types.YChild{"UnicastPrefixe", prefixMasklenDistribution.UnicastPrefixe[i]})
     }
     prefixMasklenDistribution.EntityData.Children.Append("broadcast-prefixe", types.YChild{"BroadcastPrefixe", nil})
     for i := range prefixMasklenDistribution.BroadcastPrefixe {
+        types.SetYListKey(prefixMasklenDistribution.BroadcastPrefixe[i], i)
         prefixMasklenDistribution.EntityData.Children.Append(types.GetSegmentPath(prefixMasklenDistribution.BroadcastPrefixe[i]), types.YChild{"BroadcastPrefixe", prefixMasklenDistribution.BroadcastPrefixe[i]})
     }
     prefixMasklenDistribution.EntityData.Children.Append("multicast-prefix", types.YChild{"MulticastPrefix", nil})
     for i := range prefixMasklenDistribution.MulticastPrefix {
+        types.SetYListKey(prefixMasklenDistribution.MulticastPrefix[i], i)
         prefixMasklenDistribution.EntityData.Children.Append(types.GetSegmentPath(prefixMasklenDistribution.MulticastPrefix[i]), types.YChild{"MulticastPrefix", prefixMasklenDistribution.MulticastPrefix[i]})
     }
     prefixMasklenDistribution.EntityData.Leafs = types.NewOrderedMap()
@@ -3543,6 +3651,7 @@ func (prefixMasklenDistribution *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_
 type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_PrefixMasklenDistribution_UnicastPrefixe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mask length. The type is interface{} with range: 0..255.
     MaskLength interface{}
@@ -3557,7 +3666,8 @@ func (unicastPrefixe *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_
     unicastPrefixe.EntityData.YangName = "unicast-prefixe"
     unicastPrefixe.EntityData.BundleName = "cisco_ios_xr"
     unicastPrefixe.EntityData.ParentYangName = "prefix-masklen-distribution"
-    unicastPrefixe.EntityData.SegmentPath = "unicast-prefixe"
+    unicastPrefixe.EntityData.SegmentPath = "unicast-prefixe" + types.AddNoKeyToken(unicastPrefixe)
+    unicastPrefixe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary/prefix-masklen-distribution/" + unicastPrefixe.EntityData.SegmentPath
     unicastPrefixe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicastPrefixe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastPrefixe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3577,6 +3687,7 @@ func (unicastPrefixe *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_
 type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_PrefixMasklenDistribution_BroadcastPrefixe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mask length. The type is interface{} with range: 0..255.
     MaskLength interface{}
@@ -3591,7 +3702,8 @@ func (broadcastPrefixe *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummar
     broadcastPrefixe.EntityData.YangName = "broadcast-prefixe"
     broadcastPrefixe.EntityData.BundleName = "cisco_ios_xr"
     broadcastPrefixe.EntityData.ParentYangName = "prefix-masklen-distribution"
-    broadcastPrefixe.EntityData.SegmentPath = "broadcast-prefixe"
+    broadcastPrefixe.EntityData.SegmentPath = "broadcast-prefixe" + types.AddNoKeyToken(broadcastPrefixe)
+    broadcastPrefixe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary/prefix-masklen-distribution/" + broadcastPrefixe.EntityData.SegmentPath
     broadcastPrefixe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastPrefixe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastPrefixe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3611,6 +3723,7 @@ func (broadcastPrefixe *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummar
 type Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary_PrefixMasklenDistribution_MulticastPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mask length. The type is interface{} with range: 0..255.
     MaskLength interface{}
@@ -3625,7 +3738,8 @@ func (multicastPrefix *Fib_Nodes_Node_Protocols_Protocol_FibSummaries_FibSummary
     multicastPrefix.EntityData.YangName = "multicast-prefix"
     multicastPrefix.EntityData.BundleName = "cisco_ios_xr"
     multicastPrefix.EntityData.ParentYangName = "prefix-masklen-distribution"
-    multicastPrefix.EntityData.SegmentPath = "multicast-prefix"
+    multicastPrefix.EntityData.SegmentPath = "multicast-prefix" + types.AddNoKeyToken(multicastPrefix)
+    multicastPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary/prefix-masklen-distribution/" + multicastPrefix.EntityData.SegmentPath
     multicastPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3659,6 +3773,7 @@ func (externalSummaryAll *Fib_Nodes_Node_Protocols_Protocol_ExternalSummaryAll) 
     externalSummaryAll.EntityData.BundleName = "cisco_ios_xr"
     externalSummaryAll.EntityData.ParentYangName = "protocol"
     externalSummaryAll.EntityData.SegmentPath = "external-summary-all"
+    externalSummaryAll.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + externalSummaryAll.EntityData.SegmentPath
     externalSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalSummaryAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3697,6 +3812,7 @@ func (sesaPlSum *Fib_Nodes_Node_Protocols_Protocol_ExternalSummaryAll_SesaPlSum)
     sesaPlSum.EntityData.BundleName = "cisco_ios_xr"
     sesaPlSum.EntityData.ParentYangName = "external-summary-all"
     sesaPlSum.EntityData.SegmentPath = "sesa-pl-sum"
+    sesaPlSum.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/external-summary-all/" + sesaPlSum.EntityData.SegmentPath
     sesaPlSum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sesaPlSum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sesaPlSum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3704,6 +3820,7 @@ func (sesaPlSum *Fib_Nodes_Node_Protocols_Protocol_ExternalSummaryAll_SesaPlSum)
     sesaPlSum.EntityData.Children = types.NewOrderedMap()
     sesaPlSum.EntityData.Children.Append("sep-num-ecd-pl-per-interest", types.YChild{"SepNumEcdPlPerInterest", nil})
     for i := range sesaPlSum.SepNumEcdPlPerInterest {
+        types.SetYListKey(sesaPlSum.SepNumEcdPlPerInterest[i], i)
         sesaPlSum.EntityData.Children.Append(types.GetSegmentPath(sesaPlSum.SepNumEcdPlPerInterest[i]), types.YChild{"SepNumEcdPlPerInterest", sesaPlSum.SepNumEcdPlPerInterest[i]})
     }
     sesaPlSum.EntityData.Leafs = types.NewOrderedMap()
@@ -3720,6 +3837,7 @@ func (sesaPlSum *Fib_Nodes_Node_Protocols_Protocol_ExternalSummaryAll_SesaPlSum)
 type Fib_Nodes_Node_Protocols_Protocol_ExternalSummaryAll_SesaPlSum_SepNumEcdPlPerInterest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -3730,7 +3848,8 @@ func (sepNumEcdPlPerInterest *Fib_Nodes_Node_Protocols_Protocol_ExternalSummaryA
     sepNumEcdPlPerInterest.EntityData.YangName = "sep-num-ecd-pl-per-interest"
     sepNumEcdPlPerInterest.EntityData.BundleName = "cisco_ios_xr"
     sepNumEcdPlPerInterest.EntityData.ParentYangName = "sesa-pl-sum"
-    sepNumEcdPlPerInterest.EntityData.SegmentPath = "sep-num-ecd-pl-per-interest"
+    sepNumEcdPlPerInterest.EntityData.SegmentPath = "sep-num-ecd-pl-per-interest" + types.AddNoKeyToken(sepNumEcdPlPerInterest)
+    sepNumEcdPlPerInterest.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/external-summary-all/sesa-pl-sum/" + sepNumEcdPlPerInterest.EntityData.SegmentPath
     sepNumEcdPlPerInterest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sepNumEcdPlPerInterest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sepNumEcdPlPerInterest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3760,6 +3879,7 @@ func (frrLog *Fib_Nodes_Node_Protocols_Protocol_FrrLog) GetEntityData() *types.C
     frrLog.EntityData.BundleName = "cisco_ios_xr"
     frrLog.EntityData.ParentYangName = "protocol"
     frrLog.EntityData.SegmentPath = "frr-log"
+    frrLog.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + frrLog.EntityData.SegmentPath
     frrLog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrLog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrLog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3790,6 +3910,7 @@ func (frrInterfaces *Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces) Get
     frrInterfaces.EntityData.BundleName = "cisco_ios_xr"
     frrInterfaces.EntityData.ParentYangName = "frr-log"
     frrInterfaces.EntityData.SegmentPath = "frr-interfaces"
+    frrInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/frr-log/" + frrInterfaces.EntityData.SegmentPath
     frrInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3811,6 +3932,7 @@ func (frrInterfaces *Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces) Get
 type Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3826,6 +3948,7 @@ func (frrInterface *Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrIn
     frrInterface.EntityData.BundleName = "cisco_ios_xr"
     frrInterface.EntityData.ParentYangName = "frr-interfaces"
     frrInterface.EntityData.SegmentPath = "frr-interface" + types.AddKeyToken(frrInterface.FrrInterfaceName, "frr-interface-name")
+    frrInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/frr-log/frr-interfaces/" + frrInterface.EntityData.SegmentPath
     frrInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3857,6 +3980,7 @@ func (logs *Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface_
     logs.EntityData.BundleName = "cisco_ios_xr"
     logs.EntityData.ParentYangName = "frr-interface"
     logs.EntityData.SegmentPath = "logs"
+    logs.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/frr-log/frr-interfaces/frr-interface/" + logs.EntityData.SegmentPath
     logs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3878,6 +4002,7 @@ func (logs *Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface_
 type Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface_Logs_Log struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. FRR Log Index. The type is interface{} with range:
     // 0..4294967295.
@@ -3909,6 +4034,7 @@ func (log *Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrInterface_L
     log.EntityData.BundleName = "cisco_ios_xr"
     log.EntityData.ParentYangName = "logs"
     log.EntityData.SegmentPath = "log" + types.AddKeyToken(log.LogIndex, "log-index")
+    log.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/frr-log/frr-interfaces/frr-interface/logs/" + log.EntityData.SegmentPath
     log.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     log.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     log.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3947,6 +4073,7 @@ func (frrTimestamp *Fib_Nodes_Node_Protocols_Protocol_FrrLog_FrrInterfaces_FrrIn
     frrTimestamp.EntityData.BundleName = "cisco_ios_xr"
     frrTimestamp.EntityData.ParentYangName = "log"
     frrTimestamp.EntityData.SegmentPath = "frr-timestamp"
+    frrTimestamp.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/frr-log/frr-interfaces/frr-interface/logs/log/" + frrTimestamp.EntityData.SegmentPath
     frrTimestamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrTimestamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrTimestamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3978,6 +4105,7 @@ func (vrfs *Fib_Nodes_Node_Protocols_Protocol_Vrfs) GetEntityData() *types.Commo
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "protocol"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3999,6 +4127,7 @@ func (vrfs *Fib_Nodes_Node_Protocols_Protocol_Vrfs) GetEntityData() *types.Commo
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -4035,6 +4164,7 @@ func (vrf *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf) GetEntityData() *types.Co
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4079,6 +4209,7 @@ func (nhInfoDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhI
     nhInfoDetailHardwareEgress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoDetailHardwareEgress.EntityData.ParentYangName = "vrf"
     nhInfoDetailHardwareEgress.EntityData.SegmentPath = "nh-info-detail-hardware-egress"
+    nhInfoDetailHardwareEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/" + nhInfoDetailHardwareEgress.EntityData.SegmentPath
     nhInfoDetailHardwareEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoDetailHardwareEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoDetailHardwareEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4120,6 +4251,7 @@ func (nhInfoSpecialDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_
     nhInfoSpecialDetailHardwareEgress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDetailHardwareEgress.EntityData.ParentYangName = "nh-info-detail-hardware-egress"
     nhInfoSpecialDetailHardwareEgress.EntityData.SegmentPath = "nh-info-special-detail-hardware-egress"
+    nhInfoSpecialDetailHardwareEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/" + nhInfoSpecialDetailHardwareEgress.EntityData.SegmentPath
     nhInfoSpecialDetailHardwareEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDetailHardwareEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDetailHardwareEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4312,6 +4444,7 @@ func (nhInfoSpecialNullDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_V
     nhInfoSpecialNullDetailHardwareEgress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialNullDetailHardwareEgress.EntityData.ParentYangName = "nh-info-special-detail-hardware-egress"
     nhInfoSpecialNullDetailHardwareEgress.EntityData.SegmentPath = "nh-info-special-null-detail-hardware-egress"
+    nhInfoSpecialNullDetailHardwareEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/" + nhInfoSpecialNullDetailHardwareEgress.EntityData.SegmentPath
     nhInfoSpecialNullDetailHardwareEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialNullDetailHardwareEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialNullDetailHardwareEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4406,6 +4539,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgr
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-null-detail-hardware-egress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-null-detail-hardware-egress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4441,6 +4575,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-null-detail-hardware-egress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-null-detail-hardware-egress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4448,6 +4583,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -4462,6 +4598,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialNullDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialNullDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -4475,7 +4612,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-null-detail-hardware-egress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4514,6 +4652,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-null-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4560,6 +4699,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-null-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4596,6 +4736,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-null-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4634,6 +4775,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-null-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4825,6 +4967,7 @@ func (nhInfoSpecialPuntDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_V
     nhInfoSpecialPuntDetailHardwareEgress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialPuntDetailHardwareEgress.EntityData.ParentYangName = "nh-info-special-detail-hardware-egress"
     nhInfoSpecialPuntDetailHardwareEgress.EntityData.SegmentPath = "nh-info-special-punt-detail-hardware-egress"
+    nhInfoSpecialPuntDetailHardwareEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/" + nhInfoSpecialPuntDetailHardwareEgress.EntityData.SegmentPath
     nhInfoSpecialPuntDetailHardwareEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialPuntDetailHardwareEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialPuntDetailHardwareEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4919,6 +5062,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgr
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-punt-detail-hardware-egress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-punt-detail-hardware-egress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4954,6 +5098,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-punt-detail-hardware-egress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-punt-detail-hardware-egress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4961,6 +5106,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -4975,6 +5121,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialPuntDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -4988,7 +5135,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-punt-detail-hardware-egress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5027,6 +5175,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-punt-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5073,6 +5222,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-punt-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5109,6 +5259,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-punt-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5147,6 +5298,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-punt-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5338,6 +5490,7 @@ func (nhInfoSpecialDiscardDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protoco
     nhInfoSpecialDiscardDetailHardwareEgress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDiscardDetailHardwareEgress.EntityData.ParentYangName = "nh-info-special-detail-hardware-egress"
     nhInfoSpecialDiscardDetailHardwareEgress.EntityData.SegmentPath = "nh-info-special-discard-detail-hardware-egress"
+    nhInfoSpecialDiscardDetailHardwareEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/" + nhInfoSpecialDiscardDetailHardwareEgress.EntityData.SegmentPath
     nhInfoSpecialDiscardDetailHardwareEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDiscardDetailHardwareEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDiscardDetailHardwareEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5432,6 +5585,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgr
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-discard-detail-hardware-egress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-discard-detail-hardware-egress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5467,6 +5621,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-discard-detail-hardware-egress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-discard-detail-hardware-egress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5474,6 +5629,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -5488,6 +5644,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDiscardDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -5501,7 +5658,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-discard-detail-hardware-egress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5540,6 +5698,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-discard-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5586,6 +5745,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-discard-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5622,6 +5782,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-discard-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5660,6 +5821,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-discard-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5851,6 +6013,7 @@ func (nhInfoSpecialDropDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_V
     nhInfoSpecialDropDetailHardwareEgress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDropDetailHardwareEgress.EntityData.ParentYangName = "nh-info-special-detail-hardware-egress"
     nhInfoSpecialDropDetailHardwareEgress.EntityData.SegmentPath = "nh-info-special-drop-detail-hardware-egress"
+    nhInfoSpecialDropDetailHardwareEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/" + nhInfoSpecialDropDetailHardwareEgress.EntityData.SegmentPath
     nhInfoSpecialDropDetailHardwareEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDropDetailHardwareEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDropDetailHardwareEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5945,6 +6108,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgr
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-drop-detail-hardware-egress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-drop-detail-hardware-egress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5980,6 +6144,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-drop-detail-hardware-egress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-drop-detail-hardware-egress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5987,6 +6152,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -6001,6 +6167,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoSpecialDetailHardwareEgress_NhInfoSpecialDropDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -6014,7 +6181,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-drop-detail-hardware-egress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6053,6 +6221,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-drop-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6099,6 +6268,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-drop-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6135,6 +6305,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-drop-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6173,6 +6344,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-special-detail-hardware-egress/nh-info-special-drop-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6205,6 +6377,7 @@ func (nhInfoLocalDetailHardwareEgresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs_
     nhInfoLocalDetailHardwareEgresses.EntityData.BundleName = "cisco_ios_xr"
     nhInfoLocalDetailHardwareEgresses.EntityData.ParentYangName = "nh-info-detail-hardware-egress"
     nhInfoLocalDetailHardwareEgresses.EntityData.SegmentPath = "nh-info-local-detail-hardware-egresses"
+    nhInfoLocalDetailHardwareEgresses.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/" + nhInfoLocalDetailHardwareEgresses.EntityData.SegmentPath
     nhInfoLocalDetailHardwareEgresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoLocalDetailHardwareEgresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoLocalDetailHardwareEgresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6212,6 +6385,7 @@ func (nhInfoLocalDetailHardwareEgresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs_
     nhInfoLocalDetailHardwareEgresses.EntityData.Children = types.NewOrderedMap()
     nhInfoLocalDetailHardwareEgresses.EntityData.Children.Append("nh-info-local-detail-hardware-egress", types.YChild{"NhInfoLocalDetailHardwareEgress", nil})
     for i := range nhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress {
+        types.SetYListKey(nhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress[i], i)
         nhInfoLocalDetailHardwareEgresses.EntityData.Children.Append(types.GetSegmentPath(nhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress[i]), types.YChild{"NhInfoLocalDetailHardwareEgress", nhInfoLocalDetailHardwareEgresses.NhInfoLocalDetailHardwareEgress[i]})
     }
     nhInfoLocalDetailHardwareEgresses.EntityData.Leafs = types.NewOrderedMap()
@@ -6226,6 +6400,7 @@ func (nhInfoLocalDetailHardwareEgresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs_
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
@@ -6408,7 +6583,8 @@ func (nhInfoLocalDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vr
     nhInfoLocalDetailHardwareEgress.EntityData.YangName = "nh-info-local-detail-hardware-egress"
     nhInfoLocalDetailHardwareEgress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoLocalDetailHardwareEgress.EntityData.ParentYangName = "nh-info-local-detail-hardware-egresses"
-    nhInfoLocalDetailHardwareEgress.EntityData.SegmentPath = "nh-info-local-detail-hardware-egress"
+    nhInfoLocalDetailHardwareEgress.EntityData.SegmentPath = "nh-info-local-detail-hardware-egress" + types.AddNoKeyToken(nhInfoLocalDetailHardwareEgress)
+    nhInfoLocalDetailHardwareEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/" + nhInfoLocalDetailHardwareEgress.EntityData.SegmentPath
     nhInfoLocalDetailHardwareEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoLocalDetailHardwareEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoLocalDetailHardwareEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6507,6 +6683,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgr
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-local-detail-hardware-egress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/nh-info-local-detail-hardware-egress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6542,6 +6719,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-local-detail-hardware-egress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/nh-info-local-detail-hardware-egress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6549,6 +6727,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -6563,6 +6742,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoLocalDetailHardwareEgresses_NhInfoLocalDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -6576,7 +6756,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/nh-info-local-detail-hardware-egress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6615,6 +6796,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/nh-info-local-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6661,6 +6843,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/nh-info-local-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6697,6 +6880,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/nh-info-local-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6735,6 +6919,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-local-detail-hardware-egresses/nh-info-local-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6768,6 +6953,7 @@ func (nhInfoRemoteDetailHardwareEgresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs
     nhInfoRemoteDetailHardwareEgresses.EntityData.BundleName = "cisco_ios_xr"
     nhInfoRemoteDetailHardwareEgresses.EntityData.ParentYangName = "nh-info-detail-hardware-egress"
     nhInfoRemoteDetailHardwareEgresses.EntityData.SegmentPath = "nh-info-remote-detail-hardware-egresses"
+    nhInfoRemoteDetailHardwareEgresses.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/" + nhInfoRemoteDetailHardwareEgresses.EntityData.SegmentPath
     nhInfoRemoteDetailHardwareEgresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoRemoteDetailHardwareEgresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoRemoteDetailHardwareEgresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6775,6 +6961,7 @@ func (nhInfoRemoteDetailHardwareEgresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs
     nhInfoRemoteDetailHardwareEgresses.EntityData.Children = types.NewOrderedMap()
     nhInfoRemoteDetailHardwareEgresses.EntityData.Children.Append("nh-info-remote-detail-hardware-egress", types.YChild{"NhInfoRemoteDetailHardwareEgress", nil})
     for i := range nhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress {
+        types.SetYListKey(nhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress[i], i)
         nhInfoRemoteDetailHardwareEgresses.EntityData.Children.Append(types.GetSegmentPath(nhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress[i]), types.YChild{"NhInfoRemoteDetailHardwareEgress", nhInfoRemoteDetailHardwareEgresses.NhInfoRemoteDetailHardwareEgress[i]})
     }
     nhInfoRemoteDetailHardwareEgresses.EntityData.Leafs = types.NewOrderedMap()
@@ -6789,6 +6976,7 @@ func (nhInfoRemoteDetailHardwareEgresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
@@ -6971,7 +7159,8 @@ func (nhInfoRemoteDetailHardwareEgress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_V
     nhInfoRemoteDetailHardwareEgress.EntityData.YangName = "nh-info-remote-detail-hardware-egress"
     nhInfoRemoteDetailHardwareEgress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoRemoteDetailHardwareEgress.EntityData.ParentYangName = "nh-info-remote-detail-hardware-egresses"
-    nhInfoRemoteDetailHardwareEgress.EntityData.SegmentPath = "nh-info-remote-detail-hardware-egress"
+    nhInfoRemoteDetailHardwareEgress.EntityData.SegmentPath = "nh-info-remote-detail-hardware-egress" + types.AddNoKeyToken(nhInfoRemoteDetailHardwareEgress)
+    nhInfoRemoteDetailHardwareEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/" + nhInfoRemoteDetailHardwareEgress.EntityData.SegmentPath
     nhInfoRemoteDetailHardwareEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoRemoteDetailHardwareEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoRemoteDetailHardwareEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7070,6 +7259,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgr
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-remote-detail-hardware-egress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/nh-info-remote-detail-hardware-egress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7105,6 +7295,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-remote-detail-hardware-egress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/nh-info-remote-detail-hardware-egress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7112,6 +7303,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -7126,6 +7318,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareEgress_NhInfoRemoteDetailHardwareEgresses_NhInfoRemoteDetailHardwareEgress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -7139,7 +7332,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/nh-info-remote-detail-hardware-egress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7178,6 +7372,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/nh-info-remote-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7224,6 +7419,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/nh-info-remote-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7260,6 +7456,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/nh-info-remote-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7298,6 +7495,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareE
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-egress/nh-info-remote-detail-hardware-egresses/nh-info-remote-detail-hardware-egress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7330,6 +7528,7 @@ func (ipPrefixDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetail
     ipPrefixDetails.EntityData.BundleName = "cisco_ios_xr"
     ipPrefixDetails.EntityData.ParentYangName = "vrf"
     ipPrefixDetails.EntityData.SegmentPath = "ip-prefix-details"
+    ipPrefixDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/" + ipPrefixDetails.EntityData.SegmentPath
     ipPrefixDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipPrefixDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipPrefixDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7337,6 +7536,7 @@ func (ipPrefixDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetail
     ipPrefixDetails.EntityData.Children = types.NewOrderedMap()
     ipPrefixDetails.EntityData.Children.Append("ip-prefix-detail", types.YChild{"IpPrefixDetail", nil})
     for i := range ipPrefixDetails.IpPrefixDetail {
+        types.SetYListKey(ipPrefixDetails.IpPrefixDetail[i], i)
         ipPrefixDetails.EntityData.Children.Append(types.GetSegmentPath(ipPrefixDetails.IpPrefixDetail[i]), types.YChild{"IpPrefixDetail", ipPrefixDetails.IpPrefixDetail[i]})
     }
     ipPrefixDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -7351,6 +7551,7 @@ func (ipPrefixDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetail
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination IP address. The type is one of the following types: string with
     // pattern:
@@ -7512,7 +7713,8 @@ func (ipPrefixDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails
     ipPrefixDetail.EntityData.YangName = "ip-prefix-detail"
     ipPrefixDetail.EntityData.BundleName = "cisco_ios_xr"
     ipPrefixDetail.EntityData.ParentYangName = "ip-prefix-details"
-    ipPrefixDetail.EntityData.SegmentPath = "ip-prefix-detail"
+    ipPrefixDetail.EntityData.SegmentPath = "ip-prefix-detail" + types.AddNoKeyToken(ipPrefixDetail)
+    ipPrefixDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/" + ipPrefixDetail.EntityData.SegmentPath
     ipPrefixDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipPrefixDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipPrefixDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7522,6 +7724,7 @@ func (ipPrefixDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails
     ipPrefixDetail.EntityData.Children.Append("fib-entry-path", types.YChild{"FibEntryPath", &ipPrefixDetail.FibEntryPath})
     ipPrefixDetail.EntityData.Children.Append("extension-object", types.YChild{"ExtensionObject", nil})
     for i := range ipPrefixDetail.ExtensionObject {
+        types.SetYListKey(ipPrefixDetail.ExtensionObject[i], i)
         ipPrefixDetail.EntityData.Children.Append(types.GetSegmentPath(ipPrefixDetail.ExtensionObject[i]), types.YChild{"ExtensionObject", ipPrefixDetail.ExtensionObject[i]})
     }
     ipPrefixDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -7723,6 +7926,7 @@ func (detailFibEntryInformation *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPr
     detailFibEntryInformation.EntityData.BundleName = "cisco_ios_xr"
     detailFibEntryInformation.EntityData.ParentYangName = "ip-prefix-detail"
     detailFibEntryInformation.EntityData.SegmentPath = "detail-fib-entry-information"
+    detailFibEntryInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/" + detailFibEntryInformation.EntityData.SegmentPath
     detailFibEntryInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailFibEntryInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailFibEntryInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7829,6 +8033,7 @@ func (loadshareInformation *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixD
     loadshareInformation.EntityData.BundleName = "cisco_ios_xr"
     loadshareInformation.EntityData.ParentYangName = "detail-fib-entry-information"
     loadshareInformation.EntityData.SegmentPath = "loadshare-information"
+    loadshareInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/" + loadshareInformation.EntityData.SegmentPath
     loadshareInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadshareInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadshareInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7948,6 +8153,7 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpP
     loadInformtionInternalData.EntityData.BundleName = "cisco_ios_xr"
     loadInformtionInternalData.EntityData.ParentYangName = "loadshare-information"
     loadInformtionInternalData.EntityData.SegmentPath = "load-informtion-internal-data"
+    loadInformtionInternalData.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/loadshare-information/" + loadInformtionInternalData.EntityData.SegmentPath
     loadInformtionInternalData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadInformtionInternalData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadInformtionInternalData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7955,30 +8161,37 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpP
     loadInformtionInternalData.EntityData.Children = types.NewOrderedMap()
     loadInformtionInternalData.EntityData.Children.Append("sanity-flag", types.YChild{"SanityFlag", nil})
     for i := range loadInformtionInternalData.SanityFlag {
+        types.SetYListKey(loadInformtionInternalData.SanityFlag[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.SanityFlag[i]), types.YChild{"SanityFlag", loadInformtionInternalData.SanityFlag[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("interface-handle", types.YChild{"InterfaceHandle", nil})
     for i := range loadInformtionInternalData.InterfaceHandle {
+        types.SetYListKey(loadInformtionInternalData.InterfaceHandle[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.InterfaceHandle[i]), types.YChild{"InterfaceHandle", loadInformtionInternalData.InterfaceHandle[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("weights-of-path", types.YChild{"WeightsOfPath", nil})
     for i := range loadInformtionInternalData.WeightsOfPath {
+        types.SetYListKey(loadInformtionInternalData.WeightsOfPath[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.WeightsOfPath[i]), types.YChild{"WeightsOfPath", loadInformtionInternalData.WeightsOfPath[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("adjacency-address", types.YChild{"AdjacencyAddress", nil})
     for i := range loadInformtionInternalData.AdjacencyAddress {
+        types.SetYListKey(loadInformtionInternalData.AdjacencyAddress[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.AdjacencyAddress[i]), types.YChild{"AdjacencyAddress", loadInformtionInternalData.AdjacencyAddress[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("pbts-class-is-fallback-mapped", types.YChild{"PbtsClassIsFallbackMapped", nil})
     for i := range loadInformtionInternalData.PbtsClassIsFallbackMapped {
+        types.SetYListKey(loadInformtionInternalData.PbtsClassIsFallbackMapped[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.PbtsClassIsFallbackMapped[i]), types.YChild{"PbtsClassIsFallbackMapped", loadInformtionInternalData.PbtsClassIsFallbackMapped[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("pbts-fallback-to-drop", types.YChild{"PbtsFallbackToDrop", nil})
     for i := range loadInformtionInternalData.PbtsFallbackToDrop {
+        types.SetYListKey(loadInformtionInternalData.PbtsFallbackToDrop[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.PbtsFallbackToDrop[i]), types.YChild{"PbtsFallbackToDrop", loadInformtionInternalData.PbtsFallbackToDrop[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("tunnel-is-forward-class", types.YChild{"TunnelIsForwardClass", nil})
     for i := range loadInformtionInternalData.TunnelIsForwardClass {
+        types.SetYListKey(loadInformtionInternalData.TunnelIsForwardClass[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.TunnelIsForwardClass[i]), types.YChild{"TunnelIsForwardClass", loadInformtionInternalData.TunnelIsForwardClass[i]})
     }
     loadInformtionInternalData.EntityData.Leafs = types.NewOrderedMap()
@@ -8008,6 +8221,7 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpP
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_SanityFlag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is bool.
     Entry interface{}
@@ -8018,7 +8232,8 @@ func (sanityFlag *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpP
     sanityFlag.EntityData.YangName = "sanity-flag"
     sanityFlag.EntityData.BundleName = "cisco_ios_xr"
     sanityFlag.EntityData.ParentYangName = "load-informtion-internal-data"
-    sanityFlag.EntityData.SegmentPath = "sanity-flag"
+    sanityFlag.EntityData.SegmentPath = "sanity-flag" + types.AddNoKeyToken(sanityFlag)
+    sanityFlag.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + sanityFlag.EntityData.SegmentPath
     sanityFlag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sanityFlag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sanityFlag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8037,6 +8252,7 @@ func (sanityFlag *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpP
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_InterfaceHandle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern: [a-zA-Z0-9._/-]+.
     Entry interface{}
@@ -8047,7 +8263,8 @@ func (interfaceHandle *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetail
     interfaceHandle.EntityData.YangName = "interface-handle"
     interfaceHandle.EntityData.BundleName = "cisco_ios_xr"
     interfaceHandle.EntityData.ParentYangName = "load-informtion-internal-data"
-    interfaceHandle.EntityData.SegmentPath = "interface-handle"
+    interfaceHandle.EntityData.SegmentPath = "interface-handle" + types.AddNoKeyToken(interfaceHandle)
+    interfaceHandle.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + interfaceHandle.EntityData.SegmentPath
     interfaceHandle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceHandle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceHandle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8066,6 +8283,7 @@ func (interfaceHandle *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetail
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_WeightsOfPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -8076,7 +8294,8 @@ func (weightsOfPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_
     weightsOfPath.EntityData.YangName = "weights-of-path"
     weightsOfPath.EntityData.BundleName = "cisco_ios_xr"
     weightsOfPath.EntityData.ParentYangName = "load-informtion-internal-data"
-    weightsOfPath.EntityData.SegmentPath = "weights-of-path"
+    weightsOfPath.EntityData.SegmentPath = "weights-of-path" + types.AddNoKeyToken(weightsOfPath)
+    weightsOfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + weightsOfPath.EntityData.SegmentPath
     weightsOfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weightsOfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weightsOfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8095,6 +8314,7 @@ func (weightsOfPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_AdjacencyAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // address. The type is string with length: 0..60.
     Address interface{}
@@ -8105,7 +8325,8 @@ func (adjacencyAddress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetai
     adjacencyAddress.EntityData.YangName = "adjacency-address"
     adjacencyAddress.EntityData.BundleName = "cisco_ios_xr"
     adjacencyAddress.EntityData.ParentYangName = "load-informtion-internal-data"
-    adjacencyAddress.EntityData.SegmentPath = "adjacency-address"
+    adjacencyAddress.EntityData.SegmentPath = "adjacency-address" + types.AddNoKeyToken(adjacencyAddress)
+    adjacencyAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + adjacencyAddress.EntityData.SegmentPath
     adjacencyAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacencyAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacencyAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8124,6 +8345,7 @@ func (adjacencyAddress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetai
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_PbtsClassIsFallbackMapped struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -8134,7 +8356,8 @@ func (pbtsClassIsFallbackMapped *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPr
     pbtsClassIsFallbackMapped.EntityData.YangName = "pbts-class-is-fallback-mapped"
     pbtsClassIsFallbackMapped.EntityData.BundleName = "cisco_ios_xr"
     pbtsClassIsFallbackMapped.EntityData.ParentYangName = "load-informtion-internal-data"
-    pbtsClassIsFallbackMapped.EntityData.SegmentPath = "pbts-class-is-fallback-mapped"
+    pbtsClassIsFallbackMapped.EntityData.SegmentPath = "pbts-class-is-fallback-mapped" + types.AddNoKeyToken(pbtsClassIsFallbackMapped)
+    pbtsClassIsFallbackMapped.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + pbtsClassIsFallbackMapped.EntityData.SegmentPath
     pbtsClassIsFallbackMapped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsClassIsFallbackMapped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsClassIsFallbackMapped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8153,6 +8376,7 @@ func (pbtsClassIsFallbackMapped *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPr
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_PbtsFallbackToDrop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -8163,7 +8387,8 @@ func (pbtsFallbackToDrop *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDet
     pbtsFallbackToDrop.EntityData.YangName = "pbts-fallback-to-drop"
     pbtsFallbackToDrop.EntityData.BundleName = "cisco_ios_xr"
     pbtsFallbackToDrop.EntityData.ParentYangName = "load-informtion-internal-data"
-    pbtsFallbackToDrop.EntityData.SegmentPath = "pbts-fallback-to-drop"
+    pbtsFallbackToDrop.EntityData.SegmentPath = "pbts-fallback-to-drop" + types.AddNoKeyToken(pbtsFallbackToDrop)
+    pbtsFallbackToDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + pbtsFallbackToDrop.EntityData.SegmentPath
     pbtsFallbackToDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsFallbackToDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsFallbackToDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8182,6 +8407,7 @@ func (pbtsFallbackToDrop *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDet
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_TunnelIsForwardClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -8192,7 +8418,8 @@ func (tunnelIsForwardClass *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixD
     tunnelIsForwardClass.EntityData.YangName = "tunnel-is-forward-class"
     tunnelIsForwardClass.EntityData.BundleName = "cisco_ios_xr"
     tunnelIsForwardClass.EntityData.ParentYangName = "load-informtion-internal-data"
-    tunnelIsForwardClass.EntityData.SegmentPath = "tunnel-is-forward-class"
+    tunnelIsForwardClass.EntityData.SegmentPath = "tunnel-is-forward-class" + types.AddNoKeyToken(tunnelIsForwardClass)
+    tunnelIsForwardClass.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + tunnelIsForwardClass.EntityData.SegmentPath
     tunnelIsForwardClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelIsForwardClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelIsForwardClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8223,6 +8450,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_I
     fibEntryPath.EntityData.BundleName = "cisco_ios_xr"
     fibEntryPath.EntityData.ParentYangName = "ip-prefix-detail"
     fibEntryPath.EntityData.SegmentPath = "fib-entry-path"
+    fibEntryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/" + fibEntryPath.EntityData.SegmentPath
     fibEntryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibEntryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibEntryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8230,6 +8458,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_I
     fibEntryPath.EntityData.Children = types.NewOrderedMap()
     fibEntryPath.EntityData.Children.Append("fib-sh-tbl-path", types.YChild{"FibShTblPath", nil})
     for i := range fibEntryPath.FibShTblPath {
+        types.SetYListKey(fibEntryPath.FibShTblPath[i], i)
         fibEntryPath.EntityData.Children.Append(types.GetSegmentPath(fibEntryPath.FibShTblPath[i]), types.YChild{"FibShTblPath", fibEntryPath.FibShTblPath[i]})
     }
     fibEntryPath.EntityData.Leafs = types.NewOrderedMap()
@@ -8244,6 +8473,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_I
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Hardware info. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -8325,7 +8555,8 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_I
     fibShTblPath.EntityData.YangName = "fib-sh-tbl-path"
     fibShTblPath.EntityData.BundleName = "cisco_ios_xr"
     fibShTblPath.EntityData.ParentYangName = "fib-entry-path"
-    fibShTblPath.EntityData.SegmentPath = "fib-sh-tbl-path"
+    fibShTblPath.EntityData.SegmentPath = "fib-sh-tbl-path" + types.AddNoKeyToken(fibShTblPath)
+    fibShTblPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/" + fibShTblPath.EntityData.SegmentPath
     fibShTblPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibShTblPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibShTblPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8466,6 +8697,7 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDe
     moreDetailAboutPath.EntityData.BundleName = "cisco_ios_xr"
     moreDetailAboutPath.EntityData.ParentYangName = "fib-sh-tbl-path"
     moreDetailAboutPath.EntityData.SegmentPath = "more-detail-about-path"
+    moreDetailAboutPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/" + moreDetailAboutPath.EntityData.SegmentPath
     moreDetailAboutPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moreDetailAboutPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moreDetailAboutPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8473,10 +8705,12 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDe
     moreDetailAboutPath.EntityData.Children = types.NewOrderedMap()
     moreDetailAboutPath.EntityData.Children.Append("spd-ipencap", types.YChild{"SpdIpencap", nil})
     for i := range moreDetailAboutPath.SpdIpencap {
+        types.SetYListKey(moreDetailAboutPath.SpdIpencap[i], i)
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.SpdIpencap[i]), types.YChild{"SpdIpencap", moreDetailAboutPath.SpdIpencap[i]})
     }
     moreDetailAboutPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range moreDetailAboutPath.NextNextHop {
+        types.SetYListKey(moreDetailAboutPath.NextNextHop[i], i)
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.NextNextHop[i]), types.YChild{"NextNextHop", moreDetailAboutPath.NextNextHop[i]})
     }
     moreDetailAboutPath.EntityData.Leafs = types.NewOrderedMap()
@@ -8517,6 +8751,7 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDe
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Header Count. The type is interface{} with range: 0..255.
     IpEncapHdrCount interface{}
@@ -8555,7 +8790,8 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpP
     spdIpencap.EntityData.YangName = "spd-ipencap"
     spdIpencap.EntityData.BundleName = "cisco_ios_xr"
     spdIpencap.EntityData.ParentYangName = "more-detail-about-path"
-    spdIpencap.EntityData.SegmentPath = "spd-ipencap"
+    spdIpencap.EntityData.SegmentPath = "spd-ipencap" + types.AddNoKeyToken(spdIpencap)
+    spdIpencap.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/" + spdIpencap.EntityData.SegmentPath
     spdIpencap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spdIpencap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spdIpencap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8563,6 +8799,7 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpP
     spdIpencap.EntityData.Children = types.NewOrderedMap()
     spdIpencap.EntityData.Children.Append("ip-encap-hdr", types.YChild{"IpEncapHdr", nil})
     for i := range spdIpencap.IpEncapHdr {
+        types.SetYListKey(spdIpencap.IpEncapHdr[i], i)
         spdIpencap.EntityData.Children.Append(types.GetSegmentPath(spdIpencap.IpEncapHdr[i]), types.YChild{"IpEncapHdr", spdIpencap.IpEncapHdr[i]})
     }
     spdIpencap.EntityData.Leafs = types.NewOrderedMap()
@@ -8586,6 +8823,7 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpP
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap_IpEncapHdr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Header Type. The type is FibShIpencapHdr.
     IpEncapHdrType interface{}
@@ -8603,7 +8841,8 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpP
     ipEncapHdr.EntityData.YangName = "ip-encap-hdr"
     ipEncapHdr.EntityData.BundleName = "cisco_ios_xr"
     ipEncapHdr.EntityData.ParentYangName = "spd-ipencap"
-    ipEncapHdr.EntityData.SegmentPath = "ip-encap-hdr"
+    ipEncapHdr.EntityData.SegmentPath = "ip-encap-hdr" + types.AddNoKeyToken(ipEncapHdr)
+    ipEncapHdr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/spd-ipencap/" + ipEncapHdr.EntityData.SegmentPath
     ipEncapHdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipEncapHdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipEncapHdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8624,6 +8863,7 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpP
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next next hop index. The type is interface{} with range: 0..255.
     NextNextHopIndex interface{}
@@ -8641,7 +8881,8 @@ func (nextNextHop *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_Ip
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "more-detail-about-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8690,6 +8931,7 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefi
     mplsInformationForPath.EntityData.BundleName = "cisco_ios_xr"
     mplsInformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
     mplsInformationForPath.EntityData.SegmentPath = "mpls-information-for-path"
+    mplsInformationForPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/" + mplsInformationForPath.EntityData.SegmentPath
     mplsInformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsInformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsInformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8697,10 +8939,12 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefi
     mplsInformationForPath.EntityData.Children = types.NewOrderedMap()
     mplsInformationForPath.EntityData.Children.Append("recursive-lbl-stack", types.YChild{"RecursiveLblStack", nil})
     for i := range mplsInformationForPath.RecursiveLblStack {
+        types.SetYListKey(mplsInformationForPath.RecursiveLblStack[i], i)
         mplsInformationForPath.EntityData.Children.Append(types.GetSegmentPath(mplsInformationForPath.RecursiveLblStack[i]), types.YChild{"RecursiveLblStack", mplsInformationForPath.RecursiveLblStack[i]})
     }
     mplsInformationForPath.EntityData.Children.Append("igp-label-stack-array", types.YChild{"IgpLabelStackArray", nil})
     for i := range mplsInformationForPath.IgpLabelStackArray {
+        types.SetYListKey(mplsInformationForPath.IgpLabelStackArray[i], i)
         mplsInformationForPath.EntityData.Children.Append(types.GetSegmentPath(mplsInformationForPath.IgpLabelStackArray[i]), types.YChild{"IgpLabelStackArray", mplsInformationForPath.IgpLabelStackArray[i]})
     }
     mplsInformationForPath.EntityData.Leafs = types.NewOrderedMap()
@@ -8719,6 +8963,7 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefi
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MplsInformationForPath_RecursiveLblStack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -8729,7 +8974,8 @@ func (recursiveLblStack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDeta
     recursiveLblStack.EntityData.YangName = "recursive-lbl-stack"
     recursiveLblStack.EntityData.BundleName = "cisco_ios_xr"
     recursiveLblStack.EntityData.ParentYangName = "mpls-information-for-path"
-    recursiveLblStack.EntityData.SegmentPath = "recursive-lbl-stack"
+    recursiveLblStack.EntityData.SegmentPath = "recursive-lbl-stack" + types.AddNoKeyToken(recursiveLblStack)
+    recursiveLblStack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/" + recursiveLblStack.EntityData.SegmentPath
     recursiveLblStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recursiveLblStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recursiveLblStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8748,6 +8994,7 @@ func (recursiveLblStack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDeta
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MplsInformationForPath_IgpLabelStackArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
@@ -8768,7 +9015,8 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDet
     igpLabelStackArray.EntityData.YangName = "igp-label-stack-array"
     igpLabelStackArray.EntityData.BundleName = "cisco_ios_xr"
     igpLabelStackArray.EntityData.ParentYangName = "mpls-information-for-path"
-    igpLabelStackArray.EntityData.SegmentPath = "igp-label-stack-array"
+    igpLabelStackArray.EntityData.SegmentPath = "igp-label-stack-array" + types.AddNoKeyToken(igpLabelStackArray)
+    igpLabelStackArray.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/" + igpLabelStackArray.EntityData.SegmentPath
     igpLabelStackArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igpLabelStackArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igpLabelStackArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8776,6 +9024,7 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDet
     igpLabelStackArray.EntityData.Children = types.NewOrderedMap()
     igpLabelStackArray.EntityData.Children.Append("lstack", types.YChild{"Lstack", nil})
     for i := range igpLabelStackArray.Lstack {
+        types.SetYListKey(igpLabelStackArray.Lstack[i], i)
         igpLabelStackArray.EntityData.Children.Append(types.GetSegmentPath(igpLabelStackArray.Lstack[i]), types.YChild{"Lstack", igpLabelStackArray.Lstack[i]})
     }
     igpLabelStackArray.EntityData.Leafs = types.NewOrderedMap()
@@ -8793,6 +9042,7 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDet
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_FibEntryPath_FibShTblPath_MplsInformationForPath_IgpLabelStackArray_Lstack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -8803,7 +9053,8 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefi
     lstack.EntityData.YangName = "lstack"
     lstack.EntityData.BundleName = "cisco_ios_xr"
     lstack.EntityData.ParentYangName = "igp-label-stack-array"
-    lstack.EntityData.SegmentPath = "lstack"
+    lstack.EntityData.SegmentPath = "lstack" + types.AddNoKeyToken(lstack)
+    lstack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/igp-label-stack-array/" + lstack.EntityData.SegmentPath
     lstack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lstack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lstack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8822,6 +9073,7 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefi
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPrefixDetail_ExtensionObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is FibShTblFibExtBag.
     Type interface{}
@@ -8835,7 +9087,8 @@ func (extensionObject *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetail
     extensionObject.EntityData.YangName = "extension-object"
     extensionObject.EntityData.BundleName = "cisco_ios_xr"
     extensionObject.EntityData.ParentYangName = "ip-prefix-detail"
-    extensionObject.EntityData.SegmentPath = "extension-object"
+    extensionObject.EntityData.SegmentPath = "extension-object" + types.AddNoKeyToken(extensionObject)
+    extensionObject.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/" + extensionObject.EntityData.SegmentPath
     extensionObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extensionObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extensionObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8869,6 +9122,7 @@ func (sfecdLe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixDetails_IpPref
     sfecdLe.EntityData.BundleName = "cisco_ios_xr"
     sfecdLe.EntityData.ParentYangName = "extension-object"
     sfecdLe.EntityData.SegmentPath = "sfecd-le"
+    sfecdLe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-details/ip-prefix-detail/extension-object/" + sfecdLe.EntityData.SegmentPath
     sfecdLe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfecdLe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfecdLe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8906,6 +9160,7 @@ func (nhInfoDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail) Get
     nhInfoDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoDetail.EntityData.ParentYangName = "vrf"
     nhInfoDetail.EntityData.SegmentPath = "nh-info-detail"
+    nhInfoDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/" + nhInfoDetail.EntityData.SegmentPath
     nhInfoDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8938,6 +9193,7 @@ func (nhInfoLocalDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetai
     nhInfoLocalDetails.EntityData.BundleName = "cisco_ios_xr"
     nhInfoLocalDetails.EntityData.ParentYangName = "nh-info-detail"
     nhInfoLocalDetails.EntityData.SegmentPath = "nh-info-local-details"
+    nhInfoLocalDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/" + nhInfoLocalDetails.EntityData.SegmentPath
     nhInfoLocalDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoLocalDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoLocalDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8945,6 +9201,7 @@ func (nhInfoLocalDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetai
     nhInfoLocalDetails.EntityData.Children = types.NewOrderedMap()
     nhInfoLocalDetails.EntityData.Children.Append("nh-info-local-detail", types.YChild{"NhInfoLocalDetail", nil})
     for i := range nhInfoLocalDetails.NhInfoLocalDetail {
+        types.SetYListKey(nhInfoLocalDetails.NhInfoLocalDetail[i], i)
         nhInfoLocalDetails.EntityData.Children.Append(types.GetSegmentPath(nhInfoLocalDetails.NhInfoLocalDetail[i]), types.YChild{"NhInfoLocalDetail", nhInfoLocalDetails.NhInfoLocalDetail[i]})
     }
     nhInfoLocalDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -8959,6 +9216,7 @@ func (nhInfoLocalDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetai
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
@@ -9141,7 +9399,8 @@ func (nhInfoLocalDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail
     nhInfoLocalDetail.EntityData.YangName = "nh-info-local-detail"
     nhInfoLocalDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoLocalDetail.EntityData.ParentYangName = "nh-info-local-details"
-    nhInfoLocalDetail.EntityData.SegmentPath = "nh-info-local-detail"
+    nhInfoLocalDetail.EntityData.SegmentPath = "nh-info-local-detail" + types.AddNoKeyToken(nhInfoLocalDetail)
+    nhInfoLocalDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/" + nhInfoLocalDetail.EntityData.SegmentPath
     nhInfoLocalDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoLocalDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoLocalDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9240,6 +9499,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLoca
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-local-detail"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/nh-info-local-detail/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9275,6 +9535,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-local-detail"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/nh-info-local-detail/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9282,6 +9543,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -9296,6 +9558,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLocalDetails_NhInfoLocalDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -9309,7 +9572,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/nh-info-local-detail/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9348,6 +9612,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/nh-info-local-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9394,6 +9659,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfo
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/nh-info-local-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9430,6 +9696,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/nh-info-local-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9468,6 +9735,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoLo
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-local-details/nh-info-local-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9508,6 +9776,7 @@ func (nhInfoSpecialDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoSpecialDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDetail.EntityData.ParentYangName = "nh-info-detail"
     nhInfoSpecialDetail.EntityData.SegmentPath = "nh-info-special-detail"
+    nhInfoSpecialDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/" + nhInfoSpecialDetail.EntityData.SegmentPath
     nhInfoSpecialDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9699,6 +9968,7 @@ func (nhInfoSpecialPuntDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfo
     nhInfoSpecialPuntDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialPuntDetail.EntityData.ParentYangName = "nh-info-special-detail"
     nhInfoSpecialPuntDetail.EntityData.SegmentPath = "nh-info-special-punt-detail"
+    nhInfoSpecialPuntDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/" + nhInfoSpecialPuntDetail.EntityData.SegmentPath
     nhInfoSpecialPuntDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialPuntDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialPuntDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9793,6 +10063,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpec
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-punt-detail"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-punt-detail/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9828,6 +10099,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-punt-detail"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-punt-detail/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9835,6 +10107,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -9849,6 +10122,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialPuntDetail_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialPuntDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -9862,7 +10136,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-punt-detail/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9901,6 +10176,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-punt-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9947,6 +10223,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfo
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-punt-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9983,6 +10260,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-punt-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10021,6 +10299,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-punt-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10211,6 +10490,7 @@ func (nhInfoSpecialDropDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfo
     nhInfoSpecialDropDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDropDetail.EntityData.ParentYangName = "nh-info-special-detail"
     nhInfoSpecialDropDetail.EntityData.SegmentPath = "nh-info-special-drop-detail"
+    nhInfoSpecialDropDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/" + nhInfoSpecialDropDetail.EntityData.SegmentPath
     nhInfoSpecialDropDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDropDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDropDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10305,6 +10585,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpec
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-drop-detail"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-drop-detail/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10340,6 +10621,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-drop-detail"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-drop-detail/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10347,6 +10629,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -10361,6 +10644,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDropDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -10374,7 +10658,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-drop-detail/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10413,6 +10698,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-drop-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10459,6 +10745,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfo
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-drop-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10495,6 +10782,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-drop-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10533,6 +10821,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-drop-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10723,6 +11012,7 @@ func (nhInfoSpecialNullDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfo
     nhInfoSpecialNullDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialNullDetail.EntityData.ParentYangName = "nh-info-special-detail"
     nhInfoSpecialNullDetail.EntityData.SegmentPath = "nh-info-special-null-detail"
+    nhInfoSpecialNullDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/" + nhInfoSpecialNullDetail.EntityData.SegmentPath
     nhInfoSpecialNullDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialNullDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialNullDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10817,6 +11107,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpec
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-null-detail"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-null-detail/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10852,6 +11143,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-null-detail"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-null-detail/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10859,6 +11151,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -10873,6 +11166,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialNullDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -10886,7 +11180,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-null-detail/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10925,6 +11220,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-null-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10971,6 +11267,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfo
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-null-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11007,6 +11304,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-null-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11045,6 +11343,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-null-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11235,6 +11534,7 @@ func (nhInfoSpecialDiscardDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhI
     nhInfoSpecialDiscardDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDiscardDetail.EntityData.ParentYangName = "nh-info-special-detail"
     nhInfoSpecialDiscardDetail.EntityData.SegmentPath = "nh-info-special-discard-detail"
+    nhInfoSpecialDiscardDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/" + nhInfoSpecialDiscardDetail.EntityData.SegmentPath
     nhInfoSpecialDiscardDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDiscardDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDiscardDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11329,6 +11629,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpec
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-discard-detail"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-discard-detail/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11364,6 +11665,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-discard-detail"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-discard-detail/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11371,6 +11673,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -11385,6 +11688,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSpecialDetail_NhInfoSpecialDiscardDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -11398,7 +11702,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-discard-detail/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11437,6 +11742,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-discard-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11483,6 +11789,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfo
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-discard-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11519,6 +11826,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-discard-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11557,6 +11865,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoSp
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-special-detail/nh-info-special-discard-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11589,6 +11898,7 @@ func (nhInfoRemoteDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoRemoteDetails.EntityData.BundleName = "cisco_ios_xr"
     nhInfoRemoteDetails.EntityData.ParentYangName = "nh-info-detail"
     nhInfoRemoteDetails.EntityData.SegmentPath = "nh-info-remote-details"
+    nhInfoRemoteDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/" + nhInfoRemoteDetails.EntityData.SegmentPath
     nhInfoRemoteDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoRemoteDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoRemoteDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11596,6 +11906,7 @@ func (nhInfoRemoteDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoRemoteDetails.EntityData.Children = types.NewOrderedMap()
     nhInfoRemoteDetails.EntityData.Children.Append("nh-info-remote-detail", types.YChild{"NhInfoRemoteDetail", nil})
     for i := range nhInfoRemoteDetails.NhInfoRemoteDetail {
+        types.SetYListKey(nhInfoRemoteDetails.NhInfoRemoteDetail[i], i)
         nhInfoRemoteDetails.EntityData.Children.Append(types.GetSegmentPath(nhInfoRemoteDetails.NhInfoRemoteDetail[i]), types.YChild{"NhInfoRemoteDetail", nhInfoRemoteDetails.NhInfoRemoteDetail[i]})
     }
     nhInfoRemoteDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -11610,6 +11921,7 @@ func (nhInfoRemoteDetails *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
@@ -11792,7 +12104,8 @@ func (nhInfoRemoteDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetai
     nhInfoRemoteDetail.EntityData.YangName = "nh-info-remote-detail"
     nhInfoRemoteDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoRemoteDetail.EntityData.ParentYangName = "nh-info-remote-details"
-    nhInfoRemoteDetail.EntityData.SegmentPath = "nh-info-remote-detail"
+    nhInfoRemoteDetail.EntityData.SegmentPath = "nh-info-remote-detail" + types.AddNoKeyToken(nhInfoRemoteDetail)
+    nhInfoRemoteDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/" + nhInfoRemoteDetail.EntityData.SegmentPath
     nhInfoRemoteDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoRemoteDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoRemoteDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11891,6 +12204,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemo
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-remote-detail"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/nh-info-remote-detail/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11926,6 +12240,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-remote-detail"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/nh-info-remote-detail/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11933,6 +12248,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -11947,6 +12263,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_N
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRemoteDetails_NhInfoRemoteDetail_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -11960,7 +12277,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/nh-info-remote-detail/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11999,6 +12317,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/nh-info-remote-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12045,6 +12364,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfo
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/nh-info-remote-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12081,6 +12401,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/nh-info-remote-detail/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12119,6 +12440,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetail_NhInfoRe
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail/nh-info-remote-details/nh-info-remote-detail/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12315,6 +12637,7 @@ func (summary *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary) GetEntityData
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "vrf"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12425,6 +12748,7 @@ func (exclusiveLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Su
     exclusiveLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
     exclusiveLoadSharingElement.EntityData.ParentYangName = "summary"
     exclusiveLoadSharingElement.EntityData.SegmentPath = "exclusive-load-sharing-element"
+    exclusiveLoadSharingElement.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/summary/" + exclusiveLoadSharingElement.EntityData.SegmentPath
     exclusiveLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclusiveLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclusiveLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12500,6 +12824,7 @@ func (sharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summa
     sharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
     sharedLoadSharingElement.EntityData.ParentYangName = "summary"
     sharedLoadSharingElement.EntityData.SegmentPath = "shared-load-sharing-element"
+    sharedLoadSharingElement.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/summary/" + sharedLoadSharingElement.EntityData.SegmentPath
     sharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12575,6 +12900,7 @@ func (crossSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_
     crossSharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
     crossSharedLoadSharingElement.EntityData.ParentYangName = "summary"
     crossSharedLoadSharingElement.EntityData.SegmentPath = "cross-shared-load-sharing-element"
+    crossSharedLoadSharingElement.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/summary/" + crossSharedLoadSharingElement.EntityData.SegmentPath
     crossSharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crossSharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crossSharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12650,6 +12976,7 @@ func (encapSharedLoadSharingElement *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_
     encapSharedLoadSharingElement.EntityData.BundleName = "cisco_ios_xr"
     encapSharedLoadSharingElement.EntityData.ParentYangName = "summary"
     encapSharedLoadSharingElement.EntityData.SegmentPath = "encap-shared-load-sharing-element"
+    encapSharedLoadSharingElement.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/summary/" + encapSharedLoadSharingElement.EntityData.SegmentPath
     encapSharedLoadSharingElement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     encapSharedLoadSharingElement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encapSharedLoadSharingElement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12697,6 +13024,7 @@ func (prefixMasklenDistribution *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summ
     prefixMasklenDistribution.EntityData.BundleName = "cisco_ios_xr"
     prefixMasklenDistribution.EntityData.ParentYangName = "summary"
     prefixMasklenDistribution.EntityData.SegmentPath = "prefix-masklen-distribution"
+    prefixMasklenDistribution.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/summary/" + prefixMasklenDistribution.EntityData.SegmentPath
     prefixMasklenDistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixMasklenDistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixMasklenDistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12704,14 +13032,17 @@ func (prefixMasklenDistribution *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summ
     prefixMasklenDistribution.EntityData.Children = types.NewOrderedMap()
     prefixMasklenDistribution.EntityData.Children.Append("unicast-prefixe", types.YChild{"UnicastPrefixe", nil})
     for i := range prefixMasklenDistribution.UnicastPrefixe {
+        types.SetYListKey(prefixMasklenDistribution.UnicastPrefixe[i], i)
         prefixMasklenDistribution.EntityData.Children.Append(types.GetSegmentPath(prefixMasklenDistribution.UnicastPrefixe[i]), types.YChild{"UnicastPrefixe", prefixMasklenDistribution.UnicastPrefixe[i]})
     }
     prefixMasklenDistribution.EntityData.Children.Append("broadcast-prefixe", types.YChild{"BroadcastPrefixe", nil})
     for i := range prefixMasklenDistribution.BroadcastPrefixe {
+        types.SetYListKey(prefixMasklenDistribution.BroadcastPrefixe[i], i)
         prefixMasklenDistribution.EntityData.Children.Append(types.GetSegmentPath(prefixMasklenDistribution.BroadcastPrefixe[i]), types.YChild{"BroadcastPrefixe", prefixMasklenDistribution.BroadcastPrefixe[i]})
     }
     prefixMasklenDistribution.EntityData.Children.Append("multicast-prefix", types.YChild{"MulticastPrefix", nil})
     for i := range prefixMasklenDistribution.MulticastPrefix {
+        types.SetYListKey(prefixMasklenDistribution.MulticastPrefix[i], i)
         prefixMasklenDistribution.EntityData.Children.Append(types.GetSegmentPath(prefixMasklenDistribution.MulticastPrefix[i]), types.YChild{"MulticastPrefix", prefixMasklenDistribution.MulticastPrefix[i]})
     }
     prefixMasklenDistribution.EntityData.Leafs = types.NewOrderedMap()
@@ -12726,6 +13057,7 @@ func (prefixMasklenDistribution *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summ
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_PrefixMasklenDistribution_UnicastPrefixe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mask length. The type is interface{} with range: 0..255.
     MaskLength interface{}
@@ -12740,7 +13072,8 @@ func (unicastPrefixe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_PrefixM
     unicastPrefixe.EntityData.YangName = "unicast-prefixe"
     unicastPrefixe.EntityData.BundleName = "cisco_ios_xr"
     unicastPrefixe.EntityData.ParentYangName = "prefix-masklen-distribution"
-    unicastPrefixe.EntityData.SegmentPath = "unicast-prefixe"
+    unicastPrefixe.EntityData.SegmentPath = "unicast-prefixe" + types.AddNoKeyToken(unicastPrefixe)
+    unicastPrefixe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/summary/prefix-masklen-distribution/" + unicastPrefixe.EntityData.SegmentPath
     unicastPrefixe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicastPrefixe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastPrefixe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12760,6 +13093,7 @@ func (unicastPrefixe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_PrefixM
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_PrefixMasklenDistribution_BroadcastPrefixe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mask length. The type is interface{} with range: 0..255.
     MaskLength interface{}
@@ -12774,7 +13108,8 @@ func (broadcastPrefixe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_Prefi
     broadcastPrefixe.EntityData.YangName = "broadcast-prefixe"
     broadcastPrefixe.EntityData.BundleName = "cisco_ios_xr"
     broadcastPrefixe.EntityData.ParentYangName = "prefix-masklen-distribution"
-    broadcastPrefixe.EntityData.SegmentPath = "broadcast-prefixe"
+    broadcastPrefixe.EntityData.SegmentPath = "broadcast-prefixe" + types.AddNoKeyToken(broadcastPrefixe)
+    broadcastPrefixe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/summary/prefix-masklen-distribution/" + broadcastPrefixe.EntityData.SegmentPath
     broadcastPrefixe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     broadcastPrefixe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     broadcastPrefixe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12794,6 +13129,7 @@ func (broadcastPrefixe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_Prefi
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_PrefixMasklenDistribution_MulticastPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Mask length. The type is interface{} with range: 0..255.
     MaskLength interface{}
@@ -12808,7 +13144,8 @@ func (multicastPrefix *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Summary_Prefix
     multicastPrefix.EntityData.YangName = "multicast-prefix"
     multicastPrefix.EntityData.BundleName = "cisco_ios_xr"
     multicastPrefix.EntityData.ParentYangName = "prefix-masklen-distribution"
-    multicastPrefix.EntityData.SegmentPath = "multicast-prefix"
+    multicastPrefix.EntityData.SegmentPath = "multicast-prefix" + types.AddNoKeyToken(multicastPrefix)
+    multicastPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/summary/prefix-masklen-distribution/" + multicastPrefix.EntityData.SegmentPath
     multicastPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12840,6 +13177,7 @@ func (interfaceInfos *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos)
     interfaceInfos.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfos.EntityData.ParentYangName = "vrf"
     interfaceInfos.EntityData.SegmentPath = "interface-infos"
+    interfaceInfos.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/" + interfaceInfos.EntityData.SegmentPath
     interfaceInfos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12861,6 +13199,7 @@ func (interfaceInfos *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos)
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Link type. The type is FibLink.
     LinkType interface{}
@@ -12875,6 +13214,7 @@ func (interfaceInfo *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_I
     interfaceInfo.EntityData.BundleName = "cisco_ios_xr"
     interfaceInfo.EntityData.ParentYangName = "interface-infos"
     interfaceInfo.EntityData.SegmentPath = "interface-info" + types.AddKeyToken(interfaceInfo.LinkType, "link-type")
+    interfaceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/" + interfaceInfo.EntityData.SegmentPath
     interfaceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12906,6 +13246,7 @@ func (interfaces *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Inte
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "interface-info"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12927,6 +13268,7 @@ func (interfaces *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Inte
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -13042,6 +13384,7 @@ func (self *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceI
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13141,6 +13484,7 @@ func (detailFibIntInformation *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Interf
     detailFibIntInformation.EntityData.BundleName = "cisco_ios_xr"
     detailFibIntInformation.EntityData.ParentYangName = "interface"
     detailFibIntInformation.EntityData.SegmentPath = "detail-fib-int-information"
+    detailFibIntInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/interface/" + detailFibIntInformation.EntityData.SegmentPath
     detailFibIntInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailFibIntInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailFibIntInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13186,6 +13530,7 @@ func (siInternal *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Inte
     siInternal.EntityData.BundleName = "cisco_ios_xr"
     siInternal.EntityData.ParentYangName = "interface"
     siInternal.EntityData.SegmentPath = "si-internal"
+    siInternal.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/interface/" + siInternal.EntityData.SegmentPath
     siInternal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siInternal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siInternal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13220,6 +13565,7 @@ func (fibIdbHist *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Inte
     fibIdbHist.EntityData.BundleName = "cisco_ios_xr"
     fibIdbHist.EntityData.ParentYangName = "si-internal"
     fibIdbHist.EntityData.SegmentPath = "fib-idb-hist"
+    fibIdbHist.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/interface/si-internal/" + fibIdbHist.EntityData.SegmentPath
     fibIdbHist.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibIdbHist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibIdbHist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13227,6 +13573,7 @@ func (fibIdbHist *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Inte
     fibIdbHist.EntityData.Children = types.NewOrderedMap()
     fibIdbHist.EntityData.Children.Append("evt-entry", types.YChild{"EvtEntry", nil})
     for i := range fibIdbHist.EvtEntry {
+        types.SetYListKey(fibIdbHist.EvtEntry[i], i)
         fibIdbHist.EntityData.Children.Append(types.GetSegmentPath(fibIdbHist.EvtEntry[i]), types.YChild{"EvtEntry", fibIdbHist.EvtEntry[i]})
     }
     fibIdbHist.EntityData.Leafs = types.NewOrderedMap()
@@ -13242,6 +13589,7 @@ func (fibIdbHist *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Inte
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Interfaces_Interface_SiInternal_FibIdbHist_EvtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The timestamp of the event. The type is string.
     EvtTimestamp interface{}
@@ -13268,7 +13616,8 @@ func (evtEntry *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Interf
     evtEntry.EntityData.YangName = "evt-entry"
     evtEntry.EntityData.BundleName = "cisco_ios_xr"
     evtEntry.EntityData.ParentYangName = "fib-idb-hist"
-    evtEntry.EntityData.SegmentPath = "evt-entry"
+    evtEntry.EntityData.SegmentPath = "evt-entry" + types.AddNoKeyToken(evtEntry)
+    evtEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/interface/si-internal/fib-idb-hist/" + evtEntry.EntityData.SegmentPath
     evtEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evtEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13276,6 +13625,7 @@ func (evtEntry *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Interf
     evtEntry.EntityData.Children = types.NewOrderedMap()
     evtEntry.EntityData.Children.Append("evt-data", types.YChild{"EvtData", nil})
     for i := range evtEntry.EvtData {
+        types.SetYListKey(evtEntry.EvtData[i], i)
         evtEntry.EntityData.Children.Append(types.GetSegmentPath(evtEntry.EvtData[i]), types.YChild{"EvtData", evtEntry.EvtData[i]})
     }
     evtEntry.EntityData.Leafs = types.NewOrderedMap()
@@ -13295,6 +13645,7 @@ func (evtEntry *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Interf
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Interfaces_Interface_SiInternal_FibIdbHist_EvtEntry_EvtData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -13305,7 +13656,8 @@ func (evtData *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Interfa
     evtData.EntityData.YangName = "evt-data"
     evtData.EntityData.BundleName = "cisco_ios_xr"
     evtData.EntityData.ParentYangName = "evt-entry"
-    evtData.EntityData.SegmentPath = "evt-data"
+    evtData.EntityData.SegmentPath = "evt-data" + types.AddNoKeyToken(evtData)
+    evtData.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/interface/si-internal/fib-idb-hist/evt-entry/" + evtData.EntityData.SegmentPath
     evtData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evtData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evtData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13339,6 +13691,7 @@ func (fibSrteHeadHist *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos
     fibSrteHeadHist.EntityData.BundleName = "cisco_ios_xr"
     fibSrteHeadHist.EntityData.ParentYangName = "si-internal"
     fibSrteHeadHist.EntityData.SegmentPath = "fib-srte-head-hist"
+    fibSrteHeadHist.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/interface/si-internal/" + fibSrteHeadHist.EntityData.SegmentPath
     fibSrteHeadHist.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibSrteHeadHist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibSrteHeadHist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13346,6 +13699,7 @@ func (fibSrteHeadHist *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos
     fibSrteHeadHist.EntityData.Children = types.NewOrderedMap()
     fibSrteHeadHist.EntityData.Children.Append("evt-entry", types.YChild{"EvtEntry", nil})
     for i := range fibSrteHeadHist.EvtEntry {
+        types.SetYListKey(fibSrteHeadHist.EvtEntry[i], i)
         fibSrteHeadHist.EntityData.Children.Append(types.GetSegmentPath(fibSrteHeadHist.EvtEntry[i]), types.YChild{"EvtEntry", fibSrteHeadHist.EvtEntry[i]})
     }
     fibSrteHeadHist.EntityData.Leafs = types.NewOrderedMap()
@@ -13361,6 +13715,7 @@ func (fibSrteHeadHist *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Interfaces_Interface_SiInternal_FibSrteHeadHist_EvtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The timestamp of the event. The type is string.
     EvtTimestamp interface{}
@@ -13387,7 +13742,8 @@ func (evtEntry *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Interf
     evtEntry.EntityData.YangName = "evt-entry"
     evtEntry.EntityData.BundleName = "cisco_ios_xr"
     evtEntry.EntityData.ParentYangName = "fib-srte-head-hist"
-    evtEntry.EntityData.SegmentPath = "evt-entry"
+    evtEntry.EntityData.SegmentPath = "evt-entry" + types.AddNoKeyToken(evtEntry)
+    evtEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/interface/si-internal/fib-srte-head-hist/" + evtEntry.EntityData.SegmentPath
     evtEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evtEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13395,6 +13751,7 @@ func (evtEntry *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Interf
     evtEntry.EntityData.Children = types.NewOrderedMap()
     evtEntry.EntityData.Children.Append("evt-data", types.YChild{"EvtData", nil})
     for i := range evtEntry.EvtData {
+        types.SetYListKey(evtEntry.EvtData[i], i)
         evtEntry.EntityData.Children.Append(types.GetSegmentPath(evtEntry.EvtData[i]), types.YChild{"EvtData", evtEntry.EvtData[i]})
     }
     evtEntry.EntityData.Leafs = types.NewOrderedMap()
@@ -13414,6 +13771,7 @@ func (evtEntry *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Interf
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_InterfaceInfo_Interfaces_Interface_SiInternal_FibSrteHeadHist_EvtEntry_EvtData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -13424,7 +13782,8 @@ func (evtData *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_InterfaceInfos_Interfa
     evtData.EntityData.YangName = "evt-data"
     evtData.EntityData.BundleName = "cisco_ios_xr"
     evtData.EntityData.ParentYangName = "evt-entry"
-    evtData.EntityData.SegmentPath = "evt-data"
+    evtData.EntityData.SegmentPath = "evt-data" + types.AddNoKeyToken(evtData)
+    evtData.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/interface-infos/interface-info/interfaces/interface/si-internal/fib-srte-head-hist/evt-entry/" + evtData.EntityData.SegmentPath
     evtData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evtData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evtData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13455,6 +13814,7 @@ func (ipPrefixBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs)
     ipPrefixBriefs.EntityData.BundleName = "cisco_ios_xr"
     ipPrefixBriefs.EntityData.ParentYangName = "vrf"
     ipPrefixBriefs.EntityData.SegmentPath = "ip-prefix-briefs"
+    ipPrefixBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/" + ipPrefixBriefs.EntityData.SegmentPath
     ipPrefixBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipPrefixBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipPrefixBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13462,6 +13822,7 @@ func (ipPrefixBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs)
     ipPrefixBriefs.EntityData.Children = types.NewOrderedMap()
     ipPrefixBriefs.EntityData.Children.Append("ip-prefix-brief", types.YChild{"IpPrefixBrief", nil})
     for i := range ipPrefixBriefs.IpPrefixBrief {
+        types.SetYListKey(ipPrefixBriefs.IpPrefixBrief[i], i)
         ipPrefixBriefs.EntityData.Children.Append(types.GetSegmentPath(ipPrefixBriefs.IpPrefixBrief[i]), types.YChild{"IpPrefixBrief", ipPrefixBriefs.IpPrefixBrief[i]})
     }
     ipPrefixBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -13476,6 +13837,7 @@ func (ipPrefixBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs)
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Destination IP address. The type is one of the following types: string with
     // pattern:
@@ -13637,7 +13999,8 @@ func (ipPrefixBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_I
     ipPrefixBrief.EntityData.YangName = "ip-prefix-brief"
     ipPrefixBrief.EntityData.BundleName = "cisco_ios_xr"
     ipPrefixBrief.EntityData.ParentYangName = "ip-prefix-briefs"
-    ipPrefixBrief.EntityData.SegmentPath = "ip-prefix-brief"
+    ipPrefixBrief.EntityData.SegmentPath = "ip-prefix-brief" + types.AddNoKeyToken(ipPrefixBrief)
+    ipPrefixBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/" + ipPrefixBrief.EntityData.SegmentPath
     ipPrefixBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipPrefixBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipPrefixBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13647,6 +14010,7 @@ func (ipPrefixBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_I
     ipPrefixBrief.EntityData.Children.Append("fib-entry-path", types.YChild{"FibEntryPath", &ipPrefixBrief.FibEntryPath})
     ipPrefixBrief.EntityData.Children.Append("extension-object", types.YChild{"ExtensionObject", nil})
     for i := range ipPrefixBrief.ExtensionObject {
+        types.SetYListKey(ipPrefixBrief.ExtensionObject[i], i)
         ipPrefixBrief.EntityData.Children.Append(types.GetSegmentPath(ipPrefixBrief.ExtensionObject[i]), types.YChild{"ExtensionObject", ipPrefixBrief.ExtensionObject[i]})
     }
     ipPrefixBrief.EntityData.Leafs = types.NewOrderedMap()
@@ -13848,6 +14212,7 @@ func (detailFibEntryInformation *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPr
     detailFibEntryInformation.EntityData.BundleName = "cisco_ios_xr"
     detailFibEntryInformation.EntityData.ParentYangName = "ip-prefix-brief"
     detailFibEntryInformation.EntityData.SegmentPath = "detail-fib-entry-information"
+    detailFibEntryInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/" + detailFibEntryInformation.EntityData.SegmentPath
     detailFibEntryInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailFibEntryInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailFibEntryInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13954,6 +14319,7 @@ func (loadshareInformation *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixB
     loadshareInformation.EntityData.BundleName = "cisco_ios_xr"
     loadshareInformation.EntityData.ParentYangName = "detail-fib-entry-information"
     loadshareInformation.EntityData.SegmentPath = "loadshare-information"
+    loadshareInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/" + loadshareInformation.EntityData.SegmentPath
     loadshareInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadshareInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadshareInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14073,6 +14439,7 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpP
     loadInformtionInternalData.EntityData.BundleName = "cisco_ios_xr"
     loadInformtionInternalData.EntityData.ParentYangName = "loadshare-information"
     loadInformtionInternalData.EntityData.SegmentPath = "load-informtion-internal-data"
+    loadInformtionInternalData.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/loadshare-information/" + loadInformtionInternalData.EntityData.SegmentPath
     loadInformtionInternalData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadInformtionInternalData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadInformtionInternalData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14080,30 +14447,37 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpP
     loadInformtionInternalData.EntityData.Children = types.NewOrderedMap()
     loadInformtionInternalData.EntityData.Children.Append("sanity-flag", types.YChild{"SanityFlag", nil})
     for i := range loadInformtionInternalData.SanityFlag {
+        types.SetYListKey(loadInformtionInternalData.SanityFlag[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.SanityFlag[i]), types.YChild{"SanityFlag", loadInformtionInternalData.SanityFlag[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("interface-handle", types.YChild{"InterfaceHandle", nil})
     for i := range loadInformtionInternalData.InterfaceHandle {
+        types.SetYListKey(loadInformtionInternalData.InterfaceHandle[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.InterfaceHandle[i]), types.YChild{"InterfaceHandle", loadInformtionInternalData.InterfaceHandle[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("weights-of-path", types.YChild{"WeightsOfPath", nil})
     for i := range loadInformtionInternalData.WeightsOfPath {
+        types.SetYListKey(loadInformtionInternalData.WeightsOfPath[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.WeightsOfPath[i]), types.YChild{"WeightsOfPath", loadInformtionInternalData.WeightsOfPath[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("adjacency-address", types.YChild{"AdjacencyAddress", nil})
     for i := range loadInformtionInternalData.AdjacencyAddress {
+        types.SetYListKey(loadInformtionInternalData.AdjacencyAddress[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.AdjacencyAddress[i]), types.YChild{"AdjacencyAddress", loadInformtionInternalData.AdjacencyAddress[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("pbts-class-is-fallback-mapped", types.YChild{"PbtsClassIsFallbackMapped", nil})
     for i := range loadInformtionInternalData.PbtsClassIsFallbackMapped {
+        types.SetYListKey(loadInformtionInternalData.PbtsClassIsFallbackMapped[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.PbtsClassIsFallbackMapped[i]), types.YChild{"PbtsClassIsFallbackMapped", loadInformtionInternalData.PbtsClassIsFallbackMapped[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("pbts-fallback-to-drop", types.YChild{"PbtsFallbackToDrop", nil})
     for i := range loadInformtionInternalData.PbtsFallbackToDrop {
+        types.SetYListKey(loadInformtionInternalData.PbtsFallbackToDrop[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.PbtsFallbackToDrop[i]), types.YChild{"PbtsFallbackToDrop", loadInformtionInternalData.PbtsFallbackToDrop[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("tunnel-is-forward-class", types.YChild{"TunnelIsForwardClass", nil})
     for i := range loadInformtionInternalData.TunnelIsForwardClass {
+        types.SetYListKey(loadInformtionInternalData.TunnelIsForwardClass[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.TunnelIsForwardClass[i]), types.YChild{"TunnelIsForwardClass", loadInformtionInternalData.TunnelIsForwardClass[i]})
     }
     loadInformtionInternalData.EntityData.Leafs = types.NewOrderedMap()
@@ -14133,6 +14507,7 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpP
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_SanityFlag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is bool.
     Entry interface{}
@@ -14143,7 +14518,8 @@ func (sanityFlag *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPr
     sanityFlag.EntityData.YangName = "sanity-flag"
     sanityFlag.EntityData.BundleName = "cisco_ios_xr"
     sanityFlag.EntityData.ParentYangName = "load-informtion-internal-data"
-    sanityFlag.EntityData.SegmentPath = "sanity-flag"
+    sanityFlag.EntityData.SegmentPath = "sanity-flag" + types.AddNoKeyToken(sanityFlag)
+    sanityFlag.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + sanityFlag.EntityData.SegmentPath
     sanityFlag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sanityFlag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sanityFlag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14162,6 +14538,7 @@ func (sanityFlag *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPr
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_InterfaceHandle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern: [a-zA-Z0-9._/-]+.
     Entry interface{}
@@ -14172,7 +14549,8 @@ func (interfaceHandle *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs
     interfaceHandle.EntityData.YangName = "interface-handle"
     interfaceHandle.EntityData.BundleName = "cisco_ios_xr"
     interfaceHandle.EntityData.ParentYangName = "load-informtion-internal-data"
-    interfaceHandle.EntityData.SegmentPath = "interface-handle"
+    interfaceHandle.EntityData.SegmentPath = "interface-handle" + types.AddNoKeyToken(interfaceHandle)
+    interfaceHandle.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + interfaceHandle.EntityData.SegmentPath
     interfaceHandle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceHandle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceHandle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14191,6 +14569,7 @@ func (interfaceHandle *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_WeightsOfPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -14201,7 +14580,8 @@ func (weightsOfPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_I
     weightsOfPath.EntityData.YangName = "weights-of-path"
     weightsOfPath.EntityData.BundleName = "cisco_ios_xr"
     weightsOfPath.EntityData.ParentYangName = "load-informtion-internal-data"
-    weightsOfPath.EntityData.SegmentPath = "weights-of-path"
+    weightsOfPath.EntityData.SegmentPath = "weights-of-path" + types.AddNoKeyToken(weightsOfPath)
+    weightsOfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + weightsOfPath.EntityData.SegmentPath
     weightsOfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weightsOfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weightsOfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14220,6 +14600,7 @@ func (weightsOfPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_I
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_AdjacencyAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // address. The type is string with length: 0..60.
     Address interface{}
@@ -14230,7 +14611,8 @@ func (adjacencyAddress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBrief
     adjacencyAddress.EntityData.YangName = "adjacency-address"
     adjacencyAddress.EntityData.BundleName = "cisco_ios_xr"
     adjacencyAddress.EntityData.ParentYangName = "load-informtion-internal-data"
-    adjacencyAddress.EntityData.SegmentPath = "adjacency-address"
+    adjacencyAddress.EntityData.SegmentPath = "adjacency-address" + types.AddNoKeyToken(adjacencyAddress)
+    adjacencyAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + adjacencyAddress.EntityData.SegmentPath
     adjacencyAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacencyAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacencyAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14249,6 +14631,7 @@ func (adjacencyAddress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBrief
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_PbtsClassIsFallbackMapped struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -14259,7 +14642,8 @@ func (pbtsClassIsFallbackMapped *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPr
     pbtsClassIsFallbackMapped.EntityData.YangName = "pbts-class-is-fallback-mapped"
     pbtsClassIsFallbackMapped.EntityData.BundleName = "cisco_ios_xr"
     pbtsClassIsFallbackMapped.EntityData.ParentYangName = "load-informtion-internal-data"
-    pbtsClassIsFallbackMapped.EntityData.SegmentPath = "pbts-class-is-fallback-mapped"
+    pbtsClassIsFallbackMapped.EntityData.SegmentPath = "pbts-class-is-fallback-mapped" + types.AddNoKeyToken(pbtsClassIsFallbackMapped)
+    pbtsClassIsFallbackMapped.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + pbtsClassIsFallbackMapped.EntityData.SegmentPath
     pbtsClassIsFallbackMapped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsClassIsFallbackMapped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsClassIsFallbackMapped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14278,6 +14662,7 @@ func (pbtsClassIsFallbackMapped *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPr
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_PbtsFallbackToDrop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -14288,7 +14673,8 @@ func (pbtsFallbackToDrop *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBri
     pbtsFallbackToDrop.EntityData.YangName = "pbts-fallback-to-drop"
     pbtsFallbackToDrop.EntityData.BundleName = "cisco_ios_xr"
     pbtsFallbackToDrop.EntityData.ParentYangName = "load-informtion-internal-data"
-    pbtsFallbackToDrop.EntityData.SegmentPath = "pbts-fallback-to-drop"
+    pbtsFallbackToDrop.EntityData.SegmentPath = "pbts-fallback-to-drop" + types.AddNoKeyToken(pbtsFallbackToDrop)
+    pbtsFallbackToDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + pbtsFallbackToDrop.EntityData.SegmentPath
     pbtsFallbackToDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsFallbackToDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsFallbackToDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14307,6 +14693,7 @@ func (pbtsFallbackToDrop *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBri
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_TunnelIsForwardClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -14317,7 +14704,8 @@ func (tunnelIsForwardClass *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixB
     tunnelIsForwardClass.EntityData.YangName = "tunnel-is-forward-class"
     tunnelIsForwardClass.EntityData.BundleName = "cisco_ios_xr"
     tunnelIsForwardClass.EntityData.ParentYangName = "load-informtion-internal-data"
-    tunnelIsForwardClass.EntityData.SegmentPath = "tunnel-is-forward-class"
+    tunnelIsForwardClass.EntityData.SegmentPath = "tunnel-is-forward-class" + types.AddNoKeyToken(tunnelIsForwardClass)
+    tunnelIsForwardClass.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + tunnelIsForwardClass.EntityData.SegmentPath
     tunnelIsForwardClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelIsForwardClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelIsForwardClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14348,6 +14736,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_Ip
     fibEntryPath.EntityData.BundleName = "cisco_ios_xr"
     fibEntryPath.EntityData.ParentYangName = "ip-prefix-brief"
     fibEntryPath.EntityData.SegmentPath = "fib-entry-path"
+    fibEntryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/" + fibEntryPath.EntityData.SegmentPath
     fibEntryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibEntryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibEntryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14355,6 +14744,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_Ip
     fibEntryPath.EntityData.Children = types.NewOrderedMap()
     fibEntryPath.EntityData.Children.Append("fib-sh-tbl-path", types.YChild{"FibShTblPath", nil})
     for i := range fibEntryPath.FibShTblPath {
+        types.SetYListKey(fibEntryPath.FibShTblPath[i], i)
         fibEntryPath.EntityData.Children.Append(types.GetSegmentPath(fibEntryPath.FibShTblPath[i]), types.YChild{"FibShTblPath", fibEntryPath.FibShTblPath[i]})
     }
     fibEntryPath.EntityData.Leafs = types.NewOrderedMap()
@@ -14369,6 +14759,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_Ip
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Hardware info. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -14450,7 +14841,8 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_Ip
     fibShTblPath.EntityData.YangName = "fib-sh-tbl-path"
     fibShTblPath.EntityData.BundleName = "cisco_ios_xr"
     fibShTblPath.EntityData.ParentYangName = "fib-entry-path"
-    fibShTblPath.EntityData.SegmentPath = "fib-sh-tbl-path"
+    fibShTblPath.EntityData.SegmentPath = "fib-sh-tbl-path" + types.AddNoKeyToken(fibShTblPath)
+    fibShTblPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/" + fibShTblPath.EntityData.SegmentPath
     fibShTblPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibShTblPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibShTblPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14591,6 +14983,7 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBr
     moreDetailAboutPath.EntityData.BundleName = "cisco_ios_xr"
     moreDetailAboutPath.EntityData.ParentYangName = "fib-sh-tbl-path"
     moreDetailAboutPath.EntityData.SegmentPath = "more-detail-about-path"
+    moreDetailAboutPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/" + moreDetailAboutPath.EntityData.SegmentPath
     moreDetailAboutPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moreDetailAboutPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moreDetailAboutPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14598,10 +14991,12 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBr
     moreDetailAboutPath.EntityData.Children = types.NewOrderedMap()
     moreDetailAboutPath.EntityData.Children.Append("spd-ipencap", types.YChild{"SpdIpencap", nil})
     for i := range moreDetailAboutPath.SpdIpencap {
+        types.SetYListKey(moreDetailAboutPath.SpdIpencap[i], i)
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.SpdIpencap[i]), types.YChild{"SpdIpencap", moreDetailAboutPath.SpdIpencap[i]})
     }
     moreDetailAboutPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range moreDetailAboutPath.NextNextHop {
+        types.SetYListKey(moreDetailAboutPath.NextNextHop[i], i)
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.NextNextHop[i]), types.YChild{"NextNextHop", moreDetailAboutPath.NextNextHop[i]})
     }
     moreDetailAboutPath.EntityData.Leafs = types.NewOrderedMap()
@@ -14642,6 +15037,7 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBr
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Header Count. The type is interface{} with range: 0..255.
     IpEncapHdrCount interface{}
@@ -14680,7 +15076,8 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPr
     spdIpencap.EntityData.YangName = "spd-ipencap"
     spdIpencap.EntityData.BundleName = "cisco_ios_xr"
     spdIpencap.EntityData.ParentYangName = "more-detail-about-path"
-    spdIpencap.EntityData.SegmentPath = "spd-ipencap"
+    spdIpencap.EntityData.SegmentPath = "spd-ipencap" + types.AddNoKeyToken(spdIpencap)
+    spdIpencap.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/" + spdIpencap.EntityData.SegmentPath
     spdIpencap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spdIpencap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spdIpencap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14688,6 +15085,7 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPr
     spdIpencap.EntityData.Children = types.NewOrderedMap()
     spdIpencap.EntityData.Children.Append("ip-encap-hdr", types.YChild{"IpEncapHdr", nil})
     for i := range spdIpencap.IpEncapHdr {
+        types.SetYListKey(spdIpencap.IpEncapHdr[i], i)
         spdIpencap.EntityData.Children.Append(types.GetSegmentPath(spdIpencap.IpEncapHdr[i]), types.YChild{"IpEncapHdr", spdIpencap.IpEncapHdr[i]})
     }
     spdIpencap.EntityData.Leafs = types.NewOrderedMap()
@@ -14711,6 +15109,7 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPr
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap_IpEncapHdr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Header Type. The type is FibShIpencapHdr.
     IpEncapHdrType interface{}
@@ -14728,7 +15127,8 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPr
     ipEncapHdr.EntityData.YangName = "ip-encap-hdr"
     ipEncapHdr.EntityData.BundleName = "cisco_ios_xr"
     ipEncapHdr.EntityData.ParentYangName = "spd-ipencap"
-    ipEncapHdr.EntityData.SegmentPath = "ip-encap-hdr"
+    ipEncapHdr.EntityData.SegmentPath = "ip-encap-hdr" + types.AddNoKeyToken(ipEncapHdr)
+    ipEncapHdr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/spd-ipencap/" + ipEncapHdr.EntityData.SegmentPath
     ipEncapHdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipEncapHdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipEncapHdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14749,6 +15149,7 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPr
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next next hop index. The type is interface{} with range: 0..255.
     NextNextHopIndex interface{}
@@ -14766,7 +15167,8 @@ func (nextNextHop *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpP
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "more-detail-about-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14815,6 +15217,7 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefi
     mplsInformationForPath.EntityData.BundleName = "cisco_ios_xr"
     mplsInformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
     mplsInformationForPath.EntityData.SegmentPath = "mpls-information-for-path"
+    mplsInformationForPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/" + mplsInformationForPath.EntityData.SegmentPath
     mplsInformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsInformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsInformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14822,10 +15225,12 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefi
     mplsInformationForPath.EntityData.Children = types.NewOrderedMap()
     mplsInformationForPath.EntityData.Children.Append("recursive-lbl-stack", types.YChild{"RecursiveLblStack", nil})
     for i := range mplsInformationForPath.RecursiveLblStack {
+        types.SetYListKey(mplsInformationForPath.RecursiveLblStack[i], i)
         mplsInformationForPath.EntityData.Children.Append(types.GetSegmentPath(mplsInformationForPath.RecursiveLblStack[i]), types.YChild{"RecursiveLblStack", mplsInformationForPath.RecursiveLblStack[i]})
     }
     mplsInformationForPath.EntityData.Children.Append("igp-label-stack-array", types.YChild{"IgpLabelStackArray", nil})
     for i := range mplsInformationForPath.IgpLabelStackArray {
+        types.SetYListKey(mplsInformationForPath.IgpLabelStackArray[i], i)
         mplsInformationForPath.EntityData.Children.Append(types.GetSegmentPath(mplsInformationForPath.IgpLabelStackArray[i]), types.YChild{"IgpLabelStackArray", mplsInformationForPath.IgpLabelStackArray[i]})
     }
     mplsInformationForPath.EntityData.Leafs = types.NewOrderedMap()
@@ -14844,6 +15249,7 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefi
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MplsInformationForPath_RecursiveLblStack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -14854,7 +15260,8 @@ func (recursiveLblStack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBrie
     recursiveLblStack.EntityData.YangName = "recursive-lbl-stack"
     recursiveLblStack.EntityData.BundleName = "cisco_ios_xr"
     recursiveLblStack.EntityData.ParentYangName = "mpls-information-for-path"
-    recursiveLblStack.EntityData.SegmentPath = "recursive-lbl-stack"
+    recursiveLblStack.EntityData.SegmentPath = "recursive-lbl-stack" + types.AddNoKeyToken(recursiveLblStack)
+    recursiveLblStack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/" + recursiveLblStack.EntityData.SegmentPath
     recursiveLblStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recursiveLblStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recursiveLblStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14873,6 +15280,7 @@ func (recursiveLblStack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBrie
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MplsInformationForPath_IgpLabelStackArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
@@ -14893,7 +15301,8 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBri
     igpLabelStackArray.EntityData.YangName = "igp-label-stack-array"
     igpLabelStackArray.EntityData.BundleName = "cisco_ios_xr"
     igpLabelStackArray.EntityData.ParentYangName = "mpls-information-for-path"
-    igpLabelStackArray.EntityData.SegmentPath = "igp-label-stack-array"
+    igpLabelStackArray.EntityData.SegmentPath = "igp-label-stack-array" + types.AddNoKeyToken(igpLabelStackArray)
+    igpLabelStackArray.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/" + igpLabelStackArray.EntityData.SegmentPath
     igpLabelStackArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igpLabelStackArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igpLabelStackArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14901,6 +15310,7 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBri
     igpLabelStackArray.EntityData.Children = types.NewOrderedMap()
     igpLabelStackArray.EntityData.Children.Append("lstack", types.YChild{"Lstack", nil})
     for i := range igpLabelStackArray.Lstack {
+        types.SetYListKey(igpLabelStackArray.Lstack[i], i)
         igpLabelStackArray.EntityData.Children.Append(types.GetSegmentPath(igpLabelStackArray.Lstack[i]), types.YChild{"Lstack", igpLabelStackArray.Lstack[i]})
     }
     igpLabelStackArray.EntityData.Leafs = types.NewOrderedMap()
@@ -14918,6 +15328,7 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBri
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_FibEntryPath_FibShTblPath_MplsInformationForPath_IgpLabelStackArray_Lstack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -14928,7 +15339,8 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefix
     lstack.EntityData.YangName = "lstack"
     lstack.EntityData.BundleName = "cisco_ios_xr"
     lstack.EntityData.ParentYangName = "igp-label-stack-array"
-    lstack.EntityData.SegmentPath = "lstack"
+    lstack.EntityData.SegmentPath = "lstack" + types.AddNoKeyToken(lstack)
+    lstack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/igp-label-stack-array/" + lstack.EntityData.SegmentPath
     lstack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lstack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lstack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14947,6 +15359,7 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefix
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefixBrief_ExtensionObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is FibShTblFibExtBag.
     Type interface{}
@@ -14960,7 +15373,8 @@ func (extensionObject *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs
     extensionObject.EntityData.YangName = "extension-object"
     extensionObject.EntityData.BundleName = "cisco_ios_xr"
     extensionObject.EntityData.ParentYangName = "ip-prefix-brief"
-    extensionObject.EntityData.SegmentPath = "extension-object"
+    extensionObject.EntityData.SegmentPath = "extension-object" + types.AddNoKeyToken(extensionObject)
+    extensionObject.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/" + extensionObject.EntityData.SegmentPath
     extensionObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extensionObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extensionObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14994,6 +15408,7 @@ func (sfecdLe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_IpPrefixBriefs_IpPrefi
     sfecdLe.EntityData.BundleName = "cisco_ios_xr"
     sfecdLe.EntityData.ParentYangName = "extension-object"
     sfecdLe.EntityData.SegmentPath = "sfecd-le"
+    sfecdLe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/ip-prefix-briefs/ip-prefix-brief/extension-object/" + sfecdLe.EntityData.SegmentPath
     sfecdLe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfecdLe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfecdLe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15031,6 +15446,7 @@ func (nhInfoDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_Nh
     nhInfoDetailHardwareIngress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoDetailHardwareIngress.EntityData.ParentYangName = "vrf"
     nhInfoDetailHardwareIngress.EntityData.SegmentPath = "nh-info-detail-hardware-ingress"
+    nhInfoDetailHardwareIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/" + nhInfoDetailHardwareIngress.EntityData.SegmentPath
     nhInfoDetailHardwareIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoDetailHardwareIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoDetailHardwareIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15064,6 +15480,7 @@ func (nhInfoRemoteDetailHardwareIngresses *Fib_Nodes_Node_Protocols_Protocol_Vrf
     nhInfoRemoteDetailHardwareIngresses.EntityData.BundleName = "cisco_ios_xr"
     nhInfoRemoteDetailHardwareIngresses.EntityData.ParentYangName = "nh-info-detail-hardware-ingress"
     nhInfoRemoteDetailHardwareIngresses.EntityData.SegmentPath = "nh-info-remote-detail-hardware-ingresses"
+    nhInfoRemoteDetailHardwareIngresses.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/" + nhInfoRemoteDetailHardwareIngresses.EntityData.SegmentPath
     nhInfoRemoteDetailHardwareIngresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoRemoteDetailHardwareIngresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoRemoteDetailHardwareIngresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15071,6 +15488,7 @@ func (nhInfoRemoteDetailHardwareIngresses *Fib_Nodes_Node_Protocols_Protocol_Vrf
     nhInfoRemoteDetailHardwareIngresses.EntityData.Children = types.NewOrderedMap()
     nhInfoRemoteDetailHardwareIngresses.EntityData.Children.Append("nh-info-remote-detail-hardware-ingress", types.YChild{"NhInfoRemoteDetailHardwareIngress", nil})
     for i := range nhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress {
+        types.SetYListKey(nhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress[i], i)
         nhInfoRemoteDetailHardwareIngresses.EntityData.Children.Append(types.GetSegmentPath(nhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress[i]), types.YChild{"NhInfoRemoteDetailHardwareIngress", nhInfoRemoteDetailHardwareIngresses.NhInfoRemoteDetailHardwareIngress[i]})
     }
     nhInfoRemoteDetailHardwareIngresses.EntityData.Leafs = types.NewOrderedMap()
@@ -15085,6 +15503,7 @@ func (nhInfoRemoteDetailHardwareIngresses *Fib_Nodes_Node_Protocols_Protocol_Vrf
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
@@ -15267,7 +15686,8 @@ func (nhInfoRemoteDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_
     nhInfoRemoteDetailHardwareIngress.EntityData.YangName = "nh-info-remote-detail-hardware-ingress"
     nhInfoRemoteDetailHardwareIngress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoRemoteDetailHardwareIngress.EntityData.ParentYangName = "nh-info-remote-detail-hardware-ingresses"
-    nhInfoRemoteDetailHardwareIngress.EntityData.SegmentPath = "nh-info-remote-detail-hardware-ingress"
+    nhInfoRemoteDetailHardwareIngress.EntityData.SegmentPath = "nh-info-remote-detail-hardware-ingress" + types.AddNoKeyToken(nhInfoRemoteDetailHardwareIngress)
+    nhInfoRemoteDetailHardwareIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/" + nhInfoRemoteDetailHardwareIngress.EntityData.SegmentPath
     nhInfoRemoteDetailHardwareIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoRemoteDetailHardwareIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoRemoteDetailHardwareIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15366,6 +15786,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIng
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-remote-detail-hardware-ingress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/nh-info-remote-detail-hardware-ingress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15401,6 +15822,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-remote-detail-hardware-ingress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/nh-info-remote-detail-hardware-ingress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15408,6 +15830,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -15422,6 +15845,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoRemoteDetailHardwareIngresses_NhInfoRemoteDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -15435,7 +15859,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/nh-info-remote-detail-hardware-ingress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15474,6 +15899,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/nh-info-remote-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15520,6 +15946,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/nh-info-remote-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15556,6 +15983,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/nh-info-remote-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15594,6 +16022,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-remote-detail-hardware-ingresses/nh-info-remote-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15626,6 +16055,7 @@ func (nhInfoLocalDetailHardwareIngresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs
     nhInfoLocalDetailHardwareIngresses.EntityData.BundleName = "cisco_ios_xr"
     nhInfoLocalDetailHardwareIngresses.EntityData.ParentYangName = "nh-info-detail-hardware-ingress"
     nhInfoLocalDetailHardwareIngresses.EntityData.SegmentPath = "nh-info-local-detail-hardware-ingresses"
+    nhInfoLocalDetailHardwareIngresses.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/" + nhInfoLocalDetailHardwareIngresses.EntityData.SegmentPath
     nhInfoLocalDetailHardwareIngresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoLocalDetailHardwareIngresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoLocalDetailHardwareIngresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15633,6 +16063,7 @@ func (nhInfoLocalDetailHardwareIngresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs
     nhInfoLocalDetailHardwareIngresses.EntityData.Children = types.NewOrderedMap()
     nhInfoLocalDetailHardwareIngresses.EntityData.Children.Append("nh-info-local-detail-hardware-ingress", types.YChild{"NhInfoLocalDetailHardwareIngress", nil})
     for i := range nhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress {
+        types.SetYListKey(nhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress[i], i)
         nhInfoLocalDetailHardwareIngresses.EntityData.Children.Append(types.GetSegmentPath(nhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress[i]), types.YChild{"NhInfoLocalDetailHardwareIngress", nhInfoLocalDetailHardwareIngresses.NhInfoLocalDetailHardwareIngress[i]})
     }
     nhInfoLocalDetailHardwareIngresses.EntityData.Leafs = types.NewOrderedMap()
@@ -15647,6 +16078,7 @@ func (nhInfoLocalDetailHardwareIngresses *Fib_Nodes_Node_Protocols_Protocol_Vrfs
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
@@ -15829,7 +16261,8 @@ func (nhInfoLocalDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_Vrfs_V
     nhInfoLocalDetailHardwareIngress.EntityData.YangName = "nh-info-local-detail-hardware-ingress"
     nhInfoLocalDetailHardwareIngress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoLocalDetailHardwareIngress.EntityData.ParentYangName = "nh-info-local-detail-hardware-ingresses"
-    nhInfoLocalDetailHardwareIngress.EntityData.SegmentPath = "nh-info-local-detail-hardware-ingress"
+    nhInfoLocalDetailHardwareIngress.EntityData.SegmentPath = "nh-info-local-detail-hardware-ingress" + types.AddNoKeyToken(nhInfoLocalDetailHardwareIngress)
+    nhInfoLocalDetailHardwareIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/" + nhInfoLocalDetailHardwareIngress.EntityData.SegmentPath
     nhInfoLocalDetailHardwareIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoLocalDetailHardwareIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoLocalDetailHardwareIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15928,6 +16361,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIng
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-local-detail-hardware-ingress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/nh-info-local-detail-hardware-ingress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15963,6 +16397,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-local-detail-hardware-ingress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/nh-info-local-detail-hardware-ingress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15970,6 +16405,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -15984,6 +16420,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoLocalDetailHardwareIngresses_NhInfoLocalDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -15997,7 +16434,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/nh-info-local-detail-hardware-ingress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16036,6 +16474,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/nh-info-local-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16082,6 +16521,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/nh-info-local-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16118,6 +16558,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/nh-info-local-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16156,6 +16597,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-local-detail-hardware-ingresses/nh-info-local-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16196,6 +16638,7 @@ func (nhInfoSpecialDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_Vrfs
     nhInfoSpecialDetailHardwareIngress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDetailHardwareIngress.EntityData.ParentYangName = "nh-info-detail-hardware-ingress"
     nhInfoSpecialDetailHardwareIngress.EntityData.SegmentPath = "nh-info-special-detail-hardware-ingress"
+    nhInfoSpecialDetailHardwareIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/" + nhInfoSpecialDetailHardwareIngress.EntityData.SegmentPath
     nhInfoSpecialDetailHardwareIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDetailHardwareIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDetailHardwareIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16388,6 +16831,7 @@ func (nhInfoSpecialPuntDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_
     nhInfoSpecialPuntDetailHardwareIngress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialPuntDetailHardwareIngress.EntityData.ParentYangName = "nh-info-special-detail-hardware-ingress"
     nhInfoSpecialPuntDetailHardwareIngress.EntityData.SegmentPath = "nh-info-special-punt-detail-hardware-ingress"
+    nhInfoSpecialPuntDetailHardwareIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/" + nhInfoSpecialPuntDetailHardwareIngress.EntityData.SegmentPath
     nhInfoSpecialPuntDetailHardwareIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialPuntDetailHardwareIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialPuntDetailHardwareIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16482,6 +16926,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIng
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-punt-detail-hardware-ingress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-punt-detail-hardware-ingress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16517,6 +16962,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-punt-detail-hardware-ingress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-punt-detail-hardware-ingress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16524,6 +16970,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -16538,6 +16985,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialPuntDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialPuntDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -16551,7 +16999,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-punt-detail-hardware-ingress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16590,6 +17039,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-punt-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16636,6 +17086,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-punt-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16672,6 +17123,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-punt-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16710,6 +17162,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-punt-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16901,6 +17354,7 @@ func (nhInfoSpecialNullDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_
     nhInfoSpecialNullDetailHardwareIngress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialNullDetailHardwareIngress.EntityData.ParentYangName = "nh-info-special-detail-hardware-ingress"
     nhInfoSpecialNullDetailHardwareIngress.EntityData.SegmentPath = "nh-info-special-null-detail-hardware-ingress"
+    nhInfoSpecialNullDetailHardwareIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/" + nhInfoSpecialNullDetailHardwareIngress.EntityData.SegmentPath
     nhInfoSpecialNullDetailHardwareIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialNullDetailHardwareIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialNullDetailHardwareIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16995,6 +17449,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIng
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-null-detail-hardware-ingress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-null-detail-hardware-ingress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17030,6 +17485,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-null-detail-hardware-ingress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-null-detail-hardware-ingress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17037,6 +17493,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -17051,6 +17508,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialNullDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -17064,7 +17522,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-null-detail-hardware-ingress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17103,6 +17562,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-null-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17149,6 +17609,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-null-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17185,6 +17646,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-null-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17223,6 +17685,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-null-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17414,6 +17877,7 @@ func (nhInfoSpecialDropDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protocol_
     nhInfoSpecialDropDetailHardwareIngress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDropDetailHardwareIngress.EntityData.ParentYangName = "nh-info-special-detail-hardware-ingress"
     nhInfoSpecialDropDetailHardwareIngress.EntityData.SegmentPath = "nh-info-special-drop-detail-hardware-ingress"
+    nhInfoSpecialDropDetailHardwareIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/" + nhInfoSpecialDropDetailHardwareIngress.EntityData.SegmentPath
     nhInfoSpecialDropDetailHardwareIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDropDetailHardwareIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDropDetailHardwareIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17508,6 +17972,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIng
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-drop-detail-hardware-ingress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-drop-detail-hardware-ingress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17543,6 +18008,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-drop-detail-hardware-ingress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-drop-detail-hardware-ingress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17550,6 +18016,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -17564,6 +18031,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDropDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -17577,7 +18045,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-drop-detail-hardware-ingress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17616,6 +18085,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-drop-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17662,6 +18132,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-drop-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17698,6 +18169,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-drop-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17736,6 +18208,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-drop-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17927,6 +18400,7 @@ func (nhInfoSpecialDiscardDetailHardwareIngress *Fib_Nodes_Node_Protocols_Protoc
     nhInfoSpecialDiscardDetailHardwareIngress.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDiscardDetailHardwareIngress.EntityData.ParentYangName = "nh-info-special-detail-hardware-ingress"
     nhInfoSpecialDiscardDetailHardwareIngress.EntityData.SegmentPath = "nh-info-special-discard-detail-hardware-ingress"
+    nhInfoSpecialDiscardDetailHardwareIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/" + nhInfoSpecialDiscardDetailHardwareIngress.EntityData.SegmentPath
     nhInfoSpecialDiscardDetailHardwareIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDiscardDetailHardwareIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDiscardDetailHardwareIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18021,6 +18495,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIng
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-discard-detail-hardware-ingress"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-discard-detail-hardware-ingress/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18056,6 +18531,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-discard-detail-hardware-ingress"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-discard-detail-hardware-ingress/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18063,6 +18539,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -18077,6 +18554,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHa
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareIngress_NhInfoSpecialDetailHardwareIngress_NhInfoSpecialDiscardDetailHardwareIngress_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -18090,7 +18568,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-discard-detail-hardware-ingress/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18129,6 +18608,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDeta
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-discard-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18175,6 +18655,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwar
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-discard-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18211,6 +18692,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDe
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-discard-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18249,6 +18731,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoDetailHardwareI
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-detail-hardware-ingress/nh-info-special-detail-hardware-ingress/nh-info-special-discard-detail-hardware-ingress/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18287,6 +18770,7 @@ func (nhInfoBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief) GetEn
     nhInfoBrief.EntityData.BundleName = "cisco_ios_xr"
     nhInfoBrief.EntityData.ParentYangName = "vrf"
     nhInfoBrief.EntityData.SegmentPath = "nh-info-brief"
+    nhInfoBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/" + nhInfoBrief.EntityData.SegmentPath
     nhInfoBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18327,6 +18811,7 @@ func (nhInfoSpecialBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief
     nhInfoSpecialBrief.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialBrief.EntityData.ParentYangName = "nh-info-brief"
     nhInfoSpecialBrief.EntityData.SegmentPath = "nh-info-special-brief"
+    nhInfoSpecialBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/" + nhInfoSpecialBrief.EntityData.SegmentPath
     nhInfoSpecialBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18518,6 +19003,7 @@ func (nhInfoSpecialDiscardBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhIn
     nhInfoSpecialDiscardBrief.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDiscardBrief.EntityData.ParentYangName = "nh-info-special-brief"
     nhInfoSpecialDiscardBrief.EntityData.SegmentPath = "nh-info-special-discard-brief"
+    nhInfoSpecialDiscardBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/" + nhInfoSpecialDiscardBrief.EntityData.SegmentPath
     nhInfoSpecialDiscardBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDiscardBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDiscardBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18612,6 +19098,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpeci
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-discard-brief"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-discard-brief/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18647,6 +19134,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-discard-brief"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-discard-brief/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18654,6 +19142,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -18668,6 +19157,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDiscardBrief_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDiscardBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -18681,7 +19171,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-discard-brief/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18720,6 +19211,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrie
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-discard-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18766,6 +19258,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoS
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-discard-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18802,6 +19295,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-discard-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18840,6 +19334,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-discard-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19030,6 +19525,7 @@ func (nhInfoSpecialNullBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoB
     nhInfoSpecialNullBrief.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialNullBrief.EntityData.ParentYangName = "nh-info-special-brief"
     nhInfoSpecialNullBrief.EntityData.SegmentPath = "nh-info-special-null-brief"
+    nhInfoSpecialNullBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/" + nhInfoSpecialNullBrief.EntityData.SegmentPath
     nhInfoSpecialNullBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialNullBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialNullBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19124,6 +19620,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpeci
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-null-brief"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-null-brief/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19159,6 +19656,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-null-brief"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-null-brief/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19166,6 +19664,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -19180,6 +19679,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialNullBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -19193,7 +19693,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-null-brief/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19232,6 +19733,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrie
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-null-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19278,6 +19780,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoS
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-null-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19314,6 +19817,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-null-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19352,6 +19856,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-null-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19542,6 +20047,7 @@ func (nhInfoSpecialPuntBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoB
     nhInfoSpecialPuntBrief.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialPuntBrief.EntityData.ParentYangName = "nh-info-special-brief"
     nhInfoSpecialPuntBrief.EntityData.SegmentPath = "nh-info-special-punt-brief"
+    nhInfoSpecialPuntBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/" + nhInfoSpecialPuntBrief.EntityData.SegmentPath
     nhInfoSpecialPuntBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialPuntBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialPuntBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19636,6 +20142,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpeci
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-punt-brief"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-punt-brief/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19671,6 +20178,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-punt-brief"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-punt-brief/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19678,6 +20186,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -19692,6 +20201,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialPuntBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -19705,7 +20215,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-punt-brief/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19744,6 +20255,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrie
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-punt-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19790,6 +20302,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoS
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-punt-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19826,6 +20339,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-punt-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19864,6 +20378,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-punt-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20054,6 +20569,7 @@ func (nhInfoSpecialDropBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoB
     nhInfoSpecialDropBrief.EntityData.BundleName = "cisco_ios_xr"
     nhInfoSpecialDropBrief.EntityData.ParentYangName = "nh-info-special-brief"
     nhInfoSpecialDropBrief.EntityData.SegmentPath = "nh-info-special-drop-brief"
+    nhInfoSpecialDropBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/" + nhInfoSpecialDropBrief.EntityData.SegmentPath
     nhInfoSpecialDropBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoSpecialDropBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoSpecialDropBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20148,6 +20664,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpeci
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-special-drop-brief"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-drop-brief/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20183,6 +20700,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-special-drop-brief"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-drop-brief/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20190,6 +20708,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -20204,6 +20723,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpecialBrief_NhInfoSpecialDropBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -20217,7 +20737,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-drop-brief/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20256,6 +20777,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrie
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-drop-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20302,6 +20824,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoS
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-drop-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20338,6 +20861,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-drop-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20376,6 +20900,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoSpe
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-special-brief/nh-info-special-drop-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20408,6 +20933,7 @@ func (nhInfoRemoteBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief
     nhInfoRemoteBriefs.EntityData.BundleName = "cisco_ios_xr"
     nhInfoRemoteBriefs.EntityData.ParentYangName = "nh-info-brief"
     nhInfoRemoteBriefs.EntityData.SegmentPath = "nh-info-remote-briefs"
+    nhInfoRemoteBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/" + nhInfoRemoteBriefs.EntityData.SegmentPath
     nhInfoRemoteBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoRemoteBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoRemoteBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20415,6 +20941,7 @@ func (nhInfoRemoteBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief
     nhInfoRemoteBriefs.EntityData.Children = types.NewOrderedMap()
     nhInfoRemoteBriefs.EntityData.Children.Append("nh-info-remote-brief", types.YChild{"NhInfoRemoteBrief", nil})
     for i := range nhInfoRemoteBriefs.NhInfoRemoteBrief {
+        types.SetYListKey(nhInfoRemoteBriefs.NhInfoRemoteBrief[i], i)
         nhInfoRemoteBriefs.EntityData.Children.Append(types.GetSegmentPath(nhInfoRemoteBriefs.NhInfoRemoteBrief[i]), types.YChild{"NhInfoRemoteBrief", nhInfoRemoteBriefs.NhInfoRemoteBrief[i]})
     }
     nhInfoRemoteBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -20429,6 +20956,7 @@ func (nhInfoRemoteBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
@@ -20611,7 +21139,8 @@ func (nhInfoRemoteBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_
     nhInfoRemoteBrief.EntityData.YangName = "nh-info-remote-brief"
     nhInfoRemoteBrief.EntityData.BundleName = "cisco_ios_xr"
     nhInfoRemoteBrief.EntityData.ParentYangName = "nh-info-remote-briefs"
-    nhInfoRemoteBrief.EntityData.SegmentPath = "nh-info-remote-brief"
+    nhInfoRemoteBrief.EntityData.SegmentPath = "nh-info-remote-brief" + types.AddNoKeyToken(nhInfoRemoteBrief)
+    nhInfoRemoteBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/" + nhInfoRemoteBrief.EntityData.SegmentPath
     nhInfoRemoteBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoRemoteBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoRemoteBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20710,6 +21239,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemot
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-remote-brief"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/nh-info-remote-brief/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20745,6 +21275,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-remote-brief"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/nh-info-remote-brief/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20752,6 +21283,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -20766,6 +21298,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRemoteBriefs_NhInfoRemoteBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -20779,7 +21312,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/nh-info-remote-brief/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20818,6 +21352,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrie
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/nh-info-remote-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20864,6 +21399,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoR
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/nh-info-remote-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20900,6 +21436,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/nh-info-remote-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20938,6 +21475,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoRem
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-remote-briefs/nh-info-remote-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20970,6 +21508,7 @@ func (nhInfoLocalBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_
     nhInfoLocalBriefs.EntityData.BundleName = "cisco_ios_xr"
     nhInfoLocalBriefs.EntityData.ParentYangName = "nh-info-brief"
     nhInfoLocalBriefs.EntityData.SegmentPath = "nh-info-local-briefs"
+    nhInfoLocalBriefs.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/" + nhInfoLocalBriefs.EntityData.SegmentPath
     nhInfoLocalBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoLocalBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoLocalBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20977,6 +21516,7 @@ func (nhInfoLocalBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_
     nhInfoLocalBriefs.EntityData.Children = types.NewOrderedMap()
     nhInfoLocalBriefs.EntityData.Children.Append("nh-info-local-brief", types.YChild{"NhInfoLocalBrief", nil})
     for i := range nhInfoLocalBriefs.NhInfoLocalBrief {
+        types.SetYListKey(nhInfoLocalBriefs.NhInfoLocalBrief[i], i)
         nhInfoLocalBriefs.EntityData.Children.Append(types.GetSegmentPath(nhInfoLocalBriefs.NhInfoLocalBrief[i]), types.YChild{"NhInfoLocalBrief", nhInfoLocalBriefs.NhInfoLocalBrief[i]})
     }
     nhInfoLocalBriefs.EntityData.Leafs = types.NewOrderedMap()
@@ -20991,6 +21531,7 @@ func (nhInfoLocalBriefs *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     NhInterfaceName interface{}
@@ -21173,7 +21714,8 @@ func (nhInfoLocalBrief *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_N
     nhInfoLocalBrief.EntityData.YangName = "nh-info-local-brief"
     nhInfoLocalBrief.EntityData.BundleName = "cisco_ios_xr"
     nhInfoLocalBrief.EntityData.ParentYangName = "nh-info-local-briefs"
-    nhInfoLocalBrief.EntityData.SegmentPath = "nh-info-local-brief"
+    nhInfoLocalBrief.EntityData.SegmentPath = "nh-info-local-brief" + types.AddNoKeyToken(nhInfoLocalBrief)
+    nhInfoLocalBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/" + nhInfoLocalBrief.EntityData.SegmentPath
     nhInfoLocalBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoLocalBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoLocalBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21272,6 +21814,7 @@ func (siPwhe *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocal
     siPwhe.EntityData.BundleName = "cisco_ios_xr"
     siPwhe.EntityData.ParentYangName = "nh-info-local-brief"
     siPwhe.EntityData.SegmentPath = "si-pwhe"
+    siPwhe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/nh-info-local-brief/" + siPwhe.EntityData.SegmentPath
     siPwhe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     siPwhe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     siPwhe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21307,6 +21850,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtension.EntityData.ParentYangName = "nh-info-local-brief"
     nhInfoExtension.EntityData.SegmentPath = "nh-info-extension"
+    nhInfoExtension.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/nh-info-local-brief/" + nhInfoExtension.EntityData.SegmentPath
     nhInfoExtension.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtension.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtension.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21314,6 +21858,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
     nhInfoExtension.EntityData.Children = types.NewOrderedMap()
     nhInfoExtension.EntityData.Children.Append("nh-info-extension-detail", types.YChild{"NhInfoExtensionDetail", nil})
     for i := range nhInfoExtension.NhInfoExtensionDetail {
+        types.SetYListKey(nhInfoExtension.NhInfoExtensionDetail[i], i)
         nhInfoExtension.EntityData.Children.Append(types.GetSegmentPath(nhInfoExtension.NhInfoExtensionDetail[i]), types.YChild{"NhInfoExtensionDetail", nhInfoExtension.NhInfoExtensionDetail[i]})
     }
     nhInfoExtension.EntityData.Leafs = types.NewOrderedMap()
@@ -21328,6 +21873,7 @@ func (nhInfoExtension *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_Nh
 type Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief_NhInfoExtension_NhInfoExtensionDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NHINFO Extension object base information.
     NhInfoExtensionBase Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLocalBriefs_NhInfoLocalBrief_NhInfoExtension_NhInfoExtensionDetail_NhInfoExtensionBase
@@ -21341,7 +21887,8 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.YangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension"
-    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail" + types.AddNoKeyToken(nhInfoExtensionDetail)
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/nh-info-local-brief/nh-info-extension/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21380,6 +21927,7 @@ func (nhInfoExtensionBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrie
     nhInfoExtensionBase.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionBase.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionBase.EntityData.SegmentPath = "nh-info-extension-base"
+    nhInfoExtensionBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/nh-info-local-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionBase.EntityData.SegmentPath
     nhInfoExtensionBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21426,6 +21974,7 @@ func (objectBase *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoL
     objectBase.EntityData.BundleName = "cisco_ios_xr"
     objectBase.EntityData.ParentYangName = "nh-info-extension-base"
     objectBase.EntityData.SegmentPath = "object-base"
+    objectBase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/nh-info-local-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-base/" + objectBase.EntityData.SegmentPath
     objectBase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectBase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectBase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21462,6 +22011,7 @@ func (nhInfoExtensionDetail *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBr
     nhInfoExtensionDetail.EntityData.BundleName = "cisco_ios_xr"
     nhInfoExtensionDetail.EntityData.ParentYangName = "nh-info-extension-detail"
     nhInfoExtensionDetail.EntityData.SegmentPath = "nh-info-extension-detail"
+    nhInfoExtensionDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/nh-info-local-brief/nh-info-extension/nh-info-extension-detail/" + nhInfoExtensionDetail.EntityData.SegmentPath
     nhInfoExtensionDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhInfoExtensionDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhInfoExtensionDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21500,6 +22050,7 @@ func (snecdNhr *Fib_Nodes_Node_Protocols_Protocol_Vrfs_Vrf_NhInfoBrief_NhInfoLoc
     snecdNhr.EntityData.BundleName = "cisco_ios_xr"
     snecdNhr.EntityData.ParentYangName = "nh-info-extension-detail"
     snecdNhr.EntityData.SegmentPath = "snecd-nhr"
+    snecdNhr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/vrfs/vrf/nh-info-brief/nh-info-local-briefs/nh-info-local-brief/nh-info-extension/nh-info-extension-detail/nh-info-extension-detail/" + snecdNhr.EntityData.SegmentPath
     snecdNhr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snecdNhr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snecdNhr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21532,6 +22083,7 @@ func (exactRoutes *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes) GetEntityData(
     exactRoutes.EntityData.BundleName = "cisco_ios_xr"
     exactRoutes.EntityData.ParentYangName = "protocol"
     exactRoutes.EntityData.SegmentPath = "exact-routes"
+    exactRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + exactRoutes.EntityData.SegmentPath
     exactRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exactRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exactRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21539,6 +22091,7 @@ func (exactRoutes *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes) GetEntityData(
     exactRoutes.EntityData.Children = types.NewOrderedMap()
     exactRoutes.EntityData.Children.Append("exact-route", types.YChild{"ExactRoute", nil})
     for i := range exactRoutes.ExactRoute {
+        types.SetYListKey(exactRoutes.ExactRoute[i], i)
         exactRoutes.EntityData.Children.Append(types.GetSegmentPath(exactRoutes.ExactRoute[i]), types.YChild{"ExactRoute", exactRoutes.ExactRoute[i]})
     }
     exactRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -21554,6 +22107,7 @@ func (exactRoutes *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes) GetEntityData(
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol Name. The type is FibProtocol.
     ProtocolName interface{}
@@ -21722,7 +22276,8 @@ func (exactRoute *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute) GetE
     exactRoute.EntityData.YangName = "exact-route"
     exactRoute.EntityData.BundleName = "cisco_ios_xr"
     exactRoute.EntityData.ParentYangName = "exact-routes"
-    exactRoute.EntityData.SegmentPath = "exact-route"
+    exactRoute.EntityData.SegmentPath = "exact-route" + types.AddNoKeyToken(exactRoute)
+    exactRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/" + exactRoute.EntityData.SegmentPath
     exactRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exactRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exactRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21732,6 +22287,7 @@ func (exactRoute *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute) GetE
     exactRoute.EntityData.Children.Append("fib-entry-path", types.YChild{"FibEntryPath", &exactRoute.FibEntryPath})
     exactRoute.EntityData.Children.Append("extension-object", types.YChild{"ExtensionObject", nil})
     for i := range exactRoute.ExtensionObject {
+        types.SetYListKey(exactRoute.ExtensionObject[i], i)
         exactRoute.EntityData.Children.Append(types.GetSegmentPath(exactRoute.ExtensionObject[i]), types.YChild{"ExtensionObject", exactRoute.ExtensionObject[i]})
     }
     exactRoute.EntityData.Leafs = types.NewOrderedMap()
@@ -21936,6 +22492,7 @@ func (detailFibEntryInformation *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_E
     detailFibEntryInformation.EntityData.BundleName = "cisco_ios_xr"
     detailFibEntryInformation.EntityData.ParentYangName = "exact-route"
     detailFibEntryInformation.EntityData.SegmentPath = "detail-fib-entry-information"
+    detailFibEntryInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/" + detailFibEntryInformation.EntityData.SegmentPath
     detailFibEntryInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detailFibEntryInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detailFibEntryInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22042,6 +22599,7 @@ func (loadshareInformation *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactR
     loadshareInformation.EntityData.BundleName = "cisco_ios_xr"
     loadshareInformation.EntityData.ParentYangName = "detail-fib-entry-information"
     loadshareInformation.EntityData.SegmentPath = "loadshare-information"
+    loadshareInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/" + loadshareInformation.EntityData.SegmentPath
     loadshareInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadshareInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadshareInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22161,6 +22719,7 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_
     loadInformtionInternalData.EntityData.BundleName = "cisco_ios_xr"
     loadInformtionInternalData.EntityData.ParentYangName = "loadshare-information"
     loadInformtionInternalData.EntityData.SegmentPath = "load-informtion-internal-data"
+    loadInformtionInternalData.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/loadshare-information/" + loadInformtionInternalData.EntityData.SegmentPath
     loadInformtionInternalData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loadInformtionInternalData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loadInformtionInternalData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22168,30 +22727,37 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_
     loadInformtionInternalData.EntityData.Children = types.NewOrderedMap()
     loadInformtionInternalData.EntityData.Children.Append("sanity-flag", types.YChild{"SanityFlag", nil})
     for i := range loadInformtionInternalData.SanityFlag {
+        types.SetYListKey(loadInformtionInternalData.SanityFlag[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.SanityFlag[i]), types.YChild{"SanityFlag", loadInformtionInternalData.SanityFlag[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("interface-handle", types.YChild{"InterfaceHandle", nil})
     for i := range loadInformtionInternalData.InterfaceHandle {
+        types.SetYListKey(loadInformtionInternalData.InterfaceHandle[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.InterfaceHandle[i]), types.YChild{"InterfaceHandle", loadInformtionInternalData.InterfaceHandle[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("weights-of-path", types.YChild{"WeightsOfPath", nil})
     for i := range loadInformtionInternalData.WeightsOfPath {
+        types.SetYListKey(loadInformtionInternalData.WeightsOfPath[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.WeightsOfPath[i]), types.YChild{"WeightsOfPath", loadInformtionInternalData.WeightsOfPath[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("adjacency-address", types.YChild{"AdjacencyAddress", nil})
     for i := range loadInformtionInternalData.AdjacencyAddress {
+        types.SetYListKey(loadInformtionInternalData.AdjacencyAddress[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.AdjacencyAddress[i]), types.YChild{"AdjacencyAddress", loadInformtionInternalData.AdjacencyAddress[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("pbts-class-is-fallback-mapped", types.YChild{"PbtsClassIsFallbackMapped", nil})
     for i := range loadInformtionInternalData.PbtsClassIsFallbackMapped {
+        types.SetYListKey(loadInformtionInternalData.PbtsClassIsFallbackMapped[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.PbtsClassIsFallbackMapped[i]), types.YChild{"PbtsClassIsFallbackMapped", loadInformtionInternalData.PbtsClassIsFallbackMapped[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("pbts-fallback-to-drop", types.YChild{"PbtsFallbackToDrop", nil})
     for i := range loadInformtionInternalData.PbtsFallbackToDrop {
+        types.SetYListKey(loadInformtionInternalData.PbtsFallbackToDrop[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.PbtsFallbackToDrop[i]), types.YChild{"PbtsFallbackToDrop", loadInformtionInternalData.PbtsFallbackToDrop[i]})
     }
     loadInformtionInternalData.EntityData.Children.Append("tunnel-is-forward-class", types.YChild{"TunnelIsForwardClass", nil})
     for i := range loadInformtionInternalData.TunnelIsForwardClass {
+        types.SetYListKey(loadInformtionInternalData.TunnelIsForwardClass[i], i)
         loadInformtionInternalData.EntityData.Children.Append(types.GetSegmentPath(loadInformtionInternalData.TunnelIsForwardClass[i]), types.YChild{"TunnelIsForwardClass", loadInformtionInternalData.TunnelIsForwardClass[i]})
     }
     loadInformtionInternalData.EntityData.Leafs = types.NewOrderedMap()
@@ -22221,6 +22787,7 @@ func (loadInformtionInternalData *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_SanityFlag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is bool.
     Entry interface{}
@@ -22231,7 +22798,8 @@ func (sanityFlag *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Detai
     sanityFlag.EntityData.YangName = "sanity-flag"
     sanityFlag.EntityData.BundleName = "cisco_ios_xr"
     sanityFlag.EntityData.ParentYangName = "load-informtion-internal-data"
-    sanityFlag.EntityData.SegmentPath = "sanity-flag"
+    sanityFlag.EntityData.SegmentPath = "sanity-flag" + types.AddNoKeyToken(sanityFlag)
+    sanityFlag.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + sanityFlag.EntityData.SegmentPath
     sanityFlag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sanityFlag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sanityFlag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22250,6 +22818,7 @@ func (sanityFlag *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Detai
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_InterfaceHandle struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is string with pattern: [a-zA-Z0-9._/-]+.
     Entry interface{}
@@ -22260,7 +22829,8 @@ func (interfaceHandle *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_
     interfaceHandle.EntityData.YangName = "interface-handle"
     interfaceHandle.EntityData.BundleName = "cisco_ios_xr"
     interfaceHandle.EntityData.ParentYangName = "load-informtion-internal-data"
-    interfaceHandle.EntityData.SegmentPath = "interface-handle"
+    interfaceHandle.EntityData.SegmentPath = "interface-handle" + types.AddNoKeyToken(interfaceHandle)
+    interfaceHandle.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + interfaceHandle.EntityData.SegmentPath
     interfaceHandle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceHandle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceHandle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22279,6 +22849,7 @@ func (interfaceHandle *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_WeightsOfPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -22289,7 +22860,8 @@ func (weightsOfPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_De
     weightsOfPath.EntityData.YangName = "weights-of-path"
     weightsOfPath.EntityData.BundleName = "cisco_ios_xr"
     weightsOfPath.EntityData.ParentYangName = "load-informtion-internal-data"
-    weightsOfPath.EntityData.SegmentPath = "weights-of-path"
+    weightsOfPath.EntityData.SegmentPath = "weights-of-path" + types.AddNoKeyToken(weightsOfPath)
+    weightsOfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + weightsOfPath.EntityData.SegmentPath
     weightsOfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     weightsOfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     weightsOfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22308,6 +22880,7 @@ func (weightsOfPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_De
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_AdjacencyAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // address. The type is string with length: 0..60.
     Address interface{}
@@ -22318,7 +22891,8 @@ func (adjacencyAddress *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute
     adjacencyAddress.EntityData.YangName = "adjacency-address"
     adjacencyAddress.EntityData.BundleName = "cisco_ios_xr"
     adjacencyAddress.EntityData.ParentYangName = "load-informtion-internal-data"
-    adjacencyAddress.EntityData.SegmentPath = "adjacency-address"
+    adjacencyAddress.EntityData.SegmentPath = "adjacency-address" + types.AddNoKeyToken(adjacencyAddress)
+    adjacencyAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + adjacencyAddress.EntityData.SegmentPath
     adjacencyAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacencyAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacencyAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22337,6 +22911,7 @@ func (adjacencyAddress *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_PbtsClassIsFallbackMapped struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -22347,7 +22922,8 @@ func (pbtsClassIsFallbackMapped *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_E
     pbtsClassIsFallbackMapped.EntityData.YangName = "pbts-class-is-fallback-mapped"
     pbtsClassIsFallbackMapped.EntityData.BundleName = "cisco_ios_xr"
     pbtsClassIsFallbackMapped.EntityData.ParentYangName = "load-informtion-internal-data"
-    pbtsClassIsFallbackMapped.EntityData.SegmentPath = "pbts-class-is-fallback-mapped"
+    pbtsClassIsFallbackMapped.EntityData.SegmentPath = "pbts-class-is-fallback-mapped" + types.AddNoKeyToken(pbtsClassIsFallbackMapped)
+    pbtsClassIsFallbackMapped.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + pbtsClassIsFallbackMapped.EntityData.SegmentPath
     pbtsClassIsFallbackMapped.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsClassIsFallbackMapped.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsClassIsFallbackMapped.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22366,6 +22942,7 @@ func (pbtsClassIsFallbackMapped *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_E
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_PbtsFallbackToDrop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -22376,7 +22953,8 @@ func (pbtsFallbackToDrop *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRou
     pbtsFallbackToDrop.EntityData.YangName = "pbts-fallback-to-drop"
     pbtsFallbackToDrop.EntityData.BundleName = "cisco_ios_xr"
     pbtsFallbackToDrop.EntityData.ParentYangName = "load-informtion-internal-data"
-    pbtsFallbackToDrop.EntityData.SegmentPath = "pbts-fallback-to-drop"
+    pbtsFallbackToDrop.EntityData.SegmentPath = "pbts-fallback-to-drop" + types.AddNoKeyToken(pbtsFallbackToDrop)
+    pbtsFallbackToDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + pbtsFallbackToDrop.EntityData.SegmentPath
     pbtsFallbackToDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsFallbackToDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsFallbackToDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22395,6 +22973,7 @@ func (pbtsFallbackToDrop *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRou
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_DetailFibEntryInformation_LoadshareInformation_LoadInformtionInternalData_TunnelIsForwardClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -22405,7 +22984,8 @@ func (tunnelIsForwardClass *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactR
     tunnelIsForwardClass.EntityData.YangName = "tunnel-is-forward-class"
     tunnelIsForwardClass.EntityData.BundleName = "cisco_ios_xr"
     tunnelIsForwardClass.EntityData.ParentYangName = "load-informtion-internal-data"
-    tunnelIsForwardClass.EntityData.SegmentPath = "tunnel-is-forward-class"
+    tunnelIsForwardClass.EntityData.SegmentPath = "tunnel-is-forward-class" + types.AddNoKeyToken(tunnelIsForwardClass)
+    tunnelIsForwardClass.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/detail-fib-entry-information/loadshare-information/load-informtion-internal-data/" + tunnelIsForwardClass.EntityData.SegmentPath
     tunnelIsForwardClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelIsForwardClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelIsForwardClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22436,6 +23016,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Fib
     fibEntryPath.EntityData.BundleName = "cisco_ios_xr"
     fibEntryPath.EntityData.ParentYangName = "exact-route"
     fibEntryPath.EntityData.SegmentPath = "fib-entry-path"
+    fibEntryPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/" + fibEntryPath.EntityData.SegmentPath
     fibEntryPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibEntryPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibEntryPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22443,6 +23024,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Fib
     fibEntryPath.EntityData.Children = types.NewOrderedMap()
     fibEntryPath.EntityData.Children.Append("fib-sh-tbl-path", types.YChild{"FibShTblPath", nil})
     for i := range fibEntryPath.FibShTblPath {
+        types.SetYListKey(fibEntryPath.FibShTblPath[i], i)
         fibEntryPath.EntityData.Children.Append(types.GetSegmentPath(fibEntryPath.FibShTblPath[i]), types.YChild{"FibShTblPath", fibEntryPath.FibShTblPath[i]})
     }
     fibEntryPath.EntityData.Leafs = types.NewOrderedMap()
@@ -22457,6 +23039,7 @@ func (fibEntryPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Fib
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Hardware info. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -22538,7 +23121,8 @@ func (fibShTblPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Fib
     fibShTblPath.EntityData.YangName = "fib-sh-tbl-path"
     fibShTblPath.EntityData.BundleName = "cisco_ios_xr"
     fibShTblPath.EntityData.ParentYangName = "fib-entry-path"
-    fibShTblPath.EntityData.SegmentPath = "fib-sh-tbl-path"
+    fibShTblPath.EntityData.SegmentPath = "fib-sh-tbl-path" + types.AddNoKeyToken(fibShTblPath)
+    fibShTblPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/" + fibShTblPath.EntityData.SegmentPath
     fibShTblPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fibShTblPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fibShTblPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22679,6 +23263,7 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRo
     moreDetailAboutPath.EntityData.BundleName = "cisco_ios_xr"
     moreDetailAboutPath.EntityData.ParentYangName = "fib-sh-tbl-path"
     moreDetailAboutPath.EntityData.SegmentPath = "more-detail-about-path"
+    moreDetailAboutPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/" + moreDetailAboutPath.EntityData.SegmentPath
     moreDetailAboutPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     moreDetailAboutPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     moreDetailAboutPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22686,10 +23271,12 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRo
     moreDetailAboutPath.EntityData.Children = types.NewOrderedMap()
     moreDetailAboutPath.EntityData.Children.Append("spd-ipencap", types.YChild{"SpdIpencap", nil})
     for i := range moreDetailAboutPath.SpdIpencap {
+        types.SetYListKey(moreDetailAboutPath.SpdIpencap[i], i)
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.SpdIpencap[i]), types.YChild{"SpdIpencap", moreDetailAboutPath.SpdIpencap[i]})
     }
     moreDetailAboutPath.EntityData.Children.Append("next-next-hop", types.YChild{"NextNextHop", nil})
     for i := range moreDetailAboutPath.NextNextHop {
+        types.SetYListKey(moreDetailAboutPath.NextNextHop[i], i)
         moreDetailAboutPath.EntityData.Children.Append(types.GetSegmentPath(moreDetailAboutPath.NextNextHop[i]), types.YChild{"NextNextHop", moreDetailAboutPath.NextNextHop[i]})
     }
     moreDetailAboutPath.EntityData.Leafs = types.NewOrderedMap()
@@ -22730,6 +23317,7 @@ func (moreDetailAboutPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRo
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Header Count. The type is interface{} with range: 0..255.
     IpEncapHdrCount interface{}
@@ -22768,7 +23356,8 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEn
     spdIpencap.EntityData.YangName = "spd-ipencap"
     spdIpencap.EntityData.BundleName = "cisco_ios_xr"
     spdIpencap.EntityData.ParentYangName = "more-detail-about-path"
-    spdIpencap.EntityData.SegmentPath = "spd-ipencap"
+    spdIpencap.EntityData.SegmentPath = "spd-ipencap" + types.AddNoKeyToken(spdIpencap)
+    spdIpencap.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/" + spdIpencap.EntityData.SegmentPath
     spdIpencap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spdIpencap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spdIpencap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22776,6 +23365,7 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEn
     spdIpencap.EntityData.Children = types.NewOrderedMap()
     spdIpencap.EntityData.Children.Append("ip-encap-hdr", types.YChild{"IpEncapHdr", nil})
     for i := range spdIpencap.IpEncapHdr {
+        types.SetYListKey(spdIpencap.IpEncapHdr[i], i)
         spdIpencap.EntityData.Children.Append(types.GetSegmentPath(spdIpencap.IpEncapHdr[i]), types.YChild{"IpEncapHdr", spdIpencap.IpEncapHdr[i]})
     }
     spdIpencap.EntityData.Leafs = types.NewOrderedMap()
@@ -22799,6 +23389,7 @@ func (spdIpencap *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEn
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_SpdIpencap_IpEncapHdr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Header Type. The type is FibShIpencapHdr.
     IpEncapHdrType interface{}
@@ -22816,7 +23407,8 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEn
     ipEncapHdr.EntityData.YangName = "ip-encap-hdr"
     ipEncapHdr.EntityData.BundleName = "cisco_ios_xr"
     ipEncapHdr.EntityData.ParentYangName = "spd-ipencap"
-    ipEncapHdr.EntityData.SegmentPath = "ip-encap-hdr"
+    ipEncapHdr.EntityData.SegmentPath = "ip-encap-hdr" + types.AddNoKeyToken(ipEncapHdr)
+    ipEncapHdr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/spd-ipencap/" + ipEncapHdr.EntityData.SegmentPath
     ipEncapHdr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipEncapHdr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipEncapHdr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22837,6 +23429,7 @@ func (ipEncapHdr *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEn
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MoreDetailAboutPath_NextNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next next hop index. The type is interface{} with range: 0..255.
     NextNextHopIndex interface{}
@@ -22854,7 +23447,8 @@ func (nextNextHop *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibE
     nextNextHop.EntityData.YangName = "next-next-hop"
     nextNextHop.EntityData.BundleName = "cisco_ios_xr"
     nextNextHop.EntityData.ParentYangName = "more-detail-about-path"
-    nextNextHop.EntityData.SegmentPath = "next-next-hop"
+    nextNextHop.EntityData.SegmentPath = "next-next-hop" + types.AddNoKeyToken(nextNextHop)
+    nextNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/more-detail-about-path/" + nextNextHop.EntityData.SegmentPath
     nextNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22903,6 +23497,7 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_Exac
     mplsInformationForPath.EntityData.BundleName = "cisco_ios_xr"
     mplsInformationForPath.EntityData.ParentYangName = "fib-sh-tbl-path"
     mplsInformationForPath.EntityData.SegmentPath = "mpls-information-for-path"
+    mplsInformationForPath.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/" + mplsInformationForPath.EntityData.SegmentPath
     mplsInformationForPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsInformationForPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsInformationForPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22910,10 +23505,12 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_Exac
     mplsInformationForPath.EntityData.Children = types.NewOrderedMap()
     mplsInformationForPath.EntityData.Children.Append("recursive-lbl-stack", types.YChild{"RecursiveLblStack", nil})
     for i := range mplsInformationForPath.RecursiveLblStack {
+        types.SetYListKey(mplsInformationForPath.RecursiveLblStack[i], i)
         mplsInformationForPath.EntityData.Children.Append(types.GetSegmentPath(mplsInformationForPath.RecursiveLblStack[i]), types.YChild{"RecursiveLblStack", mplsInformationForPath.RecursiveLblStack[i]})
     }
     mplsInformationForPath.EntityData.Children.Append("igp-label-stack-array", types.YChild{"IgpLabelStackArray", nil})
     for i := range mplsInformationForPath.IgpLabelStackArray {
+        types.SetYListKey(mplsInformationForPath.IgpLabelStackArray[i], i)
         mplsInformationForPath.EntityData.Children.Append(types.GetSegmentPath(mplsInformationForPath.IgpLabelStackArray[i]), types.YChild{"IgpLabelStackArray", mplsInformationForPath.IgpLabelStackArray[i]})
     }
     mplsInformationForPath.EntityData.Leafs = types.NewOrderedMap()
@@ -22932,6 +23529,7 @@ func (mplsInformationForPath *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_Exac
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MplsInformationForPath_RecursiveLblStack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -22942,7 +23540,8 @@ func (recursiveLblStack *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRout
     recursiveLblStack.EntityData.YangName = "recursive-lbl-stack"
     recursiveLblStack.EntityData.BundleName = "cisco_ios_xr"
     recursiveLblStack.EntityData.ParentYangName = "mpls-information-for-path"
-    recursiveLblStack.EntityData.SegmentPath = "recursive-lbl-stack"
+    recursiveLblStack.EntityData.SegmentPath = "recursive-lbl-stack" + types.AddNoKeyToken(recursiveLblStack)
+    recursiveLblStack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/" + recursiveLblStack.EntityData.SegmentPath
     recursiveLblStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recursiveLblStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recursiveLblStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22961,6 +23560,7 @@ func (recursiveLblStack *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRout
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MplsInformationForPath_IgpLabelStackArray struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NumberOfLabels. The type is interface{} with range: 0..4294967295.
     NumberOfLabels interface{}
@@ -22981,7 +23581,8 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRou
     igpLabelStackArray.EntityData.YangName = "igp-label-stack-array"
     igpLabelStackArray.EntityData.BundleName = "cisco_ios_xr"
     igpLabelStackArray.EntityData.ParentYangName = "mpls-information-for-path"
-    igpLabelStackArray.EntityData.SegmentPath = "igp-label-stack-array"
+    igpLabelStackArray.EntityData.SegmentPath = "igp-label-stack-array" + types.AddNoKeyToken(igpLabelStackArray)
+    igpLabelStackArray.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/" + igpLabelStackArray.EntityData.SegmentPath
     igpLabelStackArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igpLabelStackArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igpLabelStackArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22989,6 +23590,7 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRou
     igpLabelStackArray.EntityData.Children = types.NewOrderedMap()
     igpLabelStackArray.EntityData.Children.Append("lstack", types.YChild{"Lstack", nil})
     for i := range igpLabelStackArray.Lstack {
+        types.SetYListKey(igpLabelStackArray.Lstack[i], i)
         igpLabelStackArray.EntityData.Children.Append(types.GetSegmentPath(igpLabelStackArray.Lstack[i]), types.YChild{"Lstack", igpLabelStackArray.Lstack[i]})
     }
     igpLabelStackArray.EntityData.Leafs = types.NewOrderedMap()
@@ -23006,6 +23608,7 @@ func (igpLabelStackArray *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRou
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryPath_FibShTblPath_MplsInformationForPath_IgpLabelStackArray_Lstack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23016,7 +23619,8 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryP
     lstack.EntityData.YangName = "lstack"
     lstack.EntityData.BundleName = "cisco_ios_xr"
     lstack.EntityData.ParentYangName = "igp-label-stack-array"
-    lstack.EntityData.SegmentPath = "lstack"
+    lstack.EntityData.SegmentPath = "lstack" + types.AddNoKeyToken(lstack)
+    lstack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/fib-entry-path/fib-sh-tbl-path/mpls-information-for-path/igp-label-stack-array/" + lstack.EntityData.SegmentPath
     lstack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lstack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lstack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23035,6 +23639,7 @@ func (lstack *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_FibEntryP
 type Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_ExtensionObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // type. The type is FibShTblFibExtBag.
     Type interface{}
@@ -23048,7 +23653,8 @@ func (extensionObject *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_
     extensionObject.EntityData.YangName = "extension-object"
     extensionObject.EntityData.BundleName = "cisco_ios_xr"
     extensionObject.EntityData.ParentYangName = "exact-route"
-    extensionObject.EntityData.SegmentPath = "extension-object"
+    extensionObject.EntityData.SegmentPath = "extension-object" + types.AddNoKeyToken(extensionObject)
+    extensionObject.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/" + extensionObject.EntityData.SegmentPath
     extensionObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     extensionObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     extensionObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23082,6 +23688,7 @@ func (sfecdLe *Fib_Nodes_Node_Protocols_Protocol_ExactRoutes_ExactRoute_Extensio
     sfecdLe.EntityData.BundleName = "cisco_ios_xr"
     sfecdLe.EntityData.ParentYangName = "extension-object"
     sfecdLe.EntityData.SegmentPath = "sfecd-le"
+    sfecdLe.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/exact-routes/exact-route/extension-object/" + sfecdLe.EntityData.SegmentPath
     sfecdLe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfecdLe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfecdLe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23112,6 +23719,7 @@ func (protocolGlobal *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal) GetEntit
     protocolGlobal.EntityData.BundleName = "cisco_ios_xr"
     protocolGlobal.EntityData.ParentYangName = "protocol"
     protocolGlobal.EntityData.SegmentPath = "protocol-global"
+    protocolGlobal.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + protocolGlobal.EntityData.SegmentPath
     protocolGlobal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolGlobal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23141,6 +23749,7 @@ func (segmentRouting *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRo
     segmentRouting.EntityData.BundleName = "cisco_ios_xr"
     segmentRouting.EntityData.ParentYangName = "protocol-global"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/protocol-global/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23182,6 +23791,7 @@ func (srv6 *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6
     srv6.EntityData.BundleName = "cisco_ios_xr"
     srv6.EntityData.ParentYangName = "segment-routing"
     srv6.EntityData.SegmentPath = "srv6"
+    srv6.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/protocol-global/segment-routing/" + srv6.EntityData.SegmentPath
     srv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23189,6 +23799,7 @@ func (srv6 *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6
     srv6.EntityData.Children = types.NewOrderedMap()
     srv6.EntityData.Children.Append("locator", types.YChild{"Locator", nil})
     for i := range srv6.Locator {
+        types.SetYListKey(srv6.Locator[i], i)
         srv6.EntityData.Children.Append(types.GetSegmentPath(srv6.Locator[i]), types.YChild{"Locator", srv6.Locator[i]})
     }
     srv6.EntityData.Leafs = types.NewOrderedMap()
@@ -23206,6 +23817,7 @@ func (srv6 *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6
 type Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_Srv6_Locator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Locator name. The type is string.
     Name interface{}
@@ -23222,7 +23834,8 @@ func (locator *Fib_Nodes_Node_Protocols_Protocol_ProtocolGlobal_SegmentRouting_S
     locator.EntityData.YangName = "locator"
     locator.EntityData.BundleName = "cisco_ios_xr"
     locator.EntityData.ParentYangName = "srv6"
-    locator.EntityData.SegmentPath = "locator"
+    locator.EntityData.SegmentPath = "locator" + types.AddNoKeyToken(locator)
+    locator.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/protocol-global/segment-routing/srv6/" + locator.EntityData.SegmentPath
     locator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     locator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     locator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23256,6 +23869,7 @@ func (nhIds *Fib_Nodes_Node_Protocols_Protocol_NhIds) GetEntityData() *types.Com
     nhIds.EntityData.BundleName = "cisco_ios_xr"
     nhIds.EntityData.ParentYangName = "protocol"
     nhIds.EntityData.SegmentPath = "nh-ids"
+    nhIds.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + nhIds.EntityData.SegmentPath
     nhIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23263,6 +23877,7 @@ func (nhIds *Fib_Nodes_Node_Protocols_Protocol_NhIds) GetEntityData() *types.Com
     nhIds.EntityData.Children = types.NewOrderedMap()
     nhIds.EntityData.Children.Append("nh-id", types.YChild{"NhId", nil})
     for i := range nhIds.NhId {
+        types.SetYListKey(nhIds.NhId[i], i)
         nhIds.EntityData.Children.Append(types.GetSegmentPath(nhIds.NhId[i]), types.YChild{"NhId", nhIds.NhId[i]})
     }
     nhIds.EntityData.Leafs = types.NewOrderedMap()
@@ -23277,6 +23892,7 @@ func (nhIds *Fib_Nodes_Node_Protocols_Protocol_NhIds) GetEntityData() *types.Com
 type Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // NexthopId Value. The type is interface{} with range: 0..4294967295.
     NhId interface{}
@@ -23324,7 +23940,8 @@ func (nhId *Fib_Nodes_Node_Protocols_Protocol_NhIds_NhId) GetEntityData() *types
     nhId.EntityData.YangName = "nh-id"
     nhId.EntityData.BundleName = "cisco_ios_xr"
     nhId.EntityData.ParentYangName = "nh-ids"
-    nhId.EntityData.SegmentPath = "nh-id"
+    nhId.EntityData.SegmentPath = "nh-id" + types.AddNoKeyToken(nhId)
+    nhId.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/nh-ids/" + nhId.EntityData.SegmentPath
     nhId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nhId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nhId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23366,6 +23983,7 @@ func (externalClientSummaries *Fib_Nodes_Node_Protocols_Protocol_ExternalClientS
     externalClientSummaries.EntityData.BundleName = "cisco_ios_xr"
     externalClientSummaries.EntityData.ParentYangName = "protocol"
     externalClientSummaries.EntityData.SegmentPath = "external-client-summaries"
+    externalClientSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + externalClientSummaries.EntityData.SegmentPath
     externalClientSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalClientSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalClientSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23373,6 +23991,7 @@ func (externalClientSummaries *Fib_Nodes_Node_Protocols_Protocol_ExternalClientS
     externalClientSummaries.EntityData.Children = types.NewOrderedMap()
     externalClientSummaries.EntityData.Children.Append("external-client-summary", types.YChild{"ExternalClientSummary", nil})
     for i := range externalClientSummaries.ExternalClientSummary {
+        types.SetYListKey(externalClientSummaries.ExternalClientSummary[i], i)
         externalClientSummaries.EntityData.Children.Append(types.GetSegmentPath(externalClientSummaries.ExternalClientSummary[i]), types.YChild{"ExternalClientSummary", externalClientSummaries.ExternalClientSummary[i]})
     }
     externalClientSummaries.EntityData.Leafs = types.NewOrderedMap()
@@ -23387,6 +24006,7 @@ func (externalClientSummaries *Fib_Nodes_Node_Protocols_Protocol_ExternalClientS
 type Fib_Nodes_Node_Protocols_Protocol_ExternalClientSummaries_ExternalClientSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ecd Version. The type is interface{} with range: 0..4294967295.
     EcdVer interface{}
@@ -23428,7 +24048,8 @@ func (externalClientSummary *Fib_Nodes_Node_Protocols_Protocol_ExternalClientSum
     externalClientSummary.EntityData.YangName = "external-client-summary"
     externalClientSummary.EntityData.BundleName = "cisco_ios_xr"
     externalClientSummary.EntityData.ParentYangName = "external-client-summaries"
-    externalClientSummary.EntityData.SegmentPath = "external-client-summary"
+    externalClientSummary.EntityData.SegmentPath = "external-client-summary" + types.AddNoKeyToken(externalClientSummary)
+    externalClientSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/external-client-summaries/" + externalClientSummary.EntityData.SegmentPath
     externalClientSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalClientSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalClientSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23475,6 +24096,7 @@ func (sesPlSum *Fib_Nodes_Node_Protocols_Protocol_ExternalClientSummaries_Extern
     sesPlSum.EntityData.BundleName = "cisco_ios_xr"
     sesPlSum.EntityData.ParentYangName = "external-client-summary"
     sesPlSum.EntityData.SegmentPath = "ses-pl-sum"
+    sesPlSum.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/external-client-summaries/external-client-summary/" + sesPlSum.EntityData.SegmentPath
     sesPlSum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sesPlSum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sesPlSum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23482,6 +24104,7 @@ func (sesPlSum *Fib_Nodes_Node_Protocols_Protocol_ExternalClientSummaries_Extern
     sesPlSum.EntityData.Children = types.NewOrderedMap()
     sesPlSum.EntityData.Children.Append("sep-num-ecd-pl-per-interest", types.YChild{"SepNumEcdPlPerInterest", nil})
     for i := range sesPlSum.SepNumEcdPlPerInterest {
+        types.SetYListKey(sesPlSum.SepNumEcdPlPerInterest[i], i)
         sesPlSum.EntityData.Children.Append(types.GetSegmentPath(sesPlSum.SepNumEcdPlPerInterest[i]), types.YChild{"SepNumEcdPlPerInterest", sesPlSum.SepNumEcdPlPerInterest[i]})
     }
     sesPlSum.EntityData.Leafs = types.NewOrderedMap()
@@ -23498,6 +24121,7 @@ func (sesPlSum *Fib_Nodes_Node_Protocols_Protocol_ExternalClientSummaries_Extern
 type Fib_Nodes_Node_Protocols_Protocol_ExternalClientSummaries_ExternalClientSummary_SesPlSum_SepNumEcdPlPerInterest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -23508,7 +24132,8 @@ func (sepNumEcdPlPerInterest *Fib_Nodes_Node_Protocols_Protocol_ExternalClientSu
     sepNumEcdPlPerInterest.EntityData.YangName = "sep-num-ecd-pl-per-interest"
     sepNumEcdPlPerInterest.EntityData.BundleName = "cisco_ios_xr"
     sepNumEcdPlPerInterest.EntityData.ParentYangName = "ses-pl-sum"
-    sepNumEcdPlPerInterest.EntityData.SegmentPath = "sep-num-ecd-pl-per-interest"
+    sepNumEcdPlPerInterest.EntityData.SegmentPath = "sep-num-ecd-pl-per-interest" + types.AddNoKeyToken(sepNumEcdPlPerInterest)
+    sepNumEcdPlPerInterest.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/external-client-summaries/external-client-summary/ses-pl-sum/" + sepNumEcdPlPerInterest.EntityData.SegmentPath
     sepNumEcdPlPerInterest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sepNumEcdPlPerInterest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sepNumEcdPlPerInterest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23678,6 +24303,7 @@ func (misc *Fib_Nodes_Node_Protocols_Protocol_Misc) GetEntityData() *types.Commo
     misc.EntityData.BundleName = "cisco_ios_xr"
     misc.EntityData.ParentYangName = "protocol"
     misc.EntityData.SegmentPath = "misc"
+    misc.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + misc.EntityData.SegmentPath
     misc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     misc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     misc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23687,50 +24313,62 @@ func (misc *Fib_Nodes_Node_Protocols_Protocol_Misc) GetEntityData() *types.Commo
     misc.EntityData.Children.Append("mi-plat-capabilities", types.YChild{"MiPlatCapabilities", &misc.MiPlatCapabilities})
     misc.EntityData.Children.Append("mi-idb-ext-cleanup-failed-count", types.YChild{"MiIdbExtCleanupFailedCount", nil})
     for i := range misc.MiIdbExtCleanupFailedCount {
+        types.SetYListKey(misc.MiIdbExtCleanupFailedCount[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiIdbExtCleanupFailedCount[i]), types.YChild{"MiIdbExtCleanupFailedCount", misc.MiIdbExtCleanupFailedCount[i]})
     }
     misc.EntityData.Children.Append("mi-lrpf-stats-fail", types.YChild{"MiLrpfStatsFail", nil})
     for i := range misc.MiLrpfStatsFail {
+        types.SetYListKey(misc.MiLrpfStatsFail[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiLrpfStatsFail[i]), types.YChild{"MiLrpfStatsFail", misc.MiLrpfStatsFail[i]})
     }
     misc.EntityData.Children.Append("mi-lrpf-stats-act", types.YChild{"MiLrpfStatsAct", nil})
     for i := range misc.MiLrpfStatsAct {
+        types.SetYListKey(misc.MiLrpfStatsAct[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiLrpfStatsAct[i]), types.YChild{"MiLrpfStatsAct", misc.MiLrpfStatsAct[i]})
     }
     misc.EntityData.Children.Append("mi-lrpf-num", types.YChild{"MiLrpfNum", nil})
     for i := range misc.MiLrpfNum {
+        types.SetYListKey(misc.MiLrpfNum[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiLrpfNum[i]), types.YChild{"MiLrpfNum", misc.MiLrpfNum[i]})
     }
     misc.EntityData.Children.Append("mi-idb-lsec-enabled-num", types.YChild{"MiIdbLsecEnabledNum", nil})
     for i := range misc.MiIdbLsecEnabledNum {
+        types.SetYListKey(misc.MiIdbLsecEnabledNum[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiIdbLsecEnabledNum[i]), types.YChild{"MiIdbLsecEnabledNum", misc.MiIdbLsecEnabledNum[i]})
     }
     misc.EntityData.Children.Append("mi-num-lisp-eid", types.YChild{"MiNumLispEid", nil})
     for i := range misc.MiNumLispEid {
+        types.SetYListKey(misc.MiNumLispEid[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiNumLispEid[i]), types.YChild{"MiNumLispEid", misc.MiNumLispEid[i]})
     }
     misc.EntityData.Children.Append("mi-num-lisp-valid-eid", types.YChild{"MiNumLispValidEid", nil})
     for i := range misc.MiNumLispValidEid {
+        types.SetYListKey(misc.MiNumLispValidEid[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiNumLispValidEid[i]), types.YChild{"MiNumLispValidEid", misc.MiNumLispValidEid[i]})
     }
     misc.EntityData.Children.Append("mi-cpuless-node", types.YChild{"MiCpulessNode", nil})
     for i := range misc.MiCpulessNode {
+        types.SetYListKey(misc.MiCpulessNode[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiCpulessNode[i]), types.YChild{"MiCpulessNode", misc.MiCpulessNode[i]})
     }
     misc.EntityData.Children.Append("mi-proto-dbg-stat", types.YChild{"MiProtoDbgStat", nil})
     for i := range misc.MiProtoDbgStat {
+        types.SetYListKey(misc.MiProtoDbgStat[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiProtoDbgStat[i]), types.YChild{"MiProtoDbgStat", misc.MiProtoDbgStat[i]})
     }
     misc.EntityData.Children.Append("mi-idb-purge-cntr", types.YChild{"MiIdbPurgeCntr", nil})
     for i := range misc.MiIdbPurgeCntr {
+        types.SetYListKey(misc.MiIdbPurgeCntr[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiIdbPurgeCntr[i]), types.YChild{"MiIdbPurgeCntr", misc.MiIdbPurgeCntr[i]})
     }
     misc.EntityData.Children.Append("mi-del", types.YChild{"MiDel", nil})
     for i := range misc.MiDel {
+        types.SetYListKey(misc.MiDel[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiDel[i]), types.YChild{"MiDel", misc.MiDel[i]})
     }
     misc.EntityData.Children.Append("mi-frr-stat", types.YChild{"MiFrrStat", nil})
     for i := range misc.MiFrrStat {
+        types.SetYListKey(misc.MiFrrStat[i], i)
         misc.EntityData.Children.Append(types.GetSegmentPath(misc.MiFrrStat[i]), types.YChild{"MiFrrStat", misc.MiFrrStat[i]})
     }
     misc.EntityData.Leafs = types.NewOrderedMap()
@@ -23820,6 +24458,7 @@ func (miIssuState *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIssuState) GetEntity
     miIssuState.EntityData.BundleName = "cisco_ios_xr"
     miIssuState.EntityData.ParentYangName = "misc"
     miIssuState.EntityData.SegmentPath = "mi-issu-state"
+    miIssuState.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miIssuState.EntityData.SegmentPath
     miIssuState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miIssuState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miIssuState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23827,6 +24466,7 @@ func (miIssuState *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIssuState) GetEntity
     miIssuState.EntityData.Children = types.NewOrderedMap()
     miIssuState.EntityData.Children.Append("fis-proto-state", types.YChild{"FisProtoState", nil})
     for i := range miIssuState.FisProtoState {
+        types.SetYListKey(miIssuState.FisProtoState[i], i)
         miIssuState.EntityData.Children.Append(types.GetSegmentPath(miIssuState.FisProtoState[i]), types.YChild{"FisProtoState", miIssuState.FisProtoState[i]})
     }
     miIssuState.EntityData.Leafs = types.NewOrderedMap()
@@ -23852,6 +24492,7 @@ func (miIssuState *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIssuState) GetEntity
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiIssuState_FisProtoState struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol name. The type is string with length: 0..6.
     ProtocolName interface{}
@@ -23902,7 +24543,8 @@ func (fisProtoState *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIssuState_FisProto
     fisProtoState.EntityData.YangName = "fis-proto-state"
     fisProtoState.EntityData.BundleName = "cisco_ios_xr"
     fisProtoState.EntityData.ParentYangName = "mi-issu-state"
-    fisProtoState.EntityData.SegmentPath = "fis-proto-state"
+    fisProtoState.EntityData.SegmentPath = "fis-proto-state" + types.AddNoKeyToken(fisProtoState)
+    fisProtoState.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-issu-state/" + fisProtoState.EntityData.SegmentPath
     fisProtoState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fisProtoState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fisProtoState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24033,6 +24675,7 @@ func (miPlatCapabilities *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
     miPlatCapabilities.EntityData.BundleName = "cisco_ios_xr"
     miPlatCapabilities.EntityData.ParentYangName = "misc"
     miPlatCapabilities.EntityData.SegmentPath = "mi-plat-capabilities"
+    miPlatCapabilities.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miPlatCapabilities.EntityData.SegmentPath
     miPlatCapabilities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miPlatCapabilities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miPlatCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24040,18 +24683,22 @@ func (miPlatCapabilities *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
     miPlatCapabilities.EntityData.Children = types.NewOrderedMap()
     miPlatCapabilities.EntityData.Children.Append("fpc-lisp-decap-over-v4", types.YChild{"FpcLispDecapOverV4", nil})
     for i := range miPlatCapabilities.FpcLispDecapOverV4 {
+        types.SetYListKey(miPlatCapabilities.FpcLispDecapOverV4[i], i)
         miPlatCapabilities.EntityData.Children.Append(types.GetSegmentPath(miPlatCapabilities.FpcLispDecapOverV4[i]), types.YChild{"FpcLispDecapOverV4", miPlatCapabilities.FpcLispDecapOverV4[i]})
     }
     miPlatCapabilities.EntityData.Children.Append("fpc-lisp-decap-over-v6", types.YChild{"FpcLispDecapOverV6", nil})
     for i := range miPlatCapabilities.FpcLispDecapOverV6 {
+        types.SetYListKey(miPlatCapabilities.FpcLispDecapOverV6[i], i)
         miPlatCapabilities.EntityData.Children.Append(types.GetSegmentPath(miPlatCapabilities.FpcLispDecapOverV6[i]), types.YChild{"FpcLispDecapOverV6", miPlatCapabilities.FpcLispDecapOverV6[i]})
     }
     miPlatCapabilities.EntityData.Children.Append("fpc-lisp-ucmp", types.YChild{"FpcLispUcmp", nil})
     for i := range miPlatCapabilities.FpcLispUcmp {
+        types.SetYListKey(miPlatCapabilities.FpcLispUcmp[i], i)
         miPlatCapabilities.EntityData.Children.Append(types.GetSegmentPath(miPlatCapabilities.FpcLispUcmp[i]), types.YChild{"FpcLispUcmp", miPlatCapabilities.FpcLispUcmp[i]})
     }
     miPlatCapabilities.EntityData.Children.Append("fpc-resolve-via-table", types.YChild{"FpcResolveViaTable", nil})
     for i := range miPlatCapabilities.FpcResolveViaTable {
+        types.SetYListKey(miPlatCapabilities.FpcResolveViaTable[i], i)
         miPlatCapabilities.EntityData.Children.Append(types.GetSegmentPath(miPlatCapabilities.FpcResolveViaTable[i]), types.YChild{"FpcResolveViaTable", miPlatCapabilities.FpcResolveViaTable[i]})
     }
     miPlatCapabilities.EntityData.Leafs = types.NewOrderedMap()
@@ -24091,6 +24738,7 @@ func (miPlatCapabilities *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilities_FpcLispDecapOverV4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -24101,7 +24749,8 @@ func (fpcLispDecapOverV4 *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
     fpcLispDecapOverV4.EntityData.YangName = "fpc-lisp-decap-over-v4"
     fpcLispDecapOverV4.EntityData.BundleName = "cisco_ios_xr"
     fpcLispDecapOverV4.EntityData.ParentYangName = "mi-plat-capabilities"
-    fpcLispDecapOverV4.EntityData.SegmentPath = "fpc-lisp-decap-over-v4"
+    fpcLispDecapOverV4.EntityData.SegmentPath = "fpc-lisp-decap-over-v4" + types.AddNoKeyToken(fpcLispDecapOverV4)
+    fpcLispDecapOverV4.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-plat-capabilities/" + fpcLispDecapOverV4.EntityData.SegmentPath
     fpcLispDecapOverV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpcLispDecapOverV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpcLispDecapOverV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24120,6 +24769,7 @@ func (fpcLispDecapOverV4 *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilities_FpcLispDecapOverV6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -24130,7 +24780,8 @@ func (fpcLispDecapOverV6 *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
     fpcLispDecapOverV6.EntityData.YangName = "fpc-lisp-decap-over-v6"
     fpcLispDecapOverV6.EntityData.BundleName = "cisco_ios_xr"
     fpcLispDecapOverV6.EntityData.ParentYangName = "mi-plat-capabilities"
-    fpcLispDecapOverV6.EntityData.SegmentPath = "fpc-lisp-decap-over-v6"
+    fpcLispDecapOverV6.EntityData.SegmentPath = "fpc-lisp-decap-over-v6" + types.AddNoKeyToken(fpcLispDecapOverV6)
+    fpcLispDecapOverV6.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-plat-capabilities/" + fpcLispDecapOverV6.EntityData.SegmentPath
     fpcLispDecapOverV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpcLispDecapOverV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpcLispDecapOverV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24149,6 +24800,7 @@ func (fpcLispDecapOverV6 *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilities_FpcLispUcmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -24159,7 +24811,8 @@ func (fpcLispUcmp *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilities_Fpc
     fpcLispUcmp.EntityData.YangName = "fpc-lisp-ucmp"
     fpcLispUcmp.EntityData.BundleName = "cisco_ios_xr"
     fpcLispUcmp.EntityData.ParentYangName = "mi-plat-capabilities"
-    fpcLispUcmp.EntityData.SegmentPath = "fpc-lisp-ucmp"
+    fpcLispUcmp.EntityData.SegmentPath = "fpc-lisp-ucmp" + types.AddNoKeyToken(fpcLispUcmp)
+    fpcLispUcmp.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-plat-capabilities/" + fpcLispUcmp.EntityData.SegmentPath
     fpcLispUcmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpcLispUcmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpcLispUcmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24178,6 +24831,7 @@ func (fpcLispUcmp *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilities_Fpc
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilities_FpcResolveViaTable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array entry. The type is bool.
     Entry interface{}
@@ -24188,7 +24842,8 @@ func (fpcResolveViaTable *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
     fpcResolveViaTable.EntityData.YangName = "fpc-resolve-via-table"
     fpcResolveViaTable.EntityData.BundleName = "cisco_ios_xr"
     fpcResolveViaTable.EntityData.ParentYangName = "mi-plat-capabilities"
-    fpcResolveViaTable.EntityData.SegmentPath = "fpc-resolve-via-table"
+    fpcResolveViaTable.EntityData.SegmentPath = "fpc-resolve-via-table" + types.AddNoKeyToken(fpcResolveViaTable)
+    fpcResolveViaTable.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-plat-capabilities/" + fpcResolveViaTable.EntityData.SegmentPath
     fpcResolveViaTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpcResolveViaTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpcResolveViaTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24209,6 +24864,7 @@ func (fpcResolveViaTable *Fib_Nodes_Node_Protocols_Protocol_Misc_MiPlatCapabilit
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbExtCleanupFailedCount struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24219,7 +24875,8 @@ func (miIdbExtCleanupFailedCount *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbEx
     miIdbExtCleanupFailedCount.EntityData.YangName = "mi-idb-ext-cleanup-failed-count"
     miIdbExtCleanupFailedCount.EntityData.BundleName = "cisco_ios_xr"
     miIdbExtCleanupFailedCount.EntityData.ParentYangName = "misc"
-    miIdbExtCleanupFailedCount.EntityData.SegmentPath = "mi-idb-ext-cleanup-failed-count"
+    miIdbExtCleanupFailedCount.EntityData.SegmentPath = "mi-idb-ext-cleanup-failed-count" + types.AddNoKeyToken(miIdbExtCleanupFailedCount)
+    miIdbExtCleanupFailedCount.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miIdbExtCleanupFailedCount.EntityData.SegmentPath
     miIdbExtCleanupFailedCount.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miIdbExtCleanupFailedCount.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miIdbExtCleanupFailedCount.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24238,6 +24895,7 @@ func (miIdbExtCleanupFailedCount *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbEx
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfStatsFail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24248,7 +24906,8 @@ func (miLrpfStatsFail *Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfStatsFail) G
     miLrpfStatsFail.EntityData.YangName = "mi-lrpf-stats-fail"
     miLrpfStatsFail.EntityData.BundleName = "cisco_ios_xr"
     miLrpfStatsFail.EntityData.ParentYangName = "misc"
-    miLrpfStatsFail.EntityData.SegmentPath = "mi-lrpf-stats-fail"
+    miLrpfStatsFail.EntityData.SegmentPath = "mi-lrpf-stats-fail" + types.AddNoKeyToken(miLrpfStatsFail)
+    miLrpfStatsFail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miLrpfStatsFail.EntityData.SegmentPath
     miLrpfStatsFail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miLrpfStatsFail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miLrpfStatsFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24267,6 +24926,7 @@ func (miLrpfStatsFail *Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfStatsFail) G
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfStatsAct struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24277,7 +24937,8 @@ func (miLrpfStatsAct *Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfStatsAct) Get
     miLrpfStatsAct.EntityData.YangName = "mi-lrpf-stats-act"
     miLrpfStatsAct.EntityData.BundleName = "cisco_ios_xr"
     miLrpfStatsAct.EntityData.ParentYangName = "misc"
-    miLrpfStatsAct.EntityData.SegmentPath = "mi-lrpf-stats-act"
+    miLrpfStatsAct.EntityData.SegmentPath = "mi-lrpf-stats-act" + types.AddNoKeyToken(miLrpfStatsAct)
+    miLrpfStatsAct.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miLrpfStatsAct.EntityData.SegmentPath
     miLrpfStatsAct.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miLrpfStatsAct.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miLrpfStatsAct.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24296,6 +24957,7 @@ func (miLrpfStatsAct *Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfStatsAct) Get
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfNum struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24306,7 +24968,8 @@ func (miLrpfNum *Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfNum) GetEntityData
     miLrpfNum.EntityData.YangName = "mi-lrpf-num"
     miLrpfNum.EntityData.BundleName = "cisco_ios_xr"
     miLrpfNum.EntityData.ParentYangName = "misc"
-    miLrpfNum.EntityData.SegmentPath = "mi-lrpf-num"
+    miLrpfNum.EntityData.SegmentPath = "mi-lrpf-num" + types.AddNoKeyToken(miLrpfNum)
+    miLrpfNum.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miLrpfNum.EntityData.SegmentPath
     miLrpfNum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miLrpfNum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miLrpfNum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24327,6 +24990,7 @@ func (miLrpfNum *Fib_Nodes_Node_Protocols_Protocol_Misc_MiLrpfNum) GetEntityData
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbLsecEnabledNum struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24337,7 +25001,8 @@ func (miIdbLsecEnabledNum *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbLsecEnabl
     miIdbLsecEnabledNum.EntityData.YangName = "mi-idb-lsec-enabled-num"
     miIdbLsecEnabledNum.EntityData.BundleName = "cisco_ios_xr"
     miIdbLsecEnabledNum.EntityData.ParentYangName = "misc"
-    miIdbLsecEnabledNum.EntityData.SegmentPath = "mi-idb-lsec-enabled-num"
+    miIdbLsecEnabledNum.EntityData.SegmentPath = "mi-idb-lsec-enabled-num" + types.AddNoKeyToken(miIdbLsecEnabledNum)
+    miIdbLsecEnabledNum.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miIdbLsecEnabledNum.EntityData.SegmentPath
     miIdbLsecEnabledNum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miIdbLsecEnabledNum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miIdbLsecEnabledNum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24356,6 +25021,7 @@ func (miIdbLsecEnabledNum *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbLsecEnabl
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiNumLispEid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24366,7 +25032,8 @@ func (miNumLispEid *Fib_Nodes_Node_Protocols_Protocol_Misc_MiNumLispEid) GetEnti
     miNumLispEid.EntityData.YangName = "mi-num-lisp-eid"
     miNumLispEid.EntityData.BundleName = "cisco_ios_xr"
     miNumLispEid.EntityData.ParentYangName = "misc"
-    miNumLispEid.EntityData.SegmentPath = "mi-num-lisp-eid"
+    miNumLispEid.EntityData.SegmentPath = "mi-num-lisp-eid" + types.AddNoKeyToken(miNumLispEid)
+    miNumLispEid.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miNumLispEid.EntityData.SegmentPath
     miNumLispEid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miNumLispEid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miNumLispEid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24387,6 +25054,7 @@ func (miNumLispEid *Fib_Nodes_Node_Protocols_Protocol_Misc_MiNumLispEid) GetEnti
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiNumLispValidEid struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24397,7 +25065,8 @@ func (miNumLispValidEid *Fib_Nodes_Node_Protocols_Protocol_Misc_MiNumLispValidEi
     miNumLispValidEid.EntityData.YangName = "mi-num-lisp-valid-eid"
     miNumLispValidEid.EntityData.BundleName = "cisco_ios_xr"
     miNumLispValidEid.EntityData.ParentYangName = "misc"
-    miNumLispValidEid.EntityData.SegmentPath = "mi-num-lisp-valid-eid"
+    miNumLispValidEid.EntityData.SegmentPath = "mi-num-lisp-valid-eid" + types.AddNoKeyToken(miNumLispValidEid)
+    miNumLispValidEid.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miNumLispValidEid.EntityData.SegmentPath
     miNumLispValidEid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miNumLispValidEid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miNumLispValidEid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24416,6 +25085,7 @@ func (miNumLispValidEid *Fib_Nodes_Node_Protocols_Protocol_Misc_MiNumLispValidEi
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiCpulessNode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -24426,7 +25096,8 @@ func (miCpulessNode *Fib_Nodes_Node_Protocols_Protocol_Misc_MiCpulessNode) GetEn
     miCpulessNode.EntityData.YangName = "mi-cpuless-node"
     miCpulessNode.EntityData.BundleName = "cisco_ios_xr"
     miCpulessNode.EntityData.ParentYangName = "misc"
-    miCpulessNode.EntityData.SegmentPath = "mi-cpuless-node"
+    miCpulessNode.EntityData.SegmentPath = "mi-cpuless-node" + types.AddNoKeyToken(miCpulessNode)
+    miCpulessNode.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miCpulessNode.EntityData.SegmentPath
     miCpulessNode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miCpulessNode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miCpulessNode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24445,6 +25116,7 @@ func (miCpulessNode *Fib_Nodes_Node_Protocols_Protocol_Misc_MiCpulessNode) GetEn
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // the number of fib entries in global tbl. The type is interface{} with
     // range: 0..18446744073709551615.
@@ -24663,7 +25335,8 @@ func (miProtoDbgStat *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat) Get
     miProtoDbgStat.EntityData.YangName = "mi-proto-dbg-stat"
     miProtoDbgStat.EntityData.BundleName = "cisco_ios_xr"
     miProtoDbgStat.EntityData.ParentYangName = "misc"
-    miProtoDbgStat.EntityData.SegmentPath = "mi-proto-dbg-stat"
+    miProtoDbgStat.EntityData.SegmentPath = "mi-proto-dbg-stat" + types.AddNoKeyToken(miProtoDbgStat)
+    miProtoDbgStat.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miProtoDbgStat.EntityData.SegmentPath
     miProtoDbgStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miProtoDbgStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miProtoDbgStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24673,14 +25346,17 @@ func (miProtoDbgStat *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat) Get
     miProtoDbgStat.EntityData.Children.Append("fpd-gtrie-timing", types.YChild{"FpdGtrieTiming", &miProtoDbgStat.FpdGtrieTiming})
     miProtoDbgStat.EntityData.Children.Append("fpd-gbltbl-src-entry", types.YChild{"FpdGbltblSrcEntry", nil})
     for i := range miProtoDbgStat.FpdGbltblSrcEntry {
+        types.SetYListKey(miProtoDbgStat.FpdGbltblSrcEntry[i], i)
         miProtoDbgStat.EntityData.Children.Append(types.GetSegmentPath(miProtoDbgStat.FpdGbltblSrcEntry[i]), types.YChild{"FpdGbltblSrcEntry", miProtoDbgStat.FpdGbltblSrcEntry[i]})
     }
     miProtoDbgStat.EntityData.Children.Append("fpd-vrftbl-src-entry", types.YChild{"FpdVrftblSrcEntry", nil})
     for i := range miProtoDbgStat.FpdVrftblSrcEntry {
+        types.SetYListKey(miProtoDbgStat.FpdVrftblSrcEntry[i], i)
         miProtoDbgStat.EntityData.Children.Append(types.GetSegmentPath(miProtoDbgStat.FpdVrftblSrcEntry[i]), types.YChild{"FpdVrftblSrcEntry", miProtoDbgStat.FpdVrftblSrcEntry[i]})
     }
     miProtoDbgStat.EntityData.Children.Append("fpd-num-retry", types.YChild{"FpdNumRetry", nil})
     for i := range miProtoDbgStat.FpdNumRetry {
+        types.SetYListKey(miProtoDbgStat.FpdNumRetry[i], i)
         miProtoDbgStat.EntityData.Children.Append(types.GetSegmentPath(miProtoDbgStat.FpdNumRetry[i]), types.YChild{"FpdNumRetry", miProtoDbgStat.FpdNumRetry[i]})
     }
     miProtoDbgStat.EntityData.Leafs = types.NewOrderedMap()
@@ -24767,6 +25443,7 @@ func (fpdPlatfUpdStats *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_Fp
     fpdPlatfUpdStats.EntityData.BundleName = "cisco_ios_xr"
     fpdPlatfUpdStats.EntityData.ParentYangName = "mi-proto-dbg-stat"
     fpdPlatfUpdStats.EntityData.SegmentPath = "fpd-platf-upd-stats"
+    fpdPlatfUpdStats.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-proto-dbg-stat/" + fpdPlatfUpdStats.EntityData.SegmentPath
     fpdPlatfUpdStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdPlatfUpdStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdPlatfUpdStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24774,6 +25451,7 @@ func (fpdPlatfUpdStats *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_Fp
     fpdPlatfUpdStats.EntityData.Children = types.NewOrderedMap()
     fpdPlatfUpdStats.EntityData.Children.Append("fpus-obj-stat", types.YChild{"FpusObjStat", nil})
     for i := range fpdPlatfUpdStats.FpusObjStat {
+        types.SetYListKey(fpdPlatfUpdStats.FpusObjStat[i], i)
         fpdPlatfUpdStats.EntityData.Children.Append(types.GetSegmentPath(fpdPlatfUpdStats.FpusObjStat[i]), types.YChild{"FpusObjStat", fpdPlatfUpdStats.FpusObjStat[i]})
     }
     fpdPlatfUpdStats.EntityData.Leafs = types.NewOrderedMap()
@@ -24791,6 +25469,7 @@ func (fpdPlatfUpdStats *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_Fp
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdPlatfUpdStats_FpusObjStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total number of updates. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -24810,7 +25489,8 @@ func (fpusObjStat *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdPlat
     fpusObjStat.EntityData.YangName = "fpus-obj-stat"
     fpusObjStat.EntityData.BundleName = "cisco_ios_xr"
     fpusObjStat.EntityData.ParentYangName = "fpd-platf-upd-stats"
-    fpusObjStat.EntityData.SegmentPath = "fpus-obj-stat"
+    fpusObjStat.EntityData.SegmentPath = "fpus-obj-stat" + types.AddNoKeyToken(fpusObjStat)
+    fpusObjStat.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-proto-dbg-stat/fpd-platf-upd-stats/" + fpusObjStat.EntityData.SegmentPath
     fpusObjStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpusObjStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpusObjStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24818,6 +25498,7 @@ func (fpusObjStat *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdPlat
     fpusObjStat.EntityData.Children = types.NewOrderedMap()
     fpusObjStat.EntityData.Children.Append("fos-obj-act-stat", types.YChild{"FosObjActStat", nil})
     for i := range fpusObjStat.FosObjActStat {
+        types.SetYListKey(fpusObjStat.FosObjActStat[i], i)
         fpusObjStat.EntityData.Children.Append(types.GetSegmentPath(fpusObjStat.FosObjActStat[i]), types.YChild{"FosObjActStat", fpusObjStat.FosObjActStat[i]})
     }
     fpusObjStat.EntityData.Leafs = types.NewOrderedMap()
@@ -24834,6 +25515,7 @@ func (fpusObjStat *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdPlat
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdPlatfUpdStats_FpusObjStat_FosObjActStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total number of updates. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -24869,7 +25551,8 @@ func (fosObjActStat *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdPl
     fosObjActStat.EntityData.YangName = "fos-obj-act-stat"
     fosObjActStat.EntityData.BundleName = "cisco_ios_xr"
     fosObjActStat.EntityData.ParentYangName = "fpus-obj-stat"
-    fosObjActStat.EntityData.SegmentPath = "fos-obj-act-stat"
+    fosObjActStat.EntityData.SegmentPath = "fos-obj-act-stat" + types.AddNoKeyToken(fosObjActStat)
+    fosObjActStat.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-proto-dbg-stat/fpd-platf-upd-stats/fpus-obj-stat/" + fosObjActStat.EntityData.SegmentPath
     fosObjActStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fosObjActStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fosObjActStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24918,6 +25601,7 @@ func (fpdGtrieTiming *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdG
     fpdGtrieTiming.EntityData.BundleName = "cisco_ios_xr"
     fpdGtrieTiming.EntityData.ParentYangName = "mi-proto-dbg-stat"
     fpdGtrieTiming.EntityData.SegmentPath = "fpd-gtrie-timing"
+    fpdGtrieTiming.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-proto-dbg-stat/" + fpdGtrieTiming.EntityData.SegmentPath
     fpdGtrieTiming.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdGtrieTiming.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdGtrieTiming.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24925,6 +25609,7 @@ func (fpdGtrieTiming *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdG
     fpdGtrieTiming.EntityData.Children = types.NewOrderedMap()
     fpdGtrieTiming.EntityData.Children.Append("fgt-gtrie-fn-timing", types.YChild{"FgtGtrieFnTiming", nil})
     for i := range fpdGtrieTiming.FgtGtrieFnTiming {
+        types.SetYListKey(fpdGtrieTiming.FgtGtrieFnTiming[i], i)
         fpdGtrieTiming.EntityData.Children.Append(types.GetSegmentPath(fpdGtrieTiming.FgtGtrieFnTiming[i]), types.YChild{"FgtGtrieFnTiming", fpdGtrieTiming.FgtGtrieFnTiming[i]})
     }
     fpdGtrieTiming.EntityData.Leafs = types.NewOrderedMap()
@@ -24942,6 +25627,7 @@ func (fpdGtrieTiming *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdG
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGtrieTiming_FgtGtrieFnTiming struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Gtrie operation. The type is string with length: 0..64.
     FgftFn interface{}
@@ -24972,7 +25658,8 @@ func (fgtGtrieFnTiming *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_Fp
     fgtGtrieFnTiming.EntityData.YangName = "fgt-gtrie-fn-timing"
     fgtGtrieFnTiming.EntityData.BundleName = "cisco_ios_xr"
     fgtGtrieFnTiming.EntityData.ParentYangName = "fpd-gtrie-timing"
-    fgtGtrieFnTiming.EntityData.SegmentPath = "fgt-gtrie-fn-timing"
+    fgtGtrieFnTiming.EntityData.SegmentPath = "fgt-gtrie-fn-timing" + types.AddNoKeyToken(fgtGtrieFnTiming)
+    fgtGtrieFnTiming.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-proto-dbg-stat/fpd-gtrie-timing/" + fgtGtrieFnTiming.EntityData.SegmentPath
     fgtGtrieFnTiming.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fgtGtrieFnTiming.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fgtGtrieFnTiming.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24998,6 +25685,7 @@ func (fgtGtrieFnTiming *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_Fp
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdGbltblSrcEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
@@ -25008,7 +25696,8 @@ func (fpdGbltblSrcEntry *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_F
     fpdGbltblSrcEntry.EntityData.YangName = "fpd-gbltbl-src-entry"
     fpdGbltblSrcEntry.EntityData.BundleName = "cisco_ios_xr"
     fpdGbltblSrcEntry.EntityData.ParentYangName = "mi-proto-dbg-stat"
-    fpdGbltblSrcEntry.EntityData.SegmentPath = "fpd-gbltbl-src-entry"
+    fpdGbltblSrcEntry.EntityData.SegmentPath = "fpd-gbltbl-src-entry" + types.AddNoKeyToken(fpdGbltblSrcEntry)
+    fpdGbltblSrcEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-proto-dbg-stat/" + fpdGbltblSrcEntry.EntityData.SegmentPath
     fpdGbltblSrcEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdGbltblSrcEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdGbltblSrcEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25029,6 +25718,7 @@ func (fpdGbltblSrcEntry *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_F
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdVrftblSrcEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
@@ -25039,7 +25729,8 @@ func (fpdVrftblSrcEntry *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_F
     fpdVrftblSrcEntry.EntityData.YangName = "fpd-vrftbl-src-entry"
     fpdVrftblSrcEntry.EntityData.BundleName = "cisco_ios_xr"
     fpdVrftblSrcEntry.EntityData.ParentYangName = "mi-proto-dbg-stat"
-    fpdVrftblSrcEntry.EntityData.SegmentPath = "fpd-vrftbl-src-entry"
+    fpdVrftblSrcEntry.EntityData.SegmentPath = "fpd-vrftbl-src-entry" + types.AddNoKeyToken(fpdVrftblSrcEntry)
+    fpdVrftblSrcEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-proto-dbg-stat/" + fpdVrftblSrcEntry.EntityData.SegmentPath
     fpdVrftblSrcEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdVrftblSrcEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdVrftblSrcEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25058,6 +25749,7 @@ func (fpdVrftblSrcEntry *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_F
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdNumRetry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
@@ -25068,7 +25760,8 @@ func (fpdNumRetry *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdNumR
     fpdNumRetry.EntityData.YangName = "fpd-num-retry"
     fpdNumRetry.EntityData.BundleName = "cisco_ios_xr"
     fpdNumRetry.EntityData.ParentYangName = "mi-proto-dbg-stat"
-    fpdNumRetry.EntityData.SegmentPath = "fpd-num-retry"
+    fpdNumRetry.EntityData.SegmentPath = "fpd-num-retry" + types.AddNoKeyToken(fpdNumRetry)
+    fpdNumRetry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-proto-dbg-stat/" + fpdNumRetry.EntityData.SegmentPath
     fpdNumRetry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpdNumRetry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpdNumRetry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25088,6 +25781,7 @@ func (fpdNumRetry *Fib_Nodes_Node_Protocols_Protocol_Misc_MiProtoDbgStat_FpdNumR
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // the number of frees for this proto. The type is slice of
     // Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr_FppCntr.
@@ -25099,7 +25793,8 @@ func (miIdbPurgeCntr *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr) Get
     miIdbPurgeCntr.EntityData.YangName = "mi-idb-purge-cntr"
     miIdbPurgeCntr.EntityData.BundleName = "cisco_ios_xr"
     miIdbPurgeCntr.EntityData.ParentYangName = "misc"
-    miIdbPurgeCntr.EntityData.SegmentPath = "mi-idb-purge-cntr"
+    miIdbPurgeCntr.EntityData.SegmentPath = "mi-idb-purge-cntr" + types.AddNoKeyToken(miIdbPurgeCntr)
+    miIdbPurgeCntr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miIdbPurgeCntr.EntityData.SegmentPath
     miIdbPurgeCntr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miIdbPurgeCntr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miIdbPurgeCntr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25107,6 +25802,7 @@ func (miIdbPurgeCntr *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr) Get
     miIdbPurgeCntr.EntityData.Children = types.NewOrderedMap()
     miIdbPurgeCntr.EntityData.Children.Append("fpp-cntr", types.YChild{"FppCntr", nil})
     for i := range miIdbPurgeCntr.FppCntr {
+        types.SetYListKey(miIdbPurgeCntr.FppCntr[i], i)
         miIdbPurgeCntr.EntityData.Children.Append(types.GetSegmentPath(miIdbPurgeCntr.FppCntr[i]), types.YChild{"FppCntr", miIdbPurgeCntr.FppCntr[i]})
     }
     miIdbPurgeCntr.EntityData.Leafs = types.NewOrderedMap()
@@ -25121,6 +25817,7 @@ func (miIdbPurgeCntr *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr) Get
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr_FppCntr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -25131,7 +25828,8 @@ func (fppCntr *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr_FppCntr) Ge
     fppCntr.EntityData.YangName = "fpp-cntr"
     fppCntr.EntityData.BundleName = "cisco_ios_xr"
     fppCntr.EntityData.ParentYangName = "mi-idb-purge-cntr"
-    fppCntr.EntityData.SegmentPath = "fpp-cntr"
+    fppCntr.EntityData.SegmentPath = "fpp-cntr" + types.AddNoKeyToken(fppCntr)
+    fppCntr.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/mi-idb-purge-cntr/" + fppCntr.EntityData.SegmentPath
     fppCntr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fppCntr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fppCntr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25150,6 +25848,7 @@ func (fppCntr *Fib_Nodes_Node_Protocols_Protocol_Misc_MiIdbPurgeCntr_FppCntr) Ge
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiDel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // tableid. The type is interface{} with range: 0..4294967295.
     Tableid interface{}
@@ -25172,7 +25871,8 @@ func (miDel *Fib_Nodes_Node_Protocols_Protocol_Misc_MiDel) GetEntityData() *type
     miDel.EntityData.YangName = "mi-del"
     miDel.EntityData.BundleName = "cisco_ios_xr"
     miDel.EntityData.ParentYangName = "misc"
-    miDel.EntityData.SegmentPath = "mi-del"
+    miDel.EntityData.SegmentPath = "mi-del" + types.AddNoKeyToken(miDel)
+    miDel.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miDel.EntityData.SegmentPath
     miDel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miDel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miDel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25195,6 +25895,7 @@ func (miDel *Fib_Nodes_Node_Protocols_Protocol_Misc_MiDel) GetEntityData() *type
 type Fib_Nodes_Node_Protocols_Protocol_Misc_MiFrrStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // number of FRR events sent on nh interface down. The type is interface{}
     // with range: 0..4294967295.
@@ -25260,7 +25961,8 @@ func (miFrrStat *Fib_Nodes_Node_Protocols_Protocol_Misc_MiFrrStat) GetEntityData
     miFrrStat.EntityData.YangName = "mi-frr-stat"
     miFrrStat.EntityData.BundleName = "cisco_ios_xr"
     miFrrStat.EntityData.ParentYangName = "misc"
-    miFrrStat.EntityData.SegmentPath = "mi-frr-stat"
+    miFrrStat.EntityData.SegmentPath = "mi-frr-stat" + types.AddNoKeyToken(miFrrStat)
+    miFrrStat.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/misc/" + miFrrStat.EntityData.SegmentPath
     miFrrStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     miFrrStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     miFrrStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25304,6 +26006,7 @@ func (localLabel *Fib_Nodes_Node_Protocols_Protocol_LocalLabel) GetEntityData() 
     localLabel.EntityData.BundleName = "cisco_ios_xr"
     localLabel.EntityData.ParentYangName = "protocol"
     localLabel.EntityData.SegmentPath = "local-label"
+    localLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/" + localLabel.EntityData.SegmentPath
     localLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25334,6 +26037,7 @@ func (conflicts *Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts) GetEnti
     conflicts.EntityData.BundleName = "cisco_ios_xr"
     conflicts.EntityData.ParentYangName = "local-label"
     conflicts.EntityData.SegmentPath = "conflicts"
+    conflicts.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/local-label/" + conflicts.EntityData.SegmentPath
     conflicts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conflicts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conflicts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25341,6 +26045,7 @@ func (conflicts *Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts) GetEnti
     conflicts.EntityData.Children = types.NewOrderedMap()
     conflicts.EntityData.Children.Append("conflict", types.YChild{"Conflict", nil})
     for i := range conflicts.Conflict {
+        types.SetYListKey(conflicts.Conflict[i], i)
         conflicts.EntityData.Children.Append(types.GetSegmentPath(conflicts.Conflict[i]), types.YChild{"Conflict", conflicts.Conflict[i]})
     }
     conflicts.EntityData.Leafs = types.NewOrderedMap()
@@ -25355,6 +26060,7 @@ func (conflicts *Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts) GetEnti
 type Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts_Conflict struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Local label. The type is interface{} with range: 16..1048575.
     Label interface{}
@@ -25398,7 +26104,8 @@ func (conflict *Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts_Conflict)
     conflict.EntityData.YangName = "conflict"
     conflict.EntityData.BundleName = "cisco_ios_xr"
     conflict.EntityData.ParentYangName = "conflicts"
-    conflict.EntityData.SegmentPath = "conflict"
+    conflict.EntityData.SegmentPath = "conflict" + types.AddNoKeyToken(conflict)
+    conflict.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/local-label/conflicts/" + conflict.EntityData.SegmentPath
     conflict.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     conflict.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     conflict.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25445,6 +26152,7 @@ func (ext *Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts_Conflict_Ext) 
     ext.EntityData.BundleName = "cisco_ios_xr"
     ext.EntityData.ParentYangName = "conflict"
     ext.EntityData.SegmentPath = "ext"
+    ext.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/local-label/conflicts/conflict/" + ext.EntityData.SegmentPath
     ext.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ext.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ext.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25479,6 +26187,7 @@ func (pfx *Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts_Conflict_Ext_P
     pfx.EntityData.BundleName = "cisco_ios_xr"
     pfx.EntityData.ParentYangName = "ext"
     pfx.EntityData.SegmentPath = "pfx"
+    pfx.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/local-label/conflicts/conflict/ext/" + pfx.EntityData.SegmentPath
     pfx.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pfx.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pfx.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25512,6 +26221,7 @@ func (lsm *Fib_Nodes_Node_Protocols_Protocol_LocalLabel_Conflicts_Conflict_Ext_L
     lsm.EntityData.BundleName = "cisco_ios_xr"
     lsm.EntityData.ParentYangName = "ext"
     lsm.EntityData.SegmentPath = "lsm"
+    lsm.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/local-label/conflicts/conflict/ext/" + lsm.EntityData.SegmentPath
     lsm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25542,6 +26252,7 @@ func (ocAftL3 *OcAftL3) GetEntityData() *types.CommonEntityData {
     ocAftL3.EntityData.BundleName = "cisco_ios_xr"
     ocAftL3.EntityData.ParentYangName = "Cisco-IOS-XR-fib-common-oper"
     ocAftL3.EntityData.SegmentPath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3"
+    ocAftL3.EntityData.AbsolutePath = ocAftL3.EntityData.SegmentPath
     ocAftL3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ocAftL3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ocAftL3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25571,6 +26282,7 @@ func (vrfs *OcAftL3_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "oc-aft-l3"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25592,6 +26304,7 @@ func (vrfs *OcAftL3_Vrfs) GetEntityData() *types.CommonEntityData {
 type OcAftL3_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network Instance Name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -25607,6 +26320,7 @@ func (vrf *OcAftL3_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25643,6 +26357,7 @@ func (abstractForwardingTables *OcAftL3_Vrfs_Vrf_AbstractForwardingTables) GetEn
     abstractForwardingTables.EntityData.BundleName = "cisco_ios_xr"
     abstractForwardingTables.EntityData.ParentYangName = "vrf"
     abstractForwardingTables.EntityData.SegmentPath = "abstract-forwarding-tables"
+    abstractForwardingTables.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/" + abstractForwardingTables.EntityData.SegmentPath
     abstractForwardingTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     abstractForwardingTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     abstractForwardingTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25674,6 +26389,7 @@ func (mpls *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls) GetEntityData() *typ
     mpls.EntityData.BundleName = "cisco_ios_xr"
     mpls.EntityData.ParentYangName = "abstract-forwarding-tables"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25704,6 +26420,7 @@ func (labelEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries)
     labelEntries.EntityData.BundleName = "cisco_ios_xr"
     labelEntries.EntityData.ParentYangName = "mpls"
     labelEntries.EntityData.SegmentPath = "label-entries"
+    labelEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/" + labelEntries.EntityData.SegmentPath
     labelEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25725,6 +26442,7 @@ func (labelEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries)
 type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MPLS label. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -25748,6 +26466,7 @@ func (labelEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_La
     labelEntry.EntityData.BundleName = "cisco_ios_xr"
     labelEntry.EntityData.ParentYangName = "label-entries"
     labelEntry.EntityData.SegmentPath = "label-entry" + types.AddKeyToken(labelEntry.Label, "label") + types.AddKeyToken(labelEntry.LabelLength, "label-length")
+    labelEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/" + labelEntry.EntityData.SegmentPath
     labelEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25756,6 +26475,7 @@ func (labelEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_La
     labelEntry.EntityData.Children.Append("state", types.YChild{"State", &labelEntry.State})
     labelEntry.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range labelEntry.NextHop {
+        types.SetYListKey(labelEntry.NextHop[i], i)
         labelEntry.EntityData.Children.Append(types.GetSegmentPath(labelEntry.NextHop[i]), types.YChild{"NextHop", labelEntry.NextHop[i]})
     }
     labelEntry.EntityData.Leafs = types.NewOrderedMap()
@@ -25786,6 +26506,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEn
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "label-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25805,6 +26526,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEn
 type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OC AFT entry next-hop state.
     State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEntry_NextHop_State
@@ -25818,7 +26540,8 @@ func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_Label
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "label-entry"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25864,6 +26587,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEn
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25898,6 +26622,7 @@ func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_
     interfaceRef.EntityData.BundleName = "cisco_ios_xr"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25930,6 +26655,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Mpls_LabelEntries_LabelEn
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/mpls/label-entries/label-entry/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25960,6 +26686,7 @@ func (ipv6Unicast *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast) GetEnt
     ipv6Unicast.EntityData.BundleName = "cisco_ios_xr"
     ipv6Unicast.EntityData.ParentYangName = "abstract-forwarding-tables"
     ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/" + ipv6Unicast.EntityData.SegmentPath
     ipv6Unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6Unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25990,6 +26717,7 @@ func (prefixEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefi
     prefixEntries.EntityData.BundleName = "cisco_ios_xr"
     prefixEntries.EntityData.ParentYangName = "ipv6-unicast"
     prefixEntries.EntityData.SegmentPath = "prefix-entries"
+    prefixEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/" + prefixEntries.EntityData.SegmentPath
     prefixEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26011,6 +26739,7 @@ func (prefixEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefi
 type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network address. The type is one of the following
     // types: string with pattern:
@@ -26033,6 +26762,7 @@ func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixE
     prefixEntry.EntityData.BundleName = "cisco_ios_xr"
     prefixEntry.EntityData.ParentYangName = "prefix-entries"
     prefixEntry.EntityData.SegmentPath = "prefix-entry" + types.AddKeyToken(prefixEntry.Network, "network")
+    prefixEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/" + prefixEntry.EntityData.SegmentPath
     prefixEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26041,6 +26771,7 @@ func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixE
     prefixEntry.EntityData.Children.Append("state", types.YChild{"State", &prefixEntry.State})
     prefixEntry.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range prefixEntry.NextHop {
+        types.SetYListKey(prefixEntry.NextHop[i], i)
         prefixEntry.EntityData.Children.Append(types.GetSegmentPath(prefixEntry.NextHop[i]), types.YChild{"NextHop", prefixEntry.NextHop[i]})
     }
     prefixEntry.EntityData.Leafs = types.NewOrderedMap()
@@ -26070,6 +26801,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "prefix-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26089,6 +26821,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries
 type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OC AFT entry next-hop state.
     State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries_PrefixEntry_NextHop_State
@@ -26102,7 +26835,8 @@ func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntri
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "prefix-entry"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26148,6 +26882,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26182,6 +26917,7 @@ func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_Prefix
     interfaceRef.EntityData.BundleName = "cisco_ios_xr"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26214,6 +26950,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv6Unicast_PrefixEntries
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv6-unicast/prefix-entries/prefix-entry/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26244,6 +26981,7 @@ func (ipv4Unicast *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast) GetEnt
     ipv4Unicast.EntityData.BundleName = "cisco_ios_xr"
     ipv4Unicast.EntityData.ParentYangName = "abstract-forwarding-tables"
     ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/" + ipv4Unicast.EntityData.SegmentPath
     ipv4Unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4Unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26274,6 +27012,7 @@ func (prefixEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefi
     prefixEntries.EntityData.BundleName = "cisco_ios_xr"
     prefixEntries.EntityData.ParentYangName = "ipv4-unicast"
     prefixEntries.EntityData.SegmentPath = "prefix-entries"
+    prefixEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/" + prefixEntries.EntityData.SegmentPath
     prefixEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26295,6 +27034,7 @@ func (prefixEntries *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefi
 type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Network address. The type is one of the following
     // types: string with pattern:
@@ -26317,6 +27057,7 @@ func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixE
     prefixEntry.EntityData.BundleName = "cisco_ios_xr"
     prefixEntry.EntityData.ParentYangName = "prefix-entries"
     prefixEntry.EntityData.SegmentPath = "prefix-entry" + types.AddKeyToken(prefixEntry.Network, "network")
+    prefixEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/" + prefixEntry.EntityData.SegmentPath
     prefixEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26325,6 +27066,7 @@ func (prefixEntry *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixE
     prefixEntry.EntityData.Children.Append("state", types.YChild{"State", &prefixEntry.State})
     prefixEntry.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range prefixEntry.NextHop {
+        types.SetYListKey(prefixEntry.NextHop[i], i)
         prefixEntry.EntityData.Children.Append(types.GetSegmentPath(prefixEntry.NextHop[i]), types.YChild{"NextHop", prefixEntry.NextHop[i]})
     }
     prefixEntry.EntityData.Leafs = types.NewOrderedMap()
@@ -26354,6 +27096,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "prefix-entry"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26373,6 +27116,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries
 type OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OC AFT entry next-hop state.
     State OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries_PrefixEntry_NextHop_State
@@ -26386,7 +27130,8 @@ func (nextHop *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntri
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "prefix-entry"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26432,6 +27177,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26466,6 +27212,7 @@ func (interfaceRef *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_Prefix
     interfaceRef.EntityData.BundleName = "cisco_ios_xr"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26498,6 +27245,7 @@ func (state *OcAftL3_Vrfs_Vrf_AbstractForwardingTables_Ipv4Unicast_PrefixEntries
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:oc-aft-l3/vrfs/vrf/abstract-forwarding-tables/ipv4-unicast/prefix-entries/prefix-entry/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26528,6 +27276,7 @@ func (mplsForwarding *MplsForwarding) GetEntityData() *types.CommonEntityData {
     mplsForwarding.EntityData.BundleName = "cisco_ios_xr"
     mplsForwarding.EntityData.ParentYangName = "Cisco-IOS-XR-fib-common-oper"
     mplsForwarding.EntityData.SegmentPath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding"
+    mplsForwarding.EntityData.AbsolutePath = mplsForwarding.EntityData.SegmentPath
     mplsForwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsForwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsForwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26558,6 +27307,7 @@ func (nodes *MplsForwarding_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "mpls-forwarding"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26579,6 +27329,7 @@ func (nodes *MplsForwarding_Nodes) GetEntityData() *types.CommonEntityData {
 type MplsForwarding_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -26606,6 +27357,7 @@ func (node *MplsForwarding_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26751,6 +27503,7 @@ func (forwardingSummary *MplsForwarding_Nodes_Node_ForwardingSummary) GetEntityD
     forwardingSummary.EntityData.BundleName = "cisco_ios_xr"
     forwardingSummary.EntityData.ParentYangName = "node"
     forwardingSummary.EntityData.SegmentPath = "forwarding-summary"
+    forwardingSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/" + forwardingSummary.EntityData.SegmentPath
     forwardingSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardingSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardingSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26809,6 +27562,7 @@ func (frrLogs *MplsForwarding_Nodes_Node_FrrLogs) GetEntityData() *types.CommonE
     frrLogs.EntityData.BundleName = "cisco_ios_xr"
     frrLogs.EntityData.ParentYangName = "node"
     frrLogs.EntityData.SegmentPath = "frr-logs"
+    frrLogs.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/" + frrLogs.EntityData.SegmentPath
     frrLogs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrLogs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrLogs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26830,6 +27584,7 @@ func (frrLogs *MplsForwarding_Nodes_Node_FrrLogs) GetEntityData() *types.CommonE
 type MplsForwarding_Nodes_Node_FrrLogs_FrrLog struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Event ID. The type is interface{} with range:
     // 0..4294967295.
@@ -26870,6 +27625,7 @@ func (frrLog *MplsForwarding_Nodes_Node_FrrLogs_FrrLog) GetEntityData() *types.C
     frrLog.EntityData.BundleName = "cisco_ios_xr"
     frrLog.EntityData.ParentYangName = "frr-logs"
     frrLog.EntityData.SegmentPath = "frr-log" + types.AddKeyToken(frrLog.EventId, "event-id")
+    frrLog.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-logs/" + frrLog.EntityData.SegmentPath
     frrLog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrLog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrLog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26913,6 +27669,7 @@ func (startTime *MplsForwarding_Nodes_Node_FrrLogs_FrrLog_StartTime) GetEntityDa
     startTime.EntityData.BundleName = "cisco_ios_xr"
     startTime.EntityData.ParentYangName = "frr-log"
     startTime.EntityData.SegmentPath = "start-time"
+    startTime.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-logs/frr-log/" + startTime.EntityData.SegmentPath
     startTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26949,6 +27706,7 @@ func (labelFib *MplsForwarding_Nodes_Node_LabelFib) GetEntityData() *types.Commo
     labelFib.EntityData.BundleName = "cisco_ios_xr"
     labelFib.EntityData.ParentYangName = "node"
     labelFib.EntityData.SegmentPath = "label-fib"
+    labelFib.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/" + labelFib.EntityData.SegmentPath
     labelFib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelFib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelFib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26981,6 +27739,7 @@ func (forwardingDetails *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails) G
     forwardingDetails.EntityData.BundleName = "cisco_ios_xr"
     forwardingDetails.EntityData.ParentYangName = "label-fib"
     forwardingDetails.EntityData.SegmentPath = "forwarding-details"
+    forwardingDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/" + forwardingDetails.EntityData.SegmentPath
     forwardingDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardingDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardingDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26988,6 +27747,7 @@ func (forwardingDetails *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails) G
     forwardingDetails.EntityData.Children = types.NewOrderedMap()
     forwardingDetails.EntityData.Children.Append("forwarding-detail", types.YChild{"ForwardingDetail", nil})
     for i := range forwardingDetails.ForwardingDetail {
+        types.SetYListKey(forwardingDetails.ForwardingDetail[i], i)
         forwardingDetails.EntityData.Children.Append(types.GetSegmentPath(forwardingDetails.ForwardingDetail[i]), types.YChild{"ForwardingDetail", forwardingDetails.ForwardingDetail[i]})
     }
     forwardingDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -27002,6 +27762,7 @@ func (forwardingDetails *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails) G
 type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Local label value. The type is interface{} with range: 16..1048575.
     LabelValue interface{}
@@ -27089,7 +27850,8 @@ func (forwardingDetail *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_For
     forwardingDetail.EntityData.YangName = "forwarding-detail"
     forwardingDetail.EntityData.BundleName = "cisco_ios_xr"
     forwardingDetail.EntityData.ParentYangName = "forwarding-details"
-    forwardingDetail.EntityData.SegmentPath = "forwarding-detail"
+    forwardingDetail.EntityData.SegmentPath = "forwarding-detail" + types.AddNoKeyToken(forwardingDetail)
+    forwardingDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/" + forwardingDetail.EntityData.SegmentPath
     forwardingDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardingDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardingDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27099,6 +27861,7 @@ func (forwardingDetail *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_For
     forwardingDetail.EntityData.Children.Append("multicast-information", types.YChild{"MulticastInformation", &forwardingDetail.MulticastInformation})
     forwardingDetail.EntityData.Children.Append("label-information", types.YChild{"LabelInformation", nil})
     for i := range forwardingDetail.LabelInformation {
+        types.SetYListKey(forwardingDetail.LabelInformation[i], i)
         forwardingDetail.EntityData.Children.Append(types.GetSegmentPath(forwardingDetail.LabelInformation[i]), types.YChild{"LabelInformation", forwardingDetail.LabelInformation[i]})
     }
     forwardingDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -27146,6 +27909,7 @@ func (ldiInformation *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_Forwa
     ldiInformation.EntityData.BundleName = "cisco_ios_xr"
     ldiInformation.EntityData.ParentYangName = "forwarding-detail"
     ldiInformation.EntityData.SegmentPath = "ldi-information"
+    ldiInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/forwarding-detail/" + ldiInformation.EntityData.SegmentPath
     ldiInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldiInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldiInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27222,6 +27986,7 @@ func (multicastInformation *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails
     multicastInformation.EntityData.BundleName = "cisco_ios_xr"
     multicastInformation.EntityData.ParentYangName = "forwarding-detail"
     multicastInformation.EntityData.SegmentPath = "multicast-information"
+    multicastInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/forwarding-detail/" + multicastInformation.EntityData.SegmentPath
     multicastInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27253,6 +28018,7 @@ func (multicastInformation *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails
 type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_LabelInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Label-Info type. The type is interface{} with range: 0..4294967295.
     LabelInformationType interface{}
@@ -27333,7 +28099,8 @@ func (labelInformation *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_For
     labelInformation.EntityData.YangName = "label-information"
     labelInformation.EntityData.BundleName = "cisco_ios_xr"
     labelInformation.EntityData.ParentYangName = "forwarding-detail"
-    labelInformation.EntityData.SegmentPath = "label-information"
+    labelInformation.EntityData.SegmentPath = "label-information" + types.AddNoKeyToken(labelInformation)
+    labelInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/forwarding-detail/" + labelInformation.EntityData.SegmentPath
     labelInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27416,6 +28183,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetai
     labelInformationDetail.EntityData.BundleName = "cisco_ios_xr"
     labelInformationDetail.EntityData.ParentYangName = "label-information"
     labelInformationDetail.EntityData.SegmentPath = "label-information-detail"
+    labelInformationDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/forwarding-detail/label-information/" + labelInformationDetail.EntityData.SegmentPath
     labelInformationDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInformationDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInformationDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27423,6 +28191,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetai
     labelInformationDetail.EntityData.Children = types.NewOrderedMap()
     labelInformationDetail.EntityData.Children.Append("label-stack", types.YChild{"LabelStack", nil})
     for i := range labelInformationDetail.LabelStack {
+        types.SetYListKey(labelInformationDetail.LabelStack[i], i)
         labelInformationDetail.EntityData.Children.Append(types.GetSegmentPath(labelInformationDetail.LabelStack[i]), types.YChild{"LabelStack", labelInformationDetail.LabelStack[i]})
     }
     labelInformationDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -27446,6 +28215,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetai
 type MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_ForwardingDetail_LabelInformation_LabelInformationDetail_LabelStack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -27456,7 +28226,8 @@ func (labelStack *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_Forwardin
     labelStack.EntityData.YangName = "label-stack"
     labelStack.EntityData.BundleName = "cisco_ios_xr"
     labelStack.EntityData.ParentYangName = "label-information-detail"
-    labelStack.EntityData.SegmentPath = "label-stack"
+    labelStack.EntityData.SegmentPath = "label-stack" + types.AddNoKeyToken(labelStack)
+    labelStack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/forwarding-detail/label-information/label-information-detail/" + labelStack.EntityData.SegmentPath
     labelStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27489,6 +28260,7 @@ func (exactRouteHashInfo *MplsForwarding_Nodes_Node_LabelFib_ForwardingDetails_F
     exactRouteHashInfo.EntityData.BundleName = "cisco_ios_xr"
     exactRouteHashInfo.EntityData.ParentYangName = "label-information"
     exactRouteHashInfo.EntityData.SegmentPath = "exact-route-hash-info"
+    exactRouteHashInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/forwarding-details/forwarding-detail/label-information/" + exactRouteHashInfo.EntityData.SegmentPath
     exactRouteHashInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exactRouteHashInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exactRouteHashInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27520,6 +28292,7 @@ func (informations *MplsForwarding_Nodes_Node_LabelFib_Informations) GetEntityDa
     informations.EntityData.BundleName = "cisco_ios_xr"
     informations.EntityData.ParentYangName = "label-fib"
     informations.EntityData.SegmentPath = "informations"
+    informations.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/" + informations.EntityData.SegmentPath
     informations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     informations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     informations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27527,6 +28300,7 @@ func (informations *MplsForwarding_Nodes_Node_LabelFib_Informations) GetEntityDa
     informations.EntityData.Children = types.NewOrderedMap()
     informations.EntityData.Children.Append("information", types.YChild{"Information", nil})
     for i := range informations.Information {
+        types.SetYListKey(informations.Information[i], i)
         informations.EntityData.Children.Append(types.GetSegmentPath(informations.Information[i]), types.YChild{"Information", informations.Information[i]})
     }
     informations.EntityData.Leafs = types.NewOrderedMap()
@@ -27541,6 +28315,7 @@ func (informations *MplsForwarding_Nodes_Node_LabelFib_Informations) GetEntityDa
 type MplsForwarding_Nodes_Node_LabelFib_Informations_Information struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Local label value. The type is interface{} with range: 16..1048575.
     LabelValue interface{}
@@ -27628,7 +28403,8 @@ func (information *MplsForwarding_Nodes_Node_LabelFib_Informations_Information) 
     information.EntityData.YangName = "information"
     information.EntityData.BundleName = "cisco_ios_xr"
     information.EntityData.ParentYangName = "informations"
-    information.EntityData.SegmentPath = "information"
+    information.EntityData.SegmentPath = "information" + types.AddNoKeyToken(information)
+    information.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/informations/" + information.EntityData.SegmentPath
     information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27638,6 +28414,7 @@ func (information *MplsForwarding_Nodes_Node_LabelFib_Informations_Information) 
     information.EntityData.Children.Append("multicast-information", types.YChild{"MulticastInformation", &information.MulticastInformation})
     information.EntityData.Children.Append("label-information", types.YChild{"LabelInformation", nil})
     for i := range information.LabelInformation {
+        types.SetYListKey(information.LabelInformation[i], i)
         information.EntityData.Children.Append(types.GetSegmentPath(information.LabelInformation[i]), types.YChild{"LabelInformation", information.LabelInformation[i]})
     }
     information.EntityData.Leafs = types.NewOrderedMap()
@@ -27685,6 +28462,7 @@ func (ldiInformation *MplsForwarding_Nodes_Node_LabelFib_Informations_Informatio
     ldiInformation.EntityData.BundleName = "cisco_ios_xr"
     ldiInformation.EntityData.ParentYangName = "information"
     ldiInformation.EntityData.SegmentPath = "ldi-information"
+    ldiInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/informations/information/" + ldiInformation.EntityData.SegmentPath
     ldiInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldiInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldiInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27761,6 +28539,7 @@ func (multicastInformation *MplsForwarding_Nodes_Node_LabelFib_Informations_Info
     multicastInformation.EntityData.BundleName = "cisco_ios_xr"
     multicastInformation.EntityData.ParentYangName = "information"
     multicastInformation.EntityData.SegmentPath = "multicast-information"
+    multicastInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/informations/information/" + multicastInformation.EntityData.SegmentPath
     multicastInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27792,6 +28571,7 @@ func (multicastInformation *MplsForwarding_Nodes_Node_LabelFib_Informations_Info
 type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LabelInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Label-Info type. The type is interface{} with range: 0..4294967295.
     LabelInformationType interface{}
@@ -27872,7 +28652,8 @@ func (labelInformation *MplsForwarding_Nodes_Node_LabelFib_Informations_Informat
     labelInformation.EntityData.YangName = "label-information"
     labelInformation.EntityData.BundleName = "cisco_ios_xr"
     labelInformation.EntityData.ParentYangName = "information"
-    labelInformation.EntityData.SegmentPath = "label-information"
+    labelInformation.EntityData.SegmentPath = "label-information" + types.AddNoKeyToken(labelInformation)
+    labelInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/informations/information/" + labelInformation.EntityData.SegmentPath
     labelInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27955,6 +28736,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_LabelFib_Informations_In
     labelInformationDetail.EntityData.BundleName = "cisco_ios_xr"
     labelInformationDetail.EntityData.ParentYangName = "label-information"
     labelInformationDetail.EntityData.SegmentPath = "label-information-detail"
+    labelInformationDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/informations/information/label-information/" + labelInformationDetail.EntityData.SegmentPath
     labelInformationDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInformationDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInformationDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27962,6 +28744,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_LabelFib_Informations_In
     labelInformationDetail.EntityData.Children = types.NewOrderedMap()
     labelInformationDetail.EntityData.Children.Append("label-stack", types.YChild{"LabelStack", nil})
     for i := range labelInformationDetail.LabelStack {
+        types.SetYListKey(labelInformationDetail.LabelStack[i], i)
         labelInformationDetail.EntityData.Children.Append(types.GetSegmentPath(labelInformationDetail.LabelStack[i]), types.YChild{"LabelStack", labelInformationDetail.LabelStack[i]})
     }
     labelInformationDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -27985,6 +28768,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_LabelFib_Informations_In
 type MplsForwarding_Nodes_Node_LabelFib_Informations_Information_LabelInformation_LabelInformationDetail_LabelStack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -27995,7 +28779,8 @@ func (labelStack *MplsForwarding_Nodes_Node_LabelFib_Informations_Information_La
     labelStack.EntityData.YangName = "label-stack"
     labelStack.EntityData.BundleName = "cisco_ios_xr"
     labelStack.EntityData.ParentYangName = "label-information-detail"
-    labelStack.EntityData.SegmentPath = "label-stack"
+    labelStack.EntityData.SegmentPath = "label-stack" + types.AddNoKeyToken(labelStack)
+    labelStack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/informations/information/label-information/label-information-detail/" + labelStack.EntityData.SegmentPath
     labelStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28028,6 +28813,7 @@ func (exactRouteHashInfo *MplsForwarding_Nodes_Node_LabelFib_Informations_Inform
     exactRouteHashInfo.EntityData.BundleName = "cisco_ios_xr"
     exactRouteHashInfo.EntityData.ParentYangName = "label-information"
     exactRouteHashInfo.EntityData.SegmentPath = "exact-route-hash-info"
+    exactRouteHashInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/informations/information/label-information/" + exactRouteHashInfo.EntityData.SegmentPath
     exactRouteHashInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exactRouteHashInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exactRouteHashInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28061,6 +28847,7 @@ func (labelSecurity *MplsForwarding_Nodes_Node_LabelFib_LabelSecurity) GetEntity
     labelSecurity.EntityData.BundleName = "cisco_ios_xr"
     labelSecurity.EntityData.ParentYangName = "label-fib"
     labelSecurity.EntityData.SegmentPath = "label-security"
+    labelSecurity.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/" + labelSecurity.EntityData.SegmentPath
     labelSecurity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSecurity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSecurity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28092,6 +28879,7 @@ func (interfaces *MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Interfaces) G
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "label-security"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/label-security/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28113,6 +28901,7 @@ func (interfaces *MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Interfaces) G
 type MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -28147,6 +28936,7 @@ func (self *MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Interfaces_Interfac
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/label-security/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28187,6 +28977,7 @@ func (summary *MplsForwarding_Nodes_Node_LabelFib_LabelSecurity_Summary) GetEnti
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "label-security"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/label-fib/label-security/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28217,6 +29008,7 @@ func (tunnel *MplsForwarding_Nodes_Node_Tunnel) GetEntityData() *types.CommonEnt
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "node"
     tunnel.EntityData.SegmentPath = "tunnel"
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28247,6 +29039,7 @@ func (forwardingTunnels *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels) Get
     forwardingTunnels.EntityData.BundleName = "cisco_ios_xr"
     forwardingTunnels.EntityData.ParentYangName = "tunnel"
     forwardingTunnels.EntityData.SegmentPath = "forwarding-tunnels"
+    forwardingTunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/" + forwardingTunnels.EntityData.SegmentPath
     forwardingTunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardingTunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardingTunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28268,6 +29061,7 @@ func (forwardingTunnels *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels) Get
 type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -28286,6 +29080,7 @@ func (forwardingTunnel *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_Forwa
     forwardingTunnel.EntityData.BundleName = "cisco_ios_xr"
     forwardingTunnel.EntityData.ParentYangName = "forwarding-tunnels"
     forwardingTunnel.EntityData.SegmentPath = "forwarding-tunnel" + types.AddKeyToken(forwardingTunnel.InterfaceName, "interface-name")
+    forwardingTunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/" + forwardingTunnel.EntityData.SegmentPath
     forwardingTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardingTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardingTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28339,6 +29134,7 @@ func (tunnelInfo *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingT
     tunnelInfo.EntityData.BundleName = "cisco_ios_xr"
     tunnelInfo.EntityData.ParentYangName = "forwarding-tunnel"
     tunnelInfo.EntityData.SegmentPath = "tunnel-info"
+    tunnelInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/forwarding-tunnel/" + tunnelInfo.EntityData.SegmentPath
     tunnelInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28446,6 +29242,7 @@ func (fwdg *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_
     fwdg.EntityData.BundleName = "cisco_ios_xr"
     fwdg.EntityData.ParentYangName = "forwarding-tunnel"
     fwdg.EntityData.SegmentPath = "fwdg"
+    fwdg.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/forwarding-tunnel/" + fwdg.EntityData.SegmentPath
     fwdg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fwdg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fwdg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28455,6 +29252,7 @@ func (fwdg *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_
     fwdg.EntityData.Children.Append("multicast-information", types.YChild{"MulticastInformation", &fwdg.MulticastInformation})
     fwdg.EntityData.Children.Append("label-information", types.YChild{"LabelInformation", nil})
     for i := range fwdg.LabelInformation {
+        types.SetYListKey(fwdg.LabelInformation[i], i)
         fwdg.EntityData.Children.Append(types.GetSegmentPath(fwdg.LabelInformation[i]), types.YChild{"LabelInformation", fwdg.LabelInformation[i]})
     }
     fwdg.EntityData.Leafs = types.NewOrderedMap()
@@ -28500,6 +29298,7 @@ func (ldiInformation *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_Forward
     ldiInformation.EntityData.BundleName = "cisco_ios_xr"
     ldiInformation.EntityData.ParentYangName = "fwdg"
     ldiInformation.EntityData.SegmentPath = "ldi-information"
+    ldiInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/forwarding-tunnel/fwdg/" + ldiInformation.EntityData.SegmentPath
     ldiInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldiInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldiInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28576,6 +29375,7 @@ func (multicastInformation *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_F
     multicastInformation.EntityData.BundleName = "cisco_ios_xr"
     multicastInformation.EntityData.ParentYangName = "fwdg"
     multicastInformation.EntityData.SegmentPath = "multicast-information"
+    multicastInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/forwarding-tunnel/fwdg/" + multicastInformation.EntityData.SegmentPath
     multicastInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28607,6 +29407,7 @@ func (multicastInformation *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_F
 type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_LabelInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Label-Info type. The type is interface{} with range: 0..4294967295.
     LabelInformationType interface{}
@@ -28687,7 +29488,8 @@ func (labelInformation *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_Forwa
     labelInformation.EntityData.YangName = "label-information"
     labelInformation.EntityData.BundleName = "cisco_ios_xr"
     labelInformation.EntityData.ParentYangName = "fwdg"
-    labelInformation.EntityData.SegmentPath = "label-information"
+    labelInformation.EntityData.SegmentPath = "label-information" + types.AddNoKeyToken(labelInformation)
+    labelInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/forwarding-tunnel/fwdg/" + labelInformation.EntityData.SegmentPath
     labelInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28770,6 +29572,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels
     labelInformationDetail.EntityData.BundleName = "cisco_ios_xr"
     labelInformationDetail.EntityData.ParentYangName = "label-information"
     labelInformationDetail.EntityData.SegmentPath = "label-information-detail"
+    labelInformationDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/forwarding-tunnel/fwdg/label-information/" + labelInformationDetail.EntityData.SegmentPath
     labelInformationDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelInformationDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelInformationDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28777,6 +29580,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels
     labelInformationDetail.EntityData.Children = types.NewOrderedMap()
     labelInformationDetail.EntityData.Children.Append("label-stack", types.YChild{"LabelStack", nil})
     for i := range labelInformationDetail.LabelStack {
+        types.SetYListKey(labelInformationDetail.LabelStack[i], i)
         labelInformationDetail.EntityData.Children.Append(types.GetSegmentPath(labelInformationDetail.LabelStack[i]), types.YChild{"LabelStack", labelInformationDetail.LabelStack[i]})
     }
     labelInformationDetail.EntityData.Leafs = types.NewOrderedMap()
@@ -28800,6 +29604,7 @@ func (labelInformationDetail *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels
 type MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingTunnel_Fwdg_LabelInformation_LabelInformationDetail_LabelStack struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -28810,7 +29615,8 @@ func (labelStack *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_ForwardingT
     labelStack.EntityData.YangName = "label-stack"
     labelStack.EntityData.BundleName = "cisco_ios_xr"
     labelStack.EntityData.ParentYangName = "label-information-detail"
-    labelStack.EntityData.SegmentPath = "label-stack"
+    labelStack.EntityData.SegmentPath = "label-stack" + types.AddNoKeyToken(labelStack)
+    labelStack.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/forwarding-tunnel/fwdg/label-information/label-information-detail/" + labelStack.EntityData.SegmentPath
     labelStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28843,6 +29649,7 @@ func (exactRouteHashInfo *MplsForwarding_Nodes_Node_Tunnel_ForwardingTunnels_For
     exactRouteHashInfo.EntityData.BundleName = "cisco_ios_xr"
     exactRouteHashInfo.EntityData.ParentYangName = "label-information"
     exactRouteHashInfo.EntityData.SegmentPath = "exact-route-hash-info"
+    exactRouteHashInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/tunnel/forwarding-tunnels/forwarding-tunnel/fwdg/label-information/" + exactRouteHashInfo.EntityData.SegmentPath
     exactRouteHashInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exactRouteHashInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exactRouteHashInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28891,6 +29698,7 @@ func (frrDatabase *MplsForwarding_Nodes_Node_FrrDatabase) GetEntityData() *types
     frrDatabase.EntityData.BundleName = "cisco_ios_xr"
     frrDatabase.EntityData.ParentYangName = "node"
     frrDatabase.EntityData.SegmentPath = "frr-database"
+    frrDatabase.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/" + frrDatabase.EntityData.SegmentPath
     frrDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28939,6 +29747,7 @@ func (frrdbSummary *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbSummary) GetEntit
     frrdbSummary.EntityData.BundleName = "cisco_ios_xr"
     frrdbSummary.EntityData.ParentYangName = "frr-database"
     frrdbSummary.EntityData.SegmentPath = "frrdb-summary"
+    frrdbSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/" + frrdbSummary.EntityData.SegmentPath
     frrdbSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28974,6 +29783,7 @@ func (frrdbProtectedInterfaceTableSummaries *MplsForwarding_Nodes_Node_FrrDataba
     frrdbProtectedInterfaceTableSummaries.EntityData.BundleName = "cisco_ios_xr"
     frrdbProtectedInterfaceTableSummaries.EntityData.ParentYangName = "frr-database"
     frrdbProtectedInterfaceTableSummaries.EntityData.SegmentPath = "frrdb-protected-interface-table-summaries"
+    frrdbProtectedInterfaceTableSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/" + frrdbProtectedInterfaceTableSummaries.EntityData.SegmentPath
     frrdbProtectedInterfaceTableSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbProtectedInterfaceTableSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbProtectedInterfaceTableSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28996,6 +29806,7 @@ func (frrdbProtectedInterfaceTableSummaries *MplsForwarding_Nodes_Node_FrrDataba
 type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbProtectedInterfaceTableSummaries_FrrdbProtectedInterfaceTableSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -29024,6 +29835,7 @@ func (frrdbProtectedInterfaceTableSummary *MplsForwarding_Nodes_Node_FrrDatabase
     frrdbProtectedInterfaceTableSummary.EntityData.BundleName = "cisco_ios_xr"
     frrdbProtectedInterfaceTableSummary.EntityData.ParentYangName = "frrdb-protected-interface-table-summaries"
     frrdbProtectedInterfaceTableSummary.EntityData.SegmentPath = "frrdb-protected-interface-table-summary" + types.AddKeyToken(frrdbProtectedInterfaceTableSummary.InterfaceName, "interface-name")
+    frrdbProtectedInterfaceTableSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-protected-interface-table-summaries/" + frrdbProtectedInterfaceTableSummary.EntityData.SegmentPath
     frrdbProtectedInterfaceTableSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbProtectedInterfaceTableSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbProtectedInterfaceTableSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29071,6 +29883,7 @@ func (frrdbTunnelMidpointSummary *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTun
     frrdbTunnelMidpointSummary.EntityData.BundleName = "cisco_ios_xr"
     frrdbTunnelMidpointSummary.EntityData.ParentYangName = "frr-database"
     frrdbTunnelMidpointSummary.EntityData.SegmentPath = "frrdb-tunnel-midpoint-summary"
+    frrdbTunnelMidpointSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/" + frrdbTunnelMidpointSummary.EntityData.SegmentPath
     frrdbTunnelMidpointSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbTunnelMidpointSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbTunnelMidpointSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29105,6 +29918,7 @@ func (frrdbTunnelMidpoints *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMid
     frrdbTunnelMidpoints.EntityData.BundleName = "cisco_ios_xr"
     frrdbTunnelMidpoints.EntityData.ParentYangName = "frr-database"
     frrdbTunnelMidpoints.EntityData.SegmentPath = "frrdb-tunnel-midpoints"
+    frrdbTunnelMidpoints.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/" + frrdbTunnelMidpoints.EntityData.SegmentPath
     frrdbTunnelMidpoints.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbTunnelMidpoints.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbTunnelMidpoints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29127,6 +29941,7 @@ func (frrdbTunnelMidpoints *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMid
 type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Local label value. The type is interface{} with
     // range: 16..1048575.
@@ -29148,6 +29963,7 @@ func (frrdbTunnelMidpoint *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidp
     frrdbTunnelMidpoint.EntityData.BundleName = "cisco_ios_xr"
     frrdbTunnelMidpoint.EntityData.ParentYangName = "frrdb-tunnel-midpoints"
     frrdbTunnelMidpoint.EntityData.SegmentPath = "frrdb-tunnel-midpoint" + types.AddKeyToken(frrdbTunnelMidpoint.LocalLabel, "local-label")
+    frrdbTunnelMidpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/" + frrdbTunnelMidpoint.EntityData.SegmentPath
     frrdbTunnelMidpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbTunnelMidpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbTunnelMidpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29219,6 +30035,7 @@ func (frrDb *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTun
     frrDb.EntityData.BundleName = "cisco_ios_xr"
     frrDb.EntityData.ParentYangName = "frrdb-tunnel-midpoint"
     frrDb.EntityData.SegmentPath = "frr-db"
+    frrDb.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/frrdb-tunnel-midpoint/" + frrDb.EntityData.SegmentPath
     frrDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29227,6 +30044,7 @@ func (frrDb *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTun
     frrDb.EntityData.Children.Append("frr-entry-id", types.YChild{"FrrEntryId", &frrDb.FrrEntryId})
     frrDb.EntityData.Children.Append("multicast-leg", types.YChild{"MulticastLeg", nil})
     for i := range frrDb.MulticastLeg {
+        types.SetYListKey(frrDb.MulticastLeg[i], i)
         frrDb.EntityData.Children.Append(types.GetSegmentPath(frrDb.MulticastLeg[i]), types.YChild{"MulticastLeg", frrDb.MulticastLeg[i]})
     }
     frrDb.EntityData.Leafs = types.NewOrderedMap()
@@ -29269,6 +30087,7 @@ func (frrEntryId *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_Frr
     frrEntryId.EntityData.BundleName = "cisco_ios_xr"
     frrEntryId.EntityData.ParentYangName = "frr-db"
     frrEntryId.EntityData.SegmentPath = "frr-entry-id"
+    frrEntryId.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/frrdb-tunnel-midpoint/frr-db/" + frrEntryId.EntityData.SegmentPath
     frrEntryId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrEntryId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrEntryId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29305,6 +30124,7 @@ func (head *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunn
     head.EntityData.BundleName = "cisco_ios_xr"
     head.EntityData.ParentYangName = "frr-entry-id"
     head.EntityData.SegmentPath = "head"
+    head.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/frrdb-tunnel-midpoint/frr-db/frr-entry-id/" + head.EntityData.SegmentPath
     head.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     head.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     head.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29342,6 +30162,7 @@ func (midpoint *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_Frrdb
     midpoint.EntityData.BundleName = "cisco_ios_xr"
     midpoint.EntityData.ParentYangName = "frr-entry-id"
     midpoint.EntityData.SegmentPath = "midpoint"
+    midpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/frrdb-tunnel-midpoint/frr-db/frr-entry-id/" + midpoint.EntityData.SegmentPath
     midpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     midpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     midpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29362,6 +30183,7 @@ func (midpoint *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_Frrdb
 type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunnelMidpoint_FrrDb_MulticastLeg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterfaceName interface{}
@@ -29400,7 +30222,8 @@ func (multicastLeg *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_F
     multicastLeg.EntityData.YangName = "multicast-leg"
     multicastLeg.EntityData.BundleName = "cisco_ios_xr"
     multicastLeg.EntityData.ParentYangName = "frr-db"
-    multicastLeg.EntityData.SegmentPath = "multicast-leg"
+    multicastLeg.EntityData.SegmentPath = "multicast-leg" + types.AddNoKeyToken(multicastLeg)
+    multicastLeg.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/frrdb-tunnel-midpoint/frr-db/" + multicastLeg.EntityData.SegmentPath
     multicastLeg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastLeg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastLeg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29445,6 +30268,7 @@ func (frrEntryId *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_Frr
     frrEntryId.EntityData.BundleName = "cisco_ios_xr"
     frrEntryId.EntityData.ParentYangName = "multicast-leg"
     frrEntryId.EntityData.SegmentPath = "frr-entry-id"
+    frrEntryId.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/frrdb-tunnel-midpoint/frr-db/multicast-leg/" + frrEntryId.EntityData.SegmentPath
     frrEntryId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrEntryId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrEntryId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29481,6 +30305,7 @@ func (head *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_FrrdbTunn
     head.EntityData.BundleName = "cisco_ios_xr"
     head.EntityData.ParentYangName = "frr-entry-id"
     head.EntityData.SegmentPath = "head"
+    head.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/frrdb-tunnel-midpoint/frr-db/multicast-leg/frr-entry-id/" + head.EntityData.SegmentPath
     head.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     head.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     head.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29518,6 +30343,7 @@ func (midpoint *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelMidpoints_Frrdb
     midpoint.EntityData.BundleName = "cisco_ios_xr"
     midpoint.EntityData.ParentYangName = "frr-entry-id"
     midpoint.EntityData.SegmentPath = "midpoint"
+    midpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-midpoints/frrdb-tunnel-midpoint/frr-db/multicast-leg/frr-entry-id/" + midpoint.EntityData.SegmentPath
     midpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     midpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     midpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29551,6 +30377,7 @@ func (frrdbTunnelHeads *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads) 
     frrdbTunnelHeads.EntityData.BundleName = "cisco_ios_xr"
     frrdbTunnelHeads.EntityData.ParentYangName = "frr-database"
     frrdbTunnelHeads.EntityData.SegmentPath = "frrdb-tunnel-heads"
+    frrdbTunnelHeads.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/" + frrdbTunnelHeads.EntityData.SegmentPath
     frrdbTunnelHeads.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbTunnelHeads.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbTunnelHeads.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29573,6 +30400,7 @@ func (frrdbTunnelHeads *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads) 
 type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -29594,6 +30422,7 @@ func (frrdbTunnelHead *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_Fr
     frrdbTunnelHead.EntityData.BundleName = "cisco_ios_xr"
     frrdbTunnelHead.EntityData.ParentYangName = "frrdb-tunnel-heads"
     frrdbTunnelHead.EntityData.SegmentPath = "frrdb-tunnel-head" + types.AddKeyToken(frrdbTunnelHead.InterfaceName, "interface-name")
+    frrdbTunnelHead.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/" + frrdbTunnelHead.EntityData.SegmentPath
     frrdbTunnelHead.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbTunnelHead.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbTunnelHead.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29665,6 +30494,7 @@ func (frrDb *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelH
     frrDb.EntityData.BundleName = "cisco_ios_xr"
     frrDb.EntityData.ParentYangName = "frrdb-tunnel-head"
     frrDb.EntityData.SegmentPath = "frr-db"
+    frrDb.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/frrdb-tunnel-head/" + frrDb.EntityData.SegmentPath
     frrDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29673,6 +30503,7 @@ func (frrDb *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelH
     frrDb.EntityData.Children.Append("frr-entry-id", types.YChild{"FrrEntryId", &frrDb.FrrEntryId})
     frrDb.EntityData.Children.Append("multicast-leg", types.YChild{"MulticastLeg", nil})
     for i := range frrDb.MulticastLeg {
+        types.SetYListKey(frrDb.MulticastLeg[i], i)
         frrDb.EntityData.Children.Append(types.GetSegmentPath(frrDb.MulticastLeg[i]), types.YChild{"MulticastLeg", frrDb.MulticastLeg[i]})
     }
     frrDb.EntityData.Leafs = types.NewOrderedMap()
@@ -29715,6 +30546,7 @@ func (frrEntryId *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTu
     frrEntryId.EntityData.BundleName = "cisco_ios_xr"
     frrEntryId.EntityData.ParentYangName = "frr-db"
     frrEntryId.EntityData.SegmentPath = "frr-entry-id"
+    frrEntryId.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/frrdb-tunnel-head/frr-db/" + frrEntryId.EntityData.SegmentPath
     frrEntryId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrEntryId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrEntryId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29751,6 +30583,7 @@ func (head *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHe
     head.EntityData.BundleName = "cisco_ios_xr"
     head.EntityData.ParentYangName = "frr-entry-id"
     head.EntityData.SegmentPath = "head"
+    head.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/frrdb-tunnel-head/frr-db/frr-entry-id/" + head.EntityData.SegmentPath
     head.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     head.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     head.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29788,6 +30621,7 @@ func (midpoint *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunn
     midpoint.EntityData.BundleName = "cisco_ios_xr"
     midpoint.EntityData.ParentYangName = "frr-entry-id"
     midpoint.EntityData.SegmentPath = "midpoint"
+    midpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/frrdb-tunnel-head/frr-db/frr-entry-id/" + midpoint.EntityData.SegmentPath
     midpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     midpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     midpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29808,6 +30642,7 @@ func (midpoint *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunn
 type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHead_FrrDb_MulticastLeg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterfaceName interface{}
@@ -29846,7 +30681,8 @@ func (multicastLeg *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_Frrdb
     multicastLeg.EntityData.YangName = "multicast-leg"
     multicastLeg.EntityData.BundleName = "cisco_ios_xr"
     multicastLeg.EntityData.ParentYangName = "frr-db"
-    multicastLeg.EntityData.SegmentPath = "multicast-leg"
+    multicastLeg.EntityData.SegmentPath = "multicast-leg" + types.AddNoKeyToken(multicastLeg)
+    multicastLeg.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/frrdb-tunnel-head/frr-db/" + multicastLeg.EntityData.SegmentPath
     multicastLeg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     multicastLeg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     multicastLeg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29891,6 +30727,7 @@ func (frrEntryId *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTu
     frrEntryId.EntityData.BundleName = "cisco_ios_xr"
     frrEntryId.EntityData.ParentYangName = "multicast-leg"
     frrEntryId.EntityData.SegmentPath = "frr-entry-id"
+    frrEntryId.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/frrdb-tunnel-head/frr-db/multicast-leg/" + frrEntryId.EntityData.SegmentPath
     frrEntryId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrEntryId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrEntryId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29927,6 +30764,7 @@ func (head *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunnelHe
     head.EntityData.BundleName = "cisco_ios_xr"
     head.EntityData.ParentYangName = "frr-entry-id"
     head.EntityData.SegmentPath = "head"
+    head.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/frrdb-tunnel-head/frr-db/multicast-leg/frr-entry-id/" + head.EntityData.SegmentPath
     head.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     head.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     head.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29964,6 +30802,7 @@ func (midpoint *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelHeads_FrrdbTunn
     midpoint.EntityData.BundleName = "cisco_ios_xr"
     midpoint.EntityData.ParentYangName = "frr-entry-id"
     midpoint.EntityData.SegmentPath = "midpoint"
+    midpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-tunnel-heads/frrdb-tunnel-head/frr-db/multicast-leg/frr-entry-id/" + midpoint.EntityData.SegmentPath
     midpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     midpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     midpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30009,6 +30848,7 @@ func (frrdbTunnelHeadSummary *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbTunnelH
     frrdbTunnelHeadSummary.EntityData.BundleName = "cisco_ios_xr"
     frrdbTunnelHeadSummary.EntityData.ParentYangName = "frr-database"
     frrdbTunnelHeadSummary.EntityData.SegmentPath = "frrdb-tunnel-head-summary"
+    frrdbTunnelHeadSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/" + frrdbTunnelHeadSummary.EntityData.SegmentPath
     frrdbTunnelHeadSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbTunnelHeadSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbTunnelHeadSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30043,6 +30883,7 @@ func (frrdbBackupInterfaceSummaries *MplsForwarding_Nodes_Node_FrrDatabase_Frrdb
     frrdbBackupInterfaceSummaries.EntityData.BundleName = "cisco_ios_xr"
     frrdbBackupInterfaceSummaries.EntityData.ParentYangName = "frr-database"
     frrdbBackupInterfaceSummaries.EntityData.SegmentPath = "frrdb-backup-interface-summaries"
+    frrdbBackupInterfaceSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/" + frrdbBackupInterfaceSummaries.EntityData.SegmentPath
     frrdbBackupInterfaceSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbBackupInterfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbBackupInterfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30065,6 +30906,7 @@ func (frrdbBackupInterfaceSummaries *MplsForwarding_Nodes_Node_FrrDatabase_Frrdb
 type MplsForwarding_Nodes_Node_FrrDatabase_FrrdbBackupInterfaceSummaries_FrrdbBackupInterfaceSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -30093,6 +30935,7 @@ func (frrdbBackupInterfaceSummary *MplsForwarding_Nodes_Node_FrrDatabase_FrrdbBa
     frrdbBackupInterfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     frrdbBackupInterfaceSummary.EntityData.ParentYangName = "frrdb-backup-interface-summaries"
     frrdbBackupInterfaceSummary.EntityData.SegmentPath = "frrdb-backup-interface-summary" + types.AddKeyToken(frrdbBackupInterfaceSummary.InterfaceName, "interface-name")
+    frrdbBackupInterfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-oper:mpls-forwarding/nodes/node/frr-database/frrdb-backup-interface-summaries/" + frrdbBackupInterfaceSummary.EntityData.SegmentPath
     frrdbBackupInterfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frrdbBackupInterfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frrdbBackupInterfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

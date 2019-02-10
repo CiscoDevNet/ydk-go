@@ -40,6 +40,7 @@ func (processesMemory *ProcessesMemory) GetEntityData() *types.CommonEntityData 
     processesMemory.EntityData.BundleName = "cisco_ios_xr"
     processesMemory.EntityData.ParentYangName = "Cisco-IOS-XR-procmem-oper"
     processesMemory.EntityData.SegmentPath = "Cisco-IOS-XR-procmem-oper:processes-memory"
+    processesMemory.EntityData.AbsolutePath = processesMemory.EntityData.SegmentPath
     processesMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processesMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processesMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (nodes *ProcessesMemory_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "processes-memory"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-procmem-oper:processes-memory/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -90,6 +92,7 @@ func (nodes *ProcessesMemory_Nodes) GetEntityData() *types.CommonEntityData {
 type ProcessesMemory_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -105,6 +108,7 @@ func (node *ProcessesMemory_Nodes_Node) GetEntityData() *types.CommonEntityData 
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-procmem-oper:processes-memory/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -136,6 +140,7 @@ func (processIds *ProcessesMemory_Nodes_Node_ProcessIds) GetEntityData() *types.
     processIds.EntityData.BundleName = "cisco_ios_xr"
     processIds.EntityData.ParentYangName = "node"
     processIds.EntityData.SegmentPath = "process-ids"
+    processIds.EntityData.AbsolutePath = "Cisco-IOS-XR-procmem-oper:processes-memory/nodes/node/" + processIds.EntityData.SegmentPath
     processIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -157,6 +162,7 @@ func (processIds *ProcessesMemory_Nodes_Node_ProcessIds) GetEntityData() *types.
 type ProcessesMemory_Nodes_Node_ProcessIds_ProcessId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Process Id. The type is interface{} with range:
     // 0..4294967295.
@@ -204,6 +210,7 @@ func (processId *ProcessesMemory_Nodes_Node_ProcessIds_ProcessId) GetEntityData(
     processId.EntityData.BundleName = "cisco_ios_xr"
     processId.EntityData.ParentYangName = "process-ids"
     processId.EntityData.SegmentPath = "process-id" + types.AddKeyToken(processId.ProcessId, "process-id")
+    processId.EntityData.AbsolutePath = "Cisco-IOS-XR-procmem-oper:processes-memory/nodes/node/process-ids/" + processId.EntityData.SegmentPath
     processId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

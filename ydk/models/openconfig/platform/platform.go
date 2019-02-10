@@ -67,6 +67,7 @@ func (components *Components) GetEntityData() *types.CommonEntityData {
     components.EntityData.BundleName = "openconfig"
     components.EntityData.ParentYangName = "openconfig-platform"
     components.EntityData.SegmentPath = "openconfig-platform:components"
+    components.EntityData.AbsolutePath = components.EntityData.SegmentPath
     components.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     components.EntityData.NamespaceTable = openconfig.GetNamespaces()
     components.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -88,6 +89,7 @@ func (components *Components) GetEntityData() *types.CommonEntityData {
 type Components_Component struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. References the component name. The type is string.
     // Refers to platform.Components_Component_Config_Name
@@ -105,14 +107,14 @@ type Components_Component struct {
     // Enclosing container for subcomponent references.
     Subcomponents Components_Component_Subcomponents
 
-    // Top-level container .
-    OpticalPort Components_Component_OpticalPort
-
     // Top-level container for client port transceiver data.
     Transceiver Components_Component_Transceiver
 
     // Enclosing container for the list of optical channels.
     OpticalChannel Components_Component_OpticalChannel
+
+    // Top-level container .
+    OpticalPort Components_Component_OpticalPort
 }
 
 func (component *Components_Component) GetEntityData() *types.CommonEntityData {
@@ -121,6 +123,7 @@ func (component *Components_Component) GetEntityData() *types.CommonEntityData {
     component.EntityData.BundleName = "openconfig"
     component.EntityData.ParentYangName = "components"
     component.EntityData.SegmentPath = "component" + types.AddKeyToken(component.Name, "name")
+    component.EntityData.AbsolutePath = "openconfig-platform:components/" + component.EntityData.SegmentPath
     component.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     component.EntityData.NamespaceTable = openconfig.GetNamespaces()
     component.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -130,9 +133,9 @@ func (component *Components_Component) GetEntityData() *types.CommonEntityData {
     component.EntityData.Children.Append("state", types.YChild{"State", &component.State})
     component.EntityData.Children.Append("properties", types.YChild{"Properties", &component.Properties})
     component.EntityData.Children.Append("subcomponents", types.YChild{"Subcomponents", &component.Subcomponents})
-    component.EntityData.Children.Append("openconfig-transport-line-common:optical-port", types.YChild{"OpticalPort", &component.OpticalPort})
     component.EntityData.Children.Append("openconfig-platform-transceiver:transceiver", types.YChild{"Transceiver", &component.Transceiver})
     component.EntityData.Children.Append("openconfig-terminal-device:optical-channel", types.YChild{"OpticalChannel", &component.OpticalChannel})
+    component.EntityData.Children.Append("openconfig-transport-line-common:optical-port", types.YChild{"OpticalPort", &component.OpticalPort})
     component.EntityData.Leafs = types.NewOrderedMap()
     component.EntityData.Leafs.Append("name", types.YLeaf{"Name", component.Name})
 
@@ -158,6 +161,7 @@ func (config *Components_Component_Config) GetEntityData() *types.CommonEntityDa
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "component"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-platform:components/component/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -219,6 +223,7 @@ func (state *Components_Component_State) GetEntityData() *types.CommonEntityData
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "component"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-platform:components/component/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -256,6 +261,7 @@ func (properties *Components_Component_Properties) GetEntityData() *types.Common
     properties.EntityData.BundleName = "openconfig"
     properties.EntityData.ParentYangName = "component"
     properties.EntityData.SegmentPath = "properties"
+    properties.EntityData.AbsolutePath = "openconfig-platform:components/component/" + properties.EntityData.SegmentPath
     properties.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     properties.EntityData.NamespaceTable = openconfig.GetNamespaces()
     properties.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -277,6 +283,7 @@ func (properties *Components_Component_Properties) GetEntityData() *types.Common
 type Components_Component_Properties_Property struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the property name. The type is
     // string. Refers to
@@ -296,6 +303,7 @@ func (property *Components_Component_Properties_Property) GetEntityData() *types
     property.EntityData.BundleName = "openconfig"
     property.EntityData.ParentYangName = "properties"
     property.EntityData.SegmentPath = "property" + types.AddKeyToken(property.Name, "name")
+    property.EntityData.AbsolutePath = "openconfig-platform:components/component/properties/" + property.EntityData.SegmentPath
     property.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     property.EntityData.NamespaceTable = openconfig.GetNamespaces()
     property.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -336,6 +344,7 @@ func (config *Components_Component_Properties_Property_Config) GetEntityData() *
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "property"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-platform:components/component/properties/property/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -378,6 +387,7 @@ func (state *Components_Component_Properties_Property_State) GetEntityData() *ty
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "property"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-platform:components/component/properties/property/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -410,6 +420,7 @@ func (subcomponents *Components_Component_Subcomponents) GetEntityData() *types.
     subcomponents.EntityData.BundleName = "openconfig"
     subcomponents.EntityData.ParentYangName = "component"
     subcomponents.EntityData.SegmentPath = "subcomponents"
+    subcomponents.EntityData.AbsolutePath = "openconfig-platform:components/component/" + subcomponents.EntityData.SegmentPath
     subcomponents.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subcomponents.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subcomponents.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -431,6 +442,7 @@ func (subcomponents *Components_Component_Subcomponents) GetEntityData() *types.
 type Components_Component_Subcomponents_Subcomponent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the name list key. The type is
     // string. Refers to
@@ -450,6 +462,7 @@ func (subcomponent *Components_Component_Subcomponents_Subcomponent) GetEntityDa
     subcomponent.EntityData.BundleName = "openconfig"
     subcomponent.EntityData.ParentYangName = "subcomponents"
     subcomponent.EntityData.SegmentPath = "subcomponent" + types.AddKeyToken(subcomponent.Name, "name")
+    subcomponent.EntityData.AbsolutePath = "openconfig-platform:components/component/subcomponents/" + subcomponent.EntityData.SegmentPath
     subcomponent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     subcomponent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     subcomponent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -482,6 +495,7 @@ func (config *Components_Component_Subcomponents_Subcomponent_Config) GetEntityD
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "subcomponent"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-platform:components/component/subcomponents/subcomponent/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -512,6 +526,7 @@ func (state *Components_Component_Subcomponents_Subcomponent_State) GetEntityDat
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "subcomponent"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-platform:components/component/subcomponents/subcomponent/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -523,214 +538,6 @@ func (state *Components_Component_Subcomponents_Subcomponent_State) GetEntityDat
     state.EntityData.YListKeys = []string {}
 
     return &(state.EntityData)
-}
-
-// Components_Component_OpticalPort
-// Top-level container 
-type Components_Component_OpticalPort struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Operational config data for optical line ports.
-    Config Components_Component_OpticalPort_Config
-
-    // Operational state data for optical line ports.
-    State Components_Component_OpticalPort_State
-}
-
-func (opticalPort *Components_Component_OpticalPort) GetEntityData() *types.CommonEntityData {
-    opticalPort.EntityData.YFilter = opticalPort.YFilter
-    opticalPort.EntityData.YangName = "optical-port"
-    opticalPort.EntityData.BundleName = "openconfig"
-    opticalPort.EntityData.ParentYangName = "component"
-    opticalPort.EntityData.SegmentPath = "openconfig-transport-line-common:optical-port"
-    opticalPort.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    opticalPort.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    opticalPort.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    opticalPort.EntityData.Children = types.NewOrderedMap()
-    opticalPort.EntityData.Children.Append("config", types.YChild{"Config", &opticalPort.Config})
-    opticalPort.EntityData.Children.Append("state", types.YChild{"State", &opticalPort.State})
-    opticalPort.EntityData.Leafs = types.NewOrderedMap()
-
-    opticalPort.EntityData.YListKeys = []string {}
-
-    return &(opticalPort.EntityData)
-}
-
-// Components_Component_OpticalPort_Config
-// Operational config data for optical line ports
-type Components_Component_OpticalPort_Config struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Sets the admin state of the optical-port. The type is AdminStateType.
-    AdminState interface{}
-}
-
-func (config *Components_Component_OpticalPort_Config) GetEntityData() *types.CommonEntityData {
-    config.EntityData.YFilter = config.YFilter
-    config.EntityData.YangName = "config"
-    config.EntityData.BundleName = "openconfig"
-    config.EntityData.ParentYangName = "optical-port"
-    config.EntityData.SegmentPath = "config"
-    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    config.EntityData.Children = types.NewOrderedMap()
-    config.EntityData.Leafs = types.NewOrderedMap()
-    config.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", config.AdminState})
-
-    config.EntityData.YListKeys = []string {}
-
-    return &(config.EntityData)
-}
-
-// Components_Component_OpticalPort_State
-// Operational state data for optical line ports
-type Components_Component_OpticalPort_State struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Sets the admin state of the optical-port. The type is AdminStateType.
-    AdminState interface{}
-
-    // Indicates the type of transport line port.  This is an informational field
-    // that should be made available by the device (e.g., in the
-    // openconfig-platform model). The type is one of the following:
-    // INGRESSMONITORDROPADDEGRESS.
-    OpticalPortType interface{}
-
-    // The total input optical power of this port in units of 0.01dBm. If
-    // avg/min/max statistics are not supported, just supply the instant value.
-    InputPower Components_Component_OpticalPort_State_InputPower
-
-    // The total output optical power of this port in units of 0.01dBm. If
-    // avg/min/max statistics are not supported, just supply the instant value.
-    OutputPower Components_Component_OpticalPort_State_OutputPower
-}
-
-func (state *Components_Component_OpticalPort_State) GetEntityData() *types.CommonEntityData {
-    state.EntityData.YFilter = state.YFilter
-    state.EntityData.YangName = "state"
-    state.EntityData.BundleName = "openconfig"
-    state.EntityData.ParentYangName = "optical-port"
-    state.EntityData.SegmentPath = "state"
-    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    state.EntityData.Children = types.NewOrderedMap()
-    state.EntityData.Children.Append("input-power", types.YChild{"InputPower", &state.InputPower})
-    state.EntityData.Children.Append("output-power", types.YChild{"OutputPower", &state.OutputPower})
-    state.EntityData.Leafs = types.NewOrderedMap()
-    state.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", state.AdminState})
-    state.EntityData.Leafs.Append("optical-port-type", types.YLeaf{"OpticalPortType", state.OpticalPortType})
-
-    state.EntityData.YListKeys = []string {}
-
-    return &(state.EntityData)
-}
-
-// Components_Component_OpticalPort_State_InputPower
-// The total input optical power of this port in units
-// of 0.01dBm. If avg/min/max statistics are not supported,
-// just supply the instant value
-type Components_Component_OpticalPort_State_InputPower struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The instantaneous value of the statistic. The type is string with range:
-    // -92233720368547758.08..92233720368547758.07. Units are dBm.
-    Instant interface{}
-
-    // The arithmetic mean value of the statistic over the sampling period. The
-    // type is string with range: -92233720368547758.08..92233720368547758.07.
-    // Units are dBm.
-    Avg interface{}
-
-    // The minimum value of the statistic over the sampling period. The type is
-    // string with range: -92233720368547758.08..92233720368547758.07. Units are
-    // dBm.
-    Min interface{}
-
-    // The maximum value of the statistic over the sampling period. The type is
-    // string with range: -92233720368547758.08..92233720368547758.07. Units are
-    // dBm.
-    Max interface{}
-}
-
-func (inputPower *Components_Component_OpticalPort_State_InputPower) GetEntityData() *types.CommonEntityData {
-    inputPower.EntityData.YFilter = inputPower.YFilter
-    inputPower.EntityData.YangName = "input-power"
-    inputPower.EntityData.BundleName = "openconfig"
-    inputPower.EntityData.ParentYangName = "state"
-    inputPower.EntityData.SegmentPath = "input-power"
-    inputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    inputPower.EntityData.Children = types.NewOrderedMap()
-    inputPower.EntityData.Leafs = types.NewOrderedMap()
-    inputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPower.Instant})
-    inputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPower.Avg})
-    inputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPower.Min})
-    inputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPower.Max})
-
-    inputPower.EntityData.YListKeys = []string {}
-
-    return &(inputPower.EntityData)
-}
-
-// Components_Component_OpticalPort_State_OutputPower
-// The total output optical power of this port in units
-// of 0.01dBm. If avg/min/max statistics are not supported,
-// just supply the instant value
-type Components_Component_OpticalPort_State_OutputPower struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The instantaneous value of the statistic. The type is string with range:
-    // -92233720368547758.08..92233720368547758.07. Units are dBm.
-    Instant interface{}
-
-    // The arithmetic mean value of the statistic over the sampling period. The
-    // type is string with range: -92233720368547758.08..92233720368547758.07.
-    // Units are dBm.
-    Avg interface{}
-
-    // The minimum value of the statistic over the sampling period. The type is
-    // string with range: -92233720368547758.08..92233720368547758.07. Units are
-    // dBm.
-    Min interface{}
-
-    // The maximum value of the statistic over the sampling period. The type is
-    // string with range: -92233720368547758.08..92233720368547758.07. Units are
-    // dBm.
-    Max interface{}
-}
-
-func (outputPower *Components_Component_OpticalPort_State_OutputPower) GetEntityData() *types.CommonEntityData {
-    outputPower.EntityData.YFilter = outputPower.YFilter
-    outputPower.EntityData.YangName = "output-power"
-    outputPower.EntityData.BundleName = "openconfig"
-    outputPower.EntityData.ParentYangName = "state"
-    outputPower.EntityData.SegmentPath = "output-power"
-    outputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
-    outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
-    outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
-
-    outputPower.EntityData.Children = types.NewOrderedMap()
-    outputPower.EntityData.Leafs = types.NewOrderedMap()
-    outputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPower.Instant})
-    outputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPower.Avg})
-    outputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPower.Min})
-    outputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPower.Max})
-
-    outputPower.EntityData.YListKeys = []string {}
-
-    return &(outputPower.EntityData)
 }
 
 // Components_Component_Transceiver
@@ -755,6 +562,7 @@ func (transceiver *Components_Component_Transceiver) GetEntityData() *types.Comm
     transceiver.EntityData.BundleName = "openconfig"
     transceiver.EntityData.ParentYangName = "component"
     transceiver.EntityData.SegmentPath = "openconfig-platform-transceiver:transceiver"
+    transceiver.EntityData.AbsolutePath = "openconfig-platform:components/component/" + transceiver.EntityData.SegmentPath
     transceiver.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     transceiver.EntityData.NamespaceTable = openconfig.GetNamespaces()
     transceiver.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -803,6 +611,7 @@ func (config *Components_Component_Transceiver_Config) GetEntityData() *types.Co
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "transceiver"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -908,6 +717,7 @@ func (state *Components_Component_Transceiver_State) GetEntityData() *types.Comm
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "transceiver"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -964,6 +774,7 @@ func (physicalChannels *Components_Component_Transceiver_PhysicalChannels) GetEn
     physicalChannels.EntityData.BundleName = "openconfig"
     physicalChannels.EntityData.ParentYangName = "transceiver"
     physicalChannels.EntityData.SegmentPath = "physical-channels"
+    physicalChannels.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/" + physicalChannels.EntityData.SegmentPath
     physicalChannels.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     physicalChannels.EntityData.NamespaceTable = openconfig.GetNamespaces()
     physicalChannels.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -987,6 +798,7 @@ func (physicalChannels *Components_Component_Transceiver_PhysicalChannels) GetEn
 type Components_Component_Transceiver_PhysicalChannels_Channel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the index number of the channel. The
     // type is string with range: 0..65535. Refers to
@@ -1006,6 +818,7 @@ func (channel *Components_Component_Transceiver_PhysicalChannels_Channel) GetEnt
     channel.EntityData.BundleName = "openconfig"
     channel.EntityData.ParentYangName = "physical-channels"
     channel.EntityData.SegmentPath = "channel" + types.AddKeyToken(channel.Index, "index")
+    channel.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/physical-channels/" + channel.EntityData.SegmentPath
     channel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     channel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     channel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1050,6 +863,7 @@ func (config *Components_Component_Transceiver_PhysicalChannels_Channel_Config) 
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "channel"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/physical-channels/channel/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1119,6 +933,7 @@ func (state *Components_Component_Transceiver_PhysicalChannels_Channel_State) Ge
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "channel"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/physical-channels/channel/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1172,6 +987,7 @@ func (outputPower *Components_Component_Transceiver_PhysicalChannels_Channel_Sta
     outputPower.EntityData.BundleName = "openconfig"
     outputPower.EntityData.ParentYangName = "state"
     outputPower.EntityData.SegmentPath = "output-power"
+    outputPower.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/physical-channels/channel/state/" + outputPower.EntityData.SegmentPath
     outputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1221,6 +1037,7 @@ func (inputPower *Components_Component_Transceiver_PhysicalChannels_Channel_Stat
     inputPower.EntityData.BundleName = "openconfig"
     inputPower.EntityData.ParentYangName = "state"
     inputPower.EntityData.SegmentPath = "input-power"
+    inputPower.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/physical-channels/channel/state/" + inputPower.EntityData.SegmentPath
     inputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1270,6 +1087,7 @@ func (laserBiasCurrent *Components_Component_Transceiver_PhysicalChannels_Channe
     laserBiasCurrent.EntityData.BundleName = "openconfig"
     laserBiasCurrent.EntityData.ParentYangName = "state"
     laserBiasCurrent.EntityData.SegmentPath = "laser-bias-current"
+    laserBiasCurrent.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-platform-transceiver:transceiver/physical-channels/channel/state/" + laserBiasCurrent.EntityData.SegmentPath
     laserBiasCurrent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     laserBiasCurrent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1305,6 +1123,7 @@ func (opticalChannel *Components_Component_OpticalChannel) GetEntityData() *type
     opticalChannel.EntityData.BundleName = "openconfig"
     opticalChannel.EntityData.ParentYangName = "component"
     opticalChannel.EntityData.SegmentPath = "openconfig-terminal-device:optical-channel"
+    opticalChannel.EntityData.AbsolutePath = "openconfig-platform:components/component/" + opticalChannel.EntityData.SegmentPath
     opticalChannel.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     opticalChannel.EntityData.NamespaceTable = openconfig.GetNamespaces()
     opticalChannel.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1350,6 +1169,7 @@ func (config *Components_Component_OpticalChannel_Config) GetEntityData() *types
     config.EntityData.BundleName = "openconfig"
     config.EntityData.ParentYangName = "optical-channel"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     config.EntityData.NamespaceTable = openconfig.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1437,6 +1257,7 @@ func (state *Components_Component_OpticalChannel_State) GetEntityData() *types.C
     state.EntityData.BundleName = "openconfig"
     state.EntityData.ParentYangName = "optical-channel"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     state.EntityData.NamespaceTable = openconfig.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1494,6 +1315,7 @@ func (outputPower *Components_Component_OpticalChannel_State_OutputPower) GetEnt
     outputPower.EntityData.BundleName = "openconfig"
     outputPower.EntityData.ParentYangName = "state"
     outputPower.EntityData.SegmentPath = "output-power"
+    outputPower.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/state/" + outputPower.EntityData.SegmentPath
     outputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1543,6 +1365,7 @@ func (inputPower *Components_Component_OpticalChannel_State_InputPower) GetEntit
     inputPower.EntityData.BundleName = "openconfig"
     inputPower.EntityData.ParentYangName = "state"
     inputPower.EntityData.SegmentPath = "input-power"
+    inputPower.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/state/" + inputPower.EntityData.SegmentPath
     inputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
     inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1592,6 +1415,7 @@ func (laserBiasCurrent *Components_Component_OpticalChannel_State_LaserBiasCurre
     laserBiasCurrent.EntityData.BundleName = "openconfig"
     laserBiasCurrent.EntityData.ParentYangName = "state"
     laserBiasCurrent.EntityData.SegmentPath = "laser-bias-current"
+    laserBiasCurrent.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/state/" + laserBiasCurrent.EntityData.SegmentPath
     laserBiasCurrent.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     laserBiasCurrent.EntityData.NamespaceTable = openconfig.GetNamespaces()
     laserBiasCurrent.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1638,6 +1462,7 @@ func (chromaticDispersion *Components_Component_OpticalChannel_State_ChromaticDi
     chromaticDispersion.EntityData.BundleName = "openconfig"
     chromaticDispersion.EntityData.ParentYangName = "state"
     chromaticDispersion.EntityData.SegmentPath = "chromatic-dispersion"
+    chromaticDispersion.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/state/" + chromaticDispersion.EntityData.SegmentPath
     chromaticDispersion.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     chromaticDispersion.EntityData.NamespaceTable = openconfig.GetNamespaces()
     chromaticDispersion.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1684,6 +1509,7 @@ func (polarizationModeDispersion *Components_Component_OpticalChannel_State_Pola
     polarizationModeDispersion.EntityData.BundleName = "openconfig"
     polarizationModeDispersion.EntityData.ParentYangName = "state"
     polarizationModeDispersion.EntityData.SegmentPath = "polarization-mode-dispersion"
+    polarizationModeDispersion.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/state/" + polarizationModeDispersion.EntityData.SegmentPath
     polarizationModeDispersion.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     polarizationModeDispersion.EntityData.NamespaceTable = openconfig.GetNamespaces()
     polarizationModeDispersion.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1730,6 +1556,7 @@ func (secondOrderPolarizationModeDispersion *Components_Component_OpticalChannel
     secondOrderPolarizationModeDispersion.EntityData.BundleName = "openconfig"
     secondOrderPolarizationModeDispersion.EntityData.ParentYangName = "state"
     secondOrderPolarizationModeDispersion.EntityData.SegmentPath = "second-order-polarization-mode-dispersion"
+    secondOrderPolarizationModeDispersion.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/state/" + secondOrderPolarizationModeDispersion.EntityData.SegmentPath
     secondOrderPolarizationModeDispersion.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     secondOrderPolarizationModeDispersion.EntityData.NamespaceTable = openconfig.GetNamespaces()
     secondOrderPolarizationModeDispersion.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1776,6 +1603,7 @@ func (polarizationDependentLoss *Components_Component_OpticalChannel_State_Polar
     polarizationDependentLoss.EntityData.BundleName = "openconfig"
     polarizationDependentLoss.EntityData.ParentYangName = "state"
     polarizationDependentLoss.EntityData.SegmentPath = "polarization-dependent-loss"
+    polarizationDependentLoss.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-terminal-device:optical-channel/state/" + polarizationDependentLoss.EntityData.SegmentPath
     polarizationDependentLoss.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
     polarizationDependentLoss.EntityData.NamespaceTable = openconfig.GetNamespaces()
     polarizationDependentLoss.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
@@ -1790,5 +1618,218 @@ func (polarizationDependentLoss *Components_Component_OpticalChannel_State_Polar
     polarizationDependentLoss.EntityData.YListKeys = []string {}
 
     return &(polarizationDependentLoss.EntityData)
+}
+
+// Components_Component_OpticalPort
+// Top-level container 
+type Components_Component_OpticalPort struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Operational config data for optical line ports.
+    Config Components_Component_OpticalPort_Config
+
+    // Operational state data for optical line ports.
+    State Components_Component_OpticalPort_State
+}
+
+func (opticalPort *Components_Component_OpticalPort) GetEntityData() *types.CommonEntityData {
+    opticalPort.EntityData.YFilter = opticalPort.YFilter
+    opticalPort.EntityData.YangName = "optical-port"
+    opticalPort.EntityData.BundleName = "openconfig"
+    opticalPort.EntityData.ParentYangName = "component"
+    opticalPort.EntityData.SegmentPath = "openconfig-transport-line-common:optical-port"
+    opticalPort.EntityData.AbsolutePath = "openconfig-platform:components/component/" + opticalPort.EntityData.SegmentPath
+    opticalPort.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    opticalPort.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    opticalPort.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    opticalPort.EntityData.Children = types.NewOrderedMap()
+    opticalPort.EntityData.Children.Append("config", types.YChild{"Config", &opticalPort.Config})
+    opticalPort.EntityData.Children.Append("state", types.YChild{"State", &opticalPort.State})
+    opticalPort.EntityData.Leafs = types.NewOrderedMap()
+
+    opticalPort.EntityData.YListKeys = []string {}
+
+    return &(opticalPort.EntityData)
+}
+
+// Components_Component_OpticalPort_Config
+// Operational config data for optical line ports
+type Components_Component_OpticalPort_Config struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sets the admin state of the optical-port. The type is AdminStateType.
+    AdminState interface{}
+}
+
+func (config *Components_Component_OpticalPort_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "optical-port"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-transport-line-common:optical-port/" + config.EntityData.SegmentPath
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    config.EntityData.Children = types.NewOrderedMap()
+    config.EntityData.Leafs = types.NewOrderedMap()
+    config.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", config.AdminState})
+
+    config.EntityData.YListKeys = []string {}
+
+    return &(config.EntityData)
+}
+
+// Components_Component_OpticalPort_State
+// Operational state data for optical line ports
+type Components_Component_OpticalPort_State struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Sets the admin state of the optical-port. The type is AdminStateType.
+    AdminState interface{}
+
+    // Indicates the type of transport line port.  This is an informational field
+    // that should be made available by the device (e.g., in the
+    // openconfig-platform model). The type is one of the following:
+    // INGRESSMONITORDROPADDEGRESS.
+    OpticalPortType interface{}
+
+    // The total input optical power of this port in units of 0.01dBm. If
+    // avg/min/max statistics are not supported, just supply the instant value.
+    InputPower Components_Component_OpticalPort_State_InputPower
+
+    // The total output optical power of this port in units of 0.01dBm. If
+    // avg/min/max statistics are not supported, just supply the instant value.
+    OutputPower Components_Component_OpticalPort_State_OutputPower
+}
+
+func (state *Components_Component_OpticalPort_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "optical-port"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-transport-line-common:optical-port/" + state.EntityData.SegmentPath
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    state.EntityData.Children = types.NewOrderedMap()
+    state.EntityData.Children.Append("input-power", types.YChild{"InputPower", &state.InputPower})
+    state.EntityData.Children.Append("output-power", types.YChild{"OutputPower", &state.OutputPower})
+    state.EntityData.Leafs = types.NewOrderedMap()
+    state.EntityData.Leafs.Append("admin-state", types.YLeaf{"AdminState", state.AdminState})
+    state.EntityData.Leafs.Append("optical-port-type", types.YLeaf{"OpticalPortType", state.OpticalPortType})
+
+    state.EntityData.YListKeys = []string {}
+
+    return &(state.EntityData)
+}
+
+// Components_Component_OpticalPort_State_InputPower
+// The total input optical power of this port in units
+// of 0.01dBm. If avg/min/max statistics are not supported,
+// just supply the instant value
+type Components_Component_OpticalPort_State_InputPower struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The instantaneous value of the statistic. The type is string with range:
+    // -92233720368547758.08..92233720368547758.07. Units are dBm.
+    Instant interface{}
+
+    // The arithmetic mean value of the statistic over the sampling period. The
+    // type is string with range: -92233720368547758.08..92233720368547758.07.
+    // Units are dBm.
+    Avg interface{}
+
+    // The minimum value of the statistic over the sampling period. The type is
+    // string with range: -92233720368547758.08..92233720368547758.07. Units are
+    // dBm.
+    Min interface{}
+
+    // The maximum value of the statistic over the sampling period. The type is
+    // string with range: -92233720368547758.08..92233720368547758.07. Units are
+    // dBm.
+    Max interface{}
+}
+
+func (inputPower *Components_Component_OpticalPort_State_InputPower) GetEntityData() *types.CommonEntityData {
+    inputPower.EntityData.YFilter = inputPower.YFilter
+    inputPower.EntityData.YangName = "input-power"
+    inputPower.EntityData.BundleName = "openconfig"
+    inputPower.EntityData.ParentYangName = "state"
+    inputPower.EntityData.SegmentPath = "input-power"
+    inputPower.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-transport-line-common:optical-port/state/" + inputPower.EntityData.SegmentPath
+    inputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    inputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    inputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    inputPower.EntityData.Children = types.NewOrderedMap()
+    inputPower.EntityData.Leafs = types.NewOrderedMap()
+    inputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", inputPower.Instant})
+    inputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", inputPower.Avg})
+    inputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", inputPower.Min})
+    inputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", inputPower.Max})
+
+    inputPower.EntityData.YListKeys = []string {}
+
+    return &(inputPower.EntityData)
+}
+
+// Components_Component_OpticalPort_State_OutputPower
+// The total output optical power of this port in units
+// of 0.01dBm. If avg/min/max statistics are not supported,
+// just supply the instant value
+type Components_Component_OpticalPort_State_OutputPower struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The instantaneous value of the statistic. The type is string with range:
+    // -92233720368547758.08..92233720368547758.07. Units are dBm.
+    Instant interface{}
+
+    // The arithmetic mean value of the statistic over the sampling period. The
+    // type is string with range: -92233720368547758.08..92233720368547758.07.
+    // Units are dBm.
+    Avg interface{}
+
+    // The minimum value of the statistic over the sampling period. The type is
+    // string with range: -92233720368547758.08..92233720368547758.07. Units are
+    // dBm.
+    Min interface{}
+
+    // The maximum value of the statistic over the sampling period. The type is
+    // string with range: -92233720368547758.08..92233720368547758.07. Units are
+    // dBm.
+    Max interface{}
+}
+
+func (outputPower *Components_Component_OpticalPort_State_OutputPower) GetEntityData() *types.CommonEntityData {
+    outputPower.EntityData.YFilter = outputPower.YFilter
+    outputPower.EntityData.YangName = "output-power"
+    outputPower.EntityData.BundleName = "openconfig"
+    outputPower.EntityData.ParentYangName = "state"
+    outputPower.EntityData.SegmentPath = "output-power"
+    outputPower.EntityData.AbsolutePath = "openconfig-platform:components/component/openconfig-transport-line-common:optical-port/state/" + outputPower.EntityData.SegmentPath
+    outputPower.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    outputPower.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    outputPower.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
+
+    outputPower.EntityData.Children = types.NewOrderedMap()
+    outputPower.EntityData.Leafs = types.NewOrderedMap()
+    outputPower.EntityData.Leafs.Append("instant", types.YLeaf{"Instant", outputPower.Instant})
+    outputPower.EntityData.Leafs.Append("avg", types.YLeaf{"Avg", outputPower.Avg})
+    outputPower.EntityData.Leafs.Append("min", types.YLeaf{"Min", outputPower.Min})
+    outputPower.EntityData.Leafs.Append("max", types.YLeaf{"Max", outputPower.Max})
+
+    outputPower.EntityData.YListKeys = []string {}
+
+    return &(outputPower.EntityData)
 }
 

@@ -93,6 +93,7 @@ func (hwModule *HwModule) GetEntityData() *types.CommonEntityData {
     hwModule.EntityData.BundleName = "cisco_ios_xr"
     hwModule.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1001-ots-oper"
     hwModule.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module"
+    hwModule.EntityData.AbsolutePath = hwModule.EntityData.SegmentPath
     hwModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -123,6 +124,7 @@ func (amplifierTrails *HwModule_AmplifierTrails) GetEntityData() *types.CommonEn
     amplifierTrails.EntityData.BundleName = "cisco_ios_xr"
     amplifierTrails.EntityData.ParentYangName = "hw-module"
     amplifierTrails.EntityData.SegmentPath = "amplifier-trails"
+    amplifierTrails.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/" + amplifierTrails.EntityData.SegmentPath
     amplifierTrails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amplifierTrails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     amplifierTrails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -144,6 +146,7 @@ func (amplifierTrails *HwModule_AmplifierTrails) GetEntityData() *types.CommonEn
 type HwModule_AmplifierTrails_AmplifierTrail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Details associated with a particular slot number.
     // The type is interface{} with range: 0..4294967295.
@@ -160,6 +163,7 @@ func (amplifierTrail *HwModule_AmplifierTrails_AmplifierTrail) GetEntityData() *
     amplifierTrail.EntityData.BundleName = "cisco_ios_xr"
     amplifierTrail.EntityData.ParentYangName = "amplifier-trails"
     amplifierTrail.EntityData.SegmentPath = "amplifier-trail" + types.AddKeyToken(amplifierTrail.SlotId, "slot-id")
+    amplifierTrail.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/amplifier-trails/" + amplifierTrail.EntityData.SegmentPath
     amplifierTrail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amplifierTrail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     amplifierTrail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -182,6 +186,7 @@ func (amplifierTrail *HwModule_AmplifierTrails_AmplifierTrail) GetEntityData() *
 type HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrailData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Select trail data. The type is OtsAmpliTrailData.
     AmplifierTrailDataType interface{}
@@ -201,6 +206,7 @@ func (amplifierTrailData *HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrail
     amplifierTrailData.EntityData.BundleName = "cisco_ios_xr"
     amplifierTrailData.EntityData.ParentYangName = "amplifier-trail"
     amplifierTrailData.EntityData.SegmentPath = "amplifier-trail-data" + types.AddKeyToken(amplifierTrailData.AmplifierTrailDataType, "amplifier-trail-data-type")
+    amplifierTrailData.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/amplifier-trails/amplifier-trail/" + amplifierTrailData.EntityData.SegmentPath
     amplifierTrailData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     amplifierTrailData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     amplifierTrailData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -208,10 +214,12 @@ func (amplifierTrailData *HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrail
     amplifierTrailData.EntityData.Children = types.NewOrderedMap()
     amplifierTrailData.EntityData.Children.Append("ampli-trail-info", types.YChild{"AmpliTrailInfo", nil})
     for i := range amplifierTrailData.AmpliTrailInfo {
+        types.SetYListKey(amplifierTrailData.AmpliTrailInfo[i], i)
         amplifierTrailData.EntityData.Children.Append(types.GetSegmentPath(amplifierTrailData.AmpliTrailInfo[i]), types.YChild{"AmpliTrailInfo", amplifierTrailData.AmpliTrailInfo[i]})
     }
     amplifierTrailData.EntityData.Children.Append("channel-trail-info", types.YChild{"ChannelTrailInfo", nil})
     for i := range amplifierTrailData.ChannelTrailInfo {
+        types.SetYListKey(amplifierTrailData.ChannelTrailInfo[i], i)
         amplifierTrailData.EntityData.Children.Append(types.GetSegmentPath(amplifierTrailData.ChannelTrailInfo[i]), types.YChild{"ChannelTrailInfo", amplifierTrailData.ChannelTrailInfo[i]})
     }
     amplifierTrailData.EntityData.Leafs = types.NewOrderedMap()
@@ -227,6 +235,7 @@ func (amplifierTrailData *HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrail
 type HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrailData_AmpliTrailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Eqpt fail. The type is interface{} with range: 0..255.
     EqptFail interface{}
@@ -330,7 +339,8 @@ func (ampliTrailInfo *HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrailData
     ampliTrailInfo.EntityData.YangName = "ampli-trail-info"
     ampliTrailInfo.EntityData.BundleName = "cisco_ios_xr"
     ampliTrailInfo.EntityData.ParentYangName = "amplifier-trail-data"
-    ampliTrailInfo.EntityData.SegmentPath = "ampli-trail-info"
+    ampliTrailInfo.EntityData.SegmentPath = "ampli-trail-info" + types.AddNoKeyToken(ampliTrailInfo)
+    ampliTrailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/amplifier-trails/amplifier-trail/amplifier-trail-data/" + ampliTrailInfo.EntityData.SegmentPath
     ampliTrailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ampliTrailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampliTrailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -380,6 +390,7 @@ func (ampliTrailInfo *HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrailData
 type HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrailData_ChannelTrailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Eqpt fail. The type is interface{} with range: 0..255.
     EqptFail interface{}
@@ -432,7 +443,8 @@ func (channelTrailInfo *HwModule_AmplifierTrails_AmplifierTrail_AmplifierTrailDa
     channelTrailInfo.EntityData.YangName = "channel-trail-info"
     channelTrailInfo.EntityData.BundleName = "cisco_ios_xr"
     channelTrailInfo.EntityData.ParentYangName = "amplifier-trail-data"
-    channelTrailInfo.EntityData.SegmentPath = "channel-trail-info"
+    channelTrailInfo.EntityData.SegmentPath = "channel-trail-info" + types.AddNoKeyToken(channelTrailInfo)
+    channelTrailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/amplifier-trails/amplifier-trail/amplifier-trail-data/" + channelTrailInfo.EntityData.SegmentPath
     channelTrailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     channelTrailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     channelTrailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -476,6 +488,7 @@ func (channelsTrails *HwModule_ChannelsTrails) GetEntityData() *types.CommonEnti
     channelsTrails.EntityData.BundleName = "cisco_ios_xr"
     channelsTrails.EntityData.ParentYangName = "hw-module"
     channelsTrails.EntityData.SegmentPath = "channels-trails"
+    channelsTrails.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/" + channelsTrails.EntityData.SegmentPath
     channelsTrails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     channelsTrails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     channelsTrails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -497,6 +510,7 @@ func (channelsTrails *HwModule_ChannelsTrails) GetEntityData() *types.CommonEnti
 type HwModule_ChannelsTrails_ChannelsTrail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Details associated with a particular slot number.
     // The type is interface{} with range: 1..3.
@@ -513,6 +527,7 @@ func (channelsTrail *HwModule_ChannelsTrails_ChannelsTrail) GetEntityData() *typ
     channelsTrail.EntityData.BundleName = "cisco_ios_xr"
     channelsTrail.EntityData.ParentYangName = "channels-trails"
     channelsTrail.EntityData.SegmentPath = "channels-trail" + types.AddKeyToken(channelsTrail.SlotId, "slot-id")
+    channelsTrail.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/channels-trails/" + channelsTrail.EntityData.SegmentPath
     channelsTrail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     channelsTrail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     channelsTrail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -535,6 +550,7 @@ func (channelsTrail *HwModule_ChannelsTrails_ChannelsTrail) GetEntityData() *typ
 type HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Select trail data. The type is
     // OtsChannelsTrailData.
@@ -555,6 +571,7 @@ func (channelsTrailData *HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData
     channelsTrailData.EntityData.BundleName = "cisco_ios_xr"
     channelsTrailData.EntityData.ParentYangName = "channels-trail"
     channelsTrailData.EntityData.SegmentPath = "channels-trail-data" + types.AddKeyToken(channelsTrailData.ChannelsTrailDataType, "channels-trail-data-type")
+    channelsTrailData.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/channels-trails/channels-trail/" + channelsTrailData.EntityData.SegmentPath
     channelsTrailData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     channelsTrailData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     channelsTrailData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -562,10 +579,12 @@ func (channelsTrailData *HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData
     channelsTrailData.EntityData.Children = types.NewOrderedMap()
     channelsTrailData.EntityData.Children.Append("ampli-trail-info", types.YChild{"AmpliTrailInfo", nil})
     for i := range channelsTrailData.AmpliTrailInfo {
+        types.SetYListKey(channelsTrailData.AmpliTrailInfo[i], i)
         channelsTrailData.EntityData.Children.Append(types.GetSegmentPath(channelsTrailData.AmpliTrailInfo[i]), types.YChild{"AmpliTrailInfo", channelsTrailData.AmpliTrailInfo[i]})
     }
     channelsTrailData.EntityData.Children.Append("channel-trail-info", types.YChild{"ChannelTrailInfo", nil})
     for i := range channelsTrailData.ChannelTrailInfo {
+        types.SetYListKey(channelsTrailData.ChannelTrailInfo[i], i)
         channelsTrailData.EntityData.Children.Append(types.GetSegmentPath(channelsTrailData.ChannelTrailInfo[i]), types.YChild{"ChannelTrailInfo", channelsTrailData.ChannelTrailInfo[i]})
     }
     channelsTrailData.EntityData.Leafs = types.NewOrderedMap()
@@ -581,6 +600,7 @@ func (channelsTrailData *HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData
 type HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData_AmpliTrailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Eqpt fail. The type is interface{} with range: 0..255.
     EqptFail interface{}
@@ -684,7 +704,8 @@ func (ampliTrailInfo *HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData_Am
     ampliTrailInfo.EntityData.YangName = "ampli-trail-info"
     ampliTrailInfo.EntityData.BundleName = "cisco_ios_xr"
     ampliTrailInfo.EntityData.ParentYangName = "channels-trail-data"
-    ampliTrailInfo.EntityData.SegmentPath = "ampli-trail-info"
+    ampliTrailInfo.EntityData.SegmentPath = "ampli-trail-info" + types.AddNoKeyToken(ampliTrailInfo)
+    ampliTrailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/channels-trails/channels-trail/channels-trail-data/" + ampliTrailInfo.EntityData.SegmentPath
     ampliTrailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ampliTrailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ampliTrailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -734,6 +755,7 @@ func (ampliTrailInfo *HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData_Am
 type HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData_ChannelTrailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Eqpt fail. The type is interface{} with range: 0..255.
     EqptFail interface{}
@@ -786,7 +808,8 @@ func (channelTrailInfo *HwModule_ChannelsTrails_ChannelsTrail_ChannelsTrailData_
     channelTrailInfo.EntityData.YangName = "channel-trail-info"
     channelTrailInfo.EntityData.BundleName = "cisco_ios_xr"
     channelTrailInfo.EntityData.ParentYangName = "channels-trail-data"
-    channelTrailInfo.EntityData.SegmentPath = "channel-trail-info"
+    channelTrailInfo.EntityData.SegmentPath = "channel-trail-info" + types.AddNoKeyToken(channelTrailInfo)
+    channelTrailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1001-ots-oper:hw-module/channels-trails/channels-trail/channels-trail-data/" + channelTrailInfo.EntityData.SegmentPath
     channelTrailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     channelTrailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     channelTrailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

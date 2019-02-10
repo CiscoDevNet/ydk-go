@@ -36,6 +36,7 @@ func (memoryStatistics *MemoryStatistics) GetEntityData() *types.CommonEntityDat
     memoryStatistics.EntityData.BundleName = "cisco_ios_xe"
     memoryStatistics.EntityData.ParentYangName = "Cisco-IOS-XE-memory-oper"
     memoryStatistics.EntityData.SegmentPath = "Cisco-IOS-XE-memory-oper:memory-statistics"
+    memoryStatistics.EntityData.AbsolutePath = memoryStatistics.EntityData.SegmentPath
     memoryStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     memoryStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -57,6 +58,7 @@ func (memoryStatistics *MemoryStatistics) GetEntityData() *types.CommonEntityDat
 type MemoryStatistics_MemoryStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The name of the memory pool. The type is string.
     Name interface{}
@@ -88,6 +90,7 @@ func (memoryStatistic *MemoryStatistics_MemoryStatistic) GetEntityData() *types.
     memoryStatistic.EntityData.BundleName = "cisco_ios_xe"
     memoryStatistic.EntityData.ParentYangName = "memory-statistics"
     memoryStatistic.EntityData.SegmentPath = "memory-statistic" + types.AddKeyToken(memoryStatistic.Name, "name")
+    memoryStatistic.EntityData.AbsolutePath = "Cisco-IOS-XE-memory-oper:memory-statistics/" + memoryStatistic.EntityData.SegmentPath
     memoryStatistic.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     memoryStatistic.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     memoryStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

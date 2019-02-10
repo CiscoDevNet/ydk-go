@@ -47,6 +47,7 @@ func (routerStatic *RouterStatic) GetEntityData() *types.CommonEntityData {
     routerStatic.EntityData.BundleName = "cisco_ios_xr"
     routerStatic.EntityData.ParentYangName = "Cisco-IOS-XR-ip-static-cfg"
     routerStatic.EntityData.SegmentPath = "Cisco-IOS-XR-ip-static-cfg:router-static"
+    routerStatic.EntityData.AbsolutePath = routerStatic.EntityData.SegmentPath
     routerStatic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerStatic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerStatic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -78,6 +79,7 @@ func (vrfs *RouterStatic_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "router-static"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -99,6 +101,7 @@ func (vrfs *RouterStatic_Vrfs) GetEntityData() *types.CommonEntityData {
 type RouterStatic_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -114,6 +117,7 @@ func (vrf *RouterStatic_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -147,6 +151,7 @@ func (addressFamily *RouterStatic_Vrfs_Vrf_AddressFamily) GetEntityData() *types
     addressFamily.EntityData.BundleName = "cisco_ios_xr"
     addressFamily.EntityData.ParentYangName = "vrf"
     addressFamily.EntityData.SegmentPath = "address-family"
+    addressFamily.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/" + addressFamily.EntityData.SegmentPath
     addressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -180,6 +185,7 @@ func (vrfipv4 *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4) GetEntityData() *typ
     vrfipv4.EntityData.BundleName = "cisco_ios_xr"
     vrfipv4.EntityData.ParentYangName = "address-family"
     vrfipv4.EntityData.SegmentPath = "vrfipv4"
+    vrfipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/" + vrfipv4.EntityData.SegmentPath
     vrfipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -216,6 +222,7 @@ func (vrfUnicast *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast) GetEnt
     vrfUnicast.EntityData.BundleName = "cisco_ios_xr"
     vrfUnicast.EntityData.ParentYangName = "vrfipv4"
     vrfUnicast.EntityData.SegmentPath = "vrf-unicast"
+    vrfUnicast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/" + vrfUnicast.EntityData.SegmentPath
     vrfUnicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfUnicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfUnicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -248,6 +255,7 @@ func (topologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topolog
     topologies.EntityData.BundleName = "cisco_ios_xr"
     topologies.EntityData.ParentYangName = "vrf-unicast"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -269,6 +277,7 @@ func (topologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topolog
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -284,6 +293,7 @@ func (topology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologie
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.TopologyName, "topology-name")
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -315,6 +325,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicas
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -336,6 +347,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicas
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -364,6 +376,7 @@ func (vrfPrefixTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -397,6 +410,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologie
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -454,6 +468,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_To
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -493,6 +508,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_To
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -547,6 +563,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -579,6 +596,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -640,6 +658,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -673,6 +692,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -730,6 +750,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -762,6 +783,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -823,6 +845,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -856,6 +879,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -910,6 +934,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -952,6 +977,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_T
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -973,6 +999,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_T
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -988,6 +1015,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_To
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1046,6 +1074,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1085,6 +1114,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1139,6 +1169,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1171,6 +1202,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1232,6 +1264,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1265,6 +1298,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -1322,6 +1356,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1354,6 +1389,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -1415,6 +1451,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1448,6 +1485,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1502,6 +1540,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1543,6 +1582,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topolo
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1600,6 +1640,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1639,6 +1680,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1693,6 +1735,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1725,6 +1768,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1786,6 +1830,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1819,6 +1864,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -1876,6 +1922,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1908,6 +1955,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -1969,6 +2017,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2002,6 +2051,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -2056,6 +2106,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2098,6 +2149,7 @@ func (vrfPrefixes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPre
     vrfPrefixes.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixes.EntityData.ParentYangName = "vrf-unicast"
     vrfPrefixes.EntityData.SegmentPath = "vrf-prefixes"
+    vrfPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/" + vrfPrefixes.EntityData.SegmentPath
     vrfPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2119,6 +2171,7 @@ func (vrfPrefixes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPre
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -2147,6 +2200,7 @@ func (vrfPrefix *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefi
     vrfPrefix.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefix.EntityData.ParentYangName = "vrf-prefixes"
     vrfPrefix.EntityData.SegmentPath = "vrf-prefix" + types.AddKeyToken(vrfPrefix.Prefix, "prefix") + types.AddKeyToken(vrfPrefix.PrefixLength, "prefix-length")
+    vrfPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/" + vrfPrefix.EntityData.SegmentPath
     vrfPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2180,6 +2234,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefix
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2237,6 +2292,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Vr
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2276,6 +2332,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Vr
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2330,6 +2387,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2362,6 +2420,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2423,6 +2482,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2456,6 +2516,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -2513,6 +2574,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2545,6 +2607,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -2606,6 +2669,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2639,6 +2703,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -2693,6 +2758,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2735,6 +2801,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_V
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2756,6 +2823,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_V
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -2771,6 +2839,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Vr
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2829,6 +2898,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2868,6 +2938,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2922,6 +2993,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2954,6 +3026,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -3015,6 +3088,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3048,6 +3122,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -3105,6 +3180,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3137,6 +3213,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -3198,6 +3275,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3231,6 +3309,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -3285,6 +3364,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3326,6 +3406,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPre
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3383,6 +3464,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3422,6 +3504,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -3476,6 +3559,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3508,6 +3592,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -3569,6 +3654,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3602,6 +3688,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -3659,6 +3746,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3691,6 +3779,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -3752,6 +3841,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3785,6 +3875,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -3839,6 +3930,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3880,6 +3972,7 @@ func (defaultTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_De
     defaultTopology.EntityData.BundleName = "cisco_ios_xr"
     defaultTopology.EntityData.ParentYangName = "vrf-unicast"
     defaultTopology.EntityData.SegmentPath = "default-topology"
+    defaultTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/" + defaultTopology.EntityData.SegmentPath
     defaultTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3910,6 +4003,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicas
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "default-topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3931,6 +4025,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicas
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -3959,6 +4054,7 @@ func (vrfPrefixTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3992,6 +4088,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTo
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4049,6 +4146,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_De
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4088,6 +4186,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_De
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4142,6 +4241,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4174,6 +4274,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4235,6 +4336,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4268,6 +4370,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -4325,6 +4428,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4357,6 +4461,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -4418,6 +4523,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4451,6 +4557,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -4505,6 +4612,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4547,6 +4655,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_D
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4568,6 +4677,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_D
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -4583,6 +4693,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_De
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4641,6 +4752,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4680,6 +4792,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4734,6 +4847,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4766,6 +4880,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -4827,6 +4942,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4860,6 +4976,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -4917,6 +5034,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4949,6 +5067,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -5010,6 +5129,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5043,6 +5163,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -5097,6 +5218,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5138,6 +5260,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_Defaul
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5195,6 +5318,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5234,6 +5358,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -5288,6 +5413,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5320,6 +5446,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -5381,6 +5508,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5414,6 +5542,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -5471,6 +5600,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5503,6 +5633,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -5564,6 +5695,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5597,6 +5729,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -5651,6 +5784,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5698,6 +5832,7 @@ func (vrfMulticast *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast) Ge
     vrfMulticast.EntityData.BundleName = "cisco_ios_xr"
     vrfMulticast.EntityData.ParentYangName = "vrfipv4"
     vrfMulticast.EntityData.SegmentPath = "vrf-multicast"
+    vrfMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/" + vrfMulticast.EntityData.SegmentPath
     vrfMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5730,6 +5865,7 @@ func (topologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topol
     topologies.EntityData.BundleName = "cisco_ios_xr"
     topologies.EntityData.ParentYangName = "vrf-multicast"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5751,6 +5887,7 @@ func (topologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topol
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -5766,6 +5903,7 @@ func (topology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topolog
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.TopologyName, "topology-name")
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5797,6 +5935,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMultic
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5818,6 +5957,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMultic
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -5846,6 +5986,7 @@ func (vrfPrefixTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticas
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5879,6 +6020,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topolog
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5936,6 +6078,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5975,6 +6118,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -6029,6 +6173,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6061,6 +6206,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -6122,6 +6268,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6155,6 +6302,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -6212,6 +6360,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6244,6 +6393,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -6305,6 +6455,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6338,6 +6489,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -6392,6 +6544,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6434,6 +6587,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6455,6 +6609,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -6470,6 +6625,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6528,6 +6684,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6567,6 +6724,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -6621,6 +6779,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6653,6 +6812,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -6714,6 +6874,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6747,6 +6908,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -6804,6 +6966,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6836,6 +6999,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -6897,6 +7061,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6930,6 +7095,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -6984,6 +7150,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7025,6 +7192,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topo
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7082,6 +7250,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7121,6 +7290,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -7175,6 +7345,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7207,6 +7378,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -7268,6 +7440,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7301,6 +7474,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -7358,6 +7532,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7390,6 +7565,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -7451,6 +7627,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7484,6 +7661,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -7538,6 +7716,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7580,6 +7759,7 @@ func (vrfPrefixes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfP
     vrfPrefixes.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixes.EntityData.ParentYangName = "vrf-multicast"
     vrfPrefixes.EntityData.SegmentPath = "vrf-prefixes"
+    vrfPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/" + vrfPrefixes.EntityData.SegmentPath
     vrfPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7601,6 +7781,7 @@ func (vrfPrefixes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfP
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -7629,6 +7810,7 @@ func (vrfPrefix *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPre
     vrfPrefix.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefix.EntityData.ParentYangName = "vrf-prefixes"
     vrfPrefix.EntityData.SegmentPath = "vrf-prefix" + types.AddKeyToken(vrfPrefix.Prefix, "prefix") + types.AddKeyToken(vrfPrefix.PrefixLength, "prefix-length")
+    vrfPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/" + vrfPrefix.EntityData.SegmentPath
     vrfPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7662,6 +7844,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPref
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7719,6 +7902,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7758,6 +7942,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -7812,6 +7997,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7844,6 +8030,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -7905,6 +8092,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7938,6 +8126,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -7995,6 +8184,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8027,6 +8217,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -8088,6 +8279,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8121,6 +8313,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -8175,6 +8368,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8217,6 +8411,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8238,6 +8433,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -8253,6 +8449,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8311,6 +8508,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8350,6 +8548,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -8404,6 +8603,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8436,6 +8636,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -8497,6 +8698,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8530,6 +8732,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -8587,6 +8790,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8619,6 +8823,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -8680,6 +8885,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8713,6 +8919,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -8767,6 +8974,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8808,6 +9016,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfP
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8865,6 +9074,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8904,6 +9114,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -8958,6 +9169,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8990,6 +9202,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -9051,6 +9264,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9084,6 +9298,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -9141,6 +9356,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9173,6 +9389,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -9234,6 +9451,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9267,6 +9485,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -9321,6 +9540,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9362,6 +9582,7 @@ func (defaultTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
     defaultTopology.EntityData.BundleName = "cisco_ios_xr"
     defaultTopology.EntityData.ParentYangName = "vrf-multicast"
     defaultTopology.EntityData.SegmentPath = "default-topology"
+    defaultTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/" + defaultTopology.EntityData.SegmentPath
     defaultTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9392,6 +9613,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMultic
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "default-topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9413,6 +9635,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMultic
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -9441,6 +9664,7 @@ func (vrfPrefixTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticas
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9474,6 +9698,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Default
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9531,6 +9756,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9570,6 +9796,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -9624,6 +9851,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9656,6 +9884,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -9717,6 +9946,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9750,6 +9980,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -9807,6 +10038,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9839,6 +10071,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -9900,6 +10133,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9933,6 +10167,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -9987,6 +10222,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10029,6 +10265,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10050,6 +10287,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -10065,6 +10303,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10123,6 +10362,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10162,6 +10402,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -10216,6 +10457,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10248,6 +10490,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -10309,6 +10552,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10342,6 +10586,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -10399,6 +10644,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10431,6 +10677,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -10492,6 +10739,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10525,6 +10773,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -10579,6 +10828,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10620,6 +10870,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_Defa
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10677,6 +10928,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10716,6 +10968,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -10770,6 +11023,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10802,6 +11056,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -10863,6 +11118,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10896,6 +11152,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -10953,6 +11210,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10985,6 +11243,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -11046,6 +11305,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11079,6 +11339,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -11133,6 +11394,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11177,6 +11439,7 @@ func (vrfipv6 *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6) GetEntityData() *typ
     vrfipv6.EntityData.BundleName = "cisco_ios_xr"
     vrfipv6.EntityData.ParentYangName = "address-family"
     vrfipv6.EntityData.SegmentPath = "vrfipv6"
+    vrfipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/" + vrfipv6.EntityData.SegmentPath
     vrfipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11213,6 +11476,7 @@ func (vrfUnicast *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast) GetEnt
     vrfUnicast.EntityData.BundleName = "cisco_ios_xr"
     vrfUnicast.EntityData.ParentYangName = "vrfipv6"
     vrfUnicast.EntityData.SegmentPath = "vrf-unicast"
+    vrfUnicast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/" + vrfUnicast.EntityData.SegmentPath
     vrfUnicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfUnicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfUnicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11245,6 +11509,7 @@ func (topologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topolog
     topologies.EntityData.BundleName = "cisco_ios_xr"
     topologies.EntityData.ParentYangName = "vrf-unicast"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11266,6 +11531,7 @@ func (topologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topolog
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -11281,6 +11547,7 @@ func (topology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologie
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.TopologyName, "topology-name")
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11312,6 +11579,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicas
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11333,6 +11601,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicas
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -11361,6 +11630,7 @@ func (vrfPrefixTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11394,6 +11664,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologie
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11451,6 +11722,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_To
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11490,6 +11762,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_To
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -11544,6 +11817,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11576,6 +11850,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -11637,6 +11912,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11670,6 +11946,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -11727,6 +12004,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11759,6 +12037,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -11820,6 +12099,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11853,6 +12133,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -11907,6 +12188,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11949,6 +12231,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_T
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11970,6 +12253,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_T
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -11985,6 +12269,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_To
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12043,6 +12328,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12082,6 +12368,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -12136,6 +12423,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12168,6 +12456,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -12229,6 +12518,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12262,6 +12552,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -12319,6 +12610,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12351,6 +12643,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -12412,6 +12705,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12445,6 +12739,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -12499,6 +12794,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12540,6 +12836,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topolo
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12597,6 +12894,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12636,6 +12934,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -12690,6 +12989,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12722,6 +13022,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -12783,6 +13084,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12816,6 +13118,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -12873,6 +13176,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12905,6 +13209,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -12966,6 +13271,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12999,6 +13305,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -13053,6 +13360,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13095,6 +13403,7 @@ func (vrfPrefixes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPre
     vrfPrefixes.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixes.EntityData.ParentYangName = "vrf-unicast"
     vrfPrefixes.EntityData.SegmentPath = "vrf-prefixes"
+    vrfPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/" + vrfPrefixes.EntityData.SegmentPath
     vrfPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13116,6 +13425,7 @@ func (vrfPrefixes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPre
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -13144,6 +13454,7 @@ func (vrfPrefix *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefi
     vrfPrefix.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefix.EntityData.ParentYangName = "vrf-prefixes"
     vrfPrefix.EntityData.SegmentPath = "vrf-prefix" + types.AddKeyToken(vrfPrefix.Prefix, "prefix") + types.AddKeyToken(vrfPrefix.PrefixLength, "prefix-length")
+    vrfPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/" + vrfPrefix.EntityData.SegmentPath
     vrfPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13177,6 +13488,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefix
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13234,6 +13546,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Vr
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13273,6 +13586,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Vr
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -13327,6 +13641,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13359,6 +13674,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -13420,6 +13736,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13453,6 +13770,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -13510,6 +13828,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13542,6 +13861,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -13603,6 +13923,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13636,6 +13957,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -13690,6 +14012,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13732,6 +14055,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_V
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13753,6 +14077,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_V
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -13768,6 +14093,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Vr
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13826,6 +14152,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13865,6 +14192,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -13919,6 +14247,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13951,6 +14280,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -14012,6 +14342,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14045,6 +14376,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -14102,6 +14434,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14134,6 +14467,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -14195,6 +14529,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14228,6 +14563,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -14282,6 +14618,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14323,6 +14660,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPre
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14380,6 +14718,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14419,6 +14758,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -14473,6 +14813,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14505,6 +14846,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -14566,6 +14908,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14599,6 +14942,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -14656,6 +15000,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14688,6 +15033,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -14749,6 +15095,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14782,6 +15129,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -14836,6 +15184,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14877,6 +15226,7 @@ func (defaultTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_De
     defaultTopology.EntityData.BundleName = "cisco_ios_xr"
     defaultTopology.EntityData.ParentYangName = "vrf-unicast"
     defaultTopology.EntityData.SegmentPath = "default-topology"
+    defaultTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/" + defaultTopology.EntityData.SegmentPath
     defaultTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14907,6 +15257,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicas
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "default-topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14928,6 +15279,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicas
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -14956,6 +15308,7 @@ func (vrfPrefixTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14989,6 +15342,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTo
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15046,6 +15400,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_De
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15085,6 +15440,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_De
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -15139,6 +15495,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15171,6 +15528,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -15232,6 +15590,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15265,6 +15624,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -15322,6 +15682,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15354,6 +15715,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -15415,6 +15777,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15448,6 +15811,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -15502,6 +15866,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15544,6 +15909,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_D
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15565,6 +15931,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_D
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -15580,6 +15947,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_De
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15638,6 +16006,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15677,6 +16046,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -15731,6 +16101,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15763,6 +16134,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -15824,6 +16196,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15857,6 +16230,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -15914,6 +16288,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15946,6 +16321,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -16007,6 +16383,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16040,6 +16417,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -16094,6 +16472,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16135,6 +16514,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_Defaul
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16192,6 +16572,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16231,6 +16612,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -16285,6 +16667,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16317,6 +16700,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUn
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -16378,6 +16762,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16411,6 +16796,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -16468,6 +16854,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16500,6 +16887,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfU
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -16561,6 +16949,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16594,6 +16983,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -16648,6 +17038,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16695,6 +17086,7 @@ func (vrfMulticast *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast) Ge
     vrfMulticast.EntityData.BundleName = "cisco_ios_xr"
     vrfMulticast.EntityData.ParentYangName = "vrfipv6"
     vrfMulticast.EntityData.SegmentPath = "vrf-multicast"
+    vrfMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/" + vrfMulticast.EntityData.SegmentPath
     vrfMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16727,6 +17119,7 @@ func (topologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topol
     topologies.EntityData.BundleName = "cisco_ios_xr"
     topologies.EntityData.ParentYangName = "vrf-multicast"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16748,6 +17141,7 @@ func (topologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topol
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -16763,6 +17157,7 @@ func (topology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topolog
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.TopologyName, "topology-name")
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16794,6 +17189,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMultic
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16815,6 +17211,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMultic
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -16843,6 +17240,7 @@ func (vrfPrefixTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticas
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16876,6 +17274,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topolog
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16933,6 +17332,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16972,6 +17372,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -17026,6 +17427,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17058,6 +17460,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -17119,6 +17522,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17152,6 +17556,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -17209,6 +17614,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17241,6 +17647,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -17302,6 +17709,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17335,6 +17743,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -17389,6 +17798,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17431,6 +17841,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17452,6 +17863,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -17467,6 +17879,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17525,6 +17938,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17564,6 +17978,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -17618,6 +18033,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17650,6 +18066,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -17711,6 +18128,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17744,6 +18162,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -17801,6 +18220,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17833,6 +18253,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -17894,6 +18315,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17927,6 +18349,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -17981,6 +18404,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18022,6 +18446,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topo
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18079,6 +18504,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18118,6 +18544,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -18172,6 +18599,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18204,6 +18632,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -18265,6 +18694,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18298,6 +18728,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -18355,6 +18786,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18387,6 +18819,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -18448,6 +18881,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18481,6 +18915,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -18535,6 +18970,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18577,6 +19013,7 @@ func (vrfPrefixes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfP
     vrfPrefixes.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixes.EntityData.ParentYangName = "vrf-multicast"
     vrfPrefixes.EntityData.SegmentPath = "vrf-prefixes"
+    vrfPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/" + vrfPrefixes.EntityData.SegmentPath
     vrfPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18598,6 +19035,7 @@ func (vrfPrefixes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfP
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -18626,6 +19064,7 @@ func (vrfPrefix *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPre
     vrfPrefix.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefix.EntityData.ParentYangName = "vrf-prefixes"
     vrfPrefix.EntityData.SegmentPath = "vrf-prefix" + types.AddKeyToken(vrfPrefix.Prefix, "prefix") + types.AddKeyToken(vrfPrefix.PrefixLength, "prefix-length")
+    vrfPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/" + vrfPrefix.EntityData.SegmentPath
     vrfPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18659,6 +19098,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPref
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18716,6 +19156,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18755,6 +19196,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -18809,6 +19251,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18841,6 +19284,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -18902,6 +19346,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18935,6 +19380,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -18992,6 +19438,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19024,6 +19471,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -19085,6 +19533,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19118,6 +19567,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -19172,6 +19622,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19214,6 +19665,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19235,6 +19687,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -19250,6 +19703,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19308,6 +19762,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19347,6 +19802,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -19401,6 +19857,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19433,6 +19890,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -19494,6 +19952,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19527,6 +19986,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -19584,6 +20044,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19616,6 +20077,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -19677,6 +20139,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19710,6 +20173,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -19764,6 +20228,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19805,6 +20270,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfP
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19862,6 +20328,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19901,6 +20368,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -19955,6 +20423,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19987,6 +20456,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -20048,6 +20518,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20081,6 +20552,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -20138,6 +20610,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20170,6 +20643,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -20231,6 +20705,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20264,6 +20739,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -20318,6 +20794,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20359,6 +20836,7 @@ func (defaultTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
     defaultTopology.EntityData.BundleName = "cisco_ios_xr"
     defaultTopology.EntityData.ParentYangName = "vrf-multicast"
     defaultTopology.EntityData.SegmentPath = "default-topology"
+    defaultTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/" + defaultTopology.EntityData.SegmentPath
     defaultTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20389,6 +20867,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMultic
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "default-topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20410,6 +20889,7 @@ func (vrfPrefixTopologies *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMultic
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -20438,6 +20918,7 @@ func (vrfPrefixTopology *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticas
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20471,6 +20952,7 @@ func (vrfRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Default
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20528,6 +21010,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20567,6 +21050,7 @@ func (vrfNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -20621,6 +21105,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20653,6 +21138,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -20714,6 +21200,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20747,6 +21234,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -20804,6 +21292,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20836,6 +21325,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -20897,6 +21387,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20930,6 +21421,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -20984,6 +21476,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21026,6 +21519,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21047,6 +21541,7 @@ func (vrfRecurseRoutes *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -21062,6 +21557,7 @@ func (vrfRecurseRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21120,6 +21616,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21159,6 +21656,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -21213,6 +21711,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21245,6 +21744,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -21306,6 +21806,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21339,6 +21840,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -21396,6 +21898,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21428,6 +21931,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -21489,6 +21993,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21522,6 +22027,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -21576,6 +22082,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21617,6 +22124,7 @@ func (vrfSegRoute *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_Defa
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21674,6 +22182,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21713,6 +22222,7 @@ func (segmentRouteNextHopTable *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -21767,6 +22277,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21799,6 +22310,7 @@ func (vrfNextHopInterfaceName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMu
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -21860,6 +22372,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21893,6 +22406,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -21950,6 +22464,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21982,6 +22497,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfM
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -22043,6 +22559,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22076,6 +22593,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFam
 type RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -22130,6 +22648,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_Vrfs_Vrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/vrfs/vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22171,6 +22690,7 @@ func (defaultVrf *RouterStatic_DefaultVrf) GetEntityData() *types.CommonEntityDa
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "router-static"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22203,6 +22723,7 @@ func (addressFamily *RouterStatic_DefaultVrf_AddressFamily) GetEntityData() *typ
     addressFamily.EntityData.BundleName = "cisco_ios_xr"
     addressFamily.EntityData.ParentYangName = "default-vrf"
     addressFamily.EntityData.SegmentPath = "address-family"
+    addressFamily.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/" + addressFamily.EntityData.SegmentPath
     addressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22236,6 +22757,7 @@ func (vrfipv4 *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4) GetEntityData() *t
     vrfipv4.EntityData.BundleName = "cisco_ios_xr"
     vrfipv4.EntityData.ParentYangName = "address-family"
     vrfipv4.EntityData.SegmentPath = "vrfipv4"
+    vrfipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/" + vrfipv4.EntityData.SegmentPath
     vrfipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22272,6 +22794,7 @@ func (vrfUnicast *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast) GetE
     vrfUnicast.EntityData.BundleName = "cisco_ios_xr"
     vrfUnicast.EntityData.ParentYangName = "vrfipv4"
     vrfUnicast.EntityData.SegmentPath = "vrf-unicast"
+    vrfUnicast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/" + vrfUnicast.EntityData.SegmentPath
     vrfUnicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfUnicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfUnicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22304,6 +22827,7 @@ func (topologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topol
     topologies.EntityData.BundleName = "cisco_ios_xr"
     topologies.EntityData.ParentYangName = "vrf-unicast"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22325,6 +22849,7 @@ func (topologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topol
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -22340,6 +22865,7 @@ func (topology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topolog
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.TopologyName, "topology-name")
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22371,6 +22897,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnic
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22392,6 +22919,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnic
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -22420,6 +22948,7 @@ func (vrfPrefixTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicas
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22453,6 +22982,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topolog
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22510,6 +23040,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22549,6 +23080,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -22603,6 +23135,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22635,6 +23168,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -22696,6 +23230,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22729,6 +23264,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -22786,6 +23322,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22818,6 +23355,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -22879,6 +23417,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22912,6 +23451,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -22966,6 +23506,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23008,6 +23549,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23029,6 +23571,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -23044,6 +23587,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23102,6 +23646,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23141,6 +23686,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -23195,6 +23741,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23227,6 +23774,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -23288,6 +23836,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23321,6 +23870,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -23378,6 +23928,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23410,6 +23961,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -23471,6 +24023,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23504,6 +24057,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -23558,6 +24112,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23599,6 +24154,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topo
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23656,6 +24212,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23695,6 +24252,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -23749,6 +24307,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23781,6 +24340,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -23842,6 +24402,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23875,6 +24436,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -23932,6 +24494,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23964,6 +24527,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -24025,6 +24589,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24058,6 +24623,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -24112,6 +24678,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24154,6 +24721,7 @@ func (vrfPrefixes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfP
     vrfPrefixes.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixes.EntityData.ParentYangName = "vrf-unicast"
     vrfPrefixes.EntityData.SegmentPath = "vrf-prefixes"
+    vrfPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/" + vrfPrefixes.EntityData.SegmentPath
     vrfPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24175,6 +24743,7 @@ func (vrfPrefixes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfP
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -24203,6 +24772,7 @@ func (vrfPrefix *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPre
     vrfPrefix.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefix.EntityData.ParentYangName = "vrf-prefixes"
     vrfPrefix.EntityData.SegmentPath = "vrf-prefix" + types.AddKeyToken(vrfPrefix.Prefix, "prefix") + types.AddKeyToken(vrfPrefix.PrefixLength, "prefix-length")
+    vrfPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/" + vrfPrefix.EntityData.SegmentPath
     vrfPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24236,6 +24806,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPref
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24293,6 +24864,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24332,6 +24904,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -24386,6 +24959,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24418,6 +24992,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -24479,6 +25054,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24512,6 +25088,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -24569,6 +25146,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24601,6 +25179,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -24662,6 +25241,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24695,6 +25275,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -24749,6 +25330,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24791,6 +25373,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24812,6 +25395,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -24827,6 +25411,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24885,6 +25470,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24924,6 +25510,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -24978,6 +25565,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25010,6 +25598,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -25071,6 +25660,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25104,6 +25694,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -25161,6 +25752,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25193,6 +25785,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -25254,6 +25847,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25287,6 +25881,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -25341,6 +25936,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25382,6 +25978,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfP
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25439,6 +26036,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25478,6 +26076,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -25532,6 +26131,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25564,6 +26164,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -25625,6 +26226,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25658,6 +26260,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -25715,6 +26318,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25747,6 +26351,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -25808,6 +26413,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25841,6 +26447,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -25895,6 +26502,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25936,6 +26544,7 @@ func (defaultTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
     defaultTopology.EntityData.BundleName = "cisco_ios_xr"
     defaultTopology.EntityData.ParentYangName = "vrf-unicast"
     defaultTopology.EntityData.SegmentPath = "default-topology"
+    defaultTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/" + defaultTopology.EntityData.SegmentPath
     defaultTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25966,6 +26575,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnic
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "default-topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25987,6 +26597,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnic
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -26015,6 +26626,7 @@ func (vrfPrefixTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicas
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26048,6 +26660,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Default
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26105,6 +26718,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26144,6 +26758,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -26198,6 +26813,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26230,6 +26846,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -26291,6 +26908,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26324,6 +26942,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -26381,6 +27000,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26413,6 +27033,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -26474,6 +27095,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26507,6 +27129,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -26561,6 +27184,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26603,6 +27227,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26624,6 +27249,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -26639,6 +27265,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26697,6 +27324,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26736,6 +27364,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -26790,6 +27419,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26822,6 +27452,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -26883,6 +27514,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26916,6 +27548,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -26973,6 +27606,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27005,6 +27639,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -27066,6 +27701,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27099,6 +27735,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -27153,6 +27790,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27194,6 +27832,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_Defa
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27251,6 +27890,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27290,6 +27930,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -27344,6 +27985,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27376,6 +28018,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -27437,6 +28080,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27470,6 +28114,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -27527,6 +28172,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27559,6 +28205,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -27620,6 +28267,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27653,6 +28301,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -27707,6 +28356,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27754,6 +28404,7 @@ func (vrfMulticast *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast) 
     vrfMulticast.EntityData.BundleName = "cisco_ios_xr"
     vrfMulticast.EntityData.ParentYangName = "vrfipv4"
     vrfMulticast.EntityData.SegmentPath = "vrf-multicast"
+    vrfMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/" + vrfMulticast.EntityData.SegmentPath
     vrfMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27786,6 +28437,7 @@ func (topologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Top
     topologies.EntityData.BundleName = "cisco_ios_xr"
     topologies.EntityData.ParentYangName = "vrf-multicast"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27807,6 +28459,7 @@ func (topologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Top
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -27822,6 +28475,7 @@ func (topology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topol
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.TopologyName, "topology-name")
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27853,6 +28507,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMult
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27874,6 +28529,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMult
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -27902,6 +28558,7 @@ func (vrfPrefixTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMultic
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27935,6 +28592,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topol
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27992,6 +28650,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28031,6 +28690,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -28085,6 +28745,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28117,6 +28778,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -28178,6 +28840,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28211,6 +28874,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -28268,6 +28932,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28300,6 +28965,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -28361,6 +29027,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28394,6 +29061,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -28448,6 +29116,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28490,6 +29159,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMultica
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28511,6 +29181,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMultica
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -28526,6 +29197,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28584,6 +29256,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28623,6 +29296,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -28677,6 +29351,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28709,6 +29384,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -28770,6 +29446,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28803,6 +29480,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -28860,6 +29538,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28892,6 +29571,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -28953,6 +29633,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28986,6 +29667,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -29040,6 +29722,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29081,6 +29764,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_To
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29138,6 +29822,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29177,6 +29862,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -29231,6 +29917,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29263,6 +29950,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -29324,6 +30012,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29357,6 +30046,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -29414,6 +30104,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29446,6 +30137,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -29507,6 +30199,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29540,6 +30233,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -29594,6 +30288,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29636,6 +30331,7 @@ func (vrfPrefixes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Vr
     vrfPrefixes.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixes.EntityData.ParentYangName = "vrf-multicast"
     vrfPrefixes.EntityData.SegmentPath = "vrf-prefixes"
+    vrfPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/" + vrfPrefixes.EntityData.SegmentPath
     vrfPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29657,6 +30353,7 @@ func (vrfPrefixes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -29685,6 +30382,7 @@ func (vrfPrefix *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfP
     vrfPrefix.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefix.EntityData.ParentYangName = "vrf-prefixes"
     vrfPrefix.EntityData.SegmentPath = "vrf-prefix" + types.AddKeyToken(vrfPrefix.Prefix, "prefix") + types.AddKeyToken(vrfPrefix.PrefixLength, "prefix-length")
+    vrfPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/" + vrfPrefix.EntityData.SegmentPath
     vrfPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29718,6 +30416,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPr
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29775,6 +30474,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29814,6 +30514,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -29868,6 +30569,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29900,6 +30602,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -29961,6 +30664,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29994,6 +30698,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -30051,6 +30756,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30083,6 +30789,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -30144,6 +30851,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30177,6 +30885,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -30231,6 +30940,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30273,6 +30983,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMultica
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30294,6 +31005,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMultica
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -30309,6 +31021,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30367,6 +31080,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30406,6 +31120,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -30460,6 +31175,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30492,6 +31208,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -30553,6 +31270,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30586,6 +31304,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -30643,6 +31362,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30675,6 +31395,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -30736,6 +31457,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30769,6 +31491,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -30823,6 +31546,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30864,6 +31588,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Vr
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30921,6 +31646,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30960,6 +31686,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -31014,6 +31741,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31046,6 +31774,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -31107,6 +31836,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31140,6 +31870,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -31197,6 +31928,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31229,6 +31961,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -31290,6 +32023,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31323,6 +32057,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -31377,6 +32112,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31418,6 +32154,7 @@ func (defaultTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
     defaultTopology.EntityData.BundleName = "cisco_ios_xr"
     defaultTopology.EntityData.ParentYangName = "vrf-multicast"
     defaultTopology.EntityData.SegmentPath = "default-topology"
+    defaultTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/" + defaultTopology.EntityData.SegmentPath
     defaultTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31448,6 +32185,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMult
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "default-topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31469,6 +32207,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMult
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -31497,6 +32236,7 @@ func (vrfPrefixTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMultic
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31530,6 +32270,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_Defau
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31587,6 +32328,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31626,6 +32368,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -31680,6 +32423,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31712,6 +32456,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -31773,6 +32518,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31806,6 +32552,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -31863,6 +32610,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31895,6 +32643,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -31956,6 +32705,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31989,6 +32739,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -32043,6 +32794,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32085,6 +32837,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMultica
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32106,6 +32859,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMultica
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -32121,6 +32875,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticas
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32179,6 +32934,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32218,6 +32974,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -32272,6 +33029,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32304,6 +33062,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -32365,6 +33124,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32398,6 +33158,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -32455,6 +33216,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32487,6 +33249,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -32548,6 +33311,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32581,6 +33345,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -32635,6 +33400,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32676,6 +33442,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_De
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32733,6 +33500,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32772,6 +33540,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -32826,6 +33595,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32858,6 +33628,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -32919,6 +33690,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32952,6 +33724,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -33009,6 +33782,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33041,6 +33815,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -33102,6 +33877,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33135,6 +33911,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -33189,6 +33966,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv4_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv4/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33233,6 +34011,7 @@ func (vrfipv6 *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6) GetEntityData() *t
     vrfipv6.EntityData.BundleName = "cisco_ios_xr"
     vrfipv6.EntityData.ParentYangName = "address-family"
     vrfipv6.EntityData.SegmentPath = "vrfipv6"
+    vrfipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/" + vrfipv6.EntityData.SegmentPath
     vrfipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33269,6 +34048,7 @@ func (vrfUnicast *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast) GetE
     vrfUnicast.EntityData.BundleName = "cisco_ios_xr"
     vrfUnicast.EntityData.ParentYangName = "vrfipv6"
     vrfUnicast.EntityData.SegmentPath = "vrf-unicast"
+    vrfUnicast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/" + vrfUnicast.EntityData.SegmentPath
     vrfUnicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfUnicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfUnicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33301,6 +34081,7 @@ func (topologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topol
     topologies.EntityData.BundleName = "cisco_ios_xr"
     topologies.EntityData.ParentYangName = "vrf-unicast"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33322,6 +34103,7 @@ func (topologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topol
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -33337,6 +34119,7 @@ func (topology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topolog
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.TopologyName, "topology-name")
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33368,6 +34151,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnic
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33389,6 +34173,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnic
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -33417,6 +34202,7 @@ func (vrfPrefixTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicas
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33450,6 +34236,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topolog
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33507,6 +34294,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33546,6 +34334,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -33600,6 +34389,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33632,6 +34422,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -33693,6 +34484,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33726,6 +34518,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -33783,6 +34576,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33815,6 +34609,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -33876,6 +34671,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33909,6 +34705,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -33963,6 +34760,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34005,6 +34803,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34026,6 +34825,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -34041,6 +34841,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34099,6 +34900,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34138,6 +34940,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -34192,6 +34995,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34224,6 +35028,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -34285,6 +35090,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34318,6 +35124,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -34375,6 +35182,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34407,6 +35215,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -34468,6 +35277,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34501,6 +35311,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -34555,6 +35366,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34596,6 +35408,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topo
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34653,6 +35466,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34692,6 +35506,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -34746,6 +35561,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34778,6 +35594,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -34839,6 +35656,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34872,6 +35690,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -34929,6 +35748,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34961,6 +35781,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -35022,6 +35843,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35055,6 +35877,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -35109,6 +35932,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35151,6 +35975,7 @@ func (vrfPrefixes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfP
     vrfPrefixes.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixes.EntityData.ParentYangName = "vrf-unicast"
     vrfPrefixes.EntityData.SegmentPath = "vrf-prefixes"
+    vrfPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/" + vrfPrefixes.EntityData.SegmentPath
     vrfPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35172,6 +35997,7 @@ func (vrfPrefixes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfP
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -35200,6 +36026,7 @@ func (vrfPrefix *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPre
     vrfPrefix.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefix.EntityData.ParentYangName = "vrf-prefixes"
     vrfPrefix.EntityData.SegmentPath = "vrf-prefix" + types.AddKeyToken(vrfPrefix.Prefix, "prefix") + types.AddKeyToken(vrfPrefix.PrefixLength, "prefix-length")
+    vrfPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/" + vrfPrefix.EntityData.SegmentPath
     vrfPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35233,6 +36060,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPref
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35290,6 +36118,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35329,6 +36158,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -35383,6 +36213,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35415,6 +36246,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -35476,6 +36308,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35509,6 +36342,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -35566,6 +36400,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35598,6 +36433,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -35659,6 +36495,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35692,6 +36529,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -35746,6 +36584,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35788,6 +36627,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35809,6 +36649,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -35824,6 +36665,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35882,6 +36724,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35921,6 +36764,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -35975,6 +36819,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36007,6 +36852,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -36068,6 +36914,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36101,6 +36948,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -36158,6 +37006,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36190,6 +37039,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -36251,6 +37101,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36284,6 +37135,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -36338,6 +37190,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36379,6 +37232,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfP
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36436,6 +37290,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36475,6 +37330,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -36529,6 +37385,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36561,6 +37418,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -36622,6 +37480,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36655,6 +37514,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -36712,6 +37572,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36744,6 +37605,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -36805,6 +37667,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36838,6 +37701,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -36892,6 +37756,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36933,6 +37798,7 @@ func (defaultTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
     defaultTopology.EntityData.BundleName = "cisco_ios_xr"
     defaultTopology.EntityData.ParentYangName = "vrf-unicast"
     defaultTopology.EntityData.SegmentPath = "default-topology"
+    defaultTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/" + defaultTopology.EntityData.SegmentPath
     defaultTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36963,6 +37829,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnic
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "default-topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36984,6 +37851,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnic
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -37012,6 +37880,7 @@ func (vrfPrefixTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicas
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37045,6 +37914,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Default
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37102,6 +37972,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37141,6 +38012,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -37195,6 +38067,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37227,6 +38100,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -37288,6 +38162,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37321,6 +38196,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -37378,6 +38254,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37410,6 +38287,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -37471,6 +38349,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37504,6 +38383,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -37558,6 +38438,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37600,6 +38481,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37621,6 +38503,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -37636,6 +38519,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37694,6 +38578,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37733,6 +38618,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -37787,6 +38673,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37819,6 +38706,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -37880,6 +38768,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37913,6 +38802,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -37970,6 +38860,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38002,6 +38893,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -38063,6 +38955,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38096,6 +38989,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -38150,6 +39044,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38191,6 +39086,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_Defa
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38248,6 +39144,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38287,6 +39184,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -38341,6 +39239,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38373,6 +39272,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -38434,6 +39334,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38467,6 +39368,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -38524,6 +39426,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38556,6 +39459,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -38617,6 +39521,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38650,6 +39555,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfUnicast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -38704,6 +39610,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-unicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38751,6 +39658,7 @@ func (vrfMulticast *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast) 
     vrfMulticast.EntityData.BundleName = "cisco_ios_xr"
     vrfMulticast.EntityData.ParentYangName = "vrfipv6"
     vrfMulticast.EntityData.SegmentPath = "vrf-multicast"
+    vrfMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/" + vrfMulticast.EntityData.SegmentPath
     vrfMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38783,6 +39691,7 @@ func (topologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Top
     topologies.EntityData.BundleName = "cisco_ios_xr"
     topologies.EntityData.ParentYangName = "vrf-multicast"
     topologies.EntityData.SegmentPath = "topologies"
+    topologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/" + topologies.EntityData.SegmentPath
     topologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38804,6 +39713,7 @@ func (topologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Top
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Topology name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -38819,6 +39729,7 @@ func (topology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topol
     topology.EntityData.BundleName = "cisco_ios_xr"
     topology.EntityData.ParentYangName = "topologies"
     topology.EntityData.SegmentPath = "topology" + types.AddKeyToken(topology.TopologyName, "topology-name")
+    topology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/" + topology.EntityData.SegmentPath
     topology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38850,6 +39761,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMult
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38871,6 +39783,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMult
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -38899,6 +39812,7 @@ func (vrfPrefixTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMultic
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38932,6 +39846,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topol
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38989,6 +39904,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39028,6 +39944,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -39082,6 +39999,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39114,6 +40032,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -39175,6 +40094,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39208,6 +40128,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -39265,6 +40186,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39297,6 +40219,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -39358,6 +40281,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39391,6 +40315,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -39445,6 +40370,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39487,6 +40413,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMultica
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39508,6 +40435,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMultica
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -39523,6 +40451,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39581,6 +40510,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39620,6 +40550,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -39674,6 +40605,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39706,6 +40638,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -39767,6 +40700,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39800,6 +40734,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -39857,6 +40792,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39889,6 +40825,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -39950,6 +40887,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39983,6 +40921,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -40037,6 +40976,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40078,6 +41018,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_To
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40135,6 +41076,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40174,6 +41116,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -40228,6 +41171,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40260,6 +41204,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -40321,6 +41266,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40354,6 +41300,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -40411,6 +41358,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40443,6 +41391,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -40504,6 +41453,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40537,6 +41487,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Topologies_Topology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -40591,6 +41542,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/topologies/topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40633,6 +41585,7 @@ func (vrfPrefixes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Vr
     vrfPrefixes.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixes.EntityData.ParentYangName = "vrf-multicast"
     vrfPrefixes.EntityData.SegmentPath = "vrf-prefixes"
+    vrfPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/" + vrfPrefixes.EntityData.SegmentPath
     vrfPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40654,6 +41607,7 @@ func (vrfPrefixes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -40682,6 +41636,7 @@ func (vrfPrefix *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfP
     vrfPrefix.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefix.EntityData.ParentYangName = "vrf-prefixes"
     vrfPrefix.EntityData.SegmentPath = "vrf-prefix" + types.AddKeyToken(vrfPrefix.Prefix, "prefix") + types.AddKeyToken(vrfPrefix.PrefixLength, "prefix-length")
+    vrfPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/" + vrfPrefix.EntityData.SegmentPath
     vrfPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40715,6 +41670,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPr
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40772,6 +41728,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40811,6 +41768,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -40865,6 +41823,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40897,6 +41856,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -40958,6 +41918,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40991,6 +41952,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -41048,6 +42010,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41080,6 +42043,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -41141,6 +42105,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41174,6 +42139,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -41228,6 +42194,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41270,6 +42237,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMultica
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41291,6 +42259,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMultica
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -41306,6 +42275,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41364,6 +42334,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41403,6 +42374,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -41457,6 +42429,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41489,6 +42462,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -41550,6 +42524,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41583,6 +42558,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -41640,6 +42616,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41672,6 +42649,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -41733,6 +42711,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41766,6 +42745,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -41820,6 +42800,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41861,6 +42842,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Vr
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41918,6 +42900,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41957,6 +42940,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -42011,6 +42995,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42043,6 +43028,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -42104,6 +43090,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42137,6 +43124,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -42194,6 +43182,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42226,6 +43215,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -42287,6 +43277,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42320,6 +43311,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_VrfPrefixes_VrfPrefix_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -42374,6 +43366,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/vrf-prefixes/vrf-prefix/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42415,6 +43408,7 @@ func (defaultTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
     defaultTopology.EntityData.BundleName = "cisco_ios_xr"
     defaultTopology.EntityData.ParentYangName = "vrf-multicast"
     defaultTopology.EntityData.SegmentPath = "default-topology"
+    defaultTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/" + defaultTopology.EntityData.SegmentPath
     defaultTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42445,6 +43439,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMult
     vrfPrefixTopologies.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopologies.EntityData.ParentYangName = "default-topology"
     vrfPrefixTopologies.EntityData.SegmentPath = "vrf-prefix-topologies"
+    vrfPrefixTopologies.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/" + vrfPrefixTopologies.EntityData.SegmentPath
     vrfPrefixTopologies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopologies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopologies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42466,6 +43461,7 @@ func (vrfPrefixTopologies *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMult
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Destination prefix. The type is one of the
     // following types: string with pattern:
@@ -42494,6 +43490,7 @@ func (vrfPrefixTopology *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMultic
     vrfPrefixTopology.EntityData.BundleName = "cisco_ios_xr"
     vrfPrefixTopology.EntityData.ParentYangName = "vrf-prefix-topologies"
     vrfPrefixTopology.EntityData.SegmentPath = "vrf-prefix-topology" + types.AddKeyToken(vrfPrefixTopology.Prefix, "prefix") + types.AddKeyToken(vrfPrefixTopology.PrefixLength, "prefix-length")
+    vrfPrefixTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/" + vrfPrefixTopology.EntityData.SegmentPath
     vrfPrefixTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPrefixTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPrefixTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42527,6 +43524,7 @@ func (vrfRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_Defau
     vrfRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRoute.EntityData.SegmentPath = "vrf-route"
+    vrfRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRoute.EntityData.SegmentPath
     vrfRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42584,6 +43582,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
     vrfNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopTable.EntityData.ParentYangName = "vrf-route"
     vrfNextHopTable.EntityData.SegmentPath = "vrf-next-hop-table"
+    vrfNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/" + vrfNextHopTable.EntityData.SegmentPath
     vrfNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42623,6 +43622,7 @@ func (vrfNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -42677,6 +43677,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42709,6 +43710,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -42770,6 +43772,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42803,6 +43806,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -42860,6 +43864,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42892,6 +43897,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -42953,6 +43959,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42986,6 +43993,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRoute_VrfNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -43040,6 +44048,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-route/vrf-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43082,6 +44091,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMultica
     vrfRecurseRoutes.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoutes.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfRecurseRoutes.EntityData.SegmentPath = "vrf-recurse-routes"
+    vrfRecurseRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfRecurseRoutes.EntityData.SegmentPath
     vrfRecurseRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43103,6 +44113,7 @@ func (vrfRecurseRoutes *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMultica
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Fallback or recusive VRF name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -43118,6 +44129,7 @@ func (vrfRecurseRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticas
     vrfRecurseRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfRecurseRoute.EntityData.ParentYangName = "vrf-recurse-routes"
     vrfRecurseRoute.EntityData.SegmentPath = "vrf-recurse-route" + types.AddKeyToken(vrfRecurseRoute.VrfName, "vrf-name")
+    vrfRecurseRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/" + vrfRecurseRoute.EntityData.SegmentPath
     vrfRecurseRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecurseRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecurseRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43176,6 +44188,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfRecursiveNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     vrfRecursiveNextHopTable.EntityData.ParentYangName = "vrf-recurse-route"
     vrfRecursiveNextHopTable.EntityData.SegmentPath = "vrf-recursive-next-hop-table"
+    vrfRecursiveNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/" + vrfRecursiveNextHopTable.EntityData.SegmentPath
     vrfRecursiveNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRecursiveNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRecursiveNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43215,6 +44228,7 @@ func (vrfRecursiveNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -43269,6 +44283,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43301,6 +44316,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -43362,6 +44378,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43395,6 +44412,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -43452,6 +44470,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43484,6 +44503,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -43545,6 +44565,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43578,6 +44599,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfRecurseRoutes_VrfRecurseRoute_VrfRecursiveNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -43632,6 +44654,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "vrf-recursive-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-recurse-routes/vrf-recurse-route/vrf-recursive-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43673,6 +44696,7 @@ func (vrfSegRoute *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_De
     vrfSegRoute.EntityData.BundleName = "cisco_ios_xr"
     vrfSegRoute.EntityData.ParentYangName = "vrf-prefix-topology"
     vrfSegRoute.EntityData.SegmentPath = "vrf-seg-route"
+    vrfSegRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/" + vrfSegRoute.EntityData.SegmentPath
     vrfSegRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSegRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSegRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43730,6 +44754,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     segmentRouteNextHopTable.EntityData.BundleName = "cisco_ios_xr"
     segmentRouteNextHopTable.EntityData.ParentYangName = "vrf-seg-route"
     segmentRouteNextHopTable.EntityData.SegmentPath = "segment-route-next-hop-table"
+    segmentRouteNextHopTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/" + segmentRouteNextHopTable.EntityData.SegmentPath
     segmentRouteNextHopTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouteNextHopTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouteNextHopTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43769,6 +44794,7 @@ func (segmentRouteNextHopTable *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -43823,6 +44849,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
     vrfNextHopInterfaceName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceName.EntityData.SegmentPath = "vrf-next-hop-interface-name" + types.AddKeyToken(vrfNextHopInterfaceName.InterfaceName, "interface-name")
+    vrfNextHopInterfaceName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceName.EntityData.SegmentPath
     vrfNextHopInterfaceName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43855,6 +44882,7 @@ func (vrfNextHopInterfaceName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vrf
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopInterfaceNameNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Forwarding interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -43916,6 +44944,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-interface-name-next-hop-address" + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.InterfaceName, "interface-name") + types.AddKeyToken(vrfNextHopInterfaceNameNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopInterfaceNameNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopInterfaceNameNextHopAddress.EntityData.SegmentPath
     vrfNextHopInterfaceNameNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopInterfaceNameNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43949,6 +44978,7 @@ func (vrfNextHopInterfaceNameNextHopAddress *RouterStatic_DefaultVrf_AddressFami
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -44006,6 +45036,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
     vrfNextHopNextHopAddress.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddress.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddress.EntityData.SegmentPath = "vrf-next-hop-next-hop-address" + types.AddKeyToken(vrfNextHopNextHopAddress.NextHopAddress, "next-hop-address")
+    vrfNextHopNextHopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddress.EntityData.SegmentPath
     vrfNextHopNextHopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44038,6 +45069,7 @@ func (vrfNextHopNextHopAddress *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_Vr
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopNextHopAddressExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Next hop address. The type is one of the following
     // types: string with pattern:
@@ -44099,6 +45131,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-next-hop-address-explicit-path-name" + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.NextHopAddress, "next-hop-address") + types.AddKeyToken(vrfNextHopNextHopAddressExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopNextHopAddressExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopNextHopAddressExplicitPathName.EntityData.SegmentPath
     vrfNextHopNextHopAddressExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopNextHopAddressExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44132,6 +45165,7 @@ func (vrfNextHopNextHopAddressExplicitPathName *RouterStatic_DefaultVrf_AddressF
 type RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_VrfMulticast_DefaultTopology_VrfPrefixTopologies_VrfPrefixTopology_VrfSegRoute_SegmentRouteNextHopTable_VrfNextHopExplicitPathName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Segment Routing mpls path name. The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -44186,6 +45220,7 @@ func (vrfNextHopExplicitPathName *RouterStatic_DefaultVrf_AddressFamily_Vrfipv6_
     vrfNextHopExplicitPathName.EntityData.BundleName = "cisco_ios_xr"
     vrfNextHopExplicitPathName.EntityData.ParentYangName = "segment-route-next-hop-table"
     vrfNextHopExplicitPathName.EntityData.SegmentPath = "vrf-next-hop-explicit-path-name" + types.AddKeyToken(vrfNextHopExplicitPathName.ExplicitPathName, "explicit-path-name")
+    vrfNextHopExplicitPathName.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/default-vrf/address-family/vrfipv6/vrf-multicast/default-topology/vrf-prefix-topologies/vrf-prefix-topology/vrf-seg-route/segment-route-next-hop-table/" + vrfNextHopExplicitPathName.EntityData.SegmentPath
     vrfNextHopExplicitPathName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfNextHopExplicitPathName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfNextHopExplicitPathName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44233,6 +45268,7 @@ func (maximumRoutes *RouterStatic_MaximumRoutes) GetEntityData() *types.CommonEn
     maximumRoutes.EntityData.BundleName = "cisco_ios_xr"
     maximumRoutes.EntityData.ParentYangName = "router-static"
     maximumRoutes.EntityData.SegmentPath = "maximum-routes"
+    maximumRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-static-cfg:router-static/" + maximumRoutes.EntityData.SegmentPath
     maximumRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maximumRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maximumRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

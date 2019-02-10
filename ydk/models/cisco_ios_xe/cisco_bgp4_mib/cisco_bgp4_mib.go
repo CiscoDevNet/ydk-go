@@ -155,6 +155,7 @@ func (cISCOBGP4MIB *CISCOBGP4MIB) GetEntityData() *types.CommonEntityData {
     cISCOBGP4MIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOBGP4MIB.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cISCOBGP4MIB.EntityData.SegmentPath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB"
+    cISCOBGP4MIB.EntityData.AbsolutePath = cISCOBGP4MIB.EntityData.SegmentPath
     cISCOBGP4MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOBGP4MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOBGP4MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -199,6 +200,7 @@ func (cbgpGlobal *CISCOBGP4MIB_CbgpGlobal) GetEntityData() *types.CommonEntityDa
     cbgpGlobal.EntityData.BundleName = "cisco_ios_xe"
     cbgpGlobal.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpGlobal.EntityData.SegmentPath = "cbgpGlobal"
+    cbgpGlobal.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpGlobal.EntityData.SegmentPath
     cbgpGlobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpGlobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -240,6 +242,7 @@ func (cbgpRouteTable *CISCOBGP4MIB_CbgpRouteTable) GetEntityData() *types.Common
     cbgpRouteTable.EntityData.BundleName = "cisco_ios_xe"
     cbgpRouteTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpRouteTable.EntityData.SegmentPath = "cbgpRouteTable"
+    cbgpRouteTable.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpRouteTable.EntityData.SegmentPath
     cbgpRouteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpRouteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpRouteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -262,6 +265,7 @@ func (cbgpRouteTable *CISCOBGP4MIB_CbgpRouteTable) GetEntityData() *types.Common
 type CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Represents Address Family Identifier(AFI) of the
     // Network Layer protocol associated with the route. An implementation is only
@@ -382,6 +386,7 @@ func (cbgpRouteEntry *CISCOBGP4MIB_CbgpRouteTable_CbgpRouteEntry) GetEntityData(
     cbgpRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     cbgpRouteEntry.EntityData.ParentYangName = "cbgpRouteTable"
     cbgpRouteEntry.EntityData.SegmentPath = "cbgpRouteEntry" + types.AddKeyToken(cbgpRouteEntry.CbgpRouteAfi, "cbgpRouteAfi") + types.AddKeyToken(cbgpRouteEntry.CbgpRouteSafi, "cbgpRouteSafi") + types.AddKeyToken(cbgpRouteEntry.CbgpRoutePeerType, "cbgpRoutePeerType") + types.AddKeyToken(cbgpRouteEntry.CbgpRoutePeer, "cbgpRoutePeer") + types.AddKeyToken(cbgpRouteEntry.CbgpRouteAddrPrefix, "cbgpRouteAddrPrefix") + types.AddKeyToken(cbgpRouteEntry.CbgpRouteAddrPrefixLen, "cbgpRouteAddrPrefixLen")
+    cbgpRouteEntry.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpRouteTable/" + cbgpRouteEntry.EntityData.SegmentPath
     cbgpRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -461,6 +466,7 @@ func (cbgpPeerCapsTable *CISCOBGP4MIB_CbgpPeerCapsTable) GetEntityData() *types.
     cbgpPeerCapsTable.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeerCapsTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpPeerCapsTable.EntityData.SegmentPath = "cbgpPeerCapsTable"
+    cbgpPeerCapsTable.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpPeerCapsTable.EntityData.SegmentPath
     cbgpPeerCapsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeerCapsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeerCapsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -486,6 +492,7 @@ func (cbgpPeerCapsTable *CISCOBGP4MIB_CbgpPeerCapsTable) GetEntityData() *types.
 type CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -528,6 +535,7 @@ func (cbgpPeerCapsEntry *CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry) GetEn
     cbgpPeerCapsEntry.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeerCapsEntry.EntityData.ParentYangName = "cbgpPeerCapsTable"
     cbgpPeerCapsEntry.EntityData.SegmentPath = "cbgpPeerCapsEntry" + types.AddKeyToken(cbgpPeerCapsEntry.BgpPeerRemoteAddr, "bgpPeerRemoteAddr") + types.AddKeyToken(cbgpPeerCapsEntry.CbgpPeerCapCode, "cbgpPeerCapCode") + types.AddKeyToken(cbgpPeerCapsEntry.CbgpPeerCapIndex, "cbgpPeerCapIndex")
+    cbgpPeerCapsEntry.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerCapsTable/" + cbgpPeerCapsEntry.EntityData.SegmentPath
     cbgpPeerCapsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeerCapsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeerCapsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -582,6 +590,7 @@ func (cbgpPeerAddrFamilyTable *CISCOBGP4MIB_CbgpPeerAddrFamilyTable) GetEntityDa
     cbgpPeerAddrFamilyTable.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeerAddrFamilyTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpPeerAddrFamilyTable.EntityData.SegmentPath = "cbgpPeerAddrFamilyTable"
+    cbgpPeerAddrFamilyTable.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpPeerAddrFamilyTable.EntityData.SegmentPath
     cbgpPeerAddrFamilyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeerAddrFamilyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeerAddrFamilyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -605,6 +614,7 @@ func (cbgpPeerAddrFamilyTable *CISCOBGP4MIB_CbgpPeerAddrFamilyTable) GetEntityDa
 type CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -631,6 +641,7 @@ func (cbgpPeerAddrFamilyEntry *CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddr
     cbgpPeerAddrFamilyEntry.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeerAddrFamilyEntry.EntityData.ParentYangName = "cbgpPeerAddrFamilyTable"
     cbgpPeerAddrFamilyEntry.EntityData.SegmentPath = "cbgpPeerAddrFamilyEntry" + types.AddKeyToken(cbgpPeerAddrFamilyEntry.BgpPeerRemoteAddr, "bgpPeerRemoteAddr") + types.AddKeyToken(cbgpPeerAddrFamilyEntry.CbgpPeerAddrFamilyAfi, "cbgpPeerAddrFamilyAfi") + types.AddKeyToken(cbgpPeerAddrFamilyEntry.CbgpPeerAddrFamilySafi, "cbgpPeerAddrFamilySafi")
+    cbgpPeerAddrFamilyEntry.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerAddrFamilyTable/" + cbgpPeerAddrFamilyEntry.EntityData.SegmentPath
     cbgpPeerAddrFamilyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeerAddrFamilyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeerAddrFamilyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -673,6 +684,7 @@ func (cbgpPeerAddrFamilyPrefixTable *CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable)
     cbgpPeerAddrFamilyPrefixTable.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeerAddrFamilyPrefixTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpPeerAddrFamilyPrefixTable.EntityData.SegmentPath = "cbgpPeerAddrFamilyPrefixTable"
+    cbgpPeerAddrFamilyPrefixTable.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpPeerAddrFamilyPrefixTable.EntityData.SegmentPath
     cbgpPeerAddrFamilyPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeerAddrFamilyPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeerAddrFamilyPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -696,6 +708,7 @@ func (cbgpPeerAddrFamilyPrefixTable *CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable)
 type CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_CbgpPeerAddrFamilyPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -760,6 +773,7 @@ func (cbgpPeerAddrFamilyPrefixEntry *CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_
     cbgpPeerAddrFamilyPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeerAddrFamilyPrefixEntry.EntityData.ParentYangName = "cbgpPeerAddrFamilyPrefixTable"
     cbgpPeerAddrFamilyPrefixEntry.EntityData.SegmentPath = "cbgpPeerAddrFamilyPrefixEntry" + types.AddKeyToken(cbgpPeerAddrFamilyPrefixEntry.BgpPeerRemoteAddr, "bgpPeerRemoteAddr") + types.AddKeyToken(cbgpPeerAddrFamilyPrefixEntry.CbgpPeerAddrFamilyAfi, "cbgpPeerAddrFamilyAfi") + types.AddKeyToken(cbgpPeerAddrFamilyPrefixEntry.CbgpPeerAddrFamilySafi, "cbgpPeerAddrFamilySafi")
+    cbgpPeerAddrFamilyPrefixEntry.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerAddrFamilyPrefixTable/" + cbgpPeerAddrFamilyPrefixEntry.EntityData.SegmentPath
     cbgpPeerAddrFamilyPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeerAddrFamilyPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeerAddrFamilyPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -802,6 +816,7 @@ func (cbgpPeer2Table *CISCOBGP4MIB_CbgpPeer2Table) GetEntityData() *types.Common
     cbgpPeer2Table.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeer2Table.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpPeer2Table.EntityData.SegmentPath = "cbgpPeer2Table"
+    cbgpPeer2Table.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpPeer2Table.EntityData.SegmentPath
     cbgpPeer2Table.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeer2Table.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeer2Table.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -824,6 +839,7 @@ func (cbgpPeer2Table *CISCOBGP4MIB_CbgpPeer2Table) GetEntityData() *types.Common
 type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Represents the type of Peer address stored in
     // cbgpPeer2Entry. The type is InetAddressType.
@@ -997,6 +1013,7 @@ func (cbgpPeer2Entry *CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry) GetEntityData(
     cbgpPeer2Entry.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeer2Entry.EntityData.ParentYangName = "cbgpPeer2Table"
     cbgpPeer2Entry.EntityData.SegmentPath = "cbgpPeer2Entry" + types.AddKeyToken(cbgpPeer2Entry.CbgpPeer2Type, "cbgpPeer2Type") + types.AddKeyToken(cbgpPeer2Entry.CbgpPeer2RemoteAddr, "cbgpPeer2RemoteAddr")
+    cbgpPeer2Entry.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2Table/" + cbgpPeer2Entry.EntityData.SegmentPath
     cbgpPeer2Entry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeer2Entry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeer2Entry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1111,6 +1128,7 @@ func (cbgpPeer2CapsTable *CISCOBGP4MIB_CbgpPeer2CapsTable) GetEntityData() *type
     cbgpPeer2CapsTable.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeer2CapsTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpPeer2CapsTable.EntityData.SegmentPath = "cbgpPeer2CapsTable"
+    cbgpPeer2CapsTable.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpPeer2CapsTable.EntityData.SegmentPath
     cbgpPeer2CapsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeer2CapsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeer2CapsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1136,6 +1154,7 @@ func (cbgpPeer2CapsTable *CISCOBGP4MIB_CbgpPeer2CapsTable) GetEntityData() *type
 type CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is InetAddressType. Refers to
     // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2Type
@@ -1187,6 +1206,7 @@ func (cbgpPeer2CapsEntry *CISCOBGP4MIB_CbgpPeer2CapsTable_CbgpPeer2CapsEntry) Ge
     cbgpPeer2CapsEntry.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeer2CapsEntry.EntityData.ParentYangName = "cbgpPeer2CapsTable"
     cbgpPeer2CapsEntry.EntityData.SegmentPath = "cbgpPeer2CapsEntry" + types.AddKeyToken(cbgpPeer2CapsEntry.CbgpPeer2Type, "cbgpPeer2Type") + types.AddKeyToken(cbgpPeer2CapsEntry.CbgpPeer2RemoteAddr, "cbgpPeer2RemoteAddr") + types.AddKeyToken(cbgpPeer2CapsEntry.CbgpPeer2CapCode, "cbgpPeer2CapCode") + types.AddKeyToken(cbgpPeer2CapsEntry.CbgpPeer2CapIndex, "cbgpPeer2CapIndex")
+    cbgpPeer2CapsEntry.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2CapsTable/" + cbgpPeer2CapsEntry.EntityData.SegmentPath
     cbgpPeer2CapsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeer2CapsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeer2CapsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1246,6 +1266,7 @@ func (cbgpPeer2AddrFamilyTable *CISCOBGP4MIB_CbgpPeer2AddrFamilyTable) GetEntity
     cbgpPeer2AddrFamilyTable.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeer2AddrFamilyTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpPeer2AddrFamilyTable.EntityData.SegmentPath = "cbgpPeer2AddrFamilyTable"
+    cbgpPeer2AddrFamilyTable.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpPeer2AddrFamilyTable.EntityData.SegmentPath
     cbgpPeer2AddrFamilyTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeer2AddrFamilyTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeer2AddrFamilyTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1269,6 +1290,7 @@ func (cbgpPeer2AddrFamilyTable *CISCOBGP4MIB_CbgpPeer2AddrFamilyTable) GetEntity
 type CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2AddrFamilyEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is InetAddressType. Refers to
     // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2Type
@@ -1298,6 +1320,7 @@ func (cbgpPeer2AddrFamilyEntry *CISCOBGP4MIB_CbgpPeer2AddrFamilyTable_CbgpPeer2A
     cbgpPeer2AddrFamilyEntry.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeer2AddrFamilyEntry.EntityData.ParentYangName = "cbgpPeer2AddrFamilyTable"
     cbgpPeer2AddrFamilyEntry.EntityData.SegmentPath = "cbgpPeer2AddrFamilyEntry" + types.AddKeyToken(cbgpPeer2AddrFamilyEntry.CbgpPeer2Type, "cbgpPeer2Type") + types.AddKeyToken(cbgpPeer2AddrFamilyEntry.CbgpPeer2RemoteAddr, "cbgpPeer2RemoteAddr") + types.AddKeyToken(cbgpPeer2AddrFamilyEntry.CbgpPeer2AddrFamilyAfi, "cbgpPeer2AddrFamilyAfi") + types.AddKeyToken(cbgpPeer2AddrFamilyEntry.CbgpPeer2AddrFamilySafi, "cbgpPeer2AddrFamilySafi")
+    cbgpPeer2AddrFamilyEntry.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2AddrFamilyTable/" + cbgpPeer2AddrFamilyEntry.EntityData.SegmentPath
     cbgpPeer2AddrFamilyEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeer2AddrFamilyEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeer2AddrFamilyEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1341,6 +1364,7 @@ func (cbgpPeer2AddrFamilyPrefixTable *CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTabl
     cbgpPeer2AddrFamilyPrefixTable.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeer2AddrFamilyPrefixTable.EntityData.ParentYangName = "CISCO-BGP4-MIB"
     cbgpPeer2AddrFamilyPrefixTable.EntityData.SegmentPath = "cbgpPeer2AddrFamilyPrefixTable"
+    cbgpPeer2AddrFamilyPrefixTable.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/" + cbgpPeer2AddrFamilyPrefixTable.EntityData.SegmentPath
     cbgpPeer2AddrFamilyPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeer2AddrFamilyPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeer2AddrFamilyPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1364,6 +1388,7 @@ func (cbgpPeer2AddrFamilyPrefixTable *CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTabl
 type CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTable_CbgpPeer2AddrFamilyPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is InetAddressType. Refers to
     // cisco_bgp4_mib.CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry_CbgpPeer2Type
@@ -1432,6 +1457,7 @@ func (cbgpPeer2AddrFamilyPrefixEntry *CISCOBGP4MIB_CbgpPeer2AddrFamilyPrefixTabl
     cbgpPeer2AddrFamilyPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
     cbgpPeer2AddrFamilyPrefixEntry.EntityData.ParentYangName = "cbgpPeer2AddrFamilyPrefixTable"
     cbgpPeer2AddrFamilyPrefixEntry.EntityData.SegmentPath = "cbgpPeer2AddrFamilyPrefixEntry" + types.AddKeyToken(cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2Type, "cbgpPeer2Type") + types.AddKeyToken(cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2RemoteAddr, "cbgpPeer2RemoteAddr") + types.AddKeyToken(cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2AddrFamilyAfi, "cbgpPeer2AddrFamilyAfi") + types.AddKeyToken(cbgpPeer2AddrFamilyPrefixEntry.CbgpPeer2AddrFamilySafi, "cbgpPeer2AddrFamilySafi")
+    cbgpPeer2AddrFamilyPrefixEntry.EntityData.AbsolutePath = "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2AddrFamilyPrefixTable/" + cbgpPeer2AddrFamilyPrefixEntry.EntityData.SegmentPath
     cbgpPeer2AddrFamilyPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cbgpPeer2AddrFamilyPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cbgpPeer2AddrFamilyPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

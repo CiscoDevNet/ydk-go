@@ -91,6 +91,7 @@ func (esAcl *EsAcl) GetEntityData() *types.CommonEntityData {
     esAcl.EntityData.BundleName = "cisco_ios_xr"
     esAcl.EntityData.ParentYangName = "Cisco-IOS-XR-es-acl-oper"
     esAcl.EntityData.SegmentPath = "Cisco-IOS-XR-es-acl-oper:es-acl"
+    esAcl.EntityData.AbsolutePath = esAcl.EntityData.SegmentPath
     esAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -130,6 +131,7 @@ func (active *EsAcl_Active) GetEntityData() *types.CommonEntityData {
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "es-acl"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -163,6 +165,7 @@ func (oor *EsAcl_Active_Oor) GetEntityData() *types.CommonEntityData {
     oor.EntityData.BundleName = "cisco_ios_xr"
     oor.EntityData.ParentYangName = "active"
     oor.EntityData.SegmentPath = "oor"
+    oor.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/" + oor.EntityData.SegmentPath
     oor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -192,6 +195,7 @@ func (aclSummary *EsAcl_Active_Oor_AclSummary) GetEntityData() *types.CommonEnti
     aclSummary.EntityData.BundleName = "cisco_ios_xr"
     aclSummary.EntityData.ParentYangName = "oor"
     aclSummary.EntityData.SegmentPath = "acl-summary"
+    aclSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/" + aclSummary.EntityData.SegmentPath
     aclSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aclSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -231,6 +235,7 @@ func (details *EsAcl_Active_Oor_AclSummary_Details) GetEntityData() *types.Commo
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "acl-summary"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/acl-summary/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -263,6 +268,7 @@ func (list *EsAcl_Active_List) GetEntityData() *types.CommonEntityData {
     list.EntityData.BundleName = "cisco_ios_xr"
     list.EntityData.ParentYangName = "active"
     list.EntityData.SegmentPath = "list"
+    list.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/" + list.EntityData.SegmentPath
     list.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     list.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     list.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -292,6 +298,7 @@ func (acls *EsAcl_Active_List_Acls) GetEntityData() *types.CommonEntityData {
     acls.EntityData.BundleName = "cisco_ios_xr"
     acls.EntityData.ParentYangName = "list"
     acls.EntityData.SegmentPath = "acls"
+    acls.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/list/" + acls.EntityData.SegmentPath
     acls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -313,6 +320,7 @@ func (acls *EsAcl_Active_List_Acls) GetEntityData() *types.CommonEntityData {
 type EsAcl_Active_List_Acls_Acl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Access List. The type is string with
     // length: 1..64.
@@ -328,6 +336,7 @@ func (acl *EsAcl_Active_List_Acls_Acl) GetEntityData() *types.CommonEntityData {
     acl.EntityData.BundleName = "cisco_ios_xr"
     acl.EntityData.ParentYangName = "acls"
     acl.EntityData.SegmentPath = "acl" + types.AddKeyToken(acl.Name, "name")
+    acl.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/list/acls/" + acl.EntityData.SegmentPath
     acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -359,6 +368,7 @@ func (aclSequenceNumbers *EsAcl_Active_List_Acls_Acl_AclSequenceNumbers) GetEnti
     aclSequenceNumbers.EntityData.BundleName = "cisco_ios_xr"
     aclSequenceNumbers.EntityData.ParentYangName = "acl"
     aclSequenceNumbers.EntityData.SegmentPath = "acl-sequence-numbers"
+    aclSequenceNumbers.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/list/acls/acl/" + aclSequenceNumbers.EntityData.SegmentPath
     aclSequenceNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aclSequenceNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclSequenceNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -380,6 +390,7 @@ func (aclSequenceNumbers *EsAcl_Active_List_Acls_Acl_AclSequenceNumbers) GetEnti
 type EsAcl_Active_List_Acls_Acl_AclSequenceNumbers_AclSequenceNumber struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. ACLEntry Sequence Number. The type is interface{}
     // with range: 1..2147483646.
@@ -465,6 +476,7 @@ func (aclSequenceNumber *EsAcl_Active_List_Acls_Acl_AclSequenceNumbers_AclSequen
     aclSequenceNumber.EntityData.BundleName = "cisco_ios_xr"
     aclSequenceNumber.EntityData.ParentYangName = "acl-sequence-numbers"
     aclSequenceNumber.EntityData.SegmentPath = "acl-sequence-number" + types.AddKeyToken(aclSequenceNumber.SequenceNumber, "sequence-number")
+    aclSequenceNumber.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/list/acls/acl/acl-sequence-numbers/" + aclSequenceNumber.EntityData.SegmentPath
     aclSequenceNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aclSequenceNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aclSequenceNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -517,6 +529,7 @@ func (oorAcls *EsAcl_Active_OorAcls) GetEntityData() *types.CommonEntityData {
     oorAcls.EntityData.BundleName = "cisco_ios_xr"
     oorAcls.EntityData.ParentYangName = "active"
     oorAcls.EntityData.SegmentPath = "oor-acls"
+    oorAcls.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/" + oorAcls.EntityData.SegmentPath
     oorAcls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oorAcls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorAcls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -539,6 +552,7 @@ func (oorAcls *EsAcl_Active_OorAcls) GetEntityData() *types.CommonEntityData {
 type EsAcl_Active_OorAcls_OorAcl struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the Access List. The type is string with
     // length: 1..64.
@@ -563,6 +577,7 @@ func (oorAcl *EsAcl_Active_OorAcls_OorAcl) GetEntityData() *types.CommonEntityDa
     oorAcl.EntityData.BundleName = "cisco_ios_xr"
     oorAcl.EntityData.ParentYangName = "oor-acls"
     oorAcl.EntityData.SegmentPath = "oor-acl" + types.AddKeyToken(oorAcl.Name, "name")
+    oorAcl.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor-acls/" + oorAcl.EntityData.SegmentPath
     oorAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oorAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -598,6 +613,7 @@ func (usages *EsAcl_Active_Usages) GetEntityData() *types.CommonEntityData {
     usages.EntityData.BundleName = "cisco_ios_xr"
     usages.EntityData.ParentYangName = "active"
     usages.EntityData.SegmentPath = "usages"
+    usages.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/" + usages.EntityData.SegmentPath
     usages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -605,6 +621,7 @@ func (usages *EsAcl_Active_Usages) GetEntityData() *types.CommonEntityData {
     usages.EntityData.Children = types.NewOrderedMap()
     usages.EntityData.Children.Append("usage", types.YChild{"Usage", nil})
     for i := range usages.Usage {
+        types.SetYListKey(usages.Usage[i], i)
         usages.EntityData.Children.Append(types.GetSegmentPath(usages.Usage[i]), types.YChild{"Usage", usages.Usage[i]})
     }
     usages.EntityData.Leafs = types.NewOrderedMap()
@@ -619,6 +636,7 @@ func (usages *EsAcl_Active_Usages) GetEntityData() *types.CommonEntityData {
 type EsAcl_Active_Usages_Usage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Node where ACL is applied. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -639,7 +657,8 @@ func (usage *EsAcl_Active_Usages_Usage) GetEntityData() *types.CommonEntityData 
     usage.EntityData.YangName = "usage"
     usage.EntityData.BundleName = "cisco_ios_xr"
     usage.EntityData.ParentYangName = "usages"
-    usage.EntityData.SegmentPath = "usage"
+    usage.EntityData.SegmentPath = "usage" + types.AddNoKeyToken(usage)
+    usage.EntityData.AbsolutePath = "Cisco-IOS-XR-es-acl-oper:es-acl/active/usages/" + usage.EntityData.SegmentPath
     usage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

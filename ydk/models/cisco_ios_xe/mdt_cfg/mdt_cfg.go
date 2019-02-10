@@ -108,6 +108,7 @@ func (mdtConfigData *MdtConfigData) GetEntityData() *types.CommonEntityData {
     mdtConfigData.EntityData.BundleName = "cisco_ios_xe"
     mdtConfigData.EntityData.ParentYangName = "Cisco-IOS-XE-mdt-cfg"
     mdtConfigData.EntityData.SegmentPath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data"
+    mdtConfigData.EntityData.AbsolutePath = mdtConfigData.EntityData.SegmentPath
     mdtConfigData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtConfigData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtConfigData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -133,6 +134,7 @@ func (mdtConfigData *MdtConfigData) GetEntityData() *types.CommonEntityData {
 type MdtConfigData_MdtSubscription struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique subscription identifier. The type is
     // interface{} with range: 0..2147483647.
@@ -152,6 +154,7 @@ func (mdtSubscription *MdtConfigData_MdtSubscription) GetEntityData() *types.Com
     mdtSubscription.EntityData.BundleName = "cisco_ios_xe"
     mdtSubscription.EntityData.ParentYangName = "mdt-config-data"
     mdtSubscription.EntityData.SegmentPath = "mdt-subscription" + types.AddKeyToken(mdtSubscription.SubscriptionId, "subscription-id")
+    mdtSubscription.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/" + mdtSubscription.EntityData.SegmentPath
     mdtSubscription.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtSubscription.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtSubscription.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -231,6 +234,7 @@ func (base *MdtConfigData_MdtSubscription_Base) GetEntityData() *types.CommonEnt
     base.EntityData.BundleName = "cisco_ios_xe"
     base.EntityData.ParentYangName = "mdt-subscription"
     base.EntityData.SegmentPath = "base"
+    base.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-subscription/" + base.EntityData.SegmentPath
     base.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     base.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     base.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -260,6 +264,7 @@ func (base *MdtConfigData_MdtSubscription_Base) GetEntityData() *types.CommonEnt
 type MdtConfigData_MdtSubscription_MdtReceivers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of the receiver. The type is one of the
     // following types: string with pattern:
@@ -287,6 +292,7 @@ func (mdtReceivers *MdtConfigData_MdtSubscription_MdtReceivers) GetEntityData() 
     mdtReceivers.EntityData.BundleName = "cisco_ios_xe"
     mdtReceivers.EntityData.ParentYangName = "mdt-subscription"
     mdtReceivers.EntityData.SegmentPath = "mdt-receivers" + types.AddKeyToken(mdtReceivers.Address, "address") + types.AddKeyToken(mdtReceivers.Port, "port")
+    mdtReceivers.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-subscription/" + mdtReceivers.EntityData.SegmentPath
     mdtReceivers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtReceivers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtReceivers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -308,6 +314,7 @@ func (mdtReceivers *MdtConfigData_MdtSubscription_MdtReceivers) GetEntityData() 
 type MdtConfigData_MdtXfrm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique transform identifier. The type is string.
     Name interface{}
@@ -331,6 +338,7 @@ func (mdtXfrm *MdtConfigData_MdtXfrm) GetEntityData() *types.CommonEntityData {
     mdtXfrm.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrm.EntityData.ParentYangName = "mdt-config-data"
     mdtXfrm.EntityData.SegmentPath = "mdt-xfrm" + types.AddKeyToken(mdtXfrm.Name, "name")
+    mdtXfrm.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/" + mdtXfrm.EntityData.SegmentPath
     mdtXfrm.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrm.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrm.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -358,6 +366,7 @@ func (mdtXfrm *MdtConfigData_MdtXfrm) GetEntityData() *types.CommonEntityData {
 type MdtConfigData_MdtXfrm_MdtXfrmInput struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Transform input URI table name. The type is
     // string.
@@ -387,6 +396,7 @@ func (mdtXfrmInput *MdtConfigData_MdtXfrm_MdtXfrmInput) GetEntityData() *types.C
     mdtXfrmInput.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmInput.EntityData.ParentYangName = "mdt-xfrm"
     mdtXfrmInput.EntityData.SegmentPath = "mdt-xfrm-input" + types.AddKeyToken(mdtXfrmInput.TableName, "table-name")
+    mdtXfrmInput.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-xfrm/" + mdtXfrmInput.EntityData.SegmentPath
     mdtXfrmInput.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmInput.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmInput.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -413,6 +423,7 @@ func (mdtXfrmInput *MdtConfigData_MdtXfrm_MdtXfrmInput) GetEntityData() *types.C
 type MdtConfigData_MdtXfrm_MdtXfrmInput_MdtXfrmInputField struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Transform input URI table field name. The type is
     // string.
@@ -425,6 +436,7 @@ func (mdtXfrmInputField *MdtConfigData_MdtXfrm_MdtXfrmInput_MdtXfrmInputField) G
     mdtXfrmInputField.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmInputField.EntityData.ParentYangName = "mdt-xfrm-input"
     mdtXfrmInputField.EntityData.SegmentPath = "mdt-xfrm-input-field" + types.AddKeyToken(mdtXfrmInputField.Field, "field")
+    mdtXfrmInputField.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-xfrm/mdt-xfrm-input/" + mdtXfrmInputField.EntityData.SegmentPath
     mdtXfrmInputField.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmInputField.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmInputField.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -443,6 +455,7 @@ func (mdtXfrmInputField *MdtConfigData_MdtXfrm_MdtXfrmInput_MdtXfrmInputField) G
 type MdtConfigData_MdtXfrm_MdtXfrmOp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Unique transform operation id. The type is
     // interface{} with range: 0..4294967295.
@@ -465,6 +478,7 @@ func (mdtXfrmOp *MdtConfigData_MdtXfrm_MdtXfrmOp) GetEntityData() *types.CommonE
     mdtXfrmOp.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmOp.EntityData.ParentYangName = "mdt-xfrm"
     mdtXfrmOp.EntityData.SegmentPath = "mdt-xfrm-op" + types.AddKeyToken(mdtXfrmOp.Id, "id")
+    mdtXfrmOp.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-xfrm/" + mdtXfrmOp.EntityData.SegmentPath
     mdtXfrmOp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmOp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmOp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -494,6 +508,7 @@ func (mdtXfrmOp *MdtConfigData_MdtXfrm_MdtXfrmOp) GetEntityData() *types.CommonE
 type MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. filters will be evaluated in sequence based  on
     // filter_id. The type is interface{} with range: 0..4294967295.
@@ -521,6 +536,7 @@ func (mdtXfrmOpFilters *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters) GetEnt
     mdtXfrmOpFilters.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmOpFilters.EntityData.ParentYangName = "mdt-xfrm-op"
     mdtXfrmOpFilters.EntityData.SegmentPath = "mdt-xfrm-op-filters" + types.AddKeyToken(mdtXfrmOpFilters.FilterId, "filter-id")
+    mdtXfrmOpFilters.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-xfrm/mdt-xfrm-op/" + mdtXfrmOpFilters.EntityData.SegmentPath
     mdtXfrmOpFilters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmOpFilters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmOpFilters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -555,6 +571,7 @@ func (opEvent *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_OpEvent) GetEnti
     opEvent.EntityData.BundleName = "cisco_ios_xe"
     opEvent.EntityData.ParentYangName = "mdt-xfrm-op-filters"
     opEvent.EntityData.SegmentPath = "op-event"
+    opEvent.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-xfrm/mdt-xfrm-op/mdt-xfrm-op-filters/" + opEvent.EntityData.SegmentPath
     opEvent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     opEvent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     opEvent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -587,6 +604,7 @@ func (condition *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition) Get
     condition.EntityData.BundleName = "cisco_ios_xe"
     condition.EntityData.ParentYangName = "mdt-xfrm-op-filters"
     condition.EntityData.SegmentPath = "condition"
+    condition.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-xfrm/mdt-xfrm-op/mdt-xfrm-op-filters/" + condition.EntityData.SegmentPath
     condition.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     condition.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     condition.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -608,6 +626,7 @@ func (condition *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFilters_Condition) Get
 type MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Transform operation response field-id, part of
     // response record. It is used to uniquely identify response record field. The
@@ -628,6 +647,7 @@ func (mdtXfrmOpFields *MdtConfigData_MdtXfrm_MdtXfrmOp_MdtXfrmOpFields) GetEntit
     mdtXfrmOpFields.EntityData.BundleName = "cisco_ios_xe"
     mdtXfrmOpFields.EntityData.ParentYangName = "mdt-xfrm-op"
     mdtXfrmOpFields.EntityData.SegmentPath = "mdt-xfrm-op-fields" + types.AddKeyToken(mdtXfrmOpFields.FieldId, "field-id")
+    mdtXfrmOpFields.EntityData.AbsolutePath = "Cisco-IOS-XE-mdt-cfg:mdt-config-data/mdt-xfrm/mdt-xfrm-op/" + mdtXfrmOpFields.EntityData.SegmentPath
     mdtXfrmOpFields.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mdtXfrmOpFields.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mdtXfrmOpFields.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

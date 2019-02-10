@@ -243,6 +243,7 @@ func (cISCOCEFMIB *CISCOCEFMIB) GetEntityData() *types.CommonEntityData {
     cISCOCEFMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOCEFMIB.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cISCOCEFMIB.EntityData.SegmentPath = "CISCO-CEF-MIB:CISCO-CEF-MIB"
+    cISCOCEFMIB.EntityData.AbsolutePath = cISCOCEFMIB.EntityData.SegmentPath
     cISCOCEFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOCEFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCEFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -304,6 +305,7 @@ func (cefFIB *CISCOCEFMIB_CefFIB) GetEntityData() *types.CommonEntityData {
     cefFIB.EntityData.BundleName = "cisco_ios_xe"
     cefFIB.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefFIB.EntityData.SegmentPath = "cefFIB"
+    cefFIB.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefFIB.EntityData.SegmentPath
     cefFIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefFIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefFIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -346,6 +348,7 @@ func (cefCC *CISCOCEFMIB_CefCC) GetEntityData() *types.CommonEntityData {
     cefCC.EntityData.BundleName = "cisco_ios_xe"
     cefCC.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefCC.EntityData.SegmentPath = "cefCC"
+    cefCC.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefCC.EntityData.SegmentPath
     cefCC.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefCC.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefCC.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -413,6 +416,7 @@ func (cefNotifCntl *CISCOCEFMIB_CefNotifCntl) GetEntityData() *types.CommonEntit
     cefNotifCntl.EntityData.BundleName = "cisco_ios_xe"
     cefNotifCntl.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefNotifCntl.EntityData.SegmentPath = "cefNotifCntl"
+    cefNotifCntl.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefNotifCntl.EntityData.SegmentPath
     cefNotifCntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefNotifCntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefNotifCntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -453,6 +457,7 @@ func (cefFIBSummaryTable *CISCOCEFMIB_CefFIBSummaryTable) GetEntityData() *types
     cefFIBSummaryTable.EntityData.BundleName = "cisco_ios_xe"
     cefFIBSummaryTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefFIBSummaryTable.EntityData.SegmentPath = "cefFIBSummaryTable"
+    cefFIBSummaryTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefFIBSummaryTable.EntityData.SegmentPath
     cefFIBSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefFIBSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefFIBSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -485,6 +490,7 @@ func (cefFIBSummaryTable *CISCOCEFMIB_CefFIBSummaryTable) GetEntityData() *types
 type CISCOCEFMIB_CefFIBSummaryTable_CefFIBSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -506,6 +512,7 @@ func (cefFIBSummaryEntry *CISCOCEFMIB_CefFIBSummaryTable_CefFIBSummaryEntry) Get
     cefFIBSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
     cefFIBSummaryEntry.EntityData.ParentYangName = "cefFIBSummaryTable"
     cefFIBSummaryEntry.EntityData.SegmentPath = "cefFIBSummaryEntry" + types.AddKeyToken(cefFIBSummaryEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefFIBSummaryEntry.CefFIBIpVersion, "cefFIBIpVersion")
+    cefFIBSummaryEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefFIBSummaryTable/" + cefFIBSummaryEntry.EntityData.SegmentPath
     cefFIBSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefFIBSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefFIBSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -543,6 +550,7 @@ func (cefPrefixTable *CISCOCEFMIB_CefPrefixTable) GetEntityData() *types.CommonE
     cefPrefixTable.EntityData.BundleName = "cisco_ios_xe"
     cefPrefixTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefPrefixTable.EntityData.SegmentPath = "cefPrefixTable"
+    cefPrefixTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefPrefixTable.EntityData.SegmentPath
     cefPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -576,6 +584,7 @@ func (cefPrefixTable *CISCOCEFMIB_CefPrefixTable) GetEntityData() *types.CommonE
 type CISCOCEFMIB_CefPrefixTable_CefPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -698,6 +707,7 @@ func (cefPrefixEntry *CISCOCEFMIB_CefPrefixTable_CefPrefixEntry) GetEntityData()
     cefPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
     cefPrefixEntry.EntityData.ParentYangName = "cefPrefixTable"
     cefPrefixEntry.EntityData.SegmentPath = "cefPrefixEntry" + types.AddKeyToken(cefPrefixEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefPrefixEntry.CefPrefixType, "cefPrefixType") + types.AddKeyToken(cefPrefixEntry.CefPrefixAddr, "cefPrefixAddr") + types.AddKeyToken(cefPrefixEntry.CefPrefixLen, "cefPrefixLen")
+    cefPrefixEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPrefixTable/" + cefPrefixEntry.EntityData.SegmentPath
     cefPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -768,6 +778,7 @@ func (cefLMPrefixTable *CISCOCEFMIB_CefLMPrefixTable) GetEntityData() *types.Com
     cefLMPrefixTable.EntityData.BundleName = "cisco_ios_xe"
     cefLMPrefixTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefLMPrefixTable.EntityData.SegmentPath = "cefLMPrefixTable"
+    cefLMPrefixTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefLMPrefixTable.EntityData.SegmentPath
     cefLMPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefLMPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefLMPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -823,6 +834,7 @@ func (cefLMPrefixTable *CISCOCEFMIB_CefLMPrefixTable) GetEntityData() *types.Com
 type CISCOCEFMIB_CefLMPrefixTable_CefLMPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -869,6 +881,7 @@ func (cefLMPrefixEntry *CISCOCEFMIB_CefLMPrefixTable_CefLMPrefixEntry) GetEntity
     cefLMPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
     cefLMPrefixEntry.EntityData.ParentYangName = "cefLMPrefixTable"
     cefLMPrefixEntry.EntityData.SegmentPath = "cefLMPrefixEntry" + types.AddKeyToken(cefLMPrefixEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefLMPrefixEntry.CefLMPrefixDestAddrType, "cefLMPrefixDestAddrType") + types.AddKeyToken(cefLMPrefixEntry.CefLMPrefixDestAddr, "cefLMPrefixDestAddr")
+    cefLMPrefixEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefLMPrefixTable/" + cefLMPrefixEntry.EntityData.SegmentPath
     cefLMPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefLMPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefLMPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -910,6 +923,7 @@ func (cefPathTable *CISCOCEFMIB_CefPathTable) GetEntityData() *types.CommonEntit
     cefPathTable.EntityData.BundleName = "cisco_ios_xe"
     cefPathTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefPathTable.EntityData.SegmentPath = "cefPathTable"
+    cefPathTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefPathTable.EntityData.SegmentPath
     cefPathTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefPathTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefPathTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -937,6 +951,7 @@ func (cefPathTable *CISCOCEFMIB_CefPathTable) GetEntityData() *types.CommonEntit
 type CISCOCEFMIB_CefPathTable_CefPathEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -989,6 +1004,7 @@ func (cefPathEntry *CISCOCEFMIB_CefPathTable_CefPathEntry) GetEntityData() *type
     cefPathEntry.EntityData.BundleName = "cisco_ios_xe"
     cefPathEntry.EntityData.ParentYangName = "cefPathTable"
     cefPathEntry.EntityData.SegmentPath = "cefPathEntry" + types.AddKeyToken(cefPathEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefPathEntry.CefPrefixType, "cefPrefixType") + types.AddKeyToken(cefPathEntry.CefPrefixAddr, "cefPrefixAddr") + types.AddKeyToken(cefPathEntry.CefPrefixLen, "cefPrefixLen") + types.AddKeyToken(cefPathEntry.CefPathId, "cefPathId")
+    cefPathEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPathTable/" + cefPathEntry.EntityData.SegmentPath
     cefPathEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefPathEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefPathEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1032,6 +1048,7 @@ func (cefAdjSummaryTable *CISCOCEFMIB_CefAdjSummaryTable) GetEntityData() *types
     cefAdjSummaryTable.EntityData.BundleName = "cisco_ios_xe"
     cefAdjSummaryTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefAdjSummaryTable.EntityData.SegmentPath = "cefAdjSummaryTable"
+    cefAdjSummaryTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefAdjSummaryTable.EntityData.SegmentPath
     cefAdjSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefAdjSummaryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefAdjSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1062,6 +1079,7 @@ func (cefAdjSummaryTable *CISCOCEFMIB_CefAdjSummaryTable) GetEntityData() *types
 type CISCOCEFMIB_CefAdjSummaryTable_CefAdjSummaryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1101,6 +1119,7 @@ func (cefAdjSummaryEntry *CISCOCEFMIB_CefAdjSummaryTable_CefAdjSummaryEntry) Get
     cefAdjSummaryEntry.EntityData.BundleName = "cisco_ios_xe"
     cefAdjSummaryEntry.EntityData.ParentYangName = "cefAdjSummaryTable"
     cefAdjSummaryEntry.EntityData.SegmentPath = "cefAdjSummaryEntry" + types.AddKeyToken(cefAdjSummaryEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefAdjSummaryEntry.CefAdjSummaryLinkType, "cefAdjSummaryLinkType")
+    cefAdjSummaryEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefAdjSummaryTable/" + cefAdjSummaryEntry.EntityData.SegmentPath
     cefAdjSummaryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefAdjSummaryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefAdjSummaryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1143,6 +1162,7 @@ func (cefAdjTable *CISCOCEFMIB_CefAdjTable) GetEntityData() *types.CommonEntityD
     cefAdjTable.EntityData.BundleName = "cisco_ios_xe"
     cefAdjTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefAdjTable.EntityData.SegmentPath = "cefAdjTable"
+    cefAdjTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefAdjTable.EntityData.SegmentPath
     cefAdjTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefAdjTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefAdjTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1178,6 +1198,7 @@ func (cefAdjTable *CISCOCEFMIB_CefAdjTable) GetEntityData() *types.CommonEntityD
 type CISCOCEFMIB_CefAdjTable_CefAdjEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1269,6 +1290,7 @@ func (cefAdjEntry *CISCOCEFMIB_CefAdjTable_CefAdjEntry) GetEntityData() *types.C
     cefAdjEntry.EntityData.BundleName = "cisco_ios_xe"
     cefAdjEntry.EntityData.ParentYangName = "cefAdjTable"
     cefAdjEntry.EntityData.SegmentPath = "cefAdjEntry" + types.AddKeyToken(cefAdjEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefAdjEntry.IfIndex, "ifIndex") + types.AddKeyToken(cefAdjEntry.CefAdjNextHopAddrType, "cefAdjNextHopAddrType") + types.AddKeyToken(cefAdjEntry.CefAdjNextHopAddr, "cefAdjNextHopAddr") + types.AddKeyToken(cefAdjEntry.CefAdjConnId, "cefAdjConnId") + types.AddKeyToken(cefAdjEntry.CefAdjSummaryLinkType, "cefAdjSummaryLinkType")
+    cefAdjEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefAdjTable/" + cefAdjEntry.EntityData.SegmentPath
     cefAdjEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefAdjEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefAdjEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1316,6 +1338,7 @@ func (cefFESelectionTable *CISCOCEFMIB_CefFESelectionTable) GetEntityData() *typ
     cefFESelectionTable.EntityData.BundleName = "cisco_ios_xe"
     cefFESelectionTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefFESelectionTable.EntityData.SegmentPath = "cefFESelectionTable"
+    cefFESelectionTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefFESelectionTable.EntityData.SegmentPath
     cefFESelectionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefFESelectionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefFESelectionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1344,6 +1367,7 @@ func (cefFESelectionTable *CISCOCEFMIB_CefFESelectionTable) GetEntityData() *typ
 type CISCOCEFMIB_CefFESelectionTable_CefFESelectionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1430,6 +1454,7 @@ func (cefFESelectionEntry *CISCOCEFMIB_CefFESelectionTable_CefFESelectionEntry) 
     cefFESelectionEntry.EntityData.BundleName = "cisco_ios_xe"
     cefFESelectionEntry.EntityData.ParentYangName = "cefFESelectionTable"
     cefFESelectionEntry.EntityData.SegmentPath = "cefFESelectionEntry" + types.AddKeyToken(cefFESelectionEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefFESelectionEntry.CefFESelectionName, "cefFESelectionName") + types.AddKeyToken(cefFESelectionEntry.CefFESelectionId, "cefFESelectionId")
+    cefFESelectionEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefFESelectionTable/" + cefFESelectionEntry.EntityData.SegmentPath
     cefFESelectionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefFESelectionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefFESelectionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1476,6 +1501,7 @@ func (cefCfgTable *CISCOCEFMIB_CefCfgTable) GetEntityData() *types.CommonEntityD
     cefCfgTable.EntityData.BundleName = "cisco_ios_xe"
     cefCfgTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefCfgTable.EntityData.SegmentPath = "cefCfgTable"
+    cefCfgTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefCfgTable.EntityData.SegmentPath
     cefCfgTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefCfgTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefCfgTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1507,6 +1533,7 @@ func (cefCfgTable *CISCOCEFMIB_CefCfgTable) GetEntityData() *types.CommonEntityD
 type CISCOCEFMIB_CefCfgTable_CefCfgEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1595,6 +1622,7 @@ func (cefCfgEntry *CISCOCEFMIB_CefCfgTable_CefCfgEntry) GetEntityData() *types.C
     cefCfgEntry.EntityData.BundleName = "cisco_ios_xe"
     cefCfgEntry.EntityData.ParentYangName = "cefCfgTable"
     cefCfgEntry.EntityData.SegmentPath = "cefCfgEntry" + types.AddKeyToken(cefCfgEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefCfgEntry.CefFIBIpVersion, "cefFIBIpVersion")
+    cefCfgEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCfgTable/" + cefCfgEntry.EntityData.SegmentPath
     cefCfgEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefCfgEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefCfgEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1652,6 +1680,7 @@ func (cefResourceTable *CISCOCEFMIB_CefResourceTable) GetEntityData() *types.Com
     cefResourceTable.EntityData.BundleName = "cisco_ios_xe"
     cefResourceTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefResourceTable.EntityData.SegmentPath = "cefResourceTable"
+    cefResourceTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefResourceTable.EntityData.SegmentPath
     cefResourceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefResourceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefResourceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1680,6 +1709,7 @@ func (cefResourceTable *CISCOCEFMIB_CefResourceTable) GetEntityData() *types.Com
 type CISCOCEFMIB_CefResourceTable_CefResourceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1702,6 +1732,7 @@ func (cefResourceEntry *CISCOCEFMIB_CefResourceTable_CefResourceEntry) GetEntity
     cefResourceEntry.EntityData.BundleName = "cisco_ios_xe"
     cefResourceEntry.EntityData.ParentYangName = "cefResourceTable"
     cefResourceEntry.EntityData.SegmentPath = "cefResourceEntry" + types.AddKeyToken(cefResourceEntry.EntPhysicalIndex, "entPhysicalIndex")
+    cefResourceEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefResourceTable/" + cefResourceEntry.EntityData.SegmentPath
     cefResourceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefResourceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefResourceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1743,6 +1774,7 @@ func (cefIntTable *CISCOCEFMIB_CefIntTable) GetEntityData() *types.CommonEntityD
     cefIntTable.EntityData.BundleName = "cisco_ios_xe"
     cefIntTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefIntTable.EntityData.SegmentPath = "cefIntTable"
+    cefIntTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefIntTable.EntityData.SegmentPath
     cefIntTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefIntTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefIntTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1780,6 +1812,7 @@ func (cefIntTable *CISCOCEFMIB_CefIntTable) GetEntityData() *types.CommonEntityD
 type CISCOCEFMIB_CefIntTable_CefIntEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1827,6 +1860,7 @@ func (cefIntEntry *CISCOCEFMIB_CefIntTable_CefIntEntry) GetEntityData() *types.C
     cefIntEntry.EntityData.BundleName = "cisco_ios_xe"
     cefIntEntry.EntityData.ParentYangName = "cefIntTable"
     cefIntEntry.EntityData.SegmentPath = "cefIntEntry" + types.AddKeyToken(cefIntEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefIntEntry.CefFIBIpVersion, "cefFIBIpVersion") + types.AddKeyToken(cefIntEntry.IfIndex, "ifIndex")
+    cefIntEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefIntTable/" + cefIntEntry.EntityData.SegmentPath
     cefIntEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefIntEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefIntEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1898,6 +1932,7 @@ func (cefPeerTable *CISCOCEFMIB_CefPeerTable) GetEntityData() *types.CommonEntit
     cefPeerTable.EntityData.BundleName = "cisco_ios_xe"
     cefPeerTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefPeerTable.EntityData.SegmentPath = "cefPeerTable"
+    cefPeerTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefPeerTable.EntityData.SegmentPath
     cefPeerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefPeerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefPeerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1926,6 +1961,7 @@ func (cefPeerTable *CISCOCEFMIB_CefPeerTable) GetEntityData() *types.CommonEntit
 type CISCOCEFMIB_CefPeerTable_CefPeerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1959,6 +1995,7 @@ func (cefPeerEntry *CISCOCEFMIB_CefPeerTable_CefPeerEntry) GetEntityData() *type
     cefPeerEntry.EntityData.BundleName = "cisco_ios_xe"
     cefPeerEntry.EntityData.ParentYangName = "cefPeerTable"
     cefPeerEntry.EntityData.SegmentPath = "cefPeerEntry" + types.AddKeyToken(cefPeerEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefPeerEntry.EntPeerPhysicalIndex, "entPeerPhysicalIndex")
+    cefPeerEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPeerTable/" + cefPeerEntry.EntityData.SegmentPath
     cefPeerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefPeerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefPeerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2010,6 +2047,7 @@ func (cefPeerFIBTable *CISCOCEFMIB_CefPeerFIBTable) GetEntityData() *types.Commo
     cefPeerFIBTable.EntityData.BundleName = "cisco_ios_xe"
     cefPeerFIBTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefPeerFIBTable.EntityData.SegmentPath = "cefPeerFIBTable"
+    cefPeerFIBTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefPeerFIBTable.EntityData.SegmentPath
     cefPeerFIBTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefPeerFIBTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefPeerFIBTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2038,6 +2076,7 @@ func (cefPeerFIBTable *CISCOCEFMIB_CefPeerFIBTable) GetEntityData() *types.Commo
 type CISCOCEFMIB_CefPeerFIBTable_CefPeerFIBEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2064,6 +2103,7 @@ func (cefPeerFIBEntry *CISCOCEFMIB_CefPeerFIBTable_CefPeerFIBEntry) GetEntityDat
     cefPeerFIBEntry.EntityData.BundleName = "cisco_ios_xe"
     cefPeerFIBEntry.EntityData.ParentYangName = "cefPeerFIBTable"
     cefPeerFIBEntry.EntityData.SegmentPath = "cefPeerFIBEntry" + types.AddKeyToken(cefPeerFIBEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefPeerFIBEntry.EntPeerPhysicalIndex, "entPeerPhysicalIndex") + types.AddKeyToken(cefPeerFIBEntry.CefFIBIpVersion, "cefFIBIpVersion")
+    cefPeerFIBEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPeerFIBTable/" + cefPeerFIBEntry.EntityData.SegmentPath
     cefPeerFIBEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefPeerFIBEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefPeerFIBEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2116,6 +2156,7 @@ func (cefCCGlobalTable *CISCOCEFMIB_CefCCGlobalTable) GetEntityData() *types.Com
     cefCCGlobalTable.EntityData.BundleName = "cisco_ios_xe"
     cefCCGlobalTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefCCGlobalTable.EntityData.SegmentPath = "cefCCGlobalTable"
+    cefCCGlobalTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefCCGlobalTable.EntityData.SegmentPath
     cefCCGlobalTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefCCGlobalTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefCCGlobalTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2142,6 +2183,7 @@ func (cefCCGlobalTable *CISCOCEFMIB_CefCCGlobalTable) GetEntityData() *types.Com
 type CISCOCEFMIB_CefCCGlobalTable_CefCCGlobalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is CefIpVersion. Refers to
     // cisco_cef_mib.CISCOCEFMIB_CefFIBSummaryTable_CefFIBSummaryEntry_CefFIBIpVersion
@@ -2194,6 +2236,7 @@ func (cefCCGlobalEntry *CISCOCEFMIB_CefCCGlobalTable_CefCCGlobalEntry) GetEntity
     cefCCGlobalEntry.EntityData.BundleName = "cisco_ios_xe"
     cefCCGlobalEntry.EntityData.ParentYangName = "cefCCGlobalTable"
     cefCCGlobalEntry.EntityData.SegmentPath = "cefCCGlobalEntry" + types.AddKeyToken(cefCCGlobalEntry.CefFIBIpVersion, "cefFIBIpVersion")
+    cefCCGlobalEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCCGlobalTable/" + cefCCGlobalEntry.EntityData.SegmentPath
     cefCCGlobalEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefCCGlobalEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefCCGlobalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2237,6 +2280,7 @@ func (cefCCTypeTable *CISCOCEFMIB_CefCCTypeTable) GetEntityData() *types.CommonE
     cefCCTypeTable.EntityData.BundleName = "cisco_ios_xe"
     cefCCTypeTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefCCTypeTable.EntityData.SegmentPath = "cefCCTypeTable"
+    cefCCTypeTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefCCTypeTable.EntityData.SegmentPath
     cefCCTypeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefCCTypeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefCCTypeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2264,6 +2308,7 @@ func (cefCCTypeTable *CISCOCEFMIB_CefCCTypeTable) GetEntityData() *types.CommonE
 type CISCOCEFMIB_CefCCTypeTable_CefCCTypeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is CefIpVersion. Refers to
     // cisco_cef_mib.CISCOCEFMIB_CefFIBSummaryTable_CefFIBSummaryEntry_CefFIBIpVersion
@@ -2317,6 +2362,7 @@ func (cefCCTypeEntry *CISCOCEFMIB_CefCCTypeTable_CefCCTypeEntry) GetEntityData()
     cefCCTypeEntry.EntityData.BundleName = "cisco_ios_xe"
     cefCCTypeEntry.EntityData.ParentYangName = "cefCCTypeTable"
     cefCCTypeEntry.EntityData.SegmentPath = "cefCCTypeEntry" + types.AddKeyToken(cefCCTypeEntry.CefFIBIpVersion, "cefFIBIpVersion") + types.AddKeyToken(cefCCTypeEntry.CefCCType, "cefCCType")
+    cefCCTypeEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCCTypeTable/" + cefCCTypeEntry.EntityData.SegmentPath
     cefCCTypeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefCCTypeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefCCTypeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2357,6 +2403,7 @@ func (cefInconsistencyRecordTable *CISCOCEFMIB_CefInconsistencyRecordTable) GetE
     cefInconsistencyRecordTable.EntityData.BundleName = "cisco_ios_xe"
     cefInconsistencyRecordTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefInconsistencyRecordTable.EntityData.SegmentPath = "cefInconsistencyRecordTable"
+    cefInconsistencyRecordTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefInconsistencyRecordTable.EntityData.SegmentPath
     cefInconsistencyRecordTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefInconsistencyRecordTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefInconsistencyRecordTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2380,6 +2427,7 @@ func (cefInconsistencyRecordTable *CISCOCEFMIB_CefInconsistencyRecordTable) GetE
 type CISCOCEFMIB_CefInconsistencyRecordTable_CefInconsistencyRecordEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is CefIpVersion. Refers to
     // cisco_cef_mib.CISCOCEFMIB_CefFIBSummaryTable_CefFIBSummaryEntry_CefFIBIpVersion
@@ -2429,6 +2477,7 @@ func (cefInconsistencyRecordEntry *CISCOCEFMIB_CefInconsistencyRecordTable_CefIn
     cefInconsistencyRecordEntry.EntityData.BundleName = "cisco_ios_xe"
     cefInconsistencyRecordEntry.EntityData.ParentYangName = "cefInconsistencyRecordTable"
     cefInconsistencyRecordEntry.EntityData.SegmentPath = "cefInconsistencyRecordEntry" + types.AddKeyToken(cefInconsistencyRecordEntry.CefFIBIpVersion, "cefFIBIpVersion") + types.AddKeyToken(cefInconsistencyRecordEntry.CefInconsistencyRecId, "cefInconsistencyRecId")
+    cefInconsistencyRecordEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefInconsistencyRecordTable/" + cefInconsistencyRecordEntry.EntityData.SegmentPath
     cefInconsistencyRecordEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefInconsistencyRecordEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefInconsistencyRecordEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2486,6 +2535,7 @@ func (cefStatsPrefixLenTable *CISCOCEFMIB_CefStatsPrefixLenTable) GetEntityData(
     cefStatsPrefixLenTable.EntityData.BundleName = "cisco_ios_xe"
     cefStatsPrefixLenTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefStatsPrefixLenTable.EntityData.SegmentPath = "cefStatsPrefixLenTable"
+    cefStatsPrefixLenTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefStatsPrefixLenTable.EntityData.SegmentPath
     cefStatsPrefixLenTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefStatsPrefixLenTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefStatsPrefixLenTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2521,6 +2571,7 @@ func (cefStatsPrefixLenTable *CISCOCEFMIB_CefStatsPrefixLenTable) GetEntityData(
 type CISCOCEFMIB_CefStatsPrefixLenTable_CefStatsPrefixLenEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2583,6 +2634,7 @@ func (cefStatsPrefixLenEntry *CISCOCEFMIB_CefStatsPrefixLenTable_CefStatsPrefixL
     cefStatsPrefixLenEntry.EntityData.BundleName = "cisco_ios_xe"
     cefStatsPrefixLenEntry.EntityData.ParentYangName = "cefStatsPrefixLenTable"
     cefStatsPrefixLenEntry.EntityData.SegmentPath = "cefStatsPrefixLenEntry" + types.AddKeyToken(cefStatsPrefixLenEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefStatsPrefixLenEntry.CefFIBIpVersion, "cefFIBIpVersion") + types.AddKeyToken(cefStatsPrefixLenEntry.CefStatsPrefixLen, "cefStatsPrefixLen")
+    cefStatsPrefixLenEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefStatsPrefixLenTable/" + cefStatsPrefixLenEntry.EntityData.SegmentPath
     cefStatsPrefixLenEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefStatsPrefixLenEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefStatsPrefixLenEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2627,6 +2679,7 @@ func (cefSwitchingStatsTable *CISCOCEFMIB_CefSwitchingStatsTable) GetEntityData(
     cefSwitchingStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cefSwitchingStatsTable.EntityData.ParentYangName = "CISCO-CEF-MIB"
     cefSwitchingStatsTable.EntityData.SegmentPath = "cefSwitchingStatsTable"
+    cefSwitchingStatsTable.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/" + cefSwitchingStatsTable.EntityData.SegmentPath
     cefSwitchingStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefSwitchingStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefSwitchingStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2657,6 +2710,7 @@ func (cefSwitchingStatsTable *CISCOCEFMIB_CefSwitchingStatsTable) GetEntityData(
 type CISCOCEFMIB_CefSwitchingStatsTable_CefSwitchingStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2719,6 +2773,7 @@ func (cefSwitchingStatsEntry *CISCOCEFMIB_CefSwitchingStatsTable_CefSwitchingSta
     cefSwitchingStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cefSwitchingStatsEntry.EntityData.ParentYangName = "cefSwitchingStatsTable"
     cefSwitchingStatsEntry.EntityData.SegmentPath = "cefSwitchingStatsEntry" + types.AddKeyToken(cefSwitchingStatsEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(cefSwitchingStatsEntry.CefFIBIpVersion, "cefFIBIpVersion") + types.AddKeyToken(cefSwitchingStatsEntry.CefSwitchingIndex, "cefSwitchingIndex")
+    cefSwitchingStatsEntry.EntityData.AbsolutePath = "CISCO-CEF-MIB:CISCO-CEF-MIB/cefSwitchingStatsTable/" + cefSwitchingStatsEntry.EntityData.SegmentPath
     cefSwitchingStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cefSwitchingStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cefSwitchingStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

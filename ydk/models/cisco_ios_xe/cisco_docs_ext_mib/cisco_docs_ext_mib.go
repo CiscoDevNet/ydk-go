@@ -227,6 +227,7 @@ func (cISCODOCSEXTMIB *CISCODOCSEXTMIB) GetEntityData() *types.CommonEntityData 
     cISCODOCSEXTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCODOCSEXTMIB.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cISCODOCSEXTMIB.EntityData.SegmentPath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB"
+    cISCODOCSEXTMIB.EntityData.AbsolutePath = cISCODOCSEXTMIB.EntityData.SegmentPath
     cISCODOCSEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCODOCSEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCODOCSEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -292,6 +293,7 @@ func (cdxCmtsCmCpeObjects *CISCODOCSEXTMIB_CdxCmtsCmCpeObjects) GetEntityData() 
     cdxCmtsCmCpeObjects.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmCpeObjects.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsCmCpeObjects.EntityData.SegmentPath = "cdxCmtsCmCpeObjects"
+    cdxCmtsCmCpeObjects.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsCmCpeObjects.EntityData.SegmentPath
     cdxCmtsCmCpeObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmCpeObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmCpeObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -361,6 +363,7 @@ func (cdxWBResilObjects *CISCODOCSEXTMIB_CdxWBResilObjects) GetEntityData() *typ
     cdxWBResilObjects.EntityData.BundleName = "cisco_ios_xe"
     cdxWBResilObjects.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxWBResilObjects.EntityData.SegmentPath = "cdxWBResilObjects"
+    cdxWBResilObjects.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxWBResilObjects.EntityData.SegmentPath
     cdxWBResilObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxWBResilObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxWBResilObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -424,6 +427,7 @@ func (cdxCmtsDocsisLBObjects *CISCODOCSEXTMIB_CdxCmtsDocsisLBObjects) GetEntityD
     cdxCmtsDocsisLBObjects.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsDocsisLBObjects.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsDocsisLBObjects.EntityData.SegmentPath = "cdxCmtsDocsisLBObjects"
+    cdxCmtsDocsisLBObjects.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsDocsisLBObjects.EntityData.SegmentPath
     cdxCmtsDocsisLBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsDocsisLBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsDocsisLBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -507,6 +511,7 @@ func (cdxQosCtrlUpTable *CISCODOCSEXTMIB_CdxQosCtrlUpTable) GetEntityData() *typ
     cdxQosCtrlUpTable.EntityData.BundleName = "cisco_ios_xe"
     cdxQosCtrlUpTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxQosCtrlUpTable.EntityData.SegmentPath = "cdxQosCtrlUpTable"
+    cdxQosCtrlUpTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxQosCtrlUpTable.EntityData.SegmentPath
     cdxQosCtrlUpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxQosCtrlUpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxQosCtrlUpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -530,6 +535,7 @@ func (cdxQosCtrlUpTable *CISCODOCSEXTMIB_CdxQosCtrlUpTable) GetEntityData() *typ
 type CISCODOCSEXTMIB_CdxQosCtrlUpTable_CdxQosCtrlUpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -593,6 +599,7 @@ func (cdxQosCtrlUpEntry *CISCODOCSEXTMIB_CdxQosCtrlUpTable_CdxQosCtrlUpEntry) Ge
     cdxQosCtrlUpEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxQosCtrlUpEntry.EntityData.ParentYangName = "cdxQosCtrlUpTable"
     cdxQosCtrlUpEntry.EntityData.SegmentPath = "cdxQosCtrlUpEntry" + types.AddKeyToken(cdxQosCtrlUpEntry.IfIndex, "ifIndex")
+    cdxQosCtrlUpEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxQosCtrlUpTable/" + cdxQosCtrlUpEntry.EntityData.SegmentPath
     cdxQosCtrlUpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxQosCtrlUpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxQosCtrlUpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -634,6 +641,7 @@ func (cdxQosIfRateLimitTable *CISCODOCSEXTMIB_CdxQosIfRateLimitTable) GetEntityD
     cdxQosIfRateLimitTable.EntityData.BundleName = "cisco_ios_xe"
     cdxQosIfRateLimitTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxQosIfRateLimitTable.EntityData.SegmentPath = "cdxQosIfRateLimitTable"
+    cdxQosIfRateLimitTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxQosIfRateLimitTable.EntityData.SegmentPath
     cdxQosIfRateLimitTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxQosIfRateLimitTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxQosIfRateLimitTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -658,6 +666,7 @@ func (cdxQosIfRateLimitTable *CISCODOCSEXTMIB_CdxQosIfRateLimitTable) GetEntityD
 type CISCODOCSEXTMIB_CdxQosIfRateLimitTable_CdxQosIfRateLimitEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -829,6 +838,7 @@ func (cdxQosIfRateLimitEntry *CISCODOCSEXTMIB_CdxQosIfRateLimitTable_CdxQosIfRat
     cdxQosIfRateLimitEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxQosIfRateLimitEntry.EntityData.ParentYangName = "cdxQosIfRateLimitTable"
     cdxQosIfRateLimitEntry.EntityData.SegmentPath = "cdxQosIfRateLimitEntry" + types.AddKeyToken(cdxQosIfRateLimitEntry.IfIndex, "ifIndex")
+    cdxQosIfRateLimitEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxQosIfRateLimitTable/" + cdxQosIfRateLimitEntry.EntityData.SegmentPath
     cdxQosIfRateLimitEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxQosIfRateLimitEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxQosIfRateLimitEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -918,6 +928,7 @@ func (cdxCmtsServiceExtTable *CISCODOCSEXTMIB_CdxCmtsServiceExtTable) GetEntityD
     cdxCmtsServiceExtTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsServiceExtTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsServiceExtTable.EntityData.SegmentPath = "cdxCmtsServiceExtTable"
+    cdxCmtsServiceExtTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsServiceExtTable.EntityData.SegmentPath
     cdxCmtsServiceExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsServiceExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsServiceExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -947,6 +958,7 @@ func (cdxCmtsServiceExtTable *CISCODOCSEXTMIB_CdxCmtsServiceExtTable) GetEntityD
 type CISCODOCSEXTMIB_CdxCmtsServiceExtTable_CdxCmtsServiceExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1013,6 +1025,7 @@ func (cdxCmtsServiceExtEntry *CISCODOCSEXTMIB_CdxCmtsServiceExtTable_CdxCmtsServ
     cdxCmtsServiceExtEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsServiceExtEntry.EntityData.ParentYangName = "cdxCmtsServiceExtTable"
     cdxCmtsServiceExtEntry.EntityData.SegmentPath = "cdxCmtsServiceExtEntry" + types.AddKeyToken(cdxCmtsServiceExtEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdxCmtsServiceExtEntry.DocsIfCmtsServiceId, "docsIfCmtsServiceId")
+    cdxCmtsServiceExtEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmtsServiceExtTable/" + cdxCmtsServiceExtEntry.EntityData.SegmentPath
     cdxCmtsServiceExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsServiceExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsServiceExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1061,6 +1074,7 @@ func (cdxUpInfoElemStatsTable *CISCODOCSEXTMIB_CdxUpInfoElemStatsTable) GetEntit
     cdxUpInfoElemStatsTable.EntityData.BundleName = "cisco_ios_xe"
     cdxUpInfoElemStatsTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxUpInfoElemStatsTable.EntityData.SegmentPath = "cdxUpInfoElemStatsTable"
+    cdxUpInfoElemStatsTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxUpInfoElemStatsTable.EntityData.SegmentPath
     cdxUpInfoElemStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxUpInfoElemStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxUpInfoElemStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1085,6 +1099,7 @@ func (cdxUpInfoElemStatsTable *CISCODOCSEXTMIB_CdxUpInfoElemStatsTable) GetEntit
 type CISCODOCSEXTMIB_CdxUpInfoElemStatsTable_CdxUpInfoElemStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1136,6 +1151,7 @@ func (cdxUpInfoElemStatsEntry *CISCODOCSEXTMIB_CdxUpInfoElemStatsTable_CdxUpInfo
     cdxUpInfoElemStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxUpInfoElemStatsEntry.EntityData.ParentYangName = "cdxUpInfoElemStatsTable"
     cdxUpInfoElemStatsEntry.EntityData.SegmentPath = "cdxUpInfoElemStatsEntry" + types.AddKeyToken(cdxUpInfoElemStatsEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdxUpInfoElemStatsEntry.CdxUpInfoElemStatsNameCode, "cdxUpInfoElemStatsNameCode")
+    cdxUpInfoElemStatsEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxUpInfoElemStatsTable/" + cdxUpInfoElemStatsEntry.EntityData.SegmentPath
     cdxUpInfoElemStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxUpInfoElemStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxUpInfoElemStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1190,6 +1206,7 @@ func (cdxBWQueueTable *CISCODOCSEXTMIB_CdxBWQueueTable) GetEntityData() *types.C
     cdxBWQueueTable.EntityData.BundleName = "cisco_ios_xe"
     cdxBWQueueTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxBWQueueTable.EntityData.SegmentPath = "cdxBWQueueTable"
+    cdxBWQueueTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxBWQueueTable.EntityData.SegmentPath
     cdxBWQueueTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxBWQueueTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxBWQueueTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1214,6 +1231,7 @@ func (cdxBWQueueTable *CISCODOCSEXTMIB_CdxBWQueueTable) GetEntityData() *types.C
 type CISCODOCSEXTMIB_CdxBWQueueTable_CdxBWQueueEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1288,6 +1306,7 @@ func (cdxBWQueueEntry *CISCODOCSEXTMIB_CdxBWQueueTable_CdxBWQueueEntry) GetEntit
     cdxBWQueueEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxBWQueueEntry.EntityData.ParentYangName = "cdxBWQueueTable"
     cdxBWQueueEntry.EntityData.SegmentPath = "cdxBWQueueEntry" + types.AddKeyToken(cdxBWQueueEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdxBWQueueEntry.CdxBWQueueNameCode, "cdxBWQueueNameCode")
+    cdxBWQueueEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxBWQueueTable/" + cdxBWQueueEntry.EntityData.SegmentPath
     cdxBWQueueEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxBWQueueEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxBWQueueEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1368,6 +1387,7 @@ func (cdxCmCpeTable *CISCODOCSEXTMIB_CdxCmCpeTable) GetEntityData() *types.Commo
     cdxCmCpeTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmCpeTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmCpeTable.EntityData.SegmentPath = "cdxCmCpeTable"
+    cdxCmCpeTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmCpeTable.EntityData.SegmentPath
     cdxCmCpeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmCpeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmCpeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1392,6 +1412,7 @@ func (cdxCmCpeTable *CISCODOCSEXTMIB_CdxCmCpeTable) GetEntityData() *types.Commo
 type CISCODOCSEXTMIB_CdxCmCpeTable_CdxCmCpeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The Mac address to identify a cable modem or a
     // Customer  Premises Equipment. . The type is string with pattern:
@@ -1453,6 +1474,7 @@ func (cdxCmCpeEntry *CISCODOCSEXTMIB_CdxCmCpeTable_CdxCmCpeEntry) GetEntityData(
     cdxCmCpeEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmCpeEntry.EntityData.ParentYangName = "cdxCmCpeTable"
     cdxCmCpeEntry.EntityData.SegmentPath = "cdxCmCpeEntry" + types.AddKeyToken(cdxCmCpeEntry.CdxCmCpeMacAddress, "cdxCmCpeMacAddress")
+    cdxCmCpeEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmCpeTable/" + cdxCmCpeEntry.EntityData.SegmentPath
     cdxCmCpeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmCpeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmCpeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1500,6 +1522,7 @@ func (cdxCmtsCmStatusExtTable *CISCODOCSEXTMIB_CdxCmtsCmStatusExtTable) GetEntit
     cdxCmtsCmStatusExtTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmStatusExtTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsCmStatusExtTable.EntityData.SegmentPath = "cdxCmtsCmStatusExtTable"
+    cdxCmtsCmStatusExtTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsCmStatusExtTable.EntityData.SegmentPath
     cdxCmtsCmStatusExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmStatusExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmStatusExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1521,6 +1544,7 @@ func (cdxCmtsCmStatusExtTable *CISCODOCSEXTMIB_CdxCmtsCmStatusExtTable) GetEntit
 type CISCODOCSEXTMIB_CdxCmtsCmStatusExtTable_CdxCmtsCmStatusExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -1708,6 +1732,7 @@ func (cdxCmtsCmStatusExtEntry *CISCODOCSEXTMIB_CdxCmtsCmStatusExtTable_CdxCmtsCm
     cdxCmtsCmStatusExtEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmStatusExtEntry.EntityData.ParentYangName = "cdxCmtsCmStatusExtTable"
     cdxCmtsCmStatusExtEntry.EntityData.SegmentPath = "cdxCmtsCmStatusExtEntry" + types.AddKeyToken(cdxCmtsCmStatusExtEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    cdxCmtsCmStatusExtEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmtsCmStatusExtTable/" + cdxCmtsCmStatusExtEntry.EntityData.SegmentPath
     cdxCmtsCmStatusExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmStatusExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmStatusExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1819,6 +1844,7 @@ func (cdxCmtsMacExtTable *CISCODOCSEXTMIB_CdxCmtsMacExtTable) GetEntityData() *t
     cdxCmtsMacExtTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsMacExtTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsMacExtTable.EntityData.SegmentPath = "cdxCmtsMacExtTable"
+    cdxCmtsMacExtTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsMacExtTable.EntityData.SegmentPath
     cdxCmtsMacExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsMacExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsMacExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1850,6 +1876,7 @@ func (cdxCmtsMacExtTable *CISCODOCSEXTMIB_CdxCmtsMacExtTable) GetEntityData() *t
 type CISCODOCSEXTMIB_CdxCmtsMacExtTable_CdxCmtsMacExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1942,6 +1969,7 @@ func (cdxCmtsMacExtEntry *CISCODOCSEXTMIB_CdxCmtsMacExtTable_CdxCmtsMacExtEntry)
     cdxCmtsMacExtEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsMacExtEntry.EntityData.ParentYangName = "cdxCmtsMacExtTable"
     cdxCmtsMacExtEntry.EntityData.SegmentPath = "cdxCmtsMacExtEntry" + types.AddKeyToken(cdxCmtsMacExtEntry.IfIndex, "ifIndex")
+    cdxCmtsMacExtEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmtsMacExtTable/" + cdxCmtsMacExtEntry.EntityData.SegmentPath
     cdxCmtsMacExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsMacExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsMacExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2045,6 +2073,7 @@ func (cdxCmtsCmChOverTable *CISCODOCSEXTMIB_CdxCmtsCmChOverTable) GetEntityData(
     cdxCmtsCmChOverTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmChOverTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsCmChOverTable.EntityData.SegmentPath = "cdxCmtsCmChOverTable"
+    cdxCmtsCmChOverTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsCmChOverTable.EntityData.SegmentPath
     cdxCmtsCmChOverTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmChOverTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmChOverTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2122,6 +2151,7 @@ func (cdxCmtsCmChOverTable *CISCODOCSEXTMIB_CdxCmtsCmChOverTable) GetEntityData(
 type CISCODOCSEXTMIB_CdxCmtsCmChOverTable_CdxCmtsCmChOverEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Object which specifies a unique entry in the
     // table. A management station wishing to initiate a channel override
@@ -2202,6 +2232,7 @@ func (cdxCmtsCmChOverEntry *CISCODOCSEXTMIB_CdxCmtsCmChOverTable_CdxCmtsCmChOver
     cdxCmtsCmChOverEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmChOverEntry.EntityData.ParentYangName = "cdxCmtsCmChOverTable"
     cdxCmtsCmChOverEntry.EntityData.SegmentPath = "cdxCmtsCmChOverEntry" + types.AddKeyToken(cdxCmtsCmChOverEntry.CdxCmtsCmChOverSerialNumber, "cdxCmtsCmChOverSerialNumber")
+    cdxCmtsCmChOverEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmtsCmChOverTable/" + cdxCmtsCmChOverEntry.EntityData.SegmentPath
     cdxCmtsCmChOverEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmChOverEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmChOverEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2258,6 +2289,7 @@ func (cdxCmtsCmTable *CISCODOCSEXTMIB_CdxCmtsCmTable) GetEntityData() *types.Com
     cdxCmtsCmTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsCmTable.EntityData.SegmentPath = "cdxCmtsCmTable"
+    cdxCmtsCmTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsCmTable.EntityData.SegmentPath
     cdxCmtsCmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2280,6 +2312,7 @@ func (cdxCmtsCmTable *CISCODOCSEXTMIB_CdxCmtsCmTable) GetEntityData() *types.Com
 type CISCODOCSEXTMIB_CdxCmtsCmTable_CdxCmtsCmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2317,6 +2350,7 @@ func (cdxCmtsCmEntry *CISCODOCSEXTMIB_CdxCmtsCmTable_CdxCmtsCmEntry) GetEntityDa
     cdxCmtsCmEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmEntry.EntityData.ParentYangName = "cdxCmtsCmTable"
     cdxCmtsCmEntry.EntityData.SegmentPath = "cdxCmtsCmEntry" + types.AddKeyToken(cdxCmtsCmEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    cdxCmtsCmEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmtsCmTable/" + cdxCmtsCmEntry.EntityData.SegmentPath
     cdxCmtsCmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2361,6 +2395,7 @@ func (cdxCmtsCmStatusDMICTable *CISCODOCSEXTMIB_CdxCmtsCmStatusDMICTable) GetEnt
     cdxCmtsCmStatusDMICTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmStatusDMICTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsCmStatusDMICTable.EntityData.SegmentPath = "cdxCmtsCmStatusDMICTable"
+    cdxCmtsCmStatusDMICTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsCmStatusDMICTable.EntityData.SegmentPath
     cdxCmtsCmStatusDMICTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmStatusDMICTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmStatusDMICTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2383,6 +2418,7 @@ func (cdxCmtsCmStatusDMICTable *CISCODOCSEXTMIB_CdxCmtsCmStatusDMICTable) GetEnt
 type CISCODOCSEXTMIB_CdxCmtsCmStatusDMICTable_CdxCmtsCmStatusDMICEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -2416,6 +2452,7 @@ func (cdxCmtsCmStatusDMICEntry *CISCODOCSEXTMIB_CdxCmtsCmStatusDMICTable_CdxCmts
     cdxCmtsCmStatusDMICEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsCmStatusDMICEntry.EntityData.ParentYangName = "cdxCmtsCmStatusDMICTable"
     cdxCmtsCmStatusDMICEntry.EntityData.SegmentPath = "cdxCmtsCmStatusDMICEntry" + types.AddKeyToken(cdxCmtsCmStatusDMICEntry.DocsIfCmtsCmStatusIndex, "docsIfCmtsCmStatusIndex")
+    cdxCmtsCmStatusDMICEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmtsCmStatusDMICTable/" + cdxCmtsCmStatusDMICEntry.EntityData.SegmentPath
     cdxCmtsCmStatusDMICEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsCmStatusDMICEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsCmStatusDMICEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2486,6 +2523,7 @@ func (cdxCmToCpeTable *CISCODOCSEXTMIB_CdxCmToCpeTable) GetEntityData() *types.C
     cdxCmToCpeTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmToCpeTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmToCpeTable.EntityData.SegmentPath = "cdxCmToCpeTable"
+    cdxCmToCpeTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmToCpeTable.EntityData.SegmentPath
     cdxCmToCpeTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmToCpeTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmToCpeTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2538,6 +2576,7 @@ func (cdxCmToCpeTable *CISCODOCSEXTMIB_CdxCmToCpeTable) GetEntityData() *types.C
 type CISCODOCSEXTMIB_CdxCmToCpeTable_CdxCmToCpeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The MAC address that uniquely identifies a cable
     // modem that CPEs connects to. The type is string with pattern:
@@ -2559,6 +2598,7 @@ func (cdxCmToCpeEntry *CISCODOCSEXTMIB_CdxCmToCpeTable_CdxCmToCpeEntry) GetEntit
     cdxCmToCpeEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmToCpeEntry.EntityData.ParentYangName = "cdxCmToCpeTable"
     cdxCmToCpeEntry.EntityData.SegmentPath = "cdxCmToCpeEntry" + types.AddKeyToken(cdxCmToCpeEntry.CdxCmToCpeCmMacAddress, "cdxCmToCpeCmMacAddress") + types.AddKeyToken(cdxCmToCpeEntry.CdxCmToCpeInetAddressType, "cdxCmToCpeInetAddressType") + types.AddKeyToken(cdxCmToCpeEntry.CdxCmToCpeInetAddress, "cdxCmToCpeInetAddress")
+    cdxCmToCpeEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmToCpeTable/" + cdxCmToCpeEntry.EntityData.SegmentPath
     cdxCmToCpeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmToCpeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmToCpeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2603,6 +2643,7 @@ func (cdxCpeToCmTable *CISCODOCSEXTMIB_CdxCpeToCmTable) GetEntityData() *types.C
     cdxCpeToCmTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCpeToCmTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCpeToCmTable.EntityData.SegmentPath = "cdxCpeToCmTable"
+    cdxCpeToCmTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCpeToCmTable.EntityData.SegmentPath
     cdxCpeToCmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCpeToCmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCpeToCmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2628,6 +2669,7 @@ func (cdxCpeToCmTable *CISCODOCSEXTMIB_CdxCpeToCmTable) GetEntityData() *types.C
 type CISCODOCSEXTMIB_CdxCpeToCmTable_CdxCpeToCmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object identifies the MAC address of the CPE.
     // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -2657,6 +2699,7 @@ func (cdxCpeToCmEntry *CISCODOCSEXTMIB_CdxCpeToCmTable_CdxCpeToCmEntry) GetEntit
     cdxCpeToCmEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCpeToCmEntry.EntityData.ParentYangName = "cdxCpeToCmTable"
     cdxCpeToCmEntry.EntityData.SegmentPath = "cdxCpeToCmEntry" + types.AddKeyToken(cdxCpeToCmEntry.CdxCpeToCmCpeMacAddress, "cdxCpeToCmCpeMacAddress")
+    cdxCpeToCmEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCpeToCmTable/" + cdxCpeToCmEntry.EntityData.SegmentPath
     cdxCpeToCmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCpeToCmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCpeToCmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2694,6 +2737,7 @@ func (cdxCpeIpPrefixTable *CISCODOCSEXTMIB_CdxCpeIpPrefixTable) GetEntityData() 
     cdxCpeIpPrefixTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCpeIpPrefixTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCpeIpPrefixTable.EntityData.SegmentPath = "cdxCpeIpPrefixTable"
+    cdxCpeIpPrefixTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCpeIpPrefixTable.EntityData.SegmentPath
     cdxCpeIpPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCpeIpPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCpeIpPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2718,6 +2762,7 @@ func (cdxCpeIpPrefixTable *CISCODOCSEXTMIB_CdxCpeIpPrefixTable) GetEntityData() 
 type CISCODOCSEXTMIB_CdxCpeIpPrefixTable_CdxCpeIpPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object indicates the MAC address of the cable
     // modem. The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -2754,6 +2799,7 @@ func (cdxCpeIpPrefixEntry *CISCODOCSEXTMIB_CdxCpeIpPrefixTable_CdxCpeIpPrefixEnt
     cdxCpeIpPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCpeIpPrefixEntry.EntityData.ParentYangName = "cdxCpeIpPrefixTable"
     cdxCpeIpPrefixEntry.EntityData.SegmentPath = "cdxCpeIpPrefixEntry" + types.AddKeyToken(cdxCpeIpPrefixEntry.CdxCpeIpPrefixCmMacAddress, "cdxCpeIpPrefixCmMacAddress") + types.AddKeyToken(cdxCpeIpPrefixEntry.CdxCpeIpPrefixType, "cdxCpeIpPrefixType") + types.AddKeyToken(cdxCpeIpPrefixEntry.CdxCpeIpPrefixAddress, "cdxCpeIpPrefixAddress") + types.AddKeyToken(cdxCpeIpPrefixEntry.CdxCpeIpPrefixLen, "cdxCpeIpPrefixLen")
+    cdxCpeIpPrefixEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCpeIpPrefixTable/" + cdxCpeIpPrefixEntry.EntityData.SegmentPath
     cdxCpeIpPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCpeIpPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCpeIpPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2797,6 +2843,7 @@ func (cdxIfUpstreamChannelExtTable *CISCODOCSEXTMIB_CdxIfUpstreamChannelExtTable
     cdxIfUpstreamChannelExtTable.EntityData.BundleName = "cisco_ios_xe"
     cdxIfUpstreamChannelExtTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxIfUpstreamChannelExtTable.EntityData.SegmentPath = "cdxIfUpstreamChannelExtTable"
+    cdxIfUpstreamChannelExtTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxIfUpstreamChannelExtTable.EntityData.SegmentPath
     cdxIfUpstreamChannelExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxIfUpstreamChannelExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxIfUpstreamChannelExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2822,6 +2869,7 @@ func (cdxIfUpstreamChannelExtTable *CISCODOCSEXTMIB_CdxIfUpstreamChannelExtTable
 type CISCODOCSEXTMIB_CdxIfUpstreamChannelExtTable_CdxIfUpstreamChannelExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2953,6 +3001,7 @@ func (cdxIfUpstreamChannelExtEntry *CISCODOCSEXTMIB_CdxIfUpstreamChannelExtTable
     cdxIfUpstreamChannelExtEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxIfUpstreamChannelExtEntry.EntityData.ParentYangName = "cdxIfUpstreamChannelExtTable"
     cdxIfUpstreamChannelExtEntry.EntityData.SegmentPath = "cdxIfUpstreamChannelExtEntry" + types.AddKeyToken(cdxIfUpstreamChannelExtEntry.IfIndex, "ifIndex")
+    cdxIfUpstreamChannelExtEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxIfUpstreamChannelExtTable/" + cdxIfUpstreamChannelExtEntry.EntityData.SegmentPath
     cdxIfUpstreamChannelExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxIfUpstreamChannelExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxIfUpstreamChannelExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3006,6 +3055,7 @@ func (cdxWBResilCmTable *CISCODOCSEXTMIB_CdxWBResilCmTable) GetEntityData() *typ
     cdxWBResilCmTable.EntityData.BundleName = "cisco_ios_xe"
     cdxWBResilCmTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxWBResilCmTable.EntityData.SegmentPath = "cdxWBResilCmTable"
+    cdxWBResilCmTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxWBResilCmTable.EntityData.SegmentPath
     cdxWBResilCmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxWBResilCmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxWBResilCmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3037,6 +3087,7 @@ func (cdxWBResilCmTable *CISCODOCSEXTMIB_CdxWBResilCmTable) GetEntityData() *typ
 type CISCODOCSEXTMIB_CdxWBResilCmTable_CdxWBResilCmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This attribute uniquely identifies a CM.  The CMTS
     // must assign a single id value for each CM MAC address seen by the CMTS. 
@@ -3086,6 +3137,7 @@ func (cdxWBResilCmEntry *CISCODOCSEXTMIB_CdxWBResilCmTable_CdxWBResilCmEntry) Ge
     cdxWBResilCmEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxWBResilCmEntry.EntityData.ParentYangName = "cdxWBResilCmTable"
     cdxWBResilCmEntry.EntityData.SegmentPath = "cdxWBResilCmEntry" + types.AddKeyToken(cdxWBResilCmEntry.CdxWBResilCmIndex, "cdxWBResilCmIndex")
+    cdxWBResilCmEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxWBResilCmTable/" + cdxWBResilCmEntry.EntityData.SegmentPath
     cdxWBResilCmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxWBResilCmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxWBResilCmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3125,6 +3177,7 @@ func (cdxRFtoPrimaryChannelMappingTable *CISCODOCSEXTMIB_CdxRFtoPrimaryChannelMa
     cdxRFtoPrimaryChannelMappingTable.EntityData.BundleName = "cisco_ios_xe"
     cdxRFtoPrimaryChannelMappingTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxRFtoPrimaryChannelMappingTable.EntityData.SegmentPath = "cdxRFtoPrimaryChannelMappingTable"
+    cdxRFtoPrimaryChannelMappingTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxRFtoPrimaryChannelMappingTable.EntityData.SegmentPath
     cdxRFtoPrimaryChannelMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxRFtoPrimaryChannelMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxRFtoPrimaryChannelMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3147,6 +3200,7 @@ func (cdxRFtoPrimaryChannelMappingTable *CISCODOCSEXTMIB_CdxRFtoPrimaryChannelMa
 type CISCODOCSEXTMIB_CdxRFtoPrimaryChannelMappingTable_CdxRFtoPrimaryChannelMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3163,6 +3217,7 @@ func (cdxRFtoPrimaryChannelMappingEntry *CISCODOCSEXTMIB_CdxRFtoPrimaryChannelMa
     cdxRFtoPrimaryChannelMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxRFtoPrimaryChannelMappingEntry.EntityData.ParentYangName = "cdxRFtoPrimaryChannelMappingTable"
     cdxRFtoPrimaryChannelMappingEntry.EntityData.SegmentPath = "cdxRFtoPrimaryChannelMappingEntry" + types.AddKeyToken(cdxRFtoPrimaryChannelMappingEntry.IfIndex, "ifIndex")
+    cdxRFtoPrimaryChannelMappingEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxRFtoPrimaryChannelMappingTable/" + cdxRFtoPrimaryChannelMappingEntry.EntityData.SegmentPath
     cdxRFtoPrimaryChannelMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxRFtoPrimaryChannelMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxRFtoPrimaryChannelMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3196,6 +3251,7 @@ func (cdxPrimaryChanneltoRFMappingTable *CISCODOCSEXTMIB_CdxPrimaryChanneltoRFMa
     cdxPrimaryChanneltoRFMappingTable.EntityData.BundleName = "cisco_ios_xe"
     cdxPrimaryChanneltoRFMappingTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxPrimaryChanneltoRFMappingTable.EntityData.SegmentPath = "cdxPrimaryChanneltoRFMappingTable"
+    cdxPrimaryChanneltoRFMappingTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxPrimaryChanneltoRFMappingTable.EntityData.SegmentPath
     cdxPrimaryChanneltoRFMappingTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxPrimaryChanneltoRFMappingTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxPrimaryChanneltoRFMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3218,6 +3274,7 @@ func (cdxPrimaryChanneltoRFMappingTable *CISCODOCSEXTMIB_CdxPrimaryChanneltoRFMa
 type CISCODOCSEXTMIB_CdxPrimaryChanneltoRFMappingTable_CdxPrimaryChanneltoRFMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3234,6 +3291,7 @@ func (cdxPrimaryChanneltoRFMappingEntry *CISCODOCSEXTMIB_CdxPrimaryChanneltoRFMa
     cdxPrimaryChanneltoRFMappingEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxPrimaryChanneltoRFMappingEntry.EntityData.ParentYangName = "cdxPrimaryChanneltoRFMappingTable"
     cdxPrimaryChanneltoRFMappingEntry.EntityData.SegmentPath = "cdxPrimaryChanneltoRFMappingEntry" + types.AddKeyToken(cdxPrimaryChanneltoRFMappingEntry.IfIndex, "ifIndex")
+    cdxPrimaryChanneltoRFMappingEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxPrimaryChanneltoRFMappingTable/" + cdxPrimaryChanneltoRFMappingEntry.EntityData.SegmentPath
     cdxPrimaryChanneltoRFMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxPrimaryChanneltoRFMappingEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxPrimaryChanneltoRFMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3268,6 +3326,7 @@ func (cdxCmtsMtcCmTable *CISCODOCSEXTMIB_CdxCmtsMtcCmTable) GetEntityData() *typ
     cdxCmtsMtcCmTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsMtcCmTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsMtcCmTable.EntityData.SegmentPath = "cdxCmtsMtcCmTable"
+    cdxCmtsMtcCmTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsMtcCmTable.EntityData.SegmentPath
     cdxCmtsMtcCmTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsMtcCmTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsMtcCmTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3291,6 +3350,7 @@ func (cdxCmtsMtcCmTable *CISCODOCSEXTMIB_CdxCmtsMtcCmTable) GetEntityData() *typ
 type CISCODOCSEXTMIB_CdxCmtsMtcCmTable_CdxCmtsMtcCmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3337,6 +3397,7 @@ func (cdxCmtsMtcCmEntry *CISCODOCSEXTMIB_CdxCmtsMtcCmTable_CdxCmtsMtcCmEntry) Ge
     cdxCmtsMtcCmEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsMtcCmEntry.EntityData.ParentYangName = "cdxCmtsMtcCmTable"
     cdxCmtsMtcCmEntry.EntityData.SegmentPath = "cdxCmtsMtcCmEntry" + types.AddKeyToken(cdxCmtsMtcCmEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdxCmtsMtcCmEntry.CdxCmtsMtcTcsId, "cdxCmtsMtcTcsId")
+    cdxCmtsMtcCmEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmtsMtcCmTable/" + cdxCmtsMtcCmEntry.EntityData.SegmentPath
     cdxCmtsMtcCmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsMtcCmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsMtcCmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3378,6 +3439,7 @@ func (cdxCmtsUscbSflowTable *CISCODOCSEXTMIB_CdxCmtsUscbSflowTable) GetEntityDat
     cdxCmtsUscbSflowTable.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsUscbSflowTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxCmtsUscbSflowTable.EntityData.SegmentPath = "cdxCmtsUscbSflowTable"
+    cdxCmtsUscbSflowTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxCmtsUscbSflowTable.EntityData.SegmentPath
     cdxCmtsUscbSflowTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsUscbSflowTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsUscbSflowTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3401,6 +3463,7 @@ func (cdxCmtsUscbSflowTable *CISCODOCSEXTMIB_CdxCmtsUscbSflowTable) GetEntityDat
 type CISCODOCSEXTMIB_CdxCmtsUscbSflowTable_CdxCmtsUscbSflowEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3482,6 +3545,7 @@ func (cdxCmtsUscbSflowEntry *CISCODOCSEXTMIB_CdxCmtsUscbSflowTable_CdxCmtsUscbSf
     cdxCmtsUscbSflowEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxCmtsUscbSflowEntry.EntityData.ParentYangName = "cdxCmtsUscbSflowTable"
     cdxCmtsUscbSflowEntry.EntityData.SegmentPath = "cdxCmtsUscbSflowEntry" + types.AddKeyToken(cdxCmtsUscbSflowEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdxCmtsUscbSflowEntry.CdxCmtsUsBondingGrpId, "cdxCmtsUsBondingGrpId")
+    cdxCmtsUscbSflowEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxCmtsUscbSflowTable/" + cdxCmtsUscbSflowEntry.EntityData.SegmentPath
     cdxCmtsUscbSflowEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxCmtsUscbSflowEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxCmtsUscbSflowEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3529,6 +3593,7 @@ func (cdxRPDGS7KTable *CISCODOCSEXTMIB_CdxRPDGS7KTable) GetEntityData() *types.C
     cdxRPDGS7KTable.EntityData.BundleName = "cisco_ios_xe"
     cdxRPDGS7KTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxRPDGS7KTable.EntityData.SegmentPath = "cdxRPDGS7KTable"
+    cdxRPDGS7KTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxRPDGS7KTable.EntityData.SegmentPath
     cdxRPDGS7KTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxRPDGS7KTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxRPDGS7KTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3551,6 +3616,7 @@ func (cdxRPDGS7KTable *CISCODOCSEXTMIB_CdxRPDGS7KTable) GetEntityData() *types.C
 type CISCODOCSEXTMIB_CdxRPDGS7KTable_CdxRPDGS7KEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This is MacAddress of RPDGS7K which is used for
     // index. The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -3619,6 +3685,7 @@ func (cdxRPDGS7KEntry *CISCODOCSEXTMIB_CdxRPDGS7KTable_CdxRPDGS7KEntry) GetEntit
     cdxRPDGS7KEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxRPDGS7KEntry.EntityData.ParentYangName = "cdxRPDGS7KTable"
     cdxRPDGS7KEntry.EntityData.SegmentPath = "cdxRPDGS7KEntry" + types.AddKeyToken(cdxRPDGS7KEntry.CdxRPDGS7KMacAddress, "cdxRPDGS7KMacAddress")
+    cdxRPDGS7KEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxRPDGS7KTable/" + cdxRPDGS7KEntry.EntityData.SegmentPath
     cdxRPDGS7KEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxRPDGS7KEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxRPDGS7KEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3684,6 +3751,7 @@ func (cdxBundleIpHelperTable *CISCODOCSEXTMIB_CdxBundleIpHelperTable) GetEntityD
     cdxBundleIpHelperTable.EntityData.BundleName = "cisco_ios_xe"
     cdxBundleIpHelperTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxBundleIpHelperTable.EntityData.SegmentPath = "cdxBundleIpHelperTable"
+    cdxBundleIpHelperTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxBundleIpHelperTable.EntityData.SegmentPath
     cdxBundleIpHelperTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxBundleIpHelperTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxBundleIpHelperTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3706,6 +3774,7 @@ func (cdxBundleIpHelperTable *CISCODOCSEXTMIB_CdxBundleIpHelperTable) GetEntityD
 type CISCODOCSEXTMIB_CdxBundleIpHelperTable_CdxBundleIpHelperEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3730,6 +3799,7 @@ func (cdxBundleIpHelperEntry *CISCODOCSEXTMIB_CdxBundleIpHelperTable_CdxBundleIp
     cdxBundleIpHelperEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxBundleIpHelperEntry.EntityData.ParentYangName = "cdxBundleIpHelperTable"
     cdxBundleIpHelperEntry.EntityData.SegmentPath = "cdxBundleIpHelperEntry" + types.AddKeyToken(cdxBundleIpHelperEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdxBundleIpHelperEntry.CdxBundleHelperAddr, "cdxBundleHelperAddr")
+    cdxBundleIpHelperEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxBundleIpHelperTable/" + cdxBundleIpHelperEntry.EntityData.SegmentPath
     cdxBundleIpHelperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxBundleIpHelperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxBundleIpHelperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3763,6 +3833,7 @@ func (cdxBundleIPv6DHCPRelayTable *CISCODOCSEXTMIB_CdxBundleIPv6DHCPRelayTable) 
     cdxBundleIPv6DHCPRelayTable.EntityData.BundleName = "cisco_ios_xe"
     cdxBundleIPv6DHCPRelayTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxBundleIPv6DHCPRelayTable.EntityData.SegmentPath = "cdxBundleIPv6DHCPRelayTable"
+    cdxBundleIPv6DHCPRelayTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxBundleIPv6DHCPRelayTable.EntityData.SegmentPath
     cdxBundleIPv6DHCPRelayTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxBundleIPv6DHCPRelayTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxBundleIPv6DHCPRelayTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3785,6 +3856,7 @@ func (cdxBundleIPv6DHCPRelayTable *CISCODOCSEXTMIB_CdxBundleIPv6DHCPRelayTable) 
 type CISCODOCSEXTMIB_CdxBundleIPv6DHCPRelayTable_CdxBundleIPv6DHCPRelayEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3806,6 +3878,7 @@ func (cdxBundleIPv6DHCPRelayEntry *CISCODOCSEXTMIB_CdxBundleIPv6DHCPRelayTable_C
     cdxBundleIPv6DHCPRelayEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxBundleIPv6DHCPRelayEntry.EntityData.ParentYangName = "cdxBundleIPv6DHCPRelayTable"
     cdxBundleIPv6DHCPRelayEntry.EntityData.SegmentPath = "cdxBundleIPv6DHCPRelayEntry" + types.AddKeyToken(cdxBundleIPv6DHCPRelayEntry.IfIndex, "ifIndex")
+    cdxBundleIPv6DHCPRelayEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxBundleIPv6DHCPRelayTable/" + cdxBundleIPv6DHCPRelayEntry.EntityData.SegmentPath
     cdxBundleIPv6DHCPRelayEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxBundleIPv6DHCPRelayEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxBundleIPv6DHCPRelayEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3841,6 +3914,7 @@ func (cdxBundleIPv6DHCPRelayDestTable *CISCODOCSEXTMIB_CdxBundleIPv6DHCPRelayDes
     cdxBundleIPv6DHCPRelayDestTable.EntityData.BundleName = "cisco_ios_xe"
     cdxBundleIPv6DHCPRelayDestTable.EntityData.ParentYangName = "CISCO-DOCS-EXT-MIB"
     cdxBundleIPv6DHCPRelayDestTable.EntityData.SegmentPath = "cdxBundleIPv6DHCPRelayDestTable"
+    cdxBundleIPv6DHCPRelayDestTable.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/" + cdxBundleIPv6DHCPRelayDestTable.EntityData.SegmentPath
     cdxBundleIPv6DHCPRelayDestTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxBundleIPv6DHCPRelayDestTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxBundleIPv6DHCPRelayDestTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3863,6 +3937,7 @@ func (cdxBundleIPv6DHCPRelayDestTable *CISCODOCSEXTMIB_CdxBundleIPv6DHCPRelayDes
 type CISCODOCSEXTMIB_CdxBundleIPv6DHCPRelayDestTable_CdxBundleIPv6DHCPRelayDestEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -3897,6 +3972,7 @@ func (cdxBundleIPv6DHCPRelayDestEntry *CISCODOCSEXTMIB_CdxBundleIPv6DHCPRelayDes
     cdxBundleIPv6DHCPRelayDestEntry.EntityData.BundleName = "cisco_ios_xe"
     cdxBundleIPv6DHCPRelayDestEntry.EntityData.ParentYangName = "cdxBundleIPv6DHCPRelayDestTable"
     cdxBundleIPv6DHCPRelayDestEntry.EntityData.SegmentPath = "cdxBundleIPv6DHCPRelayDestEntry" + types.AddKeyToken(cdxBundleIPv6DHCPRelayDestEntry.IfIndex, "ifIndex") + types.AddKeyToken(cdxBundleIPv6DHCPRelayDestEntry.CdxBundleIPv6DHCPRelayDestOutIfVrfIndex, "cdxBundleIPv6DHCPRelayDestOutIfVrfIndex") + types.AddKeyToken(cdxBundleIPv6DHCPRelayDestEntry.CdxBundleIPv6DHCPRelayDestAddr, "cdxBundleIPv6DHCPRelayDestAddr") + types.AddKeyToken(cdxBundleIPv6DHCPRelayDestEntry.CdxBundleIPv6DHCPRelayDestOutIfIndex, "cdxBundleIPv6DHCPRelayDestOutIfIndex")
+    cdxBundleIPv6DHCPRelayDestEntry.EntityData.AbsolutePath = "CISCO-DOCS-EXT-MIB:CISCO-DOCS-EXT-MIB/cdxBundleIPv6DHCPRelayDestTable/" + cdxBundleIPv6DHCPRelayDestEntry.EntityData.SegmentPath
     cdxBundleIPv6DHCPRelayDestEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdxBundleIPv6DHCPRelayDestEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdxBundleIPv6DHCPRelayDestEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

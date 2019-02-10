@@ -56,6 +56,7 @@ func (subscriberManager *SubscriberManager) GetEntityData() *types.CommonEntityD
     subscriberManager.EntityData.BundleName = "cisco_ios_xr"
     subscriberManager.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-cfg"
     subscriberManager.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager"
+    subscriberManager.EntityData.AbsolutePath = subscriberManager.EntityData.SegmentPath
     subscriberManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -89,6 +90,7 @@ func (accounting *SubscriberManager_Accounting) GetEntityData() *types.CommonEnt
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "subscriber-manager"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -119,6 +121,7 @@ func (sendStop *SubscriberManager_Accounting_SendStop) GetEntityData() *types.Co
     sendStop.EntityData.BundleName = "cisco_ios_xr"
     sendStop.EntityData.ParentYangName = "accounting"
     sendStop.EntityData.SegmentPath = "send-stop"
+    sendStop.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/" + sendStop.EntityData.SegmentPath
     sendStop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendStop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendStop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -148,6 +151,7 @@ func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetEntit
     setupFailure.EntityData.BundleName = "cisco_ios_xr"
     setupFailure.EntityData.ParentYangName = "send-stop"
     setupFailure.EntityData.SegmentPath = "setup-failure"
+    setupFailure.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/send-stop/" + setupFailure.EntityData.SegmentPath
     setupFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     setupFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     setupFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -178,6 +182,7 @@ func (interim *SubscriberManager_Accounting_Interim) GetEntityData() *types.Comm
     interim.EntityData.BundleName = "cisco_ios_xr"
     interim.EntityData.ParentYangName = "accounting"
     interim.EntityData.SegmentPath = "interim"
+    interim.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/" + interim.EntityData.SegmentPath
     interim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -209,6 +214,7 @@ func (variation *SubscriberManager_Accounting_Interim_Variation) GetEntityData()
     variation.EntityData.BundleName = "cisco_ios_xr"
     variation.EntityData.ParentYangName = "interim"
     variation.EntityData.SegmentPath = "variation"
+    variation.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/interim/" + variation.EntityData.SegmentPath
     variation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     variation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     variation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -238,6 +244,7 @@ func (srg *SubscriberManager_Srg) GetEntityData() *types.CommonEntityData {
     srg.EntityData.BundleName = "cisco_ios_xr"
     srg.EntityData.ParentYangName = "subscriber-manager"
     srg.EntityData.SegmentPath = "srg"
+    srg.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/" + srg.EntityData.SegmentPath
     srg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -268,6 +275,7 @@ func (subscriberFeaturette *SubscriberFeaturette) GetEntityData() *types.CommonE
     subscriberFeaturette.EntityData.BundleName = "cisco_ios_xr"
     subscriberFeaturette.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-cfg"
     subscriberFeaturette.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette"
+    subscriberFeaturette.EntityData.AbsolutePath = subscriberFeaturette.EntityData.SegmentPath
     subscriberFeaturette.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberFeaturette.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberFeaturette.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -289,6 +297,7 @@ func (subscriberFeaturette *SubscriberFeaturette) GetEntityData() *types.CommonE
 type SubscriberFeaturette_FeaturetteName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. subscriber feature. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -304,6 +313,7 @@ func (featuretteName *SubscriberFeaturette_FeaturetteName) GetEntityData() *type
     featuretteName.EntityData.BundleName = "cisco_ios_xr"
     featuretteName.EntityData.ParentYangName = "subscriber-featurette"
     featuretteName.EntityData.SegmentPath = "featurette-name" + types.AddKeyToken(featuretteName.Featurette, "featurette")
+    featuretteName.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette/" + featuretteName.EntityData.SegmentPath
     featuretteName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     featuretteName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     featuretteName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -335,6 +345,7 @@ func (iedgeLicenseManager *IedgeLicenseManager) GetEntityData() *types.CommonEnt
     iedgeLicenseManager.EntityData.BundleName = "cisco_ios_xr"
     iedgeLicenseManager.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-cfg"
     iedgeLicenseManager.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager"
+    iedgeLicenseManager.EntityData.AbsolutePath = iedgeLicenseManager.EntityData.SegmentPath
     iedgeLicenseManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iedgeLicenseManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iedgeLicenseManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -364,6 +375,7 @@ func (subManager *SubManager) GetEntityData() *types.CommonEntityData {
     subManager.EntityData.BundleName = "cisco_ios_xr"
     subManager.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-cfg"
     subManager.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-cfg:sub-manager"
+    subManager.EntityData.AbsolutePath = subManager.EntityData.SegmentPath
     subManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -385,6 +397,7 @@ func (subManager *SubManager) GetEntityData() *types.CommonEntityData {
 type SubManager_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify location. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -403,6 +416,7 @@ func (location *SubManager_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "sub-manager"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location1, "location1")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:sub-manager/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -435,6 +449,7 @@ func (trace *SubManager_Location_Trace) GetEntityData() *types.CommonEntityData 
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "location"
     trace.EntityData.SegmentPath = "trace"
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-cfg:sub-manager/location/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

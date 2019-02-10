@@ -44,6 +44,7 @@ func (service *Service) GetEntityData() *types.CommonEntityData {
     service.EntityData.BundleName = "cisco_ios_xr"
     service.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-services"
     service.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-services:service"
+    service.EntityData.AbsolutePath = service.EntityData.SegmentPath
     service.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     service.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     service.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -72,6 +73,7 @@ func (cli *Service_Cli) GetEntityData() *types.CommonEntityData {
     cli.EntityData.BundleName = "cisco_ios_xr"
     cli.EntityData.ParentYangName = "service"
     cli.EntityData.SegmentPath = "cli"
+    cli.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-services:service/" + cli.EntityData.SegmentPath
     cli.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cli.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cli.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -100,6 +102,7 @@ func (interactive *Service_Cli_Interactive) GetEntityData() *types.CommonEntityD
     interactive.EntityData.BundleName = "cisco_ios_xr"
     interactive.EntityData.ParentYangName = "cli"
     interactive.EntityData.SegmentPath = "interactive"
+    interactive.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-services:service/cli/" + interactive.EntityData.SegmentPath
     interactive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

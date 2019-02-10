@@ -44,6 +44,7 @@ func (statistics *Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "Cisco-IOS-XR-infra-statsd-cfg"
     statistics.EntityData.SegmentPath = "Cisco-IOS-XR-infra-statsd-cfg:statistics"
+    statistics.EntityData.AbsolutePath = statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -73,6 +74,7 @@ func (period *Statistics_Period) GetEntityData() *types.CommonEntityData {
     period.EntityData.BundleName = "cisco_ios_xr"
     period.EntityData.ParentYangName = "statistics"
     period.EntityData.SegmentPath = "period"
+    period.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-cfg:statistics/" + period.EntityData.SegmentPath
     period.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     period.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     period.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -108,6 +110,7 @@ func (serviceAccounting *Statistics_Period_ServiceAccounting) GetEntityData() *t
     serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
     serviceAccounting.EntityData.ParentYangName = "period"
     serviceAccounting.EntityData.SegmentPath = "service-accounting"
+    serviceAccounting.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-cfg:statistics/period/" + serviceAccounting.EntityData.SegmentPath
     serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

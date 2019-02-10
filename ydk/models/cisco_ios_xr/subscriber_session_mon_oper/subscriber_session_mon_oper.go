@@ -40,6 +40,7 @@ func (sessionMon *SessionMon) GetEntityData() *types.CommonEntityData {
     sessionMon.EntityData.BundleName = "cisco_ios_xr"
     sessionMon.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-session-mon-oper"
     sessionMon.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon"
+    sessionMon.EntityData.AbsolutePath = sessionMon.EntityData.SegmentPath
     sessionMon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionMon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionMon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *SessionMon_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "session-mon"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +94,7 @@ func (nodes *SessionMon_Nodes) GetEntityData() *types.CommonEntityData {
 type SessionMon_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Nodeid location . The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -113,6 +116,7 @@ func (node *SessionMon_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -181,6 +185,7 @@ func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetEntit
     sessionMonStatistics.EntityData.BundleName = "cisco_ios_xr"
     sessionMonStatistics.EntityData.ParentYangName = "node"
     sessionMonStatistics.EntityData.SegmentPath = "session-mon-statistics"
+    sessionMonStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/nodes/node/" + sessionMonStatistics.EntityData.SegmentPath
     sessionMonStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionMonStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionMonStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -223,6 +228,7 @@ func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetE
     interfaceAllStatistics.EntityData.BundleName = "cisco_ios_xr"
     interfaceAllStatistics.EntityData.ParentYangName = "node"
     interfaceAllStatistics.EntityData.SegmentPath = "interface-all-statistics"
+    interfaceAllStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/nodes/node/" + interfaceAllStatistics.EntityData.SegmentPath
     interfaceAllStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAllStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAllStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -244,6 +250,7 @@ func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetE
 type SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -295,6 +302,7 @@ func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_Interf
     interfaceAllStatistic.EntityData.BundleName = "cisco_ios_xr"
     interfaceAllStatistic.EntityData.ParentYangName = "interface-all-statistics"
     interfaceAllStatistic.EntityData.SegmentPath = "interface-all-statistic" + types.AddKeyToken(interfaceAllStatistic.InterfaceName, "interface-name")
+    interfaceAllStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/nodes/node/interface-all-statistics/" + interfaceAllStatistic.EntityData.SegmentPath
     interfaceAllStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAllStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAllStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -373,6 +381,7 @@ func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetEntityData(
     licenseStatistics.EntityData.BundleName = "cisco_ios_xr"
     licenseStatistics.EntityData.ParentYangName = "node"
     licenseStatistics.EntityData.SegmentPath = "license-statistics"
+    licenseStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon/nodes/node/" + licenseStatistics.EntityData.SegmentPath
     licenseStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     licenseStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     licenseStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

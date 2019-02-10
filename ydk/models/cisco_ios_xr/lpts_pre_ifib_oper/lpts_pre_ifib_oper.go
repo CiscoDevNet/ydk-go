@@ -75,6 +75,7 @@ func (lptsPifib *LptsPifib) GetEntityData() *types.CommonEntityData {
     lptsPifib.EntityData.BundleName = "cisco_ios_xr"
     lptsPifib.EntityData.ParentYangName = "Cisco-IOS-XR-lpts-pre-ifib-oper"
     lptsPifib.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib"
+    lptsPifib.EntityData.AbsolutePath = lptsPifib.EntityData.SegmentPath
     lptsPifib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lptsPifib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lptsPifib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -105,6 +106,7 @@ func (nodes *LptsPifib_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "lpts-pifib"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -126,6 +128,7 @@ func (nodes *LptsPifib_Nodes) GetEntityData() *types.CommonEntityData {
 type LptsPifib_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -147,6 +150,7 @@ func (node *LptsPifib_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -180,6 +184,7 @@ func (typeValues *LptsPifib_Nodes_Node_TypeValues) GetEntityData() *types.Common
     typeValues.EntityData.BundleName = "cisco_ios_xr"
     typeValues.EntityData.ParentYangName = "node"
     typeValues.EntityData.SegmentPath = "type-values"
+    typeValues.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/" + typeValues.EntityData.SegmentPath
     typeValues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeValues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeValues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +206,7 @@ func (typeValues *LptsPifib_Nodes_Node_TypeValues) GetEntityData() *types.Common
 type LptsPifib_Nodes_Node_TypeValues_TypeValue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Type value. The type is LptsPifib.
     PifibType interface{}
@@ -216,6 +222,7 @@ func (typeValue *LptsPifib_Nodes_Node_TypeValues_TypeValue) GetEntityData() *typ
     typeValue.EntityData.BundleName = "cisco_ios_xr"
     typeValue.EntityData.ParentYangName = "type-values"
     typeValue.EntityData.SegmentPath = "type-value" + types.AddKeyToken(typeValue.PifibType, "pifib-type")
+    typeValue.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/type-values/" + typeValue.EntityData.SegmentPath
     typeValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     typeValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     typeValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -238,6 +245,7 @@ func (typeValue *LptsPifib_Nodes_Node_TypeValues_TypeValue) GetEntityData() *typ
 type LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Single Pre-ifib entry. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -330,6 +338,7 @@ func (entry *LptsPifib_Nodes_Node_TypeValues_TypeValue_Entry) GetEntityData() *t
     entry.EntityData.BundleName = "cisco_ios_xr"
     entry.EntityData.ParentYangName = "type-value"
     entry.EntityData.SegmentPath = "entry" + types.AddKeyToken(entry.Entry, "entry")
+    entry.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/type-values/type-value/" + entry.EntityData.SegmentPath
     entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -405,6 +414,7 @@ func (dynamicFlowsStats *LptsPifib_Nodes_Node_DynamicFlowsStats) GetEntityData()
     dynamicFlowsStats.EntityData.BundleName = "cisco_ios_xr"
     dynamicFlowsStats.EntityData.ParentYangName = "node"
     dynamicFlowsStats.EntityData.SegmentPath = "dynamic-flows-stats"
+    dynamicFlowsStats.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/" + dynamicFlowsStats.EntityData.SegmentPath
     dynamicFlowsStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dynamicFlowsStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dynamicFlowsStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -412,6 +422,7 @@ func (dynamicFlowsStats *LptsPifib_Nodes_Node_DynamicFlowsStats) GetEntityData()
     dynamicFlowsStats.EntityData.Children = types.NewOrderedMap()
     dynamicFlowsStats.EntityData.Children.Append("flow", types.YChild{"Flow", nil})
     for i := range dynamicFlowsStats.Flow {
+        types.SetYListKey(dynamicFlowsStats.Flow[i], i)
         dynamicFlowsStats.EntityData.Children.Append(types.GetSegmentPath(dynamicFlowsStats.Flow[i]), types.YChild{"Flow", dynamicFlowsStats.Flow[i]})
     }
     dynamicFlowsStats.EntityData.Leafs = types.NewOrderedMap()
@@ -432,6 +443,7 @@ func (dynamicFlowsStats *LptsPifib_Nodes_Node_DynamicFlowsStats) GetEntityData()
 type LptsPifib_Nodes_Node_DynamicFlowsStats_Flow struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Flow Name. The type is string.
     FlowName interface{}
@@ -466,7 +478,8 @@ func (flow *LptsPifib_Nodes_Node_DynamicFlowsStats_Flow) GetEntityData() *types.
     flow.EntityData.YangName = "flow"
     flow.EntityData.BundleName = "cisco_ios_xr"
     flow.EntityData.ParentYangName = "dynamic-flows-stats"
-    flow.EntityData.SegmentPath = "flow"
+    flow.EntityData.SegmentPath = "flow" + types.AddNoKeyToken(flow)
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/dynamic-flows-stats/" + flow.EntityData.SegmentPath
     flow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -519,6 +532,7 @@ func (hardware *LptsPifib_Nodes_Node_Hardware) GetEntityData() *types.CommonEnti
     hardware.EntityData.BundleName = "cisco_ios_xr"
     hardware.EntityData.ParentYangName = "node"
     hardware.EntityData.SegmentPath = "Cisco-IOS-XR-platform-pifib-oper:hardware"
+    hardware.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/" + hardware.EntityData.SegmentPath
     hardware.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardware.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardware.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -554,6 +568,7 @@ func (usageEntries *LptsPifib_Nodes_Node_Hardware_UsageEntries) GetEntityData() 
     usageEntries.EntityData.BundleName = "cisco_ios_xr"
     usageEntries.EntityData.ParentYangName = "hardware"
     usageEntries.EntityData.SegmentPath = "usage-entries"
+    usageEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/" + usageEntries.EntityData.SegmentPath
     usageEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usageEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usageEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -575,6 +590,7 @@ func (usageEntries *LptsPifib_Nodes_Node_Hardware_UsageEntries) GetEntityData() 
 type LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Region ID. The type is UsageAddressFamily.
     RegionId interface{}
@@ -590,6 +606,7 @@ func (usageEntry *LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry) GetEnti
     usageEntry.EntityData.BundleName = "cisco_ios_xr"
     usageEntry.EntityData.ParentYangName = "usage-entries"
     usageEntry.EntityData.SegmentPath = "usage-entry" + types.AddKeyToken(usageEntry.RegionId, "region-id")
+    usageEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/usage-entries/" + usageEntry.EntityData.SegmentPath
     usageEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usageEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usageEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -597,6 +614,7 @@ func (usageEntry *LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry) GetEnti
     usageEntry.EntityData.Children = types.NewOrderedMap()
     usageEntry.EntityData.Children.Append("usage-info", types.YChild{"UsageInfo", nil})
     for i := range usageEntry.UsageInfo {
+        types.SetYListKey(usageEntry.UsageInfo[i], i)
         usageEntry.EntityData.Children.Append(types.GetSegmentPath(usageEntry.UsageInfo[i]), types.YChild{"UsageInfo", usageEntry.UsageInfo[i]})
     }
     usageEntry.EntityData.Leafs = types.NewOrderedMap()
@@ -612,6 +630,7 @@ func (usageEntry *LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry) GetEnti
 type LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Pipe ID. The type is interface{} with range: 0..255.
     PipeId interface{}
@@ -636,7 +655,8 @@ func (usageInfo *LptsPifib_Nodes_Node_Hardware_UsageEntries_UsageEntry_UsageInfo
     usageInfo.EntityData.YangName = "usage-info"
     usageInfo.EntityData.BundleName = "cisco_ios_xr"
     usageInfo.EntityData.ParentYangName = "usage-entry"
-    usageInfo.EntityData.SegmentPath = "usage-info"
+    usageInfo.EntityData.SegmentPath = "usage-info" + types.AddNoKeyToken(usageInfo)
+    usageInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/usage-entries/usage-entry/" + usageInfo.EntityData.SegmentPath
     usageInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usageInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usageInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -671,6 +691,7 @@ func (police *LptsPifib_Nodes_Node_Hardware_Police) GetEntityData() *types.Commo
     police.EntityData.BundleName = "cisco_ios_xr"
     police.EntityData.ParentYangName = "hardware"
     police.EntityData.SegmentPath = "police"
+    police.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/" + police.EntityData.SegmentPath
     police.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     police.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     police.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -678,6 +699,7 @@ func (police *LptsPifib_Nodes_Node_Hardware_Police) GetEntityData() *types.Commo
     police.EntityData.Children = types.NewOrderedMap()
     police.EntityData.Children.Append("police-info", types.YChild{"PoliceInfo", nil})
     for i := range police.PoliceInfo {
+        types.SetYListKey(police.PoliceInfo[i], i)
         police.EntityData.Children.Append(types.GetSegmentPath(police.PoliceInfo[i]), types.YChild{"PoliceInfo", police.PoliceInfo[i]})
     }
     police.EntityData.Leafs = types.NewOrderedMap()
@@ -692,6 +714,7 @@ func (police *LptsPifib_Nodes_Node_Hardware_Police) GetEntityData() *types.Commo
 type LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // avgrate. The type is interface{} with range: 0..4294967295.
     Avgrate interface{}
@@ -734,7 +757,8 @@ func (policeInfo *LptsPifib_Nodes_Node_Hardware_Police_PoliceInfo) GetEntityData
     policeInfo.EntityData.YangName = "police-info"
     policeInfo.EntityData.BundleName = "cisco_ios_xr"
     policeInfo.EntityData.ParentYangName = "police"
-    policeInfo.EntityData.SegmentPath = "police-info"
+    policeInfo.EntityData.SegmentPath = "police-info" + types.AddNoKeyToken(policeInfo)
+    policeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/police/" + policeInfo.EntityData.SegmentPath
     policeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -775,6 +799,7 @@ func (staticPolice *LptsPifib_Nodes_Node_Hardware_StaticPolice) GetEntityData() 
     staticPolice.EntityData.BundleName = "cisco_ios_xr"
     staticPolice.EntityData.ParentYangName = "hardware"
     staticPolice.EntityData.SegmentPath = "static-police"
+    staticPolice.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/" + staticPolice.EntityData.SegmentPath
     staticPolice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticPolice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticPolice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -782,6 +807,7 @@ func (staticPolice *LptsPifib_Nodes_Node_Hardware_StaticPolice) GetEntityData() 
     staticPolice.EntityData.Children = types.NewOrderedMap()
     staticPolice.EntityData.Children.Append("static-info", types.YChild{"StaticInfo", nil})
     for i := range staticPolice.StaticInfo {
+        types.SetYListKey(staticPolice.StaticInfo[i], i)
         staticPolice.EntityData.Children.Append(types.GetSegmentPath(staticPolice.StaticInfo[i]), types.YChild{"StaticInfo", staticPolice.StaticInfo[i]})
     }
     staticPolice.EntityData.Leafs = types.NewOrderedMap()
@@ -796,6 +822,7 @@ func (staticPolice *LptsPifib_Nodes_Node_Hardware_StaticPolice) GetEntityData() 
 type LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // punt reason. The type is interface{} with range: 0..4294967295.
     PuntReason interface{}
@@ -828,7 +855,8 @@ func (staticInfo *LptsPifib_Nodes_Node_Hardware_StaticPolice_StaticInfo) GetEnti
     staticInfo.EntityData.YangName = "static-info"
     staticInfo.EntityData.BundleName = "cisco_ios_xr"
     staticInfo.EntityData.ParentYangName = "static-police"
-    staticInfo.EntityData.SegmentPath = "static-info"
+    staticInfo.EntityData.SegmentPath = "static-info" + types.AddNoKeyToken(staticInfo)
+    staticInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/static-police/" + staticInfo.EntityData.SegmentPath
     staticInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +894,7 @@ func (bfd *LptsPifib_Nodes_Node_Hardware_Bfd) GetEntityData() *types.CommonEntit
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "hardware"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -873,6 +902,7 @@ func (bfd *LptsPifib_Nodes_Node_Hardware_Bfd) GetEntityData() *types.CommonEntit
     bfd.EntityData.Children = types.NewOrderedMap()
     bfd.EntityData.Children.Append("bfd-entry-info", types.YChild{"BfdEntryInfo", nil})
     for i := range bfd.BfdEntryInfo {
+        types.SetYListKey(bfd.BfdEntryInfo[i], i)
         bfd.EntityData.Children.Append(types.GetSegmentPath(bfd.BfdEntryInfo[i]), types.YChild{"BfdEntryInfo", bfd.BfdEntryInfo[i]})
     }
     bfd.EntityData.Leafs = types.NewOrderedMap()
@@ -887,6 +917,7 @@ func (bfd *LptsPifib_Nodes_Node_Hardware_Bfd) GetEntityData() *types.CommonEntit
 type LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // index. The type is interface{} with range: 0..255.
     Index interface{}
@@ -909,7 +940,8 @@ func (bfdEntryInfo *LptsPifib_Nodes_Node_Hardware_Bfd_BfdEntryInfo) GetEntityDat
     bfdEntryInfo.EntityData.YangName = "bfd-entry-info"
     bfdEntryInfo.EntityData.BundleName = "cisco_ios_xr"
     bfdEntryInfo.EntityData.ParentYangName = "bfd"
-    bfdEntryInfo.EntityData.SegmentPath = "bfd-entry-info"
+    bfdEntryInfo.EntityData.SegmentPath = "bfd-entry-info" + types.AddNoKeyToken(bfdEntryInfo)
+    bfdEntryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/bfd/" + bfdEntryInfo.EntityData.SegmentPath
     bfdEntryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdEntryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdEntryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -956,6 +988,7 @@ func (statistics *LptsPifib_Nodes_Node_Hardware_Statistics) GetEntityData() *typ
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "hardware"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -989,6 +1022,7 @@ func (indexEntries *LptsPifib_Nodes_Node_Hardware_IndexEntries) GetEntityData() 
     indexEntries.EntityData.BundleName = "cisco_ios_xr"
     indexEntries.EntityData.ParentYangName = "hardware"
     indexEntries.EntityData.SegmentPath = "index-entries"
+    indexEntries.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/" + indexEntries.EntityData.SegmentPath
     indexEntries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indexEntries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indexEntries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1010,6 +1044,7 @@ func (indexEntries *LptsPifib_Nodes_Node_Hardware_IndexEntries) GetEntityData() 
 type LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index. The type is interface{} with range:
     // 0..4294967295.
@@ -1176,6 +1211,7 @@ func (indexEntry *LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry) GetEnti
     indexEntry.EntityData.BundleName = "cisco_ios_xr"
     indexEntry.EntityData.ParentYangName = "index-entries"
     indexEntry.EntityData.SegmentPath = "index-entry" + types.AddKeyToken(indexEntry.Index, "index")
+    indexEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/index-entries/" + indexEntry.EntityData.SegmentPath
     indexEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indexEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indexEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1183,6 +1219,7 @@ func (indexEntry *LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry) GetEnti
     indexEntry.EntityData.Children = types.NewOrderedMap()
     indexEntry.EntityData.Children.Append("hw-info", types.YChild{"HwInfo", nil})
     for i := range indexEntry.HwInfo {
+        types.SetYListKey(indexEntry.HwInfo[i], i)
         indexEntry.EntityData.Children.Append(types.GetSegmentPath(indexEntry.HwInfo[i]), types.YChild{"HwInfo", indexEntry.HwInfo[i]})
     }
     indexEntry.EntityData.Leafs = types.NewOrderedMap()
@@ -1244,6 +1281,7 @@ func (indexEntry *LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry) GetEnti
 type LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Policer Pointer. The type is interface{} with range: 0..4294967295.
     Policer interface{}
@@ -1273,7 +1311,8 @@ func (hwInfo *LptsPifib_Nodes_Node_Hardware_IndexEntries_IndexEntry_HwInfo) GetE
     hwInfo.EntityData.YangName = "hw-info"
     hwInfo.EntityData.BundleName = "cisco_ios_xr"
     hwInfo.EntityData.ParentYangName = "index-entry"
-    hwInfo.EntityData.SegmentPath = "hw-info"
+    hwInfo.EntityData.SegmentPath = "hw-info" + types.AddNoKeyToken(hwInfo)
+    hwInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/node/Cisco-IOS-XR-platform-pifib-oper:hardware/index-entries/index-entry/" + hwInfo.EntityData.SegmentPath
     hwInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

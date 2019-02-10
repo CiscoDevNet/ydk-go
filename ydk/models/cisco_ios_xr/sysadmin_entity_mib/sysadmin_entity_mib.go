@@ -77,6 +77,7 @@ func (eNTITYMIB *ENTITYMIB) GetEntityData() *types.CommonEntityData {
     eNTITYMIB.EntityData.BundleName = "cisco_ios_xr"
     eNTITYMIB.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-entity-mib"
     eNTITYMIB.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB"
+    eNTITYMIB.EntityData.AbsolutePath = eNTITYMIB.EntityData.SegmentPath
     eNTITYMIB.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eNTITYMIB.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eNTITYMIB.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -110,6 +111,7 @@ func (entityGeneral *ENTITYMIB_EntityGeneral) GetEntityData() *types.CommonEntit
     entityGeneral.EntityData.BundleName = "cisco_ios_xr"
     entityGeneral.EntityData.ParentYangName = "ENTITY-MIB"
     entityGeneral.EntityData.SegmentPath = "entityGeneral"
+    entityGeneral.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/" + entityGeneral.EntityData.SegmentPath
     entityGeneral.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entityGeneral.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityGeneral.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -138,6 +140,7 @@ func (entPhysicalTable *ENTITYMIB_EntPhysicalTable) GetEntityData() *types.Commo
     entPhysicalTable.EntityData.BundleName = "cisco_ios_xr"
     entPhysicalTable.EntityData.ParentYangName = "ENTITY-MIB"
     entPhysicalTable.EntityData.SegmentPath = "entPhysicalTable"
+    entPhysicalTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/" + entPhysicalTable.EntityData.SegmentPath
     entPhysicalTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entPhysicalTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entPhysicalTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -158,6 +161,7 @@ func (entPhysicalTable *ENTITYMIB_EntPhysicalTable) GetEntityData() *types.Commo
 type ENTITYMIB_EntPhysicalTable_EntPhysicalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
     EntPhysicalIndex interface{}
@@ -215,6 +219,7 @@ func (entPhysicalEntry *ENTITYMIB_EntPhysicalTable_EntPhysicalEntry) GetEntityDa
     entPhysicalEntry.EntityData.BundleName = "cisco_ios_xr"
     entPhysicalEntry.EntityData.ParentYangName = "entPhysicalTable"
     entPhysicalEntry.EntityData.SegmentPath = "entPhysicalEntry" + types.AddKeyToken(entPhysicalEntry.EntPhysicalIndex, "entPhysicalIndex")
+    entPhysicalEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entPhysicalTable/" + entPhysicalEntry.EntityData.SegmentPath
     entPhysicalEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entPhysicalEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entPhysicalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -258,6 +263,7 @@ func (entLogicalTable *ENTITYMIB_EntLogicalTable) GetEntityData() *types.CommonE
     entLogicalTable.EntityData.BundleName = "cisco_ios_xr"
     entLogicalTable.EntityData.ParentYangName = "ENTITY-MIB"
     entLogicalTable.EntityData.SegmentPath = "entLogicalTable"
+    entLogicalTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/" + entLogicalTable.EntityData.SegmentPath
     entLogicalTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entLogicalTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entLogicalTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -278,6 +284,7 @@ func (entLogicalTable *ENTITYMIB_EntLogicalTable) GetEntityData() *types.CommonE
 type ENTITYMIB_EntLogicalTable_EntLogicalEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
     EntLogicalIndex interface{}
@@ -312,6 +319,7 @@ func (entLogicalEntry *ENTITYMIB_EntLogicalTable_EntLogicalEntry) GetEntityData(
     entLogicalEntry.EntityData.BundleName = "cisco_ios_xr"
     entLogicalEntry.EntityData.ParentYangName = "entLogicalTable"
     entLogicalEntry.EntityData.SegmentPath = "entLogicalEntry" + types.AddKeyToken(entLogicalEntry.EntLogicalIndex, "entLogicalIndex")
+    entLogicalEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entLogicalTable/" + entLogicalEntry.EntityData.SegmentPath
     entLogicalEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entLogicalEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entLogicalEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -347,6 +355,7 @@ func (entLPMappingTable *ENTITYMIB_EntLPMappingTable) GetEntityData() *types.Com
     entLPMappingTable.EntityData.BundleName = "cisco_ios_xr"
     entLPMappingTable.EntityData.ParentYangName = "ENTITY-MIB"
     entLPMappingTable.EntityData.SegmentPath = "entLPMappingTable"
+    entLPMappingTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/" + entLPMappingTable.EntityData.SegmentPath
     entLPMappingTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entLPMappingTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entLPMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +376,7 @@ func (entLPMappingTable *ENTITYMIB_EntLPMappingTable) GetEntityData() *types.Com
 type ENTITYMIB_EntLPMappingTable_EntLPMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
     EntLogicalIndex interface{}
@@ -381,6 +391,7 @@ func (entLPMappingEntry *ENTITYMIB_EntLPMappingTable_EntLPMappingEntry) GetEntit
     entLPMappingEntry.EntityData.BundleName = "cisco_ios_xr"
     entLPMappingEntry.EntityData.ParentYangName = "entLPMappingTable"
     entLPMappingEntry.EntityData.SegmentPath = "entLPMappingEntry" + types.AddKeyToken(entLPMappingEntry.EntLogicalIndex, "entLogicalIndex") + types.AddKeyToken(entLPMappingEntry.EntLPPhysicalIndex, "entLPPhysicalIndex")
+    entLPMappingEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entLPMappingTable/" + entLPMappingEntry.EntityData.SegmentPath
     entLPMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entLPMappingEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entLPMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -410,6 +421,7 @@ func (entAliasMappingTable *ENTITYMIB_EntAliasMappingTable) GetEntityData() *typ
     entAliasMappingTable.EntityData.BundleName = "cisco_ios_xr"
     entAliasMappingTable.EntityData.ParentYangName = "ENTITY-MIB"
     entAliasMappingTable.EntityData.SegmentPath = "entAliasMappingTable"
+    entAliasMappingTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/" + entAliasMappingTable.EntityData.SegmentPath
     entAliasMappingTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entAliasMappingTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entAliasMappingTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -430,6 +442,7 @@ func (entAliasMappingTable *ENTITYMIB_EntAliasMappingTable) GetEntityData() *typ
 type ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
     EntPhysicalIndex interface{}
@@ -448,6 +461,7 @@ func (entAliasMappingEntry *ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry)
     entAliasMappingEntry.EntityData.BundleName = "cisco_ios_xr"
     entAliasMappingEntry.EntityData.ParentYangName = "entAliasMappingTable"
     entAliasMappingEntry.EntityData.SegmentPath = "entAliasMappingEntry" + types.AddKeyToken(entAliasMappingEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(entAliasMappingEntry.EntAliasLogicalIndexOrZero, "entAliasLogicalIndexOrZero")
+    entAliasMappingEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entAliasMappingTable/" + entAliasMappingEntry.EntityData.SegmentPath
     entAliasMappingEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entAliasMappingEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entAliasMappingEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +493,7 @@ func (entPhysicalContainsTable *ENTITYMIB_EntPhysicalContainsTable) GetEntityDat
     entPhysicalContainsTable.EntityData.BundleName = "cisco_ios_xr"
     entPhysicalContainsTable.EntityData.ParentYangName = "ENTITY-MIB"
     entPhysicalContainsTable.EntityData.SegmentPath = "entPhysicalContainsTable"
+    entPhysicalContainsTable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/" + entPhysicalContainsTable.EntityData.SegmentPath
     entPhysicalContainsTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entPhysicalContainsTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entPhysicalContainsTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -499,6 +514,7 @@ func (entPhysicalContainsTable *ENTITYMIB_EntPhysicalContainsTable) GetEntityDat
 type ENTITYMIB_EntPhysicalContainsTable_EntPhysicalContainsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..2147483647.
     EntPhysicalIndex interface{}
@@ -513,6 +529,7 @@ func (entPhysicalContainsEntry *ENTITYMIB_EntPhysicalContainsTable_EntPhysicalCo
     entPhysicalContainsEntry.EntityData.BundleName = "cisco_ios_xr"
     entPhysicalContainsEntry.EntityData.ParentYangName = "entPhysicalContainsTable"
     entPhysicalContainsEntry.EntityData.SegmentPath = "entPhysicalContainsEntry" + types.AddKeyToken(entPhysicalContainsEntry.EntPhysicalIndex, "entPhysicalIndex") + types.AddKeyToken(entPhysicalContainsEntry.EntPhysicalChildIndex, "entPhysicalChildIndex")
+    entPhysicalContainsEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-entity-mib:ENTITY-MIB/entPhysicalContainsTable/" + entPhysicalContainsEntry.EntityData.SegmentPath
     entPhysicalContainsEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entPhysicalContainsEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entPhysicalContainsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

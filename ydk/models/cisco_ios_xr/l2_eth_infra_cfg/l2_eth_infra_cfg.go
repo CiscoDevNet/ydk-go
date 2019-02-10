@@ -115,6 +115,7 @@ func (ethernetFeatures *EthernetFeatures) GetEntityData() *types.CommonEntityDat
     ethernetFeatures.EntityData.BundleName = "cisco_ios_xr"
     ethernetFeatures.EntityData.ParentYangName = "Cisco-IOS-XR-l2-eth-infra-cfg"
     ethernetFeatures.EntityData.SegmentPath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features"
+    ethernetFeatures.EntityData.AbsolutePath = ethernetFeatures.EntityData.SegmentPath
     ethernetFeatures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetFeatures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetFeatures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -146,6 +147,7 @@ func (egressFiltering *EthernetFeatures_EgressFiltering) GetEntityData() *types.
     egressFiltering.EntityData.BundleName = "cisco_ios_xr"
     egressFiltering.EntityData.ParentYangName = "ethernet-features"
     egressFiltering.EntityData.SegmentPath = "egress-filtering"
+    egressFiltering.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/" + egressFiltering.EntityData.SegmentPath
     egressFiltering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     egressFiltering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressFiltering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -182,6 +184,7 @@ func (cfm *EthernetFeatures_Cfm) GetEntityData() *types.CommonEntityData {
     cfm.EntityData.BundleName = "cisco_ios_xr"
     cfm.EntityData.ParentYangName = "ethernet-features"
     cfm.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
+    cfm.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/" + cfm.EntityData.SegmentPath
     cfm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cfm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -218,6 +221,7 @@ func (tracerouteCache *EthernetFeatures_Cfm_TracerouteCache) GetEntityData() *ty
     tracerouteCache.EntityData.BundleName = "cisco_ios_xr"
     tracerouteCache.EntityData.ParentYangName = "cfm"
     tracerouteCache.EntityData.SegmentPath = "traceroute-cache"
+    tracerouteCache.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/" + tracerouteCache.EntityData.SegmentPath
     tracerouteCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracerouteCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracerouteCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -249,6 +253,7 @@ func (domains *EthernetFeatures_Cfm_Domains) GetEntityData() *types.CommonEntity
     domains.EntityData.BundleName = "cisco_ios_xr"
     domains.EntityData.ParentYangName = "cfm"
     domains.EntityData.SegmentPath = "domains"
+    domains.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/" + domains.EntityData.SegmentPath
     domains.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domains.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domains.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -271,6 +276,7 @@ func (domains *EthernetFeatures_Cfm_Domains) GetEntityData() *types.CommonEntity
 type EthernetFeatures_Cfm_Domains_Domain struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -289,6 +295,7 @@ func (domain *EthernetFeatures_Cfm_Domains_Domain) GetEntityData() *types.Common
     domain.EntityData.BundleName = "cisco_ios_xr"
     domain.EntityData.ParentYangName = "domains"
     domain.EntityData.SegmentPath = "domain" + types.AddKeyToken(domain.Domain, "domain")
+    domain.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/" + domain.EntityData.SegmentPath
     domain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -321,6 +328,7 @@ func (services *EthernetFeatures_Cfm_Domains_Domain_Services) GetEntityData() *t
     services.EntityData.BundleName = "cisco_ios_xr"
     services.EntityData.ParentYangName = "domain"
     services.EntityData.SegmentPath = "services"
+    services.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/" + services.EntityData.SegmentPath
     services.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     services.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     services.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -343,6 +351,7 @@ func (services *EthernetFeatures_Cfm_Domains_Domain_Services) GetEntityData() *t
 type EthernetFeatures_Cfm_Domains_Domain_Services_Service struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Service (Maintenance Association). The type is
     // string with length: 1..79.
@@ -405,6 +414,7 @@ func (service *EthernetFeatures_Cfm_Domains_Domain_Services_Service) GetEntityDa
     service.EntityData.BundleName = "cisco_ios_xr"
     service.EntityData.ParentYangName = "services"
     service.EntityData.SegmentPath = "service" + types.AddKeyToken(service.Service, "service")
+    service.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/" + service.EntityData.SegmentPath
     service.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     service.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     service.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -455,6 +465,7 @@ func (efd2 *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Efd2) GetEntity
     efd2.EntityData.BundleName = "cisco_ios_xr"
     efd2.EntityData.ParentYangName = "service"
     efd2.EntityData.SegmentPath = "efd2"
+    efd2.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/" + efd2.EntityData.SegmentPath
     efd2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     efd2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     efd2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -492,6 +503,7 @@ func (continuityCheckInterval *EthernetFeatures_Cfm_Domains_Domain_Services_Serv
     continuityCheckInterval.EntityData.BundleName = "cisco_ios_xr"
     continuityCheckInterval.EntityData.ParentYangName = "service"
     continuityCheckInterval.EntityData.SegmentPath = "continuity-check-interval"
+    continuityCheckInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/" + continuityCheckInterval.EntityData.SegmentPath
     continuityCheckInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     continuityCheckInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     continuityCheckInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -528,6 +540,7 @@ func (mipAutoCreation *EthernetFeatures_Cfm_Domains_Domain_Services_Service_MipA
     mipAutoCreation.EntityData.BundleName = "cisco_ios_xr"
     mipAutoCreation.EntityData.ParentYangName = "service"
     mipAutoCreation.EntityData.SegmentPath = "mip-auto-creation"
+    mipAutoCreation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/" + mipAutoCreation.EntityData.SegmentPath
     mipAutoCreation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mipAutoCreation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mipAutoCreation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -558,6 +571,7 @@ func (ais *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Ais) GetEntityDa
     ais.EntityData.BundleName = "cisco_ios_xr"
     ais.EntityData.ParentYangName = "service"
     ais.EntityData.SegmentPath = "ais"
+    ais.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/" + ais.EntityData.SegmentPath
     ais.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -592,6 +606,7 @@ func (transmission *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Ais_Tra
     transmission.EntityData.BundleName = "cisco_ios_xr"
     transmission.EntityData.ParentYangName = "ais"
     transmission.EntityData.SegmentPath = "transmission"
+    transmission.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/ais/" + transmission.EntityData.SegmentPath
     transmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -625,6 +640,7 @@ func (crossCheck *EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossChec
     crossCheck.EntityData.BundleName = "cisco_ios_xr"
     crossCheck.EntityData.ParentYangName = "service"
     crossCheck.EntityData.SegmentPath = "cross-check"
+    crossCheck.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/" + crossCheck.EntityData.SegmentPath
     crossCheck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crossCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crossCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -656,6 +672,7 @@ func (crossCheckMeps *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Cross
     crossCheckMeps.EntityData.BundleName = "cisco_ios_xr"
     crossCheckMeps.EntityData.ParentYangName = "cross-check"
     crossCheckMeps.EntityData.SegmentPath = "cross-check-meps"
+    crossCheckMeps.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/cross-check/" + crossCheckMeps.EntityData.SegmentPath
     crossCheckMeps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crossCheckMeps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crossCheckMeps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -678,6 +695,7 @@ func (crossCheckMeps *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Cross
 type EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossCheck_CrossCheckMeps_CrossCheckMep struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MEP ID. The type is interface{} with range:
     // 1..8191.
@@ -697,6 +715,7 @@ func (crossCheckMep *EthernetFeatures_Cfm_Domains_Domain_Services_Service_CrossC
     crossCheckMep.EntityData.BundleName = "cisco_ios_xr"
     crossCheckMep.EntityData.ParentYangName = "cross-check-meps"
     crossCheckMep.EntityData.SegmentPath = "cross-check-mep" + types.AddKeyToken(crossCheckMep.MepId, "mep-id")
+    crossCheckMep.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/cross-check/cross-check-meps/" + crossCheckMep.EntityData.SegmentPath
     crossCheckMep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     crossCheckMep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     crossCheckMep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -777,6 +796,7 @@ func (serviceProperties *EthernetFeatures_Cfm_Domains_Domain_Services_Service_Se
     serviceProperties.EntityData.BundleName = "cisco_ios_xr"
     serviceProperties.EntityData.ParentYangName = "service"
     serviceProperties.EntityData.SegmentPath = "service-properties"
+    serviceProperties.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/services/service/" + serviceProperties.EntityData.SegmentPath
     serviceProperties.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -833,6 +853,7 @@ func (domainProperties *EthernetFeatures_Cfm_Domains_Domain_DomainProperties) Ge
     domainProperties.EntityData.BundleName = "cisco_ios_xr"
     domainProperties.EntityData.ParentYangName = "domain"
     domainProperties.EntityData.SegmentPath = "domain-properties"
+    domainProperties.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/domain/" + domainProperties.EntityData.SegmentPath
     domainProperties.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domainProperties.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainProperties.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -866,6 +887,7 @@ func (etherLinkOam *EthernetFeatures_EtherLinkOam) GetEntityData() *types.Common
     etherLinkOam.EntityData.BundleName = "cisco_ios_xr"
     etherLinkOam.EntityData.ParentYangName = "ethernet-features"
     etherLinkOam.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam"
+    etherLinkOam.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/" + etherLinkOam.EntityData.SegmentPath
     etherLinkOam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     etherLinkOam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     etherLinkOam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -896,6 +918,7 @@ func (profiles *EthernetFeatures_EtherLinkOam_Profiles) GetEntityData() *types.C
     profiles.EntityData.BundleName = "cisco_ios_xr"
     profiles.EntityData.ParentYangName = "ether-link-oam"
     profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/" + profiles.EntityData.SegmentPath
     profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -917,6 +940,7 @@ func (profiles *EthernetFeatures_EtherLinkOam_Profiles) GetEntityData() *types.C
 type EthernetFeatures_EtherLinkOam_Profiles_Profile struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -959,6 +983,7 @@ func (profile *EthernetFeatures_EtherLinkOam_Profiles_Profile) GetEntityData() *
     profile.EntityData.BundleName = "cisco_ios_xr"
     profile.EntityData.ParentYangName = "profiles"
     profile.EntityData.SegmentPath = "profile" + types.AddKeyToken(profile.Profile, "profile")
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1034,6 +1059,7 @@ func (action *EthernetFeatures_EtherLinkOam_Profiles_Profile_Action) GetEntityDa
     action.EntityData.BundleName = "cisco_ios_xr"
     action.EntityData.ParentYangName = "profile"
     action.EntityData.SegmentPath = "action"
+    action.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/" + action.EntityData.SegmentPath
     action.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     action.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     action.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1081,6 +1107,7 @@ func (requireRemote *EthernetFeatures_EtherLinkOam_Profiles_Profile_RequireRemot
     requireRemote.EntityData.BundleName = "cisco_ios_xr"
     requireRemote.EntityData.ParentYangName = "profile"
     requireRemote.EntityData.SegmentPath = "require-remote"
+    requireRemote.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/" + requireRemote.EntityData.SegmentPath
     requireRemote.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requireRemote.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requireRemote.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1125,6 +1152,7 @@ func (linkMonitoring *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitor
     linkMonitoring.EntityData.BundleName = "cisco_ios_xr"
     linkMonitoring.EntityData.ParentYangName = "profile"
     linkMonitoring.EntityData.SegmentPath = "link-monitoring"
+    linkMonitoring.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/" + linkMonitoring.EntityData.SegmentPath
     linkMonitoring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkMonitoring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkMonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1161,6 +1189,7 @@ func (symbolPeriod *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitorin
     symbolPeriod.EntityData.BundleName = "cisco_ios_xr"
     symbolPeriod.EntityData.ParentYangName = "link-monitoring"
     symbolPeriod.EntityData.SegmentPath = "symbol-period"
+    symbolPeriod.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/" + symbolPeriod.EntityData.SegmentPath
     symbolPeriod.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     symbolPeriod.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     symbolPeriod.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1204,6 +1233,7 @@ func (window *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_Symb
     window.EntityData.BundleName = "cisco_ios_xr"
     window.EntityData.ParentYangName = "symbol-period"
     window.EntityData.SegmentPath = "window"
+    window.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/symbol-period/" + window.EntityData.SegmentPath
     window.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     window.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     window.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1255,6 +1285,7 @@ func (threshold *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_S
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "symbol-period"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/symbol-period/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1291,6 +1322,7 @@ func (framePeriod *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring
     framePeriod.EntityData.BundleName = "cisco_ios_xr"
     framePeriod.EntityData.ParentYangName = "link-monitoring"
     framePeriod.EntityData.SegmentPath = "frame-period"
+    framePeriod.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/" + framePeriod.EntityData.SegmentPath
     framePeriod.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     framePeriod.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     framePeriod.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1334,6 +1366,7 @@ func (window *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_Fram
     window.EntityData.BundleName = "cisco_ios_xr"
     window.EntityData.ParentYangName = "frame-period"
     window.EntityData.SegmentPath = "window"
+    window.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/frame-period/" + window.EntityData.SegmentPath
     window.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     window.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     window.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1385,6 +1418,7 @@ func (threshold *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_F
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "frame-period"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/frame-period/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1423,6 +1457,7 @@ func (frameSeconds *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitorin
     frameSeconds.EntityData.BundleName = "cisco_ios_xr"
     frameSeconds.EntityData.ParentYangName = "link-monitoring"
     frameSeconds.EntityData.SegmentPath = "frame-seconds"
+    frameSeconds.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/" + frameSeconds.EntityData.SegmentPath
     frameSeconds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frameSeconds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frameSeconds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1459,6 +1494,7 @@ func (threshold *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_F
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "frame-seconds"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/frame-seconds/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1493,6 +1529,7 @@ func (frame *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_Frame
     frame.EntityData.BundleName = "cisco_ios_xr"
     frame.EntityData.ParentYangName = "link-monitoring"
     frame.EntityData.SegmentPath = "frame"
+    frame.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/" + frame.EntityData.SegmentPath
     frame.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     frame.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     frame.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1537,6 +1574,7 @@ func (threshold *EthernetFeatures_EtherLinkOam_Profiles_Profile_LinkMonitoring_F
     threshold.EntityData.BundleName = "cisco_ios_xr"
     threshold.EntityData.ParentYangName = "frame"
     threshold.EntityData.SegmentPath = "threshold"
+    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/profile/link-monitoring/frame/" + threshold.EntityData.SegmentPath
     threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

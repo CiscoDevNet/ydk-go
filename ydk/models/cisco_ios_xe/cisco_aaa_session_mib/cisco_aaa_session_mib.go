@@ -45,6 +45,7 @@ func (cISCOAAASESSIONMIB *CISCOAAASESSIONMIB) GetEntityData() *types.CommonEntit
     cISCOAAASESSIONMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOAAASESSIONMIB.EntityData.ParentYangName = "CISCO-AAA-SESSION-MIB"
     cISCOAAASESSIONMIB.EntityData.SegmentPath = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB"
+    cISCOAAASESSIONMIB.EntityData.AbsolutePath = cISCOAAASESSIONMIB.EntityData.SegmentPath
     cISCOAAASESSIONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOAAASESSIONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOAAASESSIONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -81,6 +82,7 @@ func (casnActive *CISCOAAASESSIONMIB_CasnActive) GetEntityData() *types.CommonEn
     casnActive.EntityData.BundleName = "cisco_ios_xe"
     casnActive.EntityData.ParentYangName = "CISCO-AAA-SESSION-MIB"
     casnActive.EntityData.SegmentPath = "casnActive"
+    casnActive.EntityData.AbsolutePath = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/" + casnActive.EntityData.SegmentPath
     casnActive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     casnActive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     casnActive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -120,6 +122,7 @@ func (casnGeneral *CISCOAAASESSIONMIB_CasnGeneral) GetEntityData() *types.Common
     casnGeneral.EntityData.BundleName = "cisco_ios_xe"
     casnGeneral.EntityData.ParentYangName = "CISCO-AAA-SESSION-MIB"
     casnGeneral.EntityData.SegmentPath = "casnGeneral"
+    casnGeneral.EntityData.AbsolutePath = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/" + casnGeneral.EntityData.SegmentPath
     casnGeneral.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     casnGeneral.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     casnGeneral.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -156,6 +159,7 @@ func (casnActiveTable *CISCOAAASESSIONMIB_CasnActiveTable) GetEntityData() *type
     casnActiveTable.EntityData.BundleName = "cisco_ios_xe"
     casnActiveTable.EntityData.ParentYangName = "CISCO-AAA-SESSION-MIB"
     casnActiveTable.EntityData.SegmentPath = "casnActiveTable"
+    casnActiveTable.EntityData.AbsolutePath = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/" + casnActiveTable.EntityData.SegmentPath
     casnActiveTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     casnActiveTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     casnActiveTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -187,6 +191,7 @@ func (casnActiveTable *CISCOAAASESSIONMIB_CasnActiveTable) GetEntityData() *type
 type CISCOAAASESSIONMIB_CasnActiveTable_CasnActiveEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This is the session identification used by the
     // accounting protocol.  This value is unique to a session within the system,
@@ -260,6 +265,7 @@ func (casnActiveEntry *CISCOAAASESSIONMIB_CasnActiveTable_CasnActiveEntry) GetEn
     casnActiveEntry.EntityData.BundleName = "cisco_ios_xe"
     casnActiveEntry.EntityData.ParentYangName = "casnActiveTable"
     casnActiveEntry.EntityData.SegmentPath = "casnActiveEntry" + types.AddKeyToken(casnActiveEntry.CasnSessionId, "casnSessionId")
+    casnActiveEntry.EntityData.AbsolutePath = "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/casnActiveTable/" + casnActiveEntry.EntityData.SegmentPath
     casnActiveEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     casnActiveEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     casnActiveEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

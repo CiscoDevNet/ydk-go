@@ -40,6 +40,7 @@ func (infraStatistics *InfraStatistics) GetEntityData() *types.CommonEntityData 
     infraStatistics.EntityData.BundleName = "cisco_ios_xr"
     infraStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-infra-statsd-oper"
     infraStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics"
+    infraStatistics.EntityData.AbsolutePath = infraStatistics.EntityData.SegmentPath
     infraStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (interfaces *InfraStatistics_Interfaces) GetEntityData() *types.CommonEntit
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "infra-statistics"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +93,7 @@ func (interfaces *InfraStatistics_Interfaces) GetEntityData() *types.CommonEntit
 type InfraStatistics_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -124,6 +127,7 @@ func (self *InfraStatistics_Interfaces_Interface) GetEntityData() *types.CommonE
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -169,6 +173,7 @@ func (cache *InfraStatistics_Interfaces_Interface_Cache) GetEntityData() *types.
     cache.EntityData.BundleName = "cisco_ios_xr"
     cache.EntityData.ParentYangName = "interface"
     cache.EntityData.SegmentPath = "cache"
+    cache.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/" + cache.EntityData.SegmentPath
     cache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -202,6 +207,7 @@ func (protocols *InfraStatistics_Interfaces_Interface_Cache_Protocols) GetEntity
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "cache"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/cache/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -223,6 +229,7 @@ func (protocols *InfraStatistics_Interfaces_Interface_Cache_Protocols) GetEntity
 type InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the protocol. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -273,6 +280,7 @@ func (protocol *InfraStatistics_Interfaces_Interface_Cache_Protocols_Protocol) G
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
     protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/cache/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -433,6 +441,7 @@ func (interfacesMibCounters *InfraStatistics_Interfaces_Interface_Cache_Interfac
     interfacesMibCounters.EntityData.BundleName = "cisco_ios_xr"
     interfacesMibCounters.EntityData.ParentYangName = "cache"
     interfacesMibCounters.EntityData.SegmentPath = "interfaces-mib-counters"
+    interfacesMibCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/cache/" + interfacesMibCounters.EntityData.SegmentPath
     interfacesMibCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfacesMibCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacesMibCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -543,6 +552,7 @@ func (dataRate *InfraStatistics_Interfaces_Interface_Cache_DataRate) GetEntityDa
     dataRate.EntityData.BundleName = "cisco_ios_xr"
     dataRate.EntityData.ParentYangName = "cache"
     dataRate.EntityData.SegmentPath = "data-rate"
+    dataRate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/cache/" + dataRate.EntityData.SegmentPath
     dataRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -704,6 +714,7 @@ func (genericCounters *InfraStatistics_Interfaces_Interface_Cache_GenericCounter
     genericCounters.EntityData.BundleName = "cisco_ios_xr"
     genericCounters.EntityData.ParentYangName = "cache"
     genericCounters.EntityData.SegmentPath = "generic-counters"
+    genericCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/cache/" + genericCounters.EntityData.SegmentPath
     genericCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -777,6 +788,7 @@ func (latest *InfraStatistics_Interfaces_Interface_Latest) GetEntityData() *type
     latest.EntityData.BundleName = "cisco_ios_xr"
     latest.EntityData.ParentYangName = "interface"
     latest.EntityData.SegmentPath = "latest"
+    latest.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/" + latest.EntityData.SegmentPath
     latest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     latest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     latest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -810,6 +822,7 @@ func (protocols *InfraStatistics_Interfaces_Interface_Latest_Protocols) GetEntit
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "latest"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -831,6 +844,7 @@ func (protocols *InfraStatistics_Interfaces_Interface_Latest_Protocols) GetEntit
 type InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the protocol. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -881,6 +895,7 @@ func (protocol *InfraStatistics_Interfaces_Interface_Latest_Protocols_Protocol) 
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
     protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1041,6 +1056,7 @@ func (interfacesMibCounters *InfraStatistics_Interfaces_Interface_Latest_Interfa
     interfacesMibCounters.EntityData.BundleName = "cisco_ios_xr"
     interfacesMibCounters.EntityData.ParentYangName = "latest"
     interfacesMibCounters.EntityData.SegmentPath = "interfaces-mib-counters"
+    interfacesMibCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/" + interfacesMibCounters.EntityData.SegmentPath
     interfacesMibCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfacesMibCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacesMibCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1151,6 +1167,7 @@ func (dataRate *InfraStatistics_Interfaces_Interface_Latest_DataRate) GetEntityD
     dataRate.EntityData.BundleName = "cisco_ios_xr"
     dataRate.EntityData.ParentYangName = "latest"
     dataRate.EntityData.SegmentPath = "data-rate"
+    dataRate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/" + dataRate.EntityData.SegmentPath
     dataRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1312,6 +1329,7 @@ func (genericCounters *InfraStatistics_Interfaces_Interface_Latest_GenericCounte
     genericCounters.EntityData.BundleName = "cisco_ios_xr"
     genericCounters.EntityData.ParentYangName = "latest"
     genericCounters.EntityData.SegmentPath = "generic-counters"
+    genericCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/" + genericCounters.EntityData.SegmentPath
     genericCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1385,6 +1403,7 @@ func (total *InfraStatistics_Interfaces_Interface_Total) GetEntityData() *types.
     total.EntityData.BundleName = "cisco_ios_xr"
     total.EntityData.ParentYangName = "interface"
     total.EntityData.SegmentPath = "total"
+    total.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/" + total.EntityData.SegmentPath
     total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1418,6 +1437,7 @@ func (protocols *InfraStatistics_Interfaces_Interface_Total_Protocols) GetEntity
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "total"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/total/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1439,6 +1459,7 @@ func (protocols *InfraStatistics_Interfaces_Interface_Total_Protocols) GetEntity
 type InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the protocol. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1489,6 +1510,7 @@ func (protocol *InfraStatistics_Interfaces_Interface_Total_Protocols_Protocol) G
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
     protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/total/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1649,6 +1671,7 @@ func (interfacesMibCounters *InfraStatistics_Interfaces_Interface_Total_Interfac
     interfacesMibCounters.EntityData.BundleName = "cisco_ios_xr"
     interfacesMibCounters.EntityData.ParentYangName = "total"
     interfacesMibCounters.EntityData.SegmentPath = "interfaces-mib-counters"
+    interfacesMibCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/total/" + interfacesMibCounters.EntityData.SegmentPath
     interfacesMibCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfacesMibCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacesMibCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1759,6 +1782,7 @@ func (dataRate *InfraStatistics_Interfaces_Interface_Total_DataRate) GetEntityDa
     dataRate.EntityData.BundleName = "cisco_ios_xr"
     dataRate.EntityData.ParentYangName = "total"
     dataRate.EntityData.SegmentPath = "data-rate"
+    dataRate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/total/" + dataRate.EntityData.SegmentPath
     dataRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1920,6 +1944,7 @@ func (genericCounters *InfraStatistics_Interfaces_Interface_Total_GenericCounter
     genericCounters.EntityData.BundleName = "cisco_ios_xr"
     genericCounters.EntityData.ParentYangName = "total"
     genericCounters.EntityData.SegmentPath = "generic-counters"
+    genericCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/total/" + genericCounters.EntityData.SegmentPath
     genericCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1985,6 +2010,7 @@ func (protocols *InfraStatistics_Interfaces_Interface_Protocols) GetEntityData()
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "interface"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2006,6 +2032,7 @@ func (protocols *InfraStatistics_Interfaces_Interface_Protocols) GetEntityData()
 type InfraStatistics_Interfaces_Interface_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the protocol. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -2056,6 +2083,7 @@ func (protocol *InfraStatistics_Interfaces_Interface_Protocols_Protocol) GetEnti
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
     protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2216,6 +2244,7 @@ func (interfacesMibCounters *InfraStatistics_Interfaces_Interface_InterfacesMibC
     interfacesMibCounters.EntityData.BundleName = "cisco_ios_xr"
     interfacesMibCounters.EntityData.ParentYangName = "interface"
     interfacesMibCounters.EntityData.SegmentPath = "interfaces-mib-counters"
+    interfacesMibCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/" + interfacesMibCounters.EntityData.SegmentPath
     interfacesMibCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfacesMibCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfacesMibCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2326,6 +2355,7 @@ func (dataRate *InfraStatistics_Interfaces_Interface_DataRate) GetEntityData() *
     dataRate.EntityData.BundleName = "cisco_ios_xr"
     dataRate.EntityData.ParentYangName = "interface"
     dataRate.EntityData.SegmentPath = "data-rate"
+    dataRate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/" + dataRate.EntityData.SegmentPath
     dataRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dataRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dataRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2487,6 +2517,7 @@ func (genericCounters *InfraStatistics_Interfaces_Interface_GenericCounters) Get
     genericCounters.EntityData.BundleName = "cisco_ios_xr"
     genericCounters.EntityData.ParentYangName = "interface"
     genericCounters.EntityData.SegmentPath = "generic-counters"
+    genericCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/" + genericCounters.EntityData.SegmentPath
     genericCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     genericCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     genericCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

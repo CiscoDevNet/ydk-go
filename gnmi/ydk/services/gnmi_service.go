@@ -23,10 +23,11 @@ import (
 //	"strconv"
 //	"github.com/CiscoDevNet/ydk-go/ydk"
 //	"github.com/CiscoDevNet/ydk-go/ydk/errors"
+	"strings"
 	"github.com/CiscoDevNet/ydk-go/ydk/path"
 	"github.com/CiscoDevNet/ydk-go/ydk/providers"
 	"github.com/CiscoDevNet/ydk-go/ydk/types"
-	encoding "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
+//	encoding "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
 )
 
 type GnmiService struct {
@@ -65,10 +66,6 @@ func (gs *GnmiService) Subscribe(provider *providers.GnmiServiceProvider, subscr
 	session := provider.GetSession()
 	schema := path.GetRootSchemaNode(provider.Private)
 
-	codecProvider := providers.CodecServiceProvider{}
-	codecProvider.Encoding = encoding.JSON
-	codec := CodecService{}
-
 	rpc := path.CreateRpc( schema, "ydk:gnmi-subscribe")
 	subscription := path.CreateDataNode( rpc.Input, "subscription", "")
 	path.CreateDataNode( subscription, "mode", mode)
@@ -77,10 +74,11 @@ func (gs *GnmiService) Subscribe(provider *providers.GnmiServiceProvider, subscr
 	
 	for _, sub := range subscriptionList {
 		segpath := sub.Entity.GetEntityData().SegmentPath
-		entTag  := "subscription-list[alias='" + segpath + "']"
+		aliasKey := strings.Replace(segpath, "'", "_", -1)
+		entTag  := "subscription-list[alias='" + aliasKey + "']"
 		entitySub := path.CreateDataNode( subscription, entTag, "")
 
-		payload := codec.Encode( &codecProvider, sub.Entity)
+		payload := path.GetSubscribeDataPayload(provider, sub.Entity)
 		path.CreateDataNode( entitySub, "entity", payload)
 
 		smode := sub.SubscriptionMode

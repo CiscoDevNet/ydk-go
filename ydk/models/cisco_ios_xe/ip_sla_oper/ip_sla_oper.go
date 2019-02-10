@@ -119,6 +119,7 @@ func (ipSlaStats *IpSlaStats) GetEntityData() *types.CommonEntityData {
     ipSlaStats.EntityData.BundleName = "cisco_ios_xe"
     ipSlaStats.EntityData.ParentYangName = "Cisco-IOS-XE-ip-sla-oper"
     ipSlaStats.EntityData.SegmentPath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats"
+    ipSlaStats.EntityData.AbsolutePath = ipSlaStats.EntityData.SegmentPath
     ipSlaStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ipSlaStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ipSlaStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -140,6 +141,7 @@ func (ipSlaStats *IpSlaStats) GetEntityData() *types.CommonEntityData {
 type IpSlaStats_SlaOperEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Entry unique identifier. The type is interface{}
     // with range: 0..4294967295.
@@ -177,6 +179,7 @@ func (slaOperEntry *IpSlaStats_SlaOperEntry) GetEntityData() *types.CommonEntity
     slaOperEntry.EntityData.BundleName = "cisco_ios_xe"
     slaOperEntry.EntityData.ParentYangName = "ip-sla-stats"
     slaOperEntry.EntityData.SegmentPath = "sla-oper-entry" + types.AddKeyToken(slaOperEntry.OperId, "oper-id")
+    slaOperEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/" + slaOperEntry.EntityData.SegmentPath
     slaOperEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     slaOperEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     slaOperEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -217,6 +220,7 @@ func (rttInfo *IpSlaStats_SlaOperEntry_RttInfo) GetEntityData() *types.CommonEnt
     rttInfo.EntityData.BundleName = "cisco_ios_xe"
     rttInfo.EntityData.ParentYangName = "sla-oper-entry"
     rttInfo.EntityData.SegmentPath = "rtt-info"
+    rttInfo.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/" + rttInfo.EntityData.SegmentPath
     rttInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rttInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rttInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -254,6 +258,7 @@ func (latestRtt *IpSlaStats_SlaOperEntry_RttInfo_LatestRtt) GetEntityData() *typ
     latestRtt.EntityData.BundleName = "cisco_ios_xe"
     latestRtt.EntityData.ParentYangName = "rtt-info"
     latestRtt.EntityData.SegmentPath = "latest-rtt"
+    latestRtt.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/rtt-info/" + latestRtt.EntityData.SegmentPath
     latestRtt.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     latestRtt.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     latestRtt.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -289,6 +294,7 @@ func (timeToLive *IpSlaStats_SlaOperEntry_RttInfo_TimeToLive) GetEntityData() *t
     timeToLive.EntityData.BundleName = "cisco_ios_xe"
     timeToLive.EntityData.ParentYangName = "rtt-info"
     timeToLive.EntityData.SegmentPath = "time-to-live"
+    timeToLive.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/rtt-info/" + timeToLive.EntityData.SegmentPath
     timeToLive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     timeToLive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     timeToLive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -329,6 +335,7 @@ func (measureStats *IpSlaStats_SlaOperEntry_MeasureStats) GetEntityData() *types
     measureStats.EntityData.BundleName = "cisco_ios_xe"
     measureStats.EntityData.ParentYangName = "sla-oper-entry"
     measureStats.EntityData.SegmentPath = "measure-stats"
+    measureStats.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/" + measureStats.EntityData.SegmentPath
     measureStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     measureStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     measureStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -379,6 +386,7 @@ func (stats *IpSlaStats_SlaOperEntry_Stats) GetEntityData() *types.CommonEntityD
     stats.EntityData.BundleName = "cisco_ios_xe"
     stats.EntityData.ParentYangName = "sla-oper-entry"
     stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/" + stats.EntityData.SegmentPath
     stats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -417,6 +425,7 @@ func (rtt *IpSlaStats_SlaOperEntry_Stats_Rtt) GetEntityData() *types.CommonEntit
     rtt.EntityData.BundleName = "cisco_ios_xe"
     rtt.EntityData.ParentYangName = "stats"
     rtt.EntityData.SegmentPath = "rtt"
+    rtt.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/" + rtt.EntityData.SegmentPath
     rtt.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rtt.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rtt.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -456,6 +465,7 @@ func (slaTimeValues *IpSlaStats_SlaOperEntry_Stats_Rtt_SlaTimeValues) GetEntityD
     slaTimeValues.EntityData.BundleName = "cisco_ios_xe"
     slaTimeValues.EntityData.ParentYangName = "rtt"
     slaTimeValues.EntityData.SegmentPath = "sla-time-values"
+    slaTimeValues.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/rtt/" + slaTimeValues.EntityData.SegmentPath
     slaTimeValues.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     slaTimeValues.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     slaTimeValues.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -494,6 +504,7 @@ func (onewayLatency *IpSlaStats_SlaOperEntry_Stats_OnewayLatency) GetEntityData(
     onewayLatency.EntityData.BundleName = "cisco_ios_xe"
     onewayLatency.EntityData.ParentYangName = "stats"
     onewayLatency.EntityData.SegmentPath = "oneway-latency"
+    onewayLatency.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/" + onewayLatency.EntityData.SegmentPath
     onewayLatency.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     onewayLatency.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     onewayLatency.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -534,6 +545,7 @@ func (sd *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Sd) GetEntityData() *types
     sd.EntityData.BundleName = "cisco_ios_xe"
     sd.EntityData.ParentYangName = "oneway-latency"
     sd.EntityData.SegmentPath = "sd"
+    sd.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/oneway-latency/" + sd.EntityData.SegmentPath
     sd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -575,6 +587,7 @@ func (ds *IpSlaStats_SlaOperEntry_Stats_OnewayLatency_Ds) GetEntityData() *types
     ds.EntityData.BundleName = "cisco_ios_xe"
     ds.EntityData.ParentYangName = "oneway-latency"
     ds.EntityData.SegmentPath = "ds"
+    ds.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/oneway-latency/" + ds.EntityData.SegmentPath
     ds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -616,6 +629,7 @@ func (jitter *IpSlaStats_SlaOperEntry_Stats_Jitter) GetEntityData() *types.Commo
     jitter.EntityData.BundleName = "cisco_ios_xe"
     jitter.EntityData.ParentYangName = "stats"
     jitter.EntityData.SegmentPath = "jitter"
+    jitter.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/" + jitter.EntityData.SegmentPath
     jitter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     jitter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     jitter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -657,6 +671,7 @@ func (sd *IpSlaStats_SlaOperEntry_Stats_Jitter_Sd) GetEntityData() *types.Common
     sd.EntityData.BundleName = "cisco_ios_xe"
     sd.EntityData.ParentYangName = "jitter"
     sd.EntityData.SegmentPath = "sd"
+    sd.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/jitter/" + sd.EntityData.SegmentPath
     sd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -698,6 +713,7 @@ func (ds *IpSlaStats_SlaOperEntry_Stats_Jitter_Ds) GetEntityData() *types.Common
     ds.EntityData.BundleName = "cisco_ios_xe"
     ds.EntityData.ParentYangName = "jitter"
     ds.EntityData.SegmentPath = "ds"
+    ds.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/jitter/" + ds.EntityData.SegmentPath
     ds.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ds.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ds.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -736,6 +752,7 @@ func (overThreshold *IpSlaStats_SlaOperEntry_Stats_OverThreshold) GetEntityData(
     overThreshold.EntityData.BundleName = "cisco_ios_xe"
     overThreshold.EntityData.ParentYangName = "stats"
     overThreshold.EntityData.SegmentPath = "over-threshold"
+    overThreshold.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/" + overThreshold.EntityData.SegmentPath
     overThreshold.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     overThreshold.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     overThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -795,6 +812,7 @@ func (packetLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss) GetEntityData() *typ
     packetLoss.EntityData.BundleName = "cisco_ios_xe"
     packetLoss.EntityData.ParentYangName = "stats"
     packetLoss.EntityData.SegmentPath = "packet-loss"
+    packetLoss.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/" + packetLoss.EntityData.SegmentPath
     packetLoss.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     packetLoss.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     packetLoss.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -848,6 +866,7 @@ func (sdLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_SdLoss) GetEntityData() *
     sdLoss.EntityData.BundleName = "cisco_ios_xe"
     sdLoss.EntityData.ParentYangName = "packet-loss"
     sdLoss.EntityData.SegmentPath = "sd-loss"
+    sdLoss.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/packet-loss/" + sdLoss.EntityData.SegmentPath
     sdLoss.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sdLoss.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sdLoss.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -897,6 +916,7 @@ func (dsLoss *IpSlaStats_SlaOperEntry_Stats_PacketLoss_DsLoss) GetEntityData() *
     dsLoss.EntityData.BundleName = "cisco_ios_xe"
     dsLoss.EntityData.ParentYangName = "packet-loss"
     dsLoss.EntityData.SegmentPath = "ds-loss"
+    dsLoss.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/packet-loss/" + dsLoss.EntityData.SegmentPath
     dsLoss.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dsLoss.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dsLoss.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -976,6 +996,7 @@ func (icmpPacketLoss *IpSlaStats_SlaOperEntry_Stats_IcmpPacketLoss) GetEntityDat
     icmpPacketLoss.EntityData.BundleName = "cisco_ios_xe"
     icmpPacketLoss.EntityData.ParentYangName = "stats"
     icmpPacketLoss.EntityData.SegmentPath = "icmp-packet-loss"
+    icmpPacketLoss.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/" + icmpPacketLoss.EntityData.SegmentPath
     icmpPacketLoss.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     icmpPacketLoss.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     icmpPacketLoss.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1021,6 +1042,7 @@ func (voiceScore *IpSlaStats_SlaOperEntry_Stats_VoiceScore) GetEntityData() *typ
     voiceScore.EntityData.BundleName = "cisco_ios_xe"
     voiceScore.EntityData.ParentYangName = "stats"
     voiceScore.EntityData.SegmentPath = "voice-score"
+    voiceScore.EntityData.AbsolutePath = "Cisco-IOS-XE-ip-sla-oper:ip-sla-stats/sla-oper-entry/stats/" + voiceScore.EntityData.SegmentPath
     voiceScore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     voiceScore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     voiceScore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

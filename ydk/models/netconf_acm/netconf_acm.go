@@ -101,6 +101,7 @@ func (nacm *Nacm) GetEntityData() *types.CommonEntityData {
     nacm.EntityData.BundleName = "ietf"
     nacm.EntityData.ParentYangName = "ietf-netconf-acm"
     nacm.EntityData.SegmentPath = "ietf-netconf-acm:nacm"
+    nacm.EntityData.AbsolutePath = nacm.EntityData.SegmentPath
     nacm.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     nacm.EntityData.NamespaceTable = ietf.GetNamespaces()
     nacm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -144,6 +145,7 @@ func (groups *Nacm_Groups) GetEntityData() *types.CommonEntityData {
     groups.EntityData.BundleName = "ietf"
     groups.EntityData.ParentYangName = "nacm"
     groups.EntityData.SegmentPath = "groups"
+    groups.EntityData.AbsolutePath = "ietf-netconf-acm:nacm/" + groups.EntityData.SegmentPath
     groups.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     groups.EntityData.NamespaceTable = ietf.GetNamespaces()
     groups.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -167,9 +169,10 @@ func (groups *Nacm_Groups) GetEntityData() *types.CommonEntityData {
 type Nacm_Groups_Group struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Group name associated with this entry. The type is
-    // string with pattern: [^\*].*.
+    // string with length: 1..18446744073709551615.
     Name interface{}
 
     // Each entry identifies the username of a member of the group associated with
@@ -184,6 +187,7 @@ func (group *Nacm_Groups_Group) GetEntityData() *types.CommonEntityData {
     group.EntityData.BundleName = "ietf"
     group.EntityData.ParentYangName = "groups"
     group.EntityData.SegmentPath = "group" + types.AddKeyToken(group.Name, "name")
+    group.EntityData.AbsolutePath = "ietf-netconf-acm:nacm/groups/" + group.EntityData.SegmentPath
     group.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     group.EntityData.NamespaceTable = ietf.GetNamespaces()
     group.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -203,6 +207,7 @@ func (group *Nacm_Groups_Group) GetEntityData() *types.CommonEntityData {
 type Nacm_RuleList struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Arbitrary name assigned to the rule-list. The type
     // is string with length: 1..18446744073709551615.
@@ -211,7 +216,8 @@ type Nacm_RuleList struct {
     // List of administrative groups that will be assigned the associated access
     // rights defined by the 'rule' list.  The string '*' indicates that all
     // groups apply to the entry. The type is one of the following types: slice of
-    // string with pattern: \*, or slice of string with pattern: [^\*].*.
+    // string with pattern: \*, or slice of string with length:
+    // 1..18446744073709551615.
     Group []interface{}
 
     // One access control rule.  Rules are processed in user-defined order until a
@@ -228,6 +234,7 @@ func (ruleList *Nacm_RuleList) GetEntityData() *types.CommonEntityData {
     ruleList.EntityData.BundleName = "ietf"
     ruleList.EntityData.ParentYangName = "nacm"
     ruleList.EntityData.SegmentPath = "rule-list" + types.AddKeyToken(ruleList.Name, "name")
+    ruleList.EntityData.AbsolutePath = "ietf-netconf-acm:nacm/" + ruleList.EntityData.SegmentPath
     ruleList.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     ruleList.EntityData.NamespaceTable = ietf.GetNamespaces()
     ruleList.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -257,6 +264,7 @@ func (ruleList *Nacm_RuleList) GetEntityData() *types.CommonEntityData {
 type Nacm_RuleList_Rule struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Arbitrary name assigned to the rule. The type is
     // string with length: 1..18446744073709551615.
@@ -309,6 +317,7 @@ func (rule *Nacm_RuleList_Rule) GetEntityData() *types.CommonEntityData {
     rule.EntityData.BundleName = "ietf"
     rule.EntityData.ParentYangName = "rule-list"
     rule.EntityData.SegmentPath = "rule" + types.AddKeyToken(rule.Name, "name")
+    rule.EntityData.AbsolutePath = "ietf-netconf-acm:nacm/rule-list/" + rule.EntityData.SegmentPath
     rule.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     rule.EntityData.NamespaceTable = ietf.GetNamespaces()
     rule.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

@@ -143,6 +143,7 @@ func (cISCOVTPMIB *CISCOVTPMIB) GetEntityData() *types.CommonEntityData {
     cISCOVTPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOVTPMIB.EntityData.ParentYangName = "CISCO-VTP-MIB"
     cISCOVTPMIB.EntityData.SegmentPath = "CISCO-VTP-MIB:CISCO-VTP-MIB"
+    cISCOVTPMIB.EntityData.AbsolutePath = cISCOVTPMIB.EntityData.SegmentPath
     cISCOVTPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOVTPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOVTPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -213,6 +214,7 @@ func (vtpStatus *CISCOVTPMIB_VtpStatus) GetEntityData() *types.CommonEntityData 
     vtpStatus.EntityData.BundleName = "cisco_ios_xe"
     vtpStatus.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpStatus.EntityData.SegmentPath = "vtpStatus"
+    vtpStatus.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpStatus.EntityData.SegmentPath
     vtpStatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpStatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpStatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -262,6 +264,7 @@ func (internalVlanInfo *CISCOVTPMIB_InternalVlanInfo) GetEntityData() *types.Com
     internalVlanInfo.EntityData.BundleName = "cisco_ios_xe"
     internalVlanInfo.EntityData.ParentYangName = "CISCO-VTP-MIB"
     internalVlanInfo.EntityData.SegmentPath = "internalVlanInfo"
+    internalVlanInfo.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + internalVlanInfo.EntityData.SegmentPath
     internalVlanInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     internalVlanInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     internalVlanInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -310,6 +313,7 @@ func (vlanTrunkPorts *CISCOVTPMIB_VlanTrunkPorts) GetEntityData() *types.CommonE
     vlanTrunkPorts.EntityData.BundleName = "cisco_ios_xe"
     vlanTrunkPorts.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vlanTrunkPorts.EntityData.SegmentPath = "vlanTrunkPorts"
+    vlanTrunkPorts.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vlanTrunkPorts.EntityData.SegmentPath
     vlanTrunkPorts.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vlanTrunkPorts.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vlanTrunkPorts.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -354,6 +358,7 @@ func (vlanStatistics *CISCOVTPMIB_VlanStatistics) GetEntityData() *types.CommonE
     vlanStatistics.EntityData.BundleName = "cisco_ios_xe"
     vlanStatistics.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vlanStatistics.EntityData.SegmentPath = "vlanStatistics"
+    vlanStatistics.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vlanStatistics.EntityData.SegmentPath
     vlanStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vlanStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vlanStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -394,6 +399,7 @@ func (managementDomainTable *CISCOVTPMIB_ManagementDomainTable) GetEntityData() 
     managementDomainTable.EntityData.BundleName = "cisco_ios_xe"
     managementDomainTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     managementDomainTable.EntityData.SegmentPath = "managementDomainTable"
+    managementDomainTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + managementDomainTable.EntityData.SegmentPath
     managementDomainTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     managementDomainTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     managementDomainTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -415,6 +421,7 @@ func (managementDomainTable *CISCOVTPMIB_ManagementDomainTable) GetEntityData() 
 type CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An arbitrary value to uniquely identify the
     // management domain on the local system. The type is interface{} with range:
@@ -684,6 +691,7 @@ func (managementDomainEntry *CISCOVTPMIB_ManagementDomainTable_ManagementDomainE
     managementDomainEntry.EntityData.BundleName = "cisco_ios_xe"
     managementDomainEntry.EntityData.ParentYangName = "managementDomainTable"
     managementDomainEntry.EntityData.SegmentPath = "managementDomainEntry" + types.AddKeyToken(managementDomainEntry.ManagementDomainIndex, "managementDomainIndex")
+    managementDomainEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/managementDomainTable/" + managementDomainEntry.EntityData.SegmentPath
     managementDomainEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     managementDomainEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     managementDomainEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -831,6 +839,7 @@ func (vtpVlanTable *CISCOVTPMIB_VtpVlanTable) GetEntityData() *types.CommonEntit
     vtpVlanTable.EntityData.BundleName = "cisco_ios_xe"
     vtpVlanTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpVlanTable.EntityData.SegmentPath = "vtpVlanTable"
+    vtpVlanTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpVlanTable.EntityData.SegmentPath
     vtpVlanTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpVlanTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpVlanTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -854,6 +863,7 @@ func (vtpVlanTable *CISCOVTPMIB_VtpVlanTable) GetEntityData() *types.CommonEntit
 type CISCOVTPMIB_VtpVlanTable_VtpVlanEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..255. Refers to
     // cisco_vtp_mib.CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry_ManagementDomainIndex
@@ -975,6 +985,7 @@ func (vtpVlanEntry *CISCOVTPMIB_VtpVlanTable_VtpVlanEntry) GetEntityData() *type
     vtpVlanEntry.EntityData.BundleName = "cisco_ios_xe"
     vtpVlanEntry.EntityData.ParentYangName = "vtpVlanTable"
     vtpVlanEntry.EntityData.SegmentPath = "vtpVlanEntry" + types.AddKeyToken(vtpVlanEntry.ManagementDomainIndex, "managementDomainIndex") + types.AddKeyToken(vtpVlanEntry.VtpVlanIndex, "vtpVlanIndex")
+    vtpVlanEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanTable/" + vtpVlanEntry.EntityData.SegmentPath
     vtpVlanEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpVlanEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpVlanEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1065,6 +1076,7 @@ func (vtpInternalVlanTable *CISCOVTPMIB_VtpInternalVlanTable) GetEntityData() *t
     vtpInternalVlanTable.EntityData.BundleName = "cisco_ios_xe"
     vtpInternalVlanTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpInternalVlanTable.EntityData.SegmentPath = "vtpInternalVlanTable"
+    vtpInternalVlanTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpInternalVlanTable.EntityData.SegmentPath
     vtpInternalVlanTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpInternalVlanTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpInternalVlanTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1087,6 +1099,7 @@ func (vtpInternalVlanTable *CISCOVTPMIB_VtpInternalVlanTable) GetEntityData() *t
 type CISCOVTPMIB_VtpInternalVlanTable_VtpInternalVlanEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..255. Refers to
     // cisco_vtp_mib.CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry_ManagementDomainIndex
@@ -1108,6 +1121,7 @@ func (vtpInternalVlanEntry *CISCOVTPMIB_VtpInternalVlanTable_VtpInternalVlanEntr
     vtpInternalVlanEntry.EntityData.BundleName = "cisco_ios_xe"
     vtpInternalVlanEntry.EntityData.ParentYangName = "vtpInternalVlanTable"
     vtpInternalVlanEntry.EntityData.SegmentPath = "vtpInternalVlanEntry" + types.AddKeyToken(vtpInternalVlanEntry.ManagementDomainIndex, "managementDomainIndex") + types.AddKeyToken(vtpInternalVlanEntry.VtpVlanIndex, "vtpVlanIndex")
+    vtpInternalVlanEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpInternalVlanTable/" + vtpInternalVlanEntry.EntityData.SegmentPath
     vtpInternalVlanEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpInternalVlanEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpInternalVlanEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1178,6 +1192,7 @@ func (vtpVlanEditTable *CISCOVTPMIB_VtpVlanEditTable) GetEntityData() *types.Com
     vtpVlanEditTable.EntityData.BundleName = "cisco_ios_xe"
     vtpVlanEditTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpVlanEditTable.EntityData.SegmentPath = "vtpVlanEditTable"
+    vtpVlanEditTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpVlanEditTable.EntityData.SegmentPath
     vtpVlanEditTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpVlanEditTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpVlanEditTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1200,6 +1215,7 @@ func (vtpVlanEditTable *CISCOVTPMIB_VtpVlanEditTable) GetEntityData() *types.Com
 type CISCOVTPMIB_VtpVlanEditTable_VtpVlanEditEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..255. Refers to
     // cisco_vtp_mib.CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry_ManagementDomainIndex
@@ -1336,6 +1352,7 @@ func (vtpVlanEditEntry *CISCOVTPMIB_VtpVlanEditTable_VtpVlanEditEntry) GetEntity
     vtpVlanEditEntry.EntityData.BundleName = "cisco_ios_xe"
     vtpVlanEditEntry.EntityData.ParentYangName = "vtpVlanEditTable"
     vtpVlanEditEntry.EntityData.SegmentPath = "vtpVlanEditEntry" + types.AddKeyToken(vtpVlanEditEntry.ManagementDomainIndex, "managementDomainIndex") + types.AddKeyToken(vtpVlanEditEntry.VtpVlanEditIndex, "vtpVlanEditIndex")
+    vtpVlanEditEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanEditTable/" + vtpVlanEditEntry.EntityData.SegmentPath
     vtpVlanEditEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpVlanEditEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpVlanEditEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1419,6 +1436,7 @@ func (vtpVlanLocalShutdownTable *CISCOVTPMIB_VtpVlanLocalShutdownTable) GetEntit
     vtpVlanLocalShutdownTable.EntityData.BundleName = "cisco_ios_xe"
     vtpVlanLocalShutdownTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpVlanLocalShutdownTable.EntityData.SegmentPath = "vtpVlanLocalShutdownTable"
+    vtpVlanLocalShutdownTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpVlanLocalShutdownTable.EntityData.SegmentPath
     vtpVlanLocalShutdownTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpVlanLocalShutdownTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpVlanLocalShutdownTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1447,6 +1465,7 @@ func (vtpVlanLocalShutdownTable *CISCOVTPMIB_VtpVlanLocalShutdownTable) GetEntit
 type CISCOVTPMIB_VtpVlanLocalShutdownTable_VtpVlanLocalShutdownEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..255. Refers to
     // cisco_vtp_mib.CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry_ManagementDomainIndex
@@ -1467,6 +1486,7 @@ func (vtpVlanLocalShutdownEntry *CISCOVTPMIB_VtpVlanLocalShutdownTable_VtpVlanLo
     vtpVlanLocalShutdownEntry.EntityData.BundleName = "cisco_ios_xe"
     vtpVlanLocalShutdownEntry.EntityData.ParentYangName = "vtpVlanLocalShutdownTable"
     vtpVlanLocalShutdownEntry.EntityData.SegmentPath = "vtpVlanLocalShutdownEntry" + types.AddKeyToken(vtpVlanLocalShutdownEntry.ManagementDomainIndex, "managementDomainIndex") + types.AddKeyToken(vtpVlanLocalShutdownEntry.VtpVlanIndex, "vtpVlanIndex")
+    vtpVlanLocalShutdownEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpVlanLocalShutdownTable/" + vtpVlanLocalShutdownEntry.EntityData.SegmentPath
     vtpVlanLocalShutdownEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpVlanLocalShutdownEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpVlanLocalShutdownEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1509,6 +1529,7 @@ func (vlanTrunkPortTable *CISCOVTPMIB_VlanTrunkPortTable) GetEntityData() *types
     vlanTrunkPortTable.EntityData.BundleName = "cisco_ios_xe"
     vlanTrunkPortTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vlanTrunkPortTable.EntityData.SegmentPath = "vlanTrunkPortTable"
+    vlanTrunkPortTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vlanTrunkPortTable.EntityData.SegmentPath
     vlanTrunkPortTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vlanTrunkPortTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vlanTrunkPortTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1530,6 +1551,7 @@ func (vlanTrunkPortTable *CISCOVTPMIB_VlanTrunkPortTable) GetEntityData() *types
 type CISCOVTPMIB_VlanTrunkPortTable_VlanTrunkPortEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of ifIndex for the interface
     // corresponding to this trunk port. The type is interface{} with range:
@@ -1965,6 +1987,7 @@ func (vlanTrunkPortEntry *CISCOVTPMIB_VlanTrunkPortTable_VlanTrunkPortEntry) Get
     vlanTrunkPortEntry.EntityData.BundleName = "cisco_ios_xe"
     vlanTrunkPortEntry.EntityData.ParentYangName = "vlanTrunkPortTable"
     vlanTrunkPortEntry.EntityData.SegmentPath = "vlanTrunkPortEntry" + types.AddKeyToken(vlanTrunkPortEntry.VlanTrunkPortIfIndex, "vlanTrunkPortIfIndex")
+    vlanTrunkPortEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vlanTrunkPortTable/" + vlanTrunkPortEntry.EntityData.SegmentPath
     vlanTrunkPortEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vlanTrunkPortEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vlanTrunkPortEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2102,6 +2125,7 @@ func (vtpDiscoverTable *CISCOVTPMIB_VtpDiscoverTable) GetEntityData() *types.Com
     vtpDiscoverTable.EntityData.BundleName = "cisco_ios_xe"
     vtpDiscoverTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpDiscoverTable.EntityData.SegmentPath = "vtpDiscoverTable"
+    vtpDiscoverTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpDiscoverTable.EntityData.SegmentPath
     vtpDiscoverTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpDiscoverTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpDiscoverTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2124,6 +2148,7 @@ func (vtpDiscoverTable *CISCOVTPMIB_VtpDiscoverTable) GetEntityData() *types.Com
 type CISCOVTPMIB_VtpDiscoverTable_VtpDiscoverEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..255. Refers to
     // cisco_vtp_mib.CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry_ManagementDomainIndex
@@ -2164,6 +2189,7 @@ func (vtpDiscoverEntry *CISCOVTPMIB_VtpDiscoverTable_VtpDiscoverEntry) GetEntity
     vtpDiscoverEntry.EntityData.BundleName = "cisco_ios_xe"
     vtpDiscoverEntry.EntityData.ParentYangName = "vtpDiscoverTable"
     vtpDiscoverEntry.EntityData.SegmentPath = "vtpDiscoverEntry" + types.AddKeyToken(vtpDiscoverEntry.ManagementDomainIndex, "managementDomainIndex")
+    vtpDiscoverEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDiscoverTable/" + vtpDiscoverEntry.EntityData.SegmentPath
     vtpDiscoverEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpDiscoverEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpDiscoverEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2226,6 +2252,7 @@ func (vtpDiscoverResultTable *CISCOVTPMIB_VtpDiscoverResultTable) GetEntityData(
     vtpDiscoverResultTable.EntityData.BundleName = "cisco_ios_xe"
     vtpDiscoverResultTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpDiscoverResultTable.EntityData.SegmentPath = "vtpDiscoverResultTable"
+    vtpDiscoverResultTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpDiscoverResultTable.EntityData.SegmentPath
     vtpDiscoverResultTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpDiscoverResultTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpDiscoverResultTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2248,6 +2275,7 @@ func (vtpDiscoverResultTable *CISCOVTPMIB_VtpDiscoverResultTable) GetEntityData(
 type CISCOVTPMIB_VtpDiscoverResultTable_VtpDiscoverResultEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..255. Refers to
     // cisco_vtp_mib.CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry_ManagementDomainIndex
@@ -2299,6 +2327,7 @@ func (vtpDiscoverResultEntry *CISCOVTPMIB_VtpDiscoverResultTable_VtpDiscoverResu
     vtpDiscoverResultEntry.EntityData.BundleName = "cisco_ios_xe"
     vtpDiscoverResultEntry.EntityData.ParentYangName = "vtpDiscoverResultTable"
     vtpDiscoverResultEntry.EntityData.SegmentPath = "vtpDiscoverResultEntry" + types.AddKeyToken(vtpDiscoverResultEntry.ManagementDomainIndex, "managementDomainIndex") + types.AddKeyToken(vtpDiscoverResultEntry.VtpDiscoverResultIndex, "vtpDiscoverResultIndex")
+    vtpDiscoverResultEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDiscoverResultTable/" + vtpDiscoverResultEntry.EntityData.SegmentPath
     vtpDiscoverResultEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpDiscoverResultEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpDiscoverResultEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2342,6 +2371,7 @@ func (vtpDatabaseTable *CISCOVTPMIB_VtpDatabaseTable) GetEntityData() *types.Com
     vtpDatabaseTable.EntityData.BundleName = "cisco_ios_xe"
     vtpDatabaseTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpDatabaseTable.EntityData.SegmentPath = "vtpDatabaseTable"
+    vtpDatabaseTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpDatabaseTable.EntityData.SegmentPath
     vtpDatabaseTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpDatabaseTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpDatabaseTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2368,6 +2398,7 @@ func (vtpDatabaseTable *CISCOVTPMIB_VtpDatabaseTable) GetEntityData() *types.Com
 type CISCOVTPMIB_VtpDatabaseTable_VtpDatabaseEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..255. Refers to
     // cisco_vtp_mib.CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry_ManagementDomainIndex
@@ -2453,6 +2484,7 @@ func (vtpDatabaseEntry *CISCOVTPMIB_VtpDatabaseTable_VtpDatabaseEntry) GetEntity
     vtpDatabaseEntry.EntityData.BundleName = "cisco_ios_xe"
     vtpDatabaseEntry.EntityData.ParentYangName = "vtpDatabaseTable"
     vtpDatabaseEntry.EntityData.SegmentPath = "vtpDatabaseEntry" + types.AddKeyToken(vtpDatabaseEntry.ManagementDomainIndex, "managementDomainIndex") + types.AddKeyToken(vtpDatabaseEntry.VtpDatabaseIndex, "vtpDatabaseIndex")
+    vtpDatabaseEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpDatabaseTable/" + vtpDatabaseEntry.EntityData.SegmentPath
     vtpDatabaseEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpDatabaseEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpDatabaseEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2536,6 +2568,7 @@ func (vtpAuthenticationTable *CISCOVTPMIB_VtpAuthenticationTable) GetEntityData(
     vtpAuthenticationTable.EntityData.BundleName = "cisco_ios_xe"
     vtpAuthenticationTable.EntityData.ParentYangName = "CISCO-VTP-MIB"
     vtpAuthenticationTable.EntityData.SegmentPath = "vtpAuthenticationTable"
+    vtpAuthenticationTable.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/" + vtpAuthenticationTable.EntityData.SegmentPath
     vtpAuthenticationTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpAuthenticationTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpAuthenticationTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2558,6 +2591,7 @@ func (vtpAuthenticationTable *CISCOVTPMIB_VtpAuthenticationTable) GetEntityData(
 type CISCOVTPMIB_VtpAuthenticationTable_VtpAuthEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..255. Refers to
     // cisco_vtp_mib.CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry_ManagementDomainIndex
@@ -2611,6 +2645,7 @@ func (vtpAuthEntry *CISCOVTPMIB_VtpAuthenticationTable_VtpAuthEntry) GetEntityDa
     vtpAuthEntry.EntityData.BundleName = "cisco_ios_xe"
     vtpAuthEntry.EntityData.ParentYangName = "vtpAuthenticationTable"
     vtpAuthEntry.EntityData.SegmentPath = "vtpAuthEntry" + types.AddKeyToken(vtpAuthEntry.ManagementDomainIndex, "managementDomainIndex")
+    vtpAuthEntry.EntityData.AbsolutePath = "CISCO-VTP-MIB:CISCO-VTP-MIB/vtpAuthenticationTable/" + vtpAuthEntry.EntityData.SegmentPath
     vtpAuthEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     vtpAuthEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     vtpAuthEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

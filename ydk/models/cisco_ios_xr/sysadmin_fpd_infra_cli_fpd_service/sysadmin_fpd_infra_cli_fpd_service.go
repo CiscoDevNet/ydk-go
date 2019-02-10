@@ -19,6 +19,7 @@ func init() {
 type Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Loc interface{}
@@ -33,6 +34,7 @@ func (location *Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd-service"
     location.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd-service:location" + types.AddKeyToken(location.Loc, "loc")
+    location.EntityData.AbsolutePath = location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -54,6 +56,7 @@ func (location *Location) GetEntityData() *types.CommonEntityData {
 type Location_Fpd2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Name interface{}
@@ -65,6 +68,7 @@ func (fpd2 *Location_Fpd2) GetEntityData() *types.CommonEntityData {
     fpd2.EntityData.BundleName = "cisco_ios_xr"
     fpd2.EntityData.ParentYangName = "location"
     fpd2.EntityData.SegmentPath = "fpd2" + types.AddKeyToken(fpd2.Name, "name")
+    fpd2.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd-service:location/" + fpd2.EntityData.SegmentPath
     fpd2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpd2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpd2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

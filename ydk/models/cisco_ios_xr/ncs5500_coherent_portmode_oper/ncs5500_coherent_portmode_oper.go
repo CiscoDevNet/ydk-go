@@ -41,6 +41,7 @@ func (controllerPortMode *ControllerPortMode) GetEntityData() *types.CommonEntit
     controllerPortMode.EntityData.BundleName = "cisco_ios_xr"
     controllerPortMode.EntityData.ParentYangName = "Cisco-IOS-XR-ncs5500-coherent-portmode-oper"
     controllerPortMode.EntityData.SegmentPath = "Cisco-IOS-XR-ncs5500-coherent-portmode-oper:controller-port-mode"
+    controllerPortMode.EntityData.AbsolutePath = controllerPortMode.EntityData.SegmentPath
     controllerPortMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerPortMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerPortMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -62,6 +63,7 @@ func (controllerPortMode *ControllerPortMode) GetEntityData() *types.CommonEntit
 type ControllerPortMode_OpticsName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -77,6 +79,7 @@ func (opticsName *ControllerPortMode_OpticsName) GetEntityData() *types.CommonEn
     opticsName.EntityData.BundleName = "cisco_ios_xr"
     opticsName.EntityData.ParentYangName = "controller-port-mode"
     opticsName.EntityData.SegmentPath = "optics-name" + types.AddKeyToken(opticsName.InterfaceName, "interface-name")
+    opticsName.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-portmode-oper:controller-port-mode/" + opticsName.EntityData.SegmentPath
     opticsName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticsName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticsName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -119,6 +122,7 @@ func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetEntityData() 
     portModeInfo.EntityData.BundleName = "cisco_ios_xr"
     portModeInfo.EntityData.ParentYangName = "optics-name"
     portModeInfo.EntityData.SegmentPath = "port-mode-info"
+    portModeInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs5500-coherent-portmode-oper:controller-port-mode/optics-name/" + portModeInfo.EntityData.SegmentPath
     portModeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portModeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portModeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

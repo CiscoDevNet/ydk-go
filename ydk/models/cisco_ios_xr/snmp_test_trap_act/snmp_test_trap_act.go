@@ -111,6 +111,7 @@ func (snmpColdStart *SnmpColdStart) GetEntityData() *types.CommonEntityData {
     snmpColdStart.EntityData.BundleName = "cisco_ios_xr"
     snmpColdStart.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     snmpColdStart.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:snmp-cold-start"
+    snmpColdStart.EntityData.AbsolutePath = snmpColdStart.EntityData.SegmentPath
     snmpColdStart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snmpColdStart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpColdStart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -136,6 +137,7 @@ func (snmpWarmStart *SnmpWarmStart) GetEntityData() *types.CommonEntityData {
     snmpWarmStart.EntityData.BundleName = "cisco_ios_xr"
     snmpWarmStart.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     snmpWarmStart.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:snmp-warm-start"
+    snmpWarmStart.EntityData.AbsolutePath = snmpWarmStart.EntityData.SegmentPath
     snmpWarmStart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     snmpWarmStart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     snmpWarmStart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -164,6 +166,7 @@ func (interfaceLinkUp *InterfaceLinkUp) GetEntityData() *types.CommonEntityData 
     interfaceLinkUp.EntityData.BundleName = "cisco_ios_xr"
     interfaceLinkUp.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     interfaceLinkUp.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up"
+    interfaceLinkUp.EntityData.AbsolutePath = interfaceLinkUp.EntityData.SegmentPath
     interfaceLinkUp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLinkUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLinkUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -193,6 +196,7 @@ func (input *InterfaceLinkUp_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "interface-link-up"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:interface-link-up/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -222,6 +226,7 @@ func (interfaceLinkDown *InterfaceLinkDown) GetEntityData() *types.CommonEntityD
     interfaceLinkDown.EntityData.BundleName = "cisco_ios_xr"
     interfaceLinkDown.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     interfaceLinkDown.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down"
+    interfaceLinkDown.EntityData.AbsolutePath = interfaceLinkDown.EntityData.SegmentPath
     interfaceLinkDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceLinkDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceLinkDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -251,6 +256,7 @@ func (input *InterfaceLinkDown_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "interface-link-down"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:interface-link-down/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -280,6 +286,7 @@ func (sonetSectionStatus *SonetSectionStatus) GetEntityData() *types.CommonEntit
     sonetSectionStatus.EntityData.BundleName = "cisco_ios_xr"
     sonetSectionStatus.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     sonetSectionStatus.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status"
+    sonetSectionStatus.EntityData.AbsolutePath = sonetSectionStatus.EntityData.SegmentPath
     sonetSectionStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sonetSectionStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sonetSectionStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -309,6 +316,7 @@ func (input *SonetSectionStatus_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "sonet-section-status"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:sonet-section-status/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -338,6 +346,7 @@ func (sonetLineStatus *SonetLineStatus) GetEntityData() *types.CommonEntityData 
     sonetLineStatus.EntityData.BundleName = "cisco_ios_xr"
     sonetLineStatus.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     sonetLineStatus.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status"
+    sonetLineStatus.EntityData.AbsolutePath = sonetLineStatus.EntityData.SegmentPath
     sonetLineStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sonetLineStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sonetLineStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -367,6 +376,7 @@ func (input *SonetLineStatus_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "sonet-line-status"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:sonet-line-status/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -396,6 +406,7 @@ func (sonetPathStatus *SonetPathStatus) GetEntityData() *types.CommonEntityData 
     sonetPathStatus.EntityData.BundleName = "cisco_ios_xr"
     sonetPathStatus.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     sonetPathStatus.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status"
+    sonetPathStatus.EntityData.AbsolutePath = sonetPathStatus.EntityData.SegmentPath
     sonetPathStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sonetPathStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sonetPathStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -425,6 +436,7 @@ func (input *SonetPathStatus_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "sonet-path-status"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:sonet-path-status/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -451,6 +463,7 @@ func (infraSyslogMessageGenerated *InfraSyslogMessageGenerated) GetEntityData() 
     infraSyslogMessageGenerated.EntityData.BundleName = "cisco_ios_xr"
     infraSyslogMessageGenerated.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     infraSyslogMessageGenerated.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:infra-syslog-message-generated"
+    infraSyslogMessageGenerated.EntityData.AbsolutePath = infraSyslogMessageGenerated.EntityData.SegmentPath
     infraSyslogMessageGenerated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraSyslogMessageGenerated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraSyslogMessageGenerated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -476,6 +489,7 @@ func (infraFlashDeviceInserted *InfraFlashDeviceInserted) GetEntityData() *types
     infraFlashDeviceInserted.EntityData.BundleName = "cisco_ios_xr"
     infraFlashDeviceInserted.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     infraFlashDeviceInserted.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:infra-flash-device-inserted"
+    infraFlashDeviceInserted.EntityData.AbsolutePath = infraFlashDeviceInserted.EntityData.SegmentPath
     infraFlashDeviceInserted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraFlashDeviceInserted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraFlashDeviceInserted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -501,6 +515,7 @@ func (infraFlashDeviceRemoved *InfraFlashDeviceRemoved) GetEntityData() *types.C
     infraFlashDeviceRemoved.EntityData.BundleName = "cisco_ios_xr"
     infraFlashDeviceRemoved.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     infraFlashDeviceRemoved.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:infra-flash-device-removed"
+    infraFlashDeviceRemoved.EntityData.AbsolutePath = infraFlashDeviceRemoved.EntityData.SegmentPath
     infraFlashDeviceRemoved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraFlashDeviceRemoved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraFlashDeviceRemoved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -526,6 +541,7 @@ func (infraRedundancyProgression *InfraRedundancyProgression) GetEntityData() *t
     infraRedundancyProgression.EntityData.BundleName = "cisco_ios_xr"
     infraRedundancyProgression.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     infraRedundancyProgression.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:infra-redundancy-progression"
+    infraRedundancyProgression.EntityData.AbsolutePath = infraRedundancyProgression.EntityData.SegmentPath
     infraRedundancyProgression.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraRedundancyProgression.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraRedundancyProgression.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -551,6 +567,7 @@ func (infraRedundancySwitch *InfraRedundancySwitch) GetEntityData() *types.Commo
     infraRedundancySwitch.EntityData.BundleName = "cisco_ios_xr"
     infraRedundancySwitch.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     infraRedundancySwitch.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:infra-redundancy-switch"
+    infraRedundancySwitch.EntityData.AbsolutePath = infraRedundancySwitch.EntityData.SegmentPath
     infraRedundancySwitch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraRedundancySwitch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraRedundancySwitch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -576,6 +593,7 @@ func (infraBridgeNewRoot *InfraBridgeNewRoot) GetEntityData() *types.CommonEntit
     infraBridgeNewRoot.EntityData.BundleName = "cisco_ios_xr"
     infraBridgeNewRoot.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     infraBridgeNewRoot.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-new-root"
+    infraBridgeNewRoot.EntityData.AbsolutePath = infraBridgeNewRoot.EntityData.SegmentPath
     infraBridgeNewRoot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraBridgeNewRoot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraBridgeNewRoot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -601,6 +619,7 @@ func (infraBridgeTopologyChange *InfraBridgeTopologyChange) GetEntityData() *typ
     infraBridgeTopologyChange.EntityData.BundleName = "cisco_ios_xr"
     infraBridgeTopologyChange.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     infraBridgeTopologyChange.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:infra-bridge-topology-change"
+    infraBridgeTopologyChange.EntityData.AbsolutePath = infraBridgeTopologyChange.EntityData.SegmentPath
     infraBridgeTopologyChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraBridgeTopologyChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraBridgeTopologyChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -626,6 +645,7 @@ func (infraConfigEvent *InfraConfigEvent) GetEntityData() *types.CommonEntityDat
     infraConfigEvent.EntityData.BundleName = "cisco_ios_xr"
     infraConfigEvent.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     infraConfigEvent.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:infra-config-event"
+    infraConfigEvent.EntityData.AbsolutePath = infraConfigEvent.EntityData.SegmentPath
     infraConfigEvent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     infraConfigEvent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     infraConfigEvent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -654,6 +674,7 @@ func (entitySensorThresholdNotification *EntitySensorThresholdNotification) GetE
     entitySensorThresholdNotification.EntityData.BundleName = "cisco_ios_xr"
     entitySensorThresholdNotification.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     entitySensorThresholdNotification.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification"
+    entitySensorThresholdNotification.EntityData.AbsolutePath = entitySensorThresholdNotification.EntityData.SegmentPath
     entitySensorThresholdNotification.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entitySensorThresholdNotification.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entitySensorThresholdNotification.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -683,6 +704,7 @@ func (input *EntitySensorThresholdNotification_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "entity-sensor-threshold-notification"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:entity-sensor-threshold-notification/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -712,6 +734,7 @@ func (entityFruPowerStatusChangeFailed *EntityFruPowerStatusChangeFailed) GetEnt
     entityFruPowerStatusChangeFailed.EntityData.BundleName = "cisco_ios_xr"
     entityFruPowerStatusChangeFailed.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     entityFruPowerStatusChangeFailed.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed"
+    entityFruPowerStatusChangeFailed.EntityData.AbsolutePath = entityFruPowerStatusChangeFailed.EntityData.SegmentPath
     entityFruPowerStatusChangeFailed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entityFruPowerStatusChangeFailed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruPowerStatusChangeFailed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -741,6 +764,7 @@ func (input *EntityFruPowerStatusChangeFailed_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "entity-fru-power-status-change-failed"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-power-status-change-failed/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -770,6 +794,7 @@ func (entityFruModuleStatusChangeUp *EntityFruModuleStatusChangeUp) GetEntityDat
     entityFruModuleStatusChangeUp.EntityData.BundleName = "cisco_ios_xr"
     entityFruModuleStatusChangeUp.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     entityFruModuleStatusChangeUp.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up"
+    entityFruModuleStatusChangeUp.EntityData.AbsolutePath = entityFruModuleStatusChangeUp.EntityData.SegmentPath
     entityFruModuleStatusChangeUp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entityFruModuleStatusChangeUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruModuleStatusChangeUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -799,6 +824,7 @@ func (input *EntityFruModuleStatusChangeUp_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "entity-fru-module-status-change-up"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-up/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -828,6 +854,7 @@ func (entityFruModuleStatusChangeDown *EntityFruModuleStatusChangeDown) GetEntit
     entityFruModuleStatusChangeDown.EntityData.BundleName = "cisco_ios_xr"
     entityFruModuleStatusChangeDown.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     entityFruModuleStatusChangeDown.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down"
+    entityFruModuleStatusChangeDown.EntityData.AbsolutePath = entityFruModuleStatusChangeDown.EntityData.SegmentPath
     entityFruModuleStatusChangeDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entityFruModuleStatusChangeDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruModuleStatusChangeDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -857,6 +884,7 @@ func (input *EntityFruModuleStatusChangeDown_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "entity-fru-module-status-change-down"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-module-status-change-down/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -886,6 +914,7 @@ func (entityFruFanTrayOperStatusUp *EntityFruFanTrayOperStatusUp) GetEntityData(
     entityFruFanTrayOperStatusUp.EntityData.BundleName = "cisco_ios_xr"
     entityFruFanTrayOperStatusUp.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     entityFruFanTrayOperStatusUp.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up"
+    entityFruFanTrayOperStatusUp.EntityData.AbsolutePath = entityFruFanTrayOperStatusUp.EntityData.SegmentPath
     entityFruFanTrayOperStatusUp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entityFruFanTrayOperStatusUp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruFanTrayOperStatusUp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -915,6 +944,7 @@ func (input *EntityFruFanTrayOperStatusUp_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "entity-fru-fan-tray-oper-status-up"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-oper-status-up/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -944,6 +974,7 @@ func (entityFruFanTrayInserted *EntityFruFanTrayInserted) GetEntityData() *types
     entityFruFanTrayInserted.EntityData.BundleName = "cisco_ios_xr"
     entityFruFanTrayInserted.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     entityFruFanTrayInserted.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted"
+    entityFruFanTrayInserted.EntityData.AbsolutePath = entityFruFanTrayInserted.EntityData.SegmentPath
     entityFruFanTrayInserted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entityFruFanTrayInserted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruFanTrayInserted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -973,6 +1004,7 @@ func (input *EntityFruFanTrayInserted_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "entity-fru-fan-tray-inserted"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-inserted/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1002,6 +1034,7 @@ func (entityFruFanTrayRemoved *EntityFruFanTrayRemoved) GetEntityData() *types.C
     entityFruFanTrayRemoved.EntityData.BundleName = "cisco_ios_xr"
     entityFruFanTrayRemoved.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     entityFruFanTrayRemoved.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed"
+    entityFruFanTrayRemoved.EntityData.AbsolutePath = entityFruFanTrayRemoved.EntityData.SegmentPath
     entityFruFanTrayRemoved.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     entityFruFanTrayRemoved.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     entityFruFanTrayRemoved.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1031,6 +1064,7 @@ func (input *EntityFruFanTrayRemoved_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "entity-fru-fan-tray-removed"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:entity-fru-fan-tray-removed/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1060,6 +1094,7 @@ func (platformHfrBundleDownedLink *PlatformHfrBundleDownedLink) GetEntityData() 
     platformHfrBundleDownedLink.EntityData.BundleName = "cisco_ios_xr"
     platformHfrBundleDownedLink.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     platformHfrBundleDownedLink.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-downed-link"
+    platformHfrBundleDownedLink.EntityData.AbsolutePath = platformHfrBundleDownedLink.EntityData.SegmentPath
     platformHfrBundleDownedLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platformHfrBundleDownedLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformHfrBundleDownedLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1088,6 +1123,7 @@ func (input *PlatformHfrBundleDownedLink_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "platform-hfr-bundle-downed-link"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-downed-link/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1117,6 +1153,7 @@ func (platformHfrBundleState *PlatformHfrBundleState) GetEntityData() *types.Com
     platformHfrBundleState.EntityData.BundleName = "cisco_ios_xr"
     platformHfrBundleState.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     platformHfrBundleState.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-state"
+    platformHfrBundleState.EntityData.AbsolutePath = platformHfrBundleState.EntityData.SegmentPath
     platformHfrBundleState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platformHfrBundleState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformHfrBundleState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1145,6 +1182,7 @@ func (input *PlatformHfrBundleState_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "platform-hfr-bundle-state"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-bundle-state/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1174,6 +1212,7 @@ func (platformHfrPlaneState *PlatformHfrPlaneState) GetEntityData() *types.Commo
     platformHfrPlaneState.EntityData.BundleName = "cisco_ios_xr"
     platformHfrPlaneState.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     platformHfrPlaneState.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-plane-state"
+    platformHfrPlaneState.EntityData.AbsolutePath = platformHfrPlaneState.EntityData.SegmentPath
     platformHfrPlaneState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platformHfrPlaneState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platformHfrPlaneState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1203,6 +1242,7 @@ func (input *PlatformHfrPlaneState_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "platform-hfr-plane-state"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:platform-hfr-plane-state/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1229,6 +1269,7 @@ func (routingBgpEstablished *RoutingBgpEstablished) GetEntityData() *types.Commo
     routingBgpEstablished.EntityData.BundleName = "cisco_ios_xr"
     routingBgpEstablished.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingBgpEstablished.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established"
+    routingBgpEstablished.EntityData.AbsolutePath = routingBgpEstablished.EntityData.SegmentPath
     routingBgpEstablished.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingBgpEstablished.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingBgpEstablished.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1257,6 +1298,7 @@ func (routingBgpEstablishedRemotePeer *RoutingBgpEstablishedRemotePeer) GetEntit
     routingBgpEstablishedRemotePeer.EntityData.BundleName = "cisco_ios_xr"
     routingBgpEstablishedRemotePeer.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingBgpEstablishedRemotePeer.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established-remote-peer"
+    routingBgpEstablishedRemotePeer.EntityData.AbsolutePath = routingBgpEstablishedRemotePeer.EntityData.SegmentPath
     routingBgpEstablishedRemotePeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingBgpEstablishedRemotePeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingBgpEstablishedRemotePeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1288,6 +1330,7 @@ func (input *RoutingBgpEstablishedRemotePeer_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "routing-bgp-established-remote-peer"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-established-remote-peer/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1314,6 +1357,7 @@ func (routingBgpStateChange *RoutingBgpStateChange) GetEntityData() *types.Commo
     routingBgpStateChange.EntityData.BundleName = "cisco_ios_xr"
     routingBgpStateChange.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingBgpStateChange.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change"
+    routingBgpStateChange.EntityData.AbsolutePath = routingBgpStateChange.EntityData.SegmentPath
     routingBgpStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingBgpStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingBgpStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1342,6 +1386,7 @@ func (routingBgpStateChangeRemotePeer *RoutingBgpStateChangeRemotePeer) GetEntit
     routingBgpStateChangeRemotePeer.EntityData.BundleName = "cisco_ios_xr"
     routingBgpStateChangeRemotePeer.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingBgpStateChangeRemotePeer.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change-remote-peer"
+    routingBgpStateChangeRemotePeer.EntityData.AbsolutePath = routingBgpStateChangeRemotePeer.EntityData.SegmentPath
     routingBgpStateChangeRemotePeer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingBgpStateChangeRemotePeer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingBgpStateChangeRemotePeer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1373,6 +1418,7 @@ func (input *RoutingBgpStateChangeRemotePeer_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "routing-bgp-state-change-remote-peer"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:routing-bgp-state-change-remote-peer/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1399,6 +1445,7 @@ func (routingOspfNeighborStateChange *RoutingOspfNeighborStateChange) GetEntityD
     routingOspfNeighborStateChange.EntityData.BundleName = "cisco_ios_xr"
     routingOspfNeighborStateChange.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingOspfNeighborStateChange.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change"
+    routingOspfNeighborStateChange.EntityData.AbsolutePath = routingOspfNeighborStateChange.EntityData.SegmentPath
     routingOspfNeighborStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingOspfNeighborStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingOspfNeighborStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1427,6 +1474,7 @@ func (routingOspfNeighborStateChangeAddress *RoutingOspfNeighborStateChangeAddre
     routingOspfNeighborStateChangeAddress.EntityData.BundleName = "cisco_ios_xr"
     routingOspfNeighborStateChangeAddress.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingOspfNeighborStateChangeAddress.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address"
+    routingOspfNeighborStateChangeAddress.EntityData.AbsolutePath = routingOspfNeighborStateChangeAddress.EntityData.SegmentPath
     routingOspfNeighborStateChangeAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingOspfNeighborStateChangeAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingOspfNeighborStateChangeAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1463,6 +1511,7 @@ func (input *RoutingOspfNeighborStateChangeAddress_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "routing-ospf-neighbor-state-change-address"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:routing-ospf-neighbor-state-change-address/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1490,6 +1539,7 @@ func (routingMplsLdpSessionDown *RoutingMplsLdpSessionDown) GetEntityData() *typ
     routingMplsLdpSessionDown.EntityData.BundleName = "cisco_ios_xr"
     routingMplsLdpSessionDown.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingMplsLdpSessionDown.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down"
+    routingMplsLdpSessionDown.EntityData.AbsolutePath = routingMplsLdpSessionDown.EntityData.SegmentPath
     routingMplsLdpSessionDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingMplsLdpSessionDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsLdpSessionDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1518,6 +1568,7 @@ func (routingMplsLdpSessionDownEntityId *RoutingMplsLdpSessionDownEntityId) GetE
     routingMplsLdpSessionDownEntityId.EntityData.BundleName = "cisco_ios_xr"
     routingMplsLdpSessionDownEntityId.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingMplsLdpSessionDownEntityId.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id"
+    routingMplsLdpSessionDownEntityId.EntityData.AbsolutePath = routingMplsLdpSessionDownEntityId.EntityData.SegmentPath
     routingMplsLdpSessionDownEntityId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingMplsLdpSessionDownEntityId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsLdpSessionDownEntityId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1557,6 +1608,7 @@ func (input *RoutingMplsLdpSessionDownEntityId_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "routing-mpls-ldp-session-down-entity-id"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-ldp-session-down-entity-id/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1585,6 +1637,7 @@ func (routingMplsTunnelReRouted *RoutingMplsTunnelReRouted) GetEntityData() *typ
     routingMplsTunnelReRouted.EntityData.BundleName = "cisco_ios_xr"
     routingMplsTunnelReRouted.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingMplsTunnelReRouted.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed"
+    routingMplsTunnelReRouted.EntityData.AbsolutePath = routingMplsTunnelReRouted.EntityData.SegmentPath
     routingMplsTunnelReRouted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingMplsTunnelReRouted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelReRouted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1613,6 +1666,7 @@ func (routingMplsTunnelReRoutedIndex *RoutingMplsTunnelReRoutedIndex) GetEntityD
     routingMplsTunnelReRoutedIndex.EntityData.BundleName = "cisco_ios_xr"
     routingMplsTunnelReRoutedIndex.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingMplsTunnelReRoutedIndex.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index"
+    routingMplsTunnelReRoutedIndex.EntityData.AbsolutePath = routingMplsTunnelReRoutedIndex.EntityData.SegmentPath
     routingMplsTunnelReRoutedIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingMplsTunnelReRoutedIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelReRoutedIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1658,6 +1712,7 @@ func (input *RoutingMplsTunnelReRoutedIndex_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "routing-mpls-tunnel-re-routed-index"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-routed-index/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1687,6 +1742,7 @@ func (routingMplsTunnelReOptimized *RoutingMplsTunnelReOptimized) GetEntityData(
     routingMplsTunnelReOptimized.EntityData.BundleName = "cisco_ios_xr"
     routingMplsTunnelReOptimized.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingMplsTunnelReOptimized.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized"
+    routingMplsTunnelReOptimized.EntityData.AbsolutePath = routingMplsTunnelReOptimized.EntityData.SegmentPath
     routingMplsTunnelReOptimized.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingMplsTunnelReOptimized.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelReOptimized.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1715,6 +1771,7 @@ func (routingMplsTunnelReOptimizedIndex *RoutingMplsTunnelReOptimizedIndex) GetE
     routingMplsTunnelReOptimizedIndex.EntityData.BundleName = "cisco_ios_xr"
     routingMplsTunnelReOptimizedIndex.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingMplsTunnelReOptimizedIndex.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index"
+    routingMplsTunnelReOptimizedIndex.EntityData.AbsolutePath = routingMplsTunnelReOptimizedIndex.EntityData.SegmentPath
     routingMplsTunnelReOptimizedIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingMplsTunnelReOptimizedIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelReOptimizedIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1760,6 +1817,7 @@ func (input *RoutingMplsTunnelReOptimizedIndex_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "routing-mpls-tunnel-re-optimized-index"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-re-optimized-index/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1789,6 +1847,7 @@ func (routingMplsTunnelDown *RoutingMplsTunnelDown) GetEntityData() *types.Commo
     routingMplsTunnelDown.EntityData.BundleName = "cisco_ios_xr"
     routingMplsTunnelDown.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingMplsTunnelDown.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down"
+    routingMplsTunnelDown.EntityData.AbsolutePath = routingMplsTunnelDown.EntityData.SegmentPath
     routingMplsTunnelDown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingMplsTunnelDown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelDown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1817,6 +1876,7 @@ func (routingMplsTunnelDownIndex *RoutingMplsTunnelDownIndex) GetEntityData() *t
     routingMplsTunnelDownIndex.EntityData.BundleName = "cisco_ios_xr"
     routingMplsTunnelDownIndex.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     routingMplsTunnelDownIndex.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index"
+    routingMplsTunnelDownIndex.EntityData.AbsolutePath = routingMplsTunnelDownIndex.EntityData.SegmentPath
     routingMplsTunnelDownIndex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routingMplsTunnelDownIndex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routingMplsTunnelDownIndex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1861,6 +1921,7 @@ func (input *RoutingMplsTunnelDownIndex_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "routing-mpls-tunnel-down-index"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-test-trap-act:routing-mpls-tunnel-down-index/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1890,6 +1951,7 @@ func (all *All) GetEntityData() *types.CommonEntityData {
     all.EntityData.BundleName = "cisco_ios_xr"
     all.EntityData.ParentYangName = "Cisco-IOS-XR-snmp-test-trap-act"
     all.EntityData.SegmentPath = "Cisco-IOS-XR-snmp-test-trap-act:all"
+    all.EntityData.AbsolutePath = all.EntityData.SegmentPath
     all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

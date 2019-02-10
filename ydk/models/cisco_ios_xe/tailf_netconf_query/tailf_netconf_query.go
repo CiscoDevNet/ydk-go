@@ -59,6 +59,7 @@ func (startQuery *StartQuery) GetEntityData() *types.CommonEntityData {
     startQuery.EntityData.BundleName = "cisco_ios_xe"
     startQuery.EntityData.ParentYangName = "tailf-netconf-query"
     startQuery.EntityData.SegmentPath = "tailf-netconf-query:start-query"
+    startQuery.EntityData.AbsolutePath = startQuery.EntityData.SegmentPath
     startQuery.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     startQuery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     startQuery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -124,6 +125,7 @@ func (input *StartQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "start-query"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "tailf-netconf-query:start-query/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -131,6 +133,7 @@ func (input *StartQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.Children = types.NewOrderedMap()
     input.EntityData.Children.Append("select", types.YChild{"Select", nil})
     for i := range input.Select {
+        types.SetYListKey(input.Select[i], i)
         input.EntityData.Children.Append(types.GetSegmentPath(input.Select[i]), types.YChild{"Select", input.Select[i]})
     }
     input.EntityData.Leafs = types.NewOrderedMap()
@@ -151,6 +154,7 @@ func (input *StartQuery_Input) GetEntityData() *types.CommonEntityData {
 type StartQuery_Input_Select struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Optional label which is copied as is to the 'result' list; can be used for
     // easy labeling of the returned node(s). The type is string.
@@ -172,7 +176,8 @@ func (self *StartQuery_Input_Select) GetEntityData() *types.CommonEntityData {
     self.EntityData.YangName = "select"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "input"
-    self.EntityData.SegmentPath = "select"
+    self.EntityData.SegmentPath = "select" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-netconf-query:start-query/input/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -228,6 +233,7 @@ func (output *StartQuery_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "start-query"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "tailf-netconf-query:start-query/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -259,6 +265,7 @@ func (fetchQueryResult *FetchQueryResult) GetEntityData() *types.CommonEntityDat
     fetchQueryResult.EntityData.BundleName = "cisco_ios_xe"
     fetchQueryResult.EntityData.ParentYangName = "tailf-netconf-query"
     fetchQueryResult.EntityData.SegmentPath = "tailf-netconf-query:fetch-query-result"
+    fetchQueryResult.EntityData.AbsolutePath = fetchQueryResult.EntityData.SegmentPath
     fetchQueryResult.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     fetchQueryResult.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     fetchQueryResult.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -288,6 +295,7 @@ func (input *FetchQueryResult_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "fetch-query-result"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "tailf-netconf-query:fetch-query-result/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -316,6 +324,7 @@ func (output *FetchQueryResult_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "fetch-query-result"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "tailf-netconf-query:fetch-query-result/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -346,6 +355,7 @@ func (queryResult *FetchQueryResult_Output_QueryResult) GetEntityData() *types.C
     queryResult.EntityData.BundleName = "cisco_ios_xe"
     queryResult.EntityData.ParentYangName = "output"
     queryResult.EntityData.SegmentPath = "query-result"
+    queryResult.EntityData.AbsolutePath = "tailf-netconf-query:fetch-query-result/output/" + queryResult.EntityData.SegmentPath
     queryResult.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     queryResult.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     queryResult.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -353,6 +363,7 @@ func (queryResult *FetchQueryResult_Output_QueryResult) GetEntityData() *types.C
     queryResult.EntityData.Children = types.NewOrderedMap()
     queryResult.EntityData.Children.Append("result", types.YChild{"Result", nil})
     for i := range queryResult.Result {
+        types.SetYListKey(queryResult.Result[i], i)
         queryResult.EntityData.Children.Append(types.GetSegmentPath(queryResult.Result[i]), types.YChild{"Result", queryResult.Result[i]})
     }
     queryResult.EntityData.Leafs = types.NewOrderedMap()
@@ -368,6 +379,7 @@ func (queryResult *FetchQueryResult_Output_QueryResult) GetEntityData() *types.C
 type FetchQueryResult_Output_QueryResult_Result struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is slice of FetchQueryResult_Output_QueryResult_Result_Select.
     Select []*FetchQueryResult_Output_QueryResult_Result_Select
@@ -378,7 +390,8 @@ func (result *FetchQueryResult_Output_QueryResult_Result) GetEntityData() *types
     result.EntityData.YangName = "result"
     result.EntityData.BundleName = "cisco_ios_xe"
     result.EntityData.ParentYangName = "query-result"
-    result.EntityData.SegmentPath = "result"
+    result.EntityData.SegmentPath = "result" + types.AddNoKeyToken(result)
+    result.EntityData.AbsolutePath = "tailf-netconf-query:fetch-query-result/output/query-result/" + result.EntityData.SegmentPath
     result.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     result.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     result.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -386,6 +399,7 @@ func (result *FetchQueryResult_Output_QueryResult_Result) GetEntityData() *types
     result.EntityData.Children = types.NewOrderedMap()
     result.EntityData.Children.Append("select", types.YChild{"Select", nil})
     for i := range result.Select {
+        types.SetYListKey(result.Select[i], i)
         result.EntityData.Children.Append(types.GetSegmentPath(result.Select[i]), types.YChild{"Select", result.Select[i]})
     }
     result.EntityData.Leafs = types.NewOrderedMap()
@@ -399,6 +413,7 @@ func (result *FetchQueryResult_Output_QueryResult_Result) GetEntityData() *types
 type FetchQueryResult_Output_QueryResult_Result_Select struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Present if the label was given in the input select entry. The type is
     // string.
@@ -420,7 +435,8 @@ func (self *FetchQueryResult_Output_QueryResult_Result_Select) GetEntityData() *
     self.EntityData.YangName = "select"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "result"
-    self.EntityData.SegmentPath = "select"
+    self.EntityData.SegmentPath = "select" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-netconf-query:fetch-query-result/output/query-result/result/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -455,6 +471,7 @@ func (immediateQuery *ImmediateQuery) GetEntityData() *types.CommonEntityData {
     immediateQuery.EntityData.BundleName = "cisco_ios_xe"
     immediateQuery.EntityData.ParentYangName = "tailf-netconf-query"
     immediateQuery.EntityData.SegmentPath = "tailf-netconf-query:immediate-query"
+    immediateQuery.EntityData.AbsolutePath = immediateQuery.EntityData.SegmentPath
     immediateQuery.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     immediateQuery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     immediateQuery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -520,6 +537,7 @@ func (input *ImmediateQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "immediate-query"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "tailf-netconf-query:immediate-query/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -527,6 +545,7 @@ func (input *ImmediateQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.Children = types.NewOrderedMap()
     input.EntityData.Children.Append("select", types.YChild{"Select", nil})
     for i := range input.Select {
+        types.SetYListKey(input.Select[i], i)
         input.EntityData.Children.Append(types.GetSegmentPath(input.Select[i]), types.YChild{"Select", input.Select[i]})
     }
     input.EntityData.Leafs = types.NewOrderedMap()
@@ -547,6 +566,7 @@ func (input *ImmediateQuery_Input) GetEntityData() *types.CommonEntityData {
 type ImmediateQuery_Input_Select struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Optional label which is copied as is to the 'result' list; can be used for
     // easy labeling of the returned node(s). The type is string.
@@ -568,7 +588,8 @@ func (self *ImmediateQuery_Input_Select) GetEntityData() *types.CommonEntityData
     self.EntityData.YangName = "select"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "input"
-    self.EntityData.SegmentPath = "select"
+    self.EntityData.SegmentPath = "select" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-netconf-query:immediate-query/input/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -624,6 +645,7 @@ func (output *ImmediateQuery_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "immediate-query"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "tailf-netconf-query:immediate-query/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -654,6 +676,7 @@ func (queryResult *ImmediateQuery_Output_QueryResult) GetEntityData() *types.Com
     queryResult.EntityData.BundleName = "cisco_ios_xe"
     queryResult.EntityData.ParentYangName = "output"
     queryResult.EntityData.SegmentPath = "query-result"
+    queryResult.EntityData.AbsolutePath = "tailf-netconf-query:immediate-query/output/" + queryResult.EntityData.SegmentPath
     queryResult.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     queryResult.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     queryResult.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -661,6 +684,7 @@ func (queryResult *ImmediateQuery_Output_QueryResult) GetEntityData() *types.Com
     queryResult.EntityData.Children = types.NewOrderedMap()
     queryResult.EntityData.Children.Append("result", types.YChild{"Result", nil})
     for i := range queryResult.Result {
+        types.SetYListKey(queryResult.Result[i], i)
         queryResult.EntityData.Children.Append(types.GetSegmentPath(queryResult.Result[i]), types.YChild{"Result", queryResult.Result[i]})
     }
     queryResult.EntityData.Leafs = types.NewOrderedMap()
@@ -676,6 +700,7 @@ func (queryResult *ImmediateQuery_Output_QueryResult) GetEntityData() *types.Com
 type ImmediateQuery_Output_QueryResult_Result struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is slice of ImmediateQuery_Output_QueryResult_Result_Select.
     Select []*ImmediateQuery_Output_QueryResult_Result_Select
@@ -686,7 +711,8 @@ func (result *ImmediateQuery_Output_QueryResult_Result) GetEntityData() *types.C
     result.EntityData.YangName = "result"
     result.EntityData.BundleName = "cisco_ios_xe"
     result.EntityData.ParentYangName = "query-result"
-    result.EntityData.SegmentPath = "result"
+    result.EntityData.SegmentPath = "result" + types.AddNoKeyToken(result)
+    result.EntityData.AbsolutePath = "tailf-netconf-query:immediate-query/output/query-result/" + result.EntityData.SegmentPath
     result.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     result.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     result.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -694,6 +720,7 @@ func (result *ImmediateQuery_Output_QueryResult_Result) GetEntityData() *types.C
     result.EntityData.Children = types.NewOrderedMap()
     result.EntityData.Children.Append("select", types.YChild{"Select", nil})
     for i := range result.Select {
+        types.SetYListKey(result.Select[i], i)
         result.EntityData.Children.Append(types.GetSegmentPath(result.Select[i]), types.YChild{"Select", result.Select[i]})
     }
     result.EntityData.Leafs = types.NewOrderedMap()
@@ -707,6 +734,7 @@ func (result *ImmediateQuery_Output_QueryResult_Result) GetEntityData() *types.C
 type ImmediateQuery_Output_QueryResult_Result_Select struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Present if the label was given in the input select entry. The type is
     // string.
@@ -728,7 +756,8 @@ func (self *ImmediateQuery_Output_QueryResult_Result_Select) GetEntityData() *ty
     self.EntityData.YangName = "select"
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "result"
-    self.EntityData.SegmentPath = "select"
+    self.EntityData.SegmentPath = "select" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "tailf-netconf-query:immediate-query/output/query-result/result/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -760,6 +789,7 @@ func (resetQuery *ResetQuery) GetEntityData() *types.CommonEntityData {
     resetQuery.EntityData.BundleName = "cisco_ios_xe"
     resetQuery.EntityData.ParentYangName = "tailf-netconf-query"
     resetQuery.EntityData.SegmentPath = "tailf-netconf-query:reset-query"
+    resetQuery.EntityData.AbsolutePath = resetQuery.EntityData.SegmentPath
     resetQuery.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     resetQuery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     resetQuery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -796,6 +826,7 @@ func (input *ResetQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "reset-query"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "tailf-netconf-query:reset-query/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -826,6 +857,7 @@ func (stopQuery *StopQuery) GetEntityData() *types.CommonEntityData {
     stopQuery.EntityData.BundleName = "cisco_ios_xe"
     stopQuery.EntityData.ParentYangName = "tailf-netconf-query"
     stopQuery.EntityData.SegmentPath = "tailf-netconf-query:stop-query"
+    stopQuery.EntityData.AbsolutePath = stopQuery.EntityData.SegmentPath
     stopQuery.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stopQuery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stopQuery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -854,6 +886,7 @@ func (input *StopQuery_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "stop-query"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "tailf-netconf-query:stop-query/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

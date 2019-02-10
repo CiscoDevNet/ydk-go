@@ -367,6 +367,7 @@ func (otu *Otu) GetEntityData() *types.CommonEntityData {
     otu.EntityData.BundleName = "cisco_ios_xr"
     otu.EntityData.ParentYangName = "Cisco-IOS-XR-controller-otu-oper"
     otu.EntityData.SegmentPath = "Cisco-IOS-XR-controller-otu-oper:otu"
+    otu.EntityData.AbsolutePath = otu.EntityData.SegmentPath
     otu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -396,6 +397,7 @@ func (controllers *Otu_Controllers) GetEntityData() *types.CommonEntityData {
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "otu"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -417,6 +419,7 @@ func (controllers *Otu_Controllers) GetEntityData() *types.CommonEntityData {
 type Otu_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -435,6 +438,7 @@ func (controller *Otu_Controllers_Controller) GetEntityData() *types.CommonEntit
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -475,6 +479,7 @@ func (prbs *Otu_Controllers_Controller_Prbs) GetEntityData() *types.CommonEntity
     prbs.EntityData.BundleName = "cisco_ios_xr"
     prbs.EntityData.ParentYangName = "controller"
     prbs.EntityData.SegmentPath = "prbs"
+    prbs.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/" + prbs.EntityData.SegmentPath
     prbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -612,6 +617,7 @@ func (info *Otu_Controllers_Controller_Info) GetEntityData() *types.CommonEntity
     info.EntityData.BundleName = "cisco_ios_xr"
     info.EntityData.ParentYangName = "controller"
     info.EntityData.SegmentPath = "info"
+    info.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/" + info.EntityData.SegmentPath
     info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -677,6 +683,7 @@ func (local *Otu_Controllers_Controller_Info_Local) GetEntityData() *types.Commo
     local.EntityData.BundleName = "cisco_ios_xr"
     local.EntityData.ParentYangName = "info"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -710,6 +717,7 @@ func (remote *Otu_Controllers_Controller_Info_Remote) GetEntityData() *types.Com
     remote.EntityData.BundleName = "cisco_ios_xr"
     remote.EntityData.ParentYangName = "info"
     remote.EntityData.SegmentPath = "remote"
+    remote.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/" + remote.EntityData.SegmentPath
     remote.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remote.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remote.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -764,6 +772,7 @@ func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetEntityData() *types.C
     ttiMode.EntityData.BundleName = "cisco_ios_xr"
     ttiMode.EntityData.ParentYangName = "info"
     ttiMode.EntityData.SegmentPath = "tti-mode"
+    ttiMode.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/" + ttiMode.EntityData.SegmentPath
     ttiMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ttiMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ttiMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -813,6 +822,7 @@ func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetEntityData() *types.Com
     tx.EntityData.BundleName = "cisco_ios_xr"
     tx.EntityData.ParentYangName = "tti-mode"
     tx.EntityData.SegmentPath = "tx"
+    tx.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/" + tx.EntityData.SegmentPath
     tx.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tx.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tx.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -820,14 +830,17 @@ func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetEntityData() *types.Com
     tx.EntityData.Children = types.NewOrderedMap()
     tx.EntityData.Children.Append("sapi", types.YChild{"Sapi", nil})
     for i := range tx.Sapi {
+        types.SetYListKey(tx.Sapi[i], i)
         tx.EntityData.Children.Append(types.GetSegmentPath(tx.Sapi[i]), types.YChild{"Sapi", tx.Sapi[i]})
     }
     tx.EntityData.Children.Append("dapi", types.YChild{"Dapi", nil})
     for i := range tx.Dapi {
+        types.SetYListKey(tx.Dapi[i], i)
         tx.EntityData.Children.Append(types.GetSegmentPath(tx.Dapi[i]), types.YChild{"Dapi", tx.Dapi[i]})
     }
     tx.EntityData.Children.Append("operator-specific", types.YChild{"OperatorSpecific", nil})
     for i := range tx.OperatorSpecific {
+        types.SetYListKey(tx.OperatorSpecific[i], i)
         tx.EntityData.Children.Append(types.GetSegmentPath(tx.OperatorSpecific[i]), types.YChild{"OperatorSpecific", tx.OperatorSpecific[i]})
     }
     tx.EntityData.Leafs = types.NewOrderedMap()
@@ -843,6 +856,7 @@ func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetEntityData() *types.Com
 type Otu_Controllers_Controller_Info_TtiMode_Tx_Sapi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -853,7 +867,8 @@ func (sapi *Otu_Controllers_Controller_Info_TtiMode_Tx_Sapi) GetEntityData() *ty
     sapi.EntityData.YangName = "sapi"
     sapi.EntityData.BundleName = "cisco_ios_xr"
     sapi.EntityData.ParentYangName = "tx"
-    sapi.EntityData.SegmentPath = "sapi"
+    sapi.EntityData.SegmentPath = "sapi" + types.AddNoKeyToken(sapi)
+    sapi.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/tx/" + sapi.EntityData.SegmentPath
     sapi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sapi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sapi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -872,6 +887,7 @@ func (sapi *Otu_Controllers_Controller_Info_TtiMode_Tx_Sapi) GetEntityData() *ty
 type Otu_Controllers_Controller_Info_TtiMode_Tx_Dapi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -882,7 +898,8 @@ func (dapi *Otu_Controllers_Controller_Info_TtiMode_Tx_Dapi) GetEntityData() *ty
     dapi.EntityData.YangName = "dapi"
     dapi.EntityData.BundleName = "cisco_ios_xr"
     dapi.EntityData.ParentYangName = "tx"
-    dapi.EntityData.SegmentPath = "dapi"
+    dapi.EntityData.SegmentPath = "dapi" + types.AddNoKeyToken(dapi)
+    dapi.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/tx/" + dapi.EntityData.SegmentPath
     dapi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dapi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dapi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -901,6 +918,7 @@ func (dapi *Otu_Controllers_Controller_Info_TtiMode_Tx_Dapi) GetEntityData() *ty
 type Otu_Controllers_Controller_Info_TtiMode_Tx_OperatorSpecific struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -911,7 +929,8 @@ func (operatorSpecific *Otu_Controllers_Controller_Info_TtiMode_Tx_OperatorSpeci
     operatorSpecific.EntityData.YangName = "operator-specific"
     operatorSpecific.EntityData.BundleName = "cisco_ios_xr"
     operatorSpecific.EntityData.ParentYangName = "tx"
-    operatorSpecific.EntityData.SegmentPath = "operator-specific"
+    operatorSpecific.EntityData.SegmentPath = "operator-specific" + types.AddNoKeyToken(operatorSpecific)
+    operatorSpecific.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/tx/" + operatorSpecific.EntityData.SegmentPath
     operatorSpecific.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operatorSpecific.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operatorSpecific.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -953,6 +972,7 @@ func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetEntityData() *types.C
     exp.EntityData.BundleName = "cisco_ios_xr"
     exp.EntityData.ParentYangName = "tti-mode"
     exp.EntityData.SegmentPath = "exp"
+    exp.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/" + exp.EntityData.SegmentPath
     exp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -960,14 +980,17 @@ func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetEntityData() *types.C
     exp.EntityData.Children = types.NewOrderedMap()
     exp.EntityData.Children.Append("sapi", types.YChild{"Sapi", nil})
     for i := range exp.Sapi {
+        types.SetYListKey(exp.Sapi[i], i)
         exp.EntityData.Children.Append(types.GetSegmentPath(exp.Sapi[i]), types.YChild{"Sapi", exp.Sapi[i]})
     }
     exp.EntityData.Children.Append("dapi", types.YChild{"Dapi", nil})
     for i := range exp.Dapi {
+        types.SetYListKey(exp.Dapi[i], i)
         exp.EntityData.Children.Append(types.GetSegmentPath(exp.Dapi[i]), types.YChild{"Dapi", exp.Dapi[i]})
     }
     exp.EntityData.Children.Append("operator-specific", types.YChild{"OperatorSpecific", nil})
     for i := range exp.OperatorSpecific {
+        types.SetYListKey(exp.OperatorSpecific[i], i)
         exp.EntityData.Children.Append(types.GetSegmentPath(exp.OperatorSpecific[i]), types.YChild{"OperatorSpecific", exp.OperatorSpecific[i]})
     }
     exp.EntityData.Leafs = types.NewOrderedMap()
@@ -983,6 +1006,7 @@ func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetEntityData() *types.C
 type Otu_Controllers_Controller_Info_TtiMode_Exp_Sapi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -993,7 +1017,8 @@ func (sapi *Otu_Controllers_Controller_Info_TtiMode_Exp_Sapi) GetEntityData() *t
     sapi.EntityData.YangName = "sapi"
     sapi.EntityData.BundleName = "cisco_ios_xr"
     sapi.EntityData.ParentYangName = "exp"
-    sapi.EntityData.SegmentPath = "sapi"
+    sapi.EntityData.SegmentPath = "sapi" + types.AddNoKeyToken(sapi)
+    sapi.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/exp/" + sapi.EntityData.SegmentPath
     sapi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sapi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sapi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1012,6 +1037,7 @@ func (sapi *Otu_Controllers_Controller_Info_TtiMode_Exp_Sapi) GetEntityData() *t
 type Otu_Controllers_Controller_Info_TtiMode_Exp_Dapi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -1022,7 +1048,8 @@ func (dapi *Otu_Controllers_Controller_Info_TtiMode_Exp_Dapi) GetEntityData() *t
     dapi.EntityData.YangName = "dapi"
     dapi.EntityData.BundleName = "cisco_ios_xr"
     dapi.EntityData.ParentYangName = "exp"
-    dapi.EntityData.SegmentPath = "dapi"
+    dapi.EntityData.SegmentPath = "dapi" + types.AddNoKeyToken(dapi)
+    dapi.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/exp/" + dapi.EntityData.SegmentPath
     dapi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dapi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dapi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1041,6 +1068,7 @@ func (dapi *Otu_Controllers_Controller_Info_TtiMode_Exp_Dapi) GetEntityData() *t
 type Otu_Controllers_Controller_Info_TtiMode_Exp_OperatorSpecific struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -1051,7 +1079,8 @@ func (operatorSpecific *Otu_Controllers_Controller_Info_TtiMode_Exp_OperatorSpec
     operatorSpecific.EntityData.YangName = "operator-specific"
     operatorSpecific.EntityData.BundleName = "cisco_ios_xr"
     operatorSpecific.EntityData.ParentYangName = "exp"
-    operatorSpecific.EntityData.SegmentPath = "operator-specific"
+    operatorSpecific.EntityData.SegmentPath = "operator-specific" + types.AddNoKeyToken(operatorSpecific)
+    operatorSpecific.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/exp/" + operatorSpecific.EntityData.SegmentPath
     operatorSpecific.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operatorSpecific.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operatorSpecific.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1093,6 +1122,7 @@ func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetEntityData() *types.C
     rec.EntityData.BundleName = "cisco_ios_xr"
     rec.EntityData.ParentYangName = "tti-mode"
     rec.EntityData.SegmentPath = "rec"
+    rec.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/" + rec.EntityData.SegmentPath
     rec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1100,14 +1130,17 @@ func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetEntityData() *types.C
     rec.EntityData.Children = types.NewOrderedMap()
     rec.EntityData.Children.Append("sapi", types.YChild{"Sapi", nil})
     for i := range rec.Sapi {
+        types.SetYListKey(rec.Sapi[i], i)
         rec.EntityData.Children.Append(types.GetSegmentPath(rec.Sapi[i]), types.YChild{"Sapi", rec.Sapi[i]})
     }
     rec.EntityData.Children.Append("dapi", types.YChild{"Dapi", nil})
     for i := range rec.Dapi {
+        types.SetYListKey(rec.Dapi[i], i)
         rec.EntityData.Children.Append(types.GetSegmentPath(rec.Dapi[i]), types.YChild{"Dapi", rec.Dapi[i]})
     }
     rec.EntityData.Children.Append("operator-specific", types.YChild{"OperatorSpecific", nil})
     for i := range rec.OperatorSpecific {
+        types.SetYListKey(rec.OperatorSpecific[i], i)
         rec.EntityData.Children.Append(types.GetSegmentPath(rec.OperatorSpecific[i]), types.YChild{"OperatorSpecific", rec.OperatorSpecific[i]})
     }
     rec.EntityData.Leafs = types.NewOrderedMap()
@@ -1123,6 +1156,7 @@ func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetEntityData() *types.C
 type Otu_Controllers_Controller_Info_TtiMode_Rec_Sapi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -1133,7 +1167,8 @@ func (sapi *Otu_Controllers_Controller_Info_TtiMode_Rec_Sapi) GetEntityData() *t
     sapi.EntityData.YangName = "sapi"
     sapi.EntityData.BundleName = "cisco_ios_xr"
     sapi.EntityData.ParentYangName = "rec"
-    sapi.EntityData.SegmentPath = "sapi"
+    sapi.EntityData.SegmentPath = "sapi" + types.AddNoKeyToken(sapi)
+    sapi.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/rec/" + sapi.EntityData.SegmentPath
     sapi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sapi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sapi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1152,6 +1187,7 @@ func (sapi *Otu_Controllers_Controller_Info_TtiMode_Rec_Sapi) GetEntityData() *t
 type Otu_Controllers_Controller_Info_TtiMode_Rec_Dapi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -1162,7 +1198,8 @@ func (dapi *Otu_Controllers_Controller_Info_TtiMode_Rec_Dapi) GetEntityData() *t
     dapi.EntityData.YangName = "dapi"
     dapi.EntityData.BundleName = "cisco_ios_xr"
     dapi.EntityData.ParentYangName = "rec"
-    dapi.EntityData.SegmentPath = "dapi"
+    dapi.EntityData.SegmentPath = "dapi" + types.AddNoKeyToken(dapi)
+    dapi.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/rec/" + dapi.EntityData.SegmentPath
     dapi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dapi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dapi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1181,6 +1218,7 @@ func (dapi *Otu_Controllers_Controller_Info_TtiMode_Rec_Dapi) GetEntityData() *t
 type Otu_Controllers_Controller_Info_TtiMode_Rec_OperatorSpecific struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -1191,7 +1229,8 @@ func (operatorSpecific *Otu_Controllers_Controller_Info_TtiMode_Rec_OperatorSpec
     operatorSpecific.EntityData.YangName = "operator-specific"
     operatorSpecific.EntityData.BundleName = "cisco_ios_xr"
     operatorSpecific.EntityData.ParentYangName = "rec"
-    operatorSpecific.EntityData.SegmentPath = "operator-specific"
+    operatorSpecific.EntityData.SegmentPath = "operator-specific" + types.AddNoKeyToken(operatorSpecific)
+    operatorSpecific.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/tti-mode/rec/" + operatorSpecific.EntityData.SegmentPath
     operatorSpecific.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operatorSpecific.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operatorSpecific.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1222,6 +1261,7 @@ func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetEntityData() 
     networkSrlg.EntityData.BundleName = "cisco_ios_xr"
     networkSrlg.EntityData.ParentYangName = "info"
     networkSrlg.EntityData.SegmentPath = "network-srlg"
+    networkSrlg.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/" + networkSrlg.EntityData.SegmentPath
     networkSrlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkSrlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkSrlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1229,6 +1269,7 @@ func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetEntityData() 
     networkSrlg.EntityData.Children = types.NewOrderedMap()
     networkSrlg.EntityData.Children.Append("srlg-info", types.YChild{"SrlgInfo", nil})
     for i := range networkSrlg.SrlgInfo {
+        types.SetYListKey(networkSrlg.SrlgInfo[i], i)
         networkSrlg.EntityData.Children.Append(types.GetSegmentPath(networkSrlg.SrlgInfo[i]), types.YChild{"SrlgInfo", networkSrlg.SrlgInfo[i]})
     }
     networkSrlg.EntityData.Leafs = types.NewOrderedMap()
@@ -1244,6 +1285,7 @@ func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetEntityData() 
 type Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Array to maintain set id number. The type is interface{} with range:
     // 0..4294967295.
@@ -1259,7 +1301,8 @@ func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetEntityD
     srlgInfo.EntityData.YangName = "srlg-info"
     srlgInfo.EntityData.BundleName = "cisco_ios_xr"
     srlgInfo.EntityData.ParentYangName = "network-srlg"
-    srlgInfo.EntityData.SegmentPath = "srlg-info"
+    srlgInfo.EntityData.SegmentPath = "srlg-info" + types.AddNoKeyToken(srlgInfo)
+    srlgInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/network-srlg/" + srlgInfo.EntityData.SegmentPath
     srlgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1267,6 +1310,7 @@ func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetEntityD
     srlgInfo.EntityData.Children = types.NewOrderedMap()
     srlgInfo.EntityData.Children.Append("srlg", types.YChild{"Srlg", nil})
     for i := range srlgInfo.Srlg {
+        types.SetYListKey(srlgInfo.Srlg[i], i)
         srlgInfo.EntityData.Children.Append(types.GetSegmentPath(srlgInfo.Srlg[i]), types.YChild{"Srlg", srlgInfo.Srlg[i]})
     }
     srlgInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1284,6 +1328,7 @@ func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetEntityD
 type Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo_Srlg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -1294,7 +1339,8 @@ func (srlg *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo_Srlg) GetEntity
     srlg.EntityData.YangName = "srlg"
     srlg.EntityData.BundleName = "cisco_ios_xr"
     srlg.EntityData.ParentYangName = "srlg-info"
-    srlg.EntityData.SegmentPath = "srlg"
+    srlg.EntityData.SegmentPath = "srlg" + types.AddNoKeyToken(srlg)
+    srlg.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/network-srlg/srlg-info/" + srlg.EntityData.SegmentPath
     srlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1372,6 +1418,7 @@ func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetEntityData(
     otuAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
     otuAlarmInfo.EntityData.ParentYangName = "info"
     otuAlarmInfo.EntityData.SegmentPath = "otu-alarm-info"
+    otuAlarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/" + otuAlarmInfo.EntityData.SegmentPath
     otuAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otuAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otuAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1426,6 +1473,7 @@ func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetEntityData() *ty
     los.EntityData.BundleName = "cisco_ios_xr"
     los.EntityData.ParentYangName = "otu-alarm-info"
     los.EntityData.SegmentPath = "los"
+    los.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + los.EntityData.SegmentPath
     los.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     los.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     los.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1467,6 +1515,7 @@ func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetEntityData() *ty
     lof.EntityData.BundleName = "cisco_ios_xr"
     lof.EntityData.ParentYangName = "otu-alarm-info"
     lof.EntityData.SegmentPath = "lof"
+    lof.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + lof.EntityData.SegmentPath
     lof.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lof.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lof.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1508,6 +1557,7 @@ func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetEntityData() *ty
     lom.EntityData.BundleName = "cisco_ios_xr"
     lom.EntityData.ParentYangName = "otu-alarm-info"
     lom.EntityData.SegmentPath = "lom"
+    lom.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + lom.EntityData.SegmentPath
     lom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1549,6 +1599,7 @@ func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetEntityData() *ty
     oof.EntityData.BundleName = "cisco_ios_xr"
     oof.EntityData.ParentYangName = "otu-alarm-info"
     oof.EntityData.SegmentPath = "oof"
+    oof.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + oof.EntityData.SegmentPath
     oof.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oof.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oof.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1590,6 +1641,7 @@ func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetEntityData() *ty
     oom.EntityData.BundleName = "cisco_ios_xr"
     oom.EntityData.ParentYangName = "otu-alarm-info"
     oom.EntityData.SegmentPath = "oom"
+    oom.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + oom.EntityData.SegmentPath
     oom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1631,6 +1683,7 @@ func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetEntityData() *ty
     ais.EntityData.BundleName = "cisco_ios_xr"
     ais.EntityData.ParentYangName = "otu-alarm-info"
     ais.EntityData.SegmentPath = "ais"
+    ais.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + ais.EntityData.SegmentPath
     ais.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1672,6 +1725,7 @@ func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetEntityData() *ty
     iae.EntityData.BundleName = "cisco_ios_xr"
     iae.EntityData.ParentYangName = "otu-alarm-info"
     iae.EntityData.SegmentPath = "iae"
+    iae.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + iae.EntityData.SegmentPath
     iae.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iae.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iae.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1713,6 +1767,7 @@ func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetEntityData() *
     biae.EntityData.BundleName = "cisco_ios_xr"
     biae.EntityData.ParentYangName = "otu-alarm-info"
     biae.EntityData.SegmentPath = "biae"
+    biae.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + biae.EntityData.SegmentPath
     biae.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     biae.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     biae.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1754,6 +1809,7 @@ func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetEntityData() *ty
     bdi.EntityData.BundleName = "cisco_ios_xr"
     bdi.EntityData.ParentYangName = "otu-alarm-info"
     bdi.EntityData.SegmentPath = "bdi"
+    bdi.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + bdi.EntityData.SegmentPath
     bdi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bdi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bdi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1795,6 +1851,7 @@ func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetEntityData() *ty
     tim.EntityData.BundleName = "cisco_ios_xr"
     tim.EntityData.ParentYangName = "otu-alarm-info"
     tim.EntityData.SegmentPath = "tim"
+    tim.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + tim.EntityData.SegmentPath
     tim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1836,6 +1893,7 @@ func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetEntityData() *ty
     eoc.EntityData.BundleName = "cisco_ios_xr"
     eoc.EntityData.ParentYangName = "otu-alarm-info"
     eoc.EntityData.SegmentPath = "eoc"
+    eoc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + eoc.EntityData.SegmentPath
     eoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1877,6 +1935,7 @@ func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) Get
     fecMismatch.EntityData.BundleName = "cisco_ios_xr"
     fecMismatch.EntityData.ParentYangName = "otu-alarm-info"
     fecMismatch.EntityData.SegmentPath = "fec-mismatch"
+    fecMismatch.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + fecMismatch.EntityData.SegmentPath
     fecMismatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fecMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fecMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1918,6 +1977,7 @@ func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetEntityData()
     sfBer.EntityData.BundleName = "cisco_ios_xr"
     sfBer.EntityData.ParentYangName = "otu-alarm-info"
     sfBer.EntityData.SegmentPath = "sf-ber"
+    sfBer.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + sfBer.EntityData.SegmentPath
     sfBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sfBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sfBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1959,6 +2019,7 @@ func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetEntityData()
     sdBer.EntityData.BundleName = "cisco_ios_xr"
     sdBer.EntityData.ParentYangName = "otu-alarm-info"
     sdBer.EntityData.SegmentPath = "sd-ber"
+    sdBer.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + sdBer.EntityData.SegmentPath
     sdBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sdBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sdBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2000,6 +2061,7 @@ func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetEntityData() *type
     ec.EntityData.BundleName = "cisco_ios_xr"
     ec.EntityData.ParentYangName = "otu-alarm-info"
     ec.EntityData.SegmentPath = "ec"
+    ec.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + ec.EntityData.SegmentPath
     ec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2041,6 +2103,7 @@ func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetEntityData() *type
     uc.EntityData.BundleName = "cisco_ios_xr"
     uc.EntityData.ParentYangName = "otu-alarm-info"
     uc.EntityData.SegmentPath = "uc"
+    uc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + uc.EntityData.SegmentPath
     uc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     uc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     uc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2082,6 +2145,7 @@ func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetEntityData
     fecunc.EntityData.BundleName = "cisco_ios_xr"
     fecunc.EntityData.ParentYangName = "otu-alarm-info"
     fecunc.EntityData.SegmentPath = "fecunc"
+    fecunc.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/otu-alarm-info/" + fecunc.EntityData.SegmentPath
     fecunc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fecunc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fecunc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2146,6 +2210,7 @@ func (proactive *Otu_Controllers_Controller_Info_Proactive) GetEntityData() *typ
     proactive.EntityData.BundleName = "cisco_ios_xr"
     proactive.EntityData.ParentYangName = "info"
     proactive.EntityData.SegmentPath = "proactive"
+    proactive.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/" + proactive.EntityData.SegmentPath
     proactive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     proactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     proactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2188,6 +2253,7 @@ func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetEntit
     otuFecSatistics.EntityData.BundleName = "cisco_ios_xr"
     otuFecSatistics.EntityData.ParentYangName = "info"
     otuFecSatistics.EntityData.SegmentPath = "otu-fec-satistics"
+    otuFecSatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/" + otuFecSatistics.EntityData.SegmentPath
     otuFecSatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otuFecSatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otuFecSatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2226,6 +2292,7 @@ func (ainsInfo *Otu_Controllers_Controller_Info_AinsInfo) GetEntityData() *types
     ainsInfo.EntityData.BundleName = "cisco_ios_xr"
     ainsInfo.EntityData.ParentYangName = "info"
     ainsInfo.EntityData.SegmentPath = "ains-info"
+    ainsInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info/" + ainsInfo.EntityData.SegmentPath
     ainsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ainsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ainsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

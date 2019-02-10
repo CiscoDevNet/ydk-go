@@ -1116,6 +1116,7 @@ func (cfm *Cfm) GetEntityData() *types.CommonEntityData {
     cfm.EntityData.BundleName = "cisco_ios_xr"
     cfm.EntityData.ParentYangName = "Cisco-IOS-XR-ethernet-cfm-oper"
     cfm.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm"
+    cfm.EntityData.AbsolutePath = cfm.EntityData.SegmentPath
     cfm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cfm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1147,6 +1148,7 @@ func (nodes *Cfm_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "cfm"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1168,6 +1170,7 @@ func (nodes *Cfm_Nodes) GetEntityData() *types.CommonEntityData {
 type Cfm_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -1192,6 +1195,7 @@ func (node *Cfm_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1226,6 +1230,7 @@ func (interfaceAises *Cfm_Nodes_Node_InterfaceAises) GetEntityData() *types.Comm
     interfaceAises.EntityData.BundleName = "cisco_ios_xr"
     interfaceAises.EntityData.ParentYangName = "node"
     interfaceAises.EntityData.SegmentPath = "interface-aises"
+    interfaceAises.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/" + interfaceAises.EntityData.SegmentPath
     interfaceAises.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAises.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAises.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1247,6 +1252,7 @@ func (interfaceAises *Cfm_Nodes_Node_InterfaceAises) GetEntityData() *types.Comm
 type Cfm_Nodes_Node_InterfaceAises_InterfaceAis struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1277,6 +1283,7 @@ func (interfaceAis *Cfm_Nodes_Node_InterfaceAises_InterfaceAis) GetEntityData() 
     interfaceAis.EntityData.BundleName = "cisco_ios_xr"
     interfaceAis.EntityData.ParentYangName = "interface-aises"
     interfaceAis.EntityData.SegmentPath = "interface-ais" + types.AddKeyToken(interfaceAis.InterfaceName, "interface-name") + types.AddKeyToken(interfaceAis.Direction, "direction")
+    interfaceAis.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/interface-aises/" + interfaceAis.EntityData.SegmentPath
     interfaceAis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceAis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1335,6 +1342,7 @@ func (statistics *Cfm_Nodes_Node_InterfaceAises_InterfaceAis_Statistics) GetEnti
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "interface-ais"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/interface-aises/interface-ais/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1396,6 +1404,7 @@ func (defects *Cfm_Nodes_Node_InterfaceAises_InterfaceAis_Statistics_Defects) Ge
     defects.EntityData.BundleName = "cisco_ios_xr"
     defects.EntityData.ParentYangName = "statistics"
     defects.EntityData.SegmentPath = "defects"
+    defects.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/interface-aises/interface-ais/statistics/" + defects.EntityData.SegmentPath
     defects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1450,6 +1459,7 @@ func (remoteMepsDefects *Cfm_Nodes_Node_InterfaceAises_InterfaceAis_Statistics_D
     remoteMepsDefects.EntityData.BundleName = "cisco_ios_xr"
     remoteMepsDefects.EntityData.ParentYangName = "defects"
     remoteMepsDefects.EntityData.SegmentPath = "remote-meps-defects"
+    remoteMepsDefects.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/interface-aises/interface-ais/statistics/defects/" + remoteMepsDefects.EntityData.SegmentPath
     remoteMepsDefects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteMepsDefects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteMepsDefects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1490,6 +1500,7 @@ func (lastStarted *Cfm_Nodes_Node_InterfaceAises_InterfaceAis_Statistics_LastSta
     lastStarted.EntityData.BundleName = "cisco_ios_xr"
     lastStarted.EntityData.ParentYangName = "statistics"
     lastStarted.EntityData.SegmentPath = "last-started"
+    lastStarted.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/interface-aises/interface-ais/statistics/" + lastStarted.EntityData.SegmentPath
     lastStarted.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastStarted.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastStarted.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1521,6 +1532,7 @@ func (interfaceStatistics *Cfm_Nodes_Node_InterfaceStatistics) GetEntityData() *
     interfaceStatistics.EntityData.BundleName = "cisco_ios_xr"
     interfaceStatistics.EntityData.ParentYangName = "node"
     interfaceStatistics.EntityData.SegmentPath = "interface-statistics"
+    interfaceStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/" + interfaceStatistics.EntityData.SegmentPath
     interfaceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1542,6 +1554,7 @@ func (interfaceStatistics *Cfm_Nodes_Node_InterfaceStatistics) GetEntityData() *
 type Cfm_Nodes_Node_InterfaceStatistics_InterfaceStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1560,6 +1573,7 @@ func (interfaceStatistic *Cfm_Nodes_Node_InterfaceStatistics_InterfaceStatistic)
     interfaceStatistic.EntityData.BundleName = "cisco_ios_xr"
     interfaceStatistic.EntityData.ParentYangName = "interface-statistics"
     interfaceStatistic.EntityData.SegmentPath = "interface-statistic" + types.AddKeyToken(interfaceStatistic.Interface, "interface")
+    interfaceStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/interface-statistics/" + interfaceStatistic.EntityData.SegmentPath
     interfaceStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1602,6 +1616,7 @@ func (statistics *Cfm_Nodes_Node_InterfaceStatistics_InterfaceStatistic_Statisti
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "interface-statistic"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/interface-statistics/interface-statistic/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1730,6 +1745,7 @@ func (summary *Cfm_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1785,6 +1801,7 @@ func (ccmLearningDatabases *Cfm_Nodes_Node_CcmLearningDatabases) GetEntityData()
     ccmLearningDatabases.EntityData.BundleName = "cisco_ios_xr"
     ccmLearningDatabases.EntityData.ParentYangName = "node"
     ccmLearningDatabases.EntityData.SegmentPath = "ccm-learning-databases"
+    ccmLearningDatabases.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/" + ccmLearningDatabases.EntityData.SegmentPath
     ccmLearningDatabases.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ccmLearningDatabases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ccmLearningDatabases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1806,6 +1823,7 @@ func (ccmLearningDatabases *Cfm_Nodes_Node_CcmLearningDatabases) GetEntityData()
 type Cfm_Nodes_Node_CcmLearningDatabases_CcmLearningDatabase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -1851,6 +1869,7 @@ func (ccmLearningDatabase *Cfm_Nodes_Node_CcmLearningDatabases_CcmLearningDataba
     ccmLearningDatabase.EntityData.BundleName = "cisco_ios_xr"
     ccmLearningDatabase.EntityData.ParentYangName = "ccm-learning-databases"
     ccmLearningDatabase.EntityData.SegmentPath = "ccm-learning-database" + types.AddKeyToken(ccmLearningDatabase.Domain, "domain") + types.AddKeyToken(ccmLearningDatabase.Service, "service") + types.AddKeyToken(ccmLearningDatabase.MacAddress, "mac-address")
+    ccmLearningDatabase.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/ccm-learning-databases/" + ccmLearningDatabase.EntityData.SegmentPath
     ccmLearningDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ccmLearningDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ccmLearningDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1907,6 +1926,7 @@ func (global *Cfm_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "cfm"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1943,6 +1963,7 @@ func (incompleteTraceroutes *Cfm_Global_IncompleteTraceroutes) GetEntityData() *
     incompleteTraceroutes.EntityData.BundleName = "cisco_ios_xr"
     incompleteTraceroutes.EntityData.ParentYangName = "global"
     incompleteTraceroutes.EntityData.SegmentPath = "incomplete-traceroutes"
+    incompleteTraceroutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/" + incompleteTraceroutes.EntityData.SegmentPath
     incompleteTraceroutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incompleteTraceroutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incompleteTraceroutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1965,6 +1986,7 @@ func (incompleteTraceroutes *Cfm_Global_IncompleteTraceroutes) GetEntityData() *
 type Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -2000,6 +2022,7 @@ func (incompleteTraceroute *Cfm_Global_IncompleteTraceroutes_IncompleteTracerout
     incompleteTraceroute.EntityData.BundleName = "cisco_ios_xr"
     incompleteTraceroute.EntityData.ParentYangName = "incomplete-traceroutes"
     incompleteTraceroute.EntityData.SegmentPath = "incomplete-traceroute" + types.AddKeyToken(incompleteTraceroute.Domain, "domain") + types.AddKeyToken(incompleteTraceroute.Service, "service") + types.AddKeyToken(incompleteTraceroute.MepId, "mep-id") + types.AddKeyToken(incompleteTraceroute.Interface, "interface") + types.AddKeyToken(incompleteTraceroute.TransactionId, "transaction-id")
+    incompleteTraceroute.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/incomplete-traceroutes/" + incompleteTraceroute.EntityData.SegmentPath
     incompleteTraceroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incompleteTraceroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incompleteTraceroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2075,6 +2098,7 @@ func (tracerouteInformation *Cfm_Global_IncompleteTraceroutes_IncompleteTracerou
     tracerouteInformation.EntityData.BundleName = "cisco_ios_xr"
     tracerouteInformation.EntityData.ParentYangName = "incomplete-traceroute"
     tracerouteInformation.EntityData.SegmentPath = "traceroute-information"
+    tracerouteInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/incomplete-traceroutes/incomplete-traceroute/" + tracerouteInformation.EntityData.SegmentPath
     tracerouteInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracerouteInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracerouteInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2122,6 +2146,7 @@ func (options *Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute_TracerouteI
     options.EntityData.BundleName = "cisco_ios_xr"
     options.EntityData.ParentYangName = "traceroute-information"
     options.EntityData.SegmentPath = "options"
+    options.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/incomplete-traceroutes/incomplete-traceroute/traceroute-information/" + options.EntityData.SegmentPath
     options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2156,6 +2181,7 @@ func (basicOptions *Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute_Tracer
     basicOptions.EntityData.BundleName = "cisco_ios_xr"
     basicOptions.EntityData.ParentYangName = "options"
     basicOptions.EntityData.SegmentPath = "basic-options"
+    basicOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/incomplete-traceroutes/incomplete-traceroute/traceroute-information/options/" + basicOptions.EntityData.SegmentPath
     basicOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2193,6 +2219,7 @@ func (exploratoryOptions *Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute_
     exploratoryOptions.EntityData.BundleName = "cisco_ios_xr"
     exploratoryOptions.EntityData.ParentYangName = "options"
     exploratoryOptions.EntityData.SegmentPath = "exploratory-options"
+    exploratoryOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/incomplete-traceroutes/incomplete-traceroute/traceroute-information/options/" + exploratoryOptions.EntityData.SegmentPath
     exploratoryOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exploratoryOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exploratoryOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2225,6 +2252,7 @@ func (maintenancePoints *Cfm_Global_MaintenancePoints) GetEntityData() *types.Co
     maintenancePoints.EntityData.BundleName = "cisco_ios_xr"
     maintenancePoints.EntityData.ParentYangName = "global"
     maintenancePoints.EntityData.SegmentPath = "maintenance-points"
+    maintenancePoints.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/" + maintenancePoints.EntityData.SegmentPath
     maintenancePoints.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maintenancePoints.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maintenancePoints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2247,6 +2275,7 @@ func (maintenancePoints *Cfm_Global_MaintenancePoints) GetEntityData() *types.Co
 type Cfm_Global_MaintenancePoints_MaintenancePoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -2277,6 +2306,7 @@ func (maintenancePoint *Cfm_Global_MaintenancePoints_MaintenancePoint) GetEntity
     maintenancePoint.EntityData.BundleName = "cisco_ios_xr"
     maintenancePoint.EntityData.ParentYangName = "maintenance-points"
     maintenancePoint.EntityData.SegmentPath = "maintenance-point" + types.AddKeyToken(maintenancePoint.Domain, "domain") + types.AddKeyToken(maintenancePoint.Service, "service") + types.AddKeyToken(maintenancePoint.Interface, "interface")
+    maintenancePoint.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/maintenance-points/" + maintenancePoint.EntityData.SegmentPath
     maintenancePoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maintenancePoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maintenancePoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2326,6 +2356,7 @@ func (maintenancePoint *Cfm_Global_MaintenancePoints_MaintenancePoint_Maintenanc
     maintenancePoint.EntityData.BundleName = "cisco_ios_xr"
     maintenancePoint.EntityData.ParentYangName = "maintenance-point"
     maintenancePoint.EntityData.SegmentPath = "maintenance-point"
+    maintenancePoint.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/maintenance-points/maintenance-point/" + maintenancePoint.EntityData.SegmentPath
     maintenancePoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     maintenancePoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     maintenancePoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2361,6 +2392,7 @@ func (globalConfigurationErrors *Cfm_Global_GlobalConfigurationErrors) GetEntity
     globalConfigurationErrors.EntityData.BundleName = "cisco_ios_xr"
     globalConfigurationErrors.EntityData.ParentYangName = "global"
     globalConfigurationErrors.EntityData.SegmentPath = "global-configuration-errors"
+    globalConfigurationErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/" + globalConfigurationErrors.EntityData.SegmentPath
     globalConfigurationErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalConfigurationErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalConfigurationErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2383,6 +2415,7 @@ func (globalConfigurationErrors *Cfm_Global_GlobalConfigurationErrors) GetEntity
 type Cfm_Global_GlobalConfigurationErrors_GlobalConfigurationError struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -2417,6 +2450,7 @@ func (globalConfigurationError *Cfm_Global_GlobalConfigurationErrors_GlobalConfi
     globalConfigurationError.EntityData.BundleName = "cisco_ios_xr"
     globalConfigurationError.EntityData.ParentYangName = "global-configuration-errors"
     globalConfigurationError.EntityData.SegmentPath = "global-configuration-error" + types.AddKeyToken(globalConfigurationError.Domain, "domain") + types.AddKeyToken(globalConfigurationError.Service, "service")
+    globalConfigurationError.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/global-configuration-errors/" + globalConfigurationError.EntityData.SegmentPath
     globalConfigurationError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalConfigurationError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalConfigurationError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2472,6 +2506,7 @@ func (bridgeDomainId *Cfm_Global_GlobalConfigurationErrors_GlobalConfigurationEr
     bridgeDomainId.EntityData.BundleName = "cisco_ios_xr"
     bridgeDomainId.EntityData.ParentYangName = "global-configuration-error"
     bridgeDomainId.EntityData.SegmentPath = "bridge-domain-id"
+    bridgeDomainId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/global-configuration-errors/global-configuration-error/" + bridgeDomainId.EntityData.SegmentPath
     bridgeDomainId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bridgeDomainId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bridgeDomainId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2507,6 +2542,7 @@ func (mepConfigurationErrors *Cfm_Global_MepConfigurationErrors) GetEntityData()
     mepConfigurationErrors.EntityData.BundleName = "cisco_ios_xr"
     mepConfigurationErrors.EntityData.ParentYangName = "global"
     mepConfigurationErrors.EntityData.SegmentPath = "mep-configuration-errors"
+    mepConfigurationErrors.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/" + mepConfigurationErrors.EntityData.SegmentPath
     mepConfigurationErrors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mepConfigurationErrors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mepConfigurationErrors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2529,6 +2565,7 @@ func (mepConfigurationErrors *Cfm_Global_MepConfigurationErrors) GetEntityData()
 type Cfm_Global_MepConfigurationErrors_MepConfigurationError struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -2665,6 +2702,7 @@ func (mepConfigurationError *Cfm_Global_MepConfigurationErrors_MepConfigurationE
     mepConfigurationError.EntityData.BundleName = "cisco_ios_xr"
     mepConfigurationError.EntityData.ParentYangName = "mep-configuration-errors"
     mepConfigurationError.EntityData.SegmentPath = "mep-configuration-error" + types.AddKeyToken(mepConfigurationError.Domain, "domain") + types.AddKeyToken(mepConfigurationError.Service, "service") + types.AddKeyToken(mepConfigurationError.Interface, "interface")
+    mepConfigurationError.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/" + mepConfigurationError.EntityData.SegmentPath
     mepConfigurationError.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mepConfigurationError.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mepConfigurationError.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2743,6 +2781,7 @@ func (mep *Cfm_Global_MepConfigurationErrors_MepConfigurationError_Mep) GetEntit
     mep.EntityData.BundleName = "cisco_ios_xr"
     mep.EntityData.ParentYangName = "mep-configuration-error"
     mep.EntityData.SegmentPath = "mep"
+    mep.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/mep-configuration-error/" + mep.EntityData.SegmentPath
     mep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2796,6 +2835,7 @@ func (serviceBridgeDomain *Cfm_Global_MepConfigurationErrors_MepConfigurationErr
     serviceBridgeDomain.EntityData.BundleName = "cisco_ios_xr"
     serviceBridgeDomain.EntityData.ParentYangName = "mep-configuration-error"
     serviceBridgeDomain.EntityData.SegmentPath = "service-bridge-domain"
+    serviceBridgeDomain.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/mep-configuration-error/" + serviceBridgeDomain.EntityData.SegmentPath
     serviceBridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceBridgeDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceBridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2848,6 +2888,7 @@ func (interfaceBridgeDomain *Cfm_Global_MepConfigurationErrors_MepConfigurationE
     interfaceBridgeDomain.EntityData.BundleName = "cisco_ios_xr"
     interfaceBridgeDomain.EntityData.ParentYangName = "mep-configuration-error"
     interfaceBridgeDomain.EntityData.SegmentPath = "interface-bridge-domain"
+    interfaceBridgeDomain.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/mep-configuration-error/" + interfaceBridgeDomain.EntityData.SegmentPath
     interfaceBridgeDomain.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBridgeDomain.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBridgeDomain.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2888,6 +2929,7 @@ func (satelliteCapabilities *Cfm_Global_MepConfigurationErrors_MepConfigurationE
     satelliteCapabilities.EntityData.BundleName = "cisco_ios_xr"
     satelliteCapabilities.EntityData.ParentYangName = "mep-configuration-error"
     satelliteCapabilities.EntityData.SegmentPath = "satellite-capabilities"
+    satelliteCapabilities.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/mep-configuration-error/" + satelliteCapabilities.EntityData.SegmentPath
     satelliteCapabilities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     satelliteCapabilities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     satelliteCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2922,6 +2964,7 @@ func (loopback *Cfm_Global_MepConfigurationErrors_MepConfigurationError_Satellit
     loopback.EntityData.BundleName = "cisco_ios_xr"
     loopback.EntityData.ParentYangName = "satellite-capabilities"
     loopback.EntityData.SegmentPath = "loopback"
+    loopback.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/mep-configuration-error/satellite-capabilities/" + loopback.EntityData.SegmentPath
     loopback.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     loopback.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     loopback.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2955,6 +2998,7 @@ func (delayMeasurement *Cfm_Global_MepConfigurationErrors_MepConfigurationError_
     delayMeasurement.EntityData.BundleName = "cisco_ios_xr"
     delayMeasurement.EntityData.ParentYangName = "satellite-capabilities"
     delayMeasurement.EntityData.SegmentPath = "delay-measurement"
+    delayMeasurement.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/mep-configuration-error/satellite-capabilities/" + delayMeasurement.EntityData.SegmentPath
     delayMeasurement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     delayMeasurement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     delayMeasurement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2988,6 +3032,7 @@ func (syntheticLossMeasurement *Cfm_Global_MepConfigurationErrors_MepConfigurati
     syntheticLossMeasurement.EntityData.BundleName = "cisco_ios_xr"
     syntheticLossMeasurement.EntityData.ParentYangName = "satellite-capabilities"
     syntheticLossMeasurement.EntityData.SegmentPath = "synthetic-loss-measurement"
+    syntheticLossMeasurement.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/mep-configuration-error/satellite-capabilities/" + syntheticLossMeasurement.EntityData.SegmentPath
     syntheticLossMeasurement.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     syntheticLossMeasurement.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     syntheticLossMeasurement.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3019,6 +3064,7 @@ func (tracerouteCaches *Cfm_Global_TracerouteCaches) GetEntityData() *types.Comm
     tracerouteCaches.EntityData.BundleName = "cisco_ios_xr"
     tracerouteCaches.EntityData.ParentYangName = "global"
     tracerouteCaches.EntityData.SegmentPath = "traceroute-caches"
+    tracerouteCaches.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/" + tracerouteCaches.EntityData.SegmentPath
     tracerouteCaches.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracerouteCaches.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracerouteCaches.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3041,6 +3087,7 @@ func (tracerouteCaches *Cfm_Global_TracerouteCaches) GetEntityData() *types.Comm
 type Cfm_Global_TracerouteCaches_TracerouteCache struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -3084,6 +3131,7 @@ func (tracerouteCache *Cfm_Global_TracerouteCaches_TracerouteCache) GetEntityDat
     tracerouteCache.EntityData.BundleName = "cisco_ios_xr"
     tracerouteCache.EntityData.ParentYangName = "traceroute-caches"
     tracerouteCache.EntityData.SegmentPath = "traceroute-cache" + types.AddKeyToken(tracerouteCache.Domain, "domain") + types.AddKeyToken(tracerouteCache.Service, "service") + types.AddKeyToken(tracerouteCache.MepId, "mep-id") + types.AddKeyToken(tracerouteCache.Interface, "interface") + types.AddKeyToken(tracerouteCache.TransactionId, "transaction-id")
+    tracerouteCache.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/" + tracerouteCache.EntityData.SegmentPath
     tracerouteCache.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracerouteCache.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracerouteCache.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3092,10 +3140,12 @@ func (tracerouteCache *Cfm_Global_TracerouteCaches_TracerouteCache) GetEntityDat
     tracerouteCache.EntityData.Children.Append("traceroute-information", types.YChild{"TracerouteInformation", &tracerouteCache.TracerouteInformation})
     tracerouteCache.EntityData.Children.Append("linktrace-reply", types.YChild{"LinktraceReply", nil})
     for i := range tracerouteCache.LinktraceReply {
+        types.SetYListKey(tracerouteCache.LinktraceReply[i], i)
         tracerouteCache.EntityData.Children.Append(types.GetSegmentPath(tracerouteCache.LinktraceReply[i]), types.YChild{"LinktraceReply", tracerouteCache.LinktraceReply[i]})
     }
     tracerouteCache.EntityData.Children.Append("exploratory-linktrace-reply", types.YChild{"ExploratoryLinktraceReply", nil})
     for i := range tracerouteCache.ExploratoryLinktraceReply {
+        types.SetYListKey(tracerouteCache.ExploratoryLinktraceReply[i], i)
         tracerouteCache.EntityData.Children.Append(types.GetSegmentPath(tracerouteCache.ExploratoryLinktraceReply[i]), types.YChild{"ExploratoryLinktraceReply", tracerouteCache.ExploratoryLinktraceReply[i]})
     }
     tracerouteCache.EntityData.Leafs = types.NewOrderedMap()
@@ -3167,6 +3217,7 @@ func (tracerouteInformation *Cfm_Global_TracerouteCaches_TracerouteCache_Tracero
     tracerouteInformation.EntityData.BundleName = "cisco_ios_xr"
     tracerouteInformation.EntityData.ParentYangName = "traceroute-cache"
     tracerouteInformation.EntityData.SegmentPath = "traceroute-information"
+    tracerouteInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/" + tracerouteInformation.EntityData.SegmentPath
     tracerouteInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tracerouteInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tracerouteInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3214,6 +3265,7 @@ func (options *Cfm_Global_TracerouteCaches_TracerouteCache_TracerouteInformation
     options.EntityData.BundleName = "cisco_ios_xr"
     options.EntityData.ParentYangName = "traceroute-information"
     options.EntityData.SegmentPath = "options"
+    options.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/traceroute-information/" + options.EntityData.SegmentPath
     options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3248,6 +3300,7 @@ func (basicOptions *Cfm_Global_TracerouteCaches_TracerouteCache_TracerouteInform
     basicOptions.EntityData.BundleName = "cisco_ios_xr"
     basicOptions.EntityData.ParentYangName = "options"
     basicOptions.EntityData.SegmentPath = "basic-options"
+    basicOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/traceroute-information/options/" + basicOptions.EntityData.SegmentPath
     basicOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     basicOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     basicOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3285,6 +3338,7 @@ func (exploratoryOptions *Cfm_Global_TracerouteCaches_TracerouteCache_Traceroute
     exploratoryOptions.EntityData.BundleName = "cisco_ios_xr"
     exploratoryOptions.EntityData.ParentYangName = "options"
     exploratoryOptions.EntityData.SegmentPath = "exploratory-options"
+    exploratoryOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/traceroute-information/options/" + exploratoryOptions.EntityData.SegmentPath
     exploratoryOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exploratoryOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exploratoryOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3305,6 +3359,7 @@ func (exploratoryOptions *Cfm_Global_TracerouteCaches_TracerouteCache_Traceroute
 type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Undecoded frame. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -3342,7 +3397,8 @@ func (linktraceReply *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply
     linktraceReply.EntityData.YangName = "linktrace-reply"
     linktraceReply.EntityData.BundleName = "cisco_ios_xr"
     linktraceReply.EntityData.ParentYangName = "traceroute-cache"
-    linktraceReply.EntityData.SegmentPath = "linktrace-reply"
+    linktraceReply.EntityData.SegmentPath = "linktrace-reply" + types.AddNoKeyToken(linktraceReply)
+    linktraceReply.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/" + linktraceReply.EntityData.SegmentPath
     linktraceReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linktraceReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linktraceReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3356,10 +3412,12 @@ func (linktraceReply *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply
     linktraceReply.EntityData.Children.Append("last-hop", types.YChild{"LastHop", &linktraceReply.LastHop})
     linktraceReply.EntityData.Children.Append("organization-specific-tlv", types.YChild{"OrganizationSpecificTlv", nil})
     for i := range linktraceReply.OrganizationSpecificTlv {
+        types.SetYListKey(linktraceReply.OrganizationSpecificTlv[i], i)
         linktraceReply.EntityData.Children.Append(types.GetSegmentPath(linktraceReply.OrganizationSpecificTlv[i]), types.YChild{"OrganizationSpecificTlv", linktraceReply.OrganizationSpecificTlv[i]})
     }
     linktraceReply.EntityData.Children.Append("unknown-tlv", types.YChild{"UnknownTlv", nil})
     for i := range linktraceReply.UnknownTlv {
+        types.SetYListKey(linktraceReply.UnknownTlv[i], i)
         linktraceReply.EntityData.Children.Append(types.GetSegmentPath(linktraceReply.UnknownTlv[i]), types.YChild{"UnknownTlv", linktraceReply.UnknownTlv[i]})
     }
     linktraceReply.EntityData.Leafs = types.NewOrderedMap()
@@ -3407,6 +3465,7 @@ func (header *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Header)
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "linktrace-reply"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3451,6 +3510,7 @@ func (senderId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Sende
     senderId.EntityData.BundleName = "cisco_ios_xr"
     senderId.EntityData.ParentYangName = "linktrace-reply"
     senderId.EntityData.SegmentPath = "sender-id"
+    senderId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/" + senderId.EntityData.SegmentPath
     senderId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     senderId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     senderId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3492,6 +3552,7 @@ func (chassisId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Send
     chassisId.EntityData.BundleName = "cisco_ios_xr"
     chassisId.EntityData.ParentYangName = "sender-id"
     chassisId.EntityData.SegmentPath = "chassis-id"
+    chassisId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/sender-id/" + chassisId.EntityData.SegmentPath
     chassisId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3535,6 +3596,7 @@ func (chassisIdValue *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply
     chassisIdValue.EntityData.BundleName = "cisco_ios_xr"
     chassisIdValue.EntityData.ParentYangName = "chassis-id"
     chassisIdValue.EntityData.SegmentPath = "chassis-id-value"
+    chassisIdValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/sender-id/chassis-id/" + chassisIdValue.EntityData.SegmentPath
     chassisIdValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisIdValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisIdValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3570,6 +3632,7 @@ func (egressId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Egres
     egressId.EntityData.BundleName = "cisco_ios_xr"
     egressId.EntityData.ParentYangName = "linktrace-reply"
     egressId.EntityData.SegmentPath = "egress-id"
+    egressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/" + egressId.EntityData.SegmentPath
     egressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     egressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3604,6 +3667,7 @@ func (lastEgressId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_E
     lastEgressId.EntityData.BundleName = "cisco_ios_xr"
     lastEgressId.EntityData.ParentYangName = "egress-id"
     lastEgressId.EntityData.SegmentPath = "last-egress-id"
+    lastEgressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/egress-id/" + lastEgressId.EntityData.SegmentPath
     lastEgressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastEgressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastEgressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3638,6 +3702,7 @@ func (nextEgressId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_E
     nextEgressId.EntityData.BundleName = "cisco_ios_xr"
     nextEgressId.EntityData.ParentYangName = "egress-id"
     nextEgressId.EntityData.SegmentPath = "next-egress-id"
+    nextEgressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/egress-id/" + nextEgressId.EntityData.SegmentPath
     nextEgressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextEgressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextEgressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3675,6 +3740,7 @@ func (replyIngress *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_R
     replyIngress.EntityData.BundleName = "cisco_ios_xr"
     replyIngress.EntityData.ParentYangName = "linktrace-reply"
     replyIngress.EntityData.SegmentPath = "reply-ingress"
+    replyIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/" + replyIngress.EntityData.SegmentPath
     replyIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replyIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replyIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3716,6 +3782,7 @@ func (portId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_ReplyIn
     portId.EntityData.BundleName = "cisco_ios_xr"
     portId.EntityData.ParentYangName = "reply-ingress"
     portId.EntityData.SegmentPath = "port-id"
+    portId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/reply-ingress/" + portId.EntityData.SegmentPath
     portId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3759,6 +3826,7 @@ func (portIdValue *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Re
     portIdValue.EntityData.BundleName = "cisco_ios_xr"
     portIdValue.EntityData.ParentYangName = "port-id"
     portIdValue.EntityData.SegmentPath = "port-id-value"
+    portIdValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/reply-ingress/port-id/" + portIdValue.EntityData.SegmentPath
     portIdValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portIdValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portIdValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3798,6 +3866,7 @@ func (replyEgress *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Re
     replyEgress.EntityData.BundleName = "cisco_ios_xr"
     replyEgress.EntityData.ParentYangName = "linktrace-reply"
     replyEgress.EntityData.SegmentPath = "reply-egress"
+    replyEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/" + replyEgress.EntityData.SegmentPath
     replyEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replyEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replyEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3839,6 +3908,7 @@ func (portId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_ReplyEg
     portId.EntityData.BundleName = "cisco_ios_xr"
     portId.EntityData.ParentYangName = "reply-egress"
     portId.EntityData.SegmentPath = "port-id"
+    portId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/reply-egress/" + portId.EntityData.SegmentPath
     portId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3882,6 +3952,7 @@ func (portIdValue *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Re
     portIdValue.EntityData.BundleName = "cisco_ios_xr"
     portIdValue.EntityData.ParentYangName = "port-id"
     portIdValue.EntityData.SegmentPath = "port-id-value"
+    portIdValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/reply-egress/port-id/" + portIdValue.EntityData.SegmentPath
     portIdValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portIdValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portIdValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3920,6 +3991,7 @@ func (lastHop *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_LastHo
     lastHop.EntityData.BundleName = "cisco_ios_xr"
     lastHop.EntityData.ParentYangName = "linktrace-reply"
     lastHop.EntityData.SegmentPath = "last-hop"
+    lastHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/" + lastHop.EntityData.SegmentPath
     lastHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3955,6 +4027,7 @@ func (egressId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_LastH
     egressId.EntityData.BundleName = "cisco_ios_xr"
     egressId.EntityData.ParentYangName = "last-hop"
     egressId.EntityData.SegmentPath = "egress-id"
+    egressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/last-hop/" + egressId.EntityData.SegmentPath
     egressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     egressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3974,6 +4047,7 @@ func (egressId *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_LastH
 type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_OrganizationSpecificTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Organizationally-unique ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -3992,7 +4066,8 @@ func (organizationSpecificTlv *Cfm_Global_TracerouteCaches_TracerouteCache_Linkt
     organizationSpecificTlv.EntityData.YangName = "organization-specific-tlv"
     organizationSpecificTlv.EntityData.BundleName = "cisco_ios_xr"
     organizationSpecificTlv.EntityData.ParentYangName = "linktrace-reply"
-    organizationSpecificTlv.EntityData.SegmentPath = "organization-specific-tlv"
+    organizationSpecificTlv.EntityData.SegmentPath = "organization-specific-tlv" + types.AddNoKeyToken(organizationSpecificTlv)
+    organizationSpecificTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/" + organizationSpecificTlv.EntityData.SegmentPath
     organizationSpecificTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     organizationSpecificTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     organizationSpecificTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4013,6 +4088,7 @@ func (organizationSpecificTlv *Cfm_Global_TracerouteCaches_TracerouteCache_Linkt
 type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_UnknownTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type code of TLV. The type is interface{} with range: 0..255.
     Typecode interface{}
@@ -4027,7 +4103,8 @@ func (unknownTlv *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Unk
     unknownTlv.EntityData.YangName = "unknown-tlv"
     unknownTlv.EntityData.BundleName = "cisco_ios_xr"
     unknownTlv.EntityData.ParentYangName = "linktrace-reply"
-    unknownTlv.EntityData.SegmentPath = "unknown-tlv"
+    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddNoKeyToken(unknownTlv)
+    unknownTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/linktrace-reply/" + unknownTlv.EntityData.SegmentPath
     unknownTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4047,6 +4124,7 @@ func (unknownTlv *Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_Unk
 type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Undecoded frame. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -4081,7 +4159,8 @@ func (exploratoryLinktraceReply *Cfm_Global_TracerouteCaches_TracerouteCache_Exp
     exploratoryLinktraceReply.EntityData.YangName = "exploratory-linktrace-reply"
     exploratoryLinktraceReply.EntityData.BundleName = "cisco_ios_xr"
     exploratoryLinktraceReply.EntityData.ParentYangName = "traceroute-cache"
-    exploratoryLinktraceReply.EntityData.SegmentPath = "exploratory-linktrace-reply"
+    exploratoryLinktraceReply.EntityData.SegmentPath = "exploratory-linktrace-reply" + types.AddNoKeyToken(exploratoryLinktraceReply)
+    exploratoryLinktraceReply.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/" + exploratoryLinktraceReply.EntityData.SegmentPath
     exploratoryLinktraceReply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exploratoryLinktraceReply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exploratoryLinktraceReply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4094,10 +4173,12 @@ func (exploratoryLinktraceReply *Cfm_Global_TracerouteCaches_TracerouteCache_Exp
     exploratoryLinktraceReply.EntityData.Children.Append("last-hop", types.YChild{"LastHop", &exploratoryLinktraceReply.LastHop})
     exploratoryLinktraceReply.EntityData.Children.Append("organization-specific-tlv", types.YChild{"OrganizationSpecificTlv", nil})
     for i := range exploratoryLinktraceReply.OrganizationSpecificTlv {
+        types.SetYListKey(exploratoryLinktraceReply.OrganizationSpecificTlv[i], i)
         exploratoryLinktraceReply.EntityData.Children.Append(types.GetSegmentPath(exploratoryLinktraceReply.OrganizationSpecificTlv[i]), types.YChild{"OrganizationSpecificTlv", exploratoryLinktraceReply.OrganizationSpecificTlv[i]})
     }
     exploratoryLinktraceReply.EntityData.Children.Append("unknown-tlv", types.YChild{"UnknownTlv", nil})
     for i := range exploratoryLinktraceReply.UnknownTlv {
+        types.SetYListKey(exploratoryLinktraceReply.UnknownTlv[i], i)
         exploratoryLinktraceReply.EntityData.Children.Append(types.GetSegmentPath(exploratoryLinktraceReply.UnknownTlv[i]), types.YChild{"UnknownTlv", exploratoryLinktraceReply.UnknownTlv[i]})
     }
     exploratoryLinktraceReply.EntityData.Leafs = types.NewOrderedMap()
@@ -4152,6 +4233,7 @@ func (header *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceRe
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "exploratory-linktrace-reply"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4198,6 +4280,7 @@ func (senderId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktrace
     senderId.EntityData.BundleName = "cisco_ios_xr"
     senderId.EntityData.ParentYangName = "exploratory-linktrace-reply"
     senderId.EntityData.SegmentPath = "sender-id"
+    senderId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/" + senderId.EntityData.SegmentPath
     senderId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     senderId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     senderId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4239,6 +4322,7 @@ func (chassisId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktrac
     chassisId.EntityData.BundleName = "cisco_ios_xr"
     chassisId.EntityData.ParentYangName = "sender-id"
     chassisId.EntityData.SegmentPath = "chassis-id"
+    chassisId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/sender-id/" + chassisId.EntityData.SegmentPath
     chassisId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4282,6 +4366,7 @@ func (chassisIdValue *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLin
     chassisIdValue.EntityData.BundleName = "cisco_ios_xr"
     chassisIdValue.EntityData.ParentYangName = "chassis-id"
     chassisIdValue.EntityData.SegmentPath = "chassis-id-value"
+    chassisIdValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/sender-id/chassis-id/" + chassisIdValue.EntityData.SegmentPath
     chassisIdValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisIdValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisIdValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4327,6 +4412,7 @@ func (replyIngress *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinkt
     replyIngress.EntityData.BundleName = "cisco_ios_xr"
     replyIngress.EntityData.ParentYangName = "exploratory-linktrace-reply"
     replyIngress.EntityData.SegmentPath = "reply-ingress"
+    replyIngress.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/" + replyIngress.EntityData.SegmentPath
     replyIngress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replyIngress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replyIngress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4364,6 +4450,7 @@ func (lastEgressId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinkt
     lastEgressId.EntityData.BundleName = "cisco_ios_xr"
     lastEgressId.EntityData.ParentYangName = "reply-ingress"
     lastEgressId.EntityData.SegmentPath = "last-egress-id"
+    lastEgressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/reply-ingress/" + lastEgressId.EntityData.SegmentPath
     lastEgressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastEgressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastEgressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4398,6 +4485,7 @@ func (nextEgressId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinkt
     nextEgressId.EntityData.BundleName = "cisco_ios_xr"
     nextEgressId.EntityData.ParentYangName = "reply-ingress"
     nextEgressId.EntityData.SegmentPath = "next-egress-id"
+    nextEgressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/reply-ingress/" + nextEgressId.EntityData.SegmentPath
     nextEgressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextEgressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextEgressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4438,6 +4526,7 @@ func (portId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceRe
     portId.EntityData.BundleName = "cisco_ios_xr"
     portId.EntityData.ParentYangName = "reply-ingress"
     portId.EntityData.SegmentPath = "port-id"
+    portId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/reply-ingress/" + portId.EntityData.SegmentPath
     portId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4481,6 +4570,7 @@ func (portIdValue *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktr
     portIdValue.EntityData.BundleName = "cisco_ios_xr"
     portIdValue.EntityData.ParentYangName = "port-id"
     portIdValue.EntityData.SegmentPath = "port-id-value"
+    portIdValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/reply-ingress/port-id/" + portIdValue.EntityData.SegmentPath
     portIdValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portIdValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portIdValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4526,6 +4616,7 @@ func (replyEgress *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktr
     replyEgress.EntityData.BundleName = "cisco_ios_xr"
     replyEgress.EntityData.ParentYangName = "exploratory-linktrace-reply"
     replyEgress.EntityData.SegmentPath = "reply-egress"
+    replyEgress.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/" + replyEgress.EntityData.SegmentPath
     replyEgress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replyEgress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replyEgress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4563,6 +4654,7 @@ func (lastEgressId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinkt
     lastEgressId.EntityData.BundleName = "cisco_ios_xr"
     lastEgressId.EntityData.ParentYangName = "reply-egress"
     lastEgressId.EntityData.SegmentPath = "last-egress-id"
+    lastEgressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/reply-egress/" + lastEgressId.EntityData.SegmentPath
     lastEgressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastEgressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastEgressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4597,6 +4689,7 @@ func (nextEgressId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinkt
     nextEgressId.EntityData.BundleName = "cisco_ios_xr"
     nextEgressId.EntityData.ParentYangName = "reply-egress"
     nextEgressId.EntityData.SegmentPath = "next-egress-id"
+    nextEgressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/reply-egress/" + nextEgressId.EntityData.SegmentPath
     nextEgressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextEgressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextEgressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4637,6 +4730,7 @@ func (portId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceRe
     portId.EntityData.BundleName = "cisco_ios_xr"
     portId.EntityData.ParentYangName = "reply-egress"
     portId.EntityData.SegmentPath = "port-id"
+    portId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/reply-egress/" + portId.EntityData.SegmentPath
     portId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4680,6 +4774,7 @@ func (portIdValue *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktr
     portIdValue.EntityData.BundleName = "cisco_ios_xr"
     portIdValue.EntityData.ParentYangName = "port-id"
     portIdValue.EntityData.SegmentPath = "port-id-value"
+    portIdValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/reply-egress/port-id/" + portIdValue.EntityData.SegmentPath
     portIdValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portIdValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portIdValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4718,6 +4813,7 @@ func (lastHop *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceR
     lastHop.EntityData.BundleName = "cisco_ios_xr"
     lastHop.EntityData.ParentYangName = "exploratory-linktrace-reply"
     lastHop.EntityData.SegmentPath = "last-hop"
+    lastHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/" + lastHop.EntityData.SegmentPath
     lastHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4753,6 +4849,7 @@ func (egressId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktrace
     egressId.EntityData.BundleName = "cisco_ios_xr"
     egressId.EntityData.ParentYangName = "last-hop"
     egressId.EntityData.SegmentPath = "egress-id"
+    egressId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/last-hop/" + egressId.EntityData.SegmentPath
     egressId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     egressId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4772,6 +4869,7 @@ func (egressId *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktrace
 type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_OrganizationSpecificTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Organizationally-unique ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -4790,7 +4888,8 @@ func (organizationSpecificTlv *Cfm_Global_TracerouteCaches_TracerouteCache_Explo
     organizationSpecificTlv.EntityData.YangName = "organization-specific-tlv"
     organizationSpecificTlv.EntityData.BundleName = "cisco_ios_xr"
     organizationSpecificTlv.EntityData.ParentYangName = "exploratory-linktrace-reply"
-    organizationSpecificTlv.EntityData.SegmentPath = "organization-specific-tlv"
+    organizationSpecificTlv.EntityData.SegmentPath = "organization-specific-tlv" + types.AddNoKeyToken(organizationSpecificTlv)
+    organizationSpecificTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/" + organizationSpecificTlv.EntityData.SegmentPath
     organizationSpecificTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     organizationSpecificTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     organizationSpecificTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4811,6 +4910,7 @@ func (organizationSpecificTlv *Cfm_Global_TracerouteCaches_TracerouteCache_Explo
 type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_UnknownTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type code of TLV. The type is interface{} with range: 0..255.
     Typecode interface{}
@@ -4825,7 +4925,8 @@ func (unknownTlv *Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktra
     unknownTlv.EntityData.YangName = "unknown-tlv"
     unknownTlv.EntityData.BundleName = "cisco_ios_xr"
     unknownTlv.EntityData.ParentYangName = "exploratory-linktrace-reply"
-    unknownTlv.EntityData.SegmentPath = "unknown-tlv"
+    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddNoKeyToken(unknownTlv)
+    unknownTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/traceroute-cache/exploratory-linktrace-reply/" + unknownTlv.EntityData.SegmentPath
     unknownTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4857,6 +4958,7 @@ func (localMeps *Cfm_Global_LocalMeps) GetEntityData() *types.CommonEntityData {
     localMeps.EntityData.BundleName = "cisco_ios_xr"
     localMeps.EntityData.ParentYangName = "global"
     localMeps.EntityData.SegmentPath = "local-meps"
+    localMeps.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/" + localMeps.EntityData.SegmentPath
     localMeps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localMeps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localMeps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4878,6 +4980,7 @@ func (localMeps *Cfm_Global_LocalMeps) GetEntityData() *types.CommonEntityData {
 type Cfm_Global_LocalMeps_LocalMep struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -5011,6 +5114,7 @@ func (localMep *Cfm_Global_LocalMeps_LocalMep) GetEntityData() *types.CommonEnti
     localMep.EntityData.BundleName = "cisco_ios_xr"
     localMep.EntityData.ParentYangName = "local-meps"
     localMep.EntityData.SegmentPath = "local-mep" + types.AddKeyToken(localMep.Domain, "domain") + types.AddKeyToken(localMep.Service, "service") + types.AddKeyToken(localMep.MepId, "mep-id") + types.AddKeyToken(localMep.Interface, "interface")
+    localMep.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/" + localMep.EntityData.SegmentPath
     localMep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localMep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localMep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5185,6 +5289,7 @@ func (statistics *Cfm_Global_LocalMeps_LocalMep_Statistics) GetEntityData() *typ
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "local-mep"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/local-mep/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5264,6 +5369,7 @@ func (aisStatistics *Cfm_Global_LocalMeps_LocalMep_AisStatistics) GetEntityData(
     aisStatistics.EntityData.BundleName = "cisco_ios_xr"
     aisStatistics.EntityData.ParentYangName = "local-mep"
     aisStatistics.EntityData.SegmentPath = "ais-statistics"
+    aisStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/local-mep/" + aisStatistics.EntityData.SegmentPath
     aisStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aisStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aisStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5305,6 +5411,7 @@ func (sendingStart *Cfm_Global_LocalMeps_LocalMep_AisStatistics_SendingStart) Ge
     sendingStart.EntityData.BundleName = "cisco_ios_xr"
     sendingStart.EntityData.ParentYangName = "ais-statistics"
     sendingStart.EntityData.SegmentPath = "sending-start"
+    sendingStart.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/local-mep/ais-statistics/" + sendingStart.EntityData.SegmentPath
     sendingStart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sendingStart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sendingStart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5340,6 +5447,7 @@ func (receivingStart *Cfm_Global_LocalMeps_LocalMep_AisStatistics_ReceivingStart
     receivingStart.EntityData.BundleName = "cisco_ios_xr"
     receivingStart.EntityData.ParentYangName = "ais-statistics"
     receivingStart.EntityData.SegmentPath = "receiving-start"
+    receivingStart.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/local-mep/ais-statistics/" + receivingStart.EntityData.SegmentPath
     receivingStart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     receivingStart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     receivingStart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5395,6 +5503,7 @@ func (defects *Cfm_Global_LocalMeps_LocalMep_Defects) GetEntityData() *types.Com
     defects.EntityData.BundleName = "cisco_ios_xr"
     defects.EntityData.ParentYangName = "local-mep"
     defects.EntityData.SegmentPath = "defects"
+    defects.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/local-mep/" + defects.EntityData.SegmentPath
     defects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5449,6 +5558,7 @@ func (remoteMepsDefects *Cfm_Global_LocalMeps_LocalMep_Defects_RemoteMepsDefects
     remoteMepsDefects.EntityData.BundleName = "cisco_ios_xr"
     remoteMepsDefects.EntityData.ParentYangName = "defects"
     remoteMepsDefects.EntityData.SegmentPath = "remote-meps-defects"
+    remoteMepsDefects.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/local-mep/defects/" + remoteMepsDefects.EntityData.SegmentPath
     remoteMepsDefects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteMepsDefects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteMepsDefects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5485,6 +5595,7 @@ func (peerMePv2s *Cfm_Global_PeerMePv2s) GetEntityData() *types.CommonEntityData
     peerMePv2s.EntityData.BundleName = "cisco_ios_xr"
     peerMePv2s.EntityData.ParentYangName = "global"
     peerMePv2s.EntityData.SegmentPath = "peer-me-pv2s"
+    peerMePv2s.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/" + peerMePv2s.EntityData.SegmentPath
     peerMePv2s.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerMePv2s.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerMePv2s.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5507,6 +5618,7 @@ func (peerMePv2s *Cfm_Global_PeerMePv2s) GetEntityData() *types.CommonEntityData
 type Cfm_Global_PeerMePv2s_PeerMePv2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
     // length: 1..79.
@@ -5563,6 +5675,7 @@ func (peerMePv2 *Cfm_Global_PeerMePv2s_PeerMePv2) GetEntityData() *types.CommonE
     peerMePv2.EntityData.BundleName = "cisco_ios_xr"
     peerMePv2.EntityData.ParentYangName = "peer-me-pv2s"
     peerMePv2.EntityData.SegmentPath = "peer-me-pv2" + types.AddKeyToken(peerMePv2.Domain, "domain") + types.AddKeyToken(peerMePv2.Service, "service") + types.AddKeyToken(peerMePv2.LocalMepId, "local-mep-id") + types.AddKeyToken(peerMePv2.Interface, "interface") + types.AddKeyToken(peerMePv2.PeerMepId, "peer-mep-id") + types.AddKeyToken(peerMePv2.PeerMacAddress, "peer-mac-address")
+    peerMePv2.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/" + peerMePv2.EntityData.SegmentPath
     peerMePv2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerMePv2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerMePv2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5630,6 +5743,7 @@ func (peerMep *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep) GetEntityData() *types.C
     peerMep.EntityData.BundleName = "cisco_ios_xr"
     peerMep.EntityData.ParentYangName = "peer-me-pv2"
     peerMep.EntityData.SegmentPath = "peer-mep"
+    peerMep.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/" + peerMep.EntityData.SegmentPath
     peerMep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerMep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerMep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5685,6 +5799,7 @@ func (errorState *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_ErrorState) GetEntityD
     errorState.EntityData.BundleName = "cisco_ios_xr"
     errorState.EntityData.ParentYangName = "peer-mep"
     errorState.EntityData.SegmentPath = "error-state"
+    errorState.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/" + errorState.EntityData.SegmentPath
     errorState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     errorState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     errorState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5726,6 +5841,7 @@ func (lastUpDownTime *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastUpDownTime) Ge
     lastUpDownTime.EntityData.BundleName = "cisco_ios_xr"
     lastUpDownTime.EntityData.ParentYangName = "peer-mep"
     lastUpDownTime.EntityData.SegmentPath = "last-up-down-time"
+    lastUpDownTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/" + lastUpDownTime.EntityData.SegmentPath
     lastUpDownTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastUpDownTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastUpDownTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5783,6 +5899,7 @@ func (lastCcmReceived *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived) 
     lastCcmReceived.EntityData.BundleName = "cisco_ios_xr"
     lastCcmReceived.EntityData.ParentYangName = "peer-mep"
     lastCcmReceived.EntityData.SegmentPath = "last-ccm-received"
+    lastCcmReceived.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/" + lastCcmReceived.EntityData.SegmentPath
     lastCcmReceived.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastCcmReceived.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastCcmReceived.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5793,10 +5910,12 @@ func (lastCcmReceived *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived) 
     lastCcmReceived.EntityData.Children.Append("mep-name", types.YChild{"MepName", &lastCcmReceived.MepName})
     lastCcmReceived.EntityData.Children.Append("organization-specific-tlv", types.YChild{"OrganizationSpecificTlv", nil})
     for i := range lastCcmReceived.OrganizationSpecificTlv {
+        types.SetYListKey(lastCcmReceived.OrganizationSpecificTlv[i], i)
         lastCcmReceived.EntityData.Children.Append(types.GetSegmentPath(lastCcmReceived.OrganizationSpecificTlv[i]), types.YChild{"OrganizationSpecificTlv", lastCcmReceived.OrganizationSpecificTlv[i]})
     }
     lastCcmReceived.EntityData.Children.Append("unknown-tlv", types.YChild{"UnknownTlv", nil})
     for i := range lastCcmReceived.UnknownTlv {
+        types.SetYListKey(lastCcmReceived.UnknownTlv[i], i)
         lastCcmReceived.EntityData.Children.Append(types.GetSegmentPath(lastCcmReceived.UnknownTlv[i]), types.YChild{"UnknownTlv", lastCcmReceived.UnknownTlv[i]})
     }
     lastCcmReceived.EntityData.Leafs = types.NewOrderedMap()
@@ -5853,6 +5972,7 @@ func (header *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Header) Ge
     header.EntityData.BundleName = "cisco_ios_xr"
     header.EntityData.ParentYangName = "last-ccm-received"
     header.EntityData.SegmentPath = "header"
+    header.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/" + header.EntityData.SegmentPath
     header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5904,6 +6024,7 @@ func (mdid *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Header_Mdid)
     mdid.EntityData.BundleName = "cisco_ios_xr"
     mdid.EntityData.ParentYangName = "header"
     mdid.EntityData.SegmentPath = "mdid"
+    mdid.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/header/" + mdid.EntityData.SegmentPath
     mdid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mdid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mdid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5941,6 +6062,7 @@ func (macName *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Header_Md
     macName.EntityData.BundleName = "cisco_ios_xr"
     macName.EntityData.ParentYangName = "mdid"
     macName.EntityData.SegmentPath = "mac-name"
+    macName.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/header/mdid/" + macName.EntityData.SegmentPath
     macName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5990,6 +6112,7 @@ func (shortMaName *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Heade
     shortMaName.EntityData.BundleName = "cisco_ios_xr"
     shortMaName.EntityData.ParentYangName = "header"
     shortMaName.EntityData.SegmentPath = "short-ma-name"
+    shortMaName.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/header/" + shortMaName.EntityData.SegmentPath
     shortMaName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shortMaName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shortMaName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6029,6 +6152,7 @@ func (vpnIdName *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Header_
     vpnIdName.EntityData.BundleName = "cisco_ios_xr"
     vpnIdName.EntityData.ParentYangName = "short-ma-name"
     vpnIdName.EntityData.SegmentPath = "vpn-id-name"
+    vpnIdName.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/header/short-ma-name/" + vpnIdName.EntityData.SegmentPath
     vpnIdName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpnIdName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpnIdName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6067,6 +6191,7 @@ func (senderId *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_SenderId
     senderId.EntityData.BundleName = "cisco_ios_xr"
     senderId.EntityData.ParentYangName = "last-ccm-received"
     senderId.EntityData.SegmentPath = "sender-id"
+    senderId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/" + senderId.EntityData.SegmentPath
     senderId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     senderId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     senderId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6108,6 +6233,7 @@ func (chassisId *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_SenderI
     chassisId.EntityData.BundleName = "cisco_ios_xr"
     chassisId.EntityData.ParentYangName = "sender-id"
     chassisId.EntityData.SegmentPath = "chassis-id"
+    chassisId.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/sender-id/" + chassisId.EntityData.SegmentPath
     chassisId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6151,6 +6277,7 @@ func (chassisIdValue *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Se
     chassisIdValue.EntityData.BundleName = "cisco_ios_xr"
     chassisIdValue.EntityData.ParentYangName = "chassis-id"
     chassisIdValue.EntityData.SegmentPath = "chassis-id-value"
+    chassisIdValue.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/sender-id/chassis-id/" + chassisIdValue.EntityData.SegmentPath
     chassisIdValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     chassisIdValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     chassisIdValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6183,6 +6310,7 @@ func (mepName *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_MepName) 
     mepName.EntityData.BundleName = "cisco_ios_xr"
     mepName.EntityData.ParentYangName = "last-ccm-received"
     mepName.EntityData.SegmentPath = "mep-name"
+    mepName.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/" + mepName.EntityData.SegmentPath
     mepName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mepName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mepName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6201,6 +6329,7 @@ func (mepName *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_MepName) 
 type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_OrganizationSpecificTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Organizationally-unique ID. The type is string with pattern:
     // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
@@ -6219,7 +6348,8 @@ func (organizationSpecificTlv *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmRe
     organizationSpecificTlv.EntityData.YangName = "organization-specific-tlv"
     organizationSpecificTlv.EntityData.BundleName = "cisco_ios_xr"
     organizationSpecificTlv.EntityData.ParentYangName = "last-ccm-received"
-    organizationSpecificTlv.EntityData.SegmentPath = "organization-specific-tlv"
+    organizationSpecificTlv.EntityData.SegmentPath = "organization-specific-tlv" + types.AddNoKeyToken(organizationSpecificTlv)
+    organizationSpecificTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/" + organizationSpecificTlv.EntityData.SegmentPath
     organizationSpecificTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     organizationSpecificTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     organizationSpecificTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6240,6 +6370,7 @@ func (organizationSpecificTlv *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmRe
 type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_UnknownTlv struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type code of TLV. The type is interface{} with range: 0..255.
     Typecode interface{}
@@ -6254,7 +6385,8 @@ func (unknownTlv *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Unknow
     unknownTlv.EntityData.YangName = "unknown-tlv"
     unknownTlv.EntityData.BundleName = "cisco_ios_xr"
     unknownTlv.EntityData.ParentYangName = "last-ccm-received"
-    unknownTlv.EntityData.SegmentPath = "unknown-tlv"
+    unknownTlv.EntityData.SegmentPath = "unknown-tlv" + types.AddNoKeyToken(unknownTlv)
+    unknownTlv.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/last-ccm-received/" + unknownTlv.EntityData.SegmentPath
     unknownTlv.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownTlv.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownTlv.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6321,6 +6453,7 @@ func (statistics *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_Statistics) GetEntityD
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "peer-mep"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6364,6 +6497,7 @@ func (lastCcmReceivedTime *Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_Statistics_La
     lastCcmReceivedTime.EntityData.BundleName = "cisco_ios_xr"
     lastCcmReceivedTime.EntityData.ParentYangName = "statistics"
     lastCcmReceivedTime.EntityData.SegmentPath = "last-ccm-received-time"
+    lastCcmReceivedTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/peer-me-pv2/peer-mep/statistics/" + lastCcmReceivedTime.EntityData.SegmentPath
     lastCcmReceivedTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastCcmReceivedTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastCcmReceivedTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

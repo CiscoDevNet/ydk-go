@@ -40,6 +40,7 @@ func (masterKeyAdd *MasterKeyAdd) GetEntityData() *types.CommonEntityData {
     masterKeyAdd.EntityData.BundleName = "cisco_ios_xr"
     masterKeyAdd.EntityData.ParentYangName = "Cisco-IOS-XR-lib-keychain-act"
     masterKeyAdd.EntityData.SegmentPath = "Cisco-IOS-XR-lib-keychain-act:master-key-add"
+    masterKeyAdd.EntityData.AbsolutePath = masterKeyAdd.EntityData.SegmentPath
     masterKeyAdd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     masterKeyAdd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     masterKeyAdd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -68,6 +69,7 @@ func (input *MasterKeyAdd_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "master-key-add"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-act:master-key-add/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +96,7 @@ func (masterKeyDelete *MasterKeyDelete) GetEntityData() *types.CommonEntityData 
     masterKeyDelete.EntityData.BundleName = "cisco_ios_xr"
     masterKeyDelete.EntityData.ParentYangName = "Cisco-IOS-XR-lib-keychain-act"
     masterKeyDelete.EntityData.SegmentPath = "Cisco-IOS-XR-lib-keychain-act:master-key-delete"
+    masterKeyDelete.EntityData.AbsolutePath = masterKeyDelete.EntityData.SegmentPath
     masterKeyDelete.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     masterKeyDelete.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     masterKeyDelete.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -122,6 +125,7 @@ func (masterKeyUpdate *MasterKeyUpdate) GetEntityData() *types.CommonEntityData 
     masterKeyUpdate.EntityData.BundleName = "cisco_ios_xr"
     masterKeyUpdate.EntityData.ParentYangName = "Cisco-IOS-XR-lib-keychain-act"
     masterKeyUpdate.EntityData.SegmentPath = "Cisco-IOS-XR-lib-keychain-act:master-key-update"
+    masterKeyUpdate.EntityData.AbsolutePath = masterKeyUpdate.EntityData.SegmentPath
     masterKeyUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     masterKeyUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     masterKeyUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -155,6 +159,7 @@ func (input *MasterKeyUpdate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "master-key-update"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-lib-keychain-act:master-key-update/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

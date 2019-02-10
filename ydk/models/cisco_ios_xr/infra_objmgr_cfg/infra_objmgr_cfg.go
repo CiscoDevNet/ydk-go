@@ -385,6 +385,7 @@ func (objectGroup *ObjectGroup) GetEntityData() *types.CommonEntityData {
     objectGroup.EntityData.BundleName = "cisco_ios_xr"
     objectGroup.EntityData.ParentYangName = "Cisco-IOS-XR-infra-objmgr-cfg"
     objectGroup.EntityData.SegmentPath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group"
+    objectGroup.EntityData.AbsolutePath = objectGroup.EntityData.SegmentPath
     objectGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     objectGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     objectGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -415,6 +416,7 @@ func (port *ObjectGroup_Port) GetEntityData() *types.CommonEntityData {
     port.EntityData.BundleName = "cisco_ios_xr"
     port.EntityData.ParentYangName = "object-group"
     port.EntityData.SegmentPath = "port"
+    port.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/" + port.EntityData.SegmentPath
     port.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     port.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     port.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -445,6 +447,7 @@ func (udfObjects *ObjectGroup_Port_UdfObjects) GetEntityData() *types.CommonEnti
     udfObjects.EntityData.BundleName = "cisco_ios_xr"
     udfObjects.EntityData.ParentYangName = "port"
     udfObjects.EntityData.SegmentPath = "udf-objects"
+    udfObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/" + udfObjects.EntityData.SegmentPath
     udfObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -466,6 +469,7 @@ func (udfObjects *ObjectGroup_Port_UdfObjects) GetEntityData() *types.CommonEnti
 type ObjectGroup_Port_UdfObjects_UdfObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port object group name - maximum 64 characters.
     // The type is string with length: 1..64.
@@ -491,6 +495,7 @@ func (udfObject *ObjectGroup_Port_UdfObjects_UdfObject) GetEntityData() *types.C
     udfObject.EntityData.BundleName = "cisco_ios_xr"
     udfObject.EntityData.ParentYangName = "udf-objects"
     udfObject.EntityData.SegmentPath = "udf-object" + types.AddKeyToken(udfObject.ObjectName, "object-name")
+    udfObject.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/udf-objects/" + udfObject.EntityData.SegmentPath
     udfObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -525,6 +530,7 @@ func (operators *ObjectGroup_Port_UdfObjects_UdfObject_Operators) GetEntityData(
     operators.EntityData.BundleName = "cisco_ios_xr"
     operators.EntityData.ParentYangName = "udf-object"
     operators.EntityData.SegmentPath = "operators"
+    operators.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/udf-objects/udf-object/" + operators.EntityData.SegmentPath
     operators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +552,7 @@ func (operators *ObjectGroup_Port_UdfObjects_UdfObject_Operators) GetEntityData(
 type ObjectGroup_Port_UdfObjects_UdfObject_Operators_Operator struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. operation for ports. The type is PortOperator.
     OperatorType interface{}
@@ -561,6 +568,7 @@ func (operator *ObjectGroup_Port_UdfObjects_UdfObject_Operators_Operator) GetEnt
     operator.EntityData.BundleName = "cisco_ios_xr"
     operator.EntityData.ParentYangName = "operators"
     operator.EntityData.SegmentPath = "operator" + types.AddKeyToken(operator.OperatorType, "operator-type") + types.AddKeyToken(operator.Port, "port")
+    operator.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/udf-objects/udf-object/operators/" + operator.EntityData.SegmentPath
     operator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -592,6 +600,7 @@ func (nestedGroups *ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups) GetEntit
     nestedGroups.EntityData.BundleName = "cisco_ios_xr"
     nestedGroups.EntityData.ParentYangName = "udf-object"
     nestedGroups.EntityData.SegmentPath = "nested-groups"
+    nestedGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/udf-objects/udf-object/" + nestedGroups.EntityData.SegmentPath
     nestedGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -613,6 +622,7 @@ func (nestedGroups *ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups) GetEntit
 type ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups_NestedGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of a nested object group. The type is string
     // with length: 1..64.
@@ -625,6 +635,7 @@ func (nestedGroup *ObjectGroup_Port_UdfObjects_UdfObject_NestedGroups_NestedGrou
     nestedGroup.EntityData.BundleName = "cisco_ios_xr"
     nestedGroup.EntityData.ParentYangName = "nested-groups"
     nestedGroup.EntityData.SegmentPath = "nested-group" + types.AddKeyToken(nestedGroup.NestedGroupName, "nested-group-name")
+    nestedGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/udf-objects/udf-object/nested-groups/" + nestedGroup.EntityData.SegmentPath
     nestedGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -655,6 +666,7 @@ func (portRanges *ObjectGroup_Port_UdfObjects_UdfObject_PortRanges) GetEntityDat
     portRanges.EntityData.BundleName = "cisco_ios_xr"
     portRanges.EntityData.ParentYangName = "udf-object"
     portRanges.EntityData.SegmentPath = "port-ranges"
+    portRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/udf-objects/udf-object/" + portRanges.EntityData.SegmentPath
     portRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -676,6 +688,7 @@ func (portRanges *ObjectGroup_Port_UdfObjects_UdfObject_PortRanges) GetEntityDat
 type ObjectGroup_Port_UdfObjects_UdfObject_PortRanges_PortRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port number. The type is one of the following
     // types: enumeration StartPort, or int with range: 0..65535.
@@ -692,6 +705,7 @@ func (portRange *ObjectGroup_Port_UdfObjects_UdfObject_PortRanges_PortRange) Get
     portRange.EntityData.BundleName = "cisco_ios_xr"
     portRange.EntityData.ParentYangName = "port-ranges"
     portRange.EntityData.SegmentPath = "port-range" + types.AddKeyToken(portRange.StartPort, "start-port") + types.AddKeyToken(portRange.EndPort, "end-port")
+    portRange.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/udf-objects/udf-object/port-ranges/" + portRange.EntityData.SegmentPath
     portRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -725,6 +739,7 @@ func (network *ObjectGroup_Network) GetEntityData() *types.CommonEntityData {
     network.EntityData.BundleName = "cisco_ios_xr"
     network.EntityData.ParentYangName = "object-group"
     network.EntityData.SegmentPath = "network"
+    network.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/" + network.EntityData.SegmentPath
     network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -755,6 +770,7 @@ func (ipv6 *ObjectGroup_Network_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "network"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -785,6 +801,7 @@ func (udfObjects *ObjectGroup_Network_Ipv6_UdfObjects) GetEntityData() *types.Co
     udfObjects.EntityData.BundleName = "cisco_ios_xr"
     udfObjects.EntityData.ParentYangName = "ipv6"
     udfObjects.EntityData.SegmentPath = "udf-objects"
+    udfObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/" + udfObjects.EntityData.SegmentPath
     udfObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -806,6 +823,7 @@ func (udfObjects *ObjectGroup_Network_Ipv6_UdfObjects) GetEntityData() *types.Co
 type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 object group name - maximum 64 characters.
     // The type is string with length: 1..64.
@@ -834,6 +852,7 @@ func (udfObject *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject) GetEntityData() 
     udfObject.EntityData.BundleName = "cisco_ios_xr"
     udfObject.EntityData.ParentYangName = "udf-objects"
     udfObject.EntityData.SegmentPath = "udf-object" + types.AddKeyToken(udfObject.ObjectName, "object-name")
+    udfObject.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/" + udfObject.EntityData.SegmentPath
     udfObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -869,6 +888,7 @@ func (nestedGroups *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups) 
     nestedGroups.EntityData.BundleName = "cisco_ios_xr"
     nestedGroups.EntityData.ParentYangName = "udf-object"
     nestedGroups.EntityData.SegmentPath = "nested-groups"
+    nestedGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/udf-object/" + nestedGroups.EntityData.SegmentPath
     nestedGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -890,6 +910,7 @@ func (nestedGroups *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups) 
 type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups_NestedGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter the name of a nested object group. The type
     // is string with length: 1..64.
@@ -902,6 +923,7 @@ func (nestedGroup *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_NestedGroups_Ne
     nestedGroup.EntityData.BundleName = "cisco_ios_xr"
     nestedGroup.EntityData.ParentYangName = "nested-groups"
     nestedGroup.EntityData.SegmentPath = "nested-group" + types.AddKeyToken(nestedGroup.NestedGroupName, "nested-group-name")
+    nestedGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/udf-object/nested-groups/" + nestedGroup.EntityData.SegmentPath
     nestedGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -932,6 +954,7 @@ func (addressRanges *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges
     addressRanges.EntityData.BundleName = "cisco_ios_xr"
     addressRanges.EntityData.ParentYangName = "udf-object"
     addressRanges.EntityData.SegmentPath = "address-ranges"
+    addressRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/udf-object/" + addressRanges.EntityData.SegmentPath
     addressRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -953,6 +976,7 @@ func (addressRanges *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges
 type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges_AddressRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -969,6 +993,7 @@ func (addressRange *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_AddressRanges_
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
     addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address") + types.AddKeyToken(addressRange.EndAddress, "end-address")
+    addressRange.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/udf-object/address-ranges/" + addressRange.EntityData.SegmentPath
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1000,6 +1025,7 @@ func (addresses *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses) GetEnt
     addresses.EntityData.BundleName = "cisco_ios_xr"
     addresses.EntityData.ParentYangName = "udf-object"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/udf-object/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1021,6 +1047,7 @@ func (addresses *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses) GetEnt
 type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv6 prefix x:x::x/y. The type is string with
     // pattern:
@@ -1038,6 +1065,7 @@ func (address *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Addresses_Address) 
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Prefix, "prefix") + types.AddKeyToken(address.PrefixLength, "prefix-length")
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/udf-object/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1069,6 +1097,7 @@ func (hosts *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts) GetEntityData(
     hosts.EntityData.BundleName = "cisco_ios_xr"
     hosts.EntityData.ParentYangName = "udf-object"
     hosts.EntityData.SegmentPath = "hosts"
+    hosts.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/udf-object/" + hosts.EntityData.SegmentPath
     hosts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1090,6 +1119,7 @@ func (hosts *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts) GetEntityData(
 type ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts_Host struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. host ipv6 address. The type is string with
     // pattern:
@@ -1103,6 +1133,7 @@ func (host *ObjectGroup_Network_Ipv6_UdfObjects_UdfObject_Hosts_Host) GetEntityD
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "hosts"
     host.EntityData.SegmentPath = "host" + types.AddKeyToken(host.HostAddress, "host-address")
+    host.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/udf-object/hosts/" + host.EntityData.SegmentPath
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1132,6 +1163,7 @@ func (ipv4 *ObjectGroup_Network_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "network"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1162,6 +1194,7 @@ func (udfObjects *ObjectGroup_Network_Ipv4_UdfObjects) GetEntityData() *types.Co
     udfObjects.EntityData.BundleName = "cisco_ios_xr"
     udfObjects.EntityData.ParentYangName = "ipv4"
     udfObjects.EntityData.SegmentPath = "udf-objects"
+    udfObjects.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/" + udfObjects.EntityData.SegmentPath
     udfObjects.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObjects.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObjects.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1183,6 +1216,7 @@ func (udfObjects *ObjectGroup_Network_Ipv4_UdfObjects) GetEntityData() *types.Co
 type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 object group name - maximum 64 characters.
     // The type is string with length: 1..64.
@@ -1211,6 +1245,7 @@ func (udfObject *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject) GetEntityData() 
     udfObject.EntityData.BundleName = "cisco_ios_xr"
     udfObject.EntityData.ParentYangName = "udf-objects"
     udfObject.EntityData.SegmentPath = "udf-object" + types.AddKeyToken(udfObject.ObjectName, "object-name")
+    udfObject.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/" + udfObject.EntityData.SegmentPath
     udfObject.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     udfObject.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     udfObject.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1246,6 +1281,7 @@ func (nestedGroups *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups) 
     nestedGroups.EntityData.BundleName = "cisco_ios_xr"
     nestedGroups.EntityData.ParentYangName = "udf-object"
     nestedGroups.EntityData.SegmentPath = "nested-groups"
+    nestedGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/udf-object/" + nestedGroups.EntityData.SegmentPath
     nestedGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1267,6 +1303,7 @@ func (nestedGroups *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups) 
 type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups_NestedGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Nested object group. The type is string with
     // length: 1..64.
@@ -1279,6 +1316,7 @@ func (nestedGroup *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_NestedGroups_Ne
     nestedGroup.EntityData.BundleName = "cisco_ios_xr"
     nestedGroup.EntityData.ParentYangName = "nested-groups"
     nestedGroup.EntityData.SegmentPath = "nested-group" + types.AddKeyToken(nestedGroup.NestedGroupName, "nested-group-name")
+    nestedGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/udf-object/nested-groups/" + nestedGroup.EntityData.SegmentPath
     nestedGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nestedGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nestedGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1309,6 +1347,7 @@ func (addressRanges *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges
     addressRanges.EntityData.BundleName = "cisco_ios_xr"
     addressRanges.EntityData.ParentYangName = "udf-object"
     addressRanges.EntityData.SegmentPath = "address-ranges"
+    addressRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/udf-object/" + addressRanges.EntityData.SegmentPath
     addressRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1330,6 +1369,7 @@ func (addressRanges *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges
 type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges_AddressRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -1346,6 +1386,7 @@ func (addressRange *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_AddressRanges_
     addressRange.EntityData.BundleName = "cisco_ios_xr"
     addressRange.EntityData.ParentYangName = "address-ranges"
     addressRange.EntityData.SegmentPath = "address-range" + types.AddKeyToken(addressRange.StartAddress, "start-address") + types.AddKeyToken(addressRange.EndAddress, "end-address")
+    addressRange.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/udf-object/address-ranges/" + addressRange.EntityData.SegmentPath
     addressRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1377,6 +1418,7 @@ func (addresses *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses) GetEnt
     addresses.EntityData.BundleName = "cisco_ios_xr"
     addresses.EntityData.ParentYangName = "udf-object"
     addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/udf-object/" + addresses.EntityData.SegmentPath
     addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1398,6 +1440,7 @@ func (addresses *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses) GetEnt
 type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IPv4 address/prefix. The type is string with
     // pattern:
@@ -1415,6 +1458,7 @@ func (address *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Addresses_Address) 
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "addresses"
     address.EntityData.SegmentPath = "address" + types.AddKeyToken(address.Prefix, "prefix") + types.AddKeyToken(address.PrefixLength, "prefix-length")
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/udf-object/addresses/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1446,6 +1490,7 @@ func (hosts *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts) GetEntityData(
     hosts.EntityData.BundleName = "cisco_ios_xr"
     hosts.EntityData.ParentYangName = "udf-object"
     hosts.EntityData.SegmentPath = "hosts"
+    hosts.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/udf-object/" + hosts.EntityData.SegmentPath
     hosts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hosts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hosts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1467,6 +1512,7 @@ func (hosts *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts) GetEntityData(
 type ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts_Host struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Host ipv4 address. The type is string with
     // pattern:
@@ -1480,6 +1526,7 @@ func (host *ObjectGroup_Network_Ipv4_UdfObjects_UdfObject_Hosts_Host) GetEntityD
     host.EntityData.BundleName = "cisco_ios_xr"
     host.EntityData.ParentYangName = "hosts"
     host.EntityData.SegmentPath = "host" + types.AddKeyToken(host.HostAddress, "host-address")
+    host.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/udf-object/hosts/" + host.EntityData.SegmentPath
     host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

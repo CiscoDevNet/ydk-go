@@ -40,6 +40,7 @@ func (pppoeEa *PppoeEa) GetEntityData() *types.CommonEntityData {
     pppoeEa.EntityData.BundleName = "cisco_ios_xr"
     pppoeEa.EntityData.ParentYangName = "Cisco-IOS-XR-pppoe-ea-oper"
     pppoeEa.EntityData.SegmentPath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea"
+    pppoeEa.EntityData.AbsolutePath = pppoeEa.EntityData.SegmentPath
     pppoeEa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoeEa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoeEa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (nodes *PppoeEa_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "pppoe-ea"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +93,7 @@ func (nodes *PppoeEa_Nodes) GetEntityData() *types.CommonEntityData {
 type PppoeEa_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -109,6 +112,7 @@ func (node *PppoeEa_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -141,6 +145,7 @@ func (parentInterfaceIds *PppoeEa_Nodes_Node_ParentInterfaceIds) GetEntityData()
     parentInterfaceIds.EntityData.BundleName = "cisco_ios_xr"
     parentInterfaceIds.EntityData.ParentYangName = "node"
     parentInterfaceIds.EntityData.SegmentPath = "parent-interface-ids"
+    parentInterfaceIds.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/node/" + parentInterfaceIds.EntityData.SegmentPath
     parentInterfaceIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parentInterfaceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentInterfaceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -162,6 +167,7 @@ func (parentInterfaceIds *PppoeEa_Nodes_Node_ParentInterfaceIds) GetEntityData()
 type PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -183,6 +189,7 @@ func (parentInterfaceId *PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId
     parentInterfaceId.EntityData.BundleName = "cisco_ios_xr"
     parentInterfaceId.EntityData.ParentYangName = "parent-interface-ids"
     parentInterfaceId.EntityData.SegmentPath = "parent-interface-id" + types.AddKeyToken(parentInterfaceId.ParentInterfaceName, "parent-interface-name")
+    parentInterfaceId.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/node/parent-interface-ids/" + parentInterfaceId.EntityData.SegmentPath
     parentInterfaceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parentInterfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parentInterfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -216,6 +223,7 @@ func (srgvMac *PppoeEa_Nodes_Node_ParentInterfaceIds_ParentInterfaceId_SrgvMac) 
     srgvMac.EntityData.BundleName = "cisco_ios_xr"
     srgvMac.EntityData.ParentYangName = "parent-interface-id"
     srgvMac.EntityData.SegmentPath = "srgv-mac"
+    srgvMac.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/node/parent-interface-ids/parent-interface-id/" + srgvMac.EntityData.SegmentPath
     srgvMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srgvMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srgvMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -246,6 +254,7 @@ func (interfaceIds *PppoeEa_Nodes_Node_InterfaceIds) GetEntityData() *types.Comm
     interfaceIds.EntityData.BundleName = "cisco_ios_xr"
     interfaceIds.EntityData.ParentYangName = "node"
     interfaceIds.EntityData.SegmentPath = "interface-ids"
+    interfaceIds.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/node/" + interfaceIds.EntityData.SegmentPath
     interfaceIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +276,7 @@ func (interfaceIds *PppoeEa_Nodes_Node_InterfaceIds) GetEntityData() *types.Comm
 type PppoeEa_Nodes_Node_InterfaceIds_InterfaceId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -312,6 +322,7 @@ func (interfaceId *PppoeEa_Nodes_Node_InterfaceIds_InterfaceId) GetEntityData() 
     interfaceId.EntityData.BundleName = "cisco_ios_xr"
     interfaceId.EntityData.ParentYangName = "interface-ids"
     interfaceId.EntityData.SegmentPath = "interface-id" + types.AddKeyToken(interfaceId.InterfaceName, "interface-name")
+    interfaceId.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/node/interface-ids/" + interfaceId.EntityData.SegmentPath
     interfaceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -353,6 +364,7 @@ func (peerMac *PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_PeerMac) GetEntityDat
     peerMac.EntityData.BundleName = "cisco_ios_xr"
     peerMac.EntityData.ParentYangName = "interface-id"
     peerMac.EntityData.SegmentPath = "peer-mac"
+    peerMac.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/node/interface-ids/interface-id/" + peerMac.EntityData.SegmentPath
     peerMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peerMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peerMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -383,6 +395,7 @@ func (localMac *PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_LocalMac) GetEntityD
     localMac.EntityData.BundleName = "cisco_ios_xr"
     localMac.EntityData.ParentYangName = "interface-id"
     localMac.EntityData.SegmentPath = "local-mac"
+    localMac.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/node/interface-ids/interface-id/" + localMac.EntityData.SegmentPath
     localMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -413,6 +426,7 @@ func (srgvMac *PppoeEa_Nodes_Node_InterfaceIds_InterfaceId_SrgvMac) GetEntityDat
     srgvMac.EntityData.BundleName = "cisco_ios_xr"
     srgvMac.EntityData.ParentYangName = "interface-id"
     srgvMac.EntityData.SegmentPath = "srgv-mac"
+    srgvMac.EntityData.AbsolutePath = "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/node/interface-ids/interface-id/" + srgvMac.EntityData.SegmentPath
     srgvMac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srgvMac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srgvMac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

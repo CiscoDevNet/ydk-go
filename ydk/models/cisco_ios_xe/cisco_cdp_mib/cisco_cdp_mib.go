@@ -51,6 +51,7 @@ func (cISCOCDPMIB *CISCOCDPMIB) GetEntityData() *types.CommonEntityData {
     cISCOCDPMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOCDPMIB.EntityData.ParentYangName = "CISCO-CDP-MIB"
     cISCOCDPMIB.EntityData.SegmentPath = "CISCO-CDP-MIB:CISCO-CDP-MIB"
+    cISCOCDPMIB.EntityData.AbsolutePath = cISCOCDPMIB.EntityData.SegmentPath
     cISCOCDPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOCDPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOCDPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -126,6 +127,7 @@ func (cdpGlobal *CISCOCDPMIB_CdpGlobal) GetEntityData() *types.CommonEntityData 
     cdpGlobal.EntityData.BundleName = "cisco_ios_xe"
     cdpGlobal.EntityData.ParentYangName = "CISCO-CDP-MIB"
     cdpGlobal.EntityData.SegmentPath = "cdpGlobal"
+    cdpGlobal.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/" + cdpGlobal.EntityData.SegmentPath
     cdpGlobal.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpGlobal.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpGlobal.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -175,6 +177,7 @@ func (cdpInterfaceTable *CISCOCDPMIB_CdpInterfaceTable) GetEntityData() *types.C
     cdpInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     cdpInterfaceTable.EntityData.ParentYangName = "CISCO-CDP-MIB"
     cdpInterfaceTable.EntityData.SegmentPath = "cdpInterfaceTable"
+    cdpInterfaceTable.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/" + cdpInterfaceTable.EntityData.SegmentPath
     cdpInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -197,6 +200,7 @@ func (cdpInterfaceTable *CISCOCDPMIB_CdpInterfaceTable) GetEntityData() *types.C
 type CISCOCDPMIB_CdpInterfaceTable_CdpInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The ifIndex value of the local interface.  For
     // 802.3 Repeaters on which the repeater ports do not have ifIndex values
@@ -241,6 +245,7 @@ func (cdpInterfaceEntry *CISCOCDPMIB_CdpInterfaceTable_CdpInterfaceEntry) GetEnt
     cdpInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     cdpInterfaceEntry.EntityData.ParentYangName = "cdpInterfaceTable"
     cdpInterfaceEntry.EntityData.SegmentPath = "cdpInterfaceEntry" + types.AddKeyToken(cdpInterfaceEntry.CdpInterfaceIfIndex, "cdpInterfaceIfIndex")
+    cdpInterfaceEntry.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpInterfaceTable/" + cdpInterfaceEntry.EntityData.SegmentPath
     cdpInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -279,6 +284,7 @@ func (cdpInterfaceExtTable *CISCOCDPMIB_CdpInterfaceExtTable) GetEntityData() *t
     cdpInterfaceExtTable.EntityData.BundleName = "cisco_ios_xe"
     cdpInterfaceExtTable.EntityData.ParentYangName = "CISCO-CDP-MIB"
     cdpInterfaceExtTable.EntityData.SegmentPath = "cdpInterfaceExtTable"
+    cdpInterfaceExtTable.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/" + cdpInterfaceExtTable.EntityData.SegmentPath
     cdpInterfaceExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpInterfaceExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpInterfaceExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -303,6 +309,7 @@ func (cdpInterfaceExtTable *CISCOCDPMIB_CdpInterfaceExtTable) GetEntityData() *t
 type CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -328,6 +335,7 @@ func (cdpInterfaceExtEntry *CISCOCDPMIB_CdpInterfaceExtTable_CdpInterfaceExtEntr
     cdpInterfaceExtEntry.EntityData.BundleName = "cisco_ios_xe"
     cdpInterfaceExtEntry.EntityData.ParentYangName = "cdpInterfaceExtTable"
     cdpInterfaceExtEntry.EntityData.SegmentPath = "cdpInterfaceExtEntry" + types.AddKeyToken(cdpInterfaceExtEntry.IfIndex, "ifIndex")
+    cdpInterfaceExtEntry.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpInterfaceExtTable/" + cdpInterfaceExtEntry.EntityData.SegmentPath
     cdpInterfaceExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpInterfaceExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpInterfaceExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -373,6 +381,7 @@ func (cdpCacheTable *CISCOCDPMIB_CdpCacheTable) GetEntityData() *types.CommonEnt
     cdpCacheTable.EntityData.BundleName = "cisco_ios_xe"
     cdpCacheTable.EntityData.ParentYangName = "CISCO-CDP-MIB"
     cdpCacheTable.EntityData.SegmentPath = "cdpCacheTable"
+    cdpCacheTable.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/" + cdpCacheTable.EntityData.SegmentPath
     cdpCacheTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpCacheTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpCacheTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -399,6 +408,7 @@ func (cdpCacheTable *CISCOCDPMIB_CdpCacheTable) GetEntityData() *types.CommonEnt
 type CISCOCDPMIB_CdpCacheTable_CdpCacheEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Normally, the ifIndex value of the local
     // interface. For 802.3 Repeaters for which the repeater ports do not have
@@ -561,6 +571,7 @@ func (cdpCacheEntry *CISCOCDPMIB_CdpCacheTable_CdpCacheEntry) GetEntityData() *t
     cdpCacheEntry.EntityData.BundleName = "cisco_ios_xe"
     cdpCacheEntry.EntityData.ParentYangName = "cdpCacheTable"
     cdpCacheEntry.EntityData.SegmentPath = "cdpCacheEntry" + types.AddKeyToken(cdpCacheEntry.CdpCacheIfIndex, "cdpCacheIfIndex") + types.AddKeyToken(cdpCacheEntry.CdpCacheDeviceIndex, "cdpCacheDeviceIndex")
+    cdpCacheEntry.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpCacheTable/" + cdpCacheEntry.EntityData.SegmentPath
     cdpCacheEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpCacheEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpCacheEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -637,6 +648,7 @@ func (cdpCtAddressTable *CISCOCDPMIB_CdpCtAddressTable) GetEntityData() *types.C
     cdpCtAddressTable.EntityData.BundleName = "cisco_ios_xe"
     cdpCtAddressTable.EntityData.ParentYangName = "CISCO-CDP-MIB"
     cdpCtAddressTable.EntityData.SegmentPath = "cdpCtAddressTable"
+    cdpCtAddressTable.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/" + cdpCtAddressTable.EntityData.SegmentPath
     cdpCtAddressTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpCtAddressTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpCtAddressTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -666,6 +678,7 @@ func (cdpCtAddressTable *CISCOCDPMIB_CdpCtAddressTable) GetEntityData() *types.C
 type CISCOCDPMIB_CdpCtAddressTable_CdpCtAddressEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 0..2147483647.
     // Refers to
@@ -702,6 +715,7 @@ func (cdpCtAddressEntry *CISCOCDPMIB_CdpCtAddressTable_CdpCtAddressEntry) GetEnt
     cdpCtAddressEntry.EntityData.BundleName = "cisco_ios_xe"
     cdpCtAddressEntry.EntityData.ParentYangName = "cdpCtAddressTable"
     cdpCtAddressEntry.EntityData.SegmentPath = "cdpCtAddressEntry" + types.AddKeyToken(cdpCtAddressEntry.CdpCacheIfIndex, "cdpCacheIfIndex") + types.AddKeyToken(cdpCtAddressEntry.CdpCacheDeviceIndex, "cdpCacheDeviceIndex") + types.AddKeyToken(cdpCtAddressEntry.CdpCtAddressIndex, "cdpCtAddressIndex")
+    cdpCtAddressEntry.EntityData.AbsolutePath = "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpCtAddressTable/" + cdpCtAddressEntry.EntityData.SegmentPath
     cdpCtAddressEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cdpCtAddressEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cdpCtAddressEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -571,6 +571,7 @@ func (evpn *Evpn) GetEntityData() *types.CommonEntityData {
     evpn.EntityData.BundleName = "cisco_ios_xr"
     evpn.EntityData.ParentYangName = "Cisco-IOS-XR-evpn-oper"
     evpn.EntityData.SegmentPath = "Cisco-IOS-XR-evpn-oper:evpn"
+    evpn.EntityData.AbsolutePath = evpn.EntityData.SegmentPath
     evpn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -604,6 +605,7 @@ func (nodes *Evpn_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "evpn"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -625,6 +627,7 @@ func (nodes *Evpn_Nodes) GetEntityData() *types.CommonEntityData {
 type Evpn_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -670,6 +673,7 @@ func (node *Evpn_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -711,6 +715,7 @@ func (evpnGroups *Evpn_Nodes_Node_EvpnGroups) GetEntityData() *types.CommonEntit
     evpnGroups.EntityData.BundleName = "cisco_ios_xr"
     evpnGroups.EntityData.ParentYangName = "node"
     evpnGroups.EntityData.SegmentPath = "evpn-groups"
+    evpnGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + evpnGroups.EntityData.SegmentPath
     evpnGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -732,6 +737,7 @@ func (evpnGroups *Evpn_Nodes_Node_EvpnGroups) GetEntityData() *types.CommonEntit
 type Evpn_Nodes_Node_EvpnGroups_EvpnGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EVPN group number. The type is interface{} with
     // range: 1..4294967295.
@@ -758,6 +764,7 @@ func (evpnGroup *Evpn_Nodes_Node_EvpnGroups_EvpnGroup) GetEntityData() *types.Co
     evpnGroup.EntityData.BundleName = "cisco_ios_xr"
     evpnGroup.EntityData.ParentYangName = "evpn-groups"
     evpnGroup.EntityData.SegmentPath = "evpn-group" + types.AddKeyToken(evpnGroup.GroupNumber, "group-number")
+    evpnGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evpn-groups/" + evpnGroup.EntityData.SegmentPath
     evpnGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -765,10 +772,12 @@ func (evpnGroup *Evpn_Nodes_Node_EvpnGroups_EvpnGroup) GetEntityData() *types.Co
     evpnGroup.EntityData.Children = types.NewOrderedMap()
     evpnGroup.EntityData.Children.Append("core-interface", types.YChild{"CoreInterface", nil})
     for i := range evpnGroup.CoreInterface {
+        types.SetYListKey(evpnGroup.CoreInterface[i], i)
         evpnGroup.EntityData.Children.Append(types.GetSegmentPath(evpnGroup.CoreInterface[i]), types.YChild{"CoreInterface", evpnGroup.CoreInterface[i]})
     }
     evpnGroup.EntityData.Children.Append("access-interface", types.YChild{"AccessInterface", nil})
     for i := range evpnGroup.AccessInterface {
+        types.SetYListKey(evpnGroup.AccessInterface[i], i)
         evpnGroup.EntityData.Children.Append(types.GetSegmentPath(evpnGroup.AccessInterface[i]), types.YChild{"AccessInterface", evpnGroup.AccessInterface[i]})
     }
     evpnGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -786,6 +795,7 @@ func (evpnGroup *Evpn_Nodes_Node_EvpnGroups_EvpnGroup) GetEntityData() *types.Co
 type Evpn_Nodes_Node_EvpnGroups_EvpnGroup_CoreInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -799,7 +809,8 @@ func (coreInterface *Evpn_Nodes_Node_EvpnGroups_EvpnGroup_CoreInterface) GetEnti
     coreInterface.EntityData.YangName = "core-interface"
     coreInterface.EntityData.BundleName = "cisco_ios_xr"
     coreInterface.EntityData.ParentYangName = "evpn-group"
-    coreInterface.EntityData.SegmentPath = "core-interface"
+    coreInterface.EntityData.SegmentPath = "core-interface" + types.AddNoKeyToken(coreInterface)
+    coreInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evpn-groups/evpn-group/" + coreInterface.EntityData.SegmentPath
     coreInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     coreInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coreInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -819,6 +830,7 @@ func (coreInterface *Evpn_Nodes_Node_EvpnGroups_EvpnGroup_CoreInterface) GetEnti
 type Evpn_Nodes_Node_EvpnGroups_EvpnGroup_AccessInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -832,7 +844,8 @@ func (accessInterface *Evpn_Nodes_Node_EvpnGroups_EvpnGroup_AccessInterface) Get
     accessInterface.EntityData.YangName = "access-interface"
     accessInterface.EntityData.BundleName = "cisco_ios_xr"
     accessInterface.EntityData.ParentYangName = "evpn-group"
-    accessInterface.EntityData.SegmentPath = "access-interface"
+    accessInterface.EntityData.SegmentPath = "access-interface" + types.AddNoKeyToken(accessInterface)
+    accessInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evpn-groups/evpn-group/" + accessInterface.EntityData.SegmentPath
     accessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -863,6 +876,7 @@ func (remoteShgs *Evpn_Nodes_Node_RemoteShgs) GetEntityData() *types.CommonEntit
     remoteShgs.EntityData.BundleName = "cisco_ios_xr"
     remoteShgs.EntityData.ParentYangName = "node"
     remoteShgs.EntityData.SegmentPath = "remote-shgs"
+    remoteShgs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + remoteShgs.EntityData.SegmentPath
     remoteShgs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteShgs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteShgs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -870,6 +884,7 @@ func (remoteShgs *Evpn_Nodes_Node_RemoteShgs) GetEntityData() *types.CommonEntit
     remoteShgs.EntityData.Children = types.NewOrderedMap()
     remoteShgs.EntityData.Children.Append("remote-shg", types.YChild{"RemoteShg", nil})
     for i := range remoteShgs.RemoteShg {
+        types.SetYListKey(remoteShgs.RemoteShg[i], i)
         remoteShgs.EntityData.Children.Append(types.GetSegmentPath(remoteShgs.RemoteShg[i]), types.YChild{"RemoteShg", remoteShgs.RemoteShg[i]})
     }
     remoteShgs.EntityData.Leafs = types.NewOrderedMap()
@@ -884,6 +899,7 @@ func (remoteShgs *Evpn_Nodes_Node_RemoteShgs) GetEntityData() *types.CommonEntit
 type Evpn_Nodes_Node_RemoteShgs_RemoteShg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
     Esi1 interface{}
@@ -914,7 +930,8 @@ func (remoteShg *Evpn_Nodes_Node_RemoteShgs_RemoteShg) GetEntityData() *types.Co
     remoteShg.EntityData.YangName = "remote-shg"
     remoteShg.EntityData.BundleName = "cisco_ios_xr"
     remoteShg.EntityData.ParentYangName = "remote-shgs"
-    remoteShg.EntityData.SegmentPath = "remote-shg"
+    remoteShg.EntityData.SegmentPath = "remote-shg" + types.AddNoKeyToken(remoteShg)
+    remoteShg.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/remote-shgs/" + remoteShg.EntityData.SegmentPath
     remoteShg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteShg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteShg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -922,10 +939,12 @@ func (remoteShg *Evpn_Nodes_Node_RemoteShgs_RemoteShg) GetEntityData() *types.Co
     remoteShg.EntityData.Children = types.NewOrderedMap()
     remoteShg.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range remoteShg.EthernetSegmentIdentifier {
+        types.SetYListKey(remoteShg.EthernetSegmentIdentifier[i], i)
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", remoteShg.EthernetSegmentIdentifier[i]})
     }
     remoteShg.EntityData.Children.Append("remote-split-horizon-group-label", types.YChild{"RemoteSplitHorizonGroupLabel", nil})
     for i := range remoteShg.RemoteSplitHorizonGroupLabel {
+        types.SetYListKey(remoteShg.RemoteSplitHorizonGroupLabel[i], i)
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", remoteShg.RemoteSplitHorizonGroupLabel[i]})
     }
     remoteShg.EntityData.Leafs = types.NewOrderedMap()
@@ -945,6 +964,7 @@ func (remoteShg *Evpn_Nodes_Node_RemoteShgs_RemoteShg) GetEntityData() *types.Co
 type Evpn_Nodes_Node_RemoteShgs_RemoteShg_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -955,7 +975,8 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_RemoteShgs_RemoteShg_EthernetSe
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "remote-shg"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/remote-shgs/remote-shg/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -974,6 +995,7 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_RemoteShgs_RemoteShg_EthernetSe
 type Evpn_Nodes_Node_RemoteShgs_RemoteShg_RemoteSplitHorizonGroupLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -989,7 +1011,8 @@ func (remoteSplitHorizonGroupLabel *Evpn_Nodes_Node_RemoteShgs_RemoteShg_RemoteS
     remoteSplitHorizonGroupLabel.EntityData.YangName = "remote-split-horizon-group-label"
     remoteSplitHorizonGroupLabel.EntityData.BundleName = "cisco_ios_xr"
     remoteSplitHorizonGroupLabel.EntityData.ParentYangName = "remote-shg"
-    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label"
+    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label" + types.AddNoKeyToken(remoteSplitHorizonGroupLabel)
+    remoteSplitHorizonGroupLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/remote-shgs/remote-shg/" + remoteSplitHorizonGroupLabel.EntityData.SegmentPath
     remoteSplitHorizonGroupLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteSplitHorizonGroupLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteSplitHorizonGroupLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1017,6 +1040,7 @@ func (client *Evpn_Nodes_Node_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "node"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1045,6 +1069,7 @@ func (igmps *Evpn_Nodes_Node_Igmps) GetEntityData() *types.CommonEntityData {
     igmps.EntityData.BundleName = "cisco_ios_xr"
     igmps.EntityData.ParentYangName = "node"
     igmps.EntityData.SegmentPath = "igmps"
+    igmps.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + igmps.EntityData.SegmentPath
     igmps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1052,6 +1077,7 @@ func (igmps *Evpn_Nodes_Node_Igmps) GetEntityData() *types.CommonEntityData {
     igmps.EntityData.Children = types.NewOrderedMap()
     igmps.EntityData.Children.Append("igmp", types.YChild{"Igmp", nil})
     for i := range igmps.Igmp {
+        types.SetYListKey(igmps.Igmp[i], i)
         igmps.EntityData.Children.Append(types.GetSegmentPath(igmps.Igmp[i]), types.YChild{"Igmp", igmps.Igmp[i]})
     }
     igmps.EntityData.Leafs = types.NewOrderedMap()
@@ -1066,6 +1092,7 @@ func (igmps *Evpn_Nodes_Node_Igmps) GetEntityData() *types.CommonEntityData {
 type Evpn_Nodes_Node_Igmps_Igmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Join=0, Leave=1. The type is interface{} with range: 0..4294967295.
     IsLeave interface{}
@@ -1157,7 +1184,8 @@ func (igmp *Evpn_Nodes_Node_Igmps_Igmp) GetEntityData() *types.CommonEntityData 
     igmp.EntityData.YangName = "igmp"
     igmp.EntityData.BundleName = "cisco_ios_xr"
     igmp.EntityData.ParentYangName = "igmps"
-    igmp.EntityData.SegmentPath = "igmp"
+    igmp.EntityData.SegmentPath = "igmp" + types.AddNoKeyToken(igmp)
+    igmp.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/" + igmp.EntityData.SegmentPath
     igmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1166,10 +1194,12 @@ func (igmp *Evpn_Nodes_Node_Igmps_Igmp) GetEntityData() *types.CommonEntityData 
     igmp.EntityData.Children.Append("source-info", types.YChild{"SourceInfo", &igmp.SourceInfo})
     igmp.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range igmp.EthernetSegmentIdentifier {
+        types.SetYListKey(igmp.EthernetSegmentIdentifier[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", igmp.EthernetSegmentIdentifier[i]})
     }
     igmp.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range igmp.NextHop {
+        types.SetYListKey(igmp.NextHop[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.NextHop[i]), types.YChild{"NextHop", igmp.NextHop[i]})
     }
     igmp.EntityData.Leafs = types.NewOrderedMap()
@@ -1223,6 +1253,7 @@ func (sourceInfo *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo) GetEntityData() *types.
     sourceInfo.EntityData.BundleName = "cisco_ios_xr"
     sourceInfo.EntityData.ParentYangName = "igmp"
     sourceInfo.EntityData.SegmentPath = "source-info"
+    sourceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/" + sourceInfo.EntityData.SegmentPath
     sourceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1264,6 +1295,7 @@ func (localInfo *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData(
     localInfo.EntityData.BundleName = "cisco_ios_xr"
     localInfo.EntityData.ParentYangName = "source-info"
     localInfo.EntityData.SegmentPath = "local-info"
+    localInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/" + localInfo.EntityData.SegmentPath
     localInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1317,6 +1349,7 @@ func (parameters *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters) Ge
     parameters.EntityData.BundleName = "cisco_ios_xr"
     parameters.EntityData.ParentYangName = "local-info"
     parameters.EntityData.SegmentPath = "parameters"
+    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/" + parameters.EntityData.SegmentPath
     parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1353,6 +1386,7 @@ func (ethernet *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ether
     ethernet.EntityData.BundleName = "cisco_ios_xr"
     ethernet.EntityData.ParentYangName = "parameters"
     ethernet.EntityData.SegmentPath = "ethernet"
+    ethernet.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + ethernet.EntityData.SegmentPath
     ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1402,6 +1436,7 @@ func (vlan *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) Get
     vlan.EntityData.BundleName = "cisco_ios_xr"
     vlan.EntityData.ParentYangName = "parameters"
     vlan.EntityData.SegmentPath = "vlan"
+    vlan.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + vlan.EntityData.SegmentPath
     vlan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1409,10 +1444,12 @@ func (vlan *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) Get
     vlan.EntityData.Children = types.NewOrderedMap()
     vlan.EntityData.Children.Append("rewrite-tag", types.YChild{"RewriteTag", nil})
     for i := range vlan.RewriteTag {
+        types.SetYListKey(vlan.RewriteTag[i], i)
         vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.RewriteTag[i]), types.YChild{"RewriteTag", vlan.RewriteTag[i]})
     }
     vlan.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range vlan.VlanRange {
+        types.SetYListKey(vlan.VlanRange[i], i)
         vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.VlanRange[i]), types.YChild{"VlanRange", vlan.VlanRange[i]})
     }
     vlan.EntityData.Leafs = types.NewOrderedMap()
@@ -1432,6 +1469,7 @@ func (vlan *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) Get
 type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535.
     Entry interface{}
@@ -1442,7 +1480,8 @@ func (rewriteTag *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vla
     rewriteTag.EntityData.YangName = "rewrite-tag"
     rewriteTag.EntityData.BundleName = "cisco_ios_xr"
     rewriteTag.EntityData.ParentYangName = "vlan"
-    rewriteTag.EntityData.SegmentPath = "rewrite-tag"
+    rewriteTag.EntityData.SegmentPath = "rewrite-tag" + types.AddNoKeyToken(rewriteTag)
+    rewriteTag.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/vlan/" + rewriteTag.EntityData.SegmentPath
     rewriteTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rewriteTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rewriteTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1461,6 +1500,7 @@ func (rewriteTag *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vla
 type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Lower. The type is interface{} with range: 0..65535.
     Lower interface{}
@@ -1474,7 +1514,8 @@ func (vlanRange *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan
     vlanRange.EntityData.YangName = "vlan-range"
     vlanRange.EntityData.BundleName = "cisco_ios_xr"
     vlanRange.EntityData.ParentYangName = "vlan"
-    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
+    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/vlan/" + vlanRange.EntityData.SegmentPath
     vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1517,6 +1558,7 @@ func (tdm *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm) GetEn
     tdm.EntityData.BundleName = "cisco_ios_xr"
     tdm.EntityData.ParentYangName = "parameters"
     tdm.EntityData.SegmentPath = "tdm"
+    tdm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + tdm.EntityData.SegmentPath
     tdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1577,6 +1619,7 @@ func (tdmOptions *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm
     tdmOptions.EntityData.BundleName = "cisco_ios_xr"
     tdmOptions.EntityData.ParentYangName = "tdm"
     tdmOptions.EntityData.SegmentPath = "tdm-options"
+    tdmOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/tdm/" + tdmOptions.EntityData.SegmentPath
     tdmOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tdmOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tdmOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1626,6 +1669,7 @@ func (atm *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm) GetEn
     atm.EntityData.BundleName = "cisco_ios_xr"
     atm.EntityData.ParentYangName = "parameters"
     atm.EntityData.SegmentPath = "atm"
+    atm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + atm.EntityData.SegmentPath
     atm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     atm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     atm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1663,6 +1707,7 @@ func (fr *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr) GetEnti
     fr.EntityData.BundleName = "cisco_ios_xr"
     fr.EntityData.ParentYangName = "parameters"
     fr.EntityData.SegmentPath = "fr"
+    fr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + fr.EntityData.SegmentPath
     fr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1699,6 +1744,7 @@ func (pseudowireEther *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameter
     pseudowireEther.EntityData.BundleName = "cisco_ios_xr"
     pseudowireEther.EntityData.ParentYangName = "parameters"
     pseudowireEther.EntityData.SegmentPath = "pseudowire-ether"
+    pseudowireEther.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + pseudowireEther.EntityData.SegmentPath
     pseudowireEther.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireEther.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireEther.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1737,6 +1783,7 @@ func (interfaceList *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_
     interfaceList.EntityData.BundleName = "cisco_ios_xr"
     interfaceList.EntityData.ParentYangName = "pseudowire-ether"
     interfaceList.EntityData.SegmentPath = "interface-list"
+    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/" + interfaceList.EntityData.SegmentPath
     interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1744,6 +1791,7 @@ func (interfaceList *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_
     interfaceList.EntityData.Children = types.NewOrderedMap()
     interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range interfaceList.Interface {
+        types.SetYListKey(interfaceList.Interface[i], i)
         interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
     }
     interfaceList.EntityData.Leafs = types.NewOrderedMap()
@@ -1760,6 +1808,7 @@ func (interfaceList *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_
 type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -1773,7 +1822,8 @@ func (self *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseudowir
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/interface-list/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1810,6 +1860,7 @@ func (pseudowireIw *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_P
     pseudowireIw.EntityData.BundleName = "cisco_ios_xr"
     pseudowireIw.EntityData.ParentYangName = "parameters"
     pseudowireIw.EntityData.SegmentPath = "pseudowire-iw"
+    pseudowireIw.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/" + pseudowireIw.EntityData.SegmentPath
     pseudowireIw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireIw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireIw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1848,6 +1899,7 @@ func (interfaceList *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_
     interfaceList.EntityData.BundleName = "cisco_ios_xr"
     interfaceList.EntityData.ParentYangName = "pseudowire-iw"
     interfaceList.EntityData.SegmentPath = "interface-list"
+    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/" + interfaceList.EntityData.SegmentPath
     interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1855,6 +1907,7 @@ func (interfaceList *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_
     interfaceList.EntityData.Children = types.NewOrderedMap()
     interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range interfaceList.Interface {
+        types.SetYListKey(interfaceList.Interface[i], i)
         interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
     }
     interfaceList.EntityData.Leafs = types.NewOrderedMap()
@@ -1871,6 +1924,7 @@ func (interfaceList *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_
 type Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -1884,7 +1938,8 @@ func (self *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseudowir
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/interface-list/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1904,6 +1959,7 @@ func (self *Evpn_Nodes_Node_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseudowir
 type Evpn_Nodes_Node_Igmps_Igmp_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -1914,7 +1970,8 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_Igmps_Igmp_EthernetSegmentIdent
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "igmp"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1933,6 +1990,7 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_Igmps_Igmp_EthernetSegmentIdent
 type Evpn_Nodes_Node_Igmps_Igmp_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -1953,7 +2011,8 @@ func (nextHop *Evpn_Nodes_Node_Igmps_Igmp_NextHop) GetEntityData() *types.Common
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "igmp"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/igmps/igmp/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1986,6 +2045,7 @@ func (evis *Evpn_Nodes_Node_Evis) GetEntityData() *types.CommonEntityData {
     evis.EntityData.BundleName = "cisco_ios_xr"
     evis.EntityData.ParentYangName = "node"
     evis.EntityData.SegmentPath = "evis"
+    evis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + evis.EntityData.SegmentPath
     evis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1993,6 +2053,7 @@ func (evis *Evpn_Nodes_Node_Evis) GetEntityData() *types.CommonEntityData {
     evis.EntityData.Children = types.NewOrderedMap()
     evis.EntityData.Children.Append("evi", types.YChild{"Evi", nil})
     for i := range evis.Evi {
+        types.SetYListKey(evis.Evi[i], i)
         evis.EntityData.Children.Append(types.GetSegmentPath(evis.Evi[i]), types.YChild{"Evi", evis.Evi[i]})
     }
     evis.EntityData.Leafs = types.NewOrderedMap()
@@ -2007,6 +2068,7 @@ func (evis *Evpn_Nodes_Node_Evis) GetEntityData() *types.CommonEntityData {
 type Evpn_Nodes_Node_Evis_Evi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -2033,7 +2095,8 @@ func (evi *Evpn_Nodes_Node_Evis_Evi) GetEntityData() *types.CommonEntityData {
     evi.EntityData.YangName = "evi"
     evi.EntityData.BundleName = "cisco_ios_xr"
     evi.EntityData.ParentYangName = "evis"
-    evi.EntityData.SegmentPath = "evi"
+    evi.EntityData.SegmentPath = "evi" + types.AddNoKeyToken(evi)
+    evi.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evis/" + evi.EntityData.SegmentPath
     evi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2185,6 +2248,7 @@ func (summary *Evpn_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData 
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2247,6 +2311,7 @@ func (eviDetail *Evpn_Nodes_Node_EviDetail) GetEntityData() *types.CommonEntityD
     eviDetail.EntityData.BundleName = "cisco_ios_xr"
     eviDetail.EntityData.ParentYangName = "node"
     eviDetail.EntityData.SegmentPath = "evi-detail"
+    eviDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + eviDetail.EntityData.SegmentPath
     eviDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2278,6 +2343,7 @@ func (elements *Evpn_Nodes_Node_EviDetail_Elements) GetEntityData() *types.Commo
     elements.EntityData.BundleName = "cisco_ios_xr"
     elements.EntityData.ParentYangName = "evi-detail"
     elements.EntityData.SegmentPath = "elements"
+    elements.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/" + elements.EntityData.SegmentPath
     elements.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     elements.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     elements.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2285,6 +2351,7 @@ func (elements *Evpn_Nodes_Node_EviDetail_Elements) GetEntityData() *types.Commo
     elements.EntityData.Children = types.NewOrderedMap()
     elements.EntityData.Children.Append("element", types.YChild{"Element", nil})
     for i := range elements.Element {
+        types.SetYListKey(elements.Element[i], i)
         elements.EntityData.Children.Append(types.GetSegmentPath(elements.Element[i]), types.YChild{"Element", elements.Element[i]})
     }
     elements.EntityData.Leafs = types.NewOrderedMap()
@@ -2299,6 +2366,7 @@ func (elements *Evpn_Nodes_Node_EviDetail_Elements) GetEntityData() *types.Commo
 type Evpn_Nodes_Node_EviDetail_Elements_Element struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -2384,7 +2452,8 @@ func (element *Evpn_Nodes_Node_EviDetail_Elements_Element) GetEntityData() *type
     element.EntityData.YangName = "element"
     element.EntityData.BundleName = "cisco_ios_xr"
     element.EntityData.ParentYangName = "elements"
-    element.EntityData.SegmentPath = "element"
+    element.EntityData.SegmentPath = "element" + types.AddNoKeyToken(element)
+    element.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/" + element.EntityData.SegmentPath
     element.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     element.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     element.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2449,6 +2518,7 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_Elements_Element_EvpnInstance) Get
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "element"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2484,6 +2554,7 @@ func (flowLabel *Evpn_Nodes_Node_EviDetail_Elements_Element_FlowLabel) GetEntity
     flowLabel.EntityData.BundleName = "cisco_ios_xr"
     flowLabel.EntityData.ParentYangName = "element"
     flowLabel.EntityData.SegmentPath = "flow-label"
+    flowLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/" + flowLabel.EntityData.SegmentPath
     flowLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2526,6 +2597,7 @@ func (rdAuto *Evpn_Nodes_Node_EviDetail_Elements_Element_RdAuto) GetEntityData()
     rdAuto.EntityData.BundleName = "cisco_ios_xr"
     rdAuto.EntityData.ParentYangName = "element"
     rdAuto.EntityData.SegmentPath = "rd-auto"
+    rdAuto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/" + rdAuto.EntityData.SegmentPath
     rdAuto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdAuto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdAuto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2563,6 +2635,7 @@ func (auto *Evpn_Nodes_Node_EviDetail_Elements_Element_RdAuto_Auto) GetEntityDat
     auto.EntityData.BundleName = "cisco_ios_xr"
     auto.EntityData.ParentYangName = "rd-auto"
     auto.EntityData.SegmentPath = "auto"
+    auto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rd-auto/" + auto.EntityData.SegmentPath
     auto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2596,6 +2669,7 @@ func (twoByteAs *Evpn_Nodes_Node_EviDetail_Elements_Element_RdAuto_TwoByteAs) Ge
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rd-auto"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rd-auto/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2629,6 +2703,7 @@ func (fourByteAs *Evpn_Nodes_Node_EviDetail_Elements_Element_RdAuto_FourByteAs) 
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rd-auto"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rd-auto/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2663,6 +2738,7 @@ func (v4Addr *Evpn_Nodes_Node_EviDetail_Elements_Element_RdAuto_V4Addr) GetEntit
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rd-auto"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rd-auto/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2705,6 +2781,7 @@ func (rdConfigured *Evpn_Nodes_Node_EviDetail_Elements_Element_RdConfigured) Get
     rdConfigured.EntityData.BundleName = "cisco_ios_xr"
     rdConfigured.EntityData.ParentYangName = "element"
     rdConfigured.EntityData.SegmentPath = "rd-configured"
+    rdConfigured.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/" + rdConfigured.EntityData.SegmentPath
     rdConfigured.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdConfigured.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdConfigured.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2742,6 +2819,7 @@ func (auto *Evpn_Nodes_Node_EviDetail_Elements_Element_RdConfigured_Auto) GetEnt
     auto.EntityData.BundleName = "cisco_ios_xr"
     auto.EntityData.ParentYangName = "rd-configured"
     auto.EntityData.SegmentPath = "auto"
+    auto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rd-configured/" + auto.EntityData.SegmentPath
     auto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2775,6 +2853,7 @@ func (twoByteAs *Evpn_Nodes_Node_EviDetail_Elements_Element_RdConfigured_TwoByte
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rd-configured"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rd-configured/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2808,6 +2887,7 @@ func (fourByteAs *Evpn_Nodes_Node_EviDetail_Elements_Element_RdConfigured_FourBy
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rd-configured"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rd-configured/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2842,6 +2922,7 @@ func (v4Addr *Evpn_Nodes_Node_EviDetail_Elements_Element_RdConfigured_V4Addr) Ge
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rd-configured"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rd-configured/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2884,6 +2965,7 @@ func (rtAuto *Evpn_Nodes_Node_EviDetail_Elements_Element_RtAuto) GetEntityData()
     rtAuto.EntityData.BundleName = "cisco_ios_xr"
     rtAuto.EntityData.ParentYangName = "element"
     rtAuto.EntityData.SegmentPath = "rt-auto"
+    rtAuto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/" + rtAuto.EntityData.SegmentPath
     rtAuto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtAuto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtAuto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2920,6 +3002,7 @@ func (twoByteAs *Evpn_Nodes_Node_EviDetail_Elements_Element_RtAuto_TwoByteAs) Ge
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rt-auto"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rt-auto/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2953,6 +3036,7 @@ func (fourByteAs *Evpn_Nodes_Node_EviDetail_Elements_Element_RtAuto_FourByteAs) 
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rt-auto"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rt-auto/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2987,6 +3071,7 @@ func (v4Addr *Evpn_Nodes_Node_EviDetail_Elements_Element_RtAuto_V4Addr) GetEntit
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rt-auto"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rt-auto/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3021,6 +3106,7 @@ func (esImport *Evpn_Nodes_Node_EviDetail_Elements_Element_RtAuto_EsImport) GetE
     esImport.EntityData.BundleName = "cisco_ios_xr"
     esImport.EntityData.ParentYangName = "rt-auto"
     esImport.EntityData.SegmentPath = "es-import"
+    esImport.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/elements/element/rt-auto/" + esImport.EntityData.SegmentPath
     esImport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esImport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esImport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3063,6 +3149,7 @@ func (eviChildren *Evpn_Nodes_Node_EviDetail_EviChildren) GetEntityData() *types
     eviChildren.EntityData.BundleName = "cisco_ios_xr"
     eviChildren.EntityData.ParentYangName = "evi-detail"
     eviChildren.EntityData.SegmentPath = "evi-children"
+    eviChildren.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/" + eviChildren.EntityData.SegmentPath
     eviChildren.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviChildren.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviChildren.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3097,6 +3184,7 @@ func (neighbors *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors) GetEntityData(
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "evi-children"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3104,6 +3192,7 @@ func (neighbors *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors) GetEntityData(
     neighbors.EntityData.Children = types.NewOrderedMap()
     neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
+        types.SetYListKey(neighbors.Neighbor[i], i)
         neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
     neighbors.EntityData.Leafs = types.NewOrderedMap()
@@ -3118,6 +3207,7 @@ func (neighbors *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors) GetEntityData(
 type Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -3144,7 +3234,8 @@ func (neighbor *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor) GetEnt
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddNoKeyToken(neighbor)
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3188,6 +3279,7 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_EviChildren_Neighbors_Neighbor_Evp
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "neighbor"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/neighbors/neighbor/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3221,6 +3313,7 @@ func (ethernetAutoDiscoveries *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAut
     ethernetAutoDiscoveries.EntityData.BundleName = "cisco_ios_xr"
     ethernetAutoDiscoveries.EntityData.ParentYangName = "evi-children"
     ethernetAutoDiscoveries.EntityData.SegmentPath = "ethernet-auto-discoveries"
+    ethernetAutoDiscoveries.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/" + ethernetAutoDiscoveries.EntityData.SegmentPath
     ethernetAutoDiscoveries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetAutoDiscoveries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetAutoDiscoveries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3228,6 +3321,7 @@ func (ethernetAutoDiscoveries *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAut
     ethernetAutoDiscoveries.EntityData.Children = types.NewOrderedMap()
     ethernetAutoDiscoveries.EntityData.Children.Append("ethernet-auto-discovery", types.YChild{"EthernetAutoDiscovery", nil})
     for i := range ethernetAutoDiscoveries.EthernetAutoDiscovery {
+        types.SetYListKey(ethernetAutoDiscoveries.EthernetAutoDiscovery[i], i)
         ethernetAutoDiscoveries.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscoveries.EthernetAutoDiscovery[i]), types.YChild{"EthernetAutoDiscovery", ethernetAutoDiscoveries.EthernetAutoDiscovery[i]})
     }
     ethernetAutoDiscoveries.EntityData.Leafs = types.NewOrderedMap()
@@ -3242,6 +3336,7 @@ func (ethernetAutoDiscoveries *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAut
 type Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -3307,7 +3402,8 @@ func (ethernetAutoDiscovery *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoD
     ethernetAutoDiscovery.EntityData.YangName = "ethernet-auto-discovery"
     ethernetAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     ethernetAutoDiscovery.EntityData.ParentYangName = "ethernet-auto-discoveries"
-    ethernetAutoDiscovery.EntityData.SegmentPath = "ethernet-auto-discovery"
+    ethernetAutoDiscovery.EntityData.SegmentPath = "ethernet-auto-discovery" + types.AddNoKeyToken(ethernetAutoDiscovery)
+    ethernetAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/ethernet-auto-discoveries/" + ethernetAutoDiscovery.EntityData.SegmentPath
     ethernetAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3316,10 +3412,12 @@ func (ethernetAutoDiscovery *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoD
     ethernetAutoDiscovery.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &ethernetAutoDiscovery.EvpnInstance})
     ethernetAutoDiscovery.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range ethernetAutoDiscovery.EthernetSegmentIdentifier {
+        types.SetYListKey(ethernetAutoDiscovery.EthernetSegmentIdentifier[i], i)
         ethernetAutoDiscovery.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscovery.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", ethernetAutoDiscovery.EthernetSegmentIdentifier[i]})
     }
     ethernetAutoDiscovery.EntityData.Children.Append("path-buffer", types.YChild{"PathBuffer", nil})
     for i := range ethernetAutoDiscovery.PathBuffer {
+        types.SetYListKey(ethernetAutoDiscovery.PathBuffer[i], i)
         ethernetAutoDiscovery.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscovery.PathBuffer[i]), types.YChild{"PathBuffer", ethernetAutoDiscovery.PathBuffer[i]})
     }
     ethernetAutoDiscovery.EntityData.Leafs = types.NewOrderedMap()
@@ -3370,6 +3468,7 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoverie
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "ethernet-auto-discovery"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3391,6 +3490,7 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoverie
 type Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -3401,7 +3501,8 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetA
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "ethernet-auto-discovery"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3420,6 +3521,7 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetA
 type Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery_PathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -3442,7 +3544,8 @@ func (pathBuffer *Evpn_Nodes_Node_EviDetail_EviChildren_EthernetAutoDiscoveries_
     pathBuffer.EntityData.YangName = "path-buffer"
     pathBuffer.EntityData.BundleName = "cisco_ios_xr"
     pathBuffer.EntityData.ParentYangName = "ethernet-auto-discovery"
-    pathBuffer.EntityData.SegmentPath = "path-buffer"
+    pathBuffer.EntityData.SegmentPath = "path-buffer" + types.AddNoKeyToken(pathBuffer)
+    pathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + pathBuffer.EntityData.SegmentPath
     pathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3476,6 +3579,7 @@ func (inclusiveMulticasts *Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMultic
     inclusiveMulticasts.EntityData.BundleName = "cisco_ios_xr"
     inclusiveMulticasts.EntityData.ParentYangName = "evi-children"
     inclusiveMulticasts.EntityData.SegmentPath = "inclusive-multicasts"
+    inclusiveMulticasts.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/" + inclusiveMulticasts.EntityData.SegmentPath
     inclusiveMulticasts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inclusiveMulticasts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inclusiveMulticasts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3483,6 +3587,7 @@ func (inclusiveMulticasts *Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMultic
     inclusiveMulticasts.EntityData.Children = types.NewOrderedMap()
     inclusiveMulticasts.EntityData.Children.Append("inclusive-multicast", types.YChild{"InclusiveMulticast", nil})
     for i := range inclusiveMulticasts.InclusiveMulticast {
+        types.SetYListKey(inclusiveMulticasts.InclusiveMulticast[i], i)
         inclusiveMulticasts.EntityData.Children.Append(types.GetSegmentPath(inclusiveMulticasts.InclusiveMulticast[i]), types.YChild{"InclusiveMulticast", inclusiveMulticasts.InclusiveMulticast[i]})
     }
     inclusiveMulticasts.EntityData.Leafs = types.NewOrderedMap()
@@ -3497,6 +3602,7 @@ func (inclusiveMulticasts *Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMultic
 type Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -3549,7 +3655,8 @@ func (inclusiveMulticast *Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMultica
     inclusiveMulticast.EntityData.YangName = "inclusive-multicast"
     inclusiveMulticast.EntityData.BundleName = "cisco_ios_xr"
     inclusiveMulticast.EntityData.ParentYangName = "inclusive-multicasts"
-    inclusiveMulticast.EntityData.SegmentPath = "inclusive-multicast"
+    inclusiveMulticast.EntityData.SegmentPath = "inclusive-multicast" + types.AddNoKeyToken(inclusiveMulticast)
+    inclusiveMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/inclusive-multicasts/" + inclusiveMulticast.EntityData.SegmentPath
     inclusiveMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inclusiveMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inclusiveMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3601,6 +3708,7 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_EviChildren_InclusiveMulticasts_In
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "inclusive-multicast"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/inclusive-multicasts/inclusive-multicast/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3634,6 +3742,7 @@ func (routeTargets *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets) GetEntit
     routeTargets.EntityData.BundleName = "cisco_ios_xr"
     routeTargets.EntityData.ParentYangName = "evi-children"
     routeTargets.EntityData.SegmentPath = "route-targets"
+    routeTargets.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/" + routeTargets.EntityData.SegmentPath
     routeTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3641,6 +3750,7 @@ func (routeTargets *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets) GetEntit
     routeTargets.EntityData.Children = types.NewOrderedMap()
     routeTargets.EntityData.Children.Append("route-target", types.YChild{"RouteTarget", nil})
     for i := range routeTargets.RouteTarget {
+        types.SetYListKey(routeTargets.RouteTarget[i], i)
         routeTargets.EntityData.Children.Append(types.GetSegmentPath(routeTargets.RouteTarget[i]), types.YChild{"RouteTarget", routeTargets.RouteTarget[i]})
     }
     routeTargets.EntityData.Leafs = types.NewOrderedMap()
@@ -3655,6 +3765,7 @@ func (routeTargets *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets) GetEntit
 type Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -3700,7 +3811,8 @@ func (routeTarget *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarge
     routeTarget.EntityData.YangName = "route-target"
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "route-targets"
-    routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.SegmentPath = "route-target" + types.AddNoKeyToken(routeTarget)
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/route-targets/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3751,6 +3863,7 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarg
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "route-target"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/route-targets/route-target/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3795,6 +3908,7 @@ func (routeTarget *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarge
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "route-target"
     routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/route-targets/route-target/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3831,6 +3945,7 @@ func (twoByteAs *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarget_
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "route-target"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/route-targets/route-target/route-target/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3864,6 +3979,7 @@ func (fourByteAs *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarget
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "route-target"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/route-targets/route-target/route-target/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3898,6 +4014,7 @@ func (v4Addr *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarget_Rou
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "route-target"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/route-targets/route-target/route-target/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3932,6 +4049,7 @@ func (esImport *Evpn_Nodes_Node_EviDetail_EviChildren_RouteTargets_RouteTarget_R
     esImport.EntityData.BundleName = "cisco_ios_xr"
     esImport.EntityData.ParentYangName = "route-target"
     esImport.EntityData.SegmentPath = "es-import"
+    esImport.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/route-targets/route-target/route-target/" + esImport.EntityData.SegmentPath
     esImport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esImport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esImport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3963,6 +4081,7 @@ func (macs *Evpn_Nodes_Node_EviDetail_EviChildren_Macs) GetEntityData() *types.C
     macs.EntityData.BundleName = "cisco_ios_xr"
     macs.EntityData.ParentYangName = "evi-children"
     macs.EntityData.SegmentPath = "macs"
+    macs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/" + macs.EntityData.SegmentPath
     macs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3970,6 +4089,7 @@ func (macs *Evpn_Nodes_Node_EviDetail_EviChildren_Macs) GetEntityData() *types.C
     macs.EntityData.Children = types.NewOrderedMap()
     macs.EntityData.Children.Append("mac", types.YChild{"Mac", nil})
     for i := range macs.Mac {
+        types.SetYListKey(macs.Mac[i], i)
         macs.EntityData.Children.Append(types.GetSegmentPath(macs.Mac[i]), types.YChild{"Mac", macs.Mac[i]})
     }
     macs.EntityData.Leafs = types.NewOrderedMap()
@@ -3984,6 +4104,7 @@ func (macs *Evpn_Nodes_Node_EviDetail_EviChildren_Macs) GetEntityData() *types.C
 type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -4104,7 +4225,8 @@ func (mac *Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac) GetEntityData() *type
     mac.EntityData.YangName = "mac"
     mac.EntityData.BundleName = "cisco_ios_xr"
     mac.EntityData.ParentYangName = "macs"
-    mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.SegmentPath = "mac" + types.AddNoKeyToken(mac)
+    mac.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/macs/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4113,14 +4235,17 @@ func (mac *Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac) GetEntityData() *type
     mac.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &mac.EvpnInstance})
     mac.EntityData.Children.Append("local-ethernet-segment-identifier", types.YChild{"LocalEthernetSegmentIdentifier", nil})
     for i := range mac.LocalEthernetSegmentIdentifier {
+        types.SetYListKey(mac.LocalEthernetSegmentIdentifier[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.LocalEthernetSegmentIdentifier[i]), types.YChild{"LocalEthernetSegmentIdentifier", mac.LocalEthernetSegmentIdentifier[i]})
     }
     mac.EntityData.Children.Append("remote-ethernet-segment-identifier", types.YChild{"RemoteEthernetSegmentIdentifier", nil})
     for i := range mac.RemoteEthernetSegmentIdentifier {
+        types.SetYListKey(mac.RemoteEthernetSegmentIdentifier[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.RemoteEthernetSegmentIdentifier[i]), types.YChild{"RemoteEthernetSegmentIdentifier", mac.RemoteEthernetSegmentIdentifier[i]})
     }
     mac.EntityData.Children.Append("path-buffer", types.YChild{"PathBuffer", nil})
     for i := range mac.PathBuffer {
+        types.SetYListKey(mac.PathBuffer[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.PathBuffer[i]), types.YChild{"PathBuffer", mac.PathBuffer[i]})
     }
     mac.EntityData.Leafs = types.NewOrderedMap()
@@ -4185,6 +4310,7 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_EvpnInstance)
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "mac"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/macs/mac/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4206,6 +4332,7 @@ func (evpnInstance *Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_EvpnInstance)
 type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_LocalEthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -4216,7 +4343,8 @@ func (localEthernetSegmentIdentifier *Evpn_Nodes_Node_EviDetail_EviChildren_Macs
     localEthernetSegmentIdentifier.EntityData.YangName = "local-ethernet-segment-identifier"
     localEthernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     localEthernetSegmentIdentifier.EntityData.ParentYangName = "mac"
-    localEthernetSegmentIdentifier.EntityData.SegmentPath = "local-ethernet-segment-identifier"
+    localEthernetSegmentIdentifier.EntityData.SegmentPath = "local-ethernet-segment-identifier" + types.AddNoKeyToken(localEthernetSegmentIdentifier)
+    localEthernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/macs/mac/" + localEthernetSegmentIdentifier.EntityData.SegmentPath
     localEthernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localEthernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localEthernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4235,6 +4363,7 @@ func (localEthernetSegmentIdentifier *Evpn_Nodes_Node_EviDetail_EviChildren_Macs
 type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_RemoteEthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -4245,7 +4374,8 @@ func (remoteEthernetSegmentIdentifier *Evpn_Nodes_Node_EviDetail_EviChildren_Mac
     remoteEthernetSegmentIdentifier.EntityData.YangName = "remote-ethernet-segment-identifier"
     remoteEthernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     remoteEthernetSegmentIdentifier.EntityData.ParentYangName = "mac"
-    remoteEthernetSegmentIdentifier.EntityData.SegmentPath = "remote-ethernet-segment-identifier"
+    remoteEthernetSegmentIdentifier.EntityData.SegmentPath = "remote-ethernet-segment-identifier" + types.AddNoKeyToken(remoteEthernetSegmentIdentifier)
+    remoteEthernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/macs/mac/" + remoteEthernetSegmentIdentifier.EntityData.SegmentPath
     remoteEthernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteEthernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteEthernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4264,6 +4394,7 @@ func (remoteEthernetSegmentIdentifier *Evpn_Nodes_Node_EviDetail_EviChildren_Mac
 type Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_PathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -4286,7 +4417,8 @@ func (pathBuffer *Evpn_Nodes_Node_EviDetail_EviChildren_Macs_Mac_PathBuffer) Get
     pathBuffer.EntityData.YangName = "path-buffer"
     pathBuffer.EntityData.BundleName = "cisco_ios_xr"
     pathBuffer.EntityData.ParentYangName = "mac"
-    pathBuffer.EntityData.SegmentPath = "path-buffer"
+    pathBuffer.EntityData.SegmentPath = "path-buffer" + types.AddNoKeyToken(pathBuffer)
+    pathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/evi-detail/evi-children/macs/mac/" + pathBuffer.EntityData.SegmentPath
     pathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4319,6 +4451,7 @@ func (teps *Evpn_Nodes_Node_Teps) GetEntityData() *types.CommonEntityData {
     teps.EntityData.BundleName = "cisco_ios_xr"
     teps.EntityData.ParentYangName = "node"
     teps.EntityData.SegmentPath = "teps"
+    teps.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + teps.EntityData.SegmentPath
     teps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     teps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     teps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4340,6 +4473,7 @@ func (teps *Evpn_Nodes_Node_Teps) GetEntityData() *types.CommonEntityData {
 type Evpn_Nodes_Node_Teps_Tep struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TEP id. The type is interface{} with range:
     // 0..4294967295.
@@ -4376,6 +4510,7 @@ func (tep *Evpn_Nodes_Node_Teps_Tep) GetEntityData() *types.CommonEntityData {
     tep.EntityData.BundleName = "cisco_ios_xr"
     tep.EntityData.ParentYangName = "teps"
     tep.EntityData.SegmentPath = "tep" + types.AddKeyToken(tep.TepId, "tep-id")
+    tep.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/teps/" + tep.EntityData.SegmentPath
     tep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4420,6 +4555,7 @@ func (localInfo *Evpn_Nodes_Node_Teps_Tep_LocalInfo) GetEntityData() *types.Comm
     localInfo.EntityData.BundleName = "cisco_ios_xr"
     localInfo.EntityData.ParentYangName = "tep"
     localInfo.EntityData.SegmentPath = "local-info"
+    localInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/teps/tep/" + localInfo.EntityData.SegmentPath
     localInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4458,6 +4594,7 @@ func (remoteInfo *Evpn_Nodes_Node_Teps_Tep_RemoteInfo) GetEntityData() *types.Co
     remoteInfo.EntityData.BundleName = "cisco_ios_xr"
     remoteInfo.EntityData.ParentYangName = "tep"
     remoteInfo.EntityData.SegmentPath = "remote-info"
+    remoteInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/teps/tep/" + remoteInfo.EntityData.SegmentPath
     remoteInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4490,6 +4627,7 @@ func (internalLabels *Evpn_Nodes_Node_InternalLabels) GetEntityData() *types.Com
     internalLabels.EntityData.BundleName = "cisco_ios_xr"
     internalLabels.EntityData.ParentYangName = "node"
     internalLabels.EntityData.SegmentPath = "internal-labels"
+    internalLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + internalLabels.EntityData.SegmentPath
     internalLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4497,6 +4635,7 @@ func (internalLabels *Evpn_Nodes_Node_InternalLabels) GetEntityData() *types.Com
     internalLabels.EntityData.Children = types.NewOrderedMap()
     internalLabels.EntityData.Children.Append("internal-label", types.YChild{"InternalLabel", nil})
     for i := range internalLabels.InternalLabel {
+        types.SetYListKey(internalLabels.InternalLabel[i], i)
         internalLabels.EntityData.Children.Append(types.GetSegmentPath(internalLabels.InternalLabel[i]), types.YChild{"InternalLabel", internalLabels.InternalLabel[i]})
     }
     internalLabels.EntityData.Leafs = types.NewOrderedMap()
@@ -4511,6 +4650,7 @@ func (internalLabels *Evpn_Nodes_Node_InternalLabels) GetEntityData() *types.Com
 type Evpn_Nodes_Node_InternalLabels_InternalLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -4604,7 +4744,8 @@ func (internalLabel *Evpn_Nodes_Node_InternalLabels_InternalLabel) GetEntityData
     internalLabel.EntityData.YangName = "internal-label"
     internalLabel.EntityData.BundleName = "cisco_ios_xr"
     internalLabel.EntityData.ParentYangName = "internal-labels"
-    internalLabel.EntityData.SegmentPath = "internal-label"
+    internalLabel.EntityData.SegmentPath = "internal-label" + types.AddNoKeyToken(internalLabel)
+    internalLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/internal-labels/" + internalLabel.EntityData.SegmentPath
     internalLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4613,18 +4754,22 @@ func (internalLabel *Evpn_Nodes_Node_InternalLabels_InternalLabel) GetEntityData
     internalLabel.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &internalLabel.EvpnInstance})
     internalLabel.EntityData.Children.Append("mac-path-buffer", types.YChild{"MacPathBuffer", nil})
     for i := range internalLabel.MacPathBuffer {
+        types.SetYListKey(internalLabel.MacPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.MacPathBuffer[i]), types.YChild{"MacPathBuffer", internalLabel.MacPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("ead-path-buffer", types.YChild{"EadPathBuffer", nil})
     for i := range internalLabel.EadPathBuffer {
+        types.SetYListKey(internalLabel.EadPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.EadPathBuffer[i]), types.YChild{"EadPathBuffer", internalLabel.EadPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("evi-path-buffer", types.YChild{"EviPathBuffer", nil})
     for i := range internalLabel.EviPathBuffer {
+        types.SetYListKey(internalLabel.EviPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.EviPathBuffer[i]), types.YChild{"EviPathBuffer", internalLabel.EviPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("summary-path-buffer", types.YChild{"SummaryPathBuffer", nil})
     for i := range internalLabel.SummaryPathBuffer {
+        types.SetYListKey(internalLabel.SummaryPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.SummaryPathBuffer[i]), types.YChild{"SummaryPathBuffer", internalLabel.SummaryPathBuffer[i]})
     }
     internalLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -4680,6 +4825,7 @@ func (evpnInstance *Evpn_Nodes_Node_InternalLabels_InternalLabel_EvpnInstance) G
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "internal-label"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/internal-labels/internal-label/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4701,6 +4847,7 @@ func (evpnInstance *Evpn_Nodes_Node_InternalLabels_InternalLabel_EvpnInstance) G
 type Evpn_Nodes_Node_InternalLabels_InternalLabel_MacPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -4723,7 +4870,8 @@ func (macPathBuffer *Evpn_Nodes_Node_InternalLabels_InternalLabel_MacPathBuffer)
     macPathBuffer.EntityData.YangName = "mac-path-buffer"
     macPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     macPathBuffer.EntityData.ParentYangName = "internal-label"
-    macPathBuffer.EntityData.SegmentPath = "mac-path-buffer"
+    macPathBuffer.EntityData.SegmentPath = "mac-path-buffer" + types.AddNoKeyToken(macPathBuffer)
+    macPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/internal-labels/internal-label/" + macPathBuffer.EntityData.SegmentPath
     macPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4745,6 +4893,7 @@ func (macPathBuffer *Evpn_Nodes_Node_InternalLabels_InternalLabel_MacPathBuffer)
 type Evpn_Nodes_Node_InternalLabels_InternalLabel_EadPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -4767,7 +4916,8 @@ func (eadPathBuffer *Evpn_Nodes_Node_InternalLabels_InternalLabel_EadPathBuffer)
     eadPathBuffer.EntityData.YangName = "ead-path-buffer"
     eadPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     eadPathBuffer.EntityData.ParentYangName = "internal-label"
-    eadPathBuffer.EntityData.SegmentPath = "ead-path-buffer"
+    eadPathBuffer.EntityData.SegmentPath = "ead-path-buffer" + types.AddNoKeyToken(eadPathBuffer)
+    eadPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/internal-labels/internal-label/" + eadPathBuffer.EntityData.SegmentPath
     eadPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eadPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eadPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4789,6 +4939,7 @@ func (eadPathBuffer *Evpn_Nodes_Node_InternalLabels_InternalLabel_EadPathBuffer)
 type Evpn_Nodes_Node_InternalLabels_InternalLabel_EviPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -4811,7 +4962,8 @@ func (eviPathBuffer *Evpn_Nodes_Node_InternalLabels_InternalLabel_EviPathBuffer)
     eviPathBuffer.EntityData.YangName = "evi-path-buffer"
     eviPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     eviPathBuffer.EntityData.ParentYangName = "internal-label"
-    eviPathBuffer.EntityData.SegmentPath = "evi-path-buffer"
+    eviPathBuffer.EntityData.SegmentPath = "evi-path-buffer" + types.AddNoKeyToken(eviPathBuffer)
+    eviPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/internal-labels/internal-label/" + eviPathBuffer.EntityData.SegmentPath
     eviPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4833,6 +4985,7 @@ func (eviPathBuffer *Evpn_Nodes_Node_InternalLabels_InternalLabel_EviPathBuffer)
 type Evpn_Nodes_Node_InternalLabels_InternalLabel_SummaryPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -4855,7 +5008,8 @@ func (summaryPathBuffer *Evpn_Nodes_Node_InternalLabels_InternalLabel_SummaryPat
     summaryPathBuffer.EntityData.YangName = "summary-path-buffer"
     summaryPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     summaryPathBuffer.EntityData.ParentYangName = "internal-label"
-    summaryPathBuffer.EntityData.SegmentPath = "summary-path-buffer"
+    summaryPathBuffer.EntityData.SegmentPath = "summary-path-buffer" + types.AddNoKeyToken(summaryPathBuffer)
+    summaryPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/internal-labels/internal-label/" + summaryPathBuffer.EntityData.SegmentPath
     summaryPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4889,6 +5043,7 @@ func (ethernetSegments *Evpn_Nodes_Node_EthernetSegments) GetEntityData() *types
     ethernetSegments.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegments.EntityData.ParentYangName = "node"
     ethernetSegments.EntityData.SegmentPath = "ethernet-segments"
+    ethernetSegments.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + ethernetSegments.EntityData.SegmentPath
     ethernetSegments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4896,6 +5051,7 @@ func (ethernetSegments *Evpn_Nodes_Node_EthernetSegments) GetEntityData() *types
     ethernetSegments.EntityData.Children = types.NewOrderedMap()
     ethernetSegments.EntityData.Children.Append("ethernet-segment", types.YChild{"EthernetSegment", nil})
     for i := range ethernetSegments.EthernetSegment {
+        types.SetYListKey(ethernetSegments.EthernetSegment[i], i)
         ethernetSegments.EntityData.Children.Append(types.GetSegmentPath(ethernetSegments.EthernetSegment[i]), types.YChild{"EthernetSegment", ethernetSegments.EthernetSegment[i]})
     }
     ethernetSegments.EntityData.Leafs = types.NewOrderedMap()
@@ -4910,6 +5066,7 @@ func (ethernetSegments *Evpn_Nodes_Node_EthernetSegments) GetEntityData() *types
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -5120,7 +5277,8 @@ func (ethernetSegment *Evpn_Nodes_Node_EthernetSegments_EthernetSegment) GetEnti
     ethernetSegment.EntityData.YangName = "ethernet-segment"
     ethernetSegment.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegment.EntityData.ParentYangName = "ethernet-segments"
-    ethernetSegment.EntityData.SegmentPath = "ethernet-segment"
+    ethernetSegment.EntityData.SegmentPath = "ethernet-segment" + types.AddNoKeyToken(ethernetSegment)
+    ethernetSegment.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/" + ethernetSegment.EntityData.SegmentPath
     ethernetSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5128,50 +5286,62 @@ func (ethernetSegment *Evpn_Nodes_Node_EthernetSegments_EthernetSegment) GetEnti
     ethernetSegment.EntityData.Children = types.NewOrderedMap()
     ethernetSegment.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range ethernetSegment.EthernetSegmentIdentifier {
+        types.SetYListKey(ethernetSegment.EthernetSegmentIdentifier[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", ethernetSegment.EthernetSegmentIdentifier[i]})
     }
     ethernetSegment.EntityData.Children.Append("primary-service", types.YChild{"PrimaryService", nil})
     for i := range ethernetSegment.PrimaryService {
+        types.SetYListKey(ethernetSegment.PrimaryService[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.PrimaryService[i]), types.YChild{"PrimaryService", ethernetSegment.PrimaryService[i]})
     }
     ethernetSegment.EntityData.Children.Append("secondary-service", types.YChild{"SecondaryService", nil})
     for i := range ethernetSegment.SecondaryService {
+        types.SetYListKey(ethernetSegment.SecondaryService[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.SecondaryService[i]), types.YChild{"SecondaryService", ethernetSegment.SecondaryService[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-i-sidelected-result", types.YChild{"ServiceCarvingISidelectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingISidelectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingISidelectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingISidelectedResult[i]), types.YChild{"ServiceCarvingISidelectedResult", ethernetSegment.ServiceCarvingISidelectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-isid-not-elected-result", types.YChild{"ServiceCarvingIsidNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingIsidNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingIsidNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingIsidNotElectedResult[i]), types.YChild{"ServiceCarvingIsidNotElectedResult", ethernetSegment.ServiceCarvingIsidNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-evi-elected-result", types.YChild{"ServiceCarvingEviElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingEviElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingEviElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingEviElectedResult[i]), types.YChild{"ServiceCarvingEviElectedResult", ethernetSegment.ServiceCarvingEviElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-evi-not-elected-result", types.YChild{"ServiceCarvingEviNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingEviNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingEviNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingEviNotElectedResult[i]), types.YChild{"ServiceCarvingEviNotElectedResult", ethernetSegment.ServiceCarvingEviNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vni-elected-result", types.YChild{"ServiceCarvingVniElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingVniElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVniElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVniElectedResult[i]), types.YChild{"ServiceCarvingVniElectedResult", ethernetSegment.ServiceCarvingVniElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vni-not-elected-result", types.YChild{"ServiceCarvingVniNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingVniNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVniNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVniNotElectedResult[i]), types.YChild{"ServiceCarvingVniNotElectedResult", ethernetSegment.ServiceCarvingVniNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range ethernetSegment.NextHop {
+        types.SetYListKey(ethernetSegment.NextHop[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.NextHop[i]), types.YChild{"NextHop", ethernetSegment.NextHop[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vpws-permanent-result", types.YChild{"ServiceCarvingVpwsPermanentResult", nil})
     for i := range ethernetSegment.ServiceCarvingVpwsPermanentResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVpwsPermanentResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVpwsPermanentResult[i]), types.YChild{"ServiceCarvingVpwsPermanentResult", ethernetSegment.ServiceCarvingVpwsPermanentResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("remote-split-horizon-group-label", types.YChild{"RemoteSplitHorizonGroupLabel", nil})
     for i := range ethernetSegment.RemoteSplitHorizonGroupLabel {
+        types.SetYListKey(ethernetSegment.RemoteSplitHorizonGroupLabel[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", ethernetSegment.RemoteSplitHorizonGroupLabel[i]})
     }
     ethernetSegment.EntityData.Leafs = types.NewOrderedMap()
@@ -5232,6 +5402,7 @@ func (ethernetSegment *Evpn_Nodes_Node_EthernetSegments_EthernetSegment) GetEnti
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -5242,7 +5413,8 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_EthernetSegments_EthernetSegmen
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "ethernet-segment"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5261,6 +5433,7 @@ func (ethernetSegmentIdentifier *Evpn_Nodes_Node_EthernetSegments_EthernetSegmen
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_PrimaryService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5271,7 +5444,8 @@ func (primaryService *Evpn_Nodes_Node_EthernetSegments_EthernetSegment_PrimarySe
     primaryService.EntityData.YangName = "primary-service"
     primaryService.EntityData.BundleName = "cisco_ios_xr"
     primaryService.EntityData.ParentYangName = "ethernet-segment"
-    primaryService.EntityData.SegmentPath = "primary-service"
+    primaryService.EntityData.SegmentPath = "primary-service" + types.AddNoKeyToken(primaryService)
+    primaryService.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + primaryService.EntityData.SegmentPath
     primaryService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5290,6 +5464,7 @@ func (primaryService *Evpn_Nodes_Node_EthernetSegments_EthernetSegment_PrimarySe
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_SecondaryService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5300,7 +5475,8 @@ func (secondaryService *Evpn_Nodes_Node_EthernetSegments_EthernetSegment_Seconda
     secondaryService.EntityData.YangName = "secondary-service"
     secondaryService.EntityData.BundleName = "cisco_ios_xr"
     secondaryService.EntityData.ParentYangName = "ethernet-segment"
-    secondaryService.EntityData.SegmentPath = "secondary-service"
+    secondaryService.EntityData.SegmentPath = "secondary-service" + types.AddNoKeyToken(secondaryService)
+    secondaryService.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + secondaryService.EntityData.SegmentPath
     secondaryService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5319,6 +5495,7 @@ func (secondaryService *Evpn_Nodes_Node_EthernetSegments_EthernetSegment_Seconda
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingISidelectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5329,7 +5506,8 @@ func (serviceCarvingISidelectedResult *Evpn_Nodes_Node_EthernetSegments_Ethernet
     serviceCarvingISidelectedResult.EntityData.YangName = "service-carving-i-sidelected-result"
     serviceCarvingISidelectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingISidelectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingISidelectedResult.EntityData.SegmentPath = "service-carving-i-sidelected-result"
+    serviceCarvingISidelectedResult.EntityData.SegmentPath = "service-carving-i-sidelected-result" + types.AddNoKeyToken(serviceCarvingISidelectedResult)
+    serviceCarvingISidelectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + serviceCarvingISidelectedResult.EntityData.SegmentPath
     serviceCarvingISidelectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingISidelectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingISidelectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5348,6 +5526,7 @@ func (serviceCarvingISidelectedResult *Evpn_Nodes_Node_EthernetSegments_Ethernet
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingIsidNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5358,7 +5537,8 @@ func (serviceCarvingIsidNotElectedResult *Evpn_Nodes_Node_EthernetSegments_Ether
     serviceCarvingIsidNotElectedResult.EntityData.YangName = "service-carving-isid-not-elected-result"
     serviceCarvingIsidNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingIsidNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingIsidNotElectedResult.EntityData.SegmentPath = "service-carving-isid-not-elected-result"
+    serviceCarvingIsidNotElectedResult.EntityData.SegmentPath = "service-carving-isid-not-elected-result" + types.AddNoKeyToken(serviceCarvingIsidNotElectedResult)
+    serviceCarvingIsidNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + serviceCarvingIsidNotElectedResult.EntityData.SegmentPath
     serviceCarvingIsidNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingIsidNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingIsidNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5377,6 +5557,7 @@ func (serviceCarvingIsidNotElectedResult *Evpn_Nodes_Node_EthernetSegments_Ether
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingEviElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5387,7 +5568,8 @@ func (serviceCarvingEviElectedResult *Evpn_Nodes_Node_EthernetSegments_EthernetS
     serviceCarvingEviElectedResult.EntityData.YangName = "service-carving-evi-elected-result"
     serviceCarvingEviElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingEviElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingEviElectedResult.EntityData.SegmentPath = "service-carving-evi-elected-result"
+    serviceCarvingEviElectedResult.EntityData.SegmentPath = "service-carving-evi-elected-result" + types.AddNoKeyToken(serviceCarvingEviElectedResult)
+    serviceCarvingEviElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + serviceCarvingEviElectedResult.EntityData.SegmentPath
     serviceCarvingEviElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingEviElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingEviElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5406,6 +5588,7 @@ func (serviceCarvingEviElectedResult *Evpn_Nodes_Node_EthernetSegments_EthernetS
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingEviNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5416,7 +5599,8 @@ func (serviceCarvingEviNotElectedResult *Evpn_Nodes_Node_EthernetSegments_Ethern
     serviceCarvingEviNotElectedResult.EntityData.YangName = "service-carving-evi-not-elected-result"
     serviceCarvingEviNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingEviNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingEviNotElectedResult.EntityData.SegmentPath = "service-carving-evi-not-elected-result"
+    serviceCarvingEviNotElectedResult.EntityData.SegmentPath = "service-carving-evi-not-elected-result" + types.AddNoKeyToken(serviceCarvingEviNotElectedResult)
+    serviceCarvingEviNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + serviceCarvingEviNotElectedResult.EntityData.SegmentPath
     serviceCarvingEviNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingEviNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingEviNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5435,6 +5619,7 @@ func (serviceCarvingEviNotElectedResult *Evpn_Nodes_Node_EthernetSegments_Ethern
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingVniElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5445,7 +5630,8 @@ func (serviceCarvingVniElectedResult *Evpn_Nodes_Node_EthernetSegments_EthernetS
     serviceCarvingVniElectedResult.EntityData.YangName = "service-carving-vni-elected-result"
     serviceCarvingVniElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVniElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVniElectedResult.EntityData.SegmentPath = "service-carving-vni-elected-result"
+    serviceCarvingVniElectedResult.EntityData.SegmentPath = "service-carving-vni-elected-result" + types.AddNoKeyToken(serviceCarvingVniElectedResult)
+    serviceCarvingVniElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + serviceCarvingVniElectedResult.EntityData.SegmentPath
     serviceCarvingVniElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVniElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVniElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5464,6 +5650,7 @@ func (serviceCarvingVniElectedResult *Evpn_Nodes_Node_EthernetSegments_EthernetS
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingVniNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -5474,7 +5661,8 @@ func (serviceCarvingVniNotElectedResult *Evpn_Nodes_Node_EthernetSegments_Ethern
     serviceCarvingVniNotElectedResult.EntityData.YangName = "service-carving-vni-not-elected-result"
     serviceCarvingVniNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVniNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVniNotElectedResult.EntityData.SegmentPath = "service-carving-vni-not-elected-result"
+    serviceCarvingVniNotElectedResult.EntityData.SegmentPath = "service-carving-vni-not-elected-result" + types.AddNoKeyToken(serviceCarvingVniNotElectedResult)
+    serviceCarvingVniNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + serviceCarvingVniNotElectedResult.EntityData.SegmentPath
     serviceCarvingVniNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVniNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVniNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5493,6 +5681,7 @@ func (serviceCarvingVniNotElectedResult *Evpn_Nodes_Node_EthernetSegments_Ethern
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -5513,7 +5702,8 @@ func (nextHop *Evpn_Nodes_Node_EthernetSegments_EthernetSegment_NextHop) GetEnti
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "ethernet-segment"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5535,6 +5725,7 @@ func (nextHop *Evpn_Nodes_Node_EthernetSegments_EthernetSegment_NextHop) GetEnti
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_ServiceCarvingVpwsPermanentResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VPN ID. The type is interface{} with range: 0..4294967295.
     VpnId interface{}
@@ -5551,7 +5742,8 @@ func (serviceCarvingVpwsPermanentResult *Evpn_Nodes_Node_EthernetSegments_Ethern
     serviceCarvingVpwsPermanentResult.EntityData.YangName = "service-carving-vpws-permanent-result"
     serviceCarvingVpwsPermanentResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVpwsPermanentResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVpwsPermanentResult.EntityData.SegmentPath = "service-carving-vpws-permanent-result"
+    serviceCarvingVpwsPermanentResult.EntityData.SegmentPath = "service-carving-vpws-permanent-result" + types.AddNoKeyToken(serviceCarvingVpwsPermanentResult)
+    serviceCarvingVpwsPermanentResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + serviceCarvingVpwsPermanentResult.EntityData.SegmentPath
     serviceCarvingVpwsPermanentResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVpwsPermanentResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVpwsPermanentResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5572,6 +5764,7 @@ func (serviceCarvingVpwsPermanentResult *Evpn_Nodes_Node_EthernetSegments_Ethern
 type Evpn_Nodes_Node_EthernetSegments_EthernetSegment_RemoteSplitHorizonGroupLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -5587,7 +5780,8 @@ func (remoteSplitHorizonGroupLabel *Evpn_Nodes_Node_EthernetSegments_EthernetSeg
     remoteSplitHorizonGroupLabel.EntityData.YangName = "remote-split-horizon-group-label"
     remoteSplitHorizonGroupLabel.EntityData.BundleName = "cisco_ios_xr"
     remoteSplitHorizonGroupLabel.EntityData.ParentYangName = "ethernet-segment"
-    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label"
+    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label" + types.AddNoKeyToken(remoteSplitHorizonGroupLabel)
+    remoteSplitHorizonGroupLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ethernet-segments/ethernet-segment/" + remoteSplitHorizonGroupLabel.EntityData.SegmentPath
     remoteSplitHorizonGroupLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteSplitHorizonGroupLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteSplitHorizonGroupLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5618,6 +5812,7 @@ func (acIds *Evpn_Nodes_Node_AcIds) GetEntityData() *types.CommonEntityData {
     acIds.EntityData.BundleName = "cisco_ios_xr"
     acIds.EntityData.ParentYangName = "node"
     acIds.EntityData.SegmentPath = "ac-ids"
+    acIds.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/" + acIds.EntityData.SegmentPath
     acIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5625,6 +5820,7 @@ func (acIds *Evpn_Nodes_Node_AcIds) GetEntityData() *types.CommonEntityData {
     acIds.EntityData.Children = types.NewOrderedMap()
     acIds.EntityData.Children.Append("ac-id", types.YChild{"AcId", nil})
     for i := range acIds.AcId {
+        types.SetYListKey(acIds.AcId[i], i)
         acIds.EntityData.Children.Append(types.GetSegmentPath(acIds.AcId[i]), types.YChild{"AcId", acIds.AcId[i]})
     }
     acIds.EntityData.Leafs = types.NewOrderedMap()
@@ -5639,6 +5835,7 @@ func (acIds *Evpn_Nodes_Node_AcIds) GetEntityData() *types.CommonEntityData {
 type Evpn_Nodes_Node_AcIds_AcId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -5659,7 +5856,8 @@ func (acId *Evpn_Nodes_Node_AcIds_AcId) GetEntityData() *types.CommonEntityData 
     acId.EntityData.YangName = "ac-id"
     acId.EntityData.BundleName = "cisco_ios_xr"
     acId.EntityData.ParentYangName = "ac-ids"
-    acId.EntityData.SegmentPath = "ac-id"
+    acId.EntityData.SegmentPath = "ac-id" + types.AddNoKeyToken(acId)
+    acId.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ac-ids/" + acId.EntityData.SegmentPath
     acId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5702,6 +5900,7 @@ func (evpnInstance *Evpn_Nodes_Node_AcIds_AcId_EvpnInstance) GetEntityData() *ty
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "ac-id"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/nodes/node/ac-ids/ac-id/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5764,6 +5963,7 @@ func (active *Evpn_Active) GetEntityData() *types.CommonEntityData {
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "evpn"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5804,6 +6004,7 @@ func (evpnGroups *Evpn_Active_EvpnGroups) GetEntityData() *types.CommonEntityDat
     evpnGroups.EntityData.BundleName = "cisco_ios_xr"
     evpnGroups.EntityData.ParentYangName = "active"
     evpnGroups.EntityData.SegmentPath = "evpn-groups"
+    evpnGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + evpnGroups.EntityData.SegmentPath
     evpnGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5825,6 +6026,7 @@ func (evpnGroups *Evpn_Active_EvpnGroups) GetEntityData() *types.CommonEntityDat
 type Evpn_Active_EvpnGroups_EvpnGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EVPN group number. The type is interface{} with
     // range: 1..4294967295.
@@ -5851,6 +6053,7 @@ func (evpnGroup *Evpn_Active_EvpnGroups_EvpnGroup) GetEntityData() *types.Common
     evpnGroup.EntityData.BundleName = "cisco_ios_xr"
     evpnGroup.EntityData.ParentYangName = "evpn-groups"
     evpnGroup.EntityData.SegmentPath = "evpn-group" + types.AddKeyToken(evpnGroup.GroupNumber, "group-number")
+    evpnGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evpn-groups/" + evpnGroup.EntityData.SegmentPath
     evpnGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5858,10 +6061,12 @@ func (evpnGroup *Evpn_Active_EvpnGroups_EvpnGroup) GetEntityData() *types.Common
     evpnGroup.EntityData.Children = types.NewOrderedMap()
     evpnGroup.EntityData.Children.Append("core-interface", types.YChild{"CoreInterface", nil})
     for i := range evpnGroup.CoreInterface {
+        types.SetYListKey(evpnGroup.CoreInterface[i], i)
         evpnGroup.EntityData.Children.Append(types.GetSegmentPath(evpnGroup.CoreInterface[i]), types.YChild{"CoreInterface", evpnGroup.CoreInterface[i]})
     }
     evpnGroup.EntityData.Children.Append("access-interface", types.YChild{"AccessInterface", nil})
     for i := range evpnGroup.AccessInterface {
+        types.SetYListKey(evpnGroup.AccessInterface[i], i)
         evpnGroup.EntityData.Children.Append(types.GetSegmentPath(evpnGroup.AccessInterface[i]), types.YChild{"AccessInterface", evpnGroup.AccessInterface[i]})
     }
     evpnGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -5879,6 +6084,7 @@ func (evpnGroup *Evpn_Active_EvpnGroups_EvpnGroup) GetEntityData() *types.Common
 type Evpn_Active_EvpnGroups_EvpnGroup_CoreInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -5892,7 +6098,8 @@ func (coreInterface *Evpn_Active_EvpnGroups_EvpnGroup_CoreInterface) GetEntityDa
     coreInterface.EntityData.YangName = "core-interface"
     coreInterface.EntityData.BundleName = "cisco_ios_xr"
     coreInterface.EntityData.ParentYangName = "evpn-group"
-    coreInterface.EntityData.SegmentPath = "core-interface"
+    coreInterface.EntityData.SegmentPath = "core-interface" + types.AddNoKeyToken(coreInterface)
+    coreInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evpn-groups/evpn-group/" + coreInterface.EntityData.SegmentPath
     coreInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     coreInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coreInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5912,6 +6119,7 @@ func (coreInterface *Evpn_Active_EvpnGroups_EvpnGroup_CoreInterface) GetEntityDa
 type Evpn_Active_EvpnGroups_EvpnGroup_AccessInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -5925,7 +6133,8 @@ func (accessInterface *Evpn_Active_EvpnGroups_EvpnGroup_AccessInterface) GetEnti
     accessInterface.EntityData.YangName = "access-interface"
     accessInterface.EntityData.BundleName = "cisco_ios_xr"
     accessInterface.EntityData.ParentYangName = "evpn-group"
-    accessInterface.EntityData.SegmentPath = "access-interface"
+    accessInterface.EntityData.SegmentPath = "access-interface" + types.AddNoKeyToken(accessInterface)
+    accessInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evpn-groups/evpn-group/" + accessInterface.EntityData.SegmentPath
     accessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5956,6 +6165,7 @@ func (remoteShgs *Evpn_Active_RemoteShgs) GetEntityData() *types.CommonEntityDat
     remoteShgs.EntityData.BundleName = "cisco_ios_xr"
     remoteShgs.EntityData.ParentYangName = "active"
     remoteShgs.EntityData.SegmentPath = "remote-shgs"
+    remoteShgs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + remoteShgs.EntityData.SegmentPath
     remoteShgs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteShgs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteShgs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5963,6 +6173,7 @@ func (remoteShgs *Evpn_Active_RemoteShgs) GetEntityData() *types.CommonEntityDat
     remoteShgs.EntityData.Children = types.NewOrderedMap()
     remoteShgs.EntityData.Children.Append("remote-shg", types.YChild{"RemoteShg", nil})
     for i := range remoteShgs.RemoteShg {
+        types.SetYListKey(remoteShgs.RemoteShg[i], i)
         remoteShgs.EntityData.Children.Append(types.GetSegmentPath(remoteShgs.RemoteShg[i]), types.YChild{"RemoteShg", remoteShgs.RemoteShg[i]})
     }
     remoteShgs.EntityData.Leafs = types.NewOrderedMap()
@@ -5977,6 +6188,7 @@ func (remoteShgs *Evpn_Active_RemoteShgs) GetEntityData() *types.CommonEntityDat
 type Evpn_Active_RemoteShgs_RemoteShg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
     Esi1 interface{}
@@ -6007,7 +6219,8 @@ func (remoteShg *Evpn_Active_RemoteShgs_RemoteShg) GetEntityData() *types.Common
     remoteShg.EntityData.YangName = "remote-shg"
     remoteShg.EntityData.BundleName = "cisco_ios_xr"
     remoteShg.EntityData.ParentYangName = "remote-shgs"
-    remoteShg.EntityData.SegmentPath = "remote-shg"
+    remoteShg.EntityData.SegmentPath = "remote-shg" + types.AddNoKeyToken(remoteShg)
+    remoteShg.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/remote-shgs/" + remoteShg.EntityData.SegmentPath
     remoteShg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteShg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteShg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6015,10 +6228,12 @@ func (remoteShg *Evpn_Active_RemoteShgs_RemoteShg) GetEntityData() *types.Common
     remoteShg.EntityData.Children = types.NewOrderedMap()
     remoteShg.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range remoteShg.EthernetSegmentIdentifier {
+        types.SetYListKey(remoteShg.EthernetSegmentIdentifier[i], i)
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", remoteShg.EthernetSegmentIdentifier[i]})
     }
     remoteShg.EntityData.Children.Append("remote-split-horizon-group-label", types.YChild{"RemoteSplitHorizonGroupLabel", nil})
     for i := range remoteShg.RemoteSplitHorizonGroupLabel {
+        types.SetYListKey(remoteShg.RemoteSplitHorizonGroupLabel[i], i)
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", remoteShg.RemoteSplitHorizonGroupLabel[i]})
     }
     remoteShg.EntityData.Leafs = types.NewOrderedMap()
@@ -6038,6 +6253,7 @@ func (remoteShg *Evpn_Active_RemoteShgs_RemoteShg) GetEntityData() *types.Common
 type Evpn_Active_RemoteShgs_RemoteShg_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -6048,7 +6264,8 @@ func (ethernetSegmentIdentifier *Evpn_Active_RemoteShgs_RemoteShg_EthernetSegmen
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "remote-shg"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/remote-shgs/remote-shg/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6067,6 +6284,7 @@ func (ethernetSegmentIdentifier *Evpn_Active_RemoteShgs_RemoteShg_EthernetSegmen
 type Evpn_Active_RemoteShgs_RemoteShg_RemoteSplitHorizonGroupLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -6082,7 +6300,8 @@ func (remoteSplitHorizonGroupLabel *Evpn_Active_RemoteShgs_RemoteShg_RemoteSplit
     remoteSplitHorizonGroupLabel.EntityData.YangName = "remote-split-horizon-group-label"
     remoteSplitHorizonGroupLabel.EntityData.BundleName = "cisco_ios_xr"
     remoteSplitHorizonGroupLabel.EntityData.ParentYangName = "remote-shg"
-    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label"
+    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label" + types.AddNoKeyToken(remoteSplitHorizonGroupLabel)
+    remoteSplitHorizonGroupLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/remote-shgs/remote-shg/" + remoteSplitHorizonGroupLabel.EntityData.SegmentPath
     remoteSplitHorizonGroupLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteSplitHorizonGroupLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteSplitHorizonGroupLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6110,6 +6329,7 @@ func (client *Evpn_Active_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "active"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6138,6 +6358,7 @@ func (igmps *Evpn_Active_Igmps) GetEntityData() *types.CommonEntityData {
     igmps.EntityData.BundleName = "cisco_ios_xr"
     igmps.EntityData.ParentYangName = "active"
     igmps.EntityData.SegmentPath = "igmps"
+    igmps.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + igmps.EntityData.SegmentPath
     igmps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6145,6 +6366,7 @@ func (igmps *Evpn_Active_Igmps) GetEntityData() *types.CommonEntityData {
     igmps.EntityData.Children = types.NewOrderedMap()
     igmps.EntityData.Children.Append("igmp", types.YChild{"Igmp", nil})
     for i := range igmps.Igmp {
+        types.SetYListKey(igmps.Igmp[i], i)
         igmps.EntityData.Children.Append(types.GetSegmentPath(igmps.Igmp[i]), types.YChild{"Igmp", igmps.Igmp[i]})
     }
     igmps.EntityData.Leafs = types.NewOrderedMap()
@@ -6159,6 +6381,7 @@ func (igmps *Evpn_Active_Igmps) GetEntityData() *types.CommonEntityData {
 type Evpn_Active_Igmps_Igmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Join=0, Leave=1. The type is interface{} with range: 0..4294967295.
     IsLeave interface{}
@@ -6250,7 +6473,8 @@ func (igmp *Evpn_Active_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
     igmp.EntityData.YangName = "igmp"
     igmp.EntityData.BundleName = "cisco_ios_xr"
     igmp.EntityData.ParentYangName = "igmps"
-    igmp.EntityData.SegmentPath = "igmp"
+    igmp.EntityData.SegmentPath = "igmp" + types.AddNoKeyToken(igmp)
+    igmp.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/" + igmp.EntityData.SegmentPath
     igmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6259,10 +6483,12 @@ func (igmp *Evpn_Active_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
     igmp.EntityData.Children.Append("source-info", types.YChild{"SourceInfo", &igmp.SourceInfo})
     igmp.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range igmp.EthernetSegmentIdentifier {
+        types.SetYListKey(igmp.EthernetSegmentIdentifier[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", igmp.EthernetSegmentIdentifier[i]})
     }
     igmp.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range igmp.NextHop {
+        types.SetYListKey(igmp.NextHop[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.NextHop[i]), types.YChild{"NextHop", igmp.NextHop[i]})
     }
     igmp.EntityData.Leafs = types.NewOrderedMap()
@@ -6316,6 +6542,7 @@ func (sourceInfo *Evpn_Active_Igmps_Igmp_SourceInfo) GetEntityData() *types.Comm
     sourceInfo.EntityData.BundleName = "cisco_ios_xr"
     sourceInfo.EntityData.ParentYangName = "igmp"
     sourceInfo.EntityData.SegmentPath = "source-info"
+    sourceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/" + sourceInfo.EntityData.SegmentPath
     sourceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6357,6 +6584,7 @@ func (localInfo *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData() *t
     localInfo.EntityData.BundleName = "cisco_ios_xr"
     localInfo.EntityData.ParentYangName = "source-info"
     localInfo.EntityData.SegmentPath = "local-info"
+    localInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/" + localInfo.EntityData.SegmentPath
     localInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6410,6 +6638,7 @@ func (parameters *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters) GetEnt
     parameters.EntityData.BundleName = "cisco_ios_xr"
     parameters.EntityData.ParentYangName = "local-info"
     parameters.EntityData.SegmentPath = "parameters"
+    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/" + parameters.EntityData.SegmentPath
     parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6446,6 +6675,7 @@ func (ethernet *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet)
     ethernet.EntityData.BundleName = "cisco_ios_xr"
     ethernet.EntityData.ParentYangName = "parameters"
     ethernet.EntityData.SegmentPath = "ethernet"
+    ethernet.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + ethernet.EntityData.SegmentPath
     ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6495,6 +6725,7 @@ func (vlan *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEnti
     vlan.EntityData.BundleName = "cisco_ios_xr"
     vlan.EntityData.ParentYangName = "parameters"
     vlan.EntityData.SegmentPath = "vlan"
+    vlan.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + vlan.EntityData.SegmentPath
     vlan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6502,10 +6733,12 @@ func (vlan *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEnti
     vlan.EntityData.Children = types.NewOrderedMap()
     vlan.EntityData.Children.Append("rewrite-tag", types.YChild{"RewriteTag", nil})
     for i := range vlan.RewriteTag {
+        types.SetYListKey(vlan.RewriteTag[i], i)
         vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.RewriteTag[i]), types.YChild{"RewriteTag", vlan.RewriteTag[i]})
     }
     vlan.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range vlan.VlanRange {
+        types.SetYListKey(vlan.VlanRange[i], i)
         vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.VlanRange[i]), types.YChild{"VlanRange", vlan.VlanRange[i]})
     }
     vlan.EntityData.Leafs = types.NewOrderedMap()
@@ -6525,6 +6758,7 @@ func (vlan *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEnti
 type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535.
     Entry interface{}
@@ -6535,7 +6769,8 @@ func (rewriteTag *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_Re
     rewriteTag.EntityData.YangName = "rewrite-tag"
     rewriteTag.EntityData.BundleName = "cisco_ios_xr"
     rewriteTag.EntityData.ParentYangName = "vlan"
-    rewriteTag.EntityData.SegmentPath = "rewrite-tag"
+    rewriteTag.EntityData.SegmentPath = "rewrite-tag" + types.AddNoKeyToken(rewriteTag)
+    rewriteTag.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/vlan/" + rewriteTag.EntityData.SegmentPath
     rewriteTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rewriteTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rewriteTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6554,6 +6789,7 @@ func (rewriteTag *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_Re
 type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Lower. The type is interface{} with range: 0..65535.
     Lower interface{}
@@ -6567,7 +6803,8 @@ func (vlanRange *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_Vla
     vlanRange.EntityData.YangName = "vlan-range"
     vlanRange.EntityData.BundleName = "cisco_ios_xr"
     vlanRange.EntityData.ParentYangName = "vlan"
-    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
+    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/vlan/" + vlanRange.EntityData.SegmentPath
     vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6610,6 +6847,7 @@ func (tdm *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm) GetEntity
     tdm.EntityData.BundleName = "cisco_ios_xr"
     tdm.EntityData.ParentYangName = "parameters"
     tdm.EntityData.SegmentPath = "tdm"
+    tdm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + tdm.EntityData.SegmentPath
     tdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6670,6 +6908,7 @@ func (tdmOptions *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_Tdm
     tdmOptions.EntityData.BundleName = "cisco_ios_xr"
     tdmOptions.EntityData.ParentYangName = "tdm"
     tdmOptions.EntityData.SegmentPath = "tdm-options"
+    tdmOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/tdm/" + tdmOptions.EntityData.SegmentPath
     tdmOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tdmOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tdmOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6719,6 +6958,7 @@ func (atm *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm) GetEntity
     atm.EntityData.BundleName = "cisco_ios_xr"
     atm.EntityData.ParentYangName = "parameters"
     atm.EntityData.SegmentPath = "atm"
+    atm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + atm.EntityData.SegmentPath
     atm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     atm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     atm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6756,6 +6996,7 @@ func (fr *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr) GetEntityDa
     fr.EntityData.BundleName = "cisco_ios_xr"
     fr.EntityData.ParentYangName = "parameters"
     fr.EntityData.SegmentPath = "fr"
+    fr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + fr.EntityData.SegmentPath
     fr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6792,6 +7033,7 @@ func (pseudowireEther *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ps
     pseudowireEther.EntityData.BundleName = "cisco_ios_xr"
     pseudowireEther.EntityData.ParentYangName = "parameters"
     pseudowireEther.EntityData.SegmentPath = "pseudowire-ether"
+    pseudowireEther.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + pseudowireEther.EntityData.SegmentPath
     pseudowireEther.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireEther.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireEther.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6830,6 +7072,7 @@ func (interfaceList *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseu
     interfaceList.EntityData.BundleName = "cisco_ios_xr"
     interfaceList.EntityData.ParentYangName = "pseudowire-ether"
     interfaceList.EntityData.SegmentPath = "interface-list"
+    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/" + interfaceList.EntityData.SegmentPath
     interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6837,6 +7080,7 @@ func (interfaceList *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseu
     interfaceList.EntityData.Children = types.NewOrderedMap()
     interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range interfaceList.Interface {
+        types.SetYListKey(interfaceList.Interface[i], i)
         interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
     }
     interfaceList.EntityData.Leafs = types.NewOrderedMap()
@@ -6853,6 +7097,7 @@ func (interfaceList *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseu
 type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -6866,7 +7111,8 @@ func (self *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEth
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/interface-list/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6903,6 +7149,7 @@ func (pseudowireIw *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseud
     pseudowireIw.EntityData.BundleName = "cisco_ios_xr"
     pseudowireIw.EntityData.ParentYangName = "parameters"
     pseudowireIw.EntityData.SegmentPath = "pseudowire-iw"
+    pseudowireIw.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/" + pseudowireIw.EntityData.SegmentPath
     pseudowireIw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireIw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireIw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6941,6 +7188,7 @@ func (interfaceList *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseu
     interfaceList.EntityData.BundleName = "cisco_ios_xr"
     interfaceList.EntityData.ParentYangName = "pseudowire-iw"
     interfaceList.EntityData.SegmentPath = "interface-list"
+    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/" + interfaceList.EntityData.SegmentPath
     interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6948,6 +7196,7 @@ func (interfaceList *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseu
     interfaceList.EntityData.Children = types.NewOrderedMap()
     interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range interfaceList.Interface {
+        types.SetYListKey(interfaceList.Interface[i], i)
         interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
     }
     interfaceList.EntityData.Leafs = types.NewOrderedMap()
@@ -6964,6 +7213,7 @@ func (interfaceList *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseu
 type Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -6977,7 +7227,8 @@ func (self *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/interface-list/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6997,6 +7248,7 @@ func (self *Evpn_Active_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_
 type Evpn_Active_Igmps_Igmp_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -7007,7 +7259,8 @@ func (ethernetSegmentIdentifier *Evpn_Active_Igmps_Igmp_EthernetSegmentIdentifie
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "igmp"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7026,6 +7279,7 @@ func (ethernetSegmentIdentifier *Evpn_Active_Igmps_Igmp_EthernetSegmentIdentifie
 type Evpn_Active_Igmps_Igmp_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -7046,7 +7300,8 @@ func (nextHop *Evpn_Active_Igmps_Igmp_NextHop) GetEntityData() *types.CommonEnti
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "igmp"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/igmps/igmp/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7079,6 +7334,7 @@ func (evis *Evpn_Active_Evis) GetEntityData() *types.CommonEntityData {
     evis.EntityData.BundleName = "cisco_ios_xr"
     evis.EntityData.ParentYangName = "active"
     evis.EntityData.SegmentPath = "evis"
+    evis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + evis.EntityData.SegmentPath
     evis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7086,6 +7342,7 @@ func (evis *Evpn_Active_Evis) GetEntityData() *types.CommonEntityData {
     evis.EntityData.Children = types.NewOrderedMap()
     evis.EntityData.Children.Append("evi", types.YChild{"Evi", nil})
     for i := range evis.Evi {
+        types.SetYListKey(evis.Evi[i], i)
         evis.EntityData.Children.Append(types.GetSegmentPath(evis.Evi[i]), types.YChild{"Evi", evis.Evi[i]})
     }
     evis.EntityData.Leafs = types.NewOrderedMap()
@@ -7100,6 +7357,7 @@ func (evis *Evpn_Active_Evis) GetEntityData() *types.CommonEntityData {
 type Evpn_Active_Evis_Evi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -7126,7 +7384,8 @@ func (evi *Evpn_Active_Evis_Evi) GetEntityData() *types.CommonEntityData {
     evi.EntityData.YangName = "evi"
     evi.EntityData.BundleName = "cisco_ios_xr"
     evi.EntityData.ParentYangName = "evis"
-    evi.EntityData.SegmentPath = "evi"
+    evi.EntityData.SegmentPath = "evi" + types.AddNoKeyToken(evi)
+    evi.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evis/" + evi.EntityData.SegmentPath
     evi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7278,6 +7537,7 @@ func (summary *Evpn_Active_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "active"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7340,6 +7600,7 @@ func (eviDetail *Evpn_Active_EviDetail) GetEntityData() *types.CommonEntityData 
     eviDetail.EntityData.BundleName = "cisco_ios_xr"
     eviDetail.EntityData.ParentYangName = "active"
     eviDetail.EntityData.SegmentPath = "evi-detail"
+    eviDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + eviDetail.EntityData.SegmentPath
     eviDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7371,6 +7632,7 @@ func (elements *Evpn_Active_EviDetail_Elements) GetEntityData() *types.CommonEnt
     elements.EntityData.BundleName = "cisco_ios_xr"
     elements.EntityData.ParentYangName = "evi-detail"
     elements.EntityData.SegmentPath = "elements"
+    elements.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/" + elements.EntityData.SegmentPath
     elements.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     elements.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     elements.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7378,6 +7640,7 @@ func (elements *Evpn_Active_EviDetail_Elements) GetEntityData() *types.CommonEnt
     elements.EntityData.Children = types.NewOrderedMap()
     elements.EntityData.Children.Append("element", types.YChild{"Element", nil})
     for i := range elements.Element {
+        types.SetYListKey(elements.Element[i], i)
         elements.EntityData.Children.Append(types.GetSegmentPath(elements.Element[i]), types.YChild{"Element", elements.Element[i]})
     }
     elements.EntityData.Leafs = types.NewOrderedMap()
@@ -7392,6 +7655,7 @@ func (elements *Evpn_Active_EviDetail_Elements) GetEntityData() *types.CommonEnt
 type Evpn_Active_EviDetail_Elements_Element struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -7477,7 +7741,8 @@ func (element *Evpn_Active_EviDetail_Elements_Element) GetEntityData() *types.Co
     element.EntityData.YangName = "element"
     element.EntityData.BundleName = "cisco_ios_xr"
     element.EntityData.ParentYangName = "elements"
-    element.EntityData.SegmentPath = "element"
+    element.EntityData.SegmentPath = "element" + types.AddNoKeyToken(element)
+    element.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/" + element.EntityData.SegmentPath
     element.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     element.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     element.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7542,6 +7807,7 @@ func (evpnInstance *Evpn_Active_EviDetail_Elements_Element_EvpnInstance) GetEnti
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "element"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7577,6 +7843,7 @@ func (flowLabel *Evpn_Active_EviDetail_Elements_Element_FlowLabel) GetEntityData
     flowLabel.EntityData.BundleName = "cisco_ios_xr"
     flowLabel.EntityData.ParentYangName = "element"
     flowLabel.EntityData.SegmentPath = "flow-label"
+    flowLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/" + flowLabel.EntityData.SegmentPath
     flowLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7619,6 +7886,7 @@ func (rdAuto *Evpn_Active_EviDetail_Elements_Element_RdAuto) GetEntityData() *ty
     rdAuto.EntityData.BundleName = "cisco_ios_xr"
     rdAuto.EntityData.ParentYangName = "element"
     rdAuto.EntityData.SegmentPath = "rd-auto"
+    rdAuto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/" + rdAuto.EntityData.SegmentPath
     rdAuto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdAuto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdAuto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7656,6 +7924,7 @@ func (auto *Evpn_Active_EviDetail_Elements_Element_RdAuto_Auto) GetEntityData() 
     auto.EntityData.BundleName = "cisco_ios_xr"
     auto.EntityData.ParentYangName = "rd-auto"
     auto.EntityData.SegmentPath = "auto"
+    auto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rd-auto/" + auto.EntityData.SegmentPath
     auto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7689,6 +7958,7 @@ func (twoByteAs *Evpn_Active_EviDetail_Elements_Element_RdAuto_TwoByteAs) GetEnt
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rd-auto"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rd-auto/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7722,6 +7992,7 @@ func (fourByteAs *Evpn_Active_EviDetail_Elements_Element_RdAuto_FourByteAs) GetE
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rd-auto"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rd-auto/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7756,6 +8027,7 @@ func (v4Addr *Evpn_Active_EviDetail_Elements_Element_RdAuto_V4Addr) GetEntityDat
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rd-auto"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rd-auto/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7798,6 +8070,7 @@ func (rdConfigured *Evpn_Active_EviDetail_Elements_Element_RdConfigured) GetEnti
     rdConfigured.EntityData.BundleName = "cisco_ios_xr"
     rdConfigured.EntityData.ParentYangName = "element"
     rdConfigured.EntityData.SegmentPath = "rd-configured"
+    rdConfigured.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/" + rdConfigured.EntityData.SegmentPath
     rdConfigured.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdConfigured.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdConfigured.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7835,6 +8108,7 @@ func (auto *Evpn_Active_EviDetail_Elements_Element_RdConfigured_Auto) GetEntityD
     auto.EntityData.BundleName = "cisco_ios_xr"
     auto.EntityData.ParentYangName = "rd-configured"
     auto.EntityData.SegmentPath = "auto"
+    auto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rd-configured/" + auto.EntityData.SegmentPath
     auto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7868,6 +8142,7 @@ func (twoByteAs *Evpn_Active_EviDetail_Elements_Element_RdConfigured_TwoByteAs) 
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rd-configured"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rd-configured/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7901,6 +8176,7 @@ func (fourByteAs *Evpn_Active_EviDetail_Elements_Element_RdConfigured_FourByteAs
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rd-configured"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rd-configured/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7935,6 +8211,7 @@ func (v4Addr *Evpn_Active_EviDetail_Elements_Element_RdConfigured_V4Addr) GetEnt
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rd-configured"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rd-configured/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7977,6 +8254,7 @@ func (rtAuto *Evpn_Active_EviDetail_Elements_Element_RtAuto) GetEntityData() *ty
     rtAuto.EntityData.BundleName = "cisco_ios_xr"
     rtAuto.EntityData.ParentYangName = "element"
     rtAuto.EntityData.SegmentPath = "rt-auto"
+    rtAuto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/" + rtAuto.EntityData.SegmentPath
     rtAuto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtAuto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtAuto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8013,6 +8291,7 @@ func (twoByteAs *Evpn_Active_EviDetail_Elements_Element_RtAuto_TwoByteAs) GetEnt
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rt-auto"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rt-auto/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8046,6 +8325,7 @@ func (fourByteAs *Evpn_Active_EviDetail_Elements_Element_RtAuto_FourByteAs) GetE
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rt-auto"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rt-auto/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8080,6 +8360,7 @@ func (v4Addr *Evpn_Active_EviDetail_Elements_Element_RtAuto_V4Addr) GetEntityDat
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rt-auto"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rt-auto/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8114,6 +8395,7 @@ func (esImport *Evpn_Active_EviDetail_Elements_Element_RtAuto_EsImport) GetEntit
     esImport.EntityData.BundleName = "cisco_ios_xr"
     esImport.EntityData.ParentYangName = "rt-auto"
     esImport.EntityData.SegmentPath = "es-import"
+    esImport.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/elements/element/rt-auto/" + esImport.EntityData.SegmentPath
     esImport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esImport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esImport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8156,6 +8438,7 @@ func (eviChildren *Evpn_Active_EviDetail_EviChildren) GetEntityData() *types.Com
     eviChildren.EntityData.BundleName = "cisco_ios_xr"
     eviChildren.EntityData.ParentYangName = "evi-detail"
     eviChildren.EntityData.SegmentPath = "evi-children"
+    eviChildren.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/" + eviChildren.EntityData.SegmentPath
     eviChildren.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviChildren.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviChildren.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8190,6 +8473,7 @@ func (neighbors *Evpn_Active_EviDetail_EviChildren_Neighbors) GetEntityData() *t
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "evi-children"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8197,6 +8481,7 @@ func (neighbors *Evpn_Active_EviDetail_EviChildren_Neighbors) GetEntityData() *t
     neighbors.EntityData.Children = types.NewOrderedMap()
     neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
+        types.SetYListKey(neighbors.Neighbor[i], i)
         neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
     neighbors.EntityData.Leafs = types.NewOrderedMap()
@@ -8211,6 +8496,7 @@ func (neighbors *Evpn_Active_EviDetail_EviChildren_Neighbors) GetEntityData() *t
 type Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -8237,7 +8523,8 @@ func (neighbor *Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor) GetEntityD
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddNoKeyToken(neighbor)
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8281,6 +8568,7 @@ func (evpnInstance *Evpn_Active_EviDetail_EviChildren_Neighbors_Neighbor_EvpnIns
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "neighbor"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/neighbors/neighbor/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8314,6 +8602,7 @@ func (ethernetAutoDiscoveries *Evpn_Active_EviDetail_EviChildren_EthernetAutoDis
     ethernetAutoDiscoveries.EntityData.BundleName = "cisco_ios_xr"
     ethernetAutoDiscoveries.EntityData.ParentYangName = "evi-children"
     ethernetAutoDiscoveries.EntityData.SegmentPath = "ethernet-auto-discoveries"
+    ethernetAutoDiscoveries.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/" + ethernetAutoDiscoveries.EntityData.SegmentPath
     ethernetAutoDiscoveries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetAutoDiscoveries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetAutoDiscoveries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8321,6 +8610,7 @@ func (ethernetAutoDiscoveries *Evpn_Active_EviDetail_EviChildren_EthernetAutoDis
     ethernetAutoDiscoveries.EntityData.Children = types.NewOrderedMap()
     ethernetAutoDiscoveries.EntityData.Children.Append("ethernet-auto-discovery", types.YChild{"EthernetAutoDiscovery", nil})
     for i := range ethernetAutoDiscoveries.EthernetAutoDiscovery {
+        types.SetYListKey(ethernetAutoDiscoveries.EthernetAutoDiscovery[i], i)
         ethernetAutoDiscoveries.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscoveries.EthernetAutoDiscovery[i]), types.YChild{"EthernetAutoDiscovery", ethernetAutoDiscoveries.EthernetAutoDiscovery[i]})
     }
     ethernetAutoDiscoveries.EntityData.Leafs = types.NewOrderedMap()
@@ -8335,6 +8625,7 @@ func (ethernetAutoDiscoveries *Evpn_Active_EviDetail_EviChildren_EthernetAutoDis
 type Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -8400,7 +8691,8 @@ func (ethernetAutoDiscovery *Evpn_Active_EviDetail_EviChildren_EthernetAutoDisco
     ethernetAutoDiscovery.EntityData.YangName = "ethernet-auto-discovery"
     ethernetAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     ethernetAutoDiscovery.EntityData.ParentYangName = "ethernet-auto-discoveries"
-    ethernetAutoDiscovery.EntityData.SegmentPath = "ethernet-auto-discovery"
+    ethernetAutoDiscovery.EntityData.SegmentPath = "ethernet-auto-discovery" + types.AddNoKeyToken(ethernetAutoDiscovery)
+    ethernetAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/ethernet-auto-discoveries/" + ethernetAutoDiscovery.EntityData.SegmentPath
     ethernetAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8409,10 +8701,12 @@ func (ethernetAutoDiscovery *Evpn_Active_EviDetail_EviChildren_EthernetAutoDisco
     ethernetAutoDiscovery.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &ethernetAutoDiscovery.EvpnInstance})
     ethernetAutoDiscovery.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range ethernetAutoDiscovery.EthernetSegmentIdentifier {
+        types.SetYListKey(ethernetAutoDiscovery.EthernetSegmentIdentifier[i], i)
         ethernetAutoDiscovery.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscovery.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", ethernetAutoDiscovery.EthernetSegmentIdentifier[i]})
     }
     ethernetAutoDiscovery.EntityData.Children.Append("path-buffer", types.YChild{"PathBuffer", nil})
     for i := range ethernetAutoDiscovery.PathBuffer {
+        types.SetYListKey(ethernetAutoDiscovery.PathBuffer[i], i)
         ethernetAutoDiscovery.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscovery.PathBuffer[i]), types.YChild{"PathBuffer", ethernetAutoDiscovery.PathBuffer[i]})
     }
     ethernetAutoDiscovery.EntityData.Leafs = types.NewOrderedMap()
@@ -8463,6 +8757,7 @@ func (evpnInstance *Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_Et
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "ethernet-auto-discovery"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8484,6 +8779,7 @@ func (evpnInstance *Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_Et
 type Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -8494,7 +8790,8 @@ func (ethernetSegmentIdentifier *Evpn_Active_EviDetail_EviChildren_EthernetAutoD
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "ethernet-auto-discovery"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8513,6 +8810,7 @@ func (ethernetSegmentIdentifier *Evpn_Active_EviDetail_EviChildren_EthernetAutoD
 type Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery_PathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -8535,7 +8833,8 @@ func (pathBuffer *Evpn_Active_EviDetail_EviChildren_EthernetAutoDiscoveries_Ethe
     pathBuffer.EntityData.YangName = "path-buffer"
     pathBuffer.EntityData.BundleName = "cisco_ios_xr"
     pathBuffer.EntityData.ParentYangName = "ethernet-auto-discovery"
-    pathBuffer.EntityData.SegmentPath = "path-buffer"
+    pathBuffer.EntityData.SegmentPath = "path-buffer" + types.AddNoKeyToken(pathBuffer)
+    pathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + pathBuffer.EntityData.SegmentPath
     pathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8569,6 +8868,7 @@ func (inclusiveMulticasts *Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts
     inclusiveMulticasts.EntityData.BundleName = "cisco_ios_xr"
     inclusiveMulticasts.EntityData.ParentYangName = "evi-children"
     inclusiveMulticasts.EntityData.SegmentPath = "inclusive-multicasts"
+    inclusiveMulticasts.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/" + inclusiveMulticasts.EntityData.SegmentPath
     inclusiveMulticasts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inclusiveMulticasts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inclusiveMulticasts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8576,6 +8876,7 @@ func (inclusiveMulticasts *Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts
     inclusiveMulticasts.EntityData.Children = types.NewOrderedMap()
     inclusiveMulticasts.EntityData.Children.Append("inclusive-multicast", types.YChild{"InclusiveMulticast", nil})
     for i := range inclusiveMulticasts.InclusiveMulticast {
+        types.SetYListKey(inclusiveMulticasts.InclusiveMulticast[i], i)
         inclusiveMulticasts.EntityData.Children.Append(types.GetSegmentPath(inclusiveMulticasts.InclusiveMulticast[i]), types.YChild{"InclusiveMulticast", inclusiveMulticasts.InclusiveMulticast[i]})
     }
     inclusiveMulticasts.EntityData.Leafs = types.NewOrderedMap()
@@ -8590,6 +8891,7 @@ func (inclusiveMulticasts *Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts
 type Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -8642,7 +8944,8 @@ func (inclusiveMulticast *Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts_
     inclusiveMulticast.EntityData.YangName = "inclusive-multicast"
     inclusiveMulticast.EntityData.BundleName = "cisco_ios_xr"
     inclusiveMulticast.EntityData.ParentYangName = "inclusive-multicasts"
-    inclusiveMulticast.EntityData.SegmentPath = "inclusive-multicast"
+    inclusiveMulticast.EntityData.SegmentPath = "inclusive-multicast" + types.AddNoKeyToken(inclusiveMulticast)
+    inclusiveMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/inclusive-multicasts/" + inclusiveMulticast.EntityData.SegmentPath
     inclusiveMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inclusiveMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inclusiveMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8694,6 +8997,7 @@ func (evpnInstance *Evpn_Active_EviDetail_EviChildren_InclusiveMulticasts_Inclus
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "inclusive-multicast"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/inclusive-multicasts/inclusive-multicast/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8727,6 +9031,7 @@ func (routeTargets *Evpn_Active_EviDetail_EviChildren_RouteTargets) GetEntityDat
     routeTargets.EntityData.BundleName = "cisco_ios_xr"
     routeTargets.EntityData.ParentYangName = "evi-children"
     routeTargets.EntityData.SegmentPath = "route-targets"
+    routeTargets.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/" + routeTargets.EntityData.SegmentPath
     routeTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8734,6 +9039,7 @@ func (routeTargets *Evpn_Active_EviDetail_EviChildren_RouteTargets) GetEntityDat
     routeTargets.EntityData.Children = types.NewOrderedMap()
     routeTargets.EntityData.Children.Append("route-target", types.YChild{"RouteTarget", nil})
     for i := range routeTargets.RouteTarget {
+        types.SetYListKey(routeTargets.RouteTarget[i], i)
         routeTargets.EntityData.Children.Append(types.GetSegmentPath(routeTargets.RouteTarget[i]), types.YChild{"RouteTarget", routeTargets.RouteTarget[i]})
     }
     routeTargets.EntityData.Leafs = types.NewOrderedMap()
@@ -8748,6 +9054,7 @@ func (routeTargets *Evpn_Active_EviDetail_EviChildren_RouteTargets) GetEntityDat
 type Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -8793,7 +9100,8 @@ func (routeTarget *Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget) G
     routeTarget.EntityData.YangName = "route-target"
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "route-targets"
-    routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.SegmentPath = "route-target" + types.AddNoKeyToken(routeTarget)
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8844,6 +9152,7 @@ func (evpnInstance *Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget_E
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "route-target"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8888,6 +9197,7 @@ func (routeTarget *Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget_Ro
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "route-target"
     routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8924,6 +9234,7 @@ func (twoByteAs *Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget_Rout
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "route-target"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8957,6 +9268,7 @@ func (fourByteAs *Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget_Rou
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "route-target"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8991,6 +9303,7 @@ func (v4Addr *Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget_RouteTa
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "route-target"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9025,6 +9338,7 @@ func (esImport *Evpn_Active_EviDetail_EviChildren_RouteTargets_RouteTarget_Route
     esImport.EntityData.BundleName = "cisco_ios_xr"
     esImport.EntityData.ParentYangName = "route-target"
     esImport.EntityData.SegmentPath = "es-import"
+    esImport.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/route-targets/route-target/route-target/" + esImport.EntityData.SegmentPath
     esImport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esImport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esImport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9056,6 +9370,7 @@ func (macs *Evpn_Active_EviDetail_EviChildren_Macs) GetEntityData() *types.Commo
     macs.EntityData.BundleName = "cisco_ios_xr"
     macs.EntityData.ParentYangName = "evi-children"
     macs.EntityData.SegmentPath = "macs"
+    macs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/" + macs.EntityData.SegmentPath
     macs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9063,6 +9378,7 @@ func (macs *Evpn_Active_EviDetail_EviChildren_Macs) GetEntityData() *types.Commo
     macs.EntityData.Children = types.NewOrderedMap()
     macs.EntityData.Children.Append("mac", types.YChild{"Mac", nil})
     for i := range macs.Mac {
+        types.SetYListKey(macs.Mac[i], i)
         macs.EntityData.Children.Append(types.GetSegmentPath(macs.Mac[i]), types.YChild{"Mac", macs.Mac[i]})
     }
     macs.EntityData.Leafs = types.NewOrderedMap()
@@ -9077,6 +9393,7 @@ func (macs *Evpn_Active_EviDetail_EviChildren_Macs) GetEntityData() *types.Commo
 type Evpn_Active_EviDetail_EviChildren_Macs_Mac struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -9197,7 +9514,8 @@ func (mac *Evpn_Active_EviDetail_EviChildren_Macs_Mac) GetEntityData() *types.Co
     mac.EntityData.YangName = "mac"
     mac.EntityData.BundleName = "cisco_ios_xr"
     mac.EntityData.ParentYangName = "macs"
-    mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.SegmentPath = "mac" + types.AddNoKeyToken(mac)
+    mac.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9206,14 +9524,17 @@ func (mac *Evpn_Active_EviDetail_EviChildren_Macs_Mac) GetEntityData() *types.Co
     mac.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &mac.EvpnInstance})
     mac.EntityData.Children.Append("local-ethernet-segment-identifier", types.YChild{"LocalEthernetSegmentIdentifier", nil})
     for i := range mac.LocalEthernetSegmentIdentifier {
+        types.SetYListKey(mac.LocalEthernetSegmentIdentifier[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.LocalEthernetSegmentIdentifier[i]), types.YChild{"LocalEthernetSegmentIdentifier", mac.LocalEthernetSegmentIdentifier[i]})
     }
     mac.EntityData.Children.Append("remote-ethernet-segment-identifier", types.YChild{"RemoteEthernetSegmentIdentifier", nil})
     for i := range mac.RemoteEthernetSegmentIdentifier {
+        types.SetYListKey(mac.RemoteEthernetSegmentIdentifier[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.RemoteEthernetSegmentIdentifier[i]), types.YChild{"RemoteEthernetSegmentIdentifier", mac.RemoteEthernetSegmentIdentifier[i]})
     }
     mac.EntityData.Children.Append("path-buffer", types.YChild{"PathBuffer", nil})
     for i := range mac.PathBuffer {
+        types.SetYListKey(mac.PathBuffer[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.PathBuffer[i]), types.YChild{"PathBuffer", mac.PathBuffer[i]})
     }
     mac.EntityData.Leafs = types.NewOrderedMap()
@@ -9278,6 +9599,7 @@ func (evpnInstance *Evpn_Active_EviDetail_EviChildren_Macs_Mac_EvpnInstance) Get
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "mac"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9299,6 +9621,7 @@ func (evpnInstance *Evpn_Active_EviDetail_EviChildren_Macs_Mac_EvpnInstance) Get
 type Evpn_Active_EviDetail_EviChildren_Macs_Mac_LocalEthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -9309,7 +9632,8 @@ func (localEthernetSegmentIdentifier *Evpn_Active_EviDetail_EviChildren_Macs_Mac
     localEthernetSegmentIdentifier.EntityData.YangName = "local-ethernet-segment-identifier"
     localEthernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     localEthernetSegmentIdentifier.EntityData.ParentYangName = "mac"
-    localEthernetSegmentIdentifier.EntityData.SegmentPath = "local-ethernet-segment-identifier"
+    localEthernetSegmentIdentifier.EntityData.SegmentPath = "local-ethernet-segment-identifier" + types.AddNoKeyToken(localEthernetSegmentIdentifier)
+    localEthernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/" + localEthernetSegmentIdentifier.EntityData.SegmentPath
     localEthernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localEthernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localEthernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9328,6 +9652,7 @@ func (localEthernetSegmentIdentifier *Evpn_Active_EviDetail_EviChildren_Macs_Mac
 type Evpn_Active_EviDetail_EviChildren_Macs_Mac_RemoteEthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -9338,7 +9663,8 @@ func (remoteEthernetSegmentIdentifier *Evpn_Active_EviDetail_EviChildren_Macs_Ma
     remoteEthernetSegmentIdentifier.EntityData.YangName = "remote-ethernet-segment-identifier"
     remoteEthernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     remoteEthernetSegmentIdentifier.EntityData.ParentYangName = "mac"
-    remoteEthernetSegmentIdentifier.EntityData.SegmentPath = "remote-ethernet-segment-identifier"
+    remoteEthernetSegmentIdentifier.EntityData.SegmentPath = "remote-ethernet-segment-identifier" + types.AddNoKeyToken(remoteEthernetSegmentIdentifier)
+    remoteEthernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/" + remoteEthernetSegmentIdentifier.EntityData.SegmentPath
     remoteEthernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteEthernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteEthernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9357,6 +9683,7 @@ func (remoteEthernetSegmentIdentifier *Evpn_Active_EviDetail_EviChildren_Macs_Ma
 type Evpn_Active_EviDetail_EviChildren_Macs_Mac_PathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -9379,7 +9706,8 @@ func (pathBuffer *Evpn_Active_EviDetail_EviChildren_Macs_Mac_PathBuffer) GetEnti
     pathBuffer.EntityData.YangName = "path-buffer"
     pathBuffer.EntityData.BundleName = "cisco_ios_xr"
     pathBuffer.EntityData.ParentYangName = "mac"
-    pathBuffer.EntityData.SegmentPath = "path-buffer"
+    pathBuffer.EntityData.SegmentPath = "path-buffer" + types.AddNoKeyToken(pathBuffer)
+    pathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/evi-detail/evi-children/macs/mac/" + pathBuffer.EntityData.SegmentPath
     pathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9412,6 +9740,7 @@ func (teps *Evpn_Active_Teps) GetEntityData() *types.CommonEntityData {
     teps.EntityData.BundleName = "cisco_ios_xr"
     teps.EntityData.ParentYangName = "active"
     teps.EntityData.SegmentPath = "teps"
+    teps.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + teps.EntityData.SegmentPath
     teps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     teps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     teps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9433,6 +9762,7 @@ func (teps *Evpn_Active_Teps) GetEntityData() *types.CommonEntityData {
 type Evpn_Active_Teps_Tep struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TEP id. The type is interface{} with range:
     // 0..4294967295.
@@ -9469,6 +9799,7 @@ func (tep *Evpn_Active_Teps_Tep) GetEntityData() *types.CommonEntityData {
     tep.EntityData.BundleName = "cisco_ios_xr"
     tep.EntityData.ParentYangName = "teps"
     tep.EntityData.SegmentPath = "tep" + types.AddKeyToken(tep.TepId, "tep-id")
+    tep.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/teps/" + tep.EntityData.SegmentPath
     tep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9513,6 +9844,7 @@ func (localInfo *Evpn_Active_Teps_Tep_LocalInfo) GetEntityData() *types.CommonEn
     localInfo.EntityData.BundleName = "cisco_ios_xr"
     localInfo.EntityData.ParentYangName = "tep"
     localInfo.EntityData.SegmentPath = "local-info"
+    localInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/teps/tep/" + localInfo.EntityData.SegmentPath
     localInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9551,6 +9883,7 @@ func (remoteInfo *Evpn_Active_Teps_Tep_RemoteInfo) GetEntityData() *types.Common
     remoteInfo.EntityData.BundleName = "cisco_ios_xr"
     remoteInfo.EntityData.ParentYangName = "tep"
     remoteInfo.EntityData.SegmentPath = "remote-info"
+    remoteInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/teps/tep/" + remoteInfo.EntityData.SegmentPath
     remoteInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9583,6 +9916,7 @@ func (internalLabels *Evpn_Active_InternalLabels) GetEntityData() *types.CommonE
     internalLabels.EntityData.BundleName = "cisco_ios_xr"
     internalLabels.EntityData.ParentYangName = "active"
     internalLabels.EntityData.SegmentPath = "internal-labels"
+    internalLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + internalLabels.EntityData.SegmentPath
     internalLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9590,6 +9924,7 @@ func (internalLabels *Evpn_Active_InternalLabels) GetEntityData() *types.CommonE
     internalLabels.EntityData.Children = types.NewOrderedMap()
     internalLabels.EntityData.Children.Append("internal-label", types.YChild{"InternalLabel", nil})
     for i := range internalLabels.InternalLabel {
+        types.SetYListKey(internalLabels.InternalLabel[i], i)
         internalLabels.EntityData.Children.Append(types.GetSegmentPath(internalLabels.InternalLabel[i]), types.YChild{"InternalLabel", internalLabels.InternalLabel[i]})
     }
     internalLabels.EntityData.Leafs = types.NewOrderedMap()
@@ -9604,6 +9939,7 @@ func (internalLabels *Evpn_Active_InternalLabels) GetEntityData() *types.CommonE
 type Evpn_Active_InternalLabels_InternalLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -9697,7 +10033,8 @@ func (internalLabel *Evpn_Active_InternalLabels_InternalLabel) GetEntityData() *
     internalLabel.EntityData.YangName = "internal-label"
     internalLabel.EntityData.BundleName = "cisco_ios_xr"
     internalLabel.EntityData.ParentYangName = "internal-labels"
-    internalLabel.EntityData.SegmentPath = "internal-label"
+    internalLabel.EntityData.SegmentPath = "internal-label" + types.AddNoKeyToken(internalLabel)
+    internalLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/" + internalLabel.EntityData.SegmentPath
     internalLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9706,18 +10043,22 @@ func (internalLabel *Evpn_Active_InternalLabels_InternalLabel) GetEntityData() *
     internalLabel.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &internalLabel.EvpnInstance})
     internalLabel.EntityData.Children.Append("mac-path-buffer", types.YChild{"MacPathBuffer", nil})
     for i := range internalLabel.MacPathBuffer {
+        types.SetYListKey(internalLabel.MacPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.MacPathBuffer[i]), types.YChild{"MacPathBuffer", internalLabel.MacPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("ead-path-buffer", types.YChild{"EadPathBuffer", nil})
     for i := range internalLabel.EadPathBuffer {
+        types.SetYListKey(internalLabel.EadPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.EadPathBuffer[i]), types.YChild{"EadPathBuffer", internalLabel.EadPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("evi-path-buffer", types.YChild{"EviPathBuffer", nil})
     for i := range internalLabel.EviPathBuffer {
+        types.SetYListKey(internalLabel.EviPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.EviPathBuffer[i]), types.YChild{"EviPathBuffer", internalLabel.EviPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("summary-path-buffer", types.YChild{"SummaryPathBuffer", nil})
     for i := range internalLabel.SummaryPathBuffer {
+        types.SetYListKey(internalLabel.SummaryPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.SummaryPathBuffer[i]), types.YChild{"SummaryPathBuffer", internalLabel.SummaryPathBuffer[i]})
     }
     internalLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -9773,6 +10114,7 @@ func (evpnInstance *Evpn_Active_InternalLabels_InternalLabel_EvpnInstance) GetEn
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "internal-label"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9794,6 +10136,7 @@ func (evpnInstance *Evpn_Active_InternalLabels_InternalLabel_EvpnInstance) GetEn
 type Evpn_Active_InternalLabels_InternalLabel_MacPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -9816,7 +10159,8 @@ func (macPathBuffer *Evpn_Active_InternalLabels_InternalLabel_MacPathBuffer) Get
     macPathBuffer.EntityData.YangName = "mac-path-buffer"
     macPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     macPathBuffer.EntityData.ParentYangName = "internal-label"
-    macPathBuffer.EntityData.SegmentPath = "mac-path-buffer"
+    macPathBuffer.EntityData.SegmentPath = "mac-path-buffer" + types.AddNoKeyToken(macPathBuffer)
+    macPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/" + macPathBuffer.EntityData.SegmentPath
     macPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9838,6 +10182,7 @@ func (macPathBuffer *Evpn_Active_InternalLabels_InternalLabel_MacPathBuffer) Get
 type Evpn_Active_InternalLabels_InternalLabel_EadPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -9860,7 +10205,8 @@ func (eadPathBuffer *Evpn_Active_InternalLabels_InternalLabel_EadPathBuffer) Get
     eadPathBuffer.EntityData.YangName = "ead-path-buffer"
     eadPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     eadPathBuffer.EntityData.ParentYangName = "internal-label"
-    eadPathBuffer.EntityData.SegmentPath = "ead-path-buffer"
+    eadPathBuffer.EntityData.SegmentPath = "ead-path-buffer" + types.AddNoKeyToken(eadPathBuffer)
+    eadPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/" + eadPathBuffer.EntityData.SegmentPath
     eadPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eadPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eadPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9882,6 +10228,7 @@ func (eadPathBuffer *Evpn_Active_InternalLabels_InternalLabel_EadPathBuffer) Get
 type Evpn_Active_InternalLabels_InternalLabel_EviPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -9904,7 +10251,8 @@ func (eviPathBuffer *Evpn_Active_InternalLabels_InternalLabel_EviPathBuffer) Get
     eviPathBuffer.EntityData.YangName = "evi-path-buffer"
     eviPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     eviPathBuffer.EntityData.ParentYangName = "internal-label"
-    eviPathBuffer.EntityData.SegmentPath = "evi-path-buffer"
+    eviPathBuffer.EntityData.SegmentPath = "evi-path-buffer" + types.AddNoKeyToken(eviPathBuffer)
+    eviPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/" + eviPathBuffer.EntityData.SegmentPath
     eviPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9926,6 +10274,7 @@ func (eviPathBuffer *Evpn_Active_InternalLabels_InternalLabel_EviPathBuffer) Get
 type Evpn_Active_InternalLabels_InternalLabel_SummaryPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -9948,7 +10297,8 @@ func (summaryPathBuffer *Evpn_Active_InternalLabels_InternalLabel_SummaryPathBuf
     summaryPathBuffer.EntityData.YangName = "summary-path-buffer"
     summaryPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     summaryPathBuffer.EntityData.ParentYangName = "internal-label"
-    summaryPathBuffer.EntityData.SegmentPath = "summary-path-buffer"
+    summaryPathBuffer.EntityData.SegmentPath = "summary-path-buffer" + types.AddNoKeyToken(summaryPathBuffer)
+    summaryPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/internal-labels/internal-label/" + summaryPathBuffer.EntityData.SegmentPath
     summaryPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9982,6 +10332,7 @@ func (ethernetSegments *Evpn_Active_EthernetSegments) GetEntityData() *types.Com
     ethernetSegments.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegments.EntityData.ParentYangName = "active"
     ethernetSegments.EntityData.SegmentPath = "ethernet-segments"
+    ethernetSegments.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + ethernetSegments.EntityData.SegmentPath
     ethernetSegments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9989,6 +10340,7 @@ func (ethernetSegments *Evpn_Active_EthernetSegments) GetEntityData() *types.Com
     ethernetSegments.EntityData.Children = types.NewOrderedMap()
     ethernetSegments.EntityData.Children.Append("ethernet-segment", types.YChild{"EthernetSegment", nil})
     for i := range ethernetSegments.EthernetSegment {
+        types.SetYListKey(ethernetSegments.EthernetSegment[i], i)
         ethernetSegments.EntityData.Children.Append(types.GetSegmentPath(ethernetSegments.EthernetSegment[i]), types.YChild{"EthernetSegment", ethernetSegments.EthernetSegment[i]})
     }
     ethernetSegments.EntityData.Leafs = types.NewOrderedMap()
@@ -10003,6 +10355,7 @@ func (ethernetSegments *Evpn_Active_EthernetSegments) GetEntityData() *types.Com
 type Evpn_Active_EthernetSegments_EthernetSegment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -10213,7 +10566,8 @@ func (ethernetSegment *Evpn_Active_EthernetSegments_EthernetSegment) GetEntityDa
     ethernetSegment.EntityData.YangName = "ethernet-segment"
     ethernetSegment.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegment.EntityData.ParentYangName = "ethernet-segments"
-    ethernetSegment.EntityData.SegmentPath = "ethernet-segment"
+    ethernetSegment.EntityData.SegmentPath = "ethernet-segment" + types.AddNoKeyToken(ethernetSegment)
+    ethernetSegment.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/" + ethernetSegment.EntityData.SegmentPath
     ethernetSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10221,50 +10575,62 @@ func (ethernetSegment *Evpn_Active_EthernetSegments_EthernetSegment) GetEntityDa
     ethernetSegment.EntityData.Children = types.NewOrderedMap()
     ethernetSegment.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range ethernetSegment.EthernetSegmentIdentifier {
+        types.SetYListKey(ethernetSegment.EthernetSegmentIdentifier[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", ethernetSegment.EthernetSegmentIdentifier[i]})
     }
     ethernetSegment.EntityData.Children.Append("primary-service", types.YChild{"PrimaryService", nil})
     for i := range ethernetSegment.PrimaryService {
+        types.SetYListKey(ethernetSegment.PrimaryService[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.PrimaryService[i]), types.YChild{"PrimaryService", ethernetSegment.PrimaryService[i]})
     }
     ethernetSegment.EntityData.Children.Append("secondary-service", types.YChild{"SecondaryService", nil})
     for i := range ethernetSegment.SecondaryService {
+        types.SetYListKey(ethernetSegment.SecondaryService[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.SecondaryService[i]), types.YChild{"SecondaryService", ethernetSegment.SecondaryService[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-i-sidelected-result", types.YChild{"ServiceCarvingISidelectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingISidelectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingISidelectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingISidelectedResult[i]), types.YChild{"ServiceCarvingISidelectedResult", ethernetSegment.ServiceCarvingISidelectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-isid-not-elected-result", types.YChild{"ServiceCarvingIsidNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingIsidNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingIsidNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingIsidNotElectedResult[i]), types.YChild{"ServiceCarvingIsidNotElectedResult", ethernetSegment.ServiceCarvingIsidNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-evi-elected-result", types.YChild{"ServiceCarvingEviElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingEviElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingEviElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingEviElectedResult[i]), types.YChild{"ServiceCarvingEviElectedResult", ethernetSegment.ServiceCarvingEviElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-evi-not-elected-result", types.YChild{"ServiceCarvingEviNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingEviNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingEviNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingEviNotElectedResult[i]), types.YChild{"ServiceCarvingEviNotElectedResult", ethernetSegment.ServiceCarvingEviNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vni-elected-result", types.YChild{"ServiceCarvingVniElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingVniElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVniElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVniElectedResult[i]), types.YChild{"ServiceCarvingVniElectedResult", ethernetSegment.ServiceCarvingVniElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vni-not-elected-result", types.YChild{"ServiceCarvingVniNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingVniNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVniNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVniNotElectedResult[i]), types.YChild{"ServiceCarvingVniNotElectedResult", ethernetSegment.ServiceCarvingVniNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range ethernetSegment.NextHop {
+        types.SetYListKey(ethernetSegment.NextHop[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.NextHop[i]), types.YChild{"NextHop", ethernetSegment.NextHop[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vpws-permanent-result", types.YChild{"ServiceCarvingVpwsPermanentResult", nil})
     for i := range ethernetSegment.ServiceCarvingVpwsPermanentResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVpwsPermanentResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVpwsPermanentResult[i]), types.YChild{"ServiceCarvingVpwsPermanentResult", ethernetSegment.ServiceCarvingVpwsPermanentResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("remote-split-horizon-group-label", types.YChild{"RemoteSplitHorizonGroupLabel", nil})
     for i := range ethernetSegment.RemoteSplitHorizonGroupLabel {
+        types.SetYListKey(ethernetSegment.RemoteSplitHorizonGroupLabel[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", ethernetSegment.RemoteSplitHorizonGroupLabel[i]})
     }
     ethernetSegment.EntityData.Leafs = types.NewOrderedMap()
@@ -10325,6 +10691,7 @@ func (ethernetSegment *Evpn_Active_EthernetSegments_EthernetSegment) GetEntityDa
 type Evpn_Active_EthernetSegments_EthernetSegment_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -10335,7 +10702,8 @@ func (ethernetSegmentIdentifier *Evpn_Active_EthernetSegments_EthernetSegment_Et
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "ethernet-segment"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10354,6 +10722,7 @@ func (ethernetSegmentIdentifier *Evpn_Active_EthernetSegments_EthernetSegment_Et
 type Evpn_Active_EthernetSegments_EthernetSegment_PrimaryService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10364,7 +10733,8 @@ func (primaryService *Evpn_Active_EthernetSegments_EthernetSegment_PrimaryServic
     primaryService.EntityData.YangName = "primary-service"
     primaryService.EntityData.BundleName = "cisco_ios_xr"
     primaryService.EntityData.ParentYangName = "ethernet-segment"
-    primaryService.EntityData.SegmentPath = "primary-service"
+    primaryService.EntityData.SegmentPath = "primary-service" + types.AddNoKeyToken(primaryService)
+    primaryService.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + primaryService.EntityData.SegmentPath
     primaryService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10383,6 +10753,7 @@ func (primaryService *Evpn_Active_EthernetSegments_EthernetSegment_PrimaryServic
 type Evpn_Active_EthernetSegments_EthernetSegment_SecondaryService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10393,7 +10764,8 @@ func (secondaryService *Evpn_Active_EthernetSegments_EthernetSegment_SecondarySe
     secondaryService.EntityData.YangName = "secondary-service"
     secondaryService.EntityData.BundleName = "cisco_ios_xr"
     secondaryService.EntityData.ParentYangName = "ethernet-segment"
-    secondaryService.EntityData.SegmentPath = "secondary-service"
+    secondaryService.EntityData.SegmentPath = "secondary-service" + types.AddNoKeyToken(secondaryService)
+    secondaryService.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + secondaryService.EntityData.SegmentPath
     secondaryService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10412,6 +10784,7 @@ func (secondaryService *Evpn_Active_EthernetSegments_EthernetSegment_SecondarySe
 type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingISidelectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10422,7 +10795,8 @@ func (serviceCarvingISidelectedResult *Evpn_Active_EthernetSegments_EthernetSegm
     serviceCarvingISidelectedResult.EntityData.YangName = "service-carving-i-sidelected-result"
     serviceCarvingISidelectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingISidelectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingISidelectedResult.EntityData.SegmentPath = "service-carving-i-sidelected-result"
+    serviceCarvingISidelectedResult.EntityData.SegmentPath = "service-carving-i-sidelected-result" + types.AddNoKeyToken(serviceCarvingISidelectedResult)
+    serviceCarvingISidelectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + serviceCarvingISidelectedResult.EntityData.SegmentPath
     serviceCarvingISidelectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingISidelectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingISidelectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10441,6 +10815,7 @@ func (serviceCarvingISidelectedResult *Evpn_Active_EthernetSegments_EthernetSegm
 type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingIsidNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10451,7 +10826,8 @@ func (serviceCarvingIsidNotElectedResult *Evpn_Active_EthernetSegments_EthernetS
     serviceCarvingIsidNotElectedResult.EntityData.YangName = "service-carving-isid-not-elected-result"
     serviceCarvingIsidNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingIsidNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingIsidNotElectedResult.EntityData.SegmentPath = "service-carving-isid-not-elected-result"
+    serviceCarvingIsidNotElectedResult.EntityData.SegmentPath = "service-carving-isid-not-elected-result" + types.AddNoKeyToken(serviceCarvingIsidNotElectedResult)
+    serviceCarvingIsidNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + serviceCarvingIsidNotElectedResult.EntityData.SegmentPath
     serviceCarvingIsidNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingIsidNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingIsidNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10470,6 +10846,7 @@ func (serviceCarvingIsidNotElectedResult *Evpn_Active_EthernetSegments_EthernetS
 type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingEviElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10480,7 +10857,8 @@ func (serviceCarvingEviElectedResult *Evpn_Active_EthernetSegments_EthernetSegme
     serviceCarvingEviElectedResult.EntityData.YangName = "service-carving-evi-elected-result"
     serviceCarvingEviElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingEviElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingEviElectedResult.EntityData.SegmentPath = "service-carving-evi-elected-result"
+    serviceCarvingEviElectedResult.EntityData.SegmentPath = "service-carving-evi-elected-result" + types.AddNoKeyToken(serviceCarvingEviElectedResult)
+    serviceCarvingEviElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + serviceCarvingEviElectedResult.EntityData.SegmentPath
     serviceCarvingEviElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingEviElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingEviElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10499,6 +10877,7 @@ func (serviceCarvingEviElectedResult *Evpn_Active_EthernetSegments_EthernetSegme
 type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingEviNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10509,7 +10888,8 @@ func (serviceCarvingEviNotElectedResult *Evpn_Active_EthernetSegments_EthernetSe
     serviceCarvingEviNotElectedResult.EntityData.YangName = "service-carving-evi-not-elected-result"
     serviceCarvingEviNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingEviNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingEviNotElectedResult.EntityData.SegmentPath = "service-carving-evi-not-elected-result"
+    serviceCarvingEviNotElectedResult.EntityData.SegmentPath = "service-carving-evi-not-elected-result" + types.AddNoKeyToken(serviceCarvingEviNotElectedResult)
+    serviceCarvingEviNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + serviceCarvingEviNotElectedResult.EntityData.SegmentPath
     serviceCarvingEviNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingEviNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingEviNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10528,6 +10908,7 @@ func (serviceCarvingEviNotElectedResult *Evpn_Active_EthernetSegments_EthernetSe
 type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingVniElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10538,7 +10919,8 @@ func (serviceCarvingVniElectedResult *Evpn_Active_EthernetSegments_EthernetSegme
     serviceCarvingVniElectedResult.EntityData.YangName = "service-carving-vni-elected-result"
     serviceCarvingVniElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVniElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVniElectedResult.EntityData.SegmentPath = "service-carving-vni-elected-result"
+    serviceCarvingVniElectedResult.EntityData.SegmentPath = "service-carving-vni-elected-result" + types.AddNoKeyToken(serviceCarvingVniElectedResult)
+    serviceCarvingVniElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + serviceCarvingVniElectedResult.EntityData.SegmentPath
     serviceCarvingVniElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVniElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVniElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10557,6 +10939,7 @@ func (serviceCarvingVniElectedResult *Evpn_Active_EthernetSegments_EthernetSegme
 type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingVniNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -10567,7 +10950,8 @@ func (serviceCarvingVniNotElectedResult *Evpn_Active_EthernetSegments_EthernetSe
     serviceCarvingVniNotElectedResult.EntityData.YangName = "service-carving-vni-not-elected-result"
     serviceCarvingVniNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVniNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVniNotElectedResult.EntityData.SegmentPath = "service-carving-vni-not-elected-result"
+    serviceCarvingVniNotElectedResult.EntityData.SegmentPath = "service-carving-vni-not-elected-result" + types.AddNoKeyToken(serviceCarvingVniNotElectedResult)
+    serviceCarvingVniNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + serviceCarvingVniNotElectedResult.EntityData.SegmentPath
     serviceCarvingVniNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVniNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVniNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10586,6 +10970,7 @@ func (serviceCarvingVniNotElectedResult *Evpn_Active_EthernetSegments_EthernetSe
 type Evpn_Active_EthernetSegments_EthernetSegment_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -10606,7 +10991,8 @@ func (nextHop *Evpn_Active_EthernetSegments_EthernetSegment_NextHop) GetEntityDa
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "ethernet-segment"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10628,6 +11014,7 @@ func (nextHop *Evpn_Active_EthernetSegments_EthernetSegment_NextHop) GetEntityDa
 type Evpn_Active_EthernetSegments_EthernetSegment_ServiceCarvingVpwsPermanentResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VPN ID. The type is interface{} with range: 0..4294967295.
     VpnId interface{}
@@ -10644,7 +11031,8 @@ func (serviceCarvingVpwsPermanentResult *Evpn_Active_EthernetSegments_EthernetSe
     serviceCarvingVpwsPermanentResult.EntityData.YangName = "service-carving-vpws-permanent-result"
     serviceCarvingVpwsPermanentResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVpwsPermanentResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVpwsPermanentResult.EntityData.SegmentPath = "service-carving-vpws-permanent-result"
+    serviceCarvingVpwsPermanentResult.EntityData.SegmentPath = "service-carving-vpws-permanent-result" + types.AddNoKeyToken(serviceCarvingVpwsPermanentResult)
+    serviceCarvingVpwsPermanentResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + serviceCarvingVpwsPermanentResult.EntityData.SegmentPath
     serviceCarvingVpwsPermanentResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVpwsPermanentResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVpwsPermanentResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10665,6 +11053,7 @@ func (serviceCarvingVpwsPermanentResult *Evpn_Active_EthernetSegments_EthernetSe
 type Evpn_Active_EthernetSegments_EthernetSegment_RemoteSplitHorizonGroupLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -10680,7 +11069,8 @@ func (remoteSplitHorizonGroupLabel *Evpn_Active_EthernetSegments_EthernetSegment
     remoteSplitHorizonGroupLabel.EntityData.YangName = "remote-split-horizon-group-label"
     remoteSplitHorizonGroupLabel.EntityData.BundleName = "cisco_ios_xr"
     remoteSplitHorizonGroupLabel.EntityData.ParentYangName = "ethernet-segment"
-    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label"
+    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label" + types.AddNoKeyToken(remoteSplitHorizonGroupLabel)
+    remoteSplitHorizonGroupLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ethernet-segments/ethernet-segment/" + remoteSplitHorizonGroupLabel.EntityData.SegmentPath
     remoteSplitHorizonGroupLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteSplitHorizonGroupLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteSplitHorizonGroupLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10711,6 +11101,7 @@ func (acIds *Evpn_Active_AcIds) GetEntityData() *types.CommonEntityData {
     acIds.EntityData.BundleName = "cisco_ios_xr"
     acIds.EntityData.ParentYangName = "active"
     acIds.EntityData.SegmentPath = "ac-ids"
+    acIds.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/" + acIds.EntityData.SegmentPath
     acIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10718,6 +11109,7 @@ func (acIds *Evpn_Active_AcIds) GetEntityData() *types.CommonEntityData {
     acIds.EntityData.Children = types.NewOrderedMap()
     acIds.EntityData.Children.Append("ac-id", types.YChild{"AcId", nil})
     for i := range acIds.AcId {
+        types.SetYListKey(acIds.AcId[i], i)
         acIds.EntityData.Children.Append(types.GetSegmentPath(acIds.AcId[i]), types.YChild{"AcId", acIds.AcId[i]})
     }
     acIds.EntityData.Leafs = types.NewOrderedMap()
@@ -10732,6 +11124,7 @@ func (acIds *Evpn_Active_AcIds) GetEntityData() *types.CommonEntityData {
 type Evpn_Active_AcIds_AcId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -10752,7 +11145,8 @@ func (acId *Evpn_Active_AcIds_AcId) GetEntityData() *types.CommonEntityData {
     acId.EntityData.YangName = "ac-id"
     acId.EntityData.BundleName = "cisco_ios_xr"
     acId.EntityData.ParentYangName = "ac-ids"
-    acId.EntityData.SegmentPath = "ac-id"
+    acId.EntityData.SegmentPath = "ac-id" + types.AddNoKeyToken(acId)
+    acId.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ac-ids/" + acId.EntityData.SegmentPath
     acId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10795,6 +11189,7 @@ func (evpnInstance *Evpn_Active_AcIds_AcId_EvpnInstance) GetEntityData() *types.
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "ac-id"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/active/ac-ids/ac-id/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10857,6 +11252,7 @@ func (standby *Evpn_Standby) GetEntityData() *types.CommonEntityData {
     standby.EntityData.BundleName = "cisco_ios_xr"
     standby.EntityData.ParentYangName = "evpn"
     standby.EntityData.SegmentPath = "standby"
+    standby.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/" + standby.EntityData.SegmentPath
     standby.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standby.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standby.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10897,6 +11293,7 @@ func (evpnGroups *Evpn_Standby_EvpnGroups) GetEntityData() *types.CommonEntityDa
     evpnGroups.EntityData.BundleName = "cisco_ios_xr"
     evpnGroups.EntityData.ParentYangName = "standby"
     evpnGroups.EntityData.SegmentPath = "evpn-groups"
+    evpnGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + evpnGroups.EntityData.SegmentPath
     evpnGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10918,6 +11315,7 @@ func (evpnGroups *Evpn_Standby_EvpnGroups) GetEntityData() *types.CommonEntityDa
 type Evpn_Standby_EvpnGroups_EvpnGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. EVPN group number. The type is interface{} with
     // range: 1..4294967295.
@@ -10944,6 +11342,7 @@ func (evpnGroup *Evpn_Standby_EvpnGroups_EvpnGroup) GetEntityData() *types.Commo
     evpnGroup.EntityData.BundleName = "cisco_ios_xr"
     evpnGroup.EntityData.ParentYangName = "evpn-groups"
     evpnGroup.EntityData.SegmentPath = "evpn-group" + types.AddKeyToken(evpnGroup.GroupNumber, "group-number")
+    evpnGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evpn-groups/" + evpnGroup.EntityData.SegmentPath
     evpnGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10951,10 +11350,12 @@ func (evpnGroup *Evpn_Standby_EvpnGroups_EvpnGroup) GetEntityData() *types.Commo
     evpnGroup.EntityData.Children = types.NewOrderedMap()
     evpnGroup.EntityData.Children.Append("core-interface", types.YChild{"CoreInterface", nil})
     for i := range evpnGroup.CoreInterface {
+        types.SetYListKey(evpnGroup.CoreInterface[i], i)
         evpnGroup.EntityData.Children.Append(types.GetSegmentPath(evpnGroup.CoreInterface[i]), types.YChild{"CoreInterface", evpnGroup.CoreInterface[i]})
     }
     evpnGroup.EntityData.Children.Append("access-interface", types.YChild{"AccessInterface", nil})
     for i := range evpnGroup.AccessInterface {
+        types.SetYListKey(evpnGroup.AccessInterface[i], i)
         evpnGroup.EntityData.Children.Append(types.GetSegmentPath(evpnGroup.AccessInterface[i]), types.YChild{"AccessInterface", evpnGroup.AccessInterface[i]})
     }
     evpnGroup.EntityData.Leafs = types.NewOrderedMap()
@@ -10972,6 +11373,7 @@ func (evpnGroup *Evpn_Standby_EvpnGroups_EvpnGroup) GetEntityData() *types.Commo
 type Evpn_Standby_EvpnGroups_EvpnGroup_CoreInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -10985,7 +11387,8 @@ func (coreInterface *Evpn_Standby_EvpnGroups_EvpnGroup_CoreInterface) GetEntityD
     coreInterface.EntityData.YangName = "core-interface"
     coreInterface.EntityData.BundleName = "cisco_ios_xr"
     coreInterface.EntityData.ParentYangName = "evpn-group"
-    coreInterface.EntityData.SegmentPath = "core-interface"
+    coreInterface.EntityData.SegmentPath = "core-interface" + types.AddNoKeyToken(coreInterface)
+    coreInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evpn-groups/evpn-group/" + coreInterface.EntityData.SegmentPath
     coreInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     coreInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     coreInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11005,6 +11408,7 @@ func (coreInterface *Evpn_Standby_EvpnGroups_EvpnGroup_CoreInterface) GetEntityD
 type Evpn_Standby_EvpnGroups_EvpnGroup_AccessInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -11018,7 +11422,8 @@ func (accessInterface *Evpn_Standby_EvpnGroups_EvpnGroup_AccessInterface) GetEnt
     accessInterface.EntityData.YangName = "access-interface"
     accessInterface.EntityData.BundleName = "cisco_ios_xr"
     accessInterface.EntityData.ParentYangName = "evpn-group"
-    accessInterface.EntityData.SegmentPath = "access-interface"
+    accessInterface.EntityData.SegmentPath = "access-interface" + types.AddNoKeyToken(accessInterface)
+    accessInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evpn-groups/evpn-group/" + accessInterface.EntityData.SegmentPath
     accessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11049,6 +11454,7 @@ func (remoteShgs *Evpn_Standby_RemoteShgs) GetEntityData() *types.CommonEntityDa
     remoteShgs.EntityData.BundleName = "cisco_ios_xr"
     remoteShgs.EntityData.ParentYangName = "standby"
     remoteShgs.EntityData.SegmentPath = "remote-shgs"
+    remoteShgs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + remoteShgs.EntityData.SegmentPath
     remoteShgs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteShgs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteShgs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11056,6 +11462,7 @@ func (remoteShgs *Evpn_Standby_RemoteShgs) GetEntityData() *types.CommonEntityDa
     remoteShgs.EntityData.Children = types.NewOrderedMap()
     remoteShgs.EntityData.Children.Append("remote-shg", types.YChild{"RemoteShg", nil})
     for i := range remoteShgs.RemoteShg {
+        types.SetYListKey(remoteShgs.RemoteShg[i], i)
         remoteShgs.EntityData.Children.Append(types.GetSegmentPath(remoteShgs.RemoteShg[i]), types.YChild{"RemoteShg", remoteShgs.RemoteShg[i]})
     }
     remoteShgs.EntityData.Leafs = types.NewOrderedMap()
@@ -11070,6 +11477,7 @@ func (remoteShgs *Evpn_Standby_RemoteShgs) GetEntityData() *types.CommonEntityDa
 type Evpn_Standby_RemoteShgs_RemoteShg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ES id (part 1/5). The type is string with pattern: [0-9a-fA-F]{1,8}.
     Esi1 interface{}
@@ -11100,7 +11508,8 @@ func (remoteShg *Evpn_Standby_RemoteShgs_RemoteShg) GetEntityData() *types.Commo
     remoteShg.EntityData.YangName = "remote-shg"
     remoteShg.EntityData.BundleName = "cisco_ios_xr"
     remoteShg.EntityData.ParentYangName = "remote-shgs"
-    remoteShg.EntityData.SegmentPath = "remote-shg"
+    remoteShg.EntityData.SegmentPath = "remote-shg" + types.AddNoKeyToken(remoteShg)
+    remoteShg.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/remote-shgs/" + remoteShg.EntityData.SegmentPath
     remoteShg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteShg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteShg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11108,10 +11517,12 @@ func (remoteShg *Evpn_Standby_RemoteShgs_RemoteShg) GetEntityData() *types.Commo
     remoteShg.EntityData.Children = types.NewOrderedMap()
     remoteShg.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range remoteShg.EthernetSegmentIdentifier {
+        types.SetYListKey(remoteShg.EthernetSegmentIdentifier[i], i)
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", remoteShg.EthernetSegmentIdentifier[i]})
     }
     remoteShg.EntityData.Children.Append("remote-split-horizon-group-label", types.YChild{"RemoteSplitHorizonGroupLabel", nil})
     for i := range remoteShg.RemoteSplitHorizonGroupLabel {
+        types.SetYListKey(remoteShg.RemoteSplitHorizonGroupLabel[i], i)
         remoteShg.EntityData.Children.Append(types.GetSegmentPath(remoteShg.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", remoteShg.RemoteSplitHorizonGroupLabel[i]})
     }
     remoteShg.EntityData.Leafs = types.NewOrderedMap()
@@ -11131,6 +11542,7 @@ func (remoteShg *Evpn_Standby_RemoteShgs_RemoteShg) GetEntityData() *types.Commo
 type Evpn_Standby_RemoteShgs_RemoteShg_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -11141,7 +11553,8 @@ func (ethernetSegmentIdentifier *Evpn_Standby_RemoteShgs_RemoteShg_EthernetSegme
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "remote-shg"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/remote-shgs/remote-shg/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11160,6 +11573,7 @@ func (ethernetSegmentIdentifier *Evpn_Standby_RemoteShgs_RemoteShg_EthernetSegme
 type Evpn_Standby_RemoteShgs_RemoteShg_RemoteSplitHorizonGroupLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -11175,7 +11589,8 @@ func (remoteSplitHorizonGroupLabel *Evpn_Standby_RemoteShgs_RemoteShg_RemoteSpli
     remoteSplitHorizonGroupLabel.EntityData.YangName = "remote-split-horizon-group-label"
     remoteSplitHorizonGroupLabel.EntityData.BundleName = "cisco_ios_xr"
     remoteSplitHorizonGroupLabel.EntityData.ParentYangName = "remote-shg"
-    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label"
+    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label" + types.AddNoKeyToken(remoteSplitHorizonGroupLabel)
+    remoteSplitHorizonGroupLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/remote-shgs/remote-shg/" + remoteSplitHorizonGroupLabel.EntityData.SegmentPath
     remoteSplitHorizonGroupLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteSplitHorizonGroupLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteSplitHorizonGroupLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11203,6 +11618,7 @@ func (client *Evpn_Standby_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "standby"
     client.EntityData.SegmentPath = "client"
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11231,6 +11647,7 @@ func (igmps *Evpn_Standby_Igmps) GetEntityData() *types.CommonEntityData {
     igmps.EntityData.BundleName = "cisco_ios_xr"
     igmps.EntityData.ParentYangName = "standby"
     igmps.EntityData.SegmentPath = "igmps"
+    igmps.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + igmps.EntityData.SegmentPath
     igmps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11238,6 +11655,7 @@ func (igmps *Evpn_Standby_Igmps) GetEntityData() *types.CommonEntityData {
     igmps.EntityData.Children = types.NewOrderedMap()
     igmps.EntityData.Children.Append("igmp", types.YChild{"Igmp", nil})
     for i := range igmps.Igmp {
+        types.SetYListKey(igmps.Igmp[i], i)
         igmps.EntityData.Children.Append(types.GetSegmentPath(igmps.Igmp[i]), types.YChild{"Igmp", igmps.Igmp[i]})
     }
     igmps.EntityData.Leafs = types.NewOrderedMap()
@@ -11252,6 +11670,7 @@ func (igmps *Evpn_Standby_Igmps) GetEntityData() *types.CommonEntityData {
 type Evpn_Standby_Igmps_Igmp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Join=0, Leave=1. The type is interface{} with range: 0..4294967295.
     IsLeave interface{}
@@ -11343,7 +11762,8 @@ func (igmp *Evpn_Standby_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
     igmp.EntityData.YangName = "igmp"
     igmp.EntityData.BundleName = "cisco_ios_xr"
     igmp.EntityData.ParentYangName = "igmps"
-    igmp.EntityData.SegmentPath = "igmp"
+    igmp.EntityData.SegmentPath = "igmp" + types.AddNoKeyToken(igmp)
+    igmp.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/" + igmp.EntityData.SegmentPath
     igmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11352,10 +11772,12 @@ func (igmp *Evpn_Standby_Igmps_Igmp) GetEntityData() *types.CommonEntityData {
     igmp.EntityData.Children.Append("source-info", types.YChild{"SourceInfo", &igmp.SourceInfo})
     igmp.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range igmp.EthernetSegmentIdentifier {
+        types.SetYListKey(igmp.EthernetSegmentIdentifier[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", igmp.EthernetSegmentIdentifier[i]})
     }
     igmp.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range igmp.NextHop {
+        types.SetYListKey(igmp.NextHop[i], i)
         igmp.EntityData.Children.Append(types.GetSegmentPath(igmp.NextHop[i]), types.YChild{"NextHop", igmp.NextHop[i]})
     }
     igmp.EntityData.Leafs = types.NewOrderedMap()
@@ -11409,6 +11831,7 @@ func (sourceInfo *Evpn_Standby_Igmps_Igmp_SourceInfo) GetEntityData() *types.Com
     sourceInfo.EntityData.BundleName = "cisco_ios_xr"
     sourceInfo.EntityData.ParentYangName = "igmp"
     sourceInfo.EntityData.SegmentPath = "source-info"
+    sourceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/" + sourceInfo.EntityData.SegmentPath
     sourceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sourceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sourceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11450,6 +11873,7 @@ func (localInfo *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo) GetEntityData() *
     localInfo.EntityData.BundleName = "cisco_ios_xr"
     localInfo.EntityData.ParentYangName = "source-info"
     localInfo.EntityData.SegmentPath = "local-info"
+    localInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/" + localInfo.EntityData.SegmentPath
     localInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11503,6 +11927,7 @@ func (parameters *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters) GetEn
     parameters.EntityData.BundleName = "cisco_ios_xr"
     parameters.EntityData.ParentYangName = "local-info"
     parameters.EntityData.SegmentPath = "parameters"
+    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/" + parameters.EntityData.SegmentPath
     parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11539,6 +11964,7 @@ func (ethernet *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Ethernet
     ethernet.EntityData.BundleName = "cisco_ios_xr"
     ethernet.EntityData.ParentYangName = "parameters"
     ethernet.EntityData.SegmentPath = "ethernet"
+    ethernet.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + ethernet.EntityData.SegmentPath
     ethernet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11588,6 +12014,7 @@ func (vlan *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEnt
     vlan.EntityData.BundleName = "cisco_ios_xr"
     vlan.EntityData.ParentYangName = "parameters"
     vlan.EntityData.SegmentPath = "vlan"
+    vlan.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + vlan.EntityData.SegmentPath
     vlan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11595,10 +12022,12 @@ func (vlan *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEnt
     vlan.EntityData.Children = types.NewOrderedMap()
     vlan.EntityData.Children.Append("rewrite-tag", types.YChild{"RewriteTag", nil})
     for i := range vlan.RewriteTag {
+        types.SetYListKey(vlan.RewriteTag[i], i)
         vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.RewriteTag[i]), types.YChild{"RewriteTag", vlan.RewriteTag[i]})
     }
     vlan.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range vlan.VlanRange {
+        types.SetYListKey(vlan.VlanRange[i], i)
         vlan.EntityData.Children.Append(types.GetSegmentPath(vlan.VlanRange[i]), types.YChild{"VlanRange", vlan.VlanRange[i]})
     }
     vlan.EntityData.Leafs = types.NewOrderedMap()
@@ -11618,6 +12047,7 @@ func (vlan *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan) GetEnt
 type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_RewriteTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..65535.
     Entry interface{}
@@ -11628,7 +12058,8 @@ func (rewriteTag *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_R
     rewriteTag.EntityData.YangName = "rewrite-tag"
     rewriteTag.EntityData.BundleName = "cisco_ios_xr"
     rewriteTag.EntityData.ParentYangName = "vlan"
-    rewriteTag.EntityData.SegmentPath = "rewrite-tag"
+    rewriteTag.EntityData.SegmentPath = "rewrite-tag" + types.AddNoKeyToken(rewriteTag)
+    rewriteTag.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/vlan/" + rewriteTag.EntityData.SegmentPath
     rewriteTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rewriteTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rewriteTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11647,6 +12078,7 @@ func (rewriteTag *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_R
 type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_VlanRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Lower. The type is interface{} with range: 0..65535.
     Lower interface{}
@@ -11660,7 +12092,8 @@ func (vlanRange *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Vlan_Vl
     vlanRange.EntityData.YangName = "vlan-range"
     vlanRange.EntityData.BundleName = "cisco_ios_xr"
     vlanRange.EntityData.ParentYangName = "vlan"
-    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
+    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/vlan/" + vlanRange.EntityData.SegmentPath
     vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11703,6 +12136,7 @@ func (tdm *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm) GetEntit
     tdm.EntityData.BundleName = "cisco_ios_xr"
     tdm.EntityData.ParentYangName = "parameters"
     tdm.EntityData.SegmentPath = "tdm"
+    tdm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + tdm.EntityData.SegmentPath
     tdm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tdm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tdm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11763,6 +12197,7 @@ func (tdmOptions *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Tdm_Td
     tdmOptions.EntityData.BundleName = "cisco_ios_xr"
     tdmOptions.EntityData.ParentYangName = "tdm"
     tdmOptions.EntityData.SegmentPath = "tdm-options"
+    tdmOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/tdm/" + tdmOptions.EntityData.SegmentPath
     tdmOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tdmOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tdmOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11812,6 +12247,7 @@ func (atm *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Atm) GetEntit
     atm.EntityData.BundleName = "cisco_ios_xr"
     atm.EntityData.ParentYangName = "parameters"
     atm.EntityData.SegmentPath = "atm"
+    atm.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + atm.EntityData.SegmentPath
     atm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     atm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     atm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11849,6 +12285,7 @@ func (fr *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Fr) GetEntityD
     fr.EntityData.BundleName = "cisco_ios_xr"
     fr.EntityData.ParentYangName = "parameters"
     fr.EntityData.SegmentPath = "fr"
+    fr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + fr.EntityData.SegmentPath
     fr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11885,6 +12322,7 @@ func (pseudowireEther *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_P
     pseudowireEther.EntityData.BundleName = "cisco_ios_xr"
     pseudowireEther.EntityData.ParentYangName = "parameters"
     pseudowireEther.EntityData.SegmentPath = "pseudowire-ether"
+    pseudowireEther.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + pseudowireEther.EntityData.SegmentPath
     pseudowireEther.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireEther.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireEther.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11923,6 +12361,7 @@ func (interfaceList *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pse
     interfaceList.EntityData.BundleName = "cisco_ios_xr"
     interfaceList.EntityData.ParentYangName = "pseudowire-ether"
     interfaceList.EntityData.SegmentPath = "interface-list"
+    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/" + interfaceList.EntityData.SegmentPath
     interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11930,6 +12369,7 @@ func (interfaceList *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pse
     interfaceList.EntityData.Children = types.NewOrderedMap()
     interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range interfaceList.Interface {
+        types.SetYListKey(interfaceList.Interface[i], i)
         interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
     }
     interfaceList.EntityData.Leafs = types.NewOrderedMap()
@@ -11946,6 +12386,7 @@ func (interfaceList *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pse
 type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEther_InterfaceList_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -11959,7 +12400,8 @@ func (self *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireEt
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/pseudowire-ether/interface-list/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11996,6 +12438,7 @@ func (pseudowireIw *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pseu
     pseudowireIw.EntityData.BundleName = "cisco_ios_xr"
     pseudowireIw.EntityData.ParentYangName = "parameters"
     pseudowireIw.EntityData.SegmentPath = "pseudowire-iw"
+    pseudowireIw.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/" + pseudowireIw.EntityData.SegmentPath
     pseudowireIw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pseudowireIw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pseudowireIw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12034,6 +12477,7 @@ func (interfaceList *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pse
     interfaceList.EntityData.BundleName = "cisco_ios_xr"
     interfaceList.EntityData.ParentYangName = "pseudowire-iw"
     interfaceList.EntityData.SegmentPath = "interface-list"
+    interfaceList.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/" + interfaceList.EntityData.SegmentPath
     interfaceList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12041,6 +12485,7 @@ func (interfaceList *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pse
     interfaceList.EntityData.Children = types.NewOrderedMap()
     interfaceList.EntityData.Children.Append("interface", types.YChild{"Interface", nil})
     for i := range interfaceList.Interface {
+        types.SetYListKey(interfaceList.Interface[i], i)
         interfaceList.EntityData.Children.Append(types.GetSegmentPath(interfaceList.Interface[i]), types.YChild{"Interface", interfaceList.Interface[i]})
     }
     interfaceList.EntityData.Leafs = types.NewOrderedMap()
@@ -12057,6 +12502,7 @@ func (interfaceList *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_Pse
 type Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw_InterfaceList_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string.
     InterfaceName interface{}
@@ -12070,7 +12516,8 @@ func (self *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw
     self.EntityData.YangName = "interface"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-list"
-    self.EntityData.SegmentPath = "interface"
+    self.EntityData.SegmentPath = "interface" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/source-info/local-info/parameters/pseudowire-iw/interface-list/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12090,6 +12537,7 @@ func (self *Evpn_Standby_Igmps_Igmp_SourceInfo_LocalInfo_Parameters_PseudowireIw
 type Evpn_Standby_Igmps_Igmp_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -12100,7 +12548,8 @@ func (ethernetSegmentIdentifier *Evpn_Standby_Igmps_Igmp_EthernetSegmentIdentifi
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "igmp"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12119,6 +12568,7 @@ func (ethernetSegmentIdentifier *Evpn_Standby_Igmps_Igmp_EthernetSegmentIdentifi
 type Evpn_Standby_Igmps_Igmp_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -12139,7 +12589,8 @@ func (nextHop *Evpn_Standby_Igmps_Igmp_NextHop) GetEntityData() *types.CommonEnt
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "igmp"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/igmps/igmp/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12172,6 +12623,7 @@ func (evis *Evpn_Standby_Evis) GetEntityData() *types.CommonEntityData {
     evis.EntityData.BundleName = "cisco_ios_xr"
     evis.EntityData.ParentYangName = "standby"
     evis.EntityData.SegmentPath = "evis"
+    evis.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + evis.EntityData.SegmentPath
     evis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12179,6 +12631,7 @@ func (evis *Evpn_Standby_Evis) GetEntityData() *types.CommonEntityData {
     evis.EntityData.Children = types.NewOrderedMap()
     evis.EntityData.Children.Append("evi", types.YChild{"Evi", nil})
     for i := range evis.Evi {
+        types.SetYListKey(evis.Evi[i], i)
         evis.EntityData.Children.Append(types.GetSegmentPath(evis.Evi[i]), types.YChild{"Evi", evis.Evi[i]})
     }
     evis.EntityData.Leafs = types.NewOrderedMap()
@@ -12193,6 +12646,7 @@ func (evis *Evpn_Standby_Evis) GetEntityData() *types.CommonEntityData {
 type Evpn_Standby_Evis_Evi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -12219,7 +12673,8 @@ func (evi *Evpn_Standby_Evis_Evi) GetEntityData() *types.CommonEntityData {
     evi.EntityData.YangName = "evi"
     evi.EntityData.BundleName = "cisco_ios_xr"
     evi.EntityData.ParentYangName = "evis"
-    evi.EntityData.SegmentPath = "evi"
+    evi.EntityData.SegmentPath = "evi" + types.AddNoKeyToken(evi)
+    evi.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evis/" + evi.EntityData.SegmentPath
     evi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12371,6 +12826,7 @@ func (summary *Evpn_Standby_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "standby"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12433,6 +12889,7 @@ func (eviDetail *Evpn_Standby_EviDetail) GetEntityData() *types.CommonEntityData
     eviDetail.EntityData.BundleName = "cisco_ios_xr"
     eviDetail.EntityData.ParentYangName = "standby"
     eviDetail.EntityData.SegmentPath = "evi-detail"
+    eviDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + eviDetail.EntityData.SegmentPath
     eviDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12464,6 +12921,7 @@ func (elements *Evpn_Standby_EviDetail_Elements) GetEntityData() *types.CommonEn
     elements.EntityData.BundleName = "cisco_ios_xr"
     elements.EntityData.ParentYangName = "evi-detail"
     elements.EntityData.SegmentPath = "elements"
+    elements.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/" + elements.EntityData.SegmentPath
     elements.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     elements.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     elements.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12471,6 +12929,7 @@ func (elements *Evpn_Standby_EviDetail_Elements) GetEntityData() *types.CommonEn
     elements.EntityData.Children = types.NewOrderedMap()
     elements.EntityData.Children.Append("element", types.YChild{"Element", nil})
     for i := range elements.Element {
+        types.SetYListKey(elements.Element[i], i)
         elements.EntityData.Children.Append(types.GetSegmentPath(elements.Element[i]), types.YChild{"Element", elements.Element[i]})
     }
     elements.EntityData.Leafs = types.NewOrderedMap()
@@ -12485,6 +12944,7 @@ func (elements *Evpn_Standby_EviDetail_Elements) GetEntityData() *types.CommonEn
 type Evpn_Standby_EviDetail_Elements_Element struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -12570,7 +13030,8 @@ func (element *Evpn_Standby_EviDetail_Elements_Element) GetEntityData() *types.C
     element.EntityData.YangName = "element"
     element.EntityData.BundleName = "cisco_ios_xr"
     element.EntityData.ParentYangName = "elements"
-    element.EntityData.SegmentPath = "element"
+    element.EntityData.SegmentPath = "element" + types.AddNoKeyToken(element)
+    element.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/" + element.EntityData.SegmentPath
     element.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     element.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     element.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12635,6 +13096,7 @@ func (evpnInstance *Evpn_Standby_EviDetail_Elements_Element_EvpnInstance) GetEnt
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "element"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12670,6 +13132,7 @@ func (flowLabel *Evpn_Standby_EviDetail_Elements_Element_FlowLabel) GetEntityDat
     flowLabel.EntityData.BundleName = "cisco_ios_xr"
     flowLabel.EntityData.ParentYangName = "element"
     flowLabel.EntityData.SegmentPath = "flow-label"
+    flowLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/" + flowLabel.EntityData.SegmentPath
     flowLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flowLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flowLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12712,6 +13175,7 @@ func (rdAuto *Evpn_Standby_EviDetail_Elements_Element_RdAuto) GetEntityData() *t
     rdAuto.EntityData.BundleName = "cisco_ios_xr"
     rdAuto.EntityData.ParentYangName = "element"
     rdAuto.EntityData.SegmentPath = "rd-auto"
+    rdAuto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/" + rdAuto.EntityData.SegmentPath
     rdAuto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdAuto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdAuto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12749,6 +13213,7 @@ func (auto *Evpn_Standby_EviDetail_Elements_Element_RdAuto_Auto) GetEntityData()
     auto.EntityData.BundleName = "cisco_ios_xr"
     auto.EntityData.ParentYangName = "rd-auto"
     auto.EntityData.SegmentPath = "auto"
+    auto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rd-auto/" + auto.EntityData.SegmentPath
     auto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12782,6 +13247,7 @@ func (twoByteAs *Evpn_Standby_EviDetail_Elements_Element_RdAuto_TwoByteAs) GetEn
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rd-auto"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rd-auto/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12815,6 +13281,7 @@ func (fourByteAs *Evpn_Standby_EviDetail_Elements_Element_RdAuto_FourByteAs) Get
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rd-auto"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rd-auto/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12849,6 +13316,7 @@ func (v4Addr *Evpn_Standby_EviDetail_Elements_Element_RdAuto_V4Addr) GetEntityDa
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rd-auto"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rd-auto/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12891,6 +13359,7 @@ func (rdConfigured *Evpn_Standby_EviDetail_Elements_Element_RdConfigured) GetEnt
     rdConfigured.EntityData.BundleName = "cisco_ios_xr"
     rdConfigured.EntityData.ParentYangName = "element"
     rdConfigured.EntityData.SegmentPath = "rd-configured"
+    rdConfigured.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/" + rdConfigured.EntityData.SegmentPath
     rdConfigured.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rdConfigured.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rdConfigured.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12928,6 +13397,7 @@ func (auto *Evpn_Standby_EviDetail_Elements_Element_RdConfigured_Auto) GetEntity
     auto.EntityData.BundleName = "cisco_ios_xr"
     auto.EntityData.ParentYangName = "rd-configured"
     auto.EntityData.SegmentPath = "auto"
+    auto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rd-configured/" + auto.EntityData.SegmentPath
     auto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12961,6 +13431,7 @@ func (twoByteAs *Evpn_Standby_EviDetail_Elements_Element_RdConfigured_TwoByteAs)
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rd-configured"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rd-configured/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12994,6 +13465,7 @@ func (fourByteAs *Evpn_Standby_EviDetail_Elements_Element_RdConfigured_FourByteA
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rd-configured"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rd-configured/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13028,6 +13500,7 @@ func (v4Addr *Evpn_Standby_EviDetail_Elements_Element_RdConfigured_V4Addr) GetEn
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rd-configured"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rd-configured/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13070,6 +13543,7 @@ func (rtAuto *Evpn_Standby_EviDetail_Elements_Element_RtAuto) GetEntityData() *t
     rtAuto.EntityData.BundleName = "cisco_ios_xr"
     rtAuto.EntityData.ParentYangName = "element"
     rtAuto.EntityData.SegmentPath = "rt-auto"
+    rtAuto.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/" + rtAuto.EntityData.SegmentPath
     rtAuto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rtAuto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rtAuto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13106,6 +13580,7 @@ func (twoByteAs *Evpn_Standby_EviDetail_Elements_Element_RtAuto_TwoByteAs) GetEn
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "rt-auto"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rt-auto/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13139,6 +13614,7 @@ func (fourByteAs *Evpn_Standby_EviDetail_Elements_Element_RtAuto_FourByteAs) Get
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "rt-auto"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rt-auto/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13173,6 +13649,7 @@ func (v4Addr *Evpn_Standby_EviDetail_Elements_Element_RtAuto_V4Addr) GetEntityDa
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "rt-auto"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rt-auto/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13207,6 +13684,7 @@ func (esImport *Evpn_Standby_EviDetail_Elements_Element_RtAuto_EsImport) GetEnti
     esImport.EntityData.BundleName = "cisco_ios_xr"
     esImport.EntityData.ParentYangName = "rt-auto"
     esImport.EntityData.SegmentPath = "es-import"
+    esImport.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/elements/element/rt-auto/" + esImport.EntityData.SegmentPath
     esImport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esImport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esImport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13249,6 +13727,7 @@ func (eviChildren *Evpn_Standby_EviDetail_EviChildren) GetEntityData() *types.Co
     eviChildren.EntityData.BundleName = "cisco_ios_xr"
     eviChildren.EntityData.ParentYangName = "evi-detail"
     eviChildren.EntityData.SegmentPath = "evi-children"
+    eviChildren.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/" + eviChildren.EntityData.SegmentPath
     eviChildren.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviChildren.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviChildren.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13283,6 +13762,7 @@ func (neighbors *Evpn_Standby_EviDetail_EviChildren_Neighbors) GetEntityData() *
     neighbors.EntityData.BundleName = "cisco_ios_xr"
     neighbors.EntityData.ParentYangName = "evi-children"
     neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/" + neighbors.EntityData.SegmentPath
     neighbors.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbors.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13290,6 +13770,7 @@ func (neighbors *Evpn_Standby_EviDetail_EviChildren_Neighbors) GetEntityData() *
     neighbors.EntityData.Children = types.NewOrderedMap()
     neighbors.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighbors.Neighbor {
+        types.SetYListKey(neighbors.Neighbor[i], i)
         neighbors.EntityData.Children.Append(types.GetSegmentPath(neighbors.Neighbor[i]), types.YChild{"Neighbor", neighbors.Neighbor[i]})
     }
     neighbors.EntityData.Leafs = types.NewOrderedMap()
@@ -13304,6 +13785,7 @@ func (neighbors *Evpn_Standby_EviDetail_EviChildren_Neighbors) GetEntityData() *
 type Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -13330,7 +13812,8 @@ func (neighbor *Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor) GetEntity
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbors"
-    neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddNoKeyToken(neighbor)
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/neighbors/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13374,6 +13857,7 @@ func (evpnInstance *Evpn_Standby_EviDetail_EviChildren_Neighbors_Neighbor_EvpnIn
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "neighbor"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/neighbors/neighbor/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13407,6 +13891,7 @@ func (ethernetAutoDiscoveries *Evpn_Standby_EviDetail_EviChildren_EthernetAutoDi
     ethernetAutoDiscoveries.EntityData.BundleName = "cisco_ios_xr"
     ethernetAutoDiscoveries.EntityData.ParentYangName = "evi-children"
     ethernetAutoDiscoveries.EntityData.SegmentPath = "ethernet-auto-discoveries"
+    ethernetAutoDiscoveries.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/" + ethernetAutoDiscoveries.EntityData.SegmentPath
     ethernetAutoDiscoveries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetAutoDiscoveries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetAutoDiscoveries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13414,6 +13899,7 @@ func (ethernetAutoDiscoveries *Evpn_Standby_EviDetail_EviChildren_EthernetAutoDi
     ethernetAutoDiscoveries.EntityData.Children = types.NewOrderedMap()
     ethernetAutoDiscoveries.EntityData.Children.Append("ethernet-auto-discovery", types.YChild{"EthernetAutoDiscovery", nil})
     for i := range ethernetAutoDiscoveries.EthernetAutoDiscovery {
+        types.SetYListKey(ethernetAutoDiscoveries.EthernetAutoDiscovery[i], i)
         ethernetAutoDiscoveries.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscoveries.EthernetAutoDiscovery[i]), types.YChild{"EthernetAutoDiscovery", ethernetAutoDiscoveries.EthernetAutoDiscovery[i]})
     }
     ethernetAutoDiscoveries.EntityData.Leafs = types.NewOrderedMap()
@@ -13428,6 +13914,7 @@ func (ethernetAutoDiscoveries *Evpn_Standby_EviDetail_EviChildren_EthernetAutoDi
 type Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -13493,7 +13980,8 @@ func (ethernetAutoDiscovery *Evpn_Standby_EviDetail_EviChildren_EthernetAutoDisc
     ethernetAutoDiscovery.EntityData.YangName = "ethernet-auto-discovery"
     ethernetAutoDiscovery.EntityData.BundleName = "cisco_ios_xr"
     ethernetAutoDiscovery.EntityData.ParentYangName = "ethernet-auto-discoveries"
-    ethernetAutoDiscovery.EntityData.SegmentPath = "ethernet-auto-discovery"
+    ethernetAutoDiscovery.EntityData.SegmentPath = "ethernet-auto-discovery" + types.AddNoKeyToken(ethernetAutoDiscovery)
+    ethernetAutoDiscovery.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/ethernet-auto-discoveries/" + ethernetAutoDiscovery.EntityData.SegmentPath
     ethernetAutoDiscovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetAutoDiscovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetAutoDiscovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13502,10 +13990,12 @@ func (ethernetAutoDiscovery *Evpn_Standby_EviDetail_EviChildren_EthernetAutoDisc
     ethernetAutoDiscovery.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &ethernetAutoDiscovery.EvpnInstance})
     ethernetAutoDiscovery.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range ethernetAutoDiscovery.EthernetSegmentIdentifier {
+        types.SetYListKey(ethernetAutoDiscovery.EthernetSegmentIdentifier[i], i)
         ethernetAutoDiscovery.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscovery.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", ethernetAutoDiscovery.EthernetSegmentIdentifier[i]})
     }
     ethernetAutoDiscovery.EntityData.Children.Append("path-buffer", types.YChild{"PathBuffer", nil})
     for i := range ethernetAutoDiscovery.PathBuffer {
+        types.SetYListKey(ethernetAutoDiscovery.PathBuffer[i], i)
         ethernetAutoDiscovery.EntityData.Children.Append(types.GetSegmentPath(ethernetAutoDiscovery.PathBuffer[i]), types.YChild{"PathBuffer", ethernetAutoDiscovery.PathBuffer[i]})
     }
     ethernetAutoDiscovery.EntityData.Leafs = types.NewOrderedMap()
@@ -13556,6 +14046,7 @@ func (evpnInstance *Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_E
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "ethernet-auto-discovery"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13577,6 +14068,7 @@ func (evpnInstance *Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_E
 type Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -13587,7 +14079,8 @@ func (ethernetSegmentIdentifier *Evpn_Standby_EviDetail_EviChildren_EthernetAuto
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "ethernet-auto-discovery"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13606,6 +14099,7 @@ func (ethernetSegmentIdentifier *Evpn_Standby_EviDetail_EviChildren_EthernetAuto
 type Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_EthernetAutoDiscovery_PathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -13628,7 +14122,8 @@ func (pathBuffer *Evpn_Standby_EviDetail_EviChildren_EthernetAutoDiscoveries_Eth
     pathBuffer.EntityData.YangName = "path-buffer"
     pathBuffer.EntityData.BundleName = "cisco_ios_xr"
     pathBuffer.EntityData.ParentYangName = "ethernet-auto-discovery"
-    pathBuffer.EntityData.SegmentPath = "path-buffer"
+    pathBuffer.EntityData.SegmentPath = "path-buffer" + types.AddNoKeyToken(pathBuffer)
+    pathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/ethernet-auto-discoveries/ethernet-auto-discovery/" + pathBuffer.EntityData.SegmentPath
     pathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13662,6 +14157,7 @@ func (inclusiveMulticasts *Evpn_Standby_EviDetail_EviChildren_InclusiveMulticast
     inclusiveMulticasts.EntityData.BundleName = "cisco_ios_xr"
     inclusiveMulticasts.EntityData.ParentYangName = "evi-children"
     inclusiveMulticasts.EntityData.SegmentPath = "inclusive-multicasts"
+    inclusiveMulticasts.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/" + inclusiveMulticasts.EntityData.SegmentPath
     inclusiveMulticasts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inclusiveMulticasts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inclusiveMulticasts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13669,6 +14165,7 @@ func (inclusiveMulticasts *Evpn_Standby_EviDetail_EviChildren_InclusiveMulticast
     inclusiveMulticasts.EntityData.Children = types.NewOrderedMap()
     inclusiveMulticasts.EntityData.Children.Append("inclusive-multicast", types.YChild{"InclusiveMulticast", nil})
     for i := range inclusiveMulticasts.InclusiveMulticast {
+        types.SetYListKey(inclusiveMulticasts.InclusiveMulticast[i], i)
         inclusiveMulticasts.EntityData.Children.Append(types.GetSegmentPath(inclusiveMulticasts.InclusiveMulticast[i]), types.YChild{"InclusiveMulticast", inclusiveMulticasts.InclusiveMulticast[i]})
     }
     inclusiveMulticasts.EntityData.Leafs = types.NewOrderedMap()
@@ -13683,6 +14180,7 @@ func (inclusiveMulticasts *Evpn_Standby_EviDetail_EviChildren_InclusiveMulticast
 type Evpn_Standby_EviDetail_EviChildren_InclusiveMulticasts_InclusiveMulticast struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -13735,7 +14233,8 @@ func (inclusiveMulticast *Evpn_Standby_EviDetail_EviChildren_InclusiveMulticasts
     inclusiveMulticast.EntityData.YangName = "inclusive-multicast"
     inclusiveMulticast.EntityData.BundleName = "cisco_ios_xr"
     inclusiveMulticast.EntityData.ParentYangName = "inclusive-multicasts"
-    inclusiveMulticast.EntityData.SegmentPath = "inclusive-multicast"
+    inclusiveMulticast.EntityData.SegmentPath = "inclusive-multicast" + types.AddNoKeyToken(inclusiveMulticast)
+    inclusiveMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/inclusive-multicasts/" + inclusiveMulticast.EntityData.SegmentPath
     inclusiveMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inclusiveMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inclusiveMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13787,6 +14286,7 @@ func (evpnInstance *Evpn_Standby_EviDetail_EviChildren_InclusiveMulticasts_Inclu
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "inclusive-multicast"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/inclusive-multicasts/inclusive-multicast/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13820,6 +14320,7 @@ func (routeTargets *Evpn_Standby_EviDetail_EviChildren_RouteTargets) GetEntityDa
     routeTargets.EntityData.BundleName = "cisco_ios_xr"
     routeTargets.EntityData.ParentYangName = "evi-children"
     routeTargets.EntityData.SegmentPath = "route-targets"
+    routeTargets.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/" + routeTargets.EntityData.SegmentPath
     routeTargets.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTargets.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTargets.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13827,6 +14328,7 @@ func (routeTargets *Evpn_Standby_EviDetail_EviChildren_RouteTargets) GetEntityDa
     routeTargets.EntityData.Children = types.NewOrderedMap()
     routeTargets.EntityData.Children.Append("route-target", types.YChild{"RouteTarget", nil})
     for i := range routeTargets.RouteTarget {
+        types.SetYListKey(routeTargets.RouteTarget[i], i)
         routeTargets.EntityData.Children.Append(types.GetSegmentPath(routeTargets.RouteTarget[i]), types.YChild{"RouteTarget", routeTargets.RouteTarget[i]})
     }
     routeTargets.EntityData.Leafs = types.NewOrderedMap()
@@ -13841,6 +14343,7 @@ func (routeTargets *Evpn_Standby_EviDetail_EviChildren_RouteTargets) GetEntityDa
 type Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -13886,7 +14389,8 @@ func (routeTarget *Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget) 
     routeTarget.EntityData.YangName = "route-target"
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "route-targets"
-    routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.SegmentPath = "route-target" + types.AddNoKeyToken(routeTarget)
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13937,6 +14441,7 @@ func (evpnInstance *Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget_
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "route-target"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13981,6 +14486,7 @@ func (routeTarget *Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget_R
     routeTarget.EntityData.BundleName = "cisco_ios_xr"
     routeTarget.EntityData.ParentYangName = "route-target"
     routeTarget.EntityData.SegmentPath = "route-target"
+    routeTarget.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/" + routeTarget.EntityData.SegmentPath
     routeTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14017,6 +14523,7 @@ func (twoByteAs *Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget_Rou
     twoByteAs.EntityData.BundleName = "cisco_ios_xr"
     twoByteAs.EntityData.ParentYangName = "route-target"
     twoByteAs.EntityData.SegmentPath = "two-byte-as"
+    twoByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/" + twoByteAs.EntityData.SegmentPath
     twoByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     twoByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     twoByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14050,6 +14557,7 @@ func (fourByteAs *Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget_Ro
     fourByteAs.EntityData.BundleName = "cisco_ios_xr"
     fourByteAs.EntityData.ParentYangName = "route-target"
     fourByteAs.EntityData.SegmentPath = "four-byte-as"
+    fourByteAs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/" + fourByteAs.EntityData.SegmentPath
     fourByteAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fourByteAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fourByteAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14084,6 +14592,7 @@ func (v4Addr *Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget_RouteT
     v4Addr.EntityData.BundleName = "cisco_ios_xr"
     v4Addr.EntityData.ParentYangName = "route-target"
     v4Addr.EntityData.SegmentPath = "v4-addr"
+    v4Addr.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/" + v4Addr.EntityData.SegmentPath
     v4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     v4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     v4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14118,6 +14627,7 @@ func (esImport *Evpn_Standby_EviDetail_EviChildren_RouteTargets_RouteTarget_Rout
     esImport.EntityData.BundleName = "cisco_ios_xr"
     esImport.EntityData.ParentYangName = "route-target"
     esImport.EntityData.SegmentPath = "es-import"
+    esImport.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/route-targets/route-target/route-target/" + esImport.EntityData.SegmentPath
     esImport.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     esImport.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     esImport.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14149,6 +14659,7 @@ func (macs *Evpn_Standby_EviDetail_EviChildren_Macs) GetEntityData() *types.Comm
     macs.EntityData.BundleName = "cisco_ios_xr"
     macs.EntityData.ParentYangName = "evi-children"
     macs.EntityData.SegmentPath = "macs"
+    macs.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/" + macs.EntityData.SegmentPath
     macs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14156,6 +14667,7 @@ func (macs *Evpn_Standby_EviDetail_EviChildren_Macs) GetEntityData() *types.Comm
     macs.EntityData.Children = types.NewOrderedMap()
     macs.EntityData.Children.Append("mac", types.YChild{"Mac", nil})
     for i := range macs.Mac {
+        types.SetYListKey(macs.Mac[i], i)
         macs.EntityData.Children.Append(types.GetSegmentPath(macs.Mac[i]), types.YChild{"Mac", macs.Mac[i]})
     }
     macs.EntityData.Leafs = types.NewOrderedMap()
@@ -14170,6 +14682,7 @@ func (macs *Evpn_Standby_EviDetail_EviChildren_Macs) GetEntityData() *types.Comm
 type Evpn_Standby_EviDetail_EviChildren_Macs_Mac struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -14290,7 +14803,8 @@ func (mac *Evpn_Standby_EviDetail_EviChildren_Macs_Mac) GetEntityData() *types.C
     mac.EntityData.YangName = "mac"
     mac.EntityData.BundleName = "cisco_ios_xr"
     mac.EntityData.ParentYangName = "macs"
-    mac.EntityData.SegmentPath = "mac"
+    mac.EntityData.SegmentPath = "mac" + types.AddNoKeyToken(mac)
+    mac.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/" + mac.EntityData.SegmentPath
     mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14299,14 +14813,17 @@ func (mac *Evpn_Standby_EviDetail_EviChildren_Macs_Mac) GetEntityData() *types.C
     mac.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &mac.EvpnInstance})
     mac.EntityData.Children.Append("local-ethernet-segment-identifier", types.YChild{"LocalEthernetSegmentIdentifier", nil})
     for i := range mac.LocalEthernetSegmentIdentifier {
+        types.SetYListKey(mac.LocalEthernetSegmentIdentifier[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.LocalEthernetSegmentIdentifier[i]), types.YChild{"LocalEthernetSegmentIdentifier", mac.LocalEthernetSegmentIdentifier[i]})
     }
     mac.EntityData.Children.Append("remote-ethernet-segment-identifier", types.YChild{"RemoteEthernetSegmentIdentifier", nil})
     for i := range mac.RemoteEthernetSegmentIdentifier {
+        types.SetYListKey(mac.RemoteEthernetSegmentIdentifier[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.RemoteEthernetSegmentIdentifier[i]), types.YChild{"RemoteEthernetSegmentIdentifier", mac.RemoteEthernetSegmentIdentifier[i]})
     }
     mac.EntityData.Children.Append("path-buffer", types.YChild{"PathBuffer", nil})
     for i := range mac.PathBuffer {
+        types.SetYListKey(mac.PathBuffer[i], i)
         mac.EntityData.Children.Append(types.GetSegmentPath(mac.PathBuffer[i]), types.YChild{"PathBuffer", mac.PathBuffer[i]})
     }
     mac.EntityData.Leafs = types.NewOrderedMap()
@@ -14371,6 +14888,7 @@ func (evpnInstance *Evpn_Standby_EviDetail_EviChildren_Macs_Mac_EvpnInstance) Ge
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "mac"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14392,6 +14910,7 @@ func (evpnInstance *Evpn_Standby_EviDetail_EviChildren_Macs_Mac_EvpnInstance) Ge
 type Evpn_Standby_EviDetail_EviChildren_Macs_Mac_LocalEthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -14402,7 +14921,8 @@ func (localEthernetSegmentIdentifier *Evpn_Standby_EviDetail_EviChildren_Macs_Ma
     localEthernetSegmentIdentifier.EntityData.YangName = "local-ethernet-segment-identifier"
     localEthernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     localEthernetSegmentIdentifier.EntityData.ParentYangName = "mac"
-    localEthernetSegmentIdentifier.EntityData.SegmentPath = "local-ethernet-segment-identifier"
+    localEthernetSegmentIdentifier.EntityData.SegmentPath = "local-ethernet-segment-identifier" + types.AddNoKeyToken(localEthernetSegmentIdentifier)
+    localEthernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/" + localEthernetSegmentIdentifier.EntityData.SegmentPath
     localEthernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localEthernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localEthernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14421,6 +14941,7 @@ func (localEthernetSegmentIdentifier *Evpn_Standby_EviDetail_EviChildren_Macs_Ma
 type Evpn_Standby_EviDetail_EviChildren_Macs_Mac_RemoteEthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -14431,7 +14952,8 @@ func (remoteEthernetSegmentIdentifier *Evpn_Standby_EviDetail_EviChildren_Macs_M
     remoteEthernetSegmentIdentifier.EntityData.YangName = "remote-ethernet-segment-identifier"
     remoteEthernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     remoteEthernetSegmentIdentifier.EntityData.ParentYangName = "mac"
-    remoteEthernetSegmentIdentifier.EntityData.SegmentPath = "remote-ethernet-segment-identifier"
+    remoteEthernetSegmentIdentifier.EntityData.SegmentPath = "remote-ethernet-segment-identifier" + types.AddNoKeyToken(remoteEthernetSegmentIdentifier)
+    remoteEthernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/" + remoteEthernetSegmentIdentifier.EntityData.SegmentPath
     remoteEthernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteEthernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteEthernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14450,6 +14972,7 @@ func (remoteEthernetSegmentIdentifier *Evpn_Standby_EviDetail_EviChildren_Macs_M
 type Evpn_Standby_EviDetail_EviChildren_Macs_Mac_PathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -14472,7 +14995,8 @@ func (pathBuffer *Evpn_Standby_EviDetail_EviChildren_Macs_Mac_PathBuffer) GetEnt
     pathBuffer.EntityData.YangName = "path-buffer"
     pathBuffer.EntityData.BundleName = "cisco_ios_xr"
     pathBuffer.EntityData.ParentYangName = "mac"
-    pathBuffer.EntityData.SegmentPath = "path-buffer"
+    pathBuffer.EntityData.SegmentPath = "path-buffer" + types.AddNoKeyToken(pathBuffer)
+    pathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/evi-detail/evi-children/macs/mac/" + pathBuffer.EntityData.SegmentPath
     pathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14505,6 +15029,7 @@ func (teps *Evpn_Standby_Teps) GetEntityData() *types.CommonEntityData {
     teps.EntityData.BundleName = "cisco_ios_xr"
     teps.EntityData.ParentYangName = "standby"
     teps.EntityData.SegmentPath = "teps"
+    teps.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + teps.EntityData.SegmentPath
     teps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     teps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     teps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14526,6 +15051,7 @@ func (teps *Evpn_Standby_Teps) GetEntityData() *types.CommonEntityData {
 type Evpn_Standby_Teps_Tep struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. TEP id. The type is interface{} with range:
     // 0..4294967295.
@@ -14562,6 +15088,7 @@ func (tep *Evpn_Standby_Teps_Tep) GetEntityData() *types.CommonEntityData {
     tep.EntityData.BundleName = "cisco_ios_xr"
     tep.EntityData.ParentYangName = "teps"
     tep.EntityData.SegmentPath = "tep" + types.AddKeyToken(tep.TepId, "tep-id")
+    tep.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/teps/" + tep.EntityData.SegmentPath
     tep.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tep.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tep.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14606,6 +15133,7 @@ func (localInfo *Evpn_Standby_Teps_Tep_LocalInfo) GetEntityData() *types.CommonE
     localInfo.EntityData.BundleName = "cisco_ios_xr"
     localInfo.EntityData.ParentYangName = "tep"
     localInfo.EntityData.SegmentPath = "local-info"
+    localInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/teps/tep/" + localInfo.EntityData.SegmentPath
     localInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14644,6 +15172,7 @@ func (remoteInfo *Evpn_Standby_Teps_Tep_RemoteInfo) GetEntityData() *types.Commo
     remoteInfo.EntityData.BundleName = "cisco_ios_xr"
     remoteInfo.EntityData.ParentYangName = "tep"
     remoteInfo.EntityData.SegmentPath = "remote-info"
+    remoteInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/teps/tep/" + remoteInfo.EntityData.SegmentPath
     remoteInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14676,6 +15205,7 @@ func (internalLabels *Evpn_Standby_InternalLabels) GetEntityData() *types.Common
     internalLabels.EntityData.BundleName = "cisco_ios_xr"
     internalLabels.EntityData.ParentYangName = "standby"
     internalLabels.EntityData.SegmentPath = "internal-labels"
+    internalLabels.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + internalLabels.EntityData.SegmentPath
     internalLabels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalLabels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalLabels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14683,6 +15213,7 @@ func (internalLabels *Evpn_Standby_InternalLabels) GetEntityData() *types.Common
     internalLabels.EntityData.Children = types.NewOrderedMap()
     internalLabels.EntityData.Children.Append("internal-label", types.YChild{"InternalLabel", nil})
     for i := range internalLabels.InternalLabel {
+        types.SetYListKey(internalLabels.InternalLabel[i], i)
         internalLabels.EntityData.Children.Append(types.GetSegmentPath(internalLabels.InternalLabel[i]), types.YChild{"InternalLabel", internalLabels.InternalLabel[i]})
     }
     internalLabels.EntityData.Leafs = types.NewOrderedMap()
@@ -14697,6 +15228,7 @@ func (internalLabels *Evpn_Standby_InternalLabels) GetEntityData() *types.Common
 type Evpn_Standby_InternalLabels_InternalLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -14790,7 +15322,8 @@ func (internalLabel *Evpn_Standby_InternalLabels_InternalLabel) GetEntityData() 
     internalLabel.EntityData.YangName = "internal-label"
     internalLabel.EntityData.BundleName = "cisco_ios_xr"
     internalLabel.EntityData.ParentYangName = "internal-labels"
-    internalLabel.EntityData.SegmentPath = "internal-label"
+    internalLabel.EntityData.SegmentPath = "internal-label" + types.AddNoKeyToken(internalLabel)
+    internalLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/" + internalLabel.EntityData.SegmentPath
     internalLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14799,18 +15332,22 @@ func (internalLabel *Evpn_Standby_InternalLabels_InternalLabel) GetEntityData() 
     internalLabel.EntityData.Children.Append("evpn-instance", types.YChild{"EvpnInstance", &internalLabel.EvpnInstance})
     internalLabel.EntityData.Children.Append("mac-path-buffer", types.YChild{"MacPathBuffer", nil})
     for i := range internalLabel.MacPathBuffer {
+        types.SetYListKey(internalLabel.MacPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.MacPathBuffer[i]), types.YChild{"MacPathBuffer", internalLabel.MacPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("ead-path-buffer", types.YChild{"EadPathBuffer", nil})
     for i := range internalLabel.EadPathBuffer {
+        types.SetYListKey(internalLabel.EadPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.EadPathBuffer[i]), types.YChild{"EadPathBuffer", internalLabel.EadPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("evi-path-buffer", types.YChild{"EviPathBuffer", nil})
     for i := range internalLabel.EviPathBuffer {
+        types.SetYListKey(internalLabel.EviPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.EviPathBuffer[i]), types.YChild{"EviPathBuffer", internalLabel.EviPathBuffer[i]})
     }
     internalLabel.EntityData.Children.Append("summary-path-buffer", types.YChild{"SummaryPathBuffer", nil})
     for i := range internalLabel.SummaryPathBuffer {
+        types.SetYListKey(internalLabel.SummaryPathBuffer[i], i)
         internalLabel.EntityData.Children.Append(types.GetSegmentPath(internalLabel.SummaryPathBuffer[i]), types.YChild{"SummaryPathBuffer", internalLabel.SummaryPathBuffer[i]})
     }
     internalLabel.EntityData.Leafs = types.NewOrderedMap()
@@ -14866,6 +15403,7 @@ func (evpnInstance *Evpn_Standby_InternalLabels_InternalLabel_EvpnInstance) GetE
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "internal-label"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14887,6 +15425,7 @@ func (evpnInstance *Evpn_Standby_InternalLabels_InternalLabel_EvpnInstance) GetE
 type Evpn_Standby_InternalLabels_InternalLabel_MacPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -14909,7 +15448,8 @@ func (macPathBuffer *Evpn_Standby_InternalLabels_InternalLabel_MacPathBuffer) Ge
     macPathBuffer.EntityData.YangName = "mac-path-buffer"
     macPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     macPathBuffer.EntityData.ParentYangName = "internal-label"
-    macPathBuffer.EntityData.SegmentPath = "mac-path-buffer"
+    macPathBuffer.EntityData.SegmentPath = "mac-path-buffer" + types.AddNoKeyToken(macPathBuffer)
+    macPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/" + macPathBuffer.EntityData.SegmentPath
     macPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14931,6 +15471,7 @@ func (macPathBuffer *Evpn_Standby_InternalLabels_InternalLabel_MacPathBuffer) Ge
 type Evpn_Standby_InternalLabels_InternalLabel_EadPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -14953,7 +15494,8 @@ func (eadPathBuffer *Evpn_Standby_InternalLabels_InternalLabel_EadPathBuffer) Ge
     eadPathBuffer.EntityData.YangName = "ead-path-buffer"
     eadPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     eadPathBuffer.EntityData.ParentYangName = "internal-label"
-    eadPathBuffer.EntityData.SegmentPath = "ead-path-buffer"
+    eadPathBuffer.EntityData.SegmentPath = "ead-path-buffer" + types.AddNoKeyToken(eadPathBuffer)
+    eadPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/" + eadPathBuffer.EntityData.SegmentPath
     eadPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eadPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eadPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14975,6 +15517,7 @@ func (eadPathBuffer *Evpn_Standby_InternalLabels_InternalLabel_EadPathBuffer) Ge
 type Evpn_Standby_InternalLabels_InternalLabel_EviPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -14997,7 +15540,8 @@ func (eviPathBuffer *Evpn_Standby_InternalLabels_InternalLabel_EviPathBuffer) Ge
     eviPathBuffer.EntityData.YangName = "evi-path-buffer"
     eviPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     eviPathBuffer.EntityData.ParentYangName = "internal-label"
-    eviPathBuffer.EntityData.SegmentPath = "evi-path-buffer"
+    eviPathBuffer.EntityData.SegmentPath = "evi-path-buffer" + types.AddNoKeyToken(eviPathBuffer)
+    eviPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/" + eviPathBuffer.EntityData.SegmentPath
     eviPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     eviPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     eviPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15019,6 +15563,7 @@ func (eviPathBuffer *Evpn_Standby_InternalLabels_InternalLabel_EviPathBuffer) Ge
 type Evpn_Standby_InternalLabels_InternalLabel_SummaryPathBuffer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tunnel Endpoint Identifier. The type is interface{} with range:
     // 0..4294967295.
@@ -15041,7 +15586,8 @@ func (summaryPathBuffer *Evpn_Standby_InternalLabels_InternalLabel_SummaryPathBu
     summaryPathBuffer.EntityData.YangName = "summary-path-buffer"
     summaryPathBuffer.EntityData.BundleName = "cisco_ios_xr"
     summaryPathBuffer.EntityData.ParentYangName = "internal-label"
-    summaryPathBuffer.EntityData.SegmentPath = "summary-path-buffer"
+    summaryPathBuffer.EntityData.SegmentPath = "summary-path-buffer" + types.AddNoKeyToken(summaryPathBuffer)
+    summaryPathBuffer.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/internal-labels/internal-label/" + summaryPathBuffer.EntityData.SegmentPath
     summaryPathBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPathBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPathBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15075,6 +15621,7 @@ func (ethernetSegments *Evpn_Standby_EthernetSegments) GetEntityData() *types.Co
     ethernetSegments.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegments.EntityData.ParentYangName = "standby"
     ethernetSegments.EntityData.SegmentPath = "ethernet-segments"
+    ethernetSegments.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + ethernetSegments.EntityData.SegmentPath
     ethernetSegments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15082,6 +15629,7 @@ func (ethernetSegments *Evpn_Standby_EthernetSegments) GetEntityData() *types.Co
     ethernetSegments.EntityData.Children = types.NewOrderedMap()
     ethernetSegments.EntityData.Children.Append("ethernet-segment", types.YChild{"EthernetSegment", nil})
     for i := range ethernetSegments.EthernetSegment {
+        types.SetYListKey(ethernetSegments.EthernetSegment[i], i)
         ethernetSegments.EntityData.Children.Append(types.GetSegmentPath(ethernetSegments.EthernetSegment[i]), types.YChild{"EthernetSegment", ethernetSegments.EthernetSegment[i]})
     }
     ethernetSegments.EntityData.Leafs = types.NewOrderedMap()
@@ -15096,6 +15644,7 @@ func (ethernetSegments *Evpn_Standby_EthernetSegments) GetEntityData() *types.Co
 type Evpn_Standby_EthernetSegments_EthernetSegment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -15306,7 +15855,8 @@ func (ethernetSegment *Evpn_Standby_EthernetSegments_EthernetSegment) GetEntityD
     ethernetSegment.EntityData.YangName = "ethernet-segment"
     ethernetSegment.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegment.EntityData.ParentYangName = "ethernet-segments"
-    ethernetSegment.EntityData.SegmentPath = "ethernet-segment"
+    ethernetSegment.EntityData.SegmentPath = "ethernet-segment" + types.AddNoKeyToken(ethernetSegment)
+    ethernetSegment.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/" + ethernetSegment.EntityData.SegmentPath
     ethernetSegment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15314,50 +15864,62 @@ func (ethernetSegment *Evpn_Standby_EthernetSegments_EthernetSegment) GetEntityD
     ethernetSegment.EntityData.Children = types.NewOrderedMap()
     ethernetSegment.EntityData.Children.Append("ethernet-segment-identifier", types.YChild{"EthernetSegmentIdentifier", nil})
     for i := range ethernetSegment.EthernetSegmentIdentifier {
+        types.SetYListKey(ethernetSegment.EthernetSegmentIdentifier[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.EthernetSegmentIdentifier[i]), types.YChild{"EthernetSegmentIdentifier", ethernetSegment.EthernetSegmentIdentifier[i]})
     }
     ethernetSegment.EntityData.Children.Append("primary-service", types.YChild{"PrimaryService", nil})
     for i := range ethernetSegment.PrimaryService {
+        types.SetYListKey(ethernetSegment.PrimaryService[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.PrimaryService[i]), types.YChild{"PrimaryService", ethernetSegment.PrimaryService[i]})
     }
     ethernetSegment.EntityData.Children.Append("secondary-service", types.YChild{"SecondaryService", nil})
     for i := range ethernetSegment.SecondaryService {
+        types.SetYListKey(ethernetSegment.SecondaryService[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.SecondaryService[i]), types.YChild{"SecondaryService", ethernetSegment.SecondaryService[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-i-sidelected-result", types.YChild{"ServiceCarvingISidelectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingISidelectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingISidelectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingISidelectedResult[i]), types.YChild{"ServiceCarvingISidelectedResult", ethernetSegment.ServiceCarvingISidelectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-isid-not-elected-result", types.YChild{"ServiceCarvingIsidNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingIsidNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingIsidNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingIsidNotElectedResult[i]), types.YChild{"ServiceCarvingIsidNotElectedResult", ethernetSegment.ServiceCarvingIsidNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-evi-elected-result", types.YChild{"ServiceCarvingEviElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingEviElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingEviElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingEviElectedResult[i]), types.YChild{"ServiceCarvingEviElectedResult", ethernetSegment.ServiceCarvingEviElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-evi-not-elected-result", types.YChild{"ServiceCarvingEviNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingEviNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingEviNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingEviNotElectedResult[i]), types.YChild{"ServiceCarvingEviNotElectedResult", ethernetSegment.ServiceCarvingEviNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vni-elected-result", types.YChild{"ServiceCarvingVniElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingVniElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVniElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVniElectedResult[i]), types.YChild{"ServiceCarvingVniElectedResult", ethernetSegment.ServiceCarvingVniElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vni-not-elected-result", types.YChild{"ServiceCarvingVniNotElectedResult", nil})
     for i := range ethernetSegment.ServiceCarvingVniNotElectedResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVniNotElectedResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVniNotElectedResult[i]), types.YChild{"ServiceCarvingVniNotElectedResult", ethernetSegment.ServiceCarvingVniNotElectedResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("next-hop", types.YChild{"NextHop", nil})
     for i := range ethernetSegment.NextHop {
+        types.SetYListKey(ethernetSegment.NextHop[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.NextHop[i]), types.YChild{"NextHop", ethernetSegment.NextHop[i]})
     }
     ethernetSegment.EntityData.Children.Append("service-carving-vpws-permanent-result", types.YChild{"ServiceCarvingVpwsPermanentResult", nil})
     for i := range ethernetSegment.ServiceCarvingVpwsPermanentResult {
+        types.SetYListKey(ethernetSegment.ServiceCarvingVpwsPermanentResult[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.ServiceCarvingVpwsPermanentResult[i]), types.YChild{"ServiceCarvingVpwsPermanentResult", ethernetSegment.ServiceCarvingVpwsPermanentResult[i]})
     }
     ethernetSegment.EntityData.Children.Append("remote-split-horizon-group-label", types.YChild{"RemoteSplitHorizonGroupLabel", nil})
     for i := range ethernetSegment.RemoteSplitHorizonGroupLabel {
+        types.SetYListKey(ethernetSegment.RemoteSplitHorizonGroupLabel[i], i)
         ethernetSegment.EntityData.Children.Append(types.GetSegmentPath(ethernetSegment.RemoteSplitHorizonGroupLabel[i]), types.YChild{"RemoteSplitHorizonGroupLabel", ethernetSegment.RemoteSplitHorizonGroupLabel[i]})
     }
     ethernetSegment.EntityData.Leafs = types.NewOrderedMap()
@@ -15418,6 +15980,7 @@ func (ethernetSegment *Evpn_Standby_EthernetSegments_EthernetSegment) GetEntityD
 type Evpn_Standby_EthernetSegments_EthernetSegment_EthernetSegmentIdentifier struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..255.
     Entry interface{}
@@ -15428,7 +15991,8 @@ func (ethernetSegmentIdentifier *Evpn_Standby_EthernetSegments_EthernetSegment_E
     ethernetSegmentIdentifier.EntityData.YangName = "ethernet-segment-identifier"
     ethernetSegmentIdentifier.EntityData.BundleName = "cisco_ios_xr"
     ethernetSegmentIdentifier.EntityData.ParentYangName = "ethernet-segment"
-    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier"
+    ethernetSegmentIdentifier.EntityData.SegmentPath = "ethernet-segment-identifier" + types.AddNoKeyToken(ethernetSegmentIdentifier)
+    ethernetSegmentIdentifier.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + ethernetSegmentIdentifier.EntityData.SegmentPath
     ethernetSegmentIdentifier.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetSegmentIdentifier.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetSegmentIdentifier.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15447,6 +16011,7 @@ func (ethernetSegmentIdentifier *Evpn_Standby_EthernetSegments_EthernetSegment_E
 type Evpn_Standby_EthernetSegments_EthernetSegment_PrimaryService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15457,7 +16022,8 @@ func (primaryService *Evpn_Standby_EthernetSegments_EthernetSegment_PrimaryServi
     primaryService.EntityData.YangName = "primary-service"
     primaryService.EntityData.BundleName = "cisco_ios_xr"
     primaryService.EntityData.ParentYangName = "ethernet-segment"
-    primaryService.EntityData.SegmentPath = "primary-service"
+    primaryService.EntityData.SegmentPath = "primary-service" + types.AddNoKeyToken(primaryService)
+    primaryService.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + primaryService.EntityData.SegmentPath
     primaryService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15476,6 +16042,7 @@ func (primaryService *Evpn_Standby_EthernetSegments_EthernetSegment_PrimaryServi
 type Evpn_Standby_EthernetSegments_EthernetSegment_SecondaryService struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15486,7 +16053,8 @@ func (secondaryService *Evpn_Standby_EthernetSegments_EthernetSegment_SecondaryS
     secondaryService.EntityData.YangName = "secondary-service"
     secondaryService.EntityData.BundleName = "cisco_ios_xr"
     secondaryService.EntityData.ParentYangName = "ethernet-segment"
-    secondaryService.EntityData.SegmentPath = "secondary-service"
+    secondaryService.EntityData.SegmentPath = "secondary-service" + types.AddNoKeyToken(secondaryService)
+    secondaryService.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + secondaryService.EntityData.SegmentPath
     secondaryService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15505,6 +16073,7 @@ func (secondaryService *Evpn_Standby_EthernetSegments_EthernetSegment_SecondaryS
 type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingISidelectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15515,7 +16084,8 @@ func (serviceCarvingISidelectedResult *Evpn_Standby_EthernetSegments_EthernetSeg
     serviceCarvingISidelectedResult.EntityData.YangName = "service-carving-i-sidelected-result"
     serviceCarvingISidelectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingISidelectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingISidelectedResult.EntityData.SegmentPath = "service-carving-i-sidelected-result"
+    serviceCarvingISidelectedResult.EntityData.SegmentPath = "service-carving-i-sidelected-result" + types.AddNoKeyToken(serviceCarvingISidelectedResult)
+    serviceCarvingISidelectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + serviceCarvingISidelectedResult.EntityData.SegmentPath
     serviceCarvingISidelectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingISidelectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingISidelectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15534,6 +16104,7 @@ func (serviceCarvingISidelectedResult *Evpn_Standby_EthernetSegments_EthernetSeg
 type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingIsidNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15544,7 +16115,8 @@ func (serviceCarvingIsidNotElectedResult *Evpn_Standby_EthernetSegments_Ethernet
     serviceCarvingIsidNotElectedResult.EntityData.YangName = "service-carving-isid-not-elected-result"
     serviceCarvingIsidNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingIsidNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingIsidNotElectedResult.EntityData.SegmentPath = "service-carving-isid-not-elected-result"
+    serviceCarvingIsidNotElectedResult.EntityData.SegmentPath = "service-carving-isid-not-elected-result" + types.AddNoKeyToken(serviceCarvingIsidNotElectedResult)
+    serviceCarvingIsidNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + serviceCarvingIsidNotElectedResult.EntityData.SegmentPath
     serviceCarvingIsidNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingIsidNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingIsidNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15563,6 +16135,7 @@ func (serviceCarvingIsidNotElectedResult *Evpn_Standby_EthernetSegments_Ethernet
 type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingEviElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15573,7 +16146,8 @@ func (serviceCarvingEviElectedResult *Evpn_Standby_EthernetSegments_EthernetSegm
     serviceCarvingEviElectedResult.EntityData.YangName = "service-carving-evi-elected-result"
     serviceCarvingEviElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingEviElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingEviElectedResult.EntityData.SegmentPath = "service-carving-evi-elected-result"
+    serviceCarvingEviElectedResult.EntityData.SegmentPath = "service-carving-evi-elected-result" + types.AddNoKeyToken(serviceCarvingEviElectedResult)
+    serviceCarvingEviElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + serviceCarvingEviElectedResult.EntityData.SegmentPath
     serviceCarvingEviElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingEviElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingEviElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15592,6 +16166,7 @@ func (serviceCarvingEviElectedResult *Evpn_Standby_EthernetSegments_EthernetSegm
 type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingEviNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15602,7 +16177,8 @@ func (serviceCarvingEviNotElectedResult *Evpn_Standby_EthernetSegments_EthernetS
     serviceCarvingEviNotElectedResult.EntityData.YangName = "service-carving-evi-not-elected-result"
     serviceCarvingEviNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingEviNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingEviNotElectedResult.EntityData.SegmentPath = "service-carving-evi-not-elected-result"
+    serviceCarvingEviNotElectedResult.EntityData.SegmentPath = "service-carving-evi-not-elected-result" + types.AddNoKeyToken(serviceCarvingEviNotElectedResult)
+    serviceCarvingEviNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + serviceCarvingEviNotElectedResult.EntityData.SegmentPath
     serviceCarvingEviNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingEviNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingEviNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15621,6 +16197,7 @@ func (serviceCarvingEviNotElectedResult *Evpn_Standby_EthernetSegments_EthernetS
 type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingVniElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15631,7 +16208,8 @@ func (serviceCarvingVniElectedResult *Evpn_Standby_EthernetSegments_EthernetSegm
     serviceCarvingVniElectedResult.EntityData.YangName = "service-carving-vni-elected-result"
     serviceCarvingVniElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVniElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVniElectedResult.EntityData.SegmentPath = "service-carving-vni-elected-result"
+    serviceCarvingVniElectedResult.EntityData.SegmentPath = "service-carving-vni-elected-result" + types.AddNoKeyToken(serviceCarvingVniElectedResult)
+    serviceCarvingVniElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + serviceCarvingVniElectedResult.EntityData.SegmentPath
     serviceCarvingVniElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVniElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVniElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15650,6 +16228,7 @@ func (serviceCarvingVniElectedResult *Evpn_Standby_EthernetSegments_EthernetSegm
 type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingVniNotElectedResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The type is interface{} with range: 0..4294967295.
     Entry interface{}
@@ -15660,7 +16239,8 @@ func (serviceCarvingVniNotElectedResult *Evpn_Standby_EthernetSegments_EthernetS
     serviceCarvingVniNotElectedResult.EntityData.YangName = "service-carving-vni-not-elected-result"
     serviceCarvingVniNotElectedResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVniNotElectedResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVniNotElectedResult.EntityData.SegmentPath = "service-carving-vni-not-elected-result"
+    serviceCarvingVniNotElectedResult.EntityData.SegmentPath = "service-carving-vni-not-elected-result" + types.AddNoKeyToken(serviceCarvingVniNotElectedResult)
+    serviceCarvingVniNotElectedResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + serviceCarvingVniNotElectedResult.EntityData.SegmentPath
     serviceCarvingVniNotElectedResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVniNotElectedResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVniNotElectedResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15679,6 +16259,7 @@ func (serviceCarvingVniNotElectedResult *Evpn_Standby_EthernetSegments_EthernetS
 type Evpn_Standby_EthernetSegments_EthernetSegment_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -15699,7 +16280,8 @@ func (nextHop *Evpn_Standby_EthernetSegments_EthernetSegment_NextHop) GetEntityD
     nextHop.EntityData.YangName = "next-hop"
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "ethernet-segment"
-    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.SegmentPath = "next-hop" + types.AddNoKeyToken(nextHop)
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15721,6 +16303,7 @@ func (nextHop *Evpn_Standby_EthernetSegments_EthernetSegment_NextHop) GetEntityD
 type Evpn_Standby_EthernetSegments_EthernetSegment_ServiceCarvingVpwsPermanentResult struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VPN ID. The type is interface{} with range: 0..4294967295.
     VpnId interface{}
@@ -15737,7 +16320,8 @@ func (serviceCarvingVpwsPermanentResult *Evpn_Standby_EthernetSegments_EthernetS
     serviceCarvingVpwsPermanentResult.EntityData.YangName = "service-carving-vpws-permanent-result"
     serviceCarvingVpwsPermanentResult.EntityData.BundleName = "cisco_ios_xr"
     serviceCarvingVpwsPermanentResult.EntityData.ParentYangName = "ethernet-segment"
-    serviceCarvingVpwsPermanentResult.EntityData.SegmentPath = "service-carving-vpws-permanent-result"
+    serviceCarvingVpwsPermanentResult.EntityData.SegmentPath = "service-carving-vpws-permanent-result" + types.AddNoKeyToken(serviceCarvingVpwsPermanentResult)
+    serviceCarvingVpwsPermanentResult.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + serviceCarvingVpwsPermanentResult.EntityData.SegmentPath
     serviceCarvingVpwsPermanentResult.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceCarvingVpwsPermanentResult.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceCarvingVpwsPermanentResult.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15758,6 +16342,7 @@ func (serviceCarvingVpwsPermanentResult *Evpn_Standby_EthernetSegments_EthernetS
 type Evpn_Standby_EthernetSegments_EthernetSegment_RemoteSplitHorizonGroupLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Next-hop IP address (v6 format). The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -15773,7 +16358,8 @@ func (remoteSplitHorizonGroupLabel *Evpn_Standby_EthernetSegments_EthernetSegmen
     remoteSplitHorizonGroupLabel.EntityData.YangName = "remote-split-horizon-group-label"
     remoteSplitHorizonGroupLabel.EntityData.BundleName = "cisco_ios_xr"
     remoteSplitHorizonGroupLabel.EntityData.ParentYangName = "ethernet-segment"
-    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label"
+    remoteSplitHorizonGroupLabel.EntityData.SegmentPath = "remote-split-horizon-group-label" + types.AddNoKeyToken(remoteSplitHorizonGroupLabel)
+    remoteSplitHorizonGroupLabel.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ethernet-segments/ethernet-segment/" + remoteSplitHorizonGroupLabel.EntityData.SegmentPath
     remoteSplitHorizonGroupLabel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteSplitHorizonGroupLabel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteSplitHorizonGroupLabel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15804,6 +16390,7 @@ func (acIds *Evpn_Standby_AcIds) GetEntityData() *types.CommonEntityData {
     acIds.EntityData.BundleName = "cisco_ios_xr"
     acIds.EntityData.ParentYangName = "standby"
     acIds.EntityData.SegmentPath = "ac-ids"
+    acIds.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/" + acIds.EntityData.SegmentPath
     acIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15811,6 +16398,7 @@ func (acIds *Evpn_Standby_AcIds) GetEntityData() *types.CommonEntityData {
     acIds.EntityData.Children = types.NewOrderedMap()
     acIds.EntityData.Children.Append("ac-id", types.YChild{"AcId", nil})
     for i := range acIds.AcId {
+        types.SetYListKey(acIds.AcId[i], i)
         acIds.EntityData.Children.Append(types.GetSegmentPath(acIds.AcId[i]), types.YChild{"AcId", acIds.AcId[i]})
     }
     acIds.EntityData.Leafs = types.NewOrderedMap()
@@ -15825,6 +16413,7 @@ func (acIds *Evpn_Standby_AcIds) GetEntityData() *types.CommonEntityData {
 type Evpn_Standby_AcIds_AcId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // EVPN id. The type is interface{} with range: 0..4294967295.
     Evi interface{}
@@ -15845,7 +16434,8 @@ func (acId *Evpn_Standby_AcIds_AcId) GetEntityData() *types.CommonEntityData {
     acId.EntityData.YangName = "ac-id"
     acId.EntityData.BundleName = "cisco_ios_xr"
     acId.EntityData.ParentYangName = "ac-ids"
-    acId.EntityData.SegmentPath = "ac-id"
+    acId.EntityData.SegmentPath = "ac-id" + types.AddNoKeyToken(acId)
+    acId.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ac-ids/" + acId.EntityData.SegmentPath
     acId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     acId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     acId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15888,6 +16478,7 @@ func (evpnInstance *Evpn_Standby_AcIds_AcId_EvpnInstance) GetEntityData() *types
     evpnInstance.EntityData.BundleName = "cisco_ios_xr"
     evpnInstance.EntityData.ParentYangName = "ac-id"
     evpnInstance.EntityData.SegmentPath = "evpn-instance"
+    evpnInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-evpn-oper:evpn/standby/ac-ids/ac-id/" + evpnInstance.EntityData.SegmentPath
     evpnInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     evpnInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     evpnInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

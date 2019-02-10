@@ -100,6 +100,7 @@ func (hwModule *HwModule) GetEntityData() *types.CommonEntityData {
     hwModule.EntityData.BundleName = "cisco_ios_xr"
     hwModule.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1k-mxp-oper"
     hwModule.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module"
+    hwModule.EntityData.AbsolutePath = hwModule.EntityData.SegmentPath
     hwModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -130,6 +131,7 @@ func (sliceIds *HwModule_SliceIds) GetEntityData() *types.CommonEntityData {
     sliceIds.EntityData.BundleName = "cisco_ios_xr"
     sliceIds.EntityData.ParentYangName = "hw-module"
     sliceIds.EntityData.SegmentPath = "slice-ids"
+    sliceIds.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/" + sliceIds.EntityData.SegmentPath
     sliceIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -151,6 +153,7 @@ func (sliceIds *HwModule_SliceIds) GetEntityData() *types.CommonEntityData {
 type HwModule_SliceIds_SliceId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Details associated with a particular slice number.
     // The type is interface{} with range: 0..4294967295.
@@ -193,6 +196,7 @@ func (sliceId *HwModule_SliceIds_SliceId) GetEntityData() *types.CommonEntityDat
     sliceId.EntityData.BundleName = "cisco_ios_xr"
     sliceId.EntityData.ParentYangName = "slice-ids"
     sliceId.EntityData.SegmentPath = "slice-id" + types.AddKeyToken(sliceId.SliceNum, "slice-num")
+    sliceId.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-ids/" + sliceId.EntityData.SegmentPath
     sliceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -200,6 +204,7 @@ func (sliceId *HwModule_SliceIds_SliceId) GetEntityData() *types.CommonEntityDat
     sliceId.EntityData.Children = types.NewOrderedMap()
     sliceId.EntityData.Children.Append("client-port", types.YChild{"ClientPort", nil})
     for i := range sliceId.ClientPort {
+        types.SetYListKey(sliceId.ClientPort[i], i)
         sliceId.EntityData.Children.Append(types.GetSegmentPath(sliceId.ClientPort[i]), types.YChild{"ClientPort", sliceId.ClientPort[i]})
     }
     sliceId.EntityData.Leafs = types.NewOrderedMap()
@@ -224,6 +229,7 @@ func (sliceId *HwModule_SliceIds_SliceId) GetEntityData() *types.CommonEntityDat
 type HwModule_SliceIds_SliceId_ClientPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ClientName. The type is string with length: 0..64.
     ClientName interface{}
@@ -241,7 +247,8 @@ func (clientPort *HwModule_SliceIds_SliceId_ClientPort) GetEntityData() *types.C
     clientPort.EntityData.YangName = "client-port"
     clientPort.EntityData.BundleName = "cisco_ios_xr"
     clientPort.EntityData.ParentYangName = "slice-id"
-    clientPort.EntityData.SegmentPath = "client-port"
+    clientPort.EntityData.SegmentPath = "client-port" + types.AddNoKeyToken(clientPort)
+    clientPort.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-ids/slice-id/" + clientPort.EntityData.SegmentPath
     clientPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -249,6 +256,7 @@ func (clientPort *HwModule_SliceIds_SliceId_ClientPort) GetEntityData() *types.C
     clientPort.EntityData.Children = types.NewOrderedMap()
     clientPort.EntityData.Children.Append("trunk-port", types.YChild{"TrunkPort", nil})
     for i := range clientPort.TrunkPort {
+        types.SetYListKey(clientPort.TrunkPort[i], i)
         clientPort.EntityData.Children.Append(types.GetSegmentPath(clientPort.TrunkPort[i]), types.YChild{"TrunkPort", clientPort.TrunkPort[i]})
     }
     clientPort.EntityData.Leafs = types.NewOrderedMap()
@@ -265,6 +273,7 @@ func (clientPort *HwModule_SliceIds_SliceId_ClientPort) GetEntityData() *types.C
 type HwModule_SliceIds_SliceId_ClientPort_TrunkPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // TrunkName. The type is string with length: 0..64.
     TrunkName interface{}
@@ -281,7 +290,8 @@ func (trunkPort *HwModule_SliceIds_SliceId_ClientPort_TrunkPort) GetEntityData()
     trunkPort.EntityData.YangName = "trunk-port"
     trunkPort.EntityData.BundleName = "cisco_ios_xr"
     trunkPort.EntityData.ParentYangName = "client-port"
-    trunkPort.EntityData.SegmentPath = "trunk-port"
+    trunkPort.EntityData.SegmentPath = "trunk-port" + types.AddNoKeyToken(trunkPort)
+    trunkPort.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-ids/slice-id/client-port/" + trunkPort.EntityData.SegmentPath
     trunkPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trunkPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trunkPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -313,6 +323,7 @@ func (sliceAll *HwModule_SliceAll) GetEntityData() *types.CommonEntityData {
     sliceAll.EntityData.BundleName = "cisco_ios_xr"
     sliceAll.EntityData.ParentYangName = "hw-module"
     sliceAll.EntityData.SegmentPath = "slice-all"
+    sliceAll.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/" + sliceAll.EntityData.SegmentPath
     sliceAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -320,6 +331,7 @@ func (sliceAll *HwModule_SliceAll) GetEntityData() *types.CommonEntityData {
     sliceAll.EntityData.Children = types.NewOrderedMap()
     sliceAll.EntityData.Children.Append("slice-info", types.YChild{"SliceInfo", nil})
     for i := range sliceAll.SliceInfo {
+        types.SetYListKey(sliceAll.SliceInfo[i], i)
         sliceAll.EntityData.Children.Append(types.GetSegmentPath(sliceAll.SliceInfo[i]), types.YChild{"SliceInfo", sliceAll.SliceInfo[i]})
     }
     sliceAll.EntityData.Leafs = types.NewOrderedMap()
@@ -334,6 +346,7 @@ func (sliceAll *HwModule_SliceAll) GetEntityData() *types.CommonEntityData {
 type HwModule_SliceAll_SliceInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SliceId. The type is interface{} with range: 0..4294967295.
     SliceId interface{}
@@ -371,7 +384,8 @@ func (sliceInfo *HwModule_SliceAll_SliceInfo) GetEntityData() *types.CommonEntit
     sliceInfo.EntityData.YangName = "slice-info"
     sliceInfo.EntityData.BundleName = "cisco_ios_xr"
     sliceInfo.EntityData.ParentYangName = "slice-all"
-    sliceInfo.EntityData.SegmentPath = "slice-info"
+    sliceInfo.EntityData.SegmentPath = "slice-info" + types.AddNoKeyToken(sliceInfo)
+    sliceInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/" + sliceInfo.EntityData.SegmentPath
     sliceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sliceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sliceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -379,6 +393,7 @@ func (sliceInfo *HwModule_SliceAll_SliceInfo) GetEntityData() *types.CommonEntit
     sliceInfo.EntityData.Children = types.NewOrderedMap()
     sliceInfo.EntityData.Children.Append("client-port", types.YChild{"ClientPort", nil})
     for i := range sliceInfo.ClientPort {
+        types.SetYListKey(sliceInfo.ClientPort[i], i)
         sliceInfo.EntityData.Children.Append(types.GetSegmentPath(sliceInfo.ClientPort[i]), types.YChild{"ClientPort", sliceInfo.ClientPort[i]})
     }
     sliceInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -402,6 +417,7 @@ func (sliceInfo *HwModule_SliceAll_SliceInfo) GetEntityData() *types.CommonEntit
 type HwModule_SliceAll_SliceInfo_ClientPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // ClientName. The type is string with length: 0..64.
     ClientName interface{}
@@ -419,7 +435,8 @@ func (clientPort *HwModule_SliceAll_SliceInfo_ClientPort) GetEntityData() *types
     clientPort.EntityData.YangName = "client-port"
     clientPort.EntityData.BundleName = "cisco_ios_xr"
     clientPort.EntityData.ParentYangName = "slice-info"
-    clientPort.EntityData.SegmentPath = "client-port"
+    clientPort.EntityData.SegmentPath = "client-port" + types.AddNoKeyToken(clientPort)
+    clientPort.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/" + clientPort.EntityData.SegmentPath
     clientPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clientPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clientPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -427,6 +444,7 @@ func (clientPort *HwModule_SliceAll_SliceInfo_ClientPort) GetEntityData() *types
     clientPort.EntityData.Children = types.NewOrderedMap()
     clientPort.EntityData.Children.Append("trunk-port", types.YChild{"TrunkPort", nil})
     for i := range clientPort.TrunkPort {
+        types.SetYListKey(clientPort.TrunkPort[i], i)
         clientPort.EntityData.Children.Append(types.GetSegmentPath(clientPort.TrunkPort[i]), types.YChild{"TrunkPort", clientPort.TrunkPort[i]})
     }
     clientPort.EntityData.Leafs = types.NewOrderedMap()
@@ -443,6 +461,7 @@ func (clientPort *HwModule_SliceAll_SliceInfo_ClientPort) GetEntityData() *types
 type HwModule_SliceAll_SliceInfo_ClientPort_TrunkPort struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // TrunkName. The type is string with length: 0..64.
     TrunkName interface{}
@@ -459,7 +478,8 @@ func (trunkPort *HwModule_SliceAll_SliceInfo_ClientPort_TrunkPort) GetEntityData
     trunkPort.EntityData.YangName = "trunk-port"
     trunkPort.EntityData.BundleName = "cisco_ios_xr"
     trunkPort.EntityData.ParentYangName = "client-port"
-    trunkPort.EntityData.SegmentPath = "trunk-port"
+    trunkPort.EntityData.SegmentPath = "trunk-port" + types.AddNoKeyToken(trunkPort)
+    trunkPort.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-oper:hw-module/slice-all/slice-info/client-port/" + trunkPort.EntityData.SegmentPath
     trunkPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trunkPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trunkPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

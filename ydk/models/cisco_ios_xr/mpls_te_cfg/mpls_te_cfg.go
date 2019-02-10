@@ -757,6 +757,7 @@ func (mplsTe *MplsTe) GetEntityData() *types.CommonEntityData {
     mplsTe.EntityData.BundleName = "cisco_ios_xr"
     mplsTe.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-te-cfg"
     mplsTe.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te"
+    mplsTe.EntityData.AbsolutePath = mplsTe.EntityData.SegmentPath
     mplsTe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsTe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsTe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -801,6 +802,7 @@ func (diffServTrafficEngineering *MplsTe_DiffServTrafficEngineering) GetEntityDa
     diffServTrafficEngineering.EntityData.BundleName = "cisco_ios_xr"
     diffServTrafficEngineering.EntityData.ParentYangName = "mpls-te"
     diffServTrafficEngineering.EntityData.SegmentPath = "diff-serv-traffic-engineering"
+    diffServTrafficEngineering.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/" + diffServTrafficEngineering.EntityData.SegmentPath
     diffServTrafficEngineering.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     diffServTrafficEngineering.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     diffServTrafficEngineering.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -833,6 +835,7 @@ func (classes *MplsTe_DiffServTrafficEngineering_Classes) GetEntityData() *types
     classes.EntityData.BundleName = "cisco_ios_xr"
     classes.EntityData.ParentYangName = "diff-serv-traffic-engineering"
     classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/diff-serv-traffic-engineering/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -854,6 +857,7 @@ func (classes *MplsTe_DiffServTrafficEngineering_Classes) GetEntityData() *types
 type MplsTe_DiffServTrafficEngineering_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. DS-TE class number. The type is interface{} with
     // range: 0..7.
@@ -878,6 +882,7 @@ func (class *MplsTe_DiffServTrafficEngineering_Classes_Class) GetEntityData() *t
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassNumber, "class-number")
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/diff-serv-traffic-engineering/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -913,6 +918,7 @@ func (namedTunnels *MplsTe_NamedTunnels) GetEntityData() *types.CommonEntityData
     namedTunnels.EntityData.BundleName = "cisco_ios_xr"
     namedTunnels.EntityData.ParentYangName = "mpls-te"
     namedTunnels.EntityData.SegmentPath = "named-tunnels"
+    namedTunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/" + namedTunnels.EntityData.SegmentPath
     namedTunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     namedTunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     namedTunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -944,6 +950,7 @@ func (tunnels *MplsTe_NamedTunnels_Tunnels) GetEntityData() *types.CommonEntityD
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "named-tunnels"
     tunnels.EntityData.SegmentPath = "tunnels"
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -965,6 +972,7 @@ func (tunnels *MplsTe_NamedTunnels_Tunnels) GetEntityData() *types.CommonEntityD
 type MplsTe_NamedTunnels_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Tunnel name. The type is string with length:
     // 1..54.
@@ -989,6 +997,7 @@ func (tunnel *MplsTe_NamedTunnels_Tunnels_Tunnel) GetEntityData() *types.CommonE
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.TunnelName, "tunnel-name") + types.AddKeyToken(tunnel.TunnelType, "tunnel-type")
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1076,6 +1085,7 @@ func (tunnelAttributes *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes) Get
     tunnelAttributes.EntityData.BundleName = "cisco_ios_xr"
     tunnelAttributes.EntityData.ParentYangName = "tunnel"
     tunnelAttributes.EntityData.SegmentPath = "tunnel-attributes"
+    tunnelAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/" + tunnelAttributes.EntityData.SegmentPath
     tunnelAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1123,6 +1133,7 @@ func (pathSetups *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups
     pathSetups.EntityData.BundleName = "cisco_ios_xr"
     pathSetups.EntityData.ParentYangName = "tunnel-attributes"
     pathSetups.EntityData.SegmentPath = "path-setups"
+    pathSetups.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + pathSetups.EntityData.SegmentPath
     pathSetups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSetups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSetups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1144,6 +1155,7 @@ func (pathSetups *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups_PathSetup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -1165,6 +1177,7 @@ func (pathSetup *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathSetups_
     pathSetup.EntityData.BundleName = "cisco_ios_xr"
     pathSetup.EntityData.ParentYangName = "path-setups"
     pathSetup.EntityData.SegmentPath = "path-setup" + types.AddKeyToken(pathSetup.PathSetupName, "path-setup-name")
+    pathSetup.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/path-setups/" + pathSetup.EntityData.SegmentPath
     pathSetup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSetup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSetup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1208,6 +1221,7 @@ func (pathComputation *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_PathS
     pathComputation.EntityData.BundleName = "cisco_ios_xr"
     pathComputation.EntityData.ParentYangName = "path-setup"
     pathComputation.EntityData.SegmentPath = "path-computation"
+    pathComputation.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/path-setups/path-setup/" + pathComputation.EntityData.SegmentPath
     pathComputation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathComputation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathComputation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1255,6 +1269,7 @@ func (tunnelPathSelection *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_T
     tunnelPathSelection.EntityData.BundleName = "cisco_ios_xr"
     tunnelPathSelection.EntityData.ParentYangName = "tunnel-attributes"
     tunnelPathSelection.EntityData.SegmentPath = "tunnel-path-selection"
+    tunnelPathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + tunnelPathSelection.EntityData.SegmentPath
     tunnelPathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelPathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelPathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1293,6 +1308,7 @@ func (invalidation *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_TunnelPa
     invalidation.EntityData.BundleName = "cisco_ios_xr"
     invalidation.EntityData.ParentYangName = "tunnel-path-selection"
     invalidation.EntityData.SegmentPath = "invalidation"
+    invalidation.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/tunnel-path-selection/" + invalidation.EntityData.SegmentPath
     invalidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1361,6 +1377,7 @@ func (autoBandwidth *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBan
     autoBandwidth.EntityData.BundleName = "cisco_ios_xr"
     autoBandwidth.EntityData.ParentYangName = "tunnel-attributes"
     autoBandwidth.EntityData.SegmentPath = "auto-bandwidth"
+    autoBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + autoBandwidth.EntityData.SegmentPath
     autoBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1412,6 +1429,7 @@ func (underflow *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwid
     underflow.EntityData.BundleName = "cisco_ios_xr"
     underflow.EntityData.ParentYangName = "auto-bandwidth"
     underflow.EntityData.SegmentPath = "underflow"
+    underflow.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/auto-bandwidth/" + underflow.EntityData.SegmentPath
     underflow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     underflow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     underflow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1455,6 +1473,7 @@ func (overflow *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBandwidt
     overflow.EntityData.BundleName = "cisco_ios_xr"
     overflow.EntityData.ParentYangName = "auto-bandwidth"
     overflow.EntityData.SegmentPath = "overflow"
+    overflow.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/auto-bandwidth/" + overflow.EntityData.SegmentPath
     overflow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     overflow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overflow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1494,6 +1513,7 @@ func (bandwidthLimits *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoB
     bandwidthLimits.EntityData.BundleName = "cisco_ios_xr"
     bandwidthLimits.EntityData.ParentYangName = "auto-bandwidth"
     bandwidthLimits.EntityData.SegmentPath = "bandwidth-limits"
+    bandwidthLimits.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/auto-bandwidth/" + bandwidthLimits.EntityData.SegmentPath
     bandwidthLimits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthLimits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthLimits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1533,6 +1553,7 @@ func (adjustmentThreshold *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_A
     adjustmentThreshold.EntityData.BundleName = "cisco_ios_xr"
     adjustmentThreshold.EntityData.ParentYangName = "auto-bandwidth"
     adjustmentThreshold.EntityData.SegmentPath = "adjustment-threshold"
+    adjustmentThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/auto-bandwidth/" + adjustmentThreshold.EntityData.SegmentPath
     adjustmentThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjustmentThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjustmentThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1586,6 +1607,7 @@ func (autoCapacity *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_AutoBand
     autoCapacity.EntityData.BundleName = "cisco_ios_xr"
     autoCapacity.EntityData.ParentYangName = "auto-bandwidth"
     autoCapacity.EntityData.SegmentPath = "auto-capacity"
+    autoCapacity.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/auto-bandwidth/" + autoCapacity.EntityData.SegmentPath
     autoCapacity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoCapacity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoCapacity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1627,6 +1649,7 @@ func (priority *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Priority) Ge
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "tunnel-attributes"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1664,6 +1687,7 @@ func (affinityMask *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Affinity
     affinityMask.EntityData.BundleName = "cisco_ios_xr"
     affinityMask.EntityData.ParentYangName = "tunnel-attributes"
     affinityMask.EntityData.SegmentPath = "affinity-mask"
+    affinityMask.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + affinityMask.EntityData.SegmentPath
     affinityMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1702,6 +1726,7 @@ func (forwardingAdjacency *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_F
     forwardingAdjacency.EntityData.BundleName = "cisco_ios_xr"
     forwardingAdjacency.EntityData.ParentYangName = "tunnel-attributes"
     forwardingAdjacency.EntityData.SegmentPath = "forwarding-adjacency"
+    forwardingAdjacency.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + forwardingAdjacency.EntityData.SegmentPath
     forwardingAdjacency.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardingAdjacency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardingAdjacency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1763,6 +1788,7 @@ func (logging *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Logging) GetE
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "tunnel-attributes"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1814,6 +1840,7 @@ func (bandwidth *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Bandwidth) 
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "tunnel-attributes"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1848,6 +1875,7 @@ func (autoroute *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Autoroute) 
     autoroute.EntityData.BundleName = "cisco_ios_xr"
     autoroute.EntityData.ParentYangName = "tunnel-attributes"
     autoroute.EntityData.SegmentPath = "autoroute"
+    autoroute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + autoroute.EntityData.SegmentPath
     autoroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1888,6 +1916,7 @@ func (autorouteAnnounce *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Aut
     autorouteAnnounce.EntityData.BundleName = "cisco_ios_xr"
     autorouteAnnounce.EntityData.ParentYangName = "autoroute"
     autorouteAnnounce.EntityData.SegmentPath = "autoroute-announce"
+    autorouteAnnounce.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/autoroute/" + autorouteAnnounce.EntityData.SegmentPath
     autorouteAnnounce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autorouteAnnounce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autorouteAnnounce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1920,6 +1949,7 @@ func (excludeTraffic *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Autoro
     excludeTraffic.EntityData.BundleName = "cisco_ios_xr"
     excludeTraffic.EntityData.ParentYangName = "autoroute-announce"
     excludeTraffic.EntityData.SegmentPath = "exclude-traffic"
+    excludeTraffic.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/autoroute/autoroute-announce/" + excludeTraffic.EntityData.SegmentPath
     excludeTraffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     excludeTraffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     excludeTraffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1960,6 +1990,7 @@ func (metric *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Autoroute_Auto
     metric.EntityData.BundleName = "cisco_ios_xr"
     metric.EntityData.ParentYangName = "autoroute-announce"
     metric.EntityData.SegmentPath = "metric"
+    metric.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/autoroute/autoroute-announce/" + metric.EntityData.SegmentPath
     metric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     metric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     metric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1993,6 +2024,7 @@ func (destinations *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Autorout
     destinations.EntityData.BundleName = "cisco_ios_xr"
     destinations.EntityData.ParentYangName = "autoroute"
     destinations.EntityData.SegmentPath = "destinations"
+    destinations.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/autoroute/" + destinations.EntityData.SegmentPath
     destinations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destinations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destinations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2014,6 +2046,7 @@ func (destinations *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Autorout
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Autoroute_Destinations_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IP address of destination. The type is string with
     // pattern:
@@ -2027,6 +2060,7 @@ func (destination *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_Autoroute
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "destinations"
     destination.EntityData.SegmentPath = "destination" + types.AddKeyToken(destination.DestinationAddress, "destination-address")
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/autoroute/destinations/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2097,6 +2131,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAt
     newStyleAffinityAffinityTypes.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypes.EntityData.ParentYangName = "tunnel-attributes"
     newStyleAffinityAffinityTypes.EntityData.SegmentPath = "new-style-affinity-affinity-types"
+    newStyleAffinityAffinityTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + newStyleAffinityAffinityTypes.EntityData.SegmentPath
     newStyleAffinityAffinityTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2158,6 +2193,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAt
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2170,6 +2206,7 @@ func (newStyleAffinityAffinityType *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAtt
     newStyleAffinityAffinityType.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityType.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityType.EntityData.SegmentPath = "new-style-affinity-affinity-type" + types.AddKeyToken(newStyleAffinityAffinityType.AffinityType, "affinity-type")
+    newStyleAffinityAffinityType.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityType.EntityData.SegmentPath
     newStyleAffinityAffinityType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2188,6 +2225,7 @@ func (newStyleAffinityAffinityType *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAtt
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2204,6 +2242,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_NamedTunnels_Tunnels_Tunnel_
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.Affinity1, "affinity1")
+    newStyleAffinityAffinityTypeAffinity1.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2223,6 +2262,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_NamedTunnels_Tunnels_Tunnel_
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2243,6 +2283,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_NamedTunnels_Tunnel
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity2, "affinity2")
+    newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2263,6 +2304,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_NamedTunnels_Tunnel
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2287,6 +2329,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_NamedTunne
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity3, "affinity3")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2308,6 +2351,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_NamedTunne
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2336,6 +2380,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_N
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity4, "affinity4")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2358,6 +2403,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_N
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2390,6 +2436,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity5, "affinity5")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2413,6 +2460,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2449,6 +2497,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity6, "affinity6")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2473,6 +2522,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2513,6 +2563,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity7, "affinity7")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2538,6 +2589,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2582,6 +2634,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity8, "affinity8")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2608,6 +2661,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2656,6 +2710,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity9, "affinity9")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2683,6 +2738,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -2735,6 +2791,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity9, "affinity9") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity10, "affinity10")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2781,6 +2838,7 @@ func (fastReroute *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelAttributes_FastRerou
     fastReroute.EntityData.BundleName = "cisco_ios_xr"
     fastReroute.EntityData.ParentYangName = "tunnel-attributes"
     fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/tunnel-attributes/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2816,6 +2874,7 @@ func (tunnelId *MplsTe_NamedTunnels_Tunnels_Tunnel_TunnelId) GetEntityData() *ty
     tunnelId.EntityData.BundleName = "cisco_ios_xr"
     tunnelId.EntityData.ParentYangName = "tunnel"
     tunnelId.EntityData.SegmentPath = "tunnel-id"
+    tunnelId.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/tunnel/" + tunnelId.EntityData.SegmentPath
     tunnelId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2849,6 +2908,7 @@ func (gmplsUni *MplsTe_GmplsUni) GetEntityData() *types.CommonEntityData {
     gmplsUni.EntityData.BundleName = "cisco_ios_xr"
     gmplsUni.EntityData.ParentYangName = "mpls-te"
     gmplsUni.EntityData.SegmentPath = "gmpls-uni"
+    gmplsUni.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/" + gmplsUni.EntityData.SegmentPath
     gmplsUni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gmplsUni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gmplsUni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2879,6 +2939,7 @@ func (timers *MplsTe_GmplsUni_Timers) GetEntityData() *types.CommonEntityData {
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "gmpls-uni"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2908,6 +2969,7 @@ func (pathOptionTimers *MplsTe_GmplsUni_Timers_PathOptionTimers) GetEntityData()
     pathOptionTimers.EntityData.BundleName = "cisco_ios_xr"
     pathOptionTimers.EntityData.ParentYangName = "timers"
     pathOptionTimers.EntityData.SegmentPath = "path-option-timers"
+    pathOptionTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/timers/" + pathOptionTimers.EntityData.SegmentPath
     pathOptionTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathOptionTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathOptionTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2943,6 +3005,7 @@ func (holddown *MplsTe_GmplsUni_Timers_PathOptionTimers_Holddown) GetEntityData(
     holddown.EntityData.BundleName = "cisco_ios_xr"
     holddown.EntityData.ParentYangName = "path-option-timers"
     holddown.EntityData.SegmentPath = "holddown"
+    holddown.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/timers/path-option-timers/" + holddown.EntityData.SegmentPath
     holddown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     holddown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     holddown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2974,6 +3037,7 @@ func (controllers *MplsTe_GmplsUni_Controllers) GetEntityData() *types.CommonEnt
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "gmpls-uni"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2995,6 +3059,7 @@ func (controllers *MplsTe_GmplsUni_Controllers) GetEntityData() *types.CommonEnt
 type MplsTe_GmplsUni_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -3019,6 +3084,7 @@ func (controller *MplsTe_GmplsUni_Controllers_Controller) GetEntityData() *types
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3053,6 +3119,7 @@ func (announce *MplsTe_GmplsUni_Controllers_Controller_Announce) GetEntityData()
     announce.EntityData.BundleName = "cisco_ios_xr"
     announce.EntityData.ParentYangName = "controller"
     announce.EntityData.SegmentPath = "announce"
+    announce.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/controller/" + announce.EntityData.SegmentPath
     announce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     announce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     announce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3082,6 +3149,7 @@ func (controllerLogging *MplsTe_GmplsUni_Controllers_Controller_ControllerLoggin
     controllerLogging.EntityData.BundleName = "cisco_ios_xr"
     controllerLogging.EntityData.ParentYangName = "controller"
     controllerLogging.EntityData.SegmentPath = "controller-logging"
+    controllerLogging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/controller/" + controllerLogging.EntityData.SegmentPath
     controllerLogging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllerLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllerLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3137,6 +3205,7 @@ func (gmplsUnitunnelHead *MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelH
     gmplsUnitunnelHead.EntityData.BundleName = "cisco_ios_xr"
     gmplsUnitunnelHead.EntityData.ParentYangName = "controller"
     gmplsUnitunnelHead.EntityData.SegmentPath = "gmpls-unitunnel-head"
+    gmplsUnitunnelHead.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/controller/" + gmplsUnitunnelHead.EntityData.SegmentPath
     gmplsUnitunnelHead.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gmplsUnitunnelHead.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gmplsUnitunnelHead.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3175,6 +3244,7 @@ func (pathOptions *MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelHead_Pat
     pathOptions.EntityData.BundleName = "cisco_ios_xr"
     pathOptions.EntityData.ParentYangName = "gmpls-unitunnel-head"
     pathOptions.EntityData.SegmentPath = "path-options"
+    pathOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/controller/gmpls-unitunnel-head/" + pathOptions.EntityData.SegmentPath
     pathOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3196,6 +3266,7 @@ func (pathOptions *MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelHead_Pat
 type MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelHead_PathOptions_PathOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Preference level for this path option. The type is
     // interface{} with range: 1..1000.
@@ -3244,6 +3315,7 @@ func (pathOption *MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelHead_Path
     pathOption.EntityData.BundleName = "cisco_ios_xr"
     pathOption.EntityData.ParentYangName = "path-options"
     pathOption.EntityData.SegmentPath = "path-option" + types.AddKeyToken(pathOption.PreferenceLevel, "preference-level")
+    pathOption.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/controller/gmpls-unitunnel-head/path-options/" + pathOption.EntityData.SegmentPath
     pathOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3282,6 +3354,7 @@ func (recording *MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelHead_Recor
     recording.EntityData.BundleName = "cisco_ios_xr"
     recording.EntityData.ParentYangName = "gmpls-unitunnel-head"
     recording.EntityData.SegmentPath = "recording"
+    recording.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/controller/gmpls-unitunnel-head/" + recording.EntityData.SegmentPath
     recording.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recording.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recording.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3311,6 +3384,7 @@ func (logging *MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelHead_Logging
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "gmpls-unitunnel-head"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/controller/gmpls-unitunnel-head/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3347,6 +3421,7 @@ func (priority *MplsTe_GmplsUni_Controllers_Controller_GmplsUnitunnelHead_Priori
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "gmpls-unitunnel-head"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/controller/gmpls-unitunnel-head/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3511,6 +3586,7 @@ func (globalAttributes *MplsTe_GlobalAttributes) GetEntityData() *types.CommonEn
     globalAttributes.EntityData.BundleName = "cisco_ios_xr"
     globalAttributes.EntityData.ParentYangName = "mpls-te"
     globalAttributes.EntityData.SegmentPath = "global-attributes"
+    globalAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/" + globalAttributes.EntityData.SegmentPath
     globalAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3592,6 +3668,7 @@ func (autoTunnel *MplsTe_GlobalAttributes_AutoTunnel) GetEntityData() *types.Com
     autoTunnel.EntityData.BundleName = "cisco_ios_xr"
     autoTunnel.EntityData.ParentYangName = "global-attributes"
     autoTunnel.EntityData.SegmentPath = "auto-tunnel"
+    autoTunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + autoTunnel.EntityData.SegmentPath
     autoTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3626,6 +3703,7 @@ func (pcc *MplsTe_GlobalAttributes_AutoTunnel_Pcc) GetEntityData() *types.Common
     pcc.EntityData.BundleName = "cisco_ios_xr"
     pcc.EntityData.ParentYangName = "auto-tunnel"
     pcc.EntityData.SegmentPath = "pcc"
+    pcc.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/" + pcc.EntityData.SegmentPath
     pcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3663,6 +3741,7 @@ func (tunnelRange *MplsTe_GlobalAttributes_AutoTunnel_Pcc_TunnelRange) GetEntity
     tunnelRange.EntityData.BundleName = "cisco_ios_xr"
     tunnelRange.EntityData.ParentYangName = "pcc"
     tunnelRange.EntityData.SegmentPath = "tunnel-range"
+    tunnelRange.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/pcc/" + tunnelRange.EntityData.SegmentPath
     tunnelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3693,6 +3772,7 @@ func (p2pAutoTunnel *MplsTe_GlobalAttributes_AutoTunnel_P2pAutoTunnel) GetEntity
     p2pAutoTunnel.EntityData.BundleName = "cisco_ios_xr"
     p2pAutoTunnel.EntityData.ParentYangName = "auto-tunnel"
     p2pAutoTunnel.EntityData.SegmentPath = "p2p-auto-tunnel"
+    p2pAutoTunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/" + p2pAutoTunnel.EntityData.SegmentPath
     p2pAutoTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2pAutoTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2pAutoTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3730,6 +3810,7 @@ func (tunnelRange *MplsTe_GlobalAttributes_AutoTunnel_P2pAutoTunnel_TunnelRange)
     tunnelRange.EntityData.BundleName = "cisco_ios_xr"
     tunnelRange.EntityData.ParentYangName = "p2p-auto-tunnel"
     tunnelRange.EntityData.SegmentPath = "tunnel-range"
+    tunnelRange.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/p2p-auto-tunnel/" + tunnelRange.EntityData.SegmentPath
     tunnelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3767,6 +3848,7 @@ func (backup *MplsTe_GlobalAttributes_AutoTunnel_Backup) GetEntityData() *types.
     backup.EntityData.BundleName = "cisco_ios_xr"
     backup.EntityData.ParentYangName = "auto-tunnel"
     backup.EntityData.SegmentPath = "backup"
+    backup.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/" + backup.EntityData.SegmentPath
     backup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3798,6 +3880,7 @@ func (timers *MplsTe_GlobalAttributes_AutoTunnel_Backup_Timers) GetEntityData() 
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "backup"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3830,6 +3913,7 @@ func (removal *MplsTe_GlobalAttributes_AutoTunnel_Backup_Timers_Removal) GetEnti
     removal.EntityData.BundleName = "cisco_ios_xr"
     removal.EntityData.ParentYangName = "timers"
     removal.EntityData.SegmentPath = "removal"
+    removal.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/timers/" + removal.EntityData.SegmentPath
     removal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3867,6 +3951,7 @@ func (tunnelRange *MplsTe_GlobalAttributes_AutoTunnel_Backup_TunnelRange) GetEnt
     tunnelRange.EntityData.BundleName = "cisco_ios_xr"
     tunnelRange.EntityData.ParentYangName = "backup"
     tunnelRange.EntityData.SegmentPath = "tunnel-range"
+    tunnelRange.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/" + tunnelRange.EntityData.SegmentPath
     tunnelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3903,6 +3988,7 @@ func (mesh *MplsTe_GlobalAttributes_AutoTunnel_Mesh) GetEntityData() *types.Comm
     mesh.EntityData.BundleName = "cisco_ios_xr"
     mesh.EntityData.ParentYangName = "auto-tunnel"
     mesh.EntityData.SegmentPath = "mesh"
+    mesh.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/" + mesh.EntityData.SegmentPath
     mesh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mesh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mesh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3935,6 +4021,7 @@ func (meshGroups *MplsTe_GlobalAttributes_AutoTunnel_Mesh_MeshGroups) GetEntityD
     meshGroups.EntityData.BundleName = "cisco_ios_xr"
     meshGroups.EntityData.ParentYangName = "mesh"
     meshGroups.EntityData.SegmentPath = "mesh-groups"
+    meshGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/" + meshGroups.EntityData.SegmentPath
     meshGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     meshGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     meshGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3956,6 +4043,7 @@ func (meshGroups *MplsTe_GlobalAttributes_AutoTunnel_Mesh_MeshGroups) GetEntityD
 type MplsTe_GlobalAttributes_AutoTunnel_Mesh_MeshGroups_MeshGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Mesh group ID. The type is interface{} with range:
     // 0..4294967295.
@@ -3987,6 +4075,7 @@ func (meshGroup *MplsTe_GlobalAttributes_AutoTunnel_Mesh_MeshGroups_MeshGroup) G
     meshGroup.EntityData.BundleName = "cisco_ios_xr"
     meshGroup.EntityData.ParentYangName = "mesh-groups"
     meshGroup.EntityData.SegmentPath = "mesh-group" + types.AddKeyToken(meshGroup.MeshGroupId, "mesh-group-id")
+    meshGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/mesh-groups/" + meshGroup.EntityData.SegmentPath
     meshGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     meshGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     meshGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4021,6 +4110,7 @@ func (timers *MplsTe_GlobalAttributes_AutoTunnel_Mesh_Timers) GetEntityData() *t
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "mesh"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4053,6 +4143,7 @@ func (removal *MplsTe_GlobalAttributes_AutoTunnel_Mesh_Timers_Removal) GetEntity
     removal.EntityData.BundleName = "cisco_ios_xr"
     removal.EntityData.ParentYangName = "timers"
     removal.EntityData.SegmentPath = "removal"
+    removal.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/timers/" + removal.EntityData.SegmentPath
     removal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     removal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     removal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4090,6 +4181,7 @@ func (tunnelRange *MplsTe_GlobalAttributes_AutoTunnel_Mesh_TunnelRange) GetEntit
     tunnelRange.EntityData.BundleName = "cisco_ios_xr"
     tunnelRange.EntityData.ParentYangName = "mesh"
     tunnelRange.EntityData.SegmentPath = "tunnel-range"
+    tunnelRange.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/" + tunnelRange.EntityData.SegmentPath
     tunnelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4120,6 +4212,7 @@ func (p2mpAutoTunnel *MplsTe_GlobalAttributes_AutoTunnel_P2mpAutoTunnel) GetEnti
     p2mpAutoTunnel.EntityData.BundleName = "cisco_ios_xr"
     p2mpAutoTunnel.EntityData.ParentYangName = "auto-tunnel"
     p2mpAutoTunnel.EntityData.SegmentPath = "p2mp-auto-tunnel"
+    p2mpAutoTunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/" + p2mpAutoTunnel.EntityData.SegmentPath
     p2mpAutoTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpAutoTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpAutoTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4157,6 +4250,7 @@ func (tunnelRange *MplsTe_GlobalAttributes_AutoTunnel_P2mpAutoTunnel_TunnelRange
     tunnelRange.EntityData.BundleName = "cisco_ios_xr"
     tunnelRange.EntityData.ParentYangName = "p2mp-auto-tunnel"
     tunnelRange.EntityData.SegmentPath = "tunnel-range"
+    tunnelRange.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/p2mp-auto-tunnel/" + tunnelRange.EntityData.SegmentPath
     tunnelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4193,6 +4287,7 @@ func (hardwareOutOfResource *MplsTe_GlobalAttributes_HardwareOutOfResource) GetE
     hardwareOutOfResource.EntityData.BundleName = "cisco_ios_xr"
     hardwareOutOfResource.EntityData.ParentYangName = "global-attributes"
     hardwareOutOfResource.EntityData.SegmentPath = "hardware-out-of-resource"
+    hardwareOutOfResource.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + hardwareOutOfResource.EntityData.SegmentPath
     hardwareOutOfResource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hardwareOutOfResource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hardwareOutOfResource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4243,6 +4338,7 @@ func (oorRedState *MplsTe_GlobalAttributes_HardwareOutOfResource_OorRedState) Ge
     oorRedState.EntityData.BundleName = "cisco_ios_xr"
     oorRedState.EntityData.ParentYangName = "hardware-out-of-resource"
     oorRedState.EntityData.SegmentPath = "oor-red-state"
+    oorRedState.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/" + oorRedState.EntityData.SegmentPath
     oorRedState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oorRedState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorRedState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4295,6 +4391,7 @@ func (oorYellowState *MplsTe_GlobalAttributes_HardwareOutOfResource_OorYellowSta
     oorYellowState.EntityData.BundleName = "cisco_ios_xr"
     oorYellowState.EntityData.ParentYangName = "hardware-out-of-resource"
     oorYellowState.EntityData.SegmentPath = "oor-yellow-state"
+    oorYellowState.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/" + oorYellowState.EntityData.SegmentPath
     oorYellowState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oorYellowState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorYellowState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4353,6 +4450,7 @@ func (oorGreenState *MplsTe_GlobalAttributes_HardwareOutOfResource_OorGreenState
     oorGreenState.EntityData.BundleName = "cisco_ios_xr"
     oorGreenState.EntityData.ParentYangName = "hardware-out-of-resource"
     oorGreenState.EntityData.SegmentPath = "oor-green-state"
+    oorGreenState.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/" + oorGreenState.EntityData.SegmentPath
     oorGreenState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oorGreenState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oorGreenState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4388,6 +4486,7 @@ func (secondaryRouterIds *MplsTe_GlobalAttributes_SecondaryRouterIds) GetEntityD
     secondaryRouterIds.EntityData.BundleName = "cisco_ios_xr"
     secondaryRouterIds.EntityData.ParentYangName = "global-attributes"
     secondaryRouterIds.EntityData.SegmentPath = "secondary-router-ids"
+    secondaryRouterIds.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + secondaryRouterIds.EntityData.SegmentPath
     secondaryRouterIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryRouterIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryRouterIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4409,6 +4508,7 @@ func (secondaryRouterIds *MplsTe_GlobalAttributes_SecondaryRouterIds) GetEntityD
 type MplsTe_GlobalAttributes_SecondaryRouterIds_SecondaryRouterId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Secondary TE Router ID. The type is string with
     // pattern:
@@ -4422,6 +4522,7 @@ func (secondaryRouterId *MplsTe_GlobalAttributes_SecondaryRouterIds_SecondaryRou
     secondaryRouterId.EntityData.BundleName = "cisco_ios_xr"
     secondaryRouterId.EntityData.ParentYangName = "secondary-router-ids"
     secondaryRouterId.EntityData.SegmentPath = "secondary-router-id" + types.AddKeyToken(secondaryRouterId.SecondaryRouterIdValue, "secondary-router-id-value")
+    secondaryRouterId.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/secondary-router-ids/" + secondaryRouterId.EntityData.SegmentPath
     secondaryRouterId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryRouterId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryRouterId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4458,6 +4559,7 @@ func (srlg *MplsTe_GlobalAttributes_Srlg) GetEntityData() *types.CommonEntityDat
     srlg.EntityData.BundleName = "cisco_ios_xr"
     srlg.EntityData.ParentYangName = "global-attributes"
     srlg.EntityData.SegmentPath = "srlg"
+    srlg.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + srlg.EntityData.SegmentPath
     srlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4490,6 +4592,7 @@ func (names *MplsTe_GlobalAttributes_Srlg_Names) GetEntityData() *types.CommonEn
     names.EntityData.BundleName = "cisco_ios_xr"
     names.EntityData.ParentYangName = "srlg"
     names.EntityData.SegmentPath = "names"
+    names.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/srlg/" + names.EntityData.SegmentPath
     names.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     names.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     names.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4511,6 +4614,7 @@ func (names *MplsTe_GlobalAttributes_Srlg_Names) GetEntityData() *types.CommonEn
 type MplsTe_GlobalAttributes_Srlg_Names_Name struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG membership name. The type is string with
     // length: 1..64.
@@ -4530,6 +4634,7 @@ func (name *MplsTe_GlobalAttributes_Srlg_Names_Name) GetEntityData() *types.Comm
     name.EntityData.BundleName = "cisco_ios_xr"
     name.EntityData.ParentYangName = "names"
     name.EntityData.SegmentPath = "name" + types.AddKeyToken(name.SrlgName, "srlg-name")
+    name.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/srlg/names/" + name.EntityData.SegmentPath
     name.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     name.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     name.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4562,6 +4667,7 @@ func (staticSrlgMembers *MplsTe_GlobalAttributes_Srlg_Names_Name_StaticSrlgMembe
     staticSrlgMembers.EntityData.BundleName = "cisco_ios_xr"
     staticSrlgMembers.EntityData.ParentYangName = "name"
     staticSrlgMembers.EntityData.SegmentPath = "static-srlg-members"
+    staticSrlgMembers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/srlg/names/name/" + staticSrlgMembers.EntityData.SegmentPath
     staticSrlgMembers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticSrlgMembers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticSrlgMembers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4583,6 +4689,7 @@ func (staticSrlgMembers *MplsTe_GlobalAttributes_Srlg_Names_Name_StaticSrlgMembe
 type MplsTe_GlobalAttributes_Srlg_Names_Name_StaticSrlgMembers_StaticSrlgMember struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. From address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -4600,6 +4707,7 @@ func (staticSrlgMember *MplsTe_GlobalAttributes_Srlg_Names_Name_StaticSrlgMember
     staticSrlgMember.EntityData.BundleName = "cisco_ios_xr"
     staticSrlgMember.EntityData.ParentYangName = "static-srlg-members"
     staticSrlgMember.EntityData.SegmentPath = "static-srlg-member" + types.AddKeyToken(staticSrlgMember.FromAddress, "from-address")
+    staticSrlgMember.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/srlg/names/name/static-srlg-members/" + staticSrlgMember.EntityData.SegmentPath
     staticSrlgMember.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticSrlgMember.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticSrlgMember.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4631,6 +4739,7 @@ func (queues *MplsTe_GlobalAttributes_Queues) GetEntityData() *types.CommonEntit
     queues.EntityData.BundleName = "cisco_ios_xr"
     queues.EntityData.ParentYangName = "global-attributes"
     queues.EntityData.SegmentPath = "queues"
+    queues.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + queues.EntityData.SegmentPath
     queues.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queues.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queues.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4652,6 +4761,7 @@ func (queues *MplsTe_GlobalAttributes_Queues) GetEntityData() *types.CommonEntit
 type MplsTe_GlobalAttributes_Queues_Queue struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Route Priority Tunnel Role. The type is
     // RoutePriorityRole.
@@ -4668,6 +4778,7 @@ func (queue *MplsTe_GlobalAttributes_Queues_Queue) GetEntityData() *types.Common
     queue.EntityData.BundleName = "cisco_ios_xr"
     queue.EntityData.ParentYangName = "queues"
     queue.EntityData.SegmentPath = "queue" + types.AddKeyToken(queue.Role, "role")
+    queue.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/queues/" + queue.EntityData.SegmentPath
     queue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     queue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     queue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4699,6 +4810,7 @@ func (mib *MplsTe_GlobalAttributes_Mib) GetEntityData() *types.CommonEntityData 
     mib.EntityData.BundleName = "cisco_ios_xr"
     mib.EntityData.ParentYangName = "global-attributes"
     mib.EntityData.SegmentPath = "mib"
+    mib.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + mib.EntityData.SegmentPath
     mib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4746,6 +4858,7 @@ func (attributeSet *MplsTe_GlobalAttributes_AttributeSet) GetEntityData() *types
     attributeSet.EntityData.BundleName = "cisco_ios_xr"
     attributeSet.EntityData.ParentYangName = "global-attributes"
     attributeSet.EntityData.SegmentPath = "attribute-set"
+    attributeSet.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + attributeSet.EntityData.SegmentPath
     attributeSet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeSet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeSet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4782,6 +4895,7 @@ func (pathOptionAttributes *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttri
     pathOptionAttributes.EntityData.BundleName = "cisco_ios_xr"
     pathOptionAttributes.EntityData.ParentYangName = "attribute-set"
     pathOptionAttributes.EntityData.SegmentPath = "path-option-attributes"
+    pathOptionAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/" + pathOptionAttributes.EntityData.SegmentPath
     pathOptionAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathOptionAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathOptionAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4803,6 +4917,7 @@ func (pathOptionAttributes *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttri
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Attribute Set Name. The type is string with
     // length: 1..64.
@@ -4838,6 +4953,7 @@ func (pathOptionAttribute *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttrib
     pathOptionAttribute.EntityData.BundleName = "cisco_ios_xr"
     pathOptionAttribute.EntityData.ParentYangName = "path-option-attributes"
     pathOptionAttribute.EntityData.SegmentPath = "path-option-attribute" + types.AddKeyToken(pathOptionAttribute.AttributeSetName, "attribute-set-name")
+    pathOptionAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/" + pathOptionAttribute.EntityData.SegmentPath
     pathOptionAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathOptionAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathOptionAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4880,6 +4996,7 @@ func (bfdReversePath *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_
     bfdReversePath.EntityData.BundleName = "cisco_ios_xr"
     bfdReversePath.EntityData.ParentYangName = "path-option-attribute"
     bfdReversePath.EntityData.SegmentPath = "bfd-reverse-path"
+    bfdReversePath.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/" + bfdReversePath.EntityData.SegmentPath
     bfdReversePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdReversePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdReversePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4925,6 +5042,7 @@ func (attPathOptionPathSelection *MplsTe_GlobalAttributes_AttributeSet_PathOptio
     attPathOptionPathSelection.EntityData.BundleName = "cisco_ios_xr"
     attPathOptionPathSelection.EntityData.ParentYangName = "path-option-attribute"
     attPathOptionPathSelection.EntityData.SegmentPath = "att-path-option-path-selection"
+    attPathOptionPathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/" + attPathOptionPathSelection.EntityData.SegmentPath
     attPathOptionPathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attPathOptionPathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attPathOptionPathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4963,6 +5081,7 @@ func (invalidation *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_Pa
     invalidation.EntityData.BundleName = "cisco_ios_xr"
     invalidation.EntityData.ParentYangName = "att-path-option-path-selection"
     invalidation.EntityData.SegmentPath = "invalidation"
+    invalidation.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/att-path-option-path-selection/" + invalidation.EntityData.SegmentPath
     invalidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4999,6 +5118,7 @@ func (pce *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionA
     pce.EntityData.BundleName = "cisco_ios_xr"
     pce.EntityData.ParentYangName = "path-option-attribute"
     pce.EntityData.SegmentPath = "pce"
+    pce.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/" + pce.EntityData.SegmentPath
     pce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5038,6 +5158,7 @@ func (bidirectional *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_P
     bidirectional.EntityData.BundleName = "cisco_ios_xr"
     bidirectional.EntityData.ParentYangName = "pce"
     bidirectional.EntityData.SegmentPath = "bidirectional"
+    bidirectional.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/pce/" + bidirectional.EntityData.SegmentPath
     bidirectional.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirectional.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirectional.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5080,6 +5201,7 @@ func (disjointPath *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_Pa
     disjointPath.EntityData.BundleName = "cisco_ios_xr"
     disjointPath.EntityData.ParentYangName = "pce"
     disjointPath.EntityData.SegmentPath = "disjoint-path"
+    disjointPath.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/pce/" + disjointPath.EntityData.SegmentPath
     disjointPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disjointPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disjointPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5118,6 +5240,7 @@ func (affinityMask *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_Pa
     affinityMask.EntityData.BundleName = "cisco_ios_xr"
     affinityMask.EntityData.ParentYangName = "path-option-attribute"
     affinityMask.EntityData.SegmentPath = "affinity-mask"
+    affinityMask.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/" + affinityMask.EntityData.SegmentPath
     affinityMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5160,6 +5283,7 @@ func (bandwidth *MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathO
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "path-option-attribute"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5232,6 +5356,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_PathOp
     newStyleAffinityAffinityTypes.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypes.EntityData.ParentYangName = "path-option-attribute"
     newStyleAffinityAffinityTypes.EntityData.SegmentPath = "new-style-affinity-affinity-types"
+    newStyleAffinityAffinityTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/" + newStyleAffinityAffinityTypes.EntityData.SegmentPath
     newStyleAffinityAffinityTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5293,6 +5418,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_PathOp
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5305,6 +5431,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_PathOpt
     newStyleAffinityAffinityType.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityType.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityType.EntityData.SegmentPath = "new-style-affinity-affinity-type" + types.AddKeyToken(newStyleAffinityAffinityType.AffinityType, "affinity-type")
+    newStyleAffinityAffinityType.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityType.EntityData.SegmentPath
     newStyleAffinityAffinityType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5323,6 +5450,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_PathOpt
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5339,6 +5467,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.Affinity1, "affinity1")
+    newStyleAffinityAffinityTypeAffinity1.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5358,6 +5487,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5378,6 +5508,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity2, "affinity2")
+    newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5398,6 +5529,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5422,6 +5554,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity3, "affinity3")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5443,6 +5576,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5471,6 +5605,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity4, "affinity4")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5493,6 +5628,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5525,6 +5661,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity5, "affinity5")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5548,6 +5685,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5584,6 +5722,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity6, "affinity6")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5608,6 +5747,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5648,6 +5788,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity7, "affinity7")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5673,6 +5814,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5717,6 +5859,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity8, "affinity8")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5743,6 +5886,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5791,6 +5935,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity9, "affinity9")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5818,6 +5963,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_PathOptionAttributes_PathOptionAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -5870,6 +6016,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity9, "affinity9") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity10, "affinity10")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/path-option-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5910,6 +6057,7 @@ func (p2mpteAttributes *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes) G
     p2mpteAttributes.EntityData.BundleName = "cisco_ios_xr"
     p2mpteAttributes.EntityData.ParentYangName = "attribute-set"
     p2mpteAttributes.EntityData.SegmentPath = "p2mpte-attributes"
+    p2mpteAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/" + p2mpteAttributes.EntityData.SegmentPath
     p2mpteAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpteAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpteAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5931,6 +6079,7 @@ func (p2mpteAttributes *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes) G
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Attribute Set Name. The type is string with
     // length: 1..64.
@@ -5976,6 +6125,7 @@ func (p2mpteAttribute *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2m
     p2mpteAttribute.EntityData.BundleName = "cisco_ios_xr"
     p2mpteAttribute.EntityData.ParentYangName = "p2mpte-attributes"
     p2mpteAttribute.EntityData.SegmentPath = "p2mpte-attribute" + types.AddKeyToken(p2mpteAttribute.AttributeSetName, "attribute-set-name")
+    p2mpteAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/" + p2mpteAttribute.EntityData.SegmentPath
     p2mpteAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2mpteAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2mpteAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6022,6 +6172,7 @@ func (priority *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttr
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "p2mpte-attribute"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6059,6 +6210,7 @@ func (affinityMask *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpte
     affinityMask.EntityData.BundleName = "cisco_ios_xr"
     affinityMask.EntityData.ParentYangName = "p2mpte-attribute"
     affinityMask.EntityData.SegmentPath = "affinity-mask"
+    affinityMask.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/" + affinityMask.EntityData.SegmentPath
     affinityMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6101,6 +6253,7 @@ func (bandwidth *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAtt
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "p2mpte-attribute"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6132,6 +6285,7 @@ func (pathSelection *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpt
     pathSelection.EntityData.BundleName = "cisco_ios_xr"
     pathSelection.EntityData.ParentYangName = "p2mpte-attribute"
     pathSelection.EntityData.SegmentPath = "path-selection"
+    pathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/" + pathSelection.EntityData.SegmentPath
     pathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6202,6 +6356,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_P2mpte
     newStyleAffinityAffinityTypes.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypes.EntityData.ParentYangName = "p2mpte-attribute"
     newStyleAffinityAffinityTypes.EntityData.SegmentPath = "new-style-affinity-affinity-types"
+    newStyleAffinityAffinityTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/" + newStyleAffinityAffinityTypes.EntityData.SegmentPath
     newStyleAffinityAffinityTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6263,6 +6418,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_P2mpte
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6275,6 +6431,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_P2mpteA
     newStyleAffinityAffinityType.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityType.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityType.EntityData.SegmentPath = "new-style-affinity-affinity-type" + types.AddKeyToken(newStyleAffinityAffinityType.AffinityType, "affinity-type")
+    newStyleAffinityAffinityType.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityType.EntityData.SegmentPath
     newStyleAffinityAffinityType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6293,6 +6450,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_P2mpteA
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6309,6 +6467,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.Affinity1, "affinity1")
+    newStyleAffinityAffinityTypeAffinity1.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6328,6 +6487,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6348,6 +6508,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity2, "affinity2")
+    newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6368,6 +6529,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6392,6 +6554,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity3, "affinity3")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6413,6 +6576,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6441,6 +6605,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity4, "affinity4")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6463,6 +6628,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6495,6 +6661,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity5, "affinity5")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6518,6 +6685,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6554,6 +6722,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity6, "affinity6")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6578,6 +6747,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6618,6 +6788,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity7, "affinity7")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6643,6 +6814,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6687,6 +6859,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity8, "affinity8")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6713,6 +6886,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6761,6 +6935,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity9, "affinity9")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6788,6 +6963,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -6840,6 +7016,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity9, "affinity9") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity10, "affinity10")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6886,6 +7063,7 @@ func (fastReroute *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteA
     fastReroute.EntityData.BundleName = "cisco_ios_xr"
     fastReroute.EntityData.ParentYangName = "p2mpte-attribute"
     fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6940,6 +7118,7 @@ func (logging *MplsTe_GlobalAttributes_AttributeSet_P2mpteAttributes_P2mpteAttri
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "p2mpte-attribute"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/p2mpte-attribute/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6978,6 +7157,7 @@ func (p2pTeAttributes *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes) Get
     p2pTeAttributes.EntityData.BundleName = "cisco_ios_xr"
     p2pTeAttributes.EntityData.ParentYangName = "attribute-set"
     p2pTeAttributes.EntityData.SegmentPath = "p2p-te-attributes"
+    p2pTeAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/" + p2pTeAttributes.EntityData.SegmentPath
     p2pTeAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2pTeAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2pTeAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6999,6 +7179,7 @@ func (p2pTeAttributes *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes) Get
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Attribute Set Name. The type is string with
     // length: 1..64.
@@ -7031,6 +7212,7 @@ func (p2pTeAttribute *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTe
     p2pTeAttribute.EntityData.BundleName = "cisco_ios_xr"
     p2pTeAttribute.EntityData.ParentYangName = "p2p-te-attributes"
     p2pTeAttribute.EntityData.SegmentPath = "p2p-te-attribute" + types.AddKeyToken(p2pTeAttribute.AttributeSetName, "attribute-set-name")
+    p2pTeAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/" + p2pTeAttribute.EntityData.SegmentPath
     p2pTeAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     p2pTeAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     p2pTeAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7080,6 +7262,7 @@ func (pathSelection *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeA
     pathSelection.EntityData.BundleName = "cisco_ios_xr"
     pathSelection.EntityData.ParentYangName = "p2p-te-attribute"
     pathSelection.EntityData.SegmentPath = "path-selection"
+    pathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/" + pathSelection.EntityData.SegmentPath
     pathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7117,6 +7300,7 @@ func (segmentRoutingPrepend *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttribute
     segmentRoutingPrepend.EntityData.BundleName = "cisco_ios_xr"
     segmentRoutingPrepend.EntityData.ParentYangName = "path-selection"
     segmentRoutingPrepend.EntityData.SegmentPath = "segment-routing-prepend"
+    segmentRoutingPrepend.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/path-selection/" + segmentRoutingPrepend.EntityData.SegmentPath
     segmentRoutingPrepend.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRoutingPrepend.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRoutingPrepend.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7148,6 +7332,7 @@ func (indexes *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribu
     indexes.EntityData.BundleName = "cisco_ios_xr"
     indexes.EntityData.ParentYangName = "segment-routing-prepend"
     indexes.EntityData.SegmentPath = "indexes"
+    indexes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/path-selection/segment-routing-prepend/" + indexes.EntityData.SegmentPath
     indexes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     indexes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     indexes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7169,6 +7354,7 @@ func (indexes *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribu
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_PathSelection_SegmentRoutingPrepend_Indexes_Index struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Index number. The type is interface{} with range:
     // 1..10.
@@ -7188,6 +7374,7 @@ func (index *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute
     index.EntityData.BundleName = "cisco_ios_xr"
     index.EntityData.ParentYangName = "indexes"
     index.EntityData.SegmentPath = "index" + types.AddKeyToken(index.IndexNumber, "index-number")
+    index.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/path-selection/segment-routing-prepend/indexes/" + index.EntityData.SegmentPath
     index.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     index.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     index.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7225,6 +7412,7 @@ func (invalidation *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAt
     invalidation.EntityData.BundleName = "cisco_ios_xr"
     invalidation.EntityData.ParentYangName = "path-selection"
     invalidation.EntityData.SegmentPath = "invalidation"
+    invalidation.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/path-selection/" + invalidation.EntityData.SegmentPath
     invalidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7261,6 +7449,7 @@ func (pce *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_P
     pce.EntityData.BundleName = "cisco_ios_xr"
     pce.EntityData.ParentYangName = "p2p-te-attribute"
     pce.EntityData.SegmentPath = "pce"
+    pce.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/" + pce.EntityData.SegmentPath
     pce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7300,6 +7489,7 @@ func (bidirectional *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeA
     bidirectional.EntityData.BundleName = "cisco_ios_xr"
     bidirectional.EntityData.ParentYangName = "pce"
     bidirectional.EntityData.SegmentPath = "bidirectional"
+    bidirectional.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/pce/" + bidirectional.EntityData.SegmentPath
     bidirectional.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bidirectional.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bidirectional.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7342,6 +7532,7 @@ func (disjointPath *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAt
     disjointPath.EntityData.BundleName = "cisco_ios_xr"
     disjointPath.EntityData.ParentYangName = "pce"
     disjointPath.EntityData.SegmentPath = "disjoint-path"
+    disjointPath.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/pce/" + disjointPath.EntityData.SegmentPath
     disjointPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disjointPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disjointPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7380,6 +7571,7 @@ func (affinityMask *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAt
     affinityMask.EntityData.BundleName = "cisco_ios_xr"
     affinityMask.EntityData.ParentYangName = "p2p-te-attribute"
     affinityMask.EntityData.SegmentPath = "affinity-mask"
+    affinityMask.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/" + affinityMask.EntityData.SegmentPath
     affinityMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7440,6 +7632,7 @@ func (logging *MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribu
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "p2p-te-attribute"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7520,6 +7713,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_P2pTeA
     newStyleAffinityAffinityTypes.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypes.EntityData.ParentYangName = "p2p-te-attribute"
     newStyleAffinityAffinityTypes.EntityData.SegmentPath = "new-style-affinity-affinity-types"
+    newStyleAffinityAffinityTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/" + newStyleAffinityAffinityTypes.EntityData.SegmentPath
     newStyleAffinityAffinityTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7581,6 +7775,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_P2pTeA
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -7593,6 +7788,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_P2pTeAt
     newStyleAffinityAffinityType.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityType.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityType.EntityData.SegmentPath = "new-style-affinity-affinity-type" + types.AddKeyToken(newStyleAffinityAffinityType.AffinityType, "affinity-type")
+    newStyleAffinityAffinityType.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityType.EntityData.SegmentPath
     newStyleAffinityAffinityType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7611,6 +7807,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_P2pTeAt
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -7627,6 +7824,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.Affinity1, "affinity1")
+    newStyleAffinityAffinityTypeAffinity1.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7646,6 +7844,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -7666,6 +7865,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity2, "affinity2")
+    newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7686,6 +7886,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -7710,6 +7911,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity3, "affinity3")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7731,6 +7933,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -7759,6 +7962,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity4, "affinity4")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7781,6 +7985,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -7813,6 +8018,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity5, "affinity5")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7836,6 +8042,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -7872,6 +8079,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity6, "affinity6")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7896,6 +8104,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -7936,6 +8145,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity7, "affinity7")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7961,6 +8171,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8005,6 +8216,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity8, "affinity8")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8031,6 +8243,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8079,6 +8292,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity9, "affinity9")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8106,6 +8320,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_P2pTeAttributes_P2pTeAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8158,6 +8373,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity9, "affinity9") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity10, "affinity10")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/p2p-te-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8198,6 +8414,7 @@ func (autoBackupAttributes *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttri
     autoBackupAttributes.EntityData.BundleName = "cisco_ios_xr"
     autoBackupAttributes.EntityData.ParentYangName = "attribute-set"
     autoBackupAttributes.EntityData.SegmentPath = "auto-backup-attributes"
+    autoBackupAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/" + autoBackupAttributes.EntityData.SegmentPath
     autoBackupAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoBackupAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoBackupAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8219,6 +8436,7 @@ func (autoBackupAttributes *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttri
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Attribute Set Name. The type is string with
     // length: 1..64.
@@ -8260,6 +8478,7 @@ func (autoBackupAttribute *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttrib
     autoBackupAttribute.EntityData.BundleName = "cisco_ios_xr"
     autoBackupAttribute.EntityData.ParentYangName = "auto-backup-attributes"
     autoBackupAttribute.EntityData.SegmentPath = "auto-backup-attribute" + types.AddKeyToken(autoBackupAttribute.AttributeSetName, "attribute-set-name")
+    autoBackupAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/" + autoBackupAttribute.EntityData.SegmentPath
     autoBackupAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoBackupAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoBackupAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8307,6 +8526,7 @@ func (signalledName *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_A
     signalledName.EntityData.BundleName = "cisco_ios_xr"
     signalledName.EntityData.ParentYangName = "auto-backup-attribute"
     signalledName.EntityData.SegmentPath = "signalled-name"
+    signalledName.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/" + signalledName.EntityData.SegmentPath
     signalledName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signalledName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalledName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8348,6 +8568,7 @@ func (autoBackupLogging *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttribut
     autoBackupLogging.EntityData.BundleName = "cisco_ios_xr"
     autoBackupLogging.EntityData.ParentYangName = "auto-backup-attribute"
     autoBackupLogging.EntityData.SegmentPath = "auto-backup-logging"
+    autoBackupLogging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/" + autoBackupLogging.EntityData.SegmentPath
     autoBackupLogging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoBackupLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoBackupLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8387,6 +8608,7 @@ func (priority *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBa
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "auto-backup-attribute"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8424,6 +8646,7 @@ func (affinityMask *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_Au
     affinityMask.EntityData.BundleName = "cisco_ios_xr"
     affinityMask.EntityData.ParentYangName = "auto-backup-attribute"
     affinityMask.EntityData.SegmentPath = "affinity-mask"
+    affinityMask.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/" + affinityMask.EntityData.SegmentPath
     affinityMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8454,6 +8677,7 @@ func (pathSelection *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_A
     pathSelection.EntityData.BundleName = "cisco_ios_xr"
     pathSelection.EntityData.ParentYangName = "auto-backup-attribute"
     pathSelection.EntityData.SegmentPath = "path-selection"
+    pathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/" + pathSelection.EntityData.SegmentPath
     pathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8483,6 +8707,7 @@ func (policyClasses *MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_A
     policyClasses.EntityData.BundleName = "cisco_ios_xr"
     policyClasses.EntityData.ParentYangName = "auto-backup-attribute"
     policyClasses.EntityData.SegmentPath = "policy-classes"
+    policyClasses.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/" + policyClasses.EntityData.SegmentPath
     policyClasses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8553,6 +8778,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_AutoBa
     newStyleAffinityAffinityTypes.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypes.EntityData.ParentYangName = "auto-backup-attribute"
     newStyleAffinityAffinityTypes.EntityData.SegmentPath = "new-style-affinity-affinity-types"
+    newStyleAffinityAffinityTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/" + newStyleAffinityAffinityTypes.EntityData.SegmentPath
     newStyleAffinityAffinityTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8614,6 +8840,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_AutoBa
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8626,6 +8853,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_AutoBac
     newStyleAffinityAffinityType.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityType.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityType.EntityData.SegmentPath = "new-style-affinity-affinity-type" + types.AddKeyToken(newStyleAffinityAffinityType.AffinityType, "affinity-type")
+    newStyleAffinityAffinityType.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityType.EntityData.SegmentPath
     newStyleAffinityAffinityType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8644,6 +8872,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_AutoBac
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8660,6 +8889,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.Affinity1, "affinity1")
+    newStyleAffinityAffinityTypeAffinity1.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8679,6 +8909,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8699,6 +8930,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity2, "affinity2")
+    newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8719,6 +8951,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8743,6 +8976,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity3, "affinity3")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8764,6 +8998,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8792,6 +9027,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity4, "affinity4")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8814,6 +9050,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8846,6 +9083,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity5, "affinity5")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8869,6 +9107,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8905,6 +9144,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity6, "affinity6")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8929,6 +9169,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -8969,6 +9210,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity7, "affinity7")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8994,6 +9236,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -9038,6 +9281,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity8, "affinity8")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9064,6 +9308,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -9112,6 +9357,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity9, "affinity9")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9139,6 +9385,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_AutoBackupAttributes_AutoBackupAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -9191,6 +9438,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity9, "affinity9") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity10, "affinity10")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/auto-backup-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9231,6 +9479,7 @@ func (otnPpAttributes *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes) Get
     otnPpAttributes.EntityData.BundleName = "cisco_ios_xr"
     otnPpAttributes.EntityData.ParentYangName = "attribute-set"
     otnPpAttributes.EntityData.SegmentPath = "otn-pp-attributes"
+    otnPpAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/" + otnPpAttributes.EntityData.SegmentPath
     otnPpAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otnPpAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otnPpAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9252,6 +9501,7 @@ func (otnPpAttributes *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes) Get
 type MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPpAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Attribute Set Name. The type is string with
     // length: 1..64.
@@ -9290,6 +9540,7 @@ func (otnPpAttribute *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPp
     otnPpAttribute.EntityData.BundleName = "cisco_ios_xr"
     otnPpAttribute.EntityData.ParentYangName = "otn-pp-attributes"
     otnPpAttribute.EntityData.SegmentPath = "otn-pp-attribute" + types.AddKeyToken(otnPpAttribute.AttributeSetName, "attribute-set-name")
+    otnPpAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/" + otnPpAttribute.EntityData.SegmentPath
     otnPpAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otnPpAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otnPpAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9328,6 +9579,7 @@ func (revertScheduleNames *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_
     revertScheduleNames.EntityData.BundleName = "cisco_ios_xr"
     revertScheduleNames.EntityData.ParentYangName = "otn-pp-attribute"
     revertScheduleNames.EntityData.SegmentPath = "revert-schedule-names"
+    revertScheduleNames.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/otn-pp-attribute/" + revertScheduleNames.EntityData.SegmentPath
     revertScheduleNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     revertScheduleNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     revertScheduleNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9349,6 +9601,7 @@ func (revertScheduleNames *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_
 type MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPpAttribute_RevertScheduleNames_RevertScheduleName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Enter 64 characters for revert schedule name. The
     // type is string with length: 1..254.
@@ -9377,6 +9630,7 @@ func (revertScheduleName *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_O
     revertScheduleName.EntityData.BundleName = "cisco_ios_xr"
     revertScheduleName.EntityData.ParentYangName = "revert-schedule-names"
     revertScheduleName.EntityData.SegmentPath = "revert-schedule-name" + types.AddKeyToken(revertScheduleName.ScheduleName, "schedule-name")
+    revertScheduleName.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/otn-pp-attribute/revert-schedule-names/" + revertScheduleName.EntityData.SegmentPath
     revertScheduleName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     revertScheduleName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     revertScheduleName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9418,6 +9672,7 @@ func (scheduleDuration *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_Otn
     scheduleDuration.EntityData.BundleName = "cisco_ios_xr"
     scheduleDuration.EntityData.ParentYangName = "revert-schedule-name"
     scheduleDuration.EntityData.SegmentPath = "schedule-duration"
+    scheduleDuration.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/otn-pp-attribute/revert-schedule-names/revert-schedule-name/" + scheduleDuration.EntityData.SegmentPath
     scheduleDuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scheduleDuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scheduleDuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9467,6 +9722,7 @@ func (scheduleDate *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPpAt
     scheduleDate.EntityData.BundleName = "cisco_ios_xr"
     scheduleDate.EntityData.ParentYangName = "revert-schedule-name"
     scheduleDate.EntityData.SegmentPath = "schedule-date"
+    scheduleDate.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/otn-pp-attribute/revert-schedule-names/revert-schedule-name/" + scheduleDate.EntityData.SegmentPath
     scheduleDate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     scheduleDate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     scheduleDate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9504,6 +9760,7 @@ func (subNetworkConnectionMode *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttrib
     subNetworkConnectionMode.EntityData.BundleName = "cisco_ios_xr"
     subNetworkConnectionMode.EntityData.ParentYangName = "otn-pp-attribute"
     subNetworkConnectionMode.EntityData.SegmentPath = "sub-network-connection-mode"
+    subNetworkConnectionMode.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/otn-pp-attribute/" + subNetworkConnectionMode.EntityData.SegmentPath
     subNetworkConnectionMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subNetworkConnectionMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subNetworkConnectionMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9539,6 +9796,7 @@ func (timers *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPpAttribut
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "otn-pp-attribute"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/otn-pp-attribute/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9569,6 +9827,7 @@ func (pathSelection *MplsTe_GlobalAttributes_AttributeSet_OtnPpAttributes_OtnPpA
     pathSelection.EntityData.BundleName = "cisco_ios_xr"
     pathSelection.EntityData.ParentYangName = "otn-pp-attribute"
     pathSelection.EntityData.SegmentPath = "path-selection"
+    pathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/otn-pp-attribute/" + pathSelection.EntityData.SegmentPath
     pathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9599,6 +9858,7 @@ func (autoMeshAttributes *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttribute
     autoMeshAttributes.EntityData.BundleName = "cisco_ios_xr"
     autoMeshAttributes.EntityData.ParentYangName = "attribute-set"
     autoMeshAttributes.EntityData.SegmentPath = "auto-mesh-attributes"
+    autoMeshAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/" + autoMeshAttributes.EntityData.SegmentPath
     autoMeshAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoMeshAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoMeshAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9620,6 +9880,7 @@ func (autoMeshAttributes *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttribute
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Attribute Set Name. The type is string with
     // length: 1..64.
@@ -9685,6 +9946,7 @@ func (autoMeshAttribute *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes
     autoMeshAttribute.EntityData.BundleName = "cisco_ios_xr"
     autoMeshAttribute.EntityData.ParentYangName = "auto-mesh-attributes"
     autoMeshAttribute.EntityData.SegmentPath = "auto-mesh-attribute" + types.AddKeyToken(autoMeshAttribute.AttributeSetName, "attribute-set-name")
+    autoMeshAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/" + autoMeshAttribute.EntityData.SegmentPath
     autoMeshAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoMeshAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoMeshAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9748,6 +10010,7 @@ func (autoMeshLogging *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_A
     autoMeshLogging.EntityData.BundleName = "cisco_ios_xr"
     autoMeshLogging.EntityData.ParentYangName = "auto-mesh-attribute"
     autoMeshLogging.EntityData.SegmentPath = "auto-mesh-logging"
+    autoMeshLogging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/" + autoMeshLogging.EntityData.SegmentPath
     autoMeshLogging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoMeshLogging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoMeshLogging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9790,6 +10053,7 @@ func (priority *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMesh
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "auto-mesh-attribute"
     priority.EntityData.SegmentPath = "priority"
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9827,6 +10091,7 @@ func (affinityMask *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_Auto
     affinityMask.EntityData.BundleName = "cisco_ios_xr"
     affinityMask.EntityData.ParentYangName = "auto-mesh-attribute"
     affinityMask.EntityData.SegmentPath = "affinity-mask"
+    affinityMask.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/" + affinityMask.EntityData.SegmentPath
     affinityMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9869,6 +10134,7 @@ func (bandwidth *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMes
     bandwidth.EntityData.BundleName = "cisco_ios_xr"
     bandwidth.EntityData.ParentYangName = "auto-mesh-attribute"
     bandwidth.EntityData.SegmentPath = "bandwidth"
+    bandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/" + bandwidth.EntityData.SegmentPath
     bandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9900,6 +10166,7 @@ func (pathSelection *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_Aut
     pathSelection.EntityData.BundleName = "cisco_ios_xr"
     pathSelection.EntityData.ParentYangName = "auto-mesh-attribute"
     pathSelection.EntityData.SegmentPath = "path-selection"
+    pathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/" + pathSelection.EntityData.SegmentPath
     pathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9929,6 +10196,7 @@ func (policyClasses *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_Aut
     policyClasses.EntityData.BundleName = "cisco_ios_xr"
     policyClasses.EntityData.ParentYangName = "auto-mesh-attribute"
     policyClasses.EntityData.SegmentPath = "policy-classes"
+    policyClasses.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/" + policyClasses.EntityData.SegmentPath
     policyClasses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9999,6 +10267,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_AutoMe
     newStyleAffinityAffinityTypes.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypes.EntityData.ParentYangName = "auto-mesh-attribute"
     newStyleAffinityAffinityTypes.EntityData.SegmentPath = "new-style-affinity-affinity-types"
+    newStyleAffinityAffinityTypes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/" + newStyleAffinityAffinityTypes.EntityData.SegmentPath
     newStyleAffinityAffinityTypes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10060,6 +10329,7 @@ func (newStyleAffinityAffinityTypes *MplsTe_GlobalAttributes_AttributeSet_AutoMe
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10072,6 +10342,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_AutoMes
     newStyleAffinityAffinityType.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityType.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityType.EntityData.SegmentPath = "new-style-affinity-affinity-type" + types.AddKeyToken(newStyleAffinityAffinityType.AffinityType, "affinity-type")
+    newStyleAffinityAffinityType.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityType.EntityData.SegmentPath
     newStyleAffinityAffinityType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10090,6 +10361,7 @@ func (newStyleAffinityAffinityType *MplsTe_GlobalAttributes_AttributeSet_AutoMes
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10106,6 +10378,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1.Affinity1, "affinity1")
+    newStyleAffinityAffinityTypeAffinity1.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10125,6 +10398,7 @@ func (newStyleAffinityAffinityTypeAffinity1 *MplsTe_GlobalAttributes_AttributeSe
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10145,6 +10419,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2.Affinity2, "affinity2")
+    newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10165,6 +10440,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2 *MplsTe_GlobalAttributes_At
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10189,6 +10465,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.Affinity3, "affinity3")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10210,6 +10487,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 *MplsTe_GlobalAttr
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10238,6 +10516,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.Affinity4, "affinity4")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10260,6 +10539,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 *MplsTe_G
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10292,6 +10572,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.Affinity5, "affinity5")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10315,6 +10596,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10351,6 +10633,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.Affinity6, "affinity6")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10375,6 +10658,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10415,6 +10699,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.Affinity7, "affinity7")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10440,6 +10725,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10484,6 +10770,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.Affinity8, "affinity8")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10510,6 +10797,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10558,6 +10846,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.Affinity9, "affinity9")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10585,6 +10874,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
 type MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoMeshAttribute_NewStyleAffinityAffinityTypes_NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type of the affinity entry. The type is
     // MplsTeTunnelAffinity.
@@ -10637,6 +10927,7 @@ func (newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5A
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleName = "cisco_ios_xr"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.ParentYangName = "new-style-affinity-affinity-types"
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath = "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.AffinityType, "affinity-type") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity1, "affinity1") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity2, "affinity2") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity3, "affinity3") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity4, "affinity4") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity5, "affinity5") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity6, "affinity6") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity7, "affinity7") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity8, "affinity8") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity9, "affinity9") + types.AddKeyToken(newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.Affinity10, "affinity10")
+    newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/new-style-affinity-affinity-types/" + newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.SegmentPath
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     newStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10683,6 +10974,7 @@ func (fastReroute *MplsTe_GlobalAttributes_AttributeSet_AutoMeshAttributes_AutoM
     fastReroute.EntityData.BundleName = "cisco_ios_xr"
     fastReroute.EntityData.ParentYangName = "auto-mesh-attribute"
     fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/auto-mesh-attribute/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10714,6 +11006,7 @@ func (xroAttributes *MplsTe_GlobalAttributes_AttributeSet_XroAttributes) GetEnti
     xroAttributes.EntityData.BundleName = "cisco_ios_xr"
     xroAttributes.EntityData.ParentYangName = "attribute-set"
     xroAttributes.EntityData.SegmentPath = "xro-attributes"
+    xroAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/" + xroAttributes.EntityData.SegmentPath
     xroAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xroAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xroAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10735,6 +11028,7 @@ func (xroAttributes *MplsTe_GlobalAttributes_AttributeSet_XroAttributes) GetEnti
 type MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Attribute Set Name. The type is string with
     // length: 1..64.
@@ -10758,6 +11052,7 @@ func (xroAttribute *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttrib
     xroAttribute.EntityData.BundleName = "cisco_ios_xr"
     xroAttribute.EntityData.ParentYangName = "xro-attributes"
     xroAttribute.EntityData.SegmentPath = "xro-attribute" + types.AddKeyToken(xroAttribute.AttributeSetName, "attribute-set-name")
+    xroAttribute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/" + xroAttribute.EntityData.SegmentPath
     xroAttribute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xroAttribute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xroAttribute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10793,6 +11088,7 @@ func (pathDiversity *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttri
     pathDiversity.EntityData.BundleName = "cisco_ios_xr"
     pathDiversity.EntityData.ParentYangName = "xro-attribute"
     pathDiversity.EntityData.SegmentPath = "path-diversity"
+    pathDiversity.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/xro-attribute/" + pathDiversity.EntityData.SegmentPath
     pathDiversity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathDiversity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathDiversity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10824,6 +11120,7 @@ func (srlgs *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_Pat
     srlgs.EntityData.BundleName = "cisco_ios_xr"
     srlgs.EntityData.ParentYangName = "path-diversity"
     srlgs.EntityData.SegmentPath = "srlgs"
+    srlgs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/xro-attribute/path-diversity/" + srlgs.EntityData.SegmentPath
     srlgs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10845,6 +11142,7 @@ func (srlgs *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_Pat
 type MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_PathDiversity_Srlgs_Srlg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG. The type is interface{} with range:
     // 0..4294967295.
@@ -10861,6 +11159,7 @@ func (srlg *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_Path
     srlg.EntityData.BundleName = "cisco_ios_xr"
     srlg.EntityData.ParentYangName = "srlgs"
     srlg.EntityData.SegmentPath = "srlg" + types.AddKeyToken(srlg.Srlg, "srlg")
+    srlg.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/xro-attribute/path-diversity/srlgs/" + srlg.EntityData.SegmentPath
     srlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10891,6 +11190,7 @@ func (lsp *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_PathD
     lsp.EntityData.BundleName = "cisco_ios_xr"
     lsp.EntityData.ParentYangName = "path-diversity"
     lsp.EntityData.SegmentPath = "lsp"
+    lsp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/xro-attribute/path-diversity/" + lsp.EntityData.SegmentPath
     lsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10921,6 +11221,7 @@ func (fecs *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_Path
     fecs.EntityData.BundleName = "cisco_ios_xr"
     fecs.EntityData.ParentYangName = "lsp"
     fecs.EntityData.SegmentPath = "fecs"
+    fecs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/xro-attribute/path-diversity/lsp/" + fecs.EntityData.SegmentPath
     fecs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fecs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fecs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10943,6 +11244,7 @@ func (fecs *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_Path
 type MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_PathDiversity_Lsp_Fecs_Fec struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Source address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -10977,6 +11279,7 @@ func (fec *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttribute_PathD
     fec.EntityData.BundleName = "cisco_ios_xr"
     fec.EntityData.ParentYangName = "fecs"
     fec.EntityData.SegmentPath = "fec" + types.AddKeyToken(fec.Source, "source") + types.AddKeyToken(fec.Destination, "destination") + types.AddKeyToken(fec.TunnelId, "tunnel-id") + types.AddKeyToken(fec.ExtendedTunnelId, "extended-tunnel-id") + types.AddKeyToken(fec.LspId, "lsp-id")
+    fec.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/xro-attribute/path-diversity/lsp/fecs/" + fec.EntityData.SegmentPath
     fec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11011,6 +11314,7 @@ func (pathSelection *MplsTe_GlobalAttributes_AttributeSet_XroAttributes_XroAttri
     pathSelection.EntityData.BundleName = "cisco_ios_xr"
     pathSelection.EntityData.ParentYangName = "xro-attribute"
     pathSelection.EntityData.SegmentPath = "path-selection"
+    pathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/xro-attribute/" + pathSelection.EntityData.SegmentPath
     pathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11043,6 +11347,7 @@ func (bfdOverLsp *MplsTe_GlobalAttributes_BfdOverLsp) GetEntityData() *types.Com
     bfdOverLsp.EntityData.BundleName = "cisco_ios_xr"
     bfdOverLsp.EntityData.ParentYangName = "global-attributes"
     bfdOverLsp.EntityData.SegmentPath = "bfd-over-lsp"
+    bfdOverLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + bfdOverLsp.EntityData.SegmentPath
     bfdOverLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfdOverLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfdOverLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11078,6 +11383,7 @@ func (tail *MplsTe_GlobalAttributes_BfdOverLsp_Tail) GetEntityData() *types.Comm
     tail.EntityData.BundleName = "cisco_ios_xr"
     tail.EntityData.ParentYangName = "bfd-over-lsp"
     tail.EntityData.SegmentPath = "tail"
+    tail.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bfd-over-lsp/" + tail.EntityData.SegmentPath
     tail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11112,6 +11418,7 @@ func (head *MplsTe_GlobalAttributes_BfdOverLsp_Head) GetEntityData() *types.Comm
     head.EntityData.BundleName = "cisco_ios_xr"
     head.EntityData.ParentYangName = "bfd-over-lsp"
     head.EntityData.SegmentPath = "head"
+    head.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bfd-over-lsp/" + head.EntityData.SegmentPath
     head.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     head.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     head.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11165,6 +11472,7 @@ func (bandwidthAccounting *MplsTe_GlobalAttributes_BandwidthAccounting) GetEntit
     bandwidthAccounting.EntityData.BundleName = "cisco_ios_xr"
     bandwidthAccounting.EntityData.ParentYangName = "global-attributes"
     bandwidthAccounting.EntityData.SegmentPath = "bandwidth-accounting"
+    bandwidthAccounting.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + bandwidthAccounting.EntityData.SegmentPath
     bandwidthAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bandwidthAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bandwidthAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11206,6 +11514,7 @@ func (application *MplsTe_GlobalAttributes_BandwidthAccounting_Application) GetE
     application.EntityData.BundleName = "cisco_ios_xr"
     application.EntityData.ParentYangName = "bandwidth-accounting"
     application.EntityData.SegmentPath = "application"
+    application.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bandwidth-accounting/" + application.EntityData.SegmentPath
     application.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     application.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     application.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11245,6 +11554,7 @@ func (accountFloodingThreshold *MplsTe_GlobalAttributes_BandwidthAccounting_Acco
     accountFloodingThreshold.EntityData.BundleName = "cisco_ios_xr"
     accountFloodingThreshold.EntityData.ParentYangName = "bandwidth-accounting"
     accountFloodingThreshold.EntityData.SegmentPath = "account-flooding-threshold"
+    accountFloodingThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bandwidth-accounting/" + accountFloodingThreshold.EntityData.SegmentPath
     accountFloodingThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountFloodingThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountFloodingThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11327,6 +11637,7 @@ func (pceAttributes *MplsTe_GlobalAttributes_PceAttributes) GetEntityData() *typ
     pceAttributes.EntityData.BundleName = "cisco_ios_xr"
     pceAttributes.EntityData.ParentYangName = "global-attributes"
     pceAttributes.EntityData.SegmentPath = "pce-attributes"
+    pceAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + pceAttributes.EntityData.SegmentPath
     pceAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pceAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pceAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11393,6 +11704,7 @@ func (pceStateful *MplsTe_GlobalAttributes_PceAttributes_PceStateful) GetEntityD
     pceStateful.EntityData.BundleName = "cisco_ios_xr"
     pceStateful.EntityData.ParentYangName = "pce-attributes"
     pceStateful.EntityData.SegmentPath = "pce-stateful"
+    pceStateful.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/" + pceStateful.EntityData.SegmentPath
     pceStateful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pceStateful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pceStateful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11437,6 +11749,7 @@ func (statefulTimers *MplsTe_GlobalAttributes_PceAttributes_PceStateful_Stateful
     statefulTimers.EntityData.BundleName = "cisco_ios_xr"
     statefulTimers.EntityData.ParentYangName = "pce-stateful"
     statefulTimers.EntityData.SegmentPath = "stateful-timers"
+    statefulTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/pce-stateful/" + statefulTimers.EntityData.SegmentPath
     statefulTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statefulTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statefulTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11465,6 +11778,7 @@ func (timer *MplsTe_GlobalAttributes_PceAttributes_Timer) GetEntityData() *types
     timer.EntityData.BundleName = "cisco_ios_xr"
     timer.EntityData.ParentYangName = "pce-attributes"
     timer.EntityData.SegmentPath = "timer"
+    timer.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/" + timer.EntityData.SegmentPath
     timer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11494,6 +11808,7 @@ func (peers *MplsTe_GlobalAttributes_PceAttributes_Peers) GetEntityData() *types
     peers.EntityData.BundleName = "cisco_ios_xr"
     peers.EntityData.ParentYangName = "pce-attributes"
     peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/" + peers.EntityData.SegmentPath
     peers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11515,6 +11830,7 @@ func (peers *MplsTe_GlobalAttributes_PceAttributes_Peers) GetEntityData() *types
 type MplsTe_GlobalAttributes_PceAttributes_Peers_Peer struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address of PCE Peer. The type is string with
     // pattern:
@@ -11541,6 +11857,7 @@ func (peer *MplsTe_GlobalAttributes_PceAttributes_Peers_Peer) GetEntityData() *t
     peer.EntityData.BundleName = "cisco_ios_xr"
     peer.EntityData.ParentYangName = "peers"
     peer.EntityData.SegmentPath = "peer" + types.AddKeyToken(peer.PcePeerAddress, "pce-peer-address")
+    peer.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/peers/" + peer.EntityData.SegmentPath
     peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11575,6 +11892,7 @@ func (logging *MplsTe_GlobalAttributes_PceAttributes_Logging) GetEntityData() *t
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "pce-attributes"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11604,6 +11922,7 @@ func (events *MplsTe_GlobalAttributes_PceAttributes_Logging_Events) GetEntityDat
     events.EntityData.BundleName = "cisco_ios_xr"
     events.EntityData.ParentYangName = "logging"
     events.EntityData.SegmentPath = "events"
+    events.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/logging/" + events.EntityData.SegmentPath
     events.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     events.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     events.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11636,6 +11955,7 @@ func (lspOutOfResource *MplsTe_GlobalAttributes_LspOutOfResource) GetEntityData(
     lspOutOfResource.EntityData.BundleName = "cisco_ios_xr"
     lspOutOfResource.EntityData.ParentYangName = "global-attributes"
     lspOutOfResource.EntityData.SegmentPath = "lsp-out-of-resource"
+    lspOutOfResource.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + lspOutOfResource.EntityData.SegmentPath
     lspOutOfResource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspOutOfResource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspOutOfResource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11671,6 +11991,7 @@ func (lspOorRedState *MplsTe_GlobalAttributes_LspOutOfResource_LspOorRedState) G
     lspOorRedState.EntityData.BundleName = "cisco_ios_xr"
     lspOorRedState.EntityData.ParentYangName = "lsp-out-of-resource"
     lspOorRedState.EntityData.SegmentPath = "lsp-oor-red-state"
+    lspOorRedState.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/lsp-out-of-resource/" + lspOorRedState.EntityData.SegmentPath
     lspOorRedState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspOorRedState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspOorRedState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11706,6 +12027,7 @@ func (lspOorYellowState *MplsTe_GlobalAttributes_LspOutOfResource_LspOorYellowSt
     lspOorYellowState.EntityData.BundleName = "cisco_ios_xr"
     lspOorYellowState.EntityData.ParentYangName = "lsp-out-of-resource"
     lspOorYellowState.EntityData.SegmentPath = "lsp-oor-yellow-state"
+    lspOorYellowState.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/lsp-out-of-resource/" + lspOorYellowState.EntityData.SegmentPath
     lspOorYellowState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lspOorYellowState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lspOorYellowState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11747,6 +12069,7 @@ func (softPreemption *MplsTe_GlobalAttributes_SoftPreemption) GetEntityData() *t
     softPreemption.EntityData.BundleName = "cisco_ios_xr"
     softPreemption.EntityData.ParentYangName = "global-attributes"
     softPreemption.EntityData.SegmentPath = "soft-preemption"
+    softPreemption.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + softPreemption.EntityData.SegmentPath
     softPreemption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     softPreemption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     softPreemption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11778,6 +12101,7 @@ func (fastReroute *MplsTe_GlobalAttributes_FastReroute) GetEntityData() *types.C
     fastReroute.EntityData.BundleName = "cisco_ios_xr"
     fastReroute.EntityData.ParentYangName = "global-attributes"
     fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11812,6 +12136,7 @@ func (timers *MplsTe_GlobalAttributes_FastReroute_Timers) GetEntityData() *types
     timers.EntityData.BundleName = "cisco_ios_xr"
     timers.EntityData.ParentYangName = "fast-reroute"
     timers.EntityData.SegmentPath = "timers"
+    timers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/fast-reroute/" + timers.EntityData.SegmentPath
     timers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11869,6 +12194,7 @@ func (pathSelection *MplsTe_GlobalAttributes_PathSelection) GetEntityData() *typ
     pathSelection.EntityData.BundleName = "cisco_ios_xr"
     pathSelection.EntityData.ParentYangName = "global-attributes"
     pathSelection.EntityData.SegmentPath = "path-selection"
+    pathSelection.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + pathSelection.EntityData.SegmentPath
     pathSelection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathSelection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathSelection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11908,6 +12234,7 @@ func (looseMetrics *MplsTe_GlobalAttributes_PathSelection_LooseMetrics) GetEntit
     looseMetrics.EntityData.BundleName = "cisco_ios_xr"
     looseMetrics.EntityData.ParentYangName = "path-selection"
     looseMetrics.EntityData.SegmentPath = "loose-metrics"
+    looseMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/" + looseMetrics.EntityData.SegmentPath
     looseMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     looseMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     looseMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11929,6 +12256,7 @@ func (looseMetrics *MplsTe_GlobalAttributes_PathSelection_LooseMetrics) GetEntit
 type MplsTe_GlobalAttributes_PathSelection_LooseMetrics_LooseMetric struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path Selection class Type. The type is interface{}
     // with range: 0..7.
@@ -11945,6 +12273,7 @@ func (looseMetric *MplsTe_GlobalAttributes_PathSelection_LooseMetrics_LooseMetri
     looseMetric.EntityData.BundleName = "cisco_ios_xr"
     looseMetric.EntityData.ParentYangName = "loose-metrics"
     looseMetric.EntityData.SegmentPath = "loose-metric" + types.AddKeyToken(looseMetric.ClassType, "class-type")
+    looseMetric.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/loose-metrics/" + looseMetric.EntityData.SegmentPath
     looseMetric.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     looseMetric.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     looseMetric.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11978,6 +12307,7 @@ func (invalidation *MplsTe_GlobalAttributes_PathSelection_Invalidation) GetEntit
     invalidation.EntityData.BundleName = "cisco_ios_xr"
     invalidation.EntityData.ParentYangName = "path-selection"
     invalidation.EntityData.SegmentPath = "invalidation"
+    invalidation.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/" + invalidation.EntityData.SegmentPath
     invalidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     invalidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     invalidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12015,6 +12345,7 @@ func (ignoreOverloadRole *MplsTe_GlobalAttributes_PathSelection_IgnoreOverloadRo
     ignoreOverloadRole.EntityData.BundleName = "cisco_ios_xr"
     ignoreOverloadRole.EntityData.ParentYangName = "path-selection"
     ignoreOverloadRole.EntityData.SegmentPath = "ignore-overload-role"
+    ignoreOverloadRole.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/" + ignoreOverloadRole.EntityData.SegmentPath
     ignoreOverloadRole.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ignoreOverloadRole.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ignoreOverloadRole.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12048,6 +12379,7 @@ func (looseAffinities *MplsTe_GlobalAttributes_PathSelection_LooseAffinities) Ge
     looseAffinities.EntityData.BundleName = "cisco_ios_xr"
     looseAffinities.EntityData.ParentYangName = "path-selection"
     looseAffinities.EntityData.SegmentPath = "loose-affinities"
+    looseAffinities.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/" + looseAffinities.EntityData.SegmentPath
     looseAffinities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     looseAffinities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     looseAffinities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12070,6 +12402,7 @@ func (looseAffinities *MplsTe_GlobalAttributes_PathSelection_LooseAffinities) Ge
 type MplsTe_GlobalAttributes_PathSelection_LooseAffinities_LooseAffinity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Path Selection class Type. The type is interface{}
     // with range: 0..7.
@@ -12088,6 +12421,7 @@ func (looseAffinity *MplsTe_GlobalAttributes_PathSelection_LooseAffinities_Loose
     looseAffinity.EntityData.BundleName = "cisco_ios_xr"
     looseAffinity.EntityData.ParentYangName = "loose-affinities"
     looseAffinity.EntityData.SegmentPath = "loose-affinity" + types.AddKeyToken(looseAffinity.ClassType, "class-type")
+    looseAffinity.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/loose-affinities/" + looseAffinity.EntityData.SegmentPath
     looseAffinity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     looseAffinity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     looseAffinity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12120,6 +12454,7 @@ func (affinityMappings *MplsTe_GlobalAttributes_AffinityMappings) GetEntityData(
     affinityMappings.EntityData.BundleName = "cisco_ios_xr"
     affinityMappings.EntityData.ParentYangName = "global-attributes"
     affinityMappings.EntityData.SegmentPath = "affinity-mappings"
+    affinityMappings.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/" + affinityMappings.EntityData.SegmentPath
     affinityMappings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMappings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMappings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12141,6 +12476,7 @@ func (affinityMappings *MplsTe_GlobalAttributes_AffinityMappings) GetEntityData(
 type MplsTe_GlobalAttributes_AffinityMappings_AffinityMapping struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Affinity Name. The type is string with length:
     // 1..32.
@@ -12160,6 +12496,7 @@ func (affinityMapping *MplsTe_GlobalAttributes_AffinityMappings_AffinityMapping)
     affinityMapping.EntityData.BundleName = "cisco_ios_xr"
     affinityMapping.EntityData.ParentYangName = "affinity-mappings"
     affinityMapping.EntityData.SegmentPath = "affinity-mapping" + types.AddKeyToken(affinityMapping.AffinityName, "affinity-name")
+    affinityMapping.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/affinity-mappings/" + affinityMapping.EntityData.SegmentPath
     affinityMapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityMapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityMapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12208,6 +12545,7 @@ func (transportProfile *MplsTe_TransportProfile) GetEntityData() *types.CommonEn
     transportProfile.EntityData.BundleName = "cisco_ios_xr"
     transportProfile.EntityData.ParentYangName = "mpls-te"
     transportProfile.EntityData.SegmentPath = "transport-profile"
+    transportProfile.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/" + transportProfile.EntityData.SegmentPath
     transportProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12250,6 +12588,7 @@ func (fault *MplsTe_TransportProfile_Fault) GetEntityData() *types.CommonEntityD
     fault.EntityData.BundleName = "cisco_ios_xr"
     fault.EntityData.ParentYangName = "transport-profile"
     fault.EntityData.SegmentPath = "fault"
+    fault.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/" + fault.EntityData.SegmentPath
     fault.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12287,6 +12626,7 @@ func (protectionTrigger *MplsTe_TransportProfile_Fault_ProtectionTrigger) GetEnt
     protectionTrigger.EntityData.BundleName = "cisco_ios_xr"
     protectionTrigger.EntityData.ParentYangName = "fault"
     protectionTrigger.EntityData.SegmentPath = "protection-trigger"
+    protectionTrigger.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/" + protectionTrigger.EntityData.SegmentPath
     protectionTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectionTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectionTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12318,6 +12658,7 @@ func (ldi *MplsTe_TransportProfile_Fault_ProtectionTrigger_Ldi) GetEntityData() 
     ldi.EntityData.BundleName = "cisco_ios_xr"
     ldi.EntityData.ParentYangName = "protection-trigger"
     ldi.EntityData.SegmentPath = "ldi"
+    ldi.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/protection-trigger/" + ldi.EntityData.SegmentPath
     ldi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ldi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ldi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12347,6 +12688,7 @@ func (lkr *MplsTe_TransportProfile_Fault_ProtectionTrigger_Lkr) GetEntityData() 
     lkr.EntityData.BundleName = "cisco_ios_xr"
     lkr.EntityData.ParentYangName = "protection-trigger"
     lkr.EntityData.SegmentPath = "lkr"
+    lkr.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/protection-trigger/" + lkr.EntityData.SegmentPath
     lkr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lkr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lkr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12383,6 +12725,7 @@ func (alarm *MplsTe_TransportProfile_Alarm) GetEntityData() *types.CommonEntityD
     alarm.EntityData.BundleName = "cisco_ios_xr"
     alarm.EntityData.ParentYangName = "transport-profile"
     alarm.EntityData.SegmentPath = "alarm"
+    alarm.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/" + alarm.EntityData.SegmentPath
     alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12414,6 +12757,7 @@ func (suppressEvent *MplsTe_TransportProfile_Alarm_SuppressEvent) GetEntityData(
     suppressEvent.EntityData.BundleName = "cisco_ios_xr"
     suppressEvent.EntityData.ParentYangName = "alarm"
     suppressEvent.EntityData.SegmentPath = "suppress-event"
+    suppressEvent.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/alarm/" + suppressEvent.EntityData.SegmentPath
     suppressEvent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppressEvent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppressEvent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12454,6 +12798,7 @@ func (bfd *MplsTe_TransportProfile_Bfd) GetEntityData() *types.CommonEntityData 
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "transport-profile"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12493,6 +12838,7 @@ func (minIntervalStandby *MplsTe_TransportProfile_Bfd_MinIntervalStandby) GetEnt
     minIntervalStandby.EntityData.BundleName = "cisco_ios_xr"
     minIntervalStandby.EntityData.ParentYangName = "bfd"
     minIntervalStandby.EntityData.SegmentPath = "min-interval-standby"
+    minIntervalStandby.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/bfd/" + minIntervalStandby.EntityData.SegmentPath
     minIntervalStandby.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minIntervalStandby.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minIntervalStandby.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12529,6 +12875,7 @@ func (minInterval *MplsTe_TransportProfile_Bfd_MinInterval) GetEntityData() *typ
     minInterval.EntityData.BundleName = "cisco_ios_xr"
     minInterval.EntityData.ParentYangName = "bfd"
     minInterval.EntityData.SegmentPath = "min-interval"
+    minInterval.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/bfd/" + minInterval.EntityData.SegmentPath
     minInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     minInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     minInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12560,6 +12907,7 @@ func (midpoints *MplsTe_TransportProfile_Midpoints) GetEntityData() *types.Commo
     midpoints.EntityData.BundleName = "cisco_ios_xr"
     midpoints.EntityData.ParentYangName = "transport-profile"
     midpoints.EntityData.SegmentPath = "midpoints"
+    midpoints.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/" + midpoints.EntityData.SegmentPath
     midpoints.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     midpoints.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     midpoints.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12581,6 +12929,7 @@ func (midpoints *MplsTe_TransportProfile_Midpoints) GetEntityData() *types.Commo
 type MplsTe_TransportProfile_Midpoints_Midpoint struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of mid-point. The type is string with length:
     // 1..64.
@@ -12616,6 +12965,7 @@ func (midpoint *MplsTe_TransportProfile_Midpoints_Midpoint) GetEntityData() *typ
     midpoint.EntityData.BundleName = "cisco_ios_xr"
     midpoint.EntityData.ParentYangName = "midpoints"
     midpoint.EntityData.SegmentPath = "midpoint" + types.AddKeyToken(midpoint.MidpointName, "midpoint-name")
+    midpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/" + midpoint.EntityData.SegmentPath
     midpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     midpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     midpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12665,6 +13015,7 @@ func (source *MplsTe_TransportProfile_Midpoints_Midpoint_Source) GetEntityData()
     source.EntityData.BundleName = "cisco_ios_xr"
     source.EntityData.ParentYangName = "midpoint"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/midpoint/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12709,6 +13060,7 @@ func (destination *MplsTe_TransportProfile_Midpoints_Midpoint_Destination) GetEn
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "midpoint"
     destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/midpoint/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12744,6 +13096,7 @@ func (forwardLsp *MplsTe_TransportProfile_Midpoints_Midpoint_ForwardLsp) GetEnti
     forwardLsp.EntityData.BundleName = "cisco_ios_xr"
     forwardLsp.EntityData.ParentYangName = "midpoint"
     forwardLsp.EntityData.SegmentPath = "forward-lsp"
+    forwardLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/midpoint/" + forwardLsp.EntityData.SegmentPath
     forwardLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12785,6 +13138,7 @@ func (forwardIoMap *MplsTe_TransportProfile_Midpoints_Midpoint_ForwardLsp_Forwar
     forwardIoMap.EntityData.BundleName = "cisco_ios_xr"
     forwardIoMap.EntityData.ParentYangName = "forward-lsp"
     forwardIoMap.EntityData.SegmentPath = "forward-io-map"
+    forwardIoMap.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/midpoint/forward-lsp/" + forwardIoMap.EntityData.SegmentPath
     forwardIoMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwardIoMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwardIoMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12820,6 +13174,7 @@ func (reverseLsp *MplsTe_TransportProfile_Midpoints_Midpoint_ReverseLsp) GetEnti
     reverseLsp.EntityData.BundleName = "cisco_ios_xr"
     reverseLsp.EntityData.ParentYangName = "midpoint"
     reverseLsp.EntityData.SegmentPath = "reverse-lsp"
+    reverseLsp.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/midpoint/" + reverseLsp.EntityData.SegmentPath
     reverseLsp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reverseLsp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverseLsp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12861,6 +13216,7 @@ func (reverseIoMap *MplsTe_TransportProfile_Midpoints_Midpoint_ReverseLsp_Revers
     reverseIoMap.EntityData.BundleName = "cisco_ios_xr"
     reverseIoMap.EntityData.ParentYangName = "reverse-lsp"
     reverseIoMap.EntityData.SegmentPath = "reverse-io-map"
+    reverseIoMap.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/midpoint/reverse-lsp/" + reverseIoMap.EntityData.SegmentPath
     reverseIoMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reverseIoMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reverseIoMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12893,6 +13249,7 @@ func (interfaces *MplsTe_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "mpls-te"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12914,6 +13271,7 @@ func (interfaces *MplsTe_Interfaces) GetEntityData() *types.CommonEntityData {
 type MplsTe_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -12935,6 +13293,7 @@ func (self *MplsTe_Interfaces_Interface) GetEntityData() *types.CommonEntityData
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12967,6 +13326,7 @@ func (transportProfileLink *MplsTe_Interfaces_Interface_TransportProfileLink) Ge
     transportProfileLink.EntityData.BundleName = "cisco_ios_xr"
     transportProfileLink.EntityData.ParentYangName = "interface"
     transportProfileLink.EntityData.SegmentPath = "transport-profile-link"
+    transportProfileLink.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/" + transportProfileLink.EntityData.SegmentPath
     transportProfileLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transportProfileLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transportProfileLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12997,6 +13357,7 @@ func (links *MplsTe_Interfaces_Interface_TransportProfileLink_Links) GetEntityDa
     links.EntityData.BundleName = "cisco_ios_xr"
     links.EntityData.ParentYangName = "transport-profile-link"
     links.EntityData.SegmentPath = "links"
+    links.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/transport-profile-link/" + links.EntityData.SegmentPath
     links.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     links.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     links.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13018,6 +13379,7 @@ func (links *MplsTe_Interfaces_Interface_TransportProfileLink_Links) GetEntityDa
 type MplsTe_Interfaces_Interface_TransportProfileLink_Links_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Numeric link identifier. The type is interface{}
     // with range: 1..65535.
@@ -13037,6 +13399,7 @@ func (link *MplsTe_Interfaces_Interface_TransportProfileLink_Links_Link) GetEnti
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "links"
     link.EntityData.SegmentPath = "link" + types.AddKeyToken(link.LinkId, "link-id")
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/transport-profile-link/links/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13104,6 +13467,7 @@ func (lcac *MplsTe_Interfaces_Interface_Lcac) GetEntityData() *types.CommonEntit
     lcac.EntityData.BundleName = "cisco_ios_xr"
     lcac.EntityData.ParentYangName = "interface"
     lcac.EntityData.SegmentPath = "lcac"
+    lcac.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/" + lcac.EntityData.SegmentPath
     lcac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13145,6 +13509,7 @@ func (switchings *MplsTe_Interfaces_Interface_Lcac_Switchings) GetEntityData() *
     switchings.EntityData.BundleName = "cisco_ios_xr"
     switchings.EntityData.ParentYangName = "lcac"
     switchings.EntityData.SegmentPath = "switchings"
+    switchings.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/" + switchings.EntityData.SegmentPath
     switchings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     switchings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     switchings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13166,6 +13531,7 @@ func (switchings *MplsTe_Interfaces_Interface_Lcac_Switchings) GetEntityData() *
 type MplsTe_Interfaces_Interface_Lcac_Switchings_Switching struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Switching index. The type is one of the following
     // types: enumeration MplsTeSwitchingIndex, or int with range: 1..255.
@@ -13184,6 +13550,7 @@ func (switching *MplsTe_Interfaces_Interface_Lcac_Switchings_Switching) GetEntit
     switching.EntityData.BundleName = "cisco_ios_xr"
     switching.EntityData.ParentYangName = "switchings"
     switching.EntityData.SegmentPath = "switching" + types.AddKeyToken(switching.SwitchingId, "switching-id")
+    switching.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/switchings/" + switching.EntityData.SegmentPath
     switching.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     switching.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     switching.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13222,6 +13589,7 @@ func (floodArea *MplsTe_Interfaces_Interface_Lcac_FloodArea) GetEntityData() *ty
     floodArea.EntityData.BundleName = "cisco_ios_xr"
     floodArea.EntityData.ParentYangName = "lcac"
     floodArea.EntityData.SegmentPath = "flood-area"
+    floodArea.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/" + floodArea.EntityData.SegmentPath
     floodArea.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     floodArea.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     floodArea.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13253,6 +13621,7 @@ func (attributeNameXr *MplsTe_Interfaces_Interface_Lcac_AttributeNameXr) GetEnti
     attributeNameXr.EntityData.BundleName = "cisco_ios_xr"
     attributeNameXr.EntityData.ParentYangName = "lcac"
     attributeNameXr.EntityData.SegmentPath = "attribute-name-xr"
+    attributeNameXr.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/" + attributeNameXr.EntityData.SegmentPath
     attributeNameXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeNameXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeNameXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13283,6 +13652,7 @@ func (attributeNames *MplsTe_Interfaces_Interface_Lcac_AttributeNames) GetEntity
     attributeNames.EntityData.BundleName = "cisco_ios_xr"
     attributeNames.EntityData.ParentYangName = "lcac"
     attributeNames.EntityData.SegmentPath = "attribute-names"
+    attributeNames.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/" + attributeNames.EntityData.SegmentPath
     attributeNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13304,6 +13674,7 @@ func (attributeNames *MplsTe_Interfaces_Interface_Lcac_AttributeNames) GetEntity
 type MplsTe_Interfaces_Interface_Lcac_AttributeNames_AttributeName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify the entry index. The type is interface{}
     // with range: 1..9.
@@ -13319,6 +13690,7 @@ func (attributeName *MplsTe_Interfaces_Interface_Lcac_AttributeNames_AttributeNa
     attributeName.EntityData.BundleName = "cisco_ios_xr"
     attributeName.EntityData.ParentYangName = "attribute-names"
     attributeName.EntityData.SegmentPath = "attribute-name" + types.AddKeyToken(attributeName.AffinityIndex, "affinity-index")
+    attributeName.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/attribute-names/" + attributeName.EntityData.SegmentPath
     attributeName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attributeName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attributeName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13350,6 +13722,7 @@ func (srlgs *MplsTe_Interfaces_Interface_Lcac_Srlgs) GetEntityData() *types.Comm
     srlgs.EntityData.BundleName = "cisco_ios_xr"
     srlgs.EntityData.ParentYangName = "lcac"
     srlgs.EntityData.SegmentPath = "srlgs"
+    srlgs.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/" + srlgs.EntityData.SegmentPath
     srlgs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlgs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlgs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13371,6 +13744,7 @@ func (srlgs *MplsTe_Interfaces_Interface_Lcac_Srlgs) GetEntityData() *types.Comm
 type MplsTe_Interfaces_Interface_Lcac_Srlgs_Srlg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. SRLG membership number. The type is interface{}
     // with range: 0..4294967295.
@@ -13383,6 +13757,7 @@ func (srlg *MplsTe_Interfaces_Interface_Lcac_Srlgs_Srlg) GetEntityData() *types.
     srlg.EntityData.BundleName = "cisco_ios_xr"
     srlg.EntityData.ParentYangName = "srlgs"
     srlg.EntityData.SegmentPath = "srlg" + types.AddKeyToken(srlg.SrlgNumber, "srlg-number")
+    srlg.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/srlgs/" + srlg.EntityData.SegmentPath
     srlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13414,6 +13789,7 @@ func (upThresholds *MplsTe_Interfaces_Interface_Lcac_UpThresholds) GetEntityData
     upThresholds.EntityData.BundleName = "cisco_ios_xr"
     upThresholds.EntityData.ParentYangName = "lcac"
     upThresholds.EntityData.SegmentPath = "up-thresholds"
+    upThresholds.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/" + upThresholds.EntityData.SegmentPath
     upThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     upThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     upThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13445,6 +13821,7 @@ func (downThresholds *MplsTe_Interfaces_Interface_Lcac_DownThresholds) GetEntity
     downThresholds.EntityData.BundleName = "cisco_ios_xr"
     downThresholds.EntityData.ParentYangName = "lcac"
     downThresholds.EntityData.SegmentPath = "down-thresholds"
+    downThresholds.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/lcac/" + downThresholds.EntityData.SegmentPath
     downThresholds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     downThresholds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     downThresholds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13480,6 +13857,7 @@ func (globalAttributes *MplsTe_Interfaces_Interface_GlobalAttributes) GetEntityD
     globalAttributes.EntityData.BundleName = "cisco_ios_xr"
     globalAttributes.EntityData.ParentYangName = "interface"
     globalAttributes.EntityData.SegmentPath = "global-attributes"
+    globalAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/" + globalAttributes.EntityData.SegmentPath
     globalAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13513,6 +13891,7 @@ func (backupTunnels *MplsTe_Interfaces_Interface_GlobalAttributes_BackupTunnels)
     backupTunnels.EntityData.BundleName = "cisco_ios_xr"
     backupTunnels.EntityData.ParentYangName = "global-attributes"
     backupTunnels.EntityData.SegmentPath = "backup-tunnels"
+    backupTunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/global-attributes/" + backupTunnels.EntityData.SegmentPath
     backupTunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupTunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupTunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13534,6 +13913,7 @@ func (backupTunnels *MplsTe_Interfaces_Interface_GlobalAttributes_BackupTunnels)
 type MplsTe_Interfaces_Interface_GlobalAttributes_BackupTunnels_BackupTunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Tunnel name. The type is string with length:
     // 1..54.
@@ -13546,6 +13926,7 @@ func (backupTunnel *MplsTe_Interfaces_Interface_GlobalAttributes_BackupTunnels_B
     backupTunnel.EntityData.BundleName = "cisco_ios_xr"
     backupTunnel.EntityData.ParentYangName = "backup-tunnels"
     backupTunnel.EntityData.SegmentPath = "backup-tunnel" + types.AddKeyToken(backupTunnel.TunnelName, "tunnel-name")
+    backupTunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/global-attributes/backup-tunnels/" + backupTunnel.EntityData.SegmentPath
     backupTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13575,6 +13956,7 @@ func (autoTunnel *MplsTe_Interfaces_Interface_GlobalAttributes_AutoTunnel) GetEn
     autoTunnel.EntityData.BundleName = "cisco_ios_xr"
     autoTunnel.EntityData.ParentYangName = "global-attributes"
     autoTunnel.EntityData.SegmentPath = "auto-tunnel"
+    autoTunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/global-attributes/" + autoTunnel.EntityData.SegmentPath
     autoTunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoTunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoTunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13615,6 +13997,7 @@ func (backup *MplsTe_Interfaces_Interface_GlobalAttributes_AutoTunnel_Backup) Ge
     backup.EntityData.BundleName = "cisco_ios_xr"
     backup.EntityData.ParentYangName = "auto-tunnel"
     backup.EntityData.SegmentPath = "backup"
+    backup.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/global-attributes/auto-tunnel/" + backup.EntityData.SegmentPath
     backup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13648,6 +14031,7 @@ func (exclude *MplsTe_Interfaces_Interface_GlobalAttributes_AutoTunnel_Backup_Ex
     exclude.EntityData.BundleName = "cisco_ios_xr"
     exclude.EntityData.ParentYangName = "backup"
     exclude.EntityData.SegmentPath = "exclude"
+    exclude.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/global-attributes/auto-tunnel/backup/" + exclude.EntityData.SegmentPath
     exclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13679,6 +14063,7 @@ func (backupPaths *MplsTe_Interfaces_Interface_GlobalAttributes_BackupPaths) Get
     backupPaths.EntityData.BundleName = "cisco_ios_xr"
     backupPaths.EntityData.ParentYangName = "global-attributes"
     backupPaths.EntityData.SegmentPath = "backup-paths"
+    backupPaths.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/global-attributes/" + backupPaths.EntityData.SegmentPath
     backupPaths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPaths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPaths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13700,6 +14085,7 @@ func (backupPaths *MplsTe_Interfaces_Interface_GlobalAttributes_BackupPaths) Get
 type MplsTe_Interfaces_Interface_GlobalAttributes_BackupPaths_BackupPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Tunnel interface number. The type is interface{}
     // with range: 0..65535.
@@ -13712,6 +14098,7 @@ func (backupPath *MplsTe_Interfaces_Interface_GlobalAttributes_BackupPaths_Backu
     backupPath.EntityData.BundleName = "cisco_ios_xr"
     backupPath.EntityData.ParentYangName = "backup-paths"
     backupPath.EntityData.SegmentPath = "backup-path" + types.AddKeyToken(backupPath.TunnelNumber, "tunnel-number")
+    backupPath.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/interface/global-attributes/backup-paths/" + backupPath.EntityData.SegmentPath
     backupPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13751,6 +14138,7 @@ func (gmplsNni *MplsTe_GmplsNni) GetEntityData() *types.CommonEntityData {
     gmplsNni.EntityData.BundleName = "cisco_ios_xr"
     gmplsNni.EntityData.ParentYangName = "mpls-te"
     gmplsNni.EntityData.SegmentPath = "gmpls-nni"
+    gmplsNni.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/" + gmplsNni.EntityData.SegmentPath
     gmplsNni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     gmplsNni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     gmplsNni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13784,6 +14172,7 @@ func (topologyInstances *MplsTe_GmplsNni_TopologyInstances) GetEntityData() *typ
     topologyInstances.EntityData.BundleName = "cisco_ios_xr"
     topologyInstances.EntityData.ParentYangName = "gmpls-nni"
     topologyInstances.EntityData.SegmentPath = "topology-instances"
+    topologyInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/" + topologyInstances.EntityData.SegmentPath
     topologyInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologyInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologyInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13805,6 +14194,7 @@ func (topologyInstances *MplsTe_GmplsNni_TopologyInstances) GetEntityData() *typ
 type MplsTe_GmplsNni_TopologyInstances_TopologyInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. OSPF area format. The type is OspfAreaMode.
     OspfAreaType interface{}
@@ -13831,6 +14221,7 @@ func (topologyInstance *MplsTe_GmplsNni_TopologyInstances_TopologyInstance) GetE
     topologyInstance.EntityData.BundleName = "cisco_ios_xr"
     topologyInstance.EntityData.ParentYangName = "topology-instances"
     topologyInstance.EntityData.SegmentPath = "topology-instance" + types.AddKeyToken(topologyInstance.OspfAreaType, "ospf-area-type") + types.AddKeyToken(topologyInstance.IgpInstanceName, "igp-instance-name") + types.AddKeyToken(topologyInstance.IgpType, "igp-type")
+    topologyInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/" + topologyInstance.EntityData.SegmentPath
     topologyInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     topologyInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     topologyInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13859,6 +14250,7 @@ func (topologyInstance *MplsTe_GmplsNni_TopologyInstances_TopologyInstance) GetE
 type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. IGP area. The type is interface{} with range:
     // 0..4294967295.
@@ -13874,6 +14266,7 @@ func (ospfInt *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt) GetEn
     ospfInt.EntityData.BundleName = "cisco_ios_xr"
     ospfInt.EntityData.ParentYangName = "topology-instance"
     ospfInt.EntityData.SegmentPath = "ospf-int" + types.AddKeyToken(ospfInt.IgpArea, "igp-area")
+    ospfInt.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/" + ospfInt.EntityData.SegmentPath
     ospfInt.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfInt.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfInt.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13905,6 +14298,7 @@ func (controllers *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_Co
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "ospf-int"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/ospf-int/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13926,6 +14320,7 @@ func (controllers *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_Co
 type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -13955,6 +14350,7 @@ func (controller *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_Con
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/ospf-int/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13994,6 +14390,7 @@ func (ttiMode *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_Contro
     ttiMode.EntityData.BundleName = "cisco_ios_xr"
     ttiMode.EntityData.ParentYangName = "controller"
     ttiMode.EntityData.SegmentPath = "tti-mode"
+    ttiMode.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/ospf-int/controllers/controller/" + ttiMode.EntityData.SegmentPath
     ttiMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ttiMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ttiMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14024,6 +14421,7 @@ func (affinityNames *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_
     affinityNames.EntityData.BundleName = "cisco_ios_xr"
     affinityNames.EntityData.ParentYangName = "controller"
     affinityNames.EntityData.SegmentPath = "affinity-names"
+    affinityNames.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/ospf-int/controllers/controller/" + affinityNames.EntityData.SegmentPath
     affinityNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14042,6 +14440,7 @@ func (affinityNames *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfInt_
 type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID if in IP address format. The type is
     // string with pattern:
@@ -14058,6 +14457,7 @@ func (ospfipAddr *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr)
     ospfipAddr.EntityData.BundleName = "cisco_ios_xr"
     ospfipAddr.EntityData.ParentYangName = "topology-instance"
     ospfipAddr.EntityData.SegmentPath = "ospfip-addr" + types.AddKeyToken(ospfipAddr.Address, "address")
+    ospfipAddr.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/" + ospfipAddr.EntityData.SegmentPath
     ospfipAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfipAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfipAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14089,6 +14489,7 @@ func (controllers *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr
     controllers.EntityData.BundleName = "cisco_ios_xr"
     controllers.EntityData.ParentYangName = "ospfip-addr"
     controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/ospfip-addr/" + controllers.EntityData.SegmentPath
     controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14110,6 +14511,7 @@ func (controllers *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr
 type MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr_Controllers_Controller struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -14139,6 +14541,7 @@ func (controller *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr_
     controller.EntityData.BundleName = "cisco_ios_xr"
     controller.EntityData.ParentYangName = "controllers"
     controller.EntityData.SegmentPath = "controller" + types.AddKeyToken(controller.ControllerName, "controller-name")
+    controller.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/ospfip-addr/controllers/" + controller.EntityData.SegmentPath
     controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14178,6 +14581,7 @@ func (ttiMode *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAddr_Con
     ttiMode.EntityData.BundleName = "cisco_ios_xr"
     ttiMode.EntityData.ParentYangName = "controller"
     ttiMode.EntityData.SegmentPath = "tti-mode"
+    ttiMode.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/ospfip-addr/controllers/controller/" + ttiMode.EntityData.SegmentPath
     ttiMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ttiMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ttiMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14208,6 +14612,7 @@ func (affinityNames *MplsTe_GmplsNni_TopologyInstances_TopologyInstance_OspfipAd
     affinityNames.EntityData.BundleName = "cisco_ios_xr"
     affinityNames.EntityData.ParentYangName = "controller"
     affinityNames.EntityData.SegmentPath = "affinity-names"
+    affinityNames.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/topology-instance/ospfip-addr/controllers/controller/" + affinityNames.EntityData.SegmentPath
     affinityNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     affinityNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     affinityNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14238,6 +14643,7 @@ func (tunnelHeads *MplsTe_GmplsNni_TunnelHeads) GetEntityData() *types.CommonEnt
     tunnelHeads.EntityData.BundleName = "cisco_ios_xr"
     tunnelHeads.EntityData.ParentYangName = "gmpls-nni"
     tunnelHeads.EntityData.SegmentPath = "tunnel-heads"
+    tunnelHeads.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/" + tunnelHeads.EntityData.SegmentPath
     tunnelHeads.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelHeads.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelHeads.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14260,6 +14666,7 @@ func (tunnelHeads *MplsTe_GmplsNni_TunnelHeads) GetEntityData() *types.CommonEnt
 type MplsTe_GmplsNni_TunnelHeads_TunnelHead struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Tunnel ID. The type is interface{} with range:
     // 0..65535.
@@ -14335,6 +14742,7 @@ func (tunnelHead *MplsTe_GmplsNni_TunnelHeads_TunnelHead) GetEntityData() *types
     tunnelHead.EntityData.BundleName = "cisco_ios_xr"
     tunnelHead.EntityData.ParentYangName = "tunnel-heads"
     tunnelHead.EntityData.SegmentPath = "tunnel-head" + types.AddKeyToken(tunnelHead.TunnelId, "tunnel-id")
+    tunnelHead.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/" + tunnelHead.EntityData.SegmentPath
     tunnelHead.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelHead.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelHead.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14391,6 +14799,7 @@ func (signalledBandwidth *MplsTe_GmplsNni_TunnelHeads_TunnelHead_SignalledBandwi
     signalledBandwidth.EntityData.BundleName = "cisco_ios_xr"
     signalledBandwidth.EntityData.ParentYangName = "tunnel-head"
     signalledBandwidth.EntityData.SegmentPath = "signalled-bandwidth"
+    signalledBandwidth.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/tunnel-head/" + signalledBandwidth.EntityData.SegmentPath
     signalledBandwidth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     signalledBandwidth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     signalledBandwidth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14431,6 +14840,7 @@ func (destination *MplsTe_GmplsNni_TunnelHeads_TunnelHead_Destination) GetEntity
     destination.EntityData.BundleName = "cisco_ios_xr"
     destination.EntityData.ParentYangName = "tunnel-head"
     destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/tunnel-head/" + destination.EntityData.SegmentPath
     destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14464,6 +14874,7 @@ func (protectionSwitching *MplsTe_GmplsNni_TunnelHeads_TunnelHead_ProtectionSwit
     protectionSwitching.EntityData.BundleName = "cisco_ios_xr"
     protectionSwitching.EntityData.ParentYangName = "tunnel-head"
     protectionSwitching.EntityData.SegmentPath = "protection-switching"
+    protectionSwitching.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/tunnel-head/" + protectionSwitching.EntityData.SegmentPath
     protectionSwitching.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protectionSwitching.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protectionSwitching.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14515,6 +14926,7 @@ func (logging *MplsTe_GmplsNni_TunnelHeads_TunnelHead_Logging) GetEntityData() *
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "tunnel-head"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/tunnel-head/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14552,6 +14964,7 @@ func (pathOptions *MplsTe_GmplsNni_TunnelHeads_TunnelHead_PathOptions) GetEntity
     pathOptions.EntityData.BundleName = "cisco_ios_xr"
     pathOptions.EntityData.ParentYangName = "tunnel-head"
     pathOptions.EntityData.SegmentPath = "path-options"
+    pathOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/tunnel-head/" + pathOptions.EntityData.SegmentPath
     pathOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14575,6 +14988,7 @@ func (pathOptions *MplsTe_GmplsNni_TunnelHeads_TunnelHead_PathOptions) GetEntity
 type MplsTe_GmplsNni_TunnelHeads_TunnelHead_PathOptions_PathOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Preference level for this path option. The type is
     // interface{} with range: 1..1000.
@@ -14621,6 +15035,7 @@ func (pathOption *MplsTe_GmplsNni_TunnelHeads_TunnelHead_PathOptions_PathOption)
     pathOption.EntityData.BundleName = "cisco_ios_xr"
     pathOption.EntityData.ParentYangName = "path-options"
     pathOption.EntityData.SegmentPath = "path-option" + types.AddKeyToken(pathOption.PreferenceLevel, "preference-level")
+    pathOption.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/tunnel-head/path-options/" + pathOption.EntityData.SegmentPath
     pathOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pathOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pathOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14672,6 +15087,7 @@ func (staticUni *MplsTe_GmplsNni_TunnelHeads_TunnelHead_StaticUni) GetEntityData
     staticUni.EntityData.BundleName = "cisco_ios_xr"
     staticUni.EntityData.ParentYangName = "tunnel-head"
     staticUni.EntityData.SegmentPath = "static-uni"
+    staticUni.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/tunnel-head/" + staticUni.EntityData.SegmentPath
     staticUni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticUni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticUni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14719,6 +15135,7 @@ func (lcac *MplsTe_Lcac) GetEntityData() *types.CommonEntityData {
     lcac.EntityData.BundleName = "cisco_ios_xr"
     lcac.EntityData.ParentYangName = "mpls-te"
     lcac.EntityData.SegmentPath = "lcac"
+    lcac.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/" + lcac.EntityData.SegmentPath
     lcac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lcac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lcac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14757,6 +15174,7 @@ func (bfd *MplsTe_Lcac_Bfd) GetEntityData() *types.CommonEntityData {
     bfd.EntityData.BundleName = "cisco_ios_xr"
     bfd.EntityData.ParentYangName = "lcac"
     bfd.EntityData.SegmentPath = "bfd"
+    bfd.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/lcac/" + bfd.EntityData.SegmentPath
     bfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14793,6 +15211,7 @@ func (floodingThreshold *MplsTe_Lcac_FloodingThreshold) GetEntityData() *types.C
     floodingThreshold.EntityData.BundleName = "cisco_ios_xr"
     floodingThreshold.EntityData.ParentYangName = "lcac"
     floodingThreshold.EntityData.SegmentPath = "flooding-threshold"
+    floodingThreshold.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-te-cfg:mpls-te/lcac/" + floodingThreshold.EntityData.SegmentPath
     floodingThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     floodingThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     floodingThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -76,6 +76,7 @@ func (cfgHistGl *CfgHistGl) GetEntityData() *types.CommonEntityData {
     cfgHistGl.EntityData.BundleName = "cisco_ios_xr"
     cfgHistGl.EntityData.ParentYangName = "Cisco-IOS-XR-config-cfgmgr-exec-oper"
     cfgHistGl.EntityData.SegmentPath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl"
+    cfgHistGl.EntityData.AbsolutePath = cfgHistGl.EntityData.SegmentPath
     cfgHistGl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cfgHistGl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfgHistGl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -98,6 +99,7 @@ func (cfgHistGl *CfgHistGl) GetEntityData() *types.CommonEntityData {
 type CfgHistGl_RecordType struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Record type. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -114,6 +116,7 @@ func (recordType *CfgHistGl_RecordType) GetEntityData() *types.CommonEntityData 
     recordType.EntityData.BundleName = "cisco_ios_xr"
     recordType.EntityData.ParentYangName = "cfg-hist-gl"
     recordType.EntityData.SegmentPath = "record-type" + types.AddKeyToken(recordType.RecordType, "record-type")
+    recordType.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/" + recordType.EntityData.SegmentPath
     recordType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     recordType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     recordType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -137,6 +140,7 @@ func (recordType *CfgHistGl_RecordType) GetEntityData() *types.CommonEntityData 
 type CfgHistGl_RecordType_Record struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Record. The type is interface{} with range:
     // 0..4294967295.
@@ -159,6 +163,7 @@ func (record *CfgHistGl_RecordType_Record) GetEntityData() *types.CommonEntityDa
     record.EntityData.BundleName = "cisco_ios_xr"
     record.EntityData.ParentYangName = "record-type"
     record.EntityData.SegmentPath = "record" + types.AddKeyToken(record.Record, "record")
+    record.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/" + record.EntityData.SegmentPath
     record.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     record.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     record.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -215,6 +220,7 @@ func (info *CfgHistGl_RecordType_Record_Info) GetEntityData() *types.CommonEntit
     info.EntityData.BundleName = "cisco_ios_xr"
     info.EntityData.ParentYangName = "record"
     info.EntityData.SegmentPath = "info"
+    info.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/record/" + info.EntityData.SegmentPath
     info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +261,7 @@ func (alarmInfo *CfgHistGl_RecordType_Record_Info_AlarmInfo) GetEntityData() *ty
     alarmInfo.EntityData.BundleName = "cisco_ios_xr"
     alarmInfo.EntityData.ParentYangName = "info"
     alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/record/info/" + alarmInfo.EntityData.SegmentPath
     alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -288,6 +295,7 @@ func (cfscheckInfo *CfgHistGl_RecordType_Record_Info_CfscheckInfo) GetEntityData
     cfscheckInfo.EntityData.BundleName = "cisco_ios_xr"
     cfscheckInfo.EntityData.ParentYangName = "info"
     cfscheckInfo.EntityData.SegmentPath = "cfscheck-info"
+    cfscheckInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/record/info/" + cfscheckInfo.EntityData.SegmentPath
     cfscheckInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cfscheckInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cfscheckInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -333,6 +341,7 @@ func (commitInfo *CfgHistGl_RecordType_Record_Info_CommitInfo) GetEntityData() *
     commitInfo.EntityData.BundleName = "cisco_ios_xr"
     commitInfo.EntityData.ParentYangName = "info"
     commitInfo.EntityData.SegmentPath = "commit-info"
+    commitInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/record/info/" + commitInfo.EntityData.SegmentPath
     commitInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commitInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commitInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -373,6 +382,7 @@ func (oirInfo *CfgHistGl_RecordType_Record_Info_OirInfo) GetEntityData() *types.
     oirInfo.EntityData.BundleName = "cisco_ios_xr"
     oirInfo.EntityData.ParentYangName = "info"
     oirInfo.EntityData.SegmentPath = "oir-info"
+    oirInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/record/info/" + oirInfo.EntityData.SegmentPath
     oirInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oirInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oirInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -404,6 +414,7 @@ func (shutdownInfo *CfgHistGl_RecordType_Record_Info_ShutdownInfo) GetEntityData
     shutdownInfo.EntityData.BundleName = "cisco_ios_xr"
     shutdownInfo.EntityData.ParentYangName = "info"
     shutdownInfo.EntityData.SegmentPath = "shutdown-info"
+    shutdownInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/record/info/" + shutdownInfo.EntityData.SegmentPath
     shutdownInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shutdownInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shutdownInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -436,6 +447,7 @@ func (startupInfo *CfgHistGl_RecordType_Record_Info_StartupInfo) GetEntityData()
     startupInfo.EntityData.BundleName = "cisco_ios_xr"
     startupInfo.EntityData.ParentYangName = "info"
     startupInfo.EntityData.SegmentPath = "startup-info"
+    startupInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/record/info/" + startupInfo.EntityData.SegmentPath
     startupInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startupInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startupInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -466,6 +478,7 @@ func (backupInfo *CfgHistGl_RecordType_Record_Info_BackupInfo) GetEntityData() *
     backupInfo.EntityData.BundleName = "cisco_ios_xr"
     backupInfo.EntityData.ParentYangName = "info"
     backupInfo.EntityData.SegmentPath = "backup-info"
+    backupInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/record-type/record/info/" + backupInfo.EntityData.SegmentPath
     backupInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     backupInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     backupInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

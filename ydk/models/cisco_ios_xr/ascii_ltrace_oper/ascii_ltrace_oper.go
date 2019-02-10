@@ -40,6 +40,7 @@ func (ltrace *Ltrace) GetEntityData() *types.CommonEntityData {
     ltrace.EntityData.BundleName = "cisco_ios_xr"
     ltrace.EntityData.ParentYangName = "Cisco-IOS-XR-ascii-ltrace-oper"
     ltrace.EntityData.SegmentPath = "Cisco-IOS-XR-ascii-ltrace-oper:ltrace"
+    ltrace.EntityData.AbsolutePath = ltrace.EntityData.SegmentPath
     ltrace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ltrace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ltrace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (features *Ltrace_Features) GetEntityData() *types.CommonEntityData {
     features.EntityData.BundleName = "cisco_ios_xr"
     features.EntityData.ParentYangName = "ltrace"
     features.EntityData.SegmentPath = "features"
+    features.EntityData.AbsolutePath = "Cisco-IOS-XR-ascii-ltrace-oper:ltrace/" + features.EntityData.SegmentPath
     features.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     features.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     features.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -76,6 +78,7 @@ func (features *Ltrace_Features) GetEntityData() *types.CommonEntityData {
     features.EntityData.Children = types.NewOrderedMap()
     features.EntityData.Children.Append("feature", types.YChild{"Feature", nil})
     for i := range features.Feature {
+        types.SetYListKey(features.Feature[i], i)
         features.EntityData.Children.Append(types.GetSegmentPath(features.Feature[i]), types.YChild{"Feature", features.Feature[i]})
     }
     features.EntityData.Leafs = types.NewOrderedMap()
@@ -90,6 +93,7 @@ func (features *Ltrace_Features) GetEntityData() *types.CommonEntityData {
 type Ltrace_Features_Feature struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // feature name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     FeatureName interface{}
@@ -106,7 +110,8 @@ func (feature *Ltrace_Features_Feature) GetEntityData() *types.CommonEntityData 
     feature.EntityData.YangName = "feature"
     feature.EntityData.BundleName = "cisco_ios_xr"
     feature.EntityData.ParentYangName = "features"
-    feature.EntityData.SegmentPath = "feature"
+    feature.EntityData.SegmentPath = "feature" + types.AddNoKeyToken(feature)
+    feature.EntityData.AbsolutePath = "Cisco-IOS-XR-ascii-ltrace-oper:ltrace/features/" + feature.EntityData.SegmentPath
     feature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     feature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     feature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -138,6 +143,7 @@ func (traces *Ltrace_Features_Feature_Traces) GetEntityData() *types.CommonEntit
     traces.EntityData.BundleName = "cisco_ios_xr"
     traces.EntityData.ParentYangName = "feature"
     traces.EntityData.SegmentPath = "traces"
+    traces.EntityData.AbsolutePath = "Cisco-IOS-XR-ascii-ltrace-oper:ltrace/features/feature/" + traces.EntityData.SegmentPath
     traces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -159,6 +165,7 @@ func (traces *Ltrace_Features_Feature_Traces) GetEntityData() *types.CommonEntit
 type Ltrace_Features_Feature_Traces_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Ltrace ID of ltrace. The type is interface{} with
     // range: 0..4294967295.
@@ -177,6 +184,7 @@ func (trace *Ltrace_Features_Feature_Traces_Trace) GetEntityData() *types.Common
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "traces"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.LtraceId, "ltrace-id")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-ascii-ltrace-oper:ltrace/features/feature/traces/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

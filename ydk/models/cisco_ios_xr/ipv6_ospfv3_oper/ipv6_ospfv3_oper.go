@@ -593,6 +593,7 @@ func (ospfv3 *Ospfv3) GetEntityData() *types.CommonEntityData {
     ospfv3.EntityData.BundleName = "cisco_ios_xr"
     ospfv3.EntityData.ParentYangName = "Cisco-IOS-XR-ipv6-ospfv3-oper"
     ospfv3.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3"
+    ospfv3.EntityData.AbsolutePath = ospfv3.EntityData.SegmentPath
     ospfv3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -623,6 +624,7 @@ func (processes *Ospfv3_Processes) GetEntityData() *types.CommonEntityData {
     processes.EntityData.BundleName = "cisco_ios_xr"
     processes.EntityData.ParentYangName = "ospfv3"
     processes.EntityData.SegmentPath = "processes"
+    processes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/" + processes.EntityData.SegmentPath
     processes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     processes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     processes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -645,6 +647,7 @@ func (processes *Ospfv3_Processes) GetEntityData() *types.CommonEntityData {
 type Ospfv3_Processes_Process struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Particular OSPFv3 process. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -666,6 +669,7 @@ func (process *Ospfv3_Processes_Process) GetEntityData() *types.CommonEntityData
     process.EntityData.BundleName = "cisco_ios_xr"
     process.EntityData.ParentYangName = "processes"
     process.EntityData.SegmentPath = "process" + types.AddKeyToken(process.ProcessName, "process-name")
+    process.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/" + process.EntityData.SegmentPath
     process.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     process.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     process.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -699,6 +703,7 @@ func (vrfs *Ospfv3_Processes_Process_Vrfs) GetEntityData() *types.CommonEntityDa
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "process"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -721,6 +726,7 @@ func (vrfs *Ospfv3_Processes_Process_Vrfs) GetEntityData() *types.CommonEntityDa
 type Ospfv3_Processes_Process_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -808,6 +814,7 @@ func (vrf *Ospfv3_Processes_Process_Vrfs_Vrf) GetEntityData() *types.CommonEntit
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -863,6 +870,7 @@ func (summaryPrefixes *Ospfv3_Processes_Process_Vrfs_Vrf_SummaryPrefixes) GetEnt
     summaryPrefixes.EntityData.BundleName = "cisco_ios_xr"
     summaryPrefixes.EntityData.ParentYangName = "vrf"
     summaryPrefixes.EntityData.SegmentPath = "summary-prefixes"
+    summaryPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + summaryPrefixes.EntityData.SegmentPath
     summaryPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -870,6 +878,7 @@ func (summaryPrefixes *Ospfv3_Processes_Process_Vrfs_Vrf_SummaryPrefixes) GetEnt
     summaryPrefixes.EntityData.Children = types.NewOrderedMap()
     summaryPrefixes.EntityData.Children.Append("summary-prefix", types.YChild{"SummaryPrefix", nil})
     for i := range summaryPrefixes.SummaryPrefix {
+        types.SetYListKey(summaryPrefixes.SummaryPrefix[i], i)
         summaryPrefixes.EntityData.Children.Append(types.GetSegmentPath(summaryPrefixes.SummaryPrefix[i]), types.YChild{"SummaryPrefix", summaryPrefixes.SummaryPrefix[i]})
     }
     summaryPrefixes.EntityData.Leafs = types.NewOrderedMap()
@@ -884,6 +893,7 @@ func (summaryPrefixes *Ospfv3_Processes_Process_Vrfs_Vrf_SummaryPrefixes) GetEnt
 type Ospfv3_Processes_Process_Vrfs_Vrf_SummaryPrefixes_SummaryPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -907,7 +917,8 @@ func (summaryPrefix *Ospfv3_Processes_Process_Vrfs_Vrf_SummaryPrefixes_SummaryPr
     summaryPrefix.EntityData.YangName = "summary-prefix"
     summaryPrefix.EntityData.BundleName = "cisco_ios_xr"
     summaryPrefix.EntityData.ParentYangName = "summary-prefixes"
-    summaryPrefix.EntityData.SegmentPath = "summary-prefix"
+    summaryPrefix.EntityData.SegmentPath = "summary-prefix" + types.AddNoKeyToken(summaryPrefix)
+    summaryPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary-prefixes/" + summaryPrefix.EntityData.SegmentPath
     summaryPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -942,6 +953,7 @@ func (borderRouters *Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters) GetEntityD
     borderRouters.EntityData.BundleName = "cisco_ios_xr"
     borderRouters.EntityData.ParentYangName = "vrf"
     borderRouters.EntityData.SegmentPath = "border-routers"
+    borderRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + borderRouters.EntityData.SegmentPath
     borderRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     borderRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     borderRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -963,6 +975,7 @@ func (borderRouters *Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters) GetEntityD
 type Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Router address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -979,6 +992,7 @@ func (borderRouter *Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter
     borderRouter.EntityData.BundleName = "cisco_ios_xr"
     borderRouter.EntityData.ParentYangName = "border-routers"
     borderRouter.EntityData.SegmentPath = "border-router" + types.AddKeyToken(borderRouter.BorderRouterId, "border-router-id")
+    borderRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/border-routers/" + borderRouter.EntityData.SegmentPath
     borderRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     borderRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     borderRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -986,6 +1000,7 @@ func (borderRouter *Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter
     borderRouter.EntityData.Children = types.NewOrderedMap()
     borderRouter.EntityData.Children.Append("border-router-path", types.YChild{"BorderRouterPath", nil})
     for i := range borderRouter.BorderRouterPath {
+        types.SetYListKey(borderRouter.BorderRouterPath[i], i)
         borderRouter.EntityData.Children.Append(types.GetSegmentPath(borderRouter.BorderRouterPath[i]), types.YChild{"BorderRouterPath", borderRouter.BorderRouterPath[i]})
     }
     borderRouter.EntityData.Leafs = types.NewOrderedMap()
@@ -1001,6 +1016,7 @@ func (borderRouter *Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter
 type Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter_BorderRouterPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // If true, intra-area router else inter-area router. The type is bool.
     IsIntraAreaRouter interface{}
@@ -1031,7 +1047,8 @@ func (borderRouterPath *Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRo
     borderRouterPath.EntityData.YangName = "border-router-path"
     borderRouterPath.EntityData.BundleName = "cisco_ios_xr"
     borderRouterPath.EntityData.ParentYangName = "border-router"
-    borderRouterPath.EntityData.SegmentPath = "border-router-path"
+    borderRouterPath.EntityData.SegmentPath = "border-router-path" + types.AddNoKeyToken(borderRouterPath)
+    borderRouterPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/border-routers/border-router/" + borderRouterPath.EntityData.SegmentPath
     borderRouterPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     borderRouterPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     borderRouterPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1164,6 +1181,7 @@ func (shamLinkTable *Ospfv3_Processes_Process_Vrfs_Vrf_ShamLinkTable) GetEntityD
     shamLinkTable.EntityData.BundleName = "cisco_ios_xr"
     shamLinkTable.EntityData.ParentYangName = "vrf"
     shamLinkTable.EntityData.SegmentPath = "sham-link-table"
+    shamLinkTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + shamLinkTable.EntityData.SegmentPath
     shamLinkTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shamLinkTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shamLinkTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1227,6 +1245,7 @@ func (shamLinkNeighbor *Ospfv3_Processes_Process_Vrfs_Vrf_ShamLinkTable_ShamLink
     shamLinkNeighbor.EntityData.BundleName = "cisco_ios_xr"
     shamLinkNeighbor.EntityData.ParentYangName = "sham-link-table"
     shamLinkNeighbor.EntityData.SegmentPath = "sham-link-neighbor"
+    shamLinkNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/sham-link-table/" + shamLinkNeighbor.EntityData.SegmentPath
     shamLinkNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shamLinkNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shamLinkNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1346,6 +1365,7 @@ func (shamLinkRetransmission *Ospfv3_Processes_Process_Vrfs_Vrf_ShamLinkTable_Sh
     shamLinkRetransmission.EntityData.BundleName = "cisco_ios_xr"
     shamLinkRetransmission.EntityData.ParentYangName = "sham-link-neighbor"
     shamLinkRetransmission.EntityData.SegmentPath = "sham-link-retransmission"
+    shamLinkRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/sham-link-table/sham-link-neighbor/" + shamLinkRetransmission.EntityData.SegmentPath
     shamLinkRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shamLinkRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shamLinkRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1398,6 +1418,7 @@ func (areaInformations *Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations) GetE
     areaInformations.EntityData.BundleName = "cisco_ios_xr"
     areaInformations.EntityData.ParentYangName = "vrf"
     areaInformations.EntityData.SegmentPath = "area-informations"
+    areaInformations.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + areaInformations.EntityData.SegmentPath
     areaInformations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaInformations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaInformations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1419,6 +1440,7 @@ func (areaInformations *Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations) GetE
 type Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations_AreaInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is interface{} with range:
     // 0..4294967295.
@@ -1509,6 +1531,7 @@ func (areaInformation *Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations_AreaIn
     areaInformation.EntityData.BundleName = "cisco_ios_xr"
     areaInformation.EntityData.ParentYangName = "area-informations"
     areaInformation.EntityData.SegmentPath = "area-information" + types.AddKeyToken(areaInformation.AreaId, "area-id")
+    areaInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/area-informations/" + areaInformation.EntityData.SegmentPath
     areaInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1516,6 +1539,7 @@ func (areaInformation *Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations_AreaIn
     areaInformation.EntityData.Children = types.NewOrderedMap()
     areaInformation.EntityData.Children.Append("area-range", types.YChild{"AreaRange", nil})
     for i := range areaInformation.AreaRange {
+        types.SetYListKey(areaInformation.AreaRange[i], i)
         areaInformation.EntityData.Children.Append(types.GetSegmentPath(areaInformation.AreaRange[i]), types.YChild{"AreaRange", areaInformation.AreaRange[i]})
     }
     areaInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -1552,6 +1576,7 @@ func (areaInformation *Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations_AreaIn
 type Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations_AreaInformation_AreaRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP prefix for summarization. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -1576,7 +1601,8 @@ func (areaRange *Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations_AreaInformat
     areaRange.EntityData.YangName = "area-range"
     areaRange.EntityData.BundleName = "cisco_ios_xr"
     areaRange.EntityData.ParentYangName = "area-information"
-    areaRange.EntityData.SegmentPath = "area-range"
+    areaRange.EntityData.SegmentPath = "area-range" + types.AddNoKeyToken(areaRange)
+    areaRange.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/area-informations/area-information/" + areaRange.EntityData.SegmentPath
     areaRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1613,6 +1639,7 @@ func (databaseTable *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable) GetEntityD
     databaseTable.EntityData.BundleName = "cisco_ios_xr"
     databaseTable.EntityData.ParentYangName = "vrf"
     databaseTable.EntityData.SegmentPath = "database-table"
+    databaseTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + databaseTable.EntityData.SegmentPath
     databaseTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1644,6 +1671,7 @@ func (lsaTable *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable) GetEnt
     lsaTable.EntityData.BundleName = "cisco_ios_xr"
     lsaTable.EntityData.ParentYangName = "database-table"
     lsaTable.EntityData.SegmentPath = "lsa-table"
+    lsaTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/" + lsaTable.EntityData.SegmentPath
     lsaTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1651,6 +1679,7 @@ func (lsaTable *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable) GetEnt
     lsaTable.EntityData.Children = types.NewOrderedMap()
     lsaTable.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range lsaTable.Lsa {
+        types.SetYListKey(lsaTable.Lsa[i], i)
         lsaTable.EntityData.Children.Append(types.GetSegmentPath(lsaTable.Lsa[i]), types.YChild{"Lsa", lsaTable.Lsa[i]})
     }
     lsaTable.EntityData.Leafs = types.NewOrderedMap()
@@ -1665,6 +1694,7 @@ func (lsaTable *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable) GetEnt
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     AreaId interface{}
@@ -1691,7 +1721,8 @@ func (lsa *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa) GetEnti
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "lsa-table"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1768,6 +1799,7 @@ func (lsaInfo *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaI
     lsaInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaInfo.EntityData.ParentYangName = "lsa"
     lsaInfo.EntityData.SegmentPath = "lsa-info"
+    lsaInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/" + lsaInfo.EntityData.SegmentPath
     lsaInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1851,6 +1883,7 @@ func (lsaSummaryInfo *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_L
     lsaSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaSummaryInfo.EntityData.ParentYangName = "lsa-info"
     lsaSummaryInfo.EntityData.SegmentPath = "lsa-summary-info"
+    lsaSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + lsaSummaryInfo.EntityData.SegmentPath
     lsaSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1919,6 +1952,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "lsa-summary-info"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/lsa-summary-info/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2021,6 +2055,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "lsa-summary-info"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/lsa-summary-info/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2081,6 +2116,7 @@ func (routerLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Ls
     routerLsaType.EntityData.BundleName = "cisco_ios_xr"
     routerLsaType.EntityData.ParentYangName = "lsa-info"
     routerLsaType.EntityData.SegmentPath = "router-lsa-type"
+    routerLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + routerLsaType.EntityData.SegmentPath
     routerLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2091,6 +2127,7 @@ func (routerLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Ls
     routerLsaType.EntityData.Children.Append("rpf-path", types.YChild{"RpfPath", &routerLsaType.RpfPath})
     routerLsaType.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range routerLsaType.Link {
+        types.SetYListKey(routerLsaType.Link[i], i)
         routerLsaType.EntityData.Children.Append(types.GetSegmentPath(routerLsaType.Link[i]), types.YChild{"Link", routerLsaType.Link[i]})
     }
     routerLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -2143,6 +2180,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2245,6 +2283,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2295,6 +2334,7 @@ func (rpfPath *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaI
     rpfPath.EntityData.BundleName = "cisco_ios_xr"
     rpfPath.EntityData.ParentYangName = "router-lsa-type"
     rpfPath.EntityData.SegmentPath = "rpf-path"
+    rpfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + rpfPath.EntityData.SegmentPath
     rpfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2314,6 +2354,7 @@ func (rpfPath *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaI
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_RouterLsaType_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of link. The type is Ospfv3Link.
     LinkType interface{}
@@ -2338,7 +2379,8 @@ func (link *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "router-lsa-type"
-    link.EntityData.SegmentPath = "link"
+    link.EntityData.SegmentPath = "link" + types.AddNoKeyToken(link)
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2379,6 +2421,7 @@ func (networkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_L
     networkLsaType.EntityData.BundleName = "cisco_ios_xr"
     networkLsaType.EntityData.ParentYangName = "lsa-info"
     networkLsaType.EntityData.SegmentPath = "network-lsa-type"
+    networkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + networkLsaType.EntityData.SegmentPath
     networkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2436,6 +2479,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "network-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/network-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2538,6 +2582,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "network-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/network-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2598,6 +2643,7 @@ func (interAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_Ls
     interAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaPrefixLsaType.EntityData.SegmentPath = "inter-area-prefix-lsa-type"
+    interAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + interAreaPrefixLsaType.EntityData.SegmentPath
     interAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2657,6 +2703,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2759,6 +2806,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2812,6 +2860,7 @@ func (interAreaRouterLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_Ls
     interAreaRouterLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaRouterLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaRouterLsaType.EntityData.SegmentPath = "inter-area-router-lsa-type"
+    interAreaRouterLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + interAreaRouterLsaType.EntityData.SegmentPath
     interAreaRouterLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaRouterLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaRouterLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2869,6 +2918,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2971,6 +3021,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3048,6 +3099,7 @@ func (externalLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_
     externalLsaType.EntityData.BundleName = "cisco_ios_xr"
     externalLsaType.EntityData.ParentYangName = "lsa-info"
     externalLsaType.EntityData.SegmentPath = "external-lsa-type"
+    externalLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + externalLsaType.EntityData.SegmentPath
     externalLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3112,6 +3164,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "external-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/external-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3214,6 +3267,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "external-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/external-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3291,6 +3345,7 @@ func (nssalsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_
     nssalsaType.EntityData.BundleName = "cisco_ios_xr"
     nssalsaType.EntityData.ParentYangName = "lsa-info"
     nssalsaType.EntityData.SegmentPath = "nssalsa-type"
+    nssalsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + nssalsaType.EntityData.SegmentPath
     nssalsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nssalsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nssalsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3355,6 +3410,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "nssalsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/nssalsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3457,6 +3513,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "nssalsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/nssalsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3533,6 +3590,7 @@ func (linkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_
     linkLsaType.EntityData.BundleName = "cisco_ios_xr"
     linkLsaType.EntityData.ParentYangName = "lsa-info"
     linkLsaType.EntityData.SegmentPath = "link-lsa-type"
+    linkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + linkLsaType.EntityData.SegmentPath
     linkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3542,6 +3600,7 @@ func (linkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_
     linkLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &linkLsaType.LsaDetail})
     linkLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range linkLsaType.Prefix {
+        types.SetYListKey(linkLsaType.Prefix[i], i)
         linkLsaType.EntityData.Children.Append(types.GetSegmentPath(linkLsaType.Prefix[i]), types.YChild{"Prefix", linkLsaType.Prefix[i]})
     }
     linkLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -3600,6 +3659,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3702,6 +3762,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3738,6 +3799,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -3761,7 +3823,8 @@ func (prefix *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaIn
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "link-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3812,6 +3875,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_Ls
     intraAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     intraAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     intraAreaPrefixLsaType.EntityData.SegmentPath = "intra-area-prefix-lsa-type"
+    intraAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + intraAreaPrefixLsaType.EntityData.SegmentPath
     intraAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intraAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intraAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3821,6 +3885,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_Ls
     intraAreaPrefixLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &intraAreaPrefixLsaType.LsaDetail})
     intraAreaPrefixLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range intraAreaPrefixLsaType.Prefix {
+        types.SetYListKey(intraAreaPrefixLsaType.Prefix[i], i)
         intraAreaPrefixLsaType.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefixLsaType.Prefix[i]), types.YChild{"Prefix", intraAreaPrefixLsaType.Prefix[i]})
     }
     intraAreaPrefixLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -3875,6 +3940,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3977,6 +4043,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4013,6 +4080,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_IntraAreaPrefixLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -4036,7 +4104,8 @@ func (prefix *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaIn
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4095,6 +4164,7 @@ func (graceLsa *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Lsa
     graceLsa.EntityData.BundleName = "cisco_ios_xr"
     graceLsa.EntityData.ParentYangName = "lsa-info"
     graceLsa.EntityData.SegmentPath = "grace-lsa"
+    graceLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + graceLsa.EntityData.SegmentPath
     graceLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graceLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graceLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4158,6 +4228,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "grace-lsa"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/grace-lsa/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4260,6 +4331,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "grace-lsa"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/grace-lsa/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4325,6 +4397,7 @@ func (unknownLinkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTab
     unknownLinkLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLinkLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLinkLsaType.EntityData.SegmentPath = "unknown-link-lsa-type"
+    unknownLinkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + unknownLinkLsaType.EntityData.SegmentPath
     unknownLinkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLinkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLinkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4386,6 +4459,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4488,6 +4562,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4553,6 +4628,7 @@ func (unknownAreaLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTab
     unknownAreaLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAreaLsaType.EntityData.ParentYangName = "lsa-info"
     unknownAreaLsaType.EntityData.SegmentPath = "unknown-area-lsa-type"
+    unknownAreaLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + unknownAreaLsaType.EntityData.SegmentPath
     unknownAreaLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAreaLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAreaLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4614,6 +4690,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4716,6 +4793,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4781,6 +4859,7 @@ func (unknownAslsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable
     unknownAslsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAslsaType.EntityData.ParentYangName = "lsa-info"
     unknownAslsaType.EntityData.SegmentPath = "unknown-aslsa-type"
+    unknownAslsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + unknownAslsaType.EntityData.SegmentPath
     unknownAslsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAslsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAslsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4842,6 +4921,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/unknown-aslsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4944,6 +5024,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/unknown-aslsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5009,6 +5090,7 @@ func (unknownLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_L
     unknownLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLsaType.EntityData.SegmentPath = "unknown-lsa-type"
+    unknownLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/" + unknownLsaType.EntityData.SegmentPath
     unknownLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5070,6 +5152,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/unknown-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5172,6 +5255,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-table/lsa/lsa-info/unknown-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5220,6 +5304,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInter
     lsaInternalTable.EntityData.BundleName = "cisco_ios_xr"
     lsaInternalTable.EntityData.ParentYangName = "database-table"
     lsaInternalTable.EntityData.SegmentPath = "lsa-internal-table"
+    lsaInternalTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/" + lsaInternalTable.EntityData.SegmentPath
     lsaInternalTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInternalTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInternalTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5227,6 +5312,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInter
     lsaInternalTable.EntityData.Children = types.NewOrderedMap()
     lsaInternalTable.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range lsaInternalTable.Lsa {
+        types.SetYListKey(lsaInternalTable.Lsa[i], i)
         lsaInternalTable.EntityData.Children.Append(types.GetSegmentPath(lsaInternalTable.Lsa[i]), types.YChild{"Lsa", lsaInternalTable.Lsa[i]})
     }
     lsaInternalTable.EntityData.Leafs = types.NewOrderedMap()
@@ -5241,6 +5327,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInter
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     AreaId interface{}
@@ -5267,7 +5354,8 @@ func (lsa *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa)
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "lsa-internal-table"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5344,6 +5432,7 @@ func (lsaInfo *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_
     lsaInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaInfo.EntityData.ParentYangName = "lsa"
     lsaInfo.EntityData.SegmentPath = "lsa-info"
+    lsaInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/" + lsaInfo.EntityData.SegmentPath
     lsaInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5427,6 +5516,7 @@ func (lsaSummaryInfo *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInterna
     lsaSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaSummaryInfo.EntityData.ParentYangName = "lsa-info"
     lsaSummaryInfo.EntityData.SegmentPath = "lsa-summary-info"
+    lsaSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + lsaSummaryInfo.EntityData.SegmentPath
     lsaSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5495,6 +5585,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "lsa-summary-info"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/lsa-summary-info/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5597,6 +5688,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "lsa-summary-info"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/lsa-summary-info/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5657,6 +5749,7 @@ func (routerLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternal
     routerLsaType.EntityData.BundleName = "cisco_ios_xr"
     routerLsaType.EntityData.ParentYangName = "lsa-info"
     routerLsaType.EntityData.SegmentPath = "router-lsa-type"
+    routerLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + routerLsaType.EntityData.SegmentPath
     routerLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5667,6 +5760,7 @@ func (routerLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternal
     routerLsaType.EntityData.Children.Append("rpf-path", types.YChild{"RpfPath", &routerLsaType.RpfPath})
     routerLsaType.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range routerLsaType.Link {
+        types.SetYListKey(routerLsaType.Link[i], i)
         routerLsaType.EntityData.Children.Append(types.GetSegmentPath(routerLsaType.Link[i]), types.YChild{"Link", routerLsaType.Link[i]})
     }
     routerLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -5719,6 +5813,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5821,6 +5916,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5871,6 +5967,7 @@ func (rpfPath *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_
     rpfPath.EntityData.BundleName = "cisco_ios_xr"
     rpfPath.EntityData.ParentYangName = "router-lsa-type"
     rpfPath.EntityData.SegmentPath = "rpf-path"
+    rpfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + rpfPath.EntityData.SegmentPath
     rpfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5890,6 +5987,7 @@ func (rpfPath *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_RouterLsaType_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of link. The type is Ospfv3Link.
     LinkType interface{}
@@ -5914,7 +6012,8 @@ func (link *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "router-lsa-type"
-    link.EntityData.SegmentPath = "link"
+    link.EntityData.SegmentPath = "link" + types.AddNoKeyToken(link)
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5955,6 +6054,7 @@ func (networkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInterna
     networkLsaType.EntityData.BundleName = "cisco_ios_xr"
     networkLsaType.EntityData.ParentYangName = "lsa-info"
     networkLsaType.EntityData.SegmentPath = "network-lsa-type"
+    networkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + networkLsaType.EntityData.SegmentPath
     networkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6012,6 +6112,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "network-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/network-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6114,6 +6215,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "network-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/network-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6174,6 +6276,7 @@ func (interAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_Ls
     interAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaPrefixLsaType.EntityData.SegmentPath = "inter-area-prefix-lsa-type"
+    interAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + interAreaPrefixLsaType.EntityData.SegmentPath
     interAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6233,6 +6336,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6335,6 +6439,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6388,6 +6493,7 @@ func (interAreaRouterLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_Ls
     interAreaRouterLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaRouterLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaRouterLsaType.EntityData.SegmentPath = "inter-area-router-lsa-type"
+    interAreaRouterLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + interAreaRouterLsaType.EntityData.SegmentPath
     interAreaRouterLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaRouterLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaRouterLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6445,6 +6551,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6547,6 +6654,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6624,6 +6732,7 @@ func (externalLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaIntern
     externalLsaType.EntityData.BundleName = "cisco_ios_xr"
     externalLsaType.EntityData.ParentYangName = "lsa-info"
     externalLsaType.EntityData.SegmentPath = "external-lsa-type"
+    externalLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + externalLsaType.EntityData.SegmentPath
     externalLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6688,6 +6797,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "external-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/external-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6790,6 +6900,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "external-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/external-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6867,6 +6978,7 @@ func (nssalsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTa
     nssalsaType.EntityData.BundleName = "cisco_ios_xr"
     nssalsaType.EntityData.ParentYangName = "lsa-info"
     nssalsaType.EntityData.SegmentPath = "nssalsa-type"
+    nssalsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + nssalsaType.EntityData.SegmentPath
     nssalsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nssalsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nssalsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6931,6 +7043,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "nssalsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/nssalsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7033,6 +7146,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "nssalsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/nssalsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7109,6 +7223,7 @@ func (linkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTa
     linkLsaType.EntityData.BundleName = "cisco_ios_xr"
     linkLsaType.EntityData.ParentYangName = "lsa-info"
     linkLsaType.EntityData.SegmentPath = "link-lsa-type"
+    linkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + linkLsaType.EntityData.SegmentPath
     linkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7118,6 +7233,7 @@ func (linkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTa
     linkLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &linkLsaType.LsaDetail})
     linkLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range linkLsaType.Prefix {
+        types.SetYListKey(linkLsaType.Prefix[i], i)
         linkLsaType.EntityData.Children.Append(types.GetSegmentPath(linkLsaType.Prefix[i]), types.YChild{"Prefix", linkLsaType.Prefix[i]})
     }
     linkLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -7176,6 +7292,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7278,6 +7395,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7314,6 +7432,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_LinkLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -7337,7 +7456,8 @@ func (prefix *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_L
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "link-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7388,6 +7508,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_Ls
     intraAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     intraAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     intraAreaPrefixLsaType.EntityData.SegmentPath = "intra-area-prefix-lsa-type"
+    intraAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + intraAreaPrefixLsaType.EntityData.SegmentPath
     intraAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intraAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intraAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7397,6 +7518,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_Ls
     intraAreaPrefixLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &intraAreaPrefixLsaType.LsaDetail})
     intraAreaPrefixLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range intraAreaPrefixLsaType.Prefix {
+        types.SetYListKey(intraAreaPrefixLsaType.Prefix[i], i)
         intraAreaPrefixLsaType.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefixLsaType.Prefix[i]), types.YChild{"Prefix", intraAreaPrefixLsaType.Prefix[i]})
     }
     intraAreaPrefixLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -7451,6 +7573,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7553,6 +7676,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7589,6 +7713,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_IntraAreaPrefixLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -7612,7 +7737,8 @@ func (prefix *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_L
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7671,6 +7797,7 @@ func (graceLsa *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable
     graceLsa.EntityData.BundleName = "cisco_ios_xr"
     graceLsa.EntityData.ParentYangName = "lsa-info"
     graceLsa.EntityData.SegmentPath = "grace-lsa"
+    graceLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + graceLsa.EntityData.SegmentPath
     graceLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graceLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graceLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7734,6 +7861,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "grace-lsa"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/grace-lsa/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7836,6 +7964,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "grace-lsa"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/grace-lsa/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7901,6 +8030,7 @@ func (unknownLinkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInt
     unknownLinkLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLinkLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLinkLsaType.EntityData.SegmentPath = "unknown-link-lsa-type"
+    unknownLinkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + unknownLinkLsaType.EntityData.SegmentPath
     unknownLinkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLinkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLinkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7962,6 +8092,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8064,6 +8195,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8129,6 +8261,7 @@ func (unknownAreaLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInt
     unknownAreaLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAreaLsaType.EntityData.ParentYangName = "lsa-info"
     unknownAreaLsaType.EntityData.SegmentPath = "unknown-area-lsa-type"
+    unknownAreaLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + unknownAreaLsaType.EntityData.SegmentPath
     unknownAreaLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAreaLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAreaLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8190,6 +8323,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8292,6 +8426,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8357,6 +8492,7 @@ func (unknownAslsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInter
     unknownAslsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAslsaType.EntityData.ParentYangName = "lsa-info"
     unknownAslsaType.EntityData.SegmentPath = "unknown-aslsa-type"
+    unknownAslsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + unknownAslsaType.EntityData.SegmentPath
     unknownAslsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAslsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAslsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8418,6 +8554,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-aslsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8520,6 +8657,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-aslsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8585,6 +8723,7 @@ func (unknownLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInterna
     unknownLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLsaType.EntityData.SegmentPath = "unknown-lsa-type"
+    unknownLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/" + unknownLsaType.EntityData.SegmentPath
     unknownLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8646,6 +8785,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8748,6 +8888,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTabl
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8796,6 +8937,7 @@ func (interfaceProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessT
     interfaceProcessTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceProcessTable.EntityData.ParentYangName = "vrf"
     interfaceProcessTable.EntityData.SegmentPath = "interface-process-table"
+    interfaceProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + interfaceProcessTable.EntityData.SegmentPath
     interfaceProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8817,6 +8959,7 @@ func (interfaceProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessT
 type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -8979,6 +9122,7 @@ func (self *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface) G
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-process-table"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/interface-process-table/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8988,6 +9132,7 @@ func (self *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface) G
     self.EntityData.Children.Append("interface-bfd", types.YChild{"InterfaceBfd", &self.InterfaceBfd})
     self.EntityData.Children.Append("interface-neighbor", types.YChild{"InterfaceNeighbor", nil})
     for i := range self.InterfaceNeighbor {
+        types.SetYListKey(self.InterfaceNeighbor[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.InterfaceNeighbor[i]), types.YChild{"InterfaceNeighbor", self.InterfaceNeighbor[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -9118,6 +9263,7 @@ func (activeInterface *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_I
     activeInterface.EntityData.BundleName = "cisco_ios_xr"
     activeInterface.EntityData.ParentYangName = "interface"
     activeInterface.EntityData.SegmentPath = "active-interface"
+    activeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/interface-process-table/interface/" + activeInterface.EntityData.SegmentPath
     activeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9172,6 +9318,7 @@ func (interfaceBfd *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Inte
     interfaceBfd.EntityData.BundleName = "cisco_ios_xr"
     interfaceBfd.EntityData.ParentYangName = "interface"
     interfaceBfd.EntityData.SegmentPath = "interface-bfd"
+    interfaceBfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/interface-process-table/interface/" + interfaceBfd.EntityData.SegmentPath
     interfaceBfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9192,6 +9339,7 @@ func (interfaceBfd *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Inte
 type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface_InterfaceNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor router ID . The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -9216,7 +9364,8 @@ func (interfaceNeighbor *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable
     interfaceNeighbor.EntityData.YangName = "interface-neighbor"
     interfaceNeighbor.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighbor.EntityData.ParentYangName = "interface"
-    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor"
+    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor" + types.AddNoKeyToken(interfaceNeighbor)
+    interfaceNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/interface-process-table/interface/" + interfaceNeighbor.EntityData.SegmentPath
     interfaceNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9251,6 +9400,7 @@ func (redistributions *Ospfv3_Processes_Process_Vrfs_Vrf_Redistributions) GetEnt
     redistributions.EntityData.BundleName = "cisco_ios_xr"
     redistributions.EntityData.ParentYangName = "vrf"
     redistributions.EntityData.SegmentPath = "redistributions"
+    redistributions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + redistributions.EntityData.SegmentPath
     redistributions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistributions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9258,6 +9408,7 @@ func (redistributions *Ospfv3_Processes_Process_Vrfs_Vrf_Redistributions) GetEnt
     redistributions.EntityData.Children = types.NewOrderedMap()
     redistributions.EntityData.Children.Append("redistribution", types.YChild{"Redistribution", nil})
     for i := range redistributions.Redistribution {
+        types.SetYListKey(redistributions.Redistribution[i], i)
         redistributions.EntityData.Children.Append(types.GetSegmentPath(redistributions.Redistribution[i]), types.YChild{"Redistribution", redistributions.Redistribution[i]})
     }
     redistributions.EntityData.Leafs = types.NewOrderedMap()
@@ -9272,6 +9423,7 @@ func (redistributions *Ospfv3_Processes_Process_Vrfs_Vrf_Redistributions) GetEnt
 type Ospfv3_Processes_Process_Vrfs_Vrf_Redistributions_Redistribution struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol name that is redistributed. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -9311,7 +9463,8 @@ func (redistribution *Ospfv3_Processes_Process_Vrfs_Vrf_Redistributions_Redistri
     redistribution.EntityData.YangName = "redistribution"
     redistribution.EntityData.BundleName = "cisco_ios_xr"
     redistribution.EntityData.ParentYangName = "redistributions"
-    redistribution.EntityData.SegmentPath = "redistribution"
+    redistribution.EntityData.SegmentPath = "redistribution" + types.AddNoKeyToken(redistribution)
+    redistribution.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/redistributions/" + redistribution.EntityData.SegmentPath
     redistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9351,6 +9504,7 @@ func (externalRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes) GetEntit
     externalRoutes.EntityData.BundleName = "cisco_ios_xr"
     externalRoutes.EntityData.ParentYangName = "vrf"
     externalRoutes.EntityData.SegmentPath = "external-routes"
+    externalRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + externalRoutes.EntityData.SegmentPath
     externalRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9358,6 +9512,7 @@ func (externalRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes) GetEntit
     externalRoutes.EntityData.Children = types.NewOrderedMap()
     externalRoutes.EntityData.Children.Append("external-route", types.YChild{"ExternalRoute", nil})
     for i := range externalRoutes.ExternalRoute {
+        types.SetYListKey(externalRoutes.ExternalRoute[i], i)
         externalRoutes.EntityData.Children.Append(types.GetSegmentPath(externalRoutes.ExternalRoute[i]), types.YChild{"ExternalRoute", externalRoutes.ExternalRoute[i]})
     }
     externalRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -9372,6 +9527,7 @@ func (externalRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes) GetEntit
 type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -9396,7 +9552,8 @@ func (externalRoute *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRo
     externalRoute.EntityData.YangName = "external-route"
     externalRoute.EntityData.BundleName = "cisco_ios_xr"
     externalRoute.EntityData.ParentYangName = "external-routes"
-    externalRoute.EntityData.SegmentPath = "external-route"
+    externalRoute.EntityData.SegmentPath = "external-route" + types.AddNoKeyToken(externalRoute)
+    externalRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/external-routes/" + externalRoute.EntityData.SegmentPath
     externalRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9406,6 +9563,7 @@ func (externalRoute *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRo
     externalRoute.EntityData.Children.Append("route-extended-community", types.YChild{"RouteExtendedCommunity", &externalRoute.RouteExtendedCommunity})
     externalRoute.EntityData.Children.Append("route-path", types.YChild{"RoutePath", nil})
     for i := range externalRoute.RoutePath {
+        types.SetYListKey(externalRoute.RoutePath[i], i)
         externalRoute.EntityData.Children.Append(types.GetSegmentPath(externalRoute.RoutePath[i]), types.YChild{"RoutePath", externalRoute.RoutePath[i]})
     }
     externalRoute.EntityData.Leafs = types.NewOrderedMap()
@@ -9443,6 +9601,7 @@ func (routeTopology *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRo
     routeTopology.EntityData.BundleName = "cisco_ios_xr"
     routeTopology.EntityData.ParentYangName = "external-route"
     routeTopology.EntityData.SegmentPath = "route-topology"
+    routeTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/external-routes/external-route/" + routeTopology.EntityData.SegmentPath
     routeTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9492,6 +9651,7 @@ func (routeExtendedCommunity *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_E
     routeExtendedCommunity.EntityData.BundleName = "cisco_ios_xr"
     routeExtendedCommunity.EntityData.ParentYangName = "external-route"
     routeExtendedCommunity.EntityData.SegmentPath = "route-extended-community"
+    routeExtendedCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/external-routes/external-route/" + routeExtendedCommunity.EntityData.SegmentPath
     routeExtendedCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeExtendedCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeExtendedCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9515,6 +9675,7 @@ func (routeExtendedCommunity *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_E
 type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RoutePath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route path interface name . The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -9544,7 +9705,8 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_
     routePath.EntityData.YangName = "route-path"
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "external-route"
-    routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.SegmentPath = "route-path" + types.AddNoKeyToken(routePath)
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/external-routes/external-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9553,6 +9715,7 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_
     routePath.EntityData.Children.Append("route-backup-path", types.YChild{"RouteBackupPath", &routePath.RouteBackupPath})
     routePath.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
     for i := range routePath.NeighborNextHop {
+        types.SetYListKey(routePath.NeighborNextHop[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.NeighborNextHop[i]), types.YChild{"NeighborNextHop", routePath.NeighborNextHop[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -9608,6 +9771,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_External
     routeBackupPath.EntityData.BundleName = "cisco_ios_xr"
     routeBackupPath.EntityData.ParentYangName = "route-path"
     routeBackupPath.EntityData.SegmentPath = "route-backup-path"
+    routeBackupPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/external-routes/external-route/route-path/" + routeBackupPath.EntityData.SegmentPath
     routeBackupPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeBackupPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeBackupPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9634,6 +9798,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_External
 type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RoutePath_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor NextHop Interface Index. The type is interface{} with range:
     // 0..4294967295.
@@ -9645,7 +9810,8 @@ func (neighborNextHop *Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_External
     neighborNextHop.EntityData.YangName = "neighbor-next-hop"
     neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
     neighborNextHop.EntityData.ParentYangName = "route-path"
-    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop" + types.AddNoKeyToken(neighborNextHop)
+    neighborNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/external-routes/external-route/route-path/" + neighborNextHop.EntityData.SegmentPath
     neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9676,6 +9842,7 @@ func (requestListProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProc
     requestListProcessTable.EntityData.BundleName = "cisco_ios_xr"
     requestListProcessTable.EntityData.ParentYangName = "vrf"
     requestListProcessTable.EntityData.SegmentPath = "request-list-process-table"
+    requestListProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + requestListProcessTable.EntityData.SegmentPath
     requestListProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestListProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestListProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9683,6 +9850,7 @@ func (requestListProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProc
     requestListProcessTable.EntityData.Children = types.NewOrderedMap()
     requestListProcessTable.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range requestListProcessTable.Request {
+        types.SetYListKey(requestListProcessTable.Request[i], i)
         requestListProcessTable.EntityData.Children.Append(types.GetSegmentPath(requestListProcessTable.Request[i]), types.YChild{"Request", requestListProcessTable.Request[i]})
     }
     requestListProcessTable.EntityData.Leafs = types.NewOrderedMap()
@@ -9697,6 +9865,7 @@ func (requestListProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProc
 type Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -9732,7 +9901,8 @@ func (request *Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "request-list-process-table"
-    request.EntityData.SegmentPath = "request"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/request-list-process-table/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9740,6 +9910,7 @@ func (request *Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request
     request.EntityData.Children = types.NewOrderedMap()
     request.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range request.Request {
+        types.SetYListKey(request.Request[i], i)
         request.EntityData.Children.Append(types.GetSegmentPath(request.Request[i]), types.YChild{"Request", request.Request[i]})
     }
     request.EntityData.Leafs = types.NewOrderedMap()
@@ -9761,6 +9932,7 @@ func (request *Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request
 type Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -9787,7 +9959,8 @@ func (request *Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "request"
-    request.EntityData.SegmentPath = "request"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/request-list-process-table/request/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9911,6 +10084,7 @@ func (virtualLink *Ospfv3_Processes_Process_Vrfs_Vrf_VirtualLink) GetEntityData(
     virtualLink.EntityData.BundleName = "cisco_ios_xr"
     virtualLink.EntityData.ParentYangName = "vrf"
     virtualLink.EntityData.SegmentPath = "virtual-link"
+    virtualLink.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + virtualLink.EntityData.SegmentPath
     virtualLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9972,6 +10146,7 @@ func (virtualLinkNeighbor *Ospfv3_Processes_Process_Vrfs_Vrf_VirtualLink_Virtual
     virtualLinkNeighbor.EntityData.BundleName = "cisco_ios_xr"
     virtualLinkNeighbor.EntityData.ParentYangName = "virtual-link"
     virtualLinkNeighbor.EntityData.SegmentPath = "virtual-link-neighbor"
+    virtualLinkNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/virtual-link/" + virtualLinkNeighbor.EntityData.SegmentPath
     virtualLinkNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualLinkNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualLinkNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10091,6 +10266,7 @@ func (virtualLinkRetransmission *Ospfv3_Processes_Process_Vrfs_Vrf_VirtualLink_V
     virtualLinkRetransmission.EntityData.BundleName = "cisco_ios_xr"
     virtualLinkRetransmission.EntityData.ParentYangName = "virtual-link-neighbor"
     virtualLinkRetransmission.EntityData.SegmentPath = "virtual-link-retransmission"
+    virtualLinkRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/virtual-link/virtual-link-neighbor/" + virtualLinkRetransmission.EntityData.SegmentPath
     virtualLinkRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualLinkRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualLinkRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10144,6 +10320,7 @@ func (floodListProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessT
     floodListProcessTable.EntityData.BundleName = "cisco_ios_xr"
     floodListProcessTable.EntityData.ParentYangName = "vrf"
     floodListProcessTable.EntityData.SegmentPath = "flood-list-process-table"
+    floodListProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + floodListProcessTable.EntityData.SegmentPath
     floodListProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     floodListProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     floodListProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10165,6 +10342,7 @@ func (floodListProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessT
 type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -10197,6 +10375,7 @@ func (flood *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood) GetE
     flood.EntityData.BundleName = "cisco_ios_xr"
     flood.EntityData.ParentYangName = "flood-list-process-table"
     flood.EntityData.SegmentPath = "flood" + types.AddKeyToken(flood.InterfaceName, "interface-name")
+    flood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/flood-list-process-table/" + flood.EntityData.SegmentPath
     flood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10204,14 +10383,17 @@ func (flood *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood) GetE
     flood.EntityData.Children = types.NewOrderedMap()
     flood.EntityData.Children.Append("link-flood", types.YChild{"LinkFlood", nil})
     for i := range flood.LinkFlood {
+        types.SetYListKey(flood.LinkFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.LinkFlood[i]), types.YChild{"LinkFlood", flood.LinkFlood[i]})
     }
     flood.EntityData.Children.Append("area-flood", types.YChild{"AreaFlood", nil})
     for i := range flood.AreaFlood {
+        types.SetYListKey(flood.AreaFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.AreaFlood[i]), types.YChild{"AreaFlood", flood.AreaFlood[i]})
     }
     flood.EntityData.Children.Append("as-flood", types.YChild{"AsFlood", nil})
     for i := range flood.AsFlood {
+        types.SetYListKey(flood.AsFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.AsFlood[i]), types.YChild{"AsFlood", flood.AsFlood[i]})
     }
     flood.EntityData.Leafs = types.NewOrderedMap()
@@ -10229,6 +10411,7 @@ func (flood *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood) GetE
 type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_LinkFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -10255,7 +10438,8 @@ func (linkFlood *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_L
     linkFlood.EntityData.YangName = "link-flood"
     linkFlood.EntityData.BundleName = "cisco_ios_xr"
     linkFlood.EntityData.ParentYangName = "flood"
-    linkFlood.EntityData.SegmentPath = "link-flood"
+    linkFlood.EntityData.SegmentPath = "link-flood" + types.AddNoKeyToken(linkFlood)
+    linkFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/flood-list-process-table/flood/" + linkFlood.EntityData.SegmentPath
     linkFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10278,6 +10462,7 @@ func (linkFlood *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_L
 type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_AreaFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -10304,7 +10489,8 @@ func (areaFlood *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_A
     areaFlood.EntityData.YangName = "area-flood"
     areaFlood.EntityData.BundleName = "cisco_ios_xr"
     areaFlood.EntityData.ParentYangName = "flood"
-    areaFlood.EntityData.SegmentPath = "area-flood"
+    areaFlood.EntityData.SegmentPath = "area-flood" + types.AddNoKeyToken(areaFlood)
+    areaFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/flood-list-process-table/flood/" + areaFlood.EntityData.SegmentPath
     areaFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10327,6 +10513,7 @@ func (areaFlood *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_A
 type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_AsFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -10353,7 +10540,8 @@ func (asFlood *Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_AsF
     asFlood.EntityData.YangName = "as-flood"
     asFlood.EntityData.BundleName = "cisco_ios_xr"
     asFlood.EntityData.ParentYangName = "flood"
-    asFlood.EntityData.SegmentPath = "as-flood"
+    asFlood.EntityData.SegmentPath = "as-flood" + types.AddNoKeyToken(asFlood)
+    asFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/flood-list-process-table/flood/" + asFlood.EntityData.SegmentPath
     asFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10420,6 +10608,7 @@ func (routeSummary *Ospfv3_Processes_Process_Vrfs_Vrf_RouteSummary) GetEntityDat
     routeSummary.EntityData.BundleName = "cisco_ios_xr"
     routeSummary.EntityData.ParentYangName = "vrf"
     routeSummary.EntityData.SegmentPath = "route-summary"
+    routeSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + routeSummary.EntityData.SegmentPath
     routeSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10460,6 +10649,7 @@ func (areas *Ospfv3_Processes_Process_Vrfs_Vrf_Areas) GetEntityData() *types.Com
     areas.EntityData.BundleName = "cisco_ios_xr"
     areas.EntityData.ParentYangName = "vrf"
     areas.EntityData.SegmentPath = "areas"
+    areas.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + areas.EntityData.SegmentPath
     areas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10481,6 +10671,7 @@ func (areas *Ospfv3_Processes_Process_Vrfs_Vrf_Areas) GetEntityData() *types.Com
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is interface{} with range:
     // 0..4294967295.
@@ -10520,6 +10711,7 @@ func (area *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area) GetEntityData() *types
     area.EntityData.BundleName = "cisco_ios_xr"
     area.EntityData.ParentYangName = "areas"
     area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
+    area.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/" + area.EntityData.SegmentPath
     area.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     area.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10559,6 +10751,7 @@ func (neighborDetailTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Neighbor
     neighborDetailTable.EntityData.BundleName = "cisco_ios_xr"
     neighborDetailTable.EntityData.ParentYangName = "area"
     neighborDetailTable.EntityData.SegmentPath = "neighbor-detail-table"
+    neighborDetailTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + neighborDetailTable.EntityData.SegmentPath
     neighborDetailTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetailTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetailTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10566,6 +10759,7 @@ func (neighborDetailTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Neighbor
     neighborDetailTable.EntityData.Children = types.NewOrderedMap()
     neighborDetailTable.EntityData.Children.Append("neighbor-detail", types.YChild{"NeighborDetail", nil})
     for i := range neighborDetailTable.NeighborDetail {
+        types.SetYListKey(neighborDetailTable.NeighborDetail[i], i)
         neighborDetailTable.EntityData.Children.Append(types.GetSegmentPath(neighborDetailTable.NeighborDetail[i]), types.YChild{"NeighborDetail", neighborDetailTable.NeighborDetail[i]})
     }
     neighborDetailTable.EntityData.Leafs = types.NewOrderedMap()
@@ -10580,6 +10774,7 @@ func (neighborDetailTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Neighbor
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetailTable_NeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -10637,7 +10832,8 @@ func (neighborDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetai
     neighborDetail.EntityData.YangName = "neighbor-detail"
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor-detail-table"
-    neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.SegmentPath = "neighbor-detail" + types.AddNoKeyToken(neighborDetail)
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/neighbor-detail-table/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10721,6 +10917,7 @@ func (neighborDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetai
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor-detail"
     neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/neighbor-detail-table/neighbor-detail/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10849,6 +11046,7 @@ func (neighborRetransmission *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Neigh
     neighborRetransmission.EntityData.BundleName = "cisco_ios_xr"
     neighborRetransmission.EntityData.ParentYangName = "neighbor-detail"
     neighborRetransmission.EntityData.SegmentPath = "neighbor-retransmission"
+    neighborRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/neighbor-detail-table/neighbor-detail/neighbor-detail/" + neighborRetransmission.EntityData.SegmentPath
     neighborRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10904,6 +11102,7 @@ func (neighborBfdInfo *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDeta
     neighborBfdInfo.EntityData.BundleName = "cisco_ios_xr"
     neighborBfdInfo.EntityData.ParentYangName = "neighbor-detail"
     neighborBfdInfo.EntityData.SegmentPath = "neighbor-bfd-info"
+    neighborBfdInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/neighbor-detail-table/neighbor-detail/" + neighborBfdInfo.EntityData.SegmentPath
     neighborBfdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborBfdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborBfdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10936,6 +11135,7 @@ func (interfaceBriefTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Interfac
     interfaceBriefTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceBriefTable.EntityData.ParentYangName = "area"
     interfaceBriefTable.EntityData.SegmentPath = "interface-brief-table"
+    interfaceBriefTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + interfaceBriefTable.EntityData.SegmentPath
     interfaceBriefTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBriefTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBriefTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10957,6 +11157,7 @@ func (interfaceBriefTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Interfac
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceBriefTable_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -10989,6 +11190,7 @@ func (interfaceBrief *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceBrie
     interfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceBrief.EntityData.ParentYangName = "interface-brief-table"
     interfaceBrief.EntityData.SegmentPath = "interface-brief" + types.AddKeyToken(interfaceBrief.InterfaceName, "interface-name")
+    interfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/interface-brief-table/" + interfaceBrief.EntityData.SegmentPath
     interfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11025,6 +11227,7 @@ func (requestListTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestList
     requestListTable.EntityData.BundleName = "cisco_ios_xr"
     requestListTable.EntityData.ParentYangName = "area"
     requestListTable.EntityData.SegmentPath = "request-list-table"
+    requestListTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + requestListTable.EntityData.SegmentPath
     requestListTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestListTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestListTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11032,6 +11235,7 @@ func (requestListTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestList
     requestListTable.EntityData.Children = types.NewOrderedMap()
     requestListTable.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range requestListTable.Request {
+        types.SetYListKey(requestListTable.Request[i], i)
         requestListTable.EntityData.Children.Append(types.GetSegmentPath(requestListTable.Request[i]), types.YChild{"Request", requestListTable.Request[i]})
     }
     requestListTable.EntityData.Leafs = types.NewOrderedMap()
@@ -11046,6 +11250,7 @@ func (requestListTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestList
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -11081,7 +11286,8 @@ func (request *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Req
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "request-list-table"
-    request.EntityData.SegmentPath = "request"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/request-list-table/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11089,6 +11295,7 @@ func (request *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Req
     request.EntityData.Children = types.NewOrderedMap()
     request.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range request.Request {
+        types.SetYListKey(request.Request[i], i)
         request.EntityData.Children.Append(types.GetSegmentPath(request.Request[i]), types.YChild{"Request", request.Request[i]})
     }
     request.EntityData.Leafs = types.NewOrderedMap()
@@ -11110,6 +11317,7 @@ func (request *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Req
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Request_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -11136,7 +11344,8 @@ func (request *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Req
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "request"
-    request.EntityData.SegmentPath = "request"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/request-list-table/request/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11171,6 +11380,7 @@ func (neighborTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable)
     neighborTable.EntityData.BundleName = "cisco_ios_xr"
     neighborTable.EntityData.ParentYangName = "area"
     neighborTable.EntityData.SegmentPath = "neighbor-table"
+    neighborTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + neighborTable.EntityData.SegmentPath
     neighborTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11178,6 +11388,7 @@ func (neighborTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable)
     neighborTable.EntityData.Children = types.NewOrderedMap()
     neighborTable.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighborTable.Neighbor {
+        types.SetYListKey(neighborTable.Neighbor[i], i)
         neighborTable.EntityData.Children.Append(types.GetSegmentPath(neighborTable.Neighbor[i]), types.YChild{"Neighbor", neighborTable.Neighbor[i]})
     }
     neighborTable.EntityData.Leafs = types.NewOrderedMap()
@@ -11192,6 +11403,7 @@ func (neighborTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable)
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -11249,7 +11461,8 @@ func (neighbor *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable_Neigh
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbor-table"
-    neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddNoKeyToken(neighbor)
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/neighbor-table/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11333,6 +11546,7 @@ func (neighborDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor"
     neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/neighbor-table/neighbor/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11461,6 +11675,7 @@ func (neighborRetransmission *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Neigh
     neighborRetransmission.EntityData.BundleName = "cisco_ios_xr"
     neighborRetransmission.EntityData.ParentYangName = "neighbor-detail"
     neighborRetransmission.EntityData.SegmentPath = "neighbor-retransmission"
+    neighborRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/neighbor-table/neighbor/neighbor-detail/" + neighborRetransmission.EntityData.SegmentPath
     neighborRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11516,6 +11731,7 @@ func (neighborBfdInfo *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTabl
     neighborBfdInfo.EntityData.BundleName = "cisco_ios_xr"
     neighborBfdInfo.EntityData.ParentYangName = "neighbor"
     neighborBfdInfo.EntityData.SegmentPath = "neighbor-bfd-info"
+    neighborBfdInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/neighbor-table/neighbor/" + neighborBfdInfo.EntityData.SegmentPath
     neighborBfdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborBfdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborBfdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11547,6 +11763,7 @@ func (interfaceTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTabl
     interfaceTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceTable.EntityData.ParentYangName = "area"
     interfaceTable.EntityData.SegmentPath = "interface-table"
+    interfaceTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + interfaceTable.EntityData.SegmentPath
     interfaceTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11568,6 +11785,7 @@ func (interfaceTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTabl
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -11730,6 +11948,7 @@ func (self *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interfac
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-table"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/interface-table/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11739,6 +11958,7 @@ func (self *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interfac
     self.EntityData.Children.Append("interface-bfd", types.YChild{"InterfaceBfd", &self.InterfaceBfd})
     self.EntityData.Children.Append("interface-neighbor", types.YChild{"InterfaceNeighbor", nil})
     for i := range self.InterfaceNeighbor {
+        types.SetYListKey(self.InterfaceNeighbor[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.InterfaceNeighbor[i]), types.YChild{"InterfaceNeighbor", self.InterfaceNeighbor[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -11869,6 +12089,7 @@ func (activeInterface *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTab
     activeInterface.EntityData.BundleName = "cisco_ios_xr"
     activeInterface.EntityData.ParentYangName = "interface"
     activeInterface.EntityData.SegmentPath = "active-interface"
+    activeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/interface-table/interface/" + activeInterface.EntityData.SegmentPath
     activeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11923,6 +12144,7 @@ func (interfaceBfd *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_
     interfaceBfd.EntityData.BundleName = "cisco_ios_xr"
     interfaceBfd.EntityData.ParentYangName = "interface"
     interfaceBfd.EntityData.SegmentPath = "interface-bfd"
+    interfaceBfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/interface-table/interface/" + interfaceBfd.EntityData.SegmentPath
     interfaceBfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11943,6 +12165,7 @@ func (interfaceBfd *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interface_InterfaceNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor router ID . The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -11967,7 +12190,8 @@ func (interfaceNeighbor *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceT
     interfaceNeighbor.EntityData.YangName = "interface-neighbor"
     interfaceNeighbor.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighbor.EntityData.ParentYangName = "interface"
-    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor"
+    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor" + types.AddNoKeyToken(interfaceNeighbor)
+    interfaceNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/interface-table/interface/" + interfaceNeighbor.EntityData.SegmentPath
     interfaceNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12003,6 +12227,7 @@ func (floodListTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTabl
     floodListTable.EntityData.BundleName = "cisco_ios_xr"
     floodListTable.EntityData.ParentYangName = "area"
     floodListTable.EntityData.SegmentPath = "flood-list-table"
+    floodListTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + floodListTable.EntityData.SegmentPath
     floodListTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     floodListTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     floodListTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12024,6 +12249,7 @@ func (floodListTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTabl
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -12056,6 +12282,7 @@ func (flood *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood) 
     flood.EntityData.BundleName = "cisco_ios_xr"
     flood.EntityData.ParentYangName = "flood-list-table"
     flood.EntityData.SegmentPath = "flood" + types.AddKeyToken(flood.InterfaceName, "interface-name")
+    flood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/flood-list-table/" + flood.EntityData.SegmentPath
     flood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12063,14 +12290,17 @@ func (flood *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood) 
     flood.EntityData.Children = types.NewOrderedMap()
     flood.EntityData.Children.Append("link-flood", types.YChild{"LinkFlood", nil})
     for i := range flood.LinkFlood {
+        types.SetYListKey(flood.LinkFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.LinkFlood[i]), types.YChild{"LinkFlood", flood.LinkFlood[i]})
     }
     flood.EntityData.Children.Append("area-flood", types.YChild{"AreaFlood", nil})
     for i := range flood.AreaFlood {
+        types.SetYListKey(flood.AreaFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.AreaFlood[i]), types.YChild{"AreaFlood", flood.AreaFlood[i]})
     }
     flood.EntityData.Children.Append("as-flood", types.YChild{"AsFlood", nil})
     for i := range flood.AsFlood {
+        types.SetYListKey(flood.AsFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.AsFlood[i]), types.YChild{"AsFlood", flood.AsFlood[i]})
     }
     flood.EntityData.Leafs = types.NewOrderedMap()
@@ -12088,6 +12318,7 @@ func (flood *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood) 
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood_LinkFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -12114,7 +12345,8 @@ func (linkFlood *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flo
     linkFlood.EntityData.YangName = "link-flood"
     linkFlood.EntityData.BundleName = "cisco_ios_xr"
     linkFlood.EntityData.ParentYangName = "flood"
-    linkFlood.EntityData.SegmentPath = "link-flood"
+    linkFlood.EntityData.SegmentPath = "link-flood" + types.AddNoKeyToken(linkFlood)
+    linkFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/flood-list-table/flood/" + linkFlood.EntityData.SegmentPath
     linkFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12137,6 +12369,7 @@ func (linkFlood *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flo
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood_AreaFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -12163,7 +12396,8 @@ func (areaFlood *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flo
     areaFlood.EntityData.YangName = "area-flood"
     areaFlood.EntityData.BundleName = "cisco_ios_xr"
     areaFlood.EntityData.ParentYangName = "flood"
-    areaFlood.EntityData.SegmentPath = "area-flood"
+    areaFlood.EntityData.SegmentPath = "area-flood" + types.AddNoKeyToken(areaFlood)
+    areaFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/flood-list-table/flood/" + areaFlood.EntityData.SegmentPath
     areaFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12186,6 +12420,7 @@ func (areaFlood *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flo
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood_AsFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -12212,7 +12447,8 @@ func (asFlood *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood
     asFlood.EntityData.YangName = "as-flood"
     asFlood.EntityData.BundleName = "cisco_ios_xr"
     asFlood.EntityData.ParentYangName = "flood"
-    asFlood.EntityData.SegmentPath = "as-flood"
+    asFlood.EntityData.SegmentPath = "as-flood" + types.AddNoKeyToken(asFlood)
+    asFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/flood-list-table/flood/" + asFlood.EntityData.SegmentPath
     asFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12248,6 +12484,7 @@ func (retransmissionListTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retr
     retransmissionListTable.EntityData.BundleName = "cisco_ios_xr"
     retransmissionListTable.EntityData.ParentYangName = "area"
     retransmissionListTable.EntityData.SegmentPath = "retransmission-list-table"
+    retransmissionListTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + retransmissionListTable.EntityData.SegmentPath
     retransmissionListTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionListTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionListTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12255,6 +12492,7 @@ func (retransmissionListTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retr
     retransmissionListTable.EntityData.Children = types.NewOrderedMap()
     retransmissionListTable.EntityData.Children.Append("retransmission", types.YChild{"Retransmission", nil})
     for i := range retransmissionListTable.Retransmission {
+        types.SetYListKey(retransmissionListTable.Retransmission[i], i)
         retransmissionListTable.EntityData.Children.Append(types.GetSegmentPath(retransmissionListTable.Retransmission[i]), types.YChild{"Retransmission", retransmissionListTable.Retransmission[i]})
     }
     retransmissionListTable.EntityData.Leafs = types.NewOrderedMap()
@@ -12269,6 +12507,7 @@ func (retransmissionListTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retr
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retransmission struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -12321,7 +12560,8 @@ func (retransmission *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retransmissio
     retransmission.EntityData.YangName = "retransmission"
     retransmission.EntityData.BundleName = "cisco_ios_xr"
     retransmission.EntityData.ParentYangName = "retransmission-list-table"
-    retransmission.EntityData.SegmentPath = "retransmission"
+    retransmission.EntityData.SegmentPath = "retransmission" + types.AddNoKeyToken(retransmission)
+    retransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/retransmission-list-table/" + retransmission.EntityData.SegmentPath
     retransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12329,14 +12569,17 @@ func (retransmission *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retransmissio
     retransmission.EntityData.Children = types.NewOrderedMap()
     retransmission.EntityData.Children.Append("retransmissionvirtual-link-db", types.YChild{"RetransmissionvirtualLinkDb", nil})
     for i := range retransmission.RetransmissionvirtualLinkDb {
+        types.SetYListKey(retransmission.RetransmissionvirtualLinkDb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionvirtualLinkDb[i]), types.YChild{"RetransmissionvirtualLinkDb", retransmission.RetransmissionvirtualLinkDb[i]})
     }
     retransmission.EntityData.Children.Append("retransmission-area-db", types.YChild{"RetransmissionAreaDb", nil})
     for i := range retransmission.RetransmissionAreaDb {
+        types.SetYListKey(retransmission.RetransmissionAreaDb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionAreaDb[i]), types.YChild{"RetransmissionAreaDb", retransmission.RetransmissionAreaDb[i]})
     }
     retransmission.EntityData.Children.Append("retransmission-asdb", types.YChild{"RetransmissionAsdb", nil})
     for i := range retransmission.RetransmissionAsdb {
+        types.SetYListKey(retransmission.RetransmissionAsdb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionAsdb[i]), types.YChild{"RetransmissionAsdb", retransmission.RetransmissionAsdb[i]})
     }
     retransmission.EntityData.Leafs = types.NewOrderedMap()
@@ -12360,6 +12603,7 @@ func (retransmission *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retransmissio
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retransmission_RetransmissionvirtualLinkDb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -12386,7 +12630,8 @@ func (retransmissionvirtualLinkDb *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_
     retransmissionvirtualLinkDb.EntityData.YangName = "retransmissionvirtual-link-db"
     retransmissionvirtualLinkDb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionvirtualLinkDb.EntityData.ParentYangName = "retransmission"
-    retransmissionvirtualLinkDb.EntityData.SegmentPath = "retransmissionvirtual-link-db"
+    retransmissionvirtualLinkDb.EntityData.SegmentPath = "retransmissionvirtual-link-db" + types.AddNoKeyToken(retransmissionvirtualLinkDb)
+    retransmissionvirtualLinkDb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/retransmission-list-table/retransmission/" + retransmissionvirtualLinkDb.EntityData.SegmentPath
     retransmissionvirtualLinkDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionvirtualLinkDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionvirtualLinkDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12409,6 +12654,7 @@ func (retransmissionvirtualLinkDb *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retransmission_RetransmissionAreaDb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -12435,7 +12681,8 @@ func (retransmissionAreaDb *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retrans
     retransmissionAreaDb.EntityData.YangName = "retransmission-area-db"
     retransmissionAreaDb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionAreaDb.EntityData.ParentYangName = "retransmission"
-    retransmissionAreaDb.EntityData.SegmentPath = "retransmission-area-db"
+    retransmissionAreaDb.EntityData.SegmentPath = "retransmission-area-db" + types.AddNoKeyToken(retransmissionAreaDb)
+    retransmissionAreaDb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/retransmission-list-table/retransmission/" + retransmissionAreaDb.EntityData.SegmentPath
     retransmissionAreaDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionAreaDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionAreaDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12458,6 +12705,7 @@ func (retransmissionAreaDb *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retrans
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retransmission_RetransmissionAsdb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -12484,7 +12732,8 @@ func (retransmissionAsdb *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Retransmi
     retransmissionAsdb.EntityData.YangName = "retransmission-asdb"
     retransmissionAsdb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionAsdb.EntityData.ParentYangName = "retransmission"
-    retransmissionAsdb.EntityData.SegmentPath = "retransmission-asdb"
+    retransmissionAsdb.EntityData.SegmentPath = "retransmission-asdb" + types.AddNoKeyToken(retransmissionAsdb)
+    retransmissionAsdb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/retransmission-list-table/retransmission/" + retransmissionAsdb.EntityData.SegmentPath
     retransmissionAsdb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionAsdb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionAsdb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12521,6 +12770,7 @@ func (databaseTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable)
     databaseTable.EntityData.BundleName = "cisco_ios_xr"
     databaseTable.EntityData.ParentYangName = "area"
     databaseTable.EntityData.SegmentPath = "database-table"
+    databaseTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + databaseTable.EntityData.SegmentPath
     databaseTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12552,6 +12802,7 @@ func (lsaTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTa
     lsaTable.EntityData.BundleName = "cisco_ios_xr"
     lsaTable.EntityData.ParentYangName = "database-table"
     lsaTable.EntityData.SegmentPath = "lsa-table"
+    lsaTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/" + lsaTable.EntityData.SegmentPath
     lsaTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12559,6 +12810,7 @@ func (lsaTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTa
     lsaTable.EntityData.Children = types.NewOrderedMap()
     lsaTable.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range lsaTable.Lsa {
+        types.SetYListKey(lsaTable.Lsa[i], i)
         lsaTable.EntityData.Children.Append(types.GetSegmentPath(lsaTable.Lsa[i]), types.YChild{"Lsa", lsaTable.Lsa[i]})
     }
     lsaTable.EntityData.Leafs = types.NewOrderedMap()
@@ -12573,6 +12825,7 @@ func (lsaTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTa
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     AreaId interface{}
@@ -12599,7 +12852,8 @@ func (lsa *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_L
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "lsa-table"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12676,6 +12930,7 @@ func (lsaInfo *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTab
     lsaInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaInfo.EntityData.ParentYangName = "lsa"
     lsaInfo.EntityData.SegmentPath = "lsa-info"
+    lsaInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/" + lsaInfo.EntityData.SegmentPath
     lsaInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12759,6 +13014,7 @@ func (lsaSummaryInfo *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable
     lsaSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaSummaryInfo.EntityData.ParentYangName = "lsa-info"
     lsaSummaryInfo.EntityData.SegmentPath = "lsa-summary-info"
+    lsaSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + lsaSummaryInfo.EntityData.SegmentPath
     lsaSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12827,6 +13083,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "lsa-summary-info"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/lsa-summary-info/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12929,6 +13186,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "lsa-summary-info"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/lsa-summary-info/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12989,6 +13247,7 @@ func (routerLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_
     routerLsaType.EntityData.BundleName = "cisco_ios_xr"
     routerLsaType.EntityData.ParentYangName = "lsa-info"
     routerLsaType.EntityData.SegmentPath = "router-lsa-type"
+    routerLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + routerLsaType.EntityData.SegmentPath
     routerLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12999,6 +13258,7 @@ func (routerLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_
     routerLsaType.EntityData.Children.Append("rpf-path", types.YChild{"RpfPath", &routerLsaType.RpfPath})
     routerLsaType.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range routerLsaType.Link {
+        types.SetYListKey(routerLsaType.Link[i], i)
         routerLsaType.EntityData.Children.Append(types.GetSegmentPath(routerLsaType.Link[i]), types.YChild{"Link", routerLsaType.Link[i]})
     }
     routerLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -13051,6 +13311,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13153,6 +13414,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13203,6 +13465,7 @@ func (rpfPath *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTab
     rpfPath.EntityData.BundleName = "cisco_ios_xr"
     rpfPath.EntityData.ParentYangName = "router-lsa-type"
     rpfPath.EntityData.SegmentPath = "rpf-path"
+    rpfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + rpfPath.EntityData.SegmentPath
     rpfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13222,6 +13485,7 @@ func (rpfPath *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTab
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_LsaInfo_RouterLsaType_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of link. The type is Ospfv3Link.
     LinkType interface{}
@@ -13246,7 +13510,8 @@ func (link *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "router-lsa-type"
-    link.EntityData.SegmentPath = "link"
+    link.EntityData.SegmentPath = "link" + types.AddNoKeyToken(link)
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13287,6 +13552,7 @@ func (networkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable
     networkLsaType.EntityData.BundleName = "cisco_ios_xr"
     networkLsaType.EntityData.ParentYangName = "lsa-info"
     networkLsaType.EntityData.SegmentPath = "network-lsa-type"
+    networkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + networkLsaType.EntityData.SegmentPath
     networkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13344,6 +13610,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "network-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/network-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13446,6 +13713,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "network-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/network-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13506,6 +13774,7 @@ func (interAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Datab
     interAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaPrefixLsaType.EntityData.SegmentPath = "inter-area-prefix-lsa-type"
+    interAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + interAreaPrefixLsaType.EntityData.SegmentPath
     interAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13565,6 +13834,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13667,6 +13937,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13720,6 +13991,7 @@ func (interAreaRouterLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Datab
     interAreaRouterLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaRouterLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaRouterLsaType.EntityData.SegmentPath = "inter-area-router-lsa-type"
+    interAreaRouterLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + interAreaRouterLsaType.EntityData.SegmentPath
     interAreaRouterLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaRouterLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaRouterLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13777,6 +14049,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13879,6 +14152,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13956,6 +14230,7 @@ func (externalLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTabl
     externalLsaType.EntityData.BundleName = "cisco_ios_xr"
     externalLsaType.EntityData.ParentYangName = "lsa-info"
     externalLsaType.EntityData.SegmentPath = "external-lsa-type"
+    externalLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + externalLsaType.EntityData.SegmentPath
     externalLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14020,6 +14295,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "external-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/external-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14122,6 +14398,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "external-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/external-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14199,6 +14476,7 @@ func (nssalsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_Ls
     nssalsaType.EntityData.BundleName = "cisco_ios_xr"
     nssalsaType.EntityData.ParentYangName = "lsa-info"
     nssalsaType.EntityData.SegmentPath = "nssalsa-type"
+    nssalsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + nssalsaType.EntityData.SegmentPath
     nssalsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nssalsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nssalsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14263,6 +14541,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "nssalsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/nssalsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14365,6 +14644,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "nssalsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/nssalsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14441,6 +14721,7 @@ func (linkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_Ls
     linkLsaType.EntityData.BundleName = "cisco_ios_xr"
     linkLsaType.EntityData.ParentYangName = "lsa-info"
     linkLsaType.EntityData.SegmentPath = "link-lsa-type"
+    linkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + linkLsaType.EntityData.SegmentPath
     linkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14450,6 +14731,7 @@ func (linkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_Ls
     linkLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &linkLsaType.LsaDetail})
     linkLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range linkLsaType.Prefix {
+        types.SetYListKey(linkLsaType.Prefix[i], i)
         linkLsaType.EntityData.Children.Append(types.GetSegmentPath(linkLsaType.Prefix[i]), types.YChild{"Prefix", linkLsaType.Prefix[i]})
     }
     linkLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -14508,6 +14790,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14610,6 +14893,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14646,6 +14930,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -14669,7 +14954,8 @@ func (prefix *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTabl
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "link-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14720,6 +15006,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Datab
     intraAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     intraAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     intraAreaPrefixLsaType.EntityData.SegmentPath = "intra-area-prefix-lsa-type"
+    intraAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + intraAreaPrefixLsaType.EntityData.SegmentPath
     intraAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intraAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intraAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14729,6 +15016,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Datab
     intraAreaPrefixLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &intraAreaPrefixLsaType.LsaDetail})
     intraAreaPrefixLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range intraAreaPrefixLsaType.Prefix {
+        types.SetYListKey(intraAreaPrefixLsaType.Prefix[i], i)
         intraAreaPrefixLsaType.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefixLsaType.Prefix[i]), types.YChild{"Prefix", intraAreaPrefixLsaType.Prefix[i]})
     }
     intraAreaPrefixLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -14783,6 +15071,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14885,6 +15174,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14921,6 +15211,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_LsaInfo_IntraAreaPrefixLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -14944,7 +15235,8 @@ func (prefix *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTabl
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15003,6 +15295,7 @@ func (graceLsa *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTa
     graceLsa.EntityData.BundleName = "cisco_ios_xr"
     graceLsa.EntityData.ParentYangName = "lsa-info"
     graceLsa.EntityData.SegmentPath = "grace-lsa"
+    graceLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + graceLsa.EntityData.SegmentPath
     graceLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graceLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graceLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15066,6 +15359,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "grace-lsa"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/grace-lsa/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15168,6 +15462,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "grace-lsa"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/grace-lsa/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15233,6 +15528,7 @@ func (unknownLinkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseT
     unknownLinkLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLinkLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLinkLsaType.EntityData.SegmentPath = "unknown-link-lsa-type"
+    unknownLinkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + unknownLinkLsaType.EntityData.SegmentPath
     unknownLinkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLinkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLinkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15294,6 +15590,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15396,6 +15693,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15461,6 +15759,7 @@ func (unknownAreaLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseT
     unknownAreaLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAreaLsaType.EntityData.ParentYangName = "lsa-info"
     unknownAreaLsaType.EntityData.SegmentPath = "unknown-area-lsa-type"
+    unknownAreaLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + unknownAreaLsaType.EntityData.SegmentPath
     unknownAreaLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAreaLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAreaLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15522,6 +15821,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15624,6 +15924,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15689,6 +15990,7 @@ func (unknownAslsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTab
     unknownAslsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAslsaType.EntityData.ParentYangName = "lsa-info"
     unknownAslsaType.EntityData.SegmentPath = "unknown-aslsa-type"
+    unknownAslsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + unknownAslsaType.EntityData.SegmentPath
     unknownAslsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAslsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAslsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15750,6 +16052,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-aslsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15852,6 +16155,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-aslsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15917,6 +16221,7 @@ func (unknownLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable
     unknownLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLsaType.EntityData.SegmentPath = "unknown-lsa-type"
+    unknownLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + unknownLsaType.EntityData.SegmentPath
     unknownLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15978,6 +16283,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16080,6 +16386,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaT
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16128,6 +16435,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTab
     lsaInternalTable.EntityData.BundleName = "cisco_ios_xr"
     lsaInternalTable.EntityData.ParentYangName = "database-table"
     lsaInternalTable.EntityData.SegmentPath = "lsa-internal-table"
+    lsaInternalTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/" + lsaInternalTable.EntityData.SegmentPath
     lsaInternalTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInternalTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInternalTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16135,6 +16443,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTab
     lsaInternalTable.EntityData.Children = types.NewOrderedMap()
     lsaInternalTable.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range lsaInternalTable.Lsa {
+        types.SetYListKey(lsaInternalTable.Lsa[i], i)
         lsaInternalTable.EntityData.Children.Append(types.GetSegmentPath(lsaInternalTable.Lsa[i]), types.YChild{"Lsa", lsaInternalTable.Lsa[i]})
     }
     lsaInternalTable.EntityData.Leafs = types.NewOrderedMap()
@@ -16149,6 +16458,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTab
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     AreaId interface{}
@@ -16175,7 +16485,8 @@ func (lsa *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInterna
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "lsa-internal-table"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16252,6 +16563,7 @@ func (lsaInfo *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInt
     lsaInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaInfo.EntityData.ParentYangName = "lsa"
     lsaInfo.EntityData.SegmentPath = "lsa-info"
+    lsaInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/" + lsaInfo.EntityData.SegmentPath
     lsaInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16335,6 +16647,7 @@ func (lsaSummaryInfo *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable
     lsaSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaSummaryInfo.EntityData.ParentYangName = "lsa-info"
     lsaSummaryInfo.EntityData.SegmentPath = "lsa-summary-info"
+    lsaSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + lsaSummaryInfo.EntityData.SegmentPath
     lsaSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16403,6 +16716,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "lsa-summary-info"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/lsa-summary-info/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16505,6 +16819,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "lsa-summary-info"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/lsa-summary-info/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16565,6 +16880,7 @@ func (routerLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_
     routerLsaType.EntityData.BundleName = "cisco_ios_xr"
     routerLsaType.EntityData.ParentYangName = "lsa-info"
     routerLsaType.EntityData.SegmentPath = "router-lsa-type"
+    routerLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + routerLsaType.EntityData.SegmentPath
     routerLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16575,6 +16891,7 @@ func (routerLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_
     routerLsaType.EntityData.Children.Append("rpf-path", types.YChild{"RpfPath", &routerLsaType.RpfPath})
     routerLsaType.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range routerLsaType.Link {
+        types.SetYListKey(routerLsaType.Link[i], i)
         routerLsaType.EntityData.Children.Append(types.GetSegmentPath(routerLsaType.Link[i]), types.YChild{"Link", routerLsaType.Link[i]})
     }
     routerLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -16627,6 +16944,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16729,6 +17047,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16779,6 +17098,7 @@ func (rpfPath *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInt
     rpfPath.EntityData.BundleName = "cisco_ios_xr"
     rpfPath.EntityData.ParentYangName = "router-lsa-type"
     rpfPath.EntityData.SegmentPath = "rpf-path"
+    rpfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + rpfPath.EntityData.SegmentPath
     rpfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16798,6 +17118,7 @@ func (rpfPath *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInt
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_RouterLsaType_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of link. The type is Ospfv3Link.
     LinkType interface{}
@@ -16822,7 +17143,8 @@ func (link *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaIntern
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "router-lsa-type"
-    link.EntityData.SegmentPath = "link"
+    link.EntityData.SegmentPath = "link" + types.AddNoKeyToken(link)
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16863,6 +17185,7 @@ func (networkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable
     networkLsaType.EntityData.BundleName = "cisco_ios_xr"
     networkLsaType.EntityData.ParentYangName = "lsa-info"
     networkLsaType.EntityData.SegmentPath = "network-lsa-type"
+    networkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + networkLsaType.EntityData.SegmentPath
     networkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16920,6 +17243,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "network-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/network-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17022,6 +17346,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "network-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/network-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17082,6 +17407,7 @@ func (interAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Datab
     interAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaPrefixLsaType.EntityData.SegmentPath = "inter-area-prefix-lsa-type"
+    interAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + interAreaPrefixLsaType.EntityData.SegmentPath
     interAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17141,6 +17467,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17243,6 +17570,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17296,6 +17624,7 @@ func (interAreaRouterLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Datab
     interAreaRouterLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaRouterLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaRouterLsaType.EntityData.SegmentPath = "inter-area-router-lsa-type"
+    interAreaRouterLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + interAreaRouterLsaType.EntityData.SegmentPath
     interAreaRouterLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaRouterLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaRouterLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17353,6 +17682,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17455,6 +17785,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17532,6 +17863,7 @@ func (externalLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTabl
     externalLsaType.EntityData.BundleName = "cisco_ios_xr"
     externalLsaType.EntityData.ParentYangName = "lsa-info"
     externalLsaType.EntityData.SegmentPath = "external-lsa-type"
+    externalLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + externalLsaType.EntityData.SegmentPath
     externalLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17596,6 +17928,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "external-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/external-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17698,6 +18031,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "external-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/external-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17775,6 +18109,7 @@ func (nssalsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_Ls
     nssalsaType.EntityData.BundleName = "cisco_ios_xr"
     nssalsaType.EntityData.ParentYangName = "lsa-info"
     nssalsaType.EntityData.SegmentPath = "nssalsa-type"
+    nssalsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + nssalsaType.EntityData.SegmentPath
     nssalsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nssalsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nssalsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17839,6 +18174,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "nssalsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/nssalsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17941,6 +18277,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "nssalsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/nssalsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18017,6 +18354,7 @@ func (linkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_Ls
     linkLsaType.EntityData.BundleName = "cisco_ios_xr"
     linkLsaType.EntityData.ParentYangName = "lsa-info"
     linkLsaType.EntityData.SegmentPath = "link-lsa-type"
+    linkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + linkLsaType.EntityData.SegmentPath
     linkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18026,6 +18364,7 @@ func (linkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_Ls
     linkLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &linkLsaType.LsaDetail})
     linkLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range linkLsaType.Prefix {
+        types.SetYListKey(linkLsaType.Prefix[i], i)
         linkLsaType.EntityData.Children.Append(types.GetSegmentPath(linkLsaType.Prefix[i]), types.YChild{"Prefix", linkLsaType.Prefix[i]})
     }
     linkLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -18084,6 +18423,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18186,6 +18526,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18222,6 +18563,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_LinkLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -18245,7 +18587,8 @@ func (prefix *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInte
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "link-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18296,6 +18639,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Datab
     intraAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     intraAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     intraAreaPrefixLsaType.EntityData.SegmentPath = "intra-area-prefix-lsa-type"
+    intraAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + intraAreaPrefixLsaType.EntityData.SegmentPath
     intraAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intraAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intraAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18305,6 +18649,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Datab
     intraAreaPrefixLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &intraAreaPrefixLsaType.LsaDetail})
     intraAreaPrefixLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range intraAreaPrefixLsaType.Prefix {
+        types.SetYListKey(intraAreaPrefixLsaType.Prefix[i], i)
         intraAreaPrefixLsaType.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefixLsaType.Prefix[i]), types.YChild{"Prefix", intraAreaPrefixLsaType.Prefix[i]})
     }
     intraAreaPrefixLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -18359,6 +18704,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18461,6 +18807,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18497,6 +18844,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_IntraAreaPrefixLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -18520,7 +18868,8 @@ func (prefix *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInte
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18579,6 +18928,7 @@ func (graceLsa *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaIn
     graceLsa.EntityData.BundleName = "cisco_ios_xr"
     graceLsa.EntityData.ParentYangName = "lsa-info"
     graceLsa.EntityData.SegmentPath = "grace-lsa"
+    graceLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + graceLsa.EntityData.SegmentPath
     graceLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graceLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graceLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18642,6 +18992,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "grace-lsa"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/grace-lsa/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18744,6 +19095,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "grace-lsa"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/grace-lsa/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18809,6 +19161,7 @@ func (unknownLinkLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseT
     unknownLinkLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLinkLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLinkLsaType.EntityData.SegmentPath = "unknown-link-lsa-type"
+    unknownLinkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + unknownLinkLsaType.EntityData.SegmentPath
     unknownLinkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLinkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLinkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18870,6 +19223,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18972,6 +19326,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19037,6 +19392,7 @@ func (unknownAreaLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseT
     unknownAreaLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAreaLsaType.EntityData.ParentYangName = "lsa-info"
     unknownAreaLsaType.EntityData.SegmentPath = "unknown-area-lsa-type"
+    unknownAreaLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + unknownAreaLsaType.EntityData.SegmentPath
     unknownAreaLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAreaLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAreaLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19098,6 +19454,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19200,6 +19557,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19265,6 +19623,7 @@ func (unknownAslsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTab
     unknownAslsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAslsaType.EntityData.ParentYangName = "lsa-info"
     unknownAslsaType.EntityData.SegmentPath = "unknown-aslsa-type"
+    unknownAslsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + unknownAslsaType.EntityData.SegmentPath
     unknownAslsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAslsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAslsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19326,6 +19685,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-aslsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19428,6 +19788,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-aslsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19493,6 +19854,7 @@ func (unknownLsaType *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable
     unknownLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLsaType.EntityData.SegmentPath = "unknown-lsa-type"
+    unknownLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + unknownLsaType.EntityData.SegmentPath
     unknownLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19554,6 +19916,7 @@ func (lsaHeader *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19656,6 +20019,7 @@ func (lsaDetail *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaI
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19703,6 +20067,7 @@ func (databaseSummaryTable *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Databas
     databaseSummaryTable.EntityData.BundleName = "cisco_ios_xr"
     databaseSummaryTable.EntityData.ParentYangName = "area"
     databaseSummaryTable.EntityData.SegmentPath = "database-summary-table"
+    databaseSummaryTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/" + databaseSummaryTable.EntityData.SegmentPath
     databaseSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseSummaryTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19743,6 +20108,7 @@ func (databaseSummary *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseSumm
     databaseSummary.EntityData.BundleName = "cisco_ios_xr"
     databaseSummary.EntityData.ParentYangName = "database-summary-table"
     databaseSummary.EntityData.SegmentPath = "database-summary"
+    databaseSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-summary-table/" + databaseSummary.EntityData.SegmentPath
     databaseSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19751,6 +20117,7 @@ func (databaseSummary *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseSumm
     databaseSummary.EntityData.Children.Append("database-counters", types.YChild{"DatabaseCounters", &databaseSummary.DatabaseCounters})
     databaseSummary.EntityData.Children.Append("area-database", types.YChild{"AreaDatabase", nil})
     for i := range databaseSummary.AreaDatabase {
+        types.SetYListKey(databaseSummary.AreaDatabase[i], i)
         databaseSummary.EntityData.Children.Append(types.GetSegmentPath(databaseSummary.AreaDatabase[i]), types.YChild{"AreaDatabase", databaseSummary.AreaDatabase[i]})
     }
     databaseSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -19787,6 +20154,7 @@ func (databaseCounters *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseSum
     databaseCounters.EntityData.BundleName = "cisco_ios_xr"
     databaseCounters.EntityData.ParentYangName = "database-summary"
     databaseCounters.EntityData.SegmentPath = "database-counters"
+    databaseCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-summary-table/database-summary/" + databaseCounters.EntityData.SegmentPath
     databaseCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19808,6 +20176,7 @@ func (databaseCounters *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseSum
 type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseSummaryTable_DatabaseSummary_AreaDatabase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID in decimal or dotted-decimal format. The type is string with
     // length: 0..16.
@@ -19822,7 +20191,8 @@ func (areaDatabase *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseSummary
     areaDatabase.EntityData.YangName = "area-database"
     areaDatabase.EntityData.BundleName = "cisco_ios_xr"
     areaDatabase.EntityData.ParentYangName = "database-summary"
-    areaDatabase.EntityData.SegmentPath = "area-database"
+    areaDatabase.EntityData.SegmentPath = "area-database" + types.AddNoKeyToken(areaDatabase)
+    areaDatabase.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-summary-table/database-summary/" + areaDatabase.EntityData.SegmentPath
     areaDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19862,6 +20232,7 @@ func (areaDatabaseSummary *Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_Database
     areaDatabaseSummary.EntityData.BundleName = "cisco_ios_xr"
     areaDatabaseSummary.EntityData.ParentYangName = "area-database"
     areaDatabaseSummary.EntityData.SegmentPath = "area-database-summary"
+    areaDatabaseSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/areas/area/database-summary-table/database-summary/area-database/" + areaDatabaseSummary.EntityData.SegmentPath
     areaDatabaseSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaDatabaseSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaDatabaseSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19895,6 +20266,7 @@ func (internalRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes) GetEntit
     internalRoutes.EntityData.BundleName = "cisco_ios_xr"
     internalRoutes.EntityData.ParentYangName = "vrf"
     internalRoutes.EntityData.SegmentPath = "internal-routes"
+    internalRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + internalRoutes.EntityData.SegmentPath
     internalRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19902,6 +20274,7 @@ func (internalRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes) GetEntit
     internalRoutes.EntityData.Children = types.NewOrderedMap()
     internalRoutes.EntityData.Children.Append("internal-route", types.YChild{"InternalRoute", nil})
     for i := range internalRoutes.InternalRoute {
+        types.SetYListKey(internalRoutes.InternalRoute[i], i)
         internalRoutes.EntityData.Children.Append(types.GetSegmentPath(internalRoutes.InternalRoute[i]), types.YChild{"InternalRoute", internalRoutes.InternalRoute[i]})
     }
     internalRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -19916,6 +20289,7 @@ func (internalRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes) GetEntit
 type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -19944,7 +20318,8 @@ func (internalRoute *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRo
     internalRoute.EntityData.YangName = "internal-route"
     internalRoute.EntityData.BundleName = "cisco_ios_xr"
     internalRoute.EntityData.ParentYangName = "internal-routes"
-    internalRoute.EntityData.SegmentPath = "internal-route"
+    internalRoute.EntityData.SegmentPath = "internal-route" + types.AddNoKeyToken(internalRoute)
+    internalRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/internal-routes/" + internalRoute.EntityData.SegmentPath
     internalRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19953,10 +20328,12 @@ func (internalRoute *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRo
     internalRoute.EntityData.Children.Append("route-topology", types.YChild{"RouteTopology", &internalRoute.RouteTopology})
     internalRoute.EntityData.Children.Append("route-source", types.YChild{"RouteSource", nil})
     for i := range internalRoute.RouteSource {
+        types.SetYListKey(internalRoute.RouteSource[i], i)
         internalRoute.EntityData.Children.Append(types.GetSegmentPath(internalRoute.RouteSource[i]), types.YChild{"RouteSource", internalRoute.RouteSource[i]})
     }
     internalRoute.EntityData.Children.Append("route-path", types.YChild{"RoutePath", nil})
     for i := range internalRoute.RoutePath {
+        types.SetYListKey(internalRoute.RoutePath[i], i)
         internalRoute.EntityData.Children.Append(types.GetSegmentPath(internalRoute.RoutePath[i]), types.YChild{"RoutePath", internalRoute.RoutePath[i]})
     }
     internalRoute.EntityData.Leafs = types.NewOrderedMap()
@@ -19995,6 +20372,7 @@ func (routeTopology *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRo
     routeTopology.EntityData.BundleName = "cisco_ios_xr"
     routeTopology.EntityData.ParentYangName = "internal-route"
     routeTopology.EntityData.SegmentPath = "route-topology"
+    routeTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/internal-routes/internal-route/" + routeTopology.EntityData.SegmentPath
     routeTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20016,6 +20394,7 @@ func (routeTopology *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRo
 type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RouteSource struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route source of the advertising router . The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -20035,7 +20414,8 @@ func (routeSource *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRout
     routeSource.EntityData.YangName = "route-source"
     routeSource.EntityData.BundleName = "cisco_ios_xr"
     routeSource.EntityData.ParentYangName = "internal-route"
-    routeSource.EntityData.SegmentPath = "route-source"
+    routeSource.EntityData.SegmentPath = "route-source" + types.AddNoKeyToken(routeSource)
+    routeSource.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/internal-routes/internal-route/" + routeSource.EntityData.SegmentPath
     routeSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20056,6 +20436,7 @@ func (routeSource *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRout
 type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RoutePath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route path interface name . The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -20085,7 +20466,8 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_
     routePath.EntityData.YangName = "route-path"
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "internal-route"
-    routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.SegmentPath = "route-path" + types.AddNoKeyToken(routePath)
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/internal-routes/internal-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20094,6 +20476,7 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_
     routePath.EntityData.Children.Append("route-backup-path", types.YChild{"RouteBackupPath", &routePath.RouteBackupPath})
     routePath.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
     for i := range routePath.NeighborNextHop {
+        types.SetYListKey(routePath.NeighborNextHop[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.NeighborNextHop[i]), types.YChild{"NeighborNextHop", routePath.NeighborNextHop[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -20149,6 +20532,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_Internal
     routeBackupPath.EntityData.BundleName = "cisco_ios_xr"
     routeBackupPath.EntityData.ParentYangName = "route-path"
     routeBackupPath.EntityData.SegmentPath = "route-backup-path"
+    routeBackupPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/internal-routes/internal-route/route-path/" + routeBackupPath.EntityData.SegmentPath
     routeBackupPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeBackupPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeBackupPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20175,6 +20559,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_Internal
 type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RoutePath_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor NextHop Interface Index. The type is interface{} with range:
     // 0..4294967295.
@@ -20186,7 +20571,8 @@ func (neighborNextHop *Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_Internal
     neighborNextHop.EntityData.YangName = "neighbor-next-hop"
     neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
     neighborNextHop.EntityData.ParentYangName = "route-path"
-    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop" + types.AddNoKeyToken(neighborNextHop)
+    neighborNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/internal-routes/internal-route/route-path/" + neighborNextHop.EntityData.SegmentPath
     neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20217,6 +20603,7 @@ func (protocolAreas *Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas) GetEntityD
     protocolAreas.EntityData.BundleName = "cisco_ios_xr"
     protocolAreas.EntityData.ParentYangName = "vrf"
     protocolAreas.EntityData.SegmentPath = "protocol-areas"
+    protocolAreas.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + protocolAreas.EntityData.SegmentPath
     protocolAreas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolAreas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolAreas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20238,6 +20625,7 @@ func (protocolAreas *Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas) GetEntityD
 type Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_ProtocolArea struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -20261,6 +20649,7 @@ func (protocolArea *Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_ProtocolArea
     protocolArea.EntityData.BundleName = "cisco_ios_xr"
     protocolArea.EntityData.ParentYangName = "protocol-areas"
     protocolArea.EntityData.SegmentPath = "protocol-area" + types.AddKeyToken(protocolArea.AreaId, "area-id")
+    protocolArea.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/protocol-areas/" + protocolArea.EntityData.SegmentPath
     protocolArea.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolArea.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolArea.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20268,6 +20657,7 @@ func (protocolArea *Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_ProtocolArea
     protocolArea.EntityData.Children = types.NewOrderedMap()
     protocolArea.EntityData.Children.Append("protocol-interface", types.YChild{"ProtocolInterface", nil})
     for i := range protocolArea.ProtocolInterface {
+        types.SetYListKey(protocolArea.ProtocolInterface[i], i)
         protocolArea.EntityData.Children.Append(types.GetSegmentPath(protocolArea.ProtocolInterface[i]), types.YChild{"ProtocolInterface", protocolArea.ProtocolInterface[i]})
     }
     protocolArea.EntityData.Leafs = types.NewOrderedMap()
@@ -20285,6 +20675,7 @@ func (protocolArea *Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_ProtocolArea
 type Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_ProtocolArea_ProtocolInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol interface name . The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -20299,7 +20690,8 @@ func (protocolInterface *Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_Protoco
     protocolInterface.EntityData.YangName = "protocol-interface"
     protocolInterface.EntityData.BundleName = "cisco_ios_xr"
     protocolInterface.EntityData.ParentYangName = "protocol-area"
-    protocolInterface.EntityData.SegmentPath = "protocol-interface"
+    protocolInterface.EntityData.SegmentPath = "protocol-interface" + types.AddNoKeyToken(protocolInterface)
+    protocolInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/protocol-areas/protocol-area/" + protocolInterface.EntityData.SegmentPath
     protocolInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20331,6 +20723,7 @@ func (connectedRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes) GetEnt
     connectedRoutes.EntityData.BundleName = "cisco_ios_xr"
     connectedRoutes.EntityData.ParentYangName = "vrf"
     connectedRoutes.EntityData.SegmentPath = "connected-routes"
+    connectedRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + connectedRoutes.EntityData.SegmentPath
     connectedRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectedRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20338,6 +20731,7 @@ func (connectedRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes) GetEnt
     connectedRoutes.EntityData.Children = types.NewOrderedMap()
     connectedRoutes.EntityData.Children.Append("connected-route", types.YChild{"ConnectedRoute", nil})
     for i := range connectedRoutes.ConnectedRoute {
+        types.SetYListKey(connectedRoutes.ConnectedRoute[i], i)
         connectedRoutes.EntityData.Children.Append(types.GetSegmentPath(connectedRoutes.ConnectedRoute[i]), types.YChild{"ConnectedRoute", connectedRoutes.ConnectedRoute[i]})
     }
     connectedRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -20352,6 +20746,7 @@ func (connectedRoutes *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes) GetEnt
 type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -20373,7 +20768,8 @@ func (connectedRoute *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_Connecte
     connectedRoute.EntityData.YangName = "connected-route"
     connectedRoute.EntityData.BundleName = "cisco_ios_xr"
     connectedRoute.EntityData.ParentYangName = "connected-routes"
-    connectedRoute.EntityData.SegmentPath = "connected-route"
+    connectedRoute.EntityData.SegmentPath = "connected-route" + types.AddNoKeyToken(connectedRoute)
+    connectedRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/connected-routes/" + connectedRoute.EntityData.SegmentPath
     connectedRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectedRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20382,6 +20778,7 @@ func (connectedRoute *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_Connecte
     connectedRoute.EntityData.Children.Append("route-topology", types.YChild{"RouteTopology", &connectedRoute.RouteTopology})
     connectedRoute.EntityData.Children.Append("route-path", types.YChild{"RoutePath", nil})
     for i := range connectedRoute.RoutePath {
+        types.SetYListKey(connectedRoute.RoutePath[i], i)
         connectedRoute.EntityData.Children.Append(types.GetSegmentPath(connectedRoute.RoutePath[i]), types.YChild{"RoutePath", connectedRoute.RoutePath[i]})
     }
     connectedRoute.EntityData.Leafs = types.NewOrderedMap()
@@ -20419,6 +20816,7 @@ func (routeTopology *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_Connected
     routeTopology.EntityData.BundleName = "cisco_ios_xr"
     routeTopology.EntityData.ParentYangName = "connected-route"
     routeTopology.EntityData.SegmentPath = "route-topology"
+    routeTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/connected-routes/connected-route/" + routeTopology.EntityData.SegmentPath
     routeTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20440,6 +20838,7 @@ func (routeTopology *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_Connected
 type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute_RoutePath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route path interface name . The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -20469,7 +20868,8 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRout
     routePath.EntityData.YangName = "route-path"
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "connected-route"
-    routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.SegmentPath = "route-path" + types.AddNoKeyToken(routePath)
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/connected-routes/connected-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20478,6 +20878,7 @@ func (routePath *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRout
     routePath.EntityData.Children.Append("route-backup-path", types.YChild{"RouteBackupPath", &routePath.RouteBackupPath})
     routePath.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
     for i := range routePath.NeighborNextHop {
+        types.SetYListKey(routePath.NeighborNextHop[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.NeighborNextHop[i]), types.YChild{"NeighborNextHop", routePath.NeighborNextHop[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -20533,6 +20934,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_Connect
     routeBackupPath.EntityData.BundleName = "cisco_ios_xr"
     routeBackupPath.EntityData.ParentYangName = "route-path"
     routeBackupPath.EntityData.SegmentPath = "route-backup-path"
+    routeBackupPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/connected-routes/connected-route/route-path/" + routeBackupPath.EntityData.SegmentPath
     routeBackupPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeBackupPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeBackupPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20559,6 +20961,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_Connect
 type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute_RoutePath_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor NextHop Interface Index. The type is interface{} with range:
     // 0..4294967295.
@@ -20570,7 +20973,8 @@ func (neighborNextHop *Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_Connect
     neighborNextHop.EntityData.YangName = "neighbor-next-hop"
     neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
     neighborNextHop.EntityData.ParentYangName = "route-path"
-    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop" + types.AddNoKeyToken(neighborNextHop)
+    neighborNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/connected-routes/connected-route/route-path/" + neighborNextHop.EntityData.SegmentPath
     neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20612,6 +21016,7 @@ func (vrfStatistics *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics) GetEntityD
     vrfStatistics.EntityData.BundleName = "cisco_ios_xr"
     vrfStatistics.EntityData.ParentYangName = "vrf"
     vrfStatistics.EntityData.SegmentPath = "vrf-statistics"
+    vrfStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + vrfStatistics.EntityData.SegmentPath
     vrfStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20646,6 +21051,7 @@ func (protocolStats *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_ProtocolSta
     protocolStats.EntityData.BundleName = "cisco_ios_xr"
     protocolStats.EntityData.ParentYangName = "vrf-statistics"
     protocolStats.EntityData.SegmentPath = "protocol-stats"
+    protocolStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/" + protocolStats.EntityData.SegmentPath
     protocolStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20667,6 +21073,7 @@ func (protocolStats *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_ProtocolSta
 type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_ProtocolStats_ProtocolStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -20770,6 +21177,7 @@ func (protocolStat *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_ProtocolStat
     protocolStat.EntityData.BundleName = "cisco_ios_xr"
     protocolStat.EntityData.ParentYangName = "protocol-stats"
     protocolStat.EntityData.SegmentPath = "protocol-stat" + types.AddKeyToken(protocolStat.InterfaceName, "interface-name")
+    protocolStat.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/protocol-stats/" + protocolStat.EntityData.SegmentPath
     protocolStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20826,6 +21234,7 @@ func (spfStats *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats) GetEnt
     spfStats.EntityData.BundleName = "cisco_ios_xr"
     spfStats.EntityData.ParentYangName = "vrf-statistics"
     spfStats.EntityData.SegmentPath = "spf-stats"
+    spfStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/" + spfStats.EntityData.SegmentPath
     spfStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20834,6 +21243,7 @@ func (spfStats *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats) GetEnt
     spfStats.EntityData.Children.Append("spf-header", types.YChild{"SpfHeader", &spfStats.SpfHeader})
     spfStats.EntityData.Children.Append("spf-runtime", types.YChild{"SpfRuntime", nil})
     for i := range spfStats.SpfRuntime {
+        types.SetYListKey(spfStats.SpfRuntime[i], i)
         spfStats.EntityData.Children.Append(types.GetSegmentPath(spfStats.SpfRuntime[i]), types.YChild{"SpfRuntime", spfStats.SpfRuntime[i]})
     }
     spfStats.EntityData.Leafs = types.NewOrderedMap()
@@ -20868,6 +21278,7 @@ func (spfHeader *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfHea
     spfHeader.EntityData.BundleName = "cisco_ios_xr"
     spfHeader.EntityData.ParentYangName = "spf-stats"
     spfHeader.EntityData.SegmentPath = "spf-header"
+    spfHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/spf-stats/" + spfHeader.EntityData.SegmentPath
     spfHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20875,6 +21286,7 @@ func (spfHeader *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfHea
     spfHeader.EntityData.Children = types.NewOrderedMap()
     spfHeader.EntityData.Children.Append("area-summary", types.YChild{"AreaSummary", nil})
     for i := range spfHeader.AreaSummary {
+        types.SetYListKey(spfHeader.AreaSummary[i], i)
         spfHeader.EntityData.Children.Append(types.GetSegmentPath(spfHeader.AreaSummary[i]), types.YChild{"AreaSummary", spfHeader.AreaSummary[i]})
     }
     spfHeader.EntityData.Leafs = types.NewOrderedMap()
@@ -20891,6 +21303,7 @@ func (spfHeader *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfHea
 type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfHeader_AreaSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID of the area SPF statistics. The type is interface{} with range:
     // 0..4294967295.
@@ -20906,7 +21319,8 @@ func (areaSummary *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfH
     areaSummary.EntityData.YangName = "area-summary"
     areaSummary.EntityData.BundleName = "cisco_ios_xr"
     areaSummary.EntityData.ParentYangName = "spf-header"
-    areaSummary.EntityData.SegmentPath = "area-summary"
+    areaSummary.EntityData.SegmentPath = "area-summary" + types.AddNoKeyToken(areaSummary)
+    areaSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/spf-stats/spf-header/" + areaSummary.EntityData.SegmentPath
     areaSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20926,6 +21340,7 @@ func (areaSummary *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfH
 type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRuntime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SPF calculation start time. The type is interface{} with range:
     // 0..4294967295.
@@ -20968,7 +21383,8 @@ func (spfRuntime *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRu
     spfRuntime.EntityData.YangName = "spf-runtime"
     spfRuntime.EntityData.BundleName = "cisco_ios_xr"
     spfRuntime.EntityData.ParentYangName = "spf-stats"
-    spfRuntime.EntityData.SegmentPath = "spf-runtime"
+    spfRuntime.EntityData.SegmentPath = "spf-runtime" + types.AddNoKeyToken(spfRuntime)
+    spfRuntime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/spf-stats/" + spfRuntime.EntityData.SegmentPath
     spfRuntime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRuntime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRuntime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20977,10 +21393,12 @@ func (spfRuntime *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRu
     spfRuntime.EntityData.Children.Append("global-time", types.YChild{"GlobalTime", &spfRuntime.GlobalTime})
     spfRuntime.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range spfRuntime.Lsa {
+        types.SetYListKey(spfRuntime.Lsa[i], i)
         spfRuntime.EntityData.Children.Append(types.GetSegmentPath(spfRuntime.Lsa[i]), types.YChild{"Lsa", spfRuntime.Lsa[i]})
     }
     spfRuntime.EntityData.Children.Append("area-stat", types.YChild{"AreaStat", nil})
     for i := range spfRuntime.AreaStat {
+        types.SetYListKey(spfRuntime.AreaStat[i], i)
         spfRuntime.EntityData.Children.Append(types.GetSegmentPath(spfRuntime.AreaStat[i]), types.YChild{"AreaStat", spfRuntime.AreaStat[i]})
     }
     spfRuntime.EntityData.Leafs = types.NewOrderedMap()
@@ -21043,6 +21461,7 @@ func (globalTime *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRu
     globalTime.EntityData.BundleName = "cisco_ios_xr"
     globalTime.EntityData.ParentYangName = "spf-runtime"
     globalTime.EntityData.SegmentPath = "global-time"
+    globalTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/spf-stats/spf-runtime/" + globalTime.EntityData.SegmentPath
     globalTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21069,6 +21488,7 @@ func (globalTime *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRu
 type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRuntime_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     LsaAreaId interface{}
@@ -21093,7 +21513,8 @@ func (lsa *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRuntime_L
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "spf-runtime"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/spf-stats/spf-runtime/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21116,6 +21537,7 @@ func (lsa *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRuntime_L
 type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRuntime_AreaStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID for area of these SPF statistics. The type is interface{} with
     // range: 0..4294967295.
@@ -21134,7 +21556,8 @@ func (areaStat *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRunt
     areaStat.EntityData.YangName = "area-stat"
     areaStat.EntityData.BundleName = "cisco_ios_xr"
     areaStat.EntityData.ParentYangName = "spf-runtime"
-    areaStat.EntityData.SegmentPath = "area-stat"
+    areaStat.EntityData.SegmentPath = "area-stat" + types.AddNoKeyToken(areaStat)
+    areaStat.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/spf-stats/spf-runtime/" + areaStat.EntityData.SegmentPath
     areaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21198,6 +21621,7 @@ func (spfStatTime *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfR
     spfStatTime.EntityData.BundleName = "cisco_ios_xr"
     spfStatTime.EntityData.ParentYangName = "area-stat"
     spfStatTime.EntityData.SegmentPath = "spf-stat-time"
+    spfStatTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/spf-stats/spf-runtime/area-stat/" + spfStatTime.EntityData.SegmentPath
     spfStatTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfStatTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfStatTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21309,6 +21733,7 @@ func (rawioStats *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_RawioStats) Ge
     rawioStats.EntityData.BundleName = "cisco_ios_xr"
     rawioStats.EntityData.ParentYangName = "vrf-statistics"
     rawioStats.EntityData.SegmentPath = "rawio-stats"
+    rawioStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/" + rawioStats.EntityData.SegmentPath
     rawioStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rawioStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rawioStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21370,6 +21795,7 @@ func (prefixPriorityStats *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_Prefi
     prefixPriorityStats.EntityData.BundleName = "cisco_ios_xr"
     prefixPriorityStats.EntityData.ParentYangName = "vrf-statistics"
     prefixPriorityStats.EntityData.SegmentPath = "prefix-priority-stats"
+    prefixPriorityStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/" + prefixPriorityStats.EntityData.SegmentPath
     prefixPriorityStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixPriorityStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixPriorityStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21435,6 +21861,7 @@ func (vrfRibBatchStats *Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_VrfRibBa
     vrfRibBatchStats.EntityData.BundleName = "cisco_ios_xr"
     vrfRibBatchStats.EntityData.ParentYangName = "vrf-statistics"
     vrfRibBatchStats.EntityData.SegmentPath = "vrf-rib-batch-stats"
+    vrfRibBatchStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/vrf-statistics/" + vrfRibBatchStats.EntityData.SegmentPath
     vrfRibBatchStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRibBatchStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRibBatchStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21479,6 +21906,7 @@ func (summary *Ospfv3_Processes_Process_Vrfs_Vrf_Summary) GetEntityData() *types
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "vrf"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21528,6 +21956,7 @@ func (protocol *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Protocol) GetEntityDat
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "summary"
     protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21741,6 +22170,7 @@ func (ospfv3 *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3) GetEntityData() 
     ospfv3.EntityData.BundleName = "cisco_ios_xr"
     ospfv3.EntityData.ParentYangName = "summary"
     ospfv3.EntityData.SegmentPath = "ospfv3"
+    ospfv3.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/" + ospfv3.EntityData.SegmentPath
     ospfv3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21749,10 +22179,12 @@ func (ospfv3 *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3) GetEntityData() 
     ospfv3.EntityData.Children.Append("domain-id", types.YChild{"DomainId", &ospfv3.DomainId})
     ospfv3.EntityData.Children.Append("stub-router", types.YChild{"StubRouter", nil})
     for i := range ospfv3.StubRouter {
+        types.SetYListKey(ospfv3.StubRouter[i], i)
         ospfv3.EntityData.Children.Append(types.GetSegmentPath(ospfv3.StubRouter[i]), types.YChild{"StubRouter", ospfv3.StubRouter[i]})
     }
     ospfv3.EntityData.Children.Append("ipfrr-tiebreakers", types.YChild{"IpfrrTiebreakers", nil})
     for i := range ospfv3.IpfrrTiebreakers {
+        types.SetYListKey(ospfv3.IpfrrTiebreakers[i], i)
         ospfv3.EntityData.Children.Append(types.GetSegmentPath(ospfv3.IpfrrTiebreakers[i]), types.YChild{"IpfrrTiebreakers", ospfv3.IpfrrTiebreakers[i]})
     }
     ospfv3.EntityData.Leafs = types.NewOrderedMap()
@@ -21832,6 +22264,7 @@ func (domainId *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_DomainId) GetEn
     domainId.EntityData.BundleName = "cisco_ios_xr"
     domainId.EntityData.ParentYangName = "ospfv3"
     domainId.EntityData.SegmentPath = "domain-id"
+    domainId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/" + domainId.EntityData.SegmentPath
     domainId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domainId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21840,6 +22273,7 @@ func (domainId *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_DomainId) GetEn
     domainId.EntityData.Children.Append("primary-domain-id", types.YChild{"PrimaryDomainId", &domainId.PrimaryDomainId})
     domainId.EntityData.Children.Append("secondary-domain-id", types.YChild{"SecondaryDomainId", nil})
     for i := range domainId.SecondaryDomainId {
+        types.SetYListKey(domainId.SecondaryDomainId[i], i)
         domainId.EntityData.Children.Append(types.GetSegmentPath(domainId.SecondaryDomainId[i]), types.YChild{"SecondaryDomainId", domainId.SecondaryDomainId[i]})
     }
     domainId.EntityData.Leafs = types.NewOrderedMap()
@@ -21869,6 +22303,7 @@ func (primaryDomainId *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_DomainId
     primaryDomainId.EntityData.BundleName = "cisco_ios_xr"
     primaryDomainId.EntityData.ParentYangName = "domain-id"
     primaryDomainId.EntityData.SegmentPath = "primary-domain-id"
+    primaryDomainId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/domain-id/" + primaryDomainId.EntityData.SegmentPath
     primaryDomainId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryDomainId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryDomainId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21888,6 +22323,7 @@ func (primaryDomainId *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_DomainId
 type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_DomainId_SecondaryDomainId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Domain ID Type. The type is interface{} with range: 0..65535.
     DomainIdType interface{}
@@ -21902,7 +22338,8 @@ func (secondaryDomainId *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_Domain
     secondaryDomainId.EntityData.YangName = "secondary-domain-id"
     secondaryDomainId.EntityData.BundleName = "cisco_ios_xr"
     secondaryDomainId.EntityData.ParentYangName = "domain-id"
-    secondaryDomainId.EntityData.SegmentPath = "secondary-domain-id"
+    secondaryDomainId.EntityData.SegmentPath = "secondary-domain-id" + types.AddNoKeyToken(secondaryDomainId)
+    secondaryDomainId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/domain-id/" + secondaryDomainId.EntityData.SegmentPath
     secondaryDomainId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryDomainId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryDomainId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21922,6 +22359,7 @@ func (secondaryDomainId *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_Domain
 type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Stub router mode. The type is StubRouterMode.
     Mode interface{}
@@ -21974,7 +22412,8 @@ func (stubRouter *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter) G
     stubRouter.EntityData.YangName = "stub-router"
     stubRouter.EntityData.BundleName = "cisco_ios_xr"
     stubRouter.EntityData.ParentYangName = "ospfv3"
-    stubRouter.EntityData.SegmentPath = "stub-router"
+    stubRouter.EntityData.SegmentPath = "stub-router" + types.AddNoKeyToken(stubRouter)
+    stubRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/" + stubRouter.EntityData.SegmentPath
     stubRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stubRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stubRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21985,6 +22424,7 @@ func (stubRouter *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter) G
     stubRouter.EntityData.Children.Append("abr-resume-time", types.YChild{"AbrResumeTime", &stubRouter.AbrResumeTime})
     stubRouter.EntityData.Children.Append("trigger", types.YChild{"Trigger", nil})
     for i := range stubRouter.Trigger {
+        types.SetYListKey(stubRouter.Trigger[i], i)
         stubRouter.EntityData.Children.Append(types.GetSegmentPath(stubRouter.Trigger[i]), types.YChild{"Trigger", stubRouter.Trigger[i]})
     }
     stubRouter.EntityData.Leafs = types.NewOrderedMap()
@@ -22025,6 +22465,7 @@ func (unsetTime *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter_Uns
     unsetTime.EntityData.BundleName = "cisco_ios_xr"
     unsetTime.EntityData.ParentYangName = "stub-router"
     unsetTime.EntityData.SegmentPath = "unset-time"
+    unsetTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/stub-router/" + unsetTime.EntityData.SegmentPath
     unsetTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unsetTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unsetTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22061,6 +22502,7 @@ func (startTime *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter_Sta
     startTime.EntityData.BundleName = "cisco_ios_xr"
     startTime.EntityData.ParentYangName = "stub-router"
     startTime.EntityData.SegmentPath = "start-time"
+    startTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/stub-router/" + startTime.EntityData.SegmentPath
     startTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22097,6 +22539,7 @@ func (abrResumeTime *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter
     abrResumeTime.EntityData.BundleName = "cisco_ios_xr"
     abrResumeTime.EntityData.ParentYangName = "stub-router"
     abrResumeTime.EntityData.SegmentPath = "abr-resume-time"
+    abrResumeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/stub-router/" + abrResumeTime.EntityData.SegmentPath
     abrResumeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     abrResumeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     abrResumeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22116,6 +22559,7 @@ func (abrResumeTime *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter
 type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter_Trigger struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Stub Router Trigger type. The type is StubRouterTrigger.
     Trigger interface{}
@@ -22144,7 +22588,8 @@ func (trigger *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter_Trigg
     trigger.EntityData.YangName = "trigger"
     trigger.EntityData.BundleName = "cisco_ios_xr"
     trigger.EntityData.ParentYangName = "stub-router"
-    trigger.EntityData.SegmentPath = "trigger"
+    trigger.EntityData.SegmentPath = "trigger" + types.AddNoKeyToken(trigger)
+    trigger.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/stub-router/" + trigger.EntityData.SegmentPath
     trigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22185,6 +22630,7 @@ func (unsetTime *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter_Tri
     unsetTime.EntityData.BundleName = "cisco_ios_xr"
     unsetTime.EntityData.ParentYangName = "trigger"
     unsetTime.EntityData.SegmentPath = "unset-time"
+    unsetTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/stub-router/trigger/" + unsetTime.EntityData.SegmentPath
     unsetTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unsetTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unsetTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22221,6 +22667,7 @@ func (startTime *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter_Tri
     startTime.EntityData.BundleName = "cisco_ios_xr"
     startTime.EntityData.ParentYangName = "trigger"
     startTime.EntityData.SegmentPath = "start-time"
+    startTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/stub-router/trigger/" + startTime.EntityData.SegmentPath
     startTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22240,6 +22687,7 @@ func (startTime *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_StubRouter_Tri
 type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_IpfrrTiebreakers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tiebreaker Type. The type is IpfrrTbrkr.
     TiebreakerType interface{}
@@ -22253,7 +22701,8 @@ func (ipfrrTiebreakers *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_IpfrrTi
     ipfrrTiebreakers.EntityData.YangName = "ipfrr-tiebreakers"
     ipfrrTiebreakers.EntityData.BundleName = "cisco_ios_xr"
     ipfrrTiebreakers.EntityData.ParentYangName = "ospfv3"
-    ipfrrTiebreakers.EntityData.SegmentPath = "ipfrr-tiebreakers"
+    ipfrrTiebreakers.EntityData.SegmentPath = "ipfrr-tiebreakers" + types.AddNoKeyToken(ipfrrTiebreakers)
+    ipfrrTiebreakers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/ospfv3/" + ipfrrTiebreakers.EntityData.SegmentPath
     ipfrrTiebreakers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrTiebreakers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrTiebreakers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22317,6 +22766,7 @@ func (route *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Route) GetEntityData() *t
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "summary"
     route.EntityData.SegmentPath = "route"
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22358,6 +22808,7 @@ func (retransmissionListProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_Retransm
     retransmissionListProcessTable.EntityData.BundleName = "cisco_ios_xr"
     retransmissionListProcessTable.EntityData.ParentYangName = "vrf"
     retransmissionListProcessTable.EntityData.SegmentPath = "retransmission-list-process-table"
+    retransmissionListProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + retransmissionListProcessTable.EntityData.SegmentPath
     retransmissionListProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionListProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionListProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22365,6 +22816,7 @@ func (retransmissionListProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_Retransm
     retransmissionListProcessTable.EntityData.Children = types.NewOrderedMap()
     retransmissionListProcessTable.EntityData.Children.Append("retransmission", types.YChild{"Retransmission", nil})
     for i := range retransmissionListProcessTable.Retransmission {
+        types.SetYListKey(retransmissionListProcessTable.Retransmission[i], i)
         retransmissionListProcessTable.EntityData.Children.Append(types.GetSegmentPath(retransmissionListProcessTable.Retransmission[i]), types.YChild{"Retransmission", retransmissionListProcessTable.Retransmission[i]})
     }
     retransmissionListProcessTable.EntityData.Leafs = types.NewOrderedMap()
@@ -22379,6 +22831,7 @@ func (retransmissionListProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_Retransm
 type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmission struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -22431,7 +22884,8 @@ func (retransmission *Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProces
     retransmission.EntityData.YangName = "retransmission"
     retransmission.EntityData.BundleName = "cisco_ios_xr"
     retransmission.EntityData.ParentYangName = "retransmission-list-process-table"
-    retransmission.EntityData.SegmentPath = "retransmission"
+    retransmission.EntityData.SegmentPath = "retransmission" + types.AddNoKeyToken(retransmission)
+    retransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/retransmission-list-process-table/" + retransmission.EntityData.SegmentPath
     retransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22439,14 +22893,17 @@ func (retransmission *Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProces
     retransmission.EntityData.Children = types.NewOrderedMap()
     retransmission.EntityData.Children.Append("retransmissionvirtual-link-db", types.YChild{"RetransmissionvirtualLinkDb", nil})
     for i := range retransmission.RetransmissionvirtualLinkDb {
+        types.SetYListKey(retransmission.RetransmissionvirtualLinkDb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionvirtualLinkDb[i]), types.YChild{"RetransmissionvirtualLinkDb", retransmission.RetransmissionvirtualLinkDb[i]})
     }
     retransmission.EntityData.Children.Append("retransmission-area-db", types.YChild{"RetransmissionAreaDb", nil})
     for i := range retransmission.RetransmissionAreaDb {
+        types.SetYListKey(retransmission.RetransmissionAreaDb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionAreaDb[i]), types.YChild{"RetransmissionAreaDb", retransmission.RetransmissionAreaDb[i]})
     }
     retransmission.EntityData.Children.Append("retransmission-asdb", types.YChild{"RetransmissionAsdb", nil})
     for i := range retransmission.RetransmissionAsdb {
+        types.SetYListKey(retransmission.RetransmissionAsdb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionAsdb[i]), types.YChild{"RetransmissionAsdb", retransmission.RetransmissionAsdb[i]})
     }
     retransmission.EntityData.Leafs = types.NewOrderedMap()
@@ -22470,6 +22927,7 @@ func (retransmission *Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProces
 type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmission_RetransmissionvirtualLinkDb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -22496,7 +22954,8 @@ func (retransmissionvirtualLinkDb *Ospfv3_Processes_Process_Vrfs_Vrf_Retransmiss
     retransmissionvirtualLinkDb.EntityData.YangName = "retransmissionvirtual-link-db"
     retransmissionvirtualLinkDb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionvirtualLinkDb.EntityData.ParentYangName = "retransmission"
-    retransmissionvirtualLinkDb.EntityData.SegmentPath = "retransmissionvirtual-link-db"
+    retransmissionvirtualLinkDb.EntityData.SegmentPath = "retransmissionvirtual-link-db" + types.AddNoKeyToken(retransmissionvirtualLinkDb)
+    retransmissionvirtualLinkDb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/retransmission-list-process-table/retransmission/" + retransmissionvirtualLinkDb.EntityData.SegmentPath
     retransmissionvirtualLinkDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionvirtualLinkDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionvirtualLinkDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22519,6 +22978,7 @@ func (retransmissionvirtualLinkDb *Ospfv3_Processes_Process_Vrfs_Vrf_Retransmiss
 type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmission_RetransmissionAreaDb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -22545,7 +23005,8 @@ func (retransmissionAreaDb *Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionList
     retransmissionAreaDb.EntityData.YangName = "retransmission-area-db"
     retransmissionAreaDb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionAreaDb.EntityData.ParentYangName = "retransmission"
-    retransmissionAreaDb.EntityData.SegmentPath = "retransmission-area-db"
+    retransmissionAreaDb.EntityData.SegmentPath = "retransmission-area-db" + types.AddNoKeyToken(retransmissionAreaDb)
+    retransmissionAreaDb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/retransmission-list-process-table/retransmission/" + retransmissionAreaDb.EntityData.SegmentPath
     retransmissionAreaDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionAreaDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionAreaDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22568,6 +23029,7 @@ func (retransmissionAreaDb *Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionList
 type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmission_RetransmissionAsdb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -22594,7 +23056,8 @@ func (retransmissionAsdb *Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListPr
     retransmissionAsdb.EntityData.YangName = "retransmission-asdb"
     retransmissionAsdb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionAsdb.EntityData.ParentYangName = "retransmission"
-    retransmissionAsdb.EntityData.SegmentPath = "retransmission-asdb"
+    retransmissionAsdb.EntityData.SegmentPath = "retransmission-asdb" + types.AddNoKeyToken(retransmissionAsdb)
+    retransmissionAsdb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/retransmission-list-process-table/retransmission/" + retransmissionAsdb.EntityData.SegmentPath
     retransmissionAsdb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionAsdb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionAsdb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22629,6 +23092,7 @@ func (badChecksums *Ospfv3_Processes_Process_Vrfs_Vrf_BadChecksums) GetEntityDat
     badChecksums.EntityData.BundleName = "cisco_ios_xr"
     badChecksums.EntityData.ParentYangName = "vrf"
     badChecksums.EntityData.SegmentPath = "bad-checksums"
+    badChecksums.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + badChecksums.EntityData.SegmentPath
     badChecksums.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     badChecksums.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     badChecksums.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22650,6 +23114,7 @@ func (badChecksums *Ospfv3_Processes_Process_Vrfs_Vrf_BadChecksums) GetEntityDat
 type Ospfv3_Processes_Process_Vrfs_Vrf_BadChecksums_BadChecksum struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bad Checksum Packets number. The type is
     // interface{} with range: 0..9.
@@ -22675,6 +23140,7 @@ func (badChecksum *Ospfv3_Processes_Process_Vrfs_Vrf_BadChecksums_BadChecksum) G
     badChecksum.EntityData.BundleName = "cisco_ios_xr"
     badChecksum.EntityData.ParentYangName = "bad-checksums"
     badChecksum.EntityData.SegmentPath = "bad-checksum" + types.AddKeyToken(badChecksum.PacketNumber, "packet-number")
+    badChecksum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/bad-checksums/" + badChecksum.EntityData.SegmentPath
     badChecksum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     badChecksum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     badChecksum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22713,6 +23179,7 @@ func (timestamp *Ospfv3_Processes_Process_Vrfs_Vrf_BadChecksums_BadChecksum_Time
     timestamp.EntityData.BundleName = "cisco_ios_xr"
     timestamp.EntityData.ParentYangName = "bad-checksum"
     timestamp.EntityData.SegmentPath = "timestamp"
+    timestamp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/bad-checksums/bad-checksum/" + timestamp.EntityData.SegmentPath
     timestamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timestamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timestamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22743,6 +23210,7 @@ func (databaseSummaryTable *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTab
     databaseSummaryTable.EntityData.BundleName = "cisco_ios_xr"
     databaseSummaryTable.EntityData.ParentYangName = "vrf"
     databaseSummaryTable.EntityData.SegmentPath = "database-summary-table"
+    databaseSummaryTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + databaseSummaryTable.EntityData.SegmentPath
     databaseSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseSummaryTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22783,6 +23251,7 @@ func (databaseSummary *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTable_Da
     databaseSummary.EntityData.BundleName = "cisco_ios_xr"
     databaseSummary.EntityData.ParentYangName = "database-summary-table"
     databaseSummary.EntityData.SegmentPath = "database-summary"
+    databaseSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-summary-table/" + databaseSummary.EntityData.SegmentPath
     databaseSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22791,6 +23260,7 @@ func (databaseSummary *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTable_Da
     databaseSummary.EntityData.Children.Append("database-counters", types.YChild{"DatabaseCounters", &databaseSummary.DatabaseCounters})
     databaseSummary.EntityData.Children.Append("area-database", types.YChild{"AreaDatabase", nil})
     for i := range databaseSummary.AreaDatabase {
+        types.SetYListKey(databaseSummary.AreaDatabase[i], i)
         databaseSummary.EntityData.Children.Append(types.GetSegmentPath(databaseSummary.AreaDatabase[i]), types.YChild{"AreaDatabase", databaseSummary.AreaDatabase[i]})
     }
     databaseSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -22827,6 +23297,7 @@ func (databaseCounters *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTable_D
     databaseCounters.EntityData.BundleName = "cisco_ios_xr"
     databaseCounters.EntityData.ParentYangName = "database-summary"
     databaseCounters.EntityData.SegmentPath = "database-counters"
+    databaseCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-summary-table/database-summary/" + databaseCounters.EntityData.SegmentPath
     databaseCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22848,6 +23319,7 @@ func (databaseCounters *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTable_D
 type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTable_DatabaseSummary_AreaDatabase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID in decimal or dotted-decimal format. The type is string with
     // length: 0..16.
@@ -22862,7 +23334,8 @@ func (areaDatabase *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTable_Datab
     areaDatabase.EntityData.YangName = "area-database"
     areaDatabase.EntityData.BundleName = "cisco_ios_xr"
     areaDatabase.EntityData.ParentYangName = "database-summary"
-    areaDatabase.EntityData.SegmentPath = "area-database"
+    areaDatabase.EntityData.SegmentPath = "area-database" + types.AddNoKeyToken(areaDatabase)
+    areaDatabase.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-summary-table/database-summary/" + areaDatabase.EntityData.SegmentPath
     areaDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22902,6 +23375,7 @@ func (areaDatabaseSummary *Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTabl
     areaDatabaseSummary.EntityData.BundleName = "cisco_ios_xr"
     areaDatabaseSummary.EntityData.ParentYangName = "area-database"
     areaDatabaseSummary.EntityData.SegmentPath = "area-database-summary"
+    areaDatabaseSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/database-summary-table/database-summary/area-database/" + areaDatabaseSummary.EntityData.SegmentPath
     areaDatabaseSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaDatabaseSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaDatabaseSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22935,6 +23409,7 @@ func (neighborProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTab
     neighborProcessTable.EntityData.BundleName = "cisco_ios_xr"
     neighborProcessTable.EntityData.ParentYangName = "vrf"
     neighborProcessTable.EntityData.SegmentPath = "neighbor-process-table"
+    neighborProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + neighborProcessTable.EntityData.SegmentPath
     neighborProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22942,6 +23417,7 @@ func (neighborProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTab
     neighborProcessTable.EntityData.Children = types.NewOrderedMap()
     neighborProcessTable.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighborProcessTable.Neighbor {
+        types.SetYListKey(neighborProcessTable.Neighbor[i], i)
         neighborProcessTable.EntityData.Children.Append(types.GetSegmentPath(neighborProcessTable.Neighbor[i]), types.YChild{"Neighbor", neighborProcessTable.Neighbor[i]})
     }
     neighborProcessTable.EntityData.Leafs = types.NewOrderedMap()
@@ -22956,6 +23432,7 @@ func (neighborProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTab
 type Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTable_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -23013,7 +23490,8 @@ func (neighbor *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTable_Neighbor)
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbor-process-table"
-    neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddNoKeyToken(neighbor)
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/neighbor-process-table/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23097,6 +23575,7 @@ func (neighborDetail *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTable_Nei
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor"
     neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/neighbor-process-table/neighbor/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23225,6 +23704,7 @@ func (neighborRetransmission *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessT
     neighborRetransmission.EntityData.BundleName = "cisco_ios_xr"
     neighborRetransmission.EntityData.ParentYangName = "neighbor-detail"
     neighborRetransmission.EntityData.SegmentPath = "neighbor-retransmission"
+    neighborRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/neighbor-process-table/neighbor/neighbor-detail/" + neighborRetransmission.EntityData.SegmentPath
     neighborRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23280,6 +23760,7 @@ func (neighborBfdInfo *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTable_Ne
     neighborBfdInfo.EntityData.BundleName = "cisco_ios_xr"
     neighborBfdInfo.EntityData.ParentYangName = "neighbor"
     neighborBfdInfo.EntityData.SegmentPath = "neighbor-bfd-info"
+    neighborBfdInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/neighbor-process-table/neighbor/" + neighborBfdInfo.EntityData.SegmentPath
     neighborBfdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborBfdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborBfdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23311,6 +23792,7 @@ func (fastReroutes *Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes) GetEntityDat
     fastReroutes.EntityData.BundleName = "cisco_ios_xr"
     fastReroutes.EntityData.ParentYangName = "vrf"
     fastReroutes.EntityData.SegmentPath = "fast-reroutes"
+    fastReroutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + fastReroutes.EntityData.SegmentPath
     fastReroutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastReroutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastReroutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23318,6 +23800,7 @@ func (fastReroutes *Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes) GetEntityDat
     fastReroutes.EntityData.Children = types.NewOrderedMap()
     fastReroutes.EntityData.Children.Append("fast-reroute", types.YChild{"FastReroute", nil})
     for i := range fastReroutes.FastReroute {
+        types.SetYListKey(fastReroutes.FastReroute[i], i)
         fastReroutes.EntityData.Children.Append(types.GetSegmentPath(fastReroutes.FastReroute[i]), types.YChild{"FastReroute", fastReroutes.FastReroute[i]})
     }
     fastReroutes.EntityData.Leafs = types.NewOrderedMap()
@@ -23332,6 +23815,7 @@ func (fastReroutes *Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes) GetEntityDat
 type Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Router ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -23361,7 +23845,8 @@ func (fastReroute *Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute) G
     fastReroute.EntityData.YangName = "fast-reroute"
     fastReroute.EntityData.BundleName = "cisco_ios_xr"
     fastReroute.EntityData.ParentYangName = "fast-reroutes"
-    fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.SegmentPath = "fast-reroute" + types.AddNoKeyToken(fastReroute)
+    fastReroute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/fast-reroutes/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23369,6 +23854,7 @@ func (fastReroute *Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute) G
     fastReroute.EntityData.Children = types.NewOrderedMap()
     fastReroute.EntityData.Children.Append("ipfrr-topo", types.YChild{"IpfrrTopo", nil})
     for i := range fastReroute.IpfrrTopo {
+        types.SetYListKey(fastReroute.IpfrrTopo[i], i)
         fastReroute.EntityData.Children.Append(types.GetSegmentPath(fastReroute.IpfrrTopo[i]), types.YChild{"IpfrrTopo", fastReroute.IpfrrTopo[i]})
     }
     fastReroute.EntityData.Leafs = types.NewOrderedMap()
@@ -23388,6 +23874,7 @@ func (fastReroute *Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute) G
 type Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute_IpfrrTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IPFRR Topology Node ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -23417,7 +23904,8 @@ func (ipfrrTopo *Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute_Ipfr
     ipfrrTopo.EntityData.YangName = "ipfrr-topo"
     ipfrrTopo.EntityData.BundleName = "cisco_ios_xr"
     ipfrrTopo.EntityData.ParentYangName = "fast-reroute"
-    ipfrrTopo.EntityData.SegmentPath = "ipfrr-topo"
+    ipfrrTopo.EntityData.SegmentPath = "ipfrr-topo" + types.AddNoKeyToken(ipfrrTopo)
+    ipfrrTopo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/fast-reroutes/fast-reroute/" + ipfrrTopo.EntityData.SegmentPath
     ipfrrTopo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrTopo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrTopo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23455,6 +23943,7 @@ func (interfaceBriefProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceBri
     interfaceBriefProcessTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceBriefProcessTable.EntityData.ParentYangName = "vrf"
     interfaceBriefProcessTable.EntityData.SegmentPath = "interface-brief-process-table"
+    interfaceBriefProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + interfaceBriefProcessTable.EntityData.SegmentPath
     interfaceBriefProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBriefProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBriefProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23476,6 +23965,7 @@ func (interfaceBriefProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceBri
 type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceBriefProcessTable_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -23508,6 +23998,7 @@ func (interfaceBrief *Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceBriefProcessTab
     interfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceBrief.EntityData.ParentYangName = "interface-brief-process-table"
     interfaceBrief.EntityData.SegmentPath = "interface-brief" + types.AddKeyToken(interfaceBrief.InterfaceName, "interface-name")
+    interfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/interface-brief-process-table/" + interfaceBrief.EntityData.SegmentPath
     interfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23544,6 +24035,7 @@ func (neighborDetailProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDeta
     neighborDetailProcessTable.EntityData.BundleName = "cisco_ios_xr"
     neighborDetailProcessTable.EntityData.ParentYangName = "vrf"
     neighborDetailProcessTable.EntityData.SegmentPath = "neighbor-detail-process-table"
+    neighborDetailProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/" + neighborDetailProcessTable.EntityData.SegmentPath
     neighborDetailProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetailProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetailProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23551,6 +24043,7 @@ func (neighborDetailProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDeta
     neighborDetailProcessTable.EntityData.Children = types.NewOrderedMap()
     neighborDetailProcessTable.EntityData.Children.Append("neighbor-detail", types.YChild{"NeighborDetail", nil})
     for i := range neighborDetailProcessTable.NeighborDetail {
+        types.SetYListKey(neighborDetailProcessTable.NeighborDetail[i], i)
         neighborDetailProcessTable.EntityData.Children.Append(types.GetSegmentPath(neighborDetailProcessTable.NeighborDetail[i]), types.YChild{"NeighborDetail", neighborDetailProcessTable.NeighborDetail[i]})
     }
     neighborDetailProcessTable.EntityData.Leafs = types.NewOrderedMap()
@@ -23565,6 +24058,7 @@ func (neighborDetailProcessTable *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDeta
 type Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDetailProcessTable_NeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -23622,7 +24116,8 @@ func (neighborDetail *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDetailProcessTab
     neighborDetail.EntityData.YangName = "neighbor-detail"
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor-detail-process-table"
-    neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.SegmentPath = "neighbor-detail" + types.AddNoKeyToken(neighborDetail)
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/neighbor-detail-process-table/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23706,6 +24201,7 @@ func (neighborDetail *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDetailProcessTab
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor-detail"
     neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/neighbor-detail-process-table/neighbor-detail/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23834,6 +24330,7 @@ func (neighborRetransmission *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDetailPr
     neighborRetransmission.EntityData.BundleName = "cisco_ios_xr"
     neighborRetransmission.EntityData.ParentYangName = "neighbor-detail"
     neighborRetransmission.EntityData.SegmentPath = "neighbor-retransmission"
+    neighborRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/neighbor-detail-process-table/neighbor-detail/neighbor-detail/" + neighborRetransmission.EntityData.SegmentPath
     neighborRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23889,6 +24386,7 @@ func (neighborBfdInfo *Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDetailProcessTa
     neighborBfdInfo.EntityData.BundleName = "cisco_ios_xr"
     neighborBfdInfo.EntityData.ParentYangName = "neighbor-detail"
     neighborBfdInfo.EntityData.SegmentPath = "neighbor-bfd-info"
+    neighborBfdInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/neighbor-detail-process-table/neighbor-detail/" + neighborBfdInfo.EntityData.SegmentPath
     neighborBfdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborBfdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborBfdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23943,6 +24441,7 @@ func (statistics *Ospfv3_Processes_Process_Statistics) GetEntityData() *types.Co
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "process"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24070,6 +24569,7 @@ func (nsrStats *Ospfv3_Processes_Process_Statistics_NsrStats) GetEntityData() *t
     nsrStats.EntityData.BundleName = "cisco_ios_xr"
     nsrStats.EntityData.ParentYangName = "statistics"
     nsrStats.EntityData.SegmentPath = "nsr-stats"
+    nsrStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + nsrStats.EntityData.SegmentPath
     nsrStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24079,10 +24579,12 @@ func (nsrStats *Ospfv3_Processes_Process_Statistics_NsrStats) GetEntityData() *t
     nsrStats.EntityData.Children.Append("nsr-rtr-thd-sched", types.YChild{"NsrRtrThdSched", &nsrStats.NsrRtrThdSched})
     nsrStats.EntityData.Children.Append("nsr-issu-milestone", types.YChild{"NsrIssuMilestone", nil})
     for i := range nsrStats.NsrIssuMilestone {
+        types.SetYListKey(nsrStats.NsrIssuMilestone[i], i)
         nsrStats.EntityData.Children.Append(types.GetSegmentPath(nsrStats.NsrIssuMilestone[i]), types.YChild{"NsrIssuMilestone", nsrStats.NsrIssuMilestone[i]})
     }
     nsrStats.EntityData.Children.Append("nsr-err-history", types.YChild{"NsrErrHistory", nil})
     for i := range nsrStats.NsrErrHistory {
+        types.SetYListKey(nsrStats.NsrErrHistory[i], i)
         nsrStats.EntityData.Children.Append(types.GetSegmentPath(nsrStats.NsrErrHistory[i]), types.YChild{"NsrErrHistory", nsrStats.NsrErrHistory[i]})
     }
     nsrStats.EntityData.Leafs = types.NewOrderedMap()
@@ -24163,6 +24665,7 @@ func (nsrThdStats *Ospfv3_Processes_Process_Statistics_NsrStats_NsrThdStats) Get
     nsrThdStats.EntityData.BundleName = "cisco_ios_xr"
     nsrThdStats.EntityData.ParentYangName = "nsr-stats"
     nsrThdStats.EntityData.SegmentPath = "nsr-thd-stats"
+    nsrThdStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-stats/" + nsrThdStats.EntityData.SegmentPath
     nsrThdStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrThdStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrThdStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24170,6 +24673,7 @@ func (nsrThdStats *Ospfv3_Processes_Process_Statistics_NsrStats_NsrThdStats) Get
     nsrThdStats.EntityData.Children = types.NewOrderedMap()
     nsrThdStats.EntityData.Children.Append("nsr-pri", types.YChild{"NsrPri", nil})
     for i := range nsrThdStats.NsrPri {
+        types.SetYListKey(nsrThdStats.NsrPri[i], i)
         nsrThdStats.EntityData.Children.Append(types.GetSegmentPath(nsrThdStats.NsrPri[i]), types.YChild{"NsrPri", nsrThdStats.NsrPri[i]})
     }
     nsrThdStats.EntityData.Leafs = types.NewOrderedMap()
@@ -24192,6 +24696,7 @@ func (nsrThdStats *Ospfv3_Processes_Process_Statistics_NsrStats_NsrThdStats) Get
 type Ospfv3_Processes_Process_Statistics_NsrStats_NsrThdStats_NsrPri struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority Type. The type is OspfNsrSchedPri.
     NsrSchedPri interface{}
@@ -24228,7 +24733,8 @@ func (nsrPri *Ospfv3_Processes_Process_Statistics_NsrStats_NsrThdStats_NsrPri) G
     nsrPri.EntityData.YangName = "nsr-pri"
     nsrPri.EntityData.BundleName = "cisco_ios_xr"
     nsrPri.EntityData.ParentYangName = "nsr-thd-stats"
-    nsrPri.EntityData.SegmentPath = "nsr-pri"
+    nsrPri.EntityData.SegmentPath = "nsr-pri" + types.AddNoKeyToken(nsrPri)
+    nsrPri.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-stats/nsr-thd-stats/" + nsrPri.EntityData.SegmentPath
     nsrPri.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrPri.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrPri.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24298,6 +24804,7 @@ func (nsrRtrThdSched *Ospfv3_Processes_Process_Statistics_NsrStats_NsrRtrThdSche
     nsrRtrThdSched.EntityData.BundleName = "cisco_ios_xr"
     nsrRtrThdSched.EntityData.ParentYangName = "nsr-stats"
     nsrRtrThdSched.EntityData.SegmentPath = "nsr-rtr-thd-sched"
+    nsrRtrThdSched.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-stats/" + nsrRtrThdSched.EntityData.SegmentPath
     nsrRtrThdSched.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrRtrThdSched.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrRtrThdSched.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24305,6 +24812,7 @@ func (nsrRtrThdSched *Ospfv3_Processes_Process_Statistics_NsrStats_NsrRtrThdSche
     nsrRtrThdSched.EntityData.Children = types.NewOrderedMap()
     nsrRtrThdSched.EntityData.Children.Append("nsr-pri", types.YChild{"NsrPri", nil})
     for i := range nsrRtrThdSched.NsrPri {
+        types.SetYListKey(nsrRtrThdSched.NsrPri[i], i)
         nsrRtrThdSched.EntityData.Children.Append(types.GetSegmentPath(nsrRtrThdSched.NsrPri[i]), types.YChild{"NsrPri", nsrRtrThdSched.NsrPri[i]})
     }
     nsrRtrThdSched.EntityData.Leafs = types.NewOrderedMap()
@@ -24327,6 +24835,7 @@ func (nsrRtrThdSched *Ospfv3_Processes_Process_Statistics_NsrStats_NsrRtrThdSche
 type Ospfv3_Processes_Process_Statistics_NsrStats_NsrRtrThdSched_NsrPri struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority Type. The type is OspfNsrSchedPri.
     NsrSchedPri interface{}
@@ -24363,7 +24872,8 @@ func (nsrPri *Ospfv3_Processes_Process_Statistics_NsrStats_NsrRtrThdSched_NsrPri
     nsrPri.EntityData.YangName = "nsr-pri"
     nsrPri.EntityData.BundleName = "cisco_ios_xr"
     nsrPri.EntityData.ParentYangName = "nsr-rtr-thd-sched"
-    nsrPri.EntityData.SegmentPath = "nsr-pri"
+    nsrPri.EntityData.SegmentPath = "nsr-pri" + types.AddNoKeyToken(nsrPri)
+    nsrPri.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-stats/nsr-rtr-thd-sched/" + nsrPri.EntityData.SegmentPath
     nsrPri.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrPri.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrPri.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24390,6 +24900,7 @@ func (nsrPri *Ospfv3_Processes_Process_Statistics_NsrStats_NsrRtrThdSched_NsrPri
 type Ospfv3_Processes_Process_Statistics_NsrStats_NsrIssuMilestone struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Milestone Name. The type is string.
     MilestoneName interface{}
@@ -24403,7 +24914,8 @@ func (nsrIssuMilestone *Ospfv3_Processes_Process_Statistics_NsrStats_NsrIssuMile
     nsrIssuMilestone.EntityData.YangName = "nsr-issu-milestone"
     nsrIssuMilestone.EntityData.BundleName = "cisco_ios_xr"
     nsrIssuMilestone.EntityData.ParentYangName = "nsr-stats"
-    nsrIssuMilestone.EntityData.SegmentPath = "nsr-issu-milestone"
+    nsrIssuMilestone.EntityData.SegmentPath = "nsr-issu-milestone" + types.AddNoKeyToken(nsrIssuMilestone)
+    nsrIssuMilestone.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-stats/" + nsrIssuMilestone.EntityData.SegmentPath
     nsrIssuMilestone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrIssuMilestone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrIssuMilestone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24423,6 +24935,7 @@ func (nsrIssuMilestone *Ospfv3_Processes_Process_Statistics_NsrStats_NsrIssuMile
 type Ospfv3_Processes_Process_Statistics_NsrStats_NsrErrHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nsr Revision version. The type is interface{} with range: 0..4294967295.
     NsrRevisionversion interface{}
@@ -24441,7 +24954,8 @@ func (nsrErrHistory *Ospfv3_Processes_Process_Statistics_NsrStats_NsrErrHistory)
     nsrErrHistory.EntityData.YangName = "nsr-err-history"
     nsrErrHistory.EntityData.BundleName = "cisco_ios_xr"
     nsrErrHistory.EntityData.ParentYangName = "nsr-stats"
-    nsrErrHistory.EntityData.SegmentPath = "nsr-err-history"
+    nsrErrHistory.EntityData.SegmentPath = "nsr-err-history" + types.AddNoKeyToken(nsrErrHistory)
+    nsrErrHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-stats/" + nsrErrHistory.EntityData.SegmentPath
     nsrErrHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrErrHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrErrHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24449,6 +24963,7 @@ func (nsrErrHistory *Ospfv3_Processes_Process_Statistics_NsrStats_NsrErrHistory)
     nsrErrHistory.EntityData.Children = types.NewOrderedMap()
     nsrErrHistory.EntityData.Children.Append("nsr-error-info", types.YChild{"NsrErrorInfo", nil})
     for i := range nsrErrHistory.NsrErrorInfo {
+        types.SetYListKey(nsrErrHistory.NsrErrorInfo[i], i)
         nsrErrHistory.EntityData.Children.Append(types.GetSegmentPath(nsrErrHistory.NsrErrorInfo[i]), types.YChild{"NsrErrorInfo", nsrErrHistory.NsrErrorInfo[i]})
     }
     nsrErrHistory.EntityData.Leafs = types.NewOrderedMap()
@@ -24465,6 +24980,7 @@ func (nsrErrHistory *Ospfv3_Processes_Process_Statistics_NsrStats_NsrErrHistory)
 type Ospfv3_Processes_Process_Statistics_NsrStats_NsrErrHistory_NsrErrorInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Count this error hit during the Nsr Revision. The type is interface{} with
     // range: -2147483648..2147483647.
@@ -24482,7 +24998,8 @@ func (nsrErrorInfo *Ospfv3_Processes_Process_Statistics_NsrStats_NsrErrHistory_N
     nsrErrorInfo.EntityData.YangName = "nsr-error-info"
     nsrErrorInfo.EntityData.BundleName = "cisco_ios_xr"
     nsrErrorInfo.EntityData.ParentYangName = "nsr-err-history"
-    nsrErrorInfo.EntityData.SegmentPath = "nsr-error-info"
+    nsrErrorInfo.EntityData.SegmentPath = "nsr-error-info" + types.AddNoKeyToken(nsrErrorInfo)
+    nsrErrorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-stats/nsr-err-history/" + nsrErrorInfo.EntityData.SegmentPath
     nsrErrorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrErrorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrErrorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24519,6 +25036,7 @@ func (lastErrTime *Ospfv3_Processes_Process_Statistics_NsrStats_NsrErrHistory_Ns
     lastErrTime.EntityData.BundleName = "cisco_ios_xr"
     lastErrTime.EntityData.ParentYangName = "nsr-error-info"
     lastErrTime.EntityData.SegmentPath = "last-err-time"
+    lastErrTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-stats/nsr-err-history/nsr-error-info/" + lastErrTime.EntityData.SegmentPath
     lastErrTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErrTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErrTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24621,6 +25139,7 @@ func (ribThreadStats *Ospfv3_Processes_Process_Statistics_RibThreadStats) GetEnt
     ribThreadStats.EntityData.BundleName = "cisco_ios_xr"
     ribThreadStats.EntityData.ParentYangName = "statistics"
     ribThreadStats.EntityData.SegmentPath = "rib-thread-stats"
+    ribThreadStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + ribThreadStats.EntityData.SegmentPath
     ribThreadStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribThreadStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribThreadStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24630,6 +25149,7 @@ func (ribThreadStats *Ospfv3_Processes_Process_Statistics_RibThreadStats) GetEnt
     ribThreadStats.EntityData.Children.Append("rib-base-time", types.YChild{"RibBaseTime", &ribThreadStats.RibBaseTime})
     ribThreadStats.EntityData.Children.Append("holdq", types.YChild{"Holdq", nil})
     for i := range ribThreadStats.Holdq {
+        types.SetYListKey(ribThreadStats.Holdq[i], i)
         ribThreadStats.EntityData.Children.Append(types.GetSegmentPath(ribThreadStats.Holdq[i]), types.YChild{"Holdq", ribThreadStats.Holdq[i]})
     }
     ribThreadStats.EntityData.Leafs = types.NewOrderedMap()
@@ -24712,6 +25232,7 @@ func (threadQ *Ospfv3_Processes_Process_Statistics_RibThreadStats_ThreadQ) GetEn
     threadQ.EntityData.BundleName = "cisco_ios_xr"
     threadQ.EntityData.ParentYangName = "rib-thread-stats"
     threadQ.EntityData.SegmentPath = "thread-q"
+    threadQ.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/rib-thread-stats/" + threadQ.EntityData.SegmentPath
     threadQ.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     threadQ.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     threadQ.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24756,6 +25277,7 @@ func (ribBaseTime *Ospfv3_Processes_Process_Statistics_RibThreadStats_RibBaseTim
     ribBaseTime.EntityData.BundleName = "cisco_ios_xr"
     ribBaseTime.EntityData.ParentYangName = "rib-thread-stats"
     ribBaseTime.EntityData.SegmentPath = "rib-base-time"
+    ribBaseTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/rib-thread-stats/" + ribBaseTime.EntityData.SegmentPath
     ribBaseTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ribBaseTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ribBaseTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24775,6 +25297,7 @@ func (ribBaseTime *Ospfv3_Processes_Process_Statistics_RibThreadStats_RibBaseTim
 type Ospfv3_Processes_Process_Statistics_RibThreadStats_Holdq struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Head Entry Enqueue. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -24822,7 +25345,8 @@ func (holdq *Ospfv3_Processes_Process_Statistics_RibThreadStats_Holdq) GetEntity
     holdq.EntityData.YangName = "holdq"
     holdq.EntityData.BundleName = "cisco_ios_xr"
     holdq.EntityData.ParentYangName = "rib-thread-stats"
-    holdq.EntityData.SegmentPath = "holdq"
+    holdq.EntityData.SegmentPath = "holdq" + types.AddNoKeyToken(holdq)
+    holdq.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/rib-thread-stats/" + holdq.EntityData.SegmentPath
     holdq.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     holdq.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     holdq.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24952,6 +25476,7 @@ func (issuStats *Ospfv3_Processes_Process_Statistics_IssuStats) GetEntityData() 
     issuStats.EntityData.BundleName = "cisco_ios_xr"
     issuStats.EntityData.ParentYangName = "statistics"
     issuStats.EntityData.SegmentPath = "issu-stats"
+    issuStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + issuStats.EntityData.SegmentPath
     issuStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issuStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issuStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24961,10 +25486,12 @@ func (issuStats *Ospfv3_Processes_Process_Statistics_IssuStats) GetEntityData() 
     issuStats.EntityData.Children.Append("nsr-rtr-thd-sched", types.YChild{"NsrRtrThdSched", &issuStats.NsrRtrThdSched})
     issuStats.EntityData.Children.Append("nsr-issu-milestone", types.YChild{"NsrIssuMilestone", nil})
     for i := range issuStats.NsrIssuMilestone {
+        types.SetYListKey(issuStats.NsrIssuMilestone[i], i)
         issuStats.EntityData.Children.Append(types.GetSegmentPath(issuStats.NsrIssuMilestone[i]), types.YChild{"NsrIssuMilestone", issuStats.NsrIssuMilestone[i]})
     }
     issuStats.EntityData.Children.Append("nsr-err-history", types.YChild{"NsrErrHistory", nil})
     for i := range issuStats.NsrErrHistory {
+        types.SetYListKey(issuStats.NsrErrHistory[i], i)
         issuStats.EntityData.Children.Append(types.GetSegmentPath(issuStats.NsrErrHistory[i]), types.YChild{"NsrErrHistory", issuStats.NsrErrHistory[i]})
     }
     issuStats.EntityData.Leafs = types.NewOrderedMap()
@@ -25045,6 +25572,7 @@ func (nsrThdStats *Ospfv3_Processes_Process_Statistics_IssuStats_NsrThdStats) Ge
     nsrThdStats.EntityData.BundleName = "cisco_ios_xr"
     nsrThdStats.EntityData.ParentYangName = "issu-stats"
     nsrThdStats.EntityData.SegmentPath = "nsr-thd-stats"
+    nsrThdStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/issu-stats/" + nsrThdStats.EntityData.SegmentPath
     nsrThdStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrThdStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrThdStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25052,6 +25580,7 @@ func (nsrThdStats *Ospfv3_Processes_Process_Statistics_IssuStats_NsrThdStats) Ge
     nsrThdStats.EntityData.Children = types.NewOrderedMap()
     nsrThdStats.EntityData.Children.Append("nsr-pri", types.YChild{"NsrPri", nil})
     for i := range nsrThdStats.NsrPri {
+        types.SetYListKey(nsrThdStats.NsrPri[i], i)
         nsrThdStats.EntityData.Children.Append(types.GetSegmentPath(nsrThdStats.NsrPri[i]), types.YChild{"NsrPri", nsrThdStats.NsrPri[i]})
     }
     nsrThdStats.EntityData.Leafs = types.NewOrderedMap()
@@ -25074,6 +25603,7 @@ func (nsrThdStats *Ospfv3_Processes_Process_Statistics_IssuStats_NsrThdStats) Ge
 type Ospfv3_Processes_Process_Statistics_IssuStats_NsrThdStats_NsrPri struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority Type. The type is OspfNsrSchedPri.
     NsrSchedPri interface{}
@@ -25110,7 +25640,8 @@ func (nsrPri *Ospfv3_Processes_Process_Statistics_IssuStats_NsrThdStats_NsrPri) 
     nsrPri.EntityData.YangName = "nsr-pri"
     nsrPri.EntityData.BundleName = "cisco_ios_xr"
     nsrPri.EntityData.ParentYangName = "nsr-thd-stats"
-    nsrPri.EntityData.SegmentPath = "nsr-pri"
+    nsrPri.EntityData.SegmentPath = "nsr-pri" + types.AddNoKeyToken(nsrPri)
+    nsrPri.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/issu-stats/nsr-thd-stats/" + nsrPri.EntityData.SegmentPath
     nsrPri.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrPri.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrPri.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25180,6 +25711,7 @@ func (nsrRtrThdSched *Ospfv3_Processes_Process_Statistics_IssuStats_NsrRtrThdSch
     nsrRtrThdSched.EntityData.BundleName = "cisco_ios_xr"
     nsrRtrThdSched.EntityData.ParentYangName = "issu-stats"
     nsrRtrThdSched.EntityData.SegmentPath = "nsr-rtr-thd-sched"
+    nsrRtrThdSched.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/issu-stats/" + nsrRtrThdSched.EntityData.SegmentPath
     nsrRtrThdSched.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrRtrThdSched.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrRtrThdSched.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25187,6 +25719,7 @@ func (nsrRtrThdSched *Ospfv3_Processes_Process_Statistics_IssuStats_NsrRtrThdSch
     nsrRtrThdSched.EntityData.Children = types.NewOrderedMap()
     nsrRtrThdSched.EntityData.Children.Append("nsr-pri", types.YChild{"NsrPri", nil})
     for i := range nsrRtrThdSched.NsrPri {
+        types.SetYListKey(nsrRtrThdSched.NsrPri[i], i)
         nsrRtrThdSched.EntityData.Children.Append(types.GetSegmentPath(nsrRtrThdSched.NsrPri[i]), types.YChild{"NsrPri", nsrRtrThdSched.NsrPri[i]})
     }
     nsrRtrThdSched.EntityData.Leafs = types.NewOrderedMap()
@@ -25209,6 +25742,7 @@ func (nsrRtrThdSched *Ospfv3_Processes_Process_Statistics_IssuStats_NsrRtrThdSch
 type Ospfv3_Processes_Process_Statistics_IssuStats_NsrRtrThdSched_NsrPri struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Priority Type. The type is OspfNsrSchedPri.
     NsrSchedPri interface{}
@@ -25245,7 +25779,8 @@ func (nsrPri *Ospfv3_Processes_Process_Statistics_IssuStats_NsrRtrThdSched_NsrPr
     nsrPri.EntityData.YangName = "nsr-pri"
     nsrPri.EntityData.BundleName = "cisco_ios_xr"
     nsrPri.EntityData.ParentYangName = "nsr-rtr-thd-sched"
-    nsrPri.EntityData.SegmentPath = "nsr-pri"
+    nsrPri.EntityData.SegmentPath = "nsr-pri" + types.AddNoKeyToken(nsrPri)
+    nsrPri.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/issu-stats/nsr-rtr-thd-sched/" + nsrPri.EntityData.SegmentPath
     nsrPri.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrPri.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrPri.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25272,6 +25807,7 @@ func (nsrPri *Ospfv3_Processes_Process_Statistics_IssuStats_NsrRtrThdSched_NsrPr
 type Ospfv3_Processes_Process_Statistics_IssuStats_NsrIssuMilestone struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Milestone Name. The type is string.
     MilestoneName interface{}
@@ -25285,7 +25821,8 @@ func (nsrIssuMilestone *Ospfv3_Processes_Process_Statistics_IssuStats_NsrIssuMil
     nsrIssuMilestone.EntityData.YangName = "nsr-issu-milestone"
     nsrIssuMilestone.EntityData.BundleName = "cisco_ios_xr"
     nsrIssuMilestone.EntityData.ParentYangName = "issu-stats"
-    nsrIssuMilestone.EntityData.SegmentPath = "nsr-issu-milestone"
+    nsrIssuMilestone.EntityData.SegmentPath = "nsr-issu-milestone" + types.AddNoKeyToken(nsrIssuMilestone)
+    nsrIssuMilestone.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/issu-stats/" + nsrIssuMilestone.EntityData.SegmentPath
     nsrIssuMilestone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrIssuMilestone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrIssuMilestone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25305,6 +25842,7 @@ func (nsrIssuMilestone *Ospfv3_Processes_Process_Statistics_IssuStats_NsrIssuMil
 type Ospfv3_Processes_Process_Statistics_IssuStats_NsrErrHistory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Nsr Revision version. The type is interface{} with range: 0..4294967295.
     NsrRevisionversion interface{}
@@ -25323,7 +25861,8 @@ func (nsrErrHistory *Ospfv3_Processes_Process_Statistics_IssuStats_NsrErrHistory
     nsrErrHistory.EntityData.YangName = "nsr-err-history"
     nsrErrHistory.EntityData.BundleName = "cisco_ios_xr"
     nsrErrHistory.EntityData.ParentYangName = "issu-stats"
-    nsrErrHistory.EntityData.SegmentPath = "nsr-err-history"
+    nsrErrHistory.EntityData.SegmentPath = "nsr-err-history" + types.AddNoKeyToken(nsrErrHistory)
+    nsrErrHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/issu-stats/" + nsrErrHistory.EntityData.SegmentPath
     nsrErrHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrErrHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrErrHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25331,6 +25870,7 @@ func (nsrErrHistory *Ospfv3_Processes_Process_Statistics_IssuStats_NsrErrHistory
     nsrErrHistory.EntityData.Children = types.NewOrderedMap()
     nsrErrHistory.EntityData.Children.Append("nsr-error-info", types.YChild{"NsrErrorInfo", nil})
     for i := range nsrErrHistory.NsrErrorInfo {
+        types.SetYListKey(nsrErrHistory.NsrErrorInfo[i], i)
         nsrErrHistory.EntityData.Children.Append(types.GetSegmentPath(nsrErrHistory.NsrErrorInfo[i]), types.YChild{"NsrErrorInfo", nsrErrHistory.NsrErrorInfo[i]})
     }
     nsrErrHistory.EntityData.Leafs = types.NewOrderedMap()
@@ -25347,6 +25887,7 @@ func (nsrErrHistory *Ospfv3_Processes_Process_Statistics_IssuStats_NsrErrHistory
 type Ospfv3_Processes_Process_Statistics_IssuStats_NsrErrHistory_NsrErrorInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Count this error hit during the Nsr Revision. The type is interface{} with
     // range: -2147483648..2147483647.
@@ -25364,7 +25905,8 @@ func (nsrErrorInfo *Ospfv3_Processes_Process_Statistics_IssuStats_NsrErrHistory_
     nsrErrorInfo.EntityData.YangName = "nsr-error-info"
     nsrErrorInfo.EntityData.BundleName = "cisco_ios_xr"
     nsrErrorInfo.EntityData.ParentYangName = "nsr-err-history"
-    nsrErrorInfo.EntityData.SegmentPath = "nsr-error-info"
+    nsrErrorInfo.EntityData.SegmentPath = "nsr-error-info" + types.AddNoKeyToken(nsrErrorInfo)
+    nsrErrorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/issu-stats/nsr-err-history/" + nsrErrorInfo.EntityData.SegmentPath
     nsrErrorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrErrorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrErrorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25401,6 +25943,7 @@ func (lastErrTime *Ospfv3_Processes_Process_Statistics_IssuStats_NsrErrHistory_N
     lastErrTime.EntityData.BundleName = "cisco_ios_xr"
     lastErrTime.EntityData.ParentYangName = "nsr-error-info"
     lastErrTime.EntityData.SegmentPath = "last-err-time"
+    lastErrTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/issu-stats/nsr-err-history/nsr-error-info/" + lastErrTime.EntityData.SegmentPath
     lastErrTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lastErrTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lastErrTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25432,6 +25975,7 @@ func (nsrPlStats *Ospfv3_Processes_Process_Statistics_NsrPlStats) GetEntityData(
     nsrPlStats.EntityData.BundleName = "cisco_ios_xr"
     nsrPlStats.EntityData.ParentYangName = "statistics"
     nsrPlStats.EntityData.SegmentPath = "nsr-pl-stats"
+    nsrPlStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + nsrPlStats.EntityData.SegmentPath
     nsrPlStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nsrPlStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nsrPlStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25439,6 +25983,7 @@ func (nsrPlStats *Ospfv3_Processes_Process_Statistics_NsrPlStats) GetEntityData(
     nsrPlStats.EntityData.Children = types.NewOrderedMap()
     nsrPlStats.EntityData.Children.Append("ncd-pri", types.YChild{"NcdPri", nil})
     for i := range nsrPlStats.NcdPri {
+        types.SetYListKey(nsrPlStats.NcdPri[i], i)
         nsrPlStats.EntityData.Children.Append(types.GetSegmentPath(nsrPlStats.NcdPri[i]), types.YChild{"NcdPri", nsrPlStats.NcdPri[i]})
     }
     nsrPlStats.EntityData.Leafs = types.NewOrderedMap()
@@ -25453,6 +25998,7 @@ func (nsrPlStats *Ospfv3_Processes_Process_Statistics_NsrPlStats) GetEntityData(
 type Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Total sent. The type is slice of interface{} with range:
     // 0..18446744073709551615.
@@ -25476,7 +26022,8 @@ func (ncdPri *Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri) GetEntityDa
     ncdPri.EntityData.YangName = "ncd-pri"
     ncdPri.EntityData.BundleName = "cisco_ios_xr"
     ncdPri.EntityData.ParentYangName = "nsr-pl-stats"
-    ncdPri.EntityData.SegmentPath = "ncd-pri"
+    ncdPri.EntityData.SegmentPath = "ncd-pri" + types.AddNoKeyToken(ncdPri)
+    ncdPri.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-pl-stats/" + ncdPri.EntityData.SegmentPath
     ncdPri.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncdPri.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncdPri.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25484,10 +26031,12 @@ func (ncdPri *Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri) GetEntityDa
     ncdPri.EntityData.Children = types.NewOrderedMap()
     ncdPri.EntityData.Children.Append("num-sent-drop", types.YChild{"NumSentDrop", nil})
     for i := range ncdPri.NumSentDrop {
+        types.SetYListKey(ncdPri.NumSentDrop[i], i)
         ncdPri.EntityData.Children.Append(types.GetSegmentPath(ncdPri.NumSentDrop[i]), types.YChild{"NumSentDrop", ncdPri.NumSentDrop[i]})
     }
     ncdPri.EntityData.Children.Append("num-recv-drop", types.YChild{"NumRecvDrop", nil})
     for i := range ncdPri.NumRecvDrop {
+        types.SetYListKey(ncdPri.NumRecvDrop[i], i)
         ncdPri.EntityData.Children.Append(types.GetSegmentPath(ncdPri.NumRecvDrop[i]), types.YChild{"NumRecvDrop", ncdPri.NumRecvDrop[i]})
     }
     ncdPri.EntityData.Leafs = types.NewOrderedMap()
@@ -25504,6 +26053,7 @@ func (ncdPri *Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri) GetEntityDa
 type Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri_NumSentDrop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // nsr pl send drop array. The type is slice of interface{} with range:
     // 0..4294967295.
@@ -25515,7 +26065,8 @@ func (numSentDrop *Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri_NumSent
     numSentDrop.EntityData.YangName = "num-sent-drop"
     numSentDrop.EntityData.BundleName = "cisco_ios_xr"
     numSentDrop.EntityData.ParentYangName = "ncd-pri"
-    numSentDrop.EntityData.SegmentPath = "num-sent-drop"
+    numSentDrop.EntityData.SegmentPath = "num-sent-drop" + types.AddNoKeyToken(numSentDrop)
+    numSentDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-pl-stats/ncd-pri/" + numSentDrop.EntityData.SegmentPath
     numSentDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numSentDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numSentDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25534,6 +26085,7 @@ func (numSentDrop *Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri_NumSent
 type Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri_NumRecvDrop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // nsr pl recv drop array. The type is slice of interface{} with range:
     // 0..4294967295.
@@ -25545,7 +26097,8 @@ func (numRecvDrop *Ospfv3_Processes_Process_Statistics_NsrPlStats_NcdPri_NumRecv
     numRecvDrop.EntityData.YangName = "num-recv-drop"
     numRecvDrop.EntityData.BundleName = "cisco_ios_xr"
     numRecvDrop.EntityData.ParentYangName = "ncd-pri"
-    numRecvDrop.EntityData.SegmentPath = "num-recv-drop"
+    numRecvDrop.EntityData.SegmentPath = "num-recv-drop" + types.AddNoKeyToken(numRecvDrop)
+    numRecvDrop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/nsr-pl-stats/ncd-pri/" + numRecvDrop.EntityData.SegmentPath
     numRecvDrop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     numRecvDrop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     numRecvDrop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25576,6 +26129,7 @@ func (protocolStats *Ospfv3_Processes_Process_Statistics_ProtocolStats) GetEntit
     protocolStats.EntityData.BundleName = "cisco_ios_xr"
     protocolStats.EntityData.ParentYangName = "statistics"
     protocolStats.EntityData.SegmentPath = "protocol-stats"
+    protocolStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + protocolStats.EntityData.SegmentPath
     protocolStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25597,6 +26151,7 @@ func (protocolStats *Ospfv3_Processes_Process_Statistics_ProtocolStats) GetEntit
 type Ospfv3_Processes_Process_Statistics_ProtocolStats_ProtocolStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -25700,6 +26255,7 @@ func (protocolStat *Ospfv3_Processes_Process_Statistics_ProtocolStats_ProtocolSt
     protocolStat.EntityData.BundleName = "cisco_ios_xr"
     protocolStat.EntityData.ParentYangName = "protocol-stats"
     protocolStat.EntityData.SegmentPath = "protocol-stat" + types.AddKeyToken(protocolStat.InterfaceName, "interface-name")
+    protocolStat.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/protocol-stats/" + protocolStat.EntityData.SegmentPath
     protocolStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25756,6 +26312,7 @@ func (spfStats *Ospfv3_Processes_Process_Statistics_SpfStats) GetEntityData() *t
     spfStats.EntityData.BundleName = "cisco_ios_xr"
     spfStats.EntityData.ParentYangName = "statistics"
     spfStats.EntityData.SegmentPath = "spf-stats"
+    spfStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + spfStats.EntityData.SegmentPath
     spfStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25764,6 +26321,7 @@ func (spfStats *Ospfv3_Processes_Process_Statistics_SpfStats) GetEntityData() *t
     spfStats.EntityData.Children.Append("spf-header", types.YChild{"SpfHeader", &spfStats.SpfHeader})
     spfStats.EntityData.Children.Append("spf-runtime", types.YChild{"SpfRuntime", nil})
     for i := range spfStats.SpfRuntime {
+        types.SetYListKey(spfStats.SpfRuntime[i], i)
         spfStats.EntityData.Children.Append(types.GetSegmentPath(spfStats.SpfRuntime[i]), types.YChild{"SpfRuntime", spfStats.SpfRuntime[i]})
     }
     spfStats.EntityData.Leafs = types.NewOrderedMap()
@@ -25798,6 +26356,7 @@ func (spfHeader *Ospfv3_Processes_Process_Statistics_SpfStats_SpfHeader) GetEnti
     spfHeader.EntityData.BundleName = "cisco_ios_xr"
     spfHeader.EntityData.ParentYangName = "spf-stats"
     spfHeader.EntityData.SegmentPath = "spf-header"
+    spfHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/spf-stats/" + spfHeader.EntityData.SegmentPath
     spfHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25805,6 +26364,7 @@ func (spfHeader *Ospfv3_Processes_Process_Statistics_SpfStats_SpfHeader) GetEnti
     spfHeader.EntityData.Children = types.NewOrderedMap()
     spfHeader.EntityData.Children.Append("area-summary", types.YChild{"AreaSummary", nil})
     for i := range spfHeader.AreaSummary {
+        types.SetYListKey(spfHeader.AreaSummary[i], i)
         spfHeader.EntityData.Children.Append(types.GetSegmentPath(spfHeader.AreaSummary[i]), types.YChild{"AreaSummary", spfHeader.AreaSummary[i]})
     }
     spfHeader.EntityData.Leafs = types.NewOrderedMap()
@@ -25821,6 +26381,7 @@ func (spfHeader *Ospfv3_Processes_Process_Statistics_SpfStats_SpfHeader) GetEnti
 type Ospfv3_Processes_Process_Statistics_SpfStats_SpfHeader_AreaSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID of the area SPF statistics. The type is interface{} with range:
     // 0..4294967295.
@@ -25836,7 +26397,8 @@ func (areaSummary *Ospfv3_Processes_Process_Statistics_SpfStats_SpfHeader_AreaSu
     areaSummary.EntityData.YangName = "area-summary"
     areaSummary.EntityData.BundleName = "cisco_ios_xr"
     areaSummary.EntityData.ParentYangName = "spf-header"
-    areaSummary.EntityData.SegmentPath = "area-summary"
+    areaSummary.EntityData.SegmentPath = "area-summary" + types.AddNoKeyToken(areaSummary)
+    areaSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/spf-stats/spf-header/" + areaSummary.EntityData.SegmentPath
     areaSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25856,6 +26418,7 @@ func (areaSummary *Ospfv3_Processes_Process_Statistics_SpfStats_SpfHeader_AreaSu
 type Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SPF calculation start time. The type is interface{} with range:
     // 0..4294967295.
@@ -25898,7 +26461,8 @@ func (spfRuntime *Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime) GetEn
     spfRuntime.EntityData.YangName = "spf-runtime"
     spfRuntime.EntityData.BundleName = "cisco_ios_xr"
     spfRuntime.EntityData.ParentYangName = "spf-stats"
-    spfRuntime.EntityData.SegmentPath = "spf-runtime"
+    spfRuntime.EntityData.SegmentPath = "spf-runtime" + types.AddNoKeyToken(spfRuntime)
+    spfRuntime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/spf-stats/" + spfRuntime.EntityData.SegmentPath
     spfRuntime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRuntime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRuntime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25907,10 +26471,12 @@ func (spfRuntime *Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime) GetEn
     spfRuntime.EntityData.Children.Append("global-time", types.YChild{"GlobalTime", &spfRuntime.GlobalTime})
     spfRuntime.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range spfRuntime.Lsa {
+        types.SetYListKey(spfRuntime.Lsa[i], i)
         spfRuntime.EntityData.Children.Append(types.GetSegmentPath(spfRuntime.Lsa[i]), types.YChild{"Lsa", spfRuntime.Lsa[i]})
     }
     spfRuntime.EntityData.Children.Append("area-stat", types.YChild{"AreaStat", nil})
     for i := range spfRuntime.AreaStat {
+        types.SetYListKey(spfRuntime.AreaStat[i], i)
         spfRuntime.EntityData.Children.Append(types.GetSegmentPath(spfRuntime.AreaStat[i]), types.YChild{"AreaStat", spfRuntime.AreaStat[i]})
     }
     spfRuntime.EntityData.Leafs = types.NewOrderedMap()
@@ -25973,6 +26539,7 @@ func (globalTime *Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_Global
     globalTime.EntityData.BundleName = "cisco_ios_xr"
     globalTime.EntityData.ParentYangName = "spf-runtime"
     globalTime.EntityData.SegmentPath = "global-time"
+    globalTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/spf-stats/spf-runtime/" + globalTime.EntityData.SegmentPath
     globalTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25999,6 +26566,7 @@ func (globalTime *Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_Global
 type Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     LsaAreaId interface{}
@@ -26023,7 +26591,8 @@ func (lsa *Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_Lsa) GetEntit
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "spf-runtime"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/spf-stats/spf-runtime/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26046,6 +26615,7 @@ func (lsa *Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_Lsa) GetEntit
 type Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_AreaStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID for area of these SPF statistics. The type is interface{} with
     // range: 0..4294967295.
@@ -26064,7 +26634,8 @@ func (areaStat *Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_AreaStat
     areaStat.EntityData.YangName = "area-stat"
     areaStat.EntityData.BundleName = "cisco_ios_xr"
     areaStat.EntityData.ParentYangName = "spf-runtime"
-    areaStat.EntityData.SegmentPath = "area-stat"
+    areaStat.EntityData.SegmentPath = "area-stat" + types.AddNoKeyToken(areaStat)
+    areaStat.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/spf-stats/spf-runtime/" + areaStat.EntityData.SegmentPath
     areaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26128,6 +26699,7 @@ func (spfStatTime *Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_AreaS
     spfStatTime.EntityData.BundleName = "cisco_ios_xr"
     spfStatTime.EntityData.ParentYangName = "area-stat"
     spfStatTime.EntityData.SegmentPath = "spf-stat-time"
+    spfStatTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/spf-stats/spf-runtime/area-stat/" + spfStatTime.EntityData.SegmentPath
     spfStatTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfStatTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfStatTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26239,6 +26811,7 @@ func (rawioStats *Ospfv3_Processes_Process_Statistics_RawioStats) GetEntityData(
     rawioStats.EntityData.BundleName = "cisco_ios_xr"
     rawioStats.EntityData.ParentYangName = "statistics"
     rawioStats.EntityData.SegmentPath = "rawio-stats"
+    rawioStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + rawioStats.EntityData.SegmentPath
     rawioStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rawioStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rawioStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26300,6 +26873,7 @@ func (prefixPriorityStats *Ospfv3_Processes_Process_Statistics_PrefixPrioritySta
     prefixPriorityStats.EntityData.BundleName = "cisco_ios_xr"
     prefixPriorityStats.EntityData.ParentYangName = "statistics"
     prefixPriorityStats.EntityData.SegmentPath = "prefix-priority-stats"
+    prefixPriorityStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + prefixPriorityStats.EntityData.SegmentPath
     prefixPriorityStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixPriorityStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixPriorityStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26365,6 +26939,7 @@ func (vrfRibBatchStats *Ospfv3_Processes_Process_Statistics_VrfRibBatchStats) Ge
     vrfRibBatchStats.EntityData.BundleName = "cisco_ios_xr"
     vrfRibBatchStats.EntityData.ParentYangName = "statistics"
     vrfRibBatchStats.EntityData.SegmentPath = "vrf-rib-batch-stats"
+    vrfRibBatchStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/statistics/" + vrfRibBatchStats.EntityData.SegmentPath
     vrfRibBatchStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRibBatchStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRibBatchStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26476,6 +27051,7 @@ func (defaultVrf *Ospfv3_Processes_Process_DefaultVrf) GetEntityData() *types.Co
     defaultVrf.EntityData.BundleName = "cisco_ios_xr"
     defaultVrf.EntityData.ParentYangName = "process"
     defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/" + defaultVrf.EntityData.SegmentPath
     defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26530,6 +27106,7 @@ func (summaryPrefixes *Ospfv3_Processes_Process_DefaultVrf_SummaryPrefixes) GetE
     summaryPrefixes.EntityData.BundleName = "cisco_ios_xr"
     summaryPrefixes.EntityData.ParentYangName = "default-vrf"
     summaryPrefixes.EntityData.SegmentPath = "summary-prefixes"
+    summaryPrefixes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + summaryPrefixes.EntityData.SegmentPath
     summaryPrefixes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPrefixes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPrefixes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26537,6 +27114,7 @@ func (summaryPrefixes *Ospfv3_Processes_Process_DefaultVrf_SummaryPrefixes) GetE
     summaryPrefixes.EntityData.Children = types.NewOrderedMap()
     summaryPrefixes.EntityData.Children.Append("summary-prefix", types.YChild{"SummaryPrefix", nil})
     for i := range summaryPrefixes.SummaryPrefix {
+        types.SetYListKey(summaryPrefixes.SummaryPrefix[i], i)
         summaryPrefixes.EntityData.Children.Append(types.GetSegmentPath(summaryPrefixes.SummaryPrefix[i]), types.YChild{"SummaryPrefix", summaryPrefixes.SummaryPrefix[i]})
     }
     summaryPrefixes.EntityData.Leafs = types.NewOrderedMap()
@@ -26551,6 +27129,7 @@ func (summaryPrefixes *Ospfv3_Processes_Process_DefaultVrf_SummaryPrefixes) GetE
 type Ospfv3_Processes_Process_DefaultVrf_SummaryPrefixes_SummaryPrefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Summary prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -26574,7 +27153,8 @@ func (summaryPrefix *Ospfv3_Processes_Process_DefaultVrf_SummaryPrefixes_Summary
     summaryPrefix.EntityData.YangName = "summary-prefix"
     summaryPrefix.EntityData.BundleName = "cisco_ios_xr"
     summaryPrefix.EntityData.ParentYangName = "summary-prefixes"
-    summaryPrefix.EntityData.SegmentPath = "summary-prefix"
+    summaryPrefix.EntityData.SegmentPath = "summary-prefix" + types.AddNoKeyToken(summaryPrefix)
+    summaryPrefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary-prefixes/" + summaryPrefix.EntityData.SegmentPath
     summaryPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summaryPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summaryPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26609,6 +27189,7 @@ func (borderRouters *Ospfv3_Processes_Process_DefaultVrf_BorderRouters) GetEntit
     borderRouters.EntityData.BundleName = "cisco_ios_xr"
     borderRouters.EntityData.ParentYangName = "default-vrf"
     borderRouters.EntityData.SegmentPath = "border-routers"
+    borderRouters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + borderRouters.EntityData.SegmentPath
     borderRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     borderRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     borderRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26630,6 +27211,7 @@ func (borderRouters *Ospfv3_Processes_Process_DefaultVrf_BorderRouters) GetEntit
 type Ospfv3_Processes_Process_DefaultVrf_BorderRouters_BorderRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Router address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -26646,6 +27228,7 @@ func (borderRouter *Ospfv3_Processes_Process_DefaultVrf_BorderRouters_BorderRout
     borderRouter.EntityData.BundleName = "cisco_ios_xr"
     borderRouter.EntityData.ParentYangName = "border-routers"
     borderRouter.EntityData.SegmentPath = "border-router" + types.AddKeyToken(borderRouter.BorderRouterId, "border-router-id")
+    borderRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/border-routers/" + borderRouter.EntityData.SegmentPath
     borderRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     borderRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     borderRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26653,6 +27236,7 @@ func (borderRouter *Ospfv3_Processes_Process_DefaultVrf_BorderRouters_BorderRout
     borderRouter.EntityData.Children = types.NewOrderedMap()
     borderRouter.EntityData.Children.Append("border-router-path", types.YChild{"BorderRouterPath", nil})
     for i := range borderRouter.BorderRouterPath {
+        types.SetYListKey(borderRouter.BorderRouterPath[i], i)
         borderRouter.EntityData.Children.Append(types.GetSegmentPath(borderRouter.BorderRouterPath[i]), types.YChild{"BorderRouterPath", borderRouter.BorderRouterPath[i]})
     }
     borderRouter.EntityData.Leafs = types.NewOrderedMap()
@@ -26668,6 +27252,7 @@ func (borderRouter *Ospfv3_Processes_Process_DefaultVrf_BorderRouters_BorderRout
 type Ospfv3_Processes_Process_DefaultVrf_BorderRouters_BorderRouter_BorderRouterPath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // If true, intra-area router else inter-area router. The type is bool.
     IsIntraAreaRouter interface{}
@@ -26698,7 +27283,8 @@ func (borderRouterPath *Ospfv3_Processes_Process_DefaultVrf_BorderRouters_Border
     borderRouterPath.EntityData.YangName = "border-router-path"
     borderRouterPath.EntityData.BundleName = "cisco_ios_xr"
     borderRouterPath.EntityData.ParentYangName = "border-router"
-    borderRouterPath.EntityData.SegmentPath = "border-router-path"
+    borderRouterPath.EntityData.SegmentPath = "border-router-path" + types.AddNoKeyToken(borderRouterPath)
+    borderRouterPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/border-routers/border-router/" + borderRouterPath.EntityData.SegmentPath
     borderRouterPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     borderRouterPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     borderRouterPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26831,6 +27417,7 @@ func (shamLinkTable *Ospfv3_Processes_Process_DefaultVrf_ShamLinkTable) GetEntit
     shamLinkTable.EntityData.BundleName = "cisco_ios_xr"
     shamLinkTable.EntityData.ParentYangName = "default-vrf"
     shamLinkTable.EntityData.SegmentPath = "sham-link-table"
+    shamLinkTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + shamLinkTable.EntityData.SegmentPath
     shamLinkTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shamLinkTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shamLinkTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26894,6 +27481,7 @@ func (shamLinkNeighbor *Ospfv3_Processes_Process_DefaultVrf_ShamLinkTable_ShamLi
     shamLinkNeighbor.EntityData.BundleName = "cisco_ios_xr"
     shamLinkNeighbor.EntityData.ParentYangName = "sham-link-table"
     shamLinkNeighbor.EntityData.SegmentPath = "sham-link-neighbor"
+    shamLinkNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/sham-link-table/" + shamLinkNeighbor.EntityData.SegmentPath
     shamLinkNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shamLinkNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shamLinkNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27013,6 +27601,7 @@ func (shamLinkRetransmission *Ospfv3_Processes_Process_DefaultVrf_ShamLinkTable_
     shamLinkRetransmission.EntityData.BundleName = "cisco_ios_xr"
     shamLinkRetransmission.EntityData.ParentYangName = "sham-link-neighbor"
     shamLinkRetransmission.EntityData.SegmentPath = "sham-link-retransmission"
+    shamLinkRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/sham-link-table/sham-link-neighbor/" + shamLinkRetransmission.EntityData.SegmentPath
     shamLinkRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shamLinkRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shamLinkRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27065,6 +27654,7 @@ func (areaInformations *Ospfv3_Processes_Process_DefaultVrf_AreaInformations) Ge
     areaInformations.EntityData.BundleName = "cisco_ios_xr"
     areaInformations.EntityData.ParentYangName = "default-vrf"
     areaInformations.EntityData.SegmentPath = "area-informations"
+    areaInformations.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + areaInformations.EntityData.SegmentPath
     areaInformations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaInformations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaInformations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27086,6 +27676,7 @@ func (areaInformations *Ospfv3_Processes_Process_DefaultVrf_AreaInformations) Ge
 type Ospfv3_Processes_Process_DefaultVrf_AreaInformations_AreaInformation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is interface{} with range:
     // 0..4294967295.
@@ -27176,6 +27767,7 @@ func (areaInformation *Ospfv3_Processes_Process_DefaultVrf_AreaInformations_Area
     areaInformation.EntityData.BundleName = "cisco_ios_xr"
     areaInformation.EntityData.ParentYangName = "area-informations"
     areaInformation.EntityData.SegmentPath = "area-information" + types.AddKeyToken(areaInformation.AreaId, "area-id")
+    areaInformation.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/area-informations/" + areaInformation.EntityData.SegmentPath
     areaInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27183,6 +27775,7 @@ func (areaInformation *Ospfv3_Processes_Process_DefaultVrf_AreaInformations_Area
     areaInformation.EntityData.Children = types.NewOrderedMap()
     areaInformation.EntityData.Children.Append("area-range", types.YChild{"AreaRange", nil})
     for i := range areaInformation.AreaRange {
+        types.SetYListKey(areaInformation.AreaRange[i], i)
         areaInformation.EntityData.Children.Append(types.GetSegmentPath(areaInformation.AreaRange[i]), types.YChild{"AreaRange", areaInformation.AreaRange[i]})
     }
     areaInformation.EntityData.Leafs = types.NewOrderedMap()
@@ -27219,6 +27812,7 @@ func (areaInformation *Ospfv3_Processes_Process_DefaultVrf_AreaInformations_Area
 type Ospfv3_Processes_Process_DefaultVrf_AreaInformations_AreaInformation_AreaRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP prefix for summarization. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -27243,7 +27837,8 @@ func (areaRange *Ospfv3_Processes_Process_DefaultVrf_AreaInformations_AreaInform
     areaRange.EntityData.YangName = "area-range"
     areaRange.EntityData.BundleName = "cisco_ios_xr"
     areaRange.EntityData.ParentYangName = "area-information"
-    areaRange.EntityData.SegmentPath = "area-range"
+    areaRange.EntityData.SegmentPath = "area-range" + types.AddNoKeyToken(areaRange)
+    areaRange.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/area-informations/area-information/" + areaRange.EntityData.SegmentPath
     areaRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27280,6 +27875,7 @@ func (databaseTable *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable) GetEntit
     databaseTable.EntityData.BundleName = "cisco_ios_xr"
     databaseTable.EntityData.ParentYangName = "default-vrf"
     databaseTable.EntityData.SegmentPath = "database-table"
+    databaseTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + databaseTable.EntityData.SegmentPath
     databaseTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27311,6 +27907,7 @@ func (lsaTable *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable) GetE
     lsaTable.EntityData.BundleName = "cisco_ios_xr"
     lsaTable.EntityData.ParentYangName = "database-table"
     lsaTable.EntityData.SegmentPath = "lsa-table"
+    lsaTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/" + lsaTable.EntityData.SegmentPath
     lsaTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27318,6 +27915,7 @@ func (lsaTable *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable) GetE
     lsaTable.EntityData.Children = types.NewOrderedMap()
     lsaTable.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range lsaTable.Lsa {
+        types.SetYListKey(lsaTable.Lsa[i], i)
         lsaTable.EntityData.Children.Append(types.GetSegmentPath(lsaTable.Lsa[i]), types.YChild{"Lsa", lsaTable.Lsa[i]})
     }
     lsaTable.EntityData.Leafs = types.NewOrderedMap()
@@ -27332,6 +27930,7 @@ func (lsaTable *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable) GetE
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     AreaId interface{}
@@ -27358,7 +27957,8 @@ func (lsa *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa) GetEn
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "lsa-table"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27435,6 +28035,7 @@ func (lsaInfo *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_Ls
     lsaInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaInfo.EntityData.ParentYangName = "lsa"
     lsaInfo.EntityData.SegmentPath = "lsa-info"
+    lsaInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/" + lsaInfo.EntityData.SegmentPath
     lsaInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27518,6 +28119,7 @@ func (lsaSummaryInfo *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable
     lsaSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaSummaryInfo.EntityData.ParentYangName = "lsa-info"
     lsaSummaryInfo.EntityData.SegmentPath = "lsa-summary-info"
+    lsaSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + lsaSummaryInfo.EntityData.SegmentPath
     lsaSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27586,6 +28188,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "lsa-summary-info"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/lsa-summary-info/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27688,6 +28291,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "lsa-summary-info"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/lsa-summary-info/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27748,6 +28352,7 @@ func (routerLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_
     routerLsaType.EntityData.BundleName = "cisco_ios_xr"
     routerLsaType.EntityData.ParentYangName = "lsa-info"
     routerLsaType.EntityData.SegmentPath = "router-lsa-type"
+    routerLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + routerLsaType.EntityData.SegmentPath
     routerLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27758,6 +28363,7 @@ func (routerLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_
     routerLsaType.EntityData.Children.Append("rpf-path", types.YChild{"RpfPath", &routerLsaType.RpfPath})
     routerLsaType.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range routerLsaType.Link {
+        types.SetYListKey(routerLsaType.Link[i], i)
         routerLsaType.EntityData.Children.Append(types.GetSegmentPath(routerLsaType.Link[i]), types.YChild{"Link", routerLsaType.Link[i]})
     }
     routerLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -27810,6 +28416,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27912,6 +28519,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27962,6 +28570,7 @@ func (rpfPath *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_Ls
     rpfPath.EntityData.BundleName = "cisco_ios_xr"
     rpfPath.EntityData.ParentYangName = "router-lsa-type"
     rpfPath.EntityData.SegmentPath = "rpf-path"
+    rpfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + rpfPath.EntityData.SegmentPath
     rpfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27981,6 +28590,7 @@ func (rpfPath *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_Ls
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_RouterLsaType_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of link. The type is Ospfv3Link.
     LinkType interface{}
@@ -28005,7 +28615,8 @@ func (link *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaIn
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "router-lsa-type"
-    link.EntityData.SegmentPath = "link"
+    link.EntityData.SegmentPath = "link" + types.AddNoKeyToken(link)
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28046,6 +28657,7 @@ func (networkLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable
     networkLsaType.EntityData.BundleName = "cisco_ios_xr"
     networkLsaType.EntityData.ParentYangName = "lsa-info"
     networkLsaType.EntityData.SegmentPath = "network-lsa-type"
+    networkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + networkLsaType.EntityData.SegmentPath
     networkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28103,6 +28715,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "network-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/network-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28205,6 +28818,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "network-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/network-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28265,6 +28879,7 @@ func (interAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_
     interAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaPrefixLsaType.EntityData.SegmentPath = "inter-area-prefix-lsa-type"
+    interAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + interAreaPrefixLsaType.EntityData.SegmentPath
     interAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28324,6 +28939,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28426,6 +29042,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28479,6 +29096,7 @@ func (interAreaRouterLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_
     interAreaRouterLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaRouterLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaRouterLsaType.EntityData.SegmentPath = "inter-area-router-lsa-type"
+    interAreaRouterLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + interAreaRouterLsaType.EntityData.SegmentPath
     interAreaRouterLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaRouterLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaRouterLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28536,6 +29154,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28638,6 +29257,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28715,6 +29335,7 @@ func (externalLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTabl
     externalLsaType.EntityData.BundleName = "cisco_ios_xr"
     externalLsaType.EntityData.ParentYangName = "lsa-info"
     externalLsaType.EntityData.SegmentPath = "external-lsa-type"
+    externalLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + externalLsaType.EntityData.SegmentPath
     externalLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28779,6 +29400,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "external-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/external-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28881,6 +29503,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "external-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/external-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28958,6 +29581,7 @@ func (nssalsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Ls
     nssalsaType.EntityData.BundleName = "cisco_ios_xr"
     nssalsaType.EntityData.ParentYangName = "lsa-info"
     nssalsaType.EntityData.SegmentPath = "nssalsa-type"
+    nssalsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + nssalsaType.EntityData.SegmentPath
     nssalsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nssalsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nssalsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29022,6 +29646,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "nssalsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/nssalsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29124,6 +29749,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "nssalsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/nssalsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29200,6 +29826,7 @@ func (linkLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Ls
     linkLsaType.EntityData.BundleName = "cisco_ios_xr"
     linkLsaType.EntityData.ParentYangName = "lsa-info"
     linkLsaType.EntityData.SegmentPath = "link-lsa-type"
+    linkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + linkLsaType.EntityData.SegmentPath
     linkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29209,6 +29836,7 @@ func (linkLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Ls
     linkLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &linkLsaType.LsaDetail})
     linkLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range linkLsaType.Prefix {
+        types.SetYListKey(linkLsaType.Prefix[i], i)
         linkLsaType.EntityData.Children.Append(types.GetSegmentPath(linkLsaType.Prefix[i]), types.YChild{"Prefix", linkLsaType.Prefix[i]})
     }
     linkLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -29267,6 +29895,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29369,6 +29998,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29405,6 +30035,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -29428,7 +30059,8 @@ func (prefix *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_Lsa
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "link-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29479,6 +30111,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_
     intraAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     intraAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     intraAreaPrefixLsaType.EntityData.SegmentPath = "intra-area-prefix-lsa-type"
+    intraAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + intraAreaPrefixLsaType.EntityData.SegmentPath
     intraAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intraAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intraAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29488,6 +30121,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_
     intraAreaPrefixLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &intraAreaPrefixLsaType.LsaDetail})
     intraAreaPrefixLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range intraAreaPrefixLsaType.Prefix {
+        types.SetYListKey(intraAreaPrefixLsaType.Prefix[i], i)
         intraAreaPrefixLsaType.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefixLsaType.Prefix[i]), types.YChild{"Prefix", intraAreaPrefixLsaType.Prefix[i]})
     }
     intraAreaPrefixLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -29542,6 +30176,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29644,6 +30279,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29680,6 +30316,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_IntraAreaPrefixLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -29703,7 +30340,8 @@ func (prefix *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_Lsa
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29762,6 +30400,7 @@ func (graceLsa *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_L
     graceLsa.EntityData.BundleName = "cisco_ios_xr"
     graceLsa.EntityData.ParentYangName = "lsa-info"
     graceLsa.EntityData.SegmentPath = "grace-lsa"
+    graceLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + graceLsa.EntityData.SegmentPath
     graceLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graceLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graceLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29825,6 +30464,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "grace-lsa"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/grace-lsa/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29927,6 +30567,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "grace-lsa"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/grace-lsa/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29992,6 +30633,7 @@ func (unknownLinkLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaT
     unknownLinkLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLinkLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLinkLsaType.EntityData.SegmentPath = "unknown-link-lsa-type"
+    unknownLinkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + unknownLinkLsaType.EntityData.SegmentPath
     unknownLinkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLinkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLinkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30053,6 +30695,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30155,6 +30798,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30220,6 +30864,7 @@ func (unknownAreaLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaT
     unknownAreaLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAreaLsaType.EntityData.ParentYangName = "lsa-info"
     unknownAreaLsaType.EntityData.SegmentPath = "unknown-area-lsa-type"
+    unknownAreaLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + unknownAreaLsaType.EntityData.SegmentPath
     unknownAreaLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAreaLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAreaLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30281,6 +30926,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30383,6 +31029,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30448,6 +31095,7 @@ func (unknownAslsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTab
     unknownAslsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAslsaType.EntityData.ParentYangName = "lsa-info"
     unknownAslsaType.EntityData.SegmentPath = "unknown-aslsa-type"
+    unknownAslsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + unknownAslsaType.EntityData.SegmentPath
     unknownAslsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAslsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAslsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30509,6 +31157,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/unknown-aslsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30611,6 +31260,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/unknown-aslsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30676,6 +31326,7 @@ func (unknownLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable
     unknownLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLsaType.EntityData.SegmentPath = "unknown-lsa-type"
+    unknownLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/" + unknownLsaType.EntityData.SegmentPath
     unknownLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30737,6 +31388,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/unknown-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30839,6 +31491,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-table/lsa/lsa-info/unknown-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30887,6 +31540,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInt
     lsaInternalTable.EntityData.BundleName = "cisco_ios_xr"
     lsaInternalTable.EntityData.ParentYangName = "database-table"
     lsaInternalTable.EntityData.SegmentPath = "lsa-internal-table"
+    lsaInternalTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/" + lsaInternalTable.EntityData.SegmentPath
     lsaInternalTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInternalTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInternalTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30894,6 +31548,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInt
     lsaInternalTable.EntityData.Children = types.NewOrderedMap()
     lsaInternalTable.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range lsaInternalTable.Lsa {
+        types.SetYListKey(lsaInternalTable.Lsa[i], i)
         lsaInternalTable.EntityData.Children.Append(types.GetSegmentPath(lsaInternalTable.Lsa[i]), types.YChild{"Lsa", lsaInternalTable.Lsa[i]})
     }
     lsaInternalTable.EntityData.Leafs = types.NewOrderedMap()
@@ -30908,6 +31563,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInt
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     AreaId interface{}
@@ -30934,7 +31590,8 @@ func (lsa *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Ls
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "lsa-internal-table"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31011,6 +31668,7 @@ func (lsaInfo *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTabl
     lsaInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaInfo.EntityData.ParentYangName = "lsa"
     lsaInfo.EntityData.SegmentPath = "lsa-info"
+    lsaInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/" + lsaInfo.EntityData.SegmentPath
     lsaInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31094,6 +31752,7 @@ func (lsaSummaryInfo *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInter
     lsaSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaSummaryInfo.EntityData.ParentYangName = "lsa-info"
     lsaSummaryInfo.EntityData.SegmentPath = "lsa-summary-info"
+    lsaSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + lsaSummaryInfo.EntityData.SegmentPath
     lsaSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31162,6 +31821,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "lsa-summary-info"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/lsa-summary-info/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31264,6 +31924,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "lsa-summary-info"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/lsa-summary-info/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31324,6 +31985,7 @@ func (routerLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaIntern
     routerLsaType.EntityData.BundleName = "cisco_ios_xr"
     routerLsaType.EntityData.ParentYangName = "lsa-info"
     routerLsaType.EntityData.SegmentPath = "router-lsa-type"
+    routerLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + routerLsaType.EntityData.SegmentPath
     routerLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31334,6 +31996,7 @@ func (routerLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaIntern
     routerLsaType.EntityData.Children.Append("rpf-path", types.YChild{"RpfPath", &routerLsaType.RpfPath})
     routerLsaType.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range routerLsaType.Link {
+        types.SetYListKey(routerLsaType.Link[i], i)
         routerLsaType.EntityData.Children.Append(types.GetSegmentPath(routerLsaType.Link[i]), types.YChild{"Link", routerLsaType.Link[i]})
     }
     routerLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -31386,6 +32049,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31488,6 +32152,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31538,6 +32203,7 @@ func (rpfPath *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTabl
     rpfPath.EntityData.BundleName = "cisco_ios_xr"
     rpfPath.EntityData.ParentYangName = "router-lsa-type"
     rpfPath.EntityData.SegmentPath = "rpf-path"
+    rpfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + rpfPath.EntityData.SegmentPath
     rpfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31557,6 +32223,7 @@ func (rpfPath *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTabl
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_RouterLsaType_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of link. The type is Ospfv3Link.
     LinkType interface{}
@@ -31581,7 +32248,8 @@ func (link *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_L
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "router-lsa-type"
-    link.EntityData.SegmentPath = "link"
+    link.EntityData.SegmentPath = "link" + types.AddNoKeyToken(link)
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31622,6 +32290,7 @@ func (networkLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInter
     networkLsaType.EntityData.BundleName = "cisco_ios_xr"
     networkLsaType.EntityData.ParentYangName = "lsa-info"
     networkLsaType.EntityData.SegmentPath = "network-lsa-type"
+    networkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + networkLsaType.EntityData.SegmentPath
     networkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31679,6 +32348,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "network-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/network-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31781,6 +32451,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "network-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/network-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31841,6 +32512,7 @@ func (interAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_
     interAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaPrefixLsaType.EntityData.SegmentPath = "inter-area-prefix-lsa-type"
+    interAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + interAreaPrefixLsaType.EntityData.SegmentPath
     interAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31900,6 +32572,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32002,6 +32675,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32055,6 +32729,7 @@ func (interAreaRouterLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_
     interAreaRouterLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaRouterLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaRouterLsaType.EntityData.SegmentPath = "inter-area-router-lsa-type"
+    interAreaRouterLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + interAreaRouterLsaType.EntityData.SegmentPath
     interAreaRouterLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaRouterLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaRouterLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32112,6 +32787,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32214,6 +32890,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32291,6 +32968,7 @@ func (externalLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInte
     externalLsaType.EntityData.BundleName = "cisco_ios_xr"
     externalLsaType.EntityData.ParentYangName = "lsa-info"
     externalLsaType.EntityData.SegmentPath = "external-lsa-type"
+    externalLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + externalLsaType.EntityData.SegmentPath
     externalLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32355,6 +33033,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "external-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/external-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32457,6 +33136,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "external-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/external-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32534,6 +33214,7 @@ func (nssalsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternal
     nssalsaType.EntityData.BundleName = "cisco_ios_xr"
     nssalsaType.EntityData.ParentYangName = "lsa-info"
     nssalsaType.EntityData.SegmentPath = "nssalsa-type"
+    nssalsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + nssalsaType.EntityData.SegmentPath
     nssalsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nssalsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nssalsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32598,6 +33279,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "nssalsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/nssalsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32700,6 +33382,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "nssalsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/nssalsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32776,6 +33459,7 @@ func (linkLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternal
     linkLsaType.EntityData.BundleName = "cisco_ios_xr"
     linkLsaType.EntityData.ParentYangName = "lsa-info"
     linkLsaType.EntityData.SegmentPath = "link-lsa-type"
+    linkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + linkLsaType.EntityData.SegmentPath
     linkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32785,6 +33469,7 @@ func (linkLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternal
     linkLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &linkLsaType.LsaDetail})
     linkLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range linkLsaType.Prefix {
+        types.SetYListKey(linkLsaType.Prefix[i], i)
         linkLsaType.EntityData.Children.Append(types.GetSegmentPath(linkLsaType.Prefix[i]), types.YChild{"Prefix", linkLsaType.Prefix[i]})
     }
     linkLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -32843,6 +33528,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32945,6 +33631,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32981,6 +33668,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_LinkLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -33004,7 +33692,8 @@ func (prefix *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "link-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33055,6 +33744,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_
     intraAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     intraAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     intraAreaPrefixLsaType.EntityData.SegmentPath = "intra-area-prefix-lsa-type"
+    intraAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + intraAreaPrefixLsaType.EntityData.SegmentPath
     intraAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intraAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intraAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33064,6 +33754,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_
     intraAreaPrefixLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &intraAreaPrefixLsaType.LsaDetail})
     intraAreaPrefixLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range intraAreaPrefixLsaType.Prefix {
+        types.SetYListKey(intraAreaPrefixLsaType.Prefix[i], i)
         intraAreaPrefixLsaType.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefixLsaType.Prefix[i]), types.YChild{"Prefix", intraAreaPrefixLsaType.Prefix[i]})
     }
     intraAreaPrefixLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -33118,6 +33809,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33220,6 +33912,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33256,6 +33949,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_IntraAreaPrefixLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -33279,7 +33973,8 @@ func (prefix *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33338,6 +34033,7 @@ func (graceLsa *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTab
     graceLsa.EntityData.BundleName = "cisco_ios_xr"
     graceLsa.EntityData.ParentYangName = "lsa-info"
     graceLsa.EntityData.SegmentPath = "grace-lsa"
+    graceLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + graceLsa.EntityData.SegmentPath
     graceLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graceLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graceLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33401,6 +34097,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "grace-lsa"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/grace-lsa/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33503,6 +34200,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "grace-lsa"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/grace-lsa/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33568,6 +34266,7 @@ func (unknownLinkLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaI
     unknownLinkLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLinkLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLinkLsaType.EntityData.SegmentPath = "unknown-link-lsa-type"
+    unknownLinkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + unknownLinkLsaType.EntityData.SegmentPath
     unknownLinkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLinkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLinkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33629,6 +34328,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33731,6 +34431,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33796,6 +34497,7 @@ func (unknownAreaLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaI
     unknownAreaLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAreaLsaType.EntityData.ParentYangName = "lsa-info"
     unknownAreaLsaType.EntityData.SegmentPath = "unknown-area-lsa-type"
+    unknownAreaLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + unknownAreaLsaType.EntityData.SegmentPath
     unknownAreaLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAreaLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAreaLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33857,6 +34559,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33959,6 +34662,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34024,6 +34728,7 @@ func (unknownAslsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInt
     unknownAslsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAslsaType.EntityData.ParentYangName = "lsa-info"
     unknownAslsaType.EntityData.SegmentPath = "unknown-aslsa-type"
+    unknownAslsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + unknownAslsaType.EntityData.SegmentPath
     unknownAslsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAslsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAslsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34085,6 +34790,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-aslsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34187,6 +34893,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-aslsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34252,6 +34959,7 @@ func (unknownLsaType *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInter
     unknownLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLsaType.EntityData.SegmentPath = "unknown-lsa-type"
+    unknownLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/" + unknownLsaType.EntityData.SegmentPath
     unknownLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34313,6 +35021,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34415,6 +35124,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTa
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-table/lsa-internal-table/lsa/lsa-info/unknown-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34463,6 +35173,7 @@ func (interfaceProcessTable *Ospfv3_Processes_Process_DefaultVrf_InterfaceProces
     interfaceProcessTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceProcessTable.EntityData.ParentYangName = "default-vrf"
     interfaceProcessTable.EntityData.SegmentPath = "interface-process-table"
+    interfaceProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + interfaceProcessTable.EntityData.SegmentPath
     interfaceProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34484,6 +35195,7 @@ func (interfaceProcessTable *Ospfv3_Processes_Process_DefaultVrf_InterfaceProces
 type Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -34646,6 +35358,7 @@ func (self *Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface)
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-process-table"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/interface-process-table/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34655,6 +35368,7 @@ func (self *Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface)
     self.EntityData.Children.Append("interface-bfd", types.YChild{"InterfaceBfd", &self.InterfaceBfd})
     self.EntityData.Children.Append("interface-neighbor", types.YChild{"InterfaceNeighbor", nil})
     for i := range self.InterfaceNeighbor {
+        types.SetYListKey(self.InterfaceNeighbor[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.InterfaceNeighbor[i]), types.YChild{"InterfaceNeighbor", self.InterfaceNeighbor[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -34785,6 +35499,7 @@ func (activeInterface *Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable
     activeInterface.EntityData.BundleName = "cisco_ios_xr"
     activeInterface.EntityData.ParentYangName = "interface"
     activeInterface.EntityData.SegmentPath = "active-interface"
+    activeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/interface-process-table/interface/" + activeInterface.EntityData.SegmentPath
     activeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34839,6 +35554,7 @@ func (interfaceBfd *Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_In
     interfaceBfd.EntityData.BundleName = "cisco_ios_xr"
     interfaceBfd.EntityData.ParentYangName = "interface"
     interfaceBfd.EntityData.SegmentPath = "interface-bfd"
+    interfaceBfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/interface-process-table/interface/" + interfaceBfd.EntityData.SegmentPath
     interfaceBfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34859,6 +35575,7 @@ func (interfaceBfd *Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_In
 type Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface_InterfaceNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor router ID . The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -34883,7 +35600,8 @@ func (interfaceNeighbor *Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTab
     interfaceNeighbor.EntityData.YangName = "interface-neighbor"
     interfaceNeighbor.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighbor.EntityData.ParentYangName = "interface"
-    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor"
+    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor" + types.AddNoKeyToken(interfaceNeighbor)
+    interfaceNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/interface-process-table/interface/" + interfaceNeighbor.EntityData.SegmentPath
     interfaceNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34918,6 +35636,7 @@ func (redistributions *Ospfv3_Processes_Process_DefaultVrf_Redistributions) GetE
     redistributions.EntityData.BundleName = "cisco_ios_xr"
     redistributions.EntityData.ParentYangName = "default-vrf"
     redistributions.EntityData.SegmentPath = "redistributions"
+    redistributions.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + redistributions.EntityData.SegmentPath
     redistributions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistributions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistributions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34925,6 +35644,7 @@ func (redistributions *Ospfv3_Processes_Process_DefaultVrf_Redistributions) GetE
     redistributions.EntityData.Children = types.NewOrderedMap()
     redistributions.EntityData.Children.Append("redistribution", types.YChild{"Redistribution", nil})
     for i := range redistributions.Redistribution {
+        types.SetYListKey(redistributions.Redistribution[i], i)
         redistributions.EntityData.Children.Append(types.GetSegmentPath(redistributions.Redistribution[i]), types.YChild{"Redistribution", redistributions.Redistribution[i]})
     }
     redistributions.EntityData.Leafs = types.NewOrderedMap()
@@ -34939,6 +35659,7 @@ func (redistributions *Ospfv3_Processes_Process_DefaultVrf_Redistributions) GetE
 type Ospfv3_Processes_Process_DefaultVrf_Redistributions_Redistribution struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol name that is redistributed. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -34978,7 +35699,8 @@ func (redistribution *Ospfv3_Processes_Process_DefaultVrf_Redistributions_Redist
     redistribution.EntityData.YangName = "redistribution"
     redistribution.EntityData.BundleName = "cisco_ios_xr"
     redistribution.EntityData.ParentYangName = "redistributions"
-    redistribution.EntityData.SegmentPath = "redistribution"
+    redistribution.EntityData.SegmentPath = "redistribution" + types.AddNoKeyToken(redistribution)
+    redistribution.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/redistributions/" + redistribution.EntityData.SegmentPath
     redistribution.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     redistribution.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     redistribution.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35018,6 +35740,7 @@ func (externalRoutes *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes) GetEnt
     externalRoutes.EntityData.BundleName = "cisco_ios_xr"
     externalRoutes.EntityData.ParentYangName = "default-vrf"
     externalRoutes.EntityData.SegmentPath = "external-routes"
+    externalRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + externalRoutes.EntityData.SegmentPath
     externalRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35025,6 +35748,7 @@ func (externalRoutes *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes) GetEnt
     externalRoutes.EntityData.Children = types.NewOrderedMap()
     externalRoutes.EntityData.Children.Append("external-route", types.YChild{"ExternalRoute", nil})
     for i := range externalRoutes.ExternalRoute {
+        types.SetYListKey(externalRoutes.ExternalRoute[i], i)
         externalRoutes.EntityData.Children.Append(types.GetSegmentPath(externalRoutes.ExternalRoute[i]), types.YChild{"ExternalRoute", externalRoutes.ExternalRoute[i]})
     }
     externalRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -35039,6 +35763,7 @@ func (externalRoutes *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes) GetEnt
 type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -35063,7 +35788,8 @@ func (externalRoute *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_External
     externalRoute.EntityData.YangName = "external-route"
     externalRoute.EntityData.BundleName = "cisco_ios_xr"
     externalRoute.EntityData.ParentYangName = "external-routes"
-    externalRoute.EntityData.SegmentPath = "external-route"
+    externalRoute.EntityData.SegmentPath = "external-route" + types.AddNoKeyToken(externalRoute)
+    externalRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/external-routes/" + externalRoute.EntityData.SegmentPath
     externalRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35073,6 +35799,7 @@ func (externalRoute *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_External
     externalRoute.EntityData.Children.Append("route-extended-community", types.YChild{"RouteExtendedCommunity", &externalRoute.RouteExtendedCommunity})
     externalRoute.EntityData.Children.Append("route-path", types.YChild{"RoutePath", nil})
     for i := range externalRoute.RoutePath {
+        types.SetYListKey(externalRoute.RoutePath[i], i)
         externalRoute.EntityData.Children.Append(types.GetSegmentPath(externalRoute.RoutePath[i]), types.YChild{"RoutePath", externalRoute.RoutePath[i]})
     }
     externalRoute.EntityData.Leafs = types.NewOrderedMap()
@@ -35110,6 +35837,7 @@ func (routeTopology *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_External
     routeTopology.EntityData.BundleName = "cisco_ios_xr"
     routeTopology.EntityData.ParentYangName = "external-route"
     routeTopology.EntityData.SegmentPath = "route-topology"
+    routeTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/external-routes/external-route/" + routeTopology.EntityData.SegmentPath
     routeTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35159,6 +35887,7 @@ func (routeExtendedCommunity *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes
     routeExtendedCommunity.EntityData.BundleName = "cisco_ios_xr"
     routeExtendedCommunity.EntityData.ParentYangName = "external-route"
     routeExtendedCommunity.EntityData.SegmentPath = "route-extended-community"
+    routeExtendedCommunity.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/external-routes/external-route/" + routeExtendedCommunity.EntityData.SegmentPath
     routeExtendedCommunity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeExtendedCommunity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeExtendedCommunity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35182,6 +35911,7 @@ func (routeExtendedCommunity *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes
 type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RoutePath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route path interface name . The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -35211,7 +35941,8 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRout
     routePath.EntityData.YangName = "route-path"
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "external-route"
-    routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.SegmentPath = "route-path" + types.AddNoKeyToken(routePath)
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/external-routes/external-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35220,6 +35951,7 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRout
     routePath.EntityData.Children.Append("route-backup-path", types.YChild{"RouteBackupPath", &routePath.RouteBackupPath})
     routePath.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
     for i := range routePath.NeighborNextHop {
+        types.SetYListKey(routePath.NeighborNextHop[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.NeighborNextHop[i]), types.YChild{"NeighborNextHop", routePath.NeighborNextHop[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -35275,6 +36007,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_Extern
     routeBackupPath.EntityData.BundleName = "cisco_ios_xr"
     routeBackupPath.EntityData.ParentYangName = "route-path"
     routeBackupPath.EntityData.SegmentPath = "route-backup-path"
+    routeBackupPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/external-routes/external-route/route-path/" + routeBackupPath.EntityData.SegmentPath
     routeBackupPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeBackupPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeBackupPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35301,6 +36034,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_Extern
 type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RoutePath_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor NextHop Interface Index. The type is interface{} with range:
     // 0..4294967295.
@@ -35312,7 +36046,8 @@ func (neighborNextHop *Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_Extern
     neighborNextHop.EntityData.YangName = "neighbor-next-hop"
     neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
     neighborNextHop.EntityData.ParentYangName = "route-path"
-    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop" + types.AddNoKeyToken(neighborNextHop)
+    neighborNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/external-routes/external-route/route-path/" + neighborNextHop.EntityData.SegmentPath
     neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35343,6 +36078,7 @@ func (requestListProcessTable *Ospfv3_Processes_Process_DefaultVrf_RequestListPr
     requestListProcessTable.EntityData.BundleName = "cisco_ios_xr"
     requestListProcessTable.EntityData.ParentYangName = "default-vrf"
     requestListProcessTable.EntityData.SegmentPath = "request-list-process-table"
+    requestListProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + requestListProcessTable.EntityData.SegmentPath
     requestListProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestListProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestListProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35350,6 +36086,7 @@ func (requestListProcessTable *Ospfv3_Processes_Process_DefaultVrf_RequestListPr
     requestListProcessTable.EntityData.Children = types.NewOrderedMap()
     requestListProcessTable.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range requestListProcessTable.Request {
+        types.SetYListKey(requestListProcessTable.Request[i], i)
         requestListProcessTable.EntityData.Children.Append(types.GetSegmentPath(requestListProcessTable.Request[i]), types.YChild{"Request", requestListProcessTable.Request[i]})
     }
     requestListProcessTable.EntityData.Leafs = types.NewOrderedMap()
@@ -35364,6 +36101,7 @@ func (requestListProcessTable *Ospfv3_Processes_Process_DefaultVrf_RequestListPr
 type Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -35399,7 +36137,8 @@ func (request *Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Reque
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "request-list-process-table"
-    request.EntityData.SegmentPath = "request"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/request-list-process-table/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35407,6 +36146,7 @@ func (request *Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Reque
     request.EntityData.Children = types.NewOrderedMap()
     request.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range request.Request {
+        types.SetYListKey(request.Request[i], i)
         request.EntityData.Children.Append(types.GetSegmentPath(request.Request[i]), types.YChild{"Request", request.Request[i]})
     }
     request.EntityData.Leafs = types.NewOrderedMap()
@@ -35428,6 +36168,7 @@ func (request *Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Reque
 type Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Request_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -35454,7 +36195,8 @@ func (request *Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Reque
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "request"
-    request.EntityData.SegmentPath = "request"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/request-list-process-table/request/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35578,6 +36320,7 @@ func (virtualLink *Ospfv3_Processes_Process_DefaultVrf_VirtualLink) GetEntityDat
     virtualLink.EntityData.BundleName = "cisco_ios_xr"
     virtualLink.EntityData.ParentYangName = "default-vrf"
     virtualLink.EntityData.SegmentPath = "virtual-link"
+    virtualLink.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + virtualLink.EntityData.SegmentPath
     virtualLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35639,6 +36382,7 @@ func (virtualLinkNeighbor *Ospfv3_Processes_Process_DefaultVrf_VirtualLink_Virtu
     virtualLinkNeighbor.EntityData.BundleName = "cisco_ios_xr"
     virtualLinkNeighbor.EntityData.ParentYangName = "virtual-link"
     virtualLinkNeighbor.EntityData.SegmentPath = "virtual-link-neighbor"
+    virtualLinkNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/virtual-link/" + virtualLinkNeighbor.EntityData.SegmentPath
     virtualLinkNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualLinkNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualLinkNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35758,6 +36502,7 @@ func (virtualLinkRetransmission *Ospfv3_Processes_Process_DefaultVrf_VirtualLink
     virtualLinkRetransmission.EntityData.BundleName = "cisco_ios_xr"
     virtualLinkRetransmission.EntityData.ParentYangName = "virtual-link-neighbor"
     virtualLinkRetransmission.EntityData.SegmentPath = "virtual-link-retransmission"
+    virtualLinkRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/virtual-link/virtual-link-neighbor/" + virtualLinkRetransmission.EntityData.SegmentPath
     virtualLinkRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     virtualLinkRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     virtualLinkRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35811,6 +36556,7 @@ func (floodListProcessTable *Ospfv3_Processes_Process_DefaultVrf_FloodListProces
     floodListProcessTable.EntityData.BundleName = "cisco_ios_xr"
     floodListProcessTable.EntityData.ParentYangName = "default-vrf"
     floodListProcessTable.EntityData.SegmentPath = "flood-list-process-table"
+    floodListProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + floodListProcessTable.EntityData.SegmentPath
     floodListProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     floodListProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     floodListProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35832,6 +36578,7 @@ func (floodListProcessTable *Ospfv3_Processes_Process_DefaultVrf_FloodListProces
 type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -35864,6 +36611,7 @@ func (flood *Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood) Ge
     flood.EntityData.BundleName = "cisco_ios_xr"
     flood.EntityData.ParentYangName = "flood-list-process-table"
     flood.EntityData.SegmentPath = "flood" + types.AddKeyToken(flood.InterfaceName, "interface-name")
+    flood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/flood-list-process-table/" + flood.EntityData.SegmentPath
     flood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35871,14 +36619,17 @@ func (flood *Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood) Ge
     flood.EntityData.Children = types.NewOrderedMap()
     flood.EntityData.Children.Append("link-flood", types.YChild{"LinkFlood", nil})
     for i := range flood.LinkFlood {
+        types.SetYListKey(flood.LinkFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.LinkFlood[i]), types.YChild{"LinkFlood", flood.LinkFlood[i]})
     }
     flood.EntityData.Children.Append("area-flood", types.YChild{"AreaFlood", nil})
     for i := range flood.AreaFlood {
+        types.SetYListKey(flood.AreaFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.AreaFlood[i]), types.YChild{"AreaFlood", flood.AreaFlood[i]})
     }
     flood.EntityData.Children.Append("as-flood", types.YChild{"AsFlood", nil})
     for i := range flood.AsFlood {
+        types.SetYListKey(flood.AsFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.AsFlood[i]), types.YChild{"AsFlood", flood.AsFlood[i]})
     }
     flood.EntityData.Leafs = types.NewOrderedMap()
@@ -35896,6 +36647,7 @@ func (flood *Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood) Ge
 type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood_LinkFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -35922,7 +36674,8 @@ func (linkFlood *Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood
     linkFlood.EntityData.YangName = "link-flood"
     linkFlood.EntityData.BundleName = "cisco_ios_xr"
     linkFlood.EntityData.ParentYangName = "flood"
-    linkFlood.EntityData.SegmentPath = "link-flood"
+    linkFlood.EntityData.SegmentPath = "link-flood" + types.AddNoKeyToken(linkFlood)
+    linkFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/flood-list-process-table/flood/" + linkFlood.EntityData.SegmentPath
     linkFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35945,6 +36698,7 @@ func (linkFlood *Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood
 type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood_AreaFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -35971,7 +36725,8 @@ func (areaFlood *Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood
     areaFlood.EntityData.YangName = "area-flood"
     areaFlood.EntityData.BundleName = "cisco_ios_xr"
     areaFlood.EntityData.ParentYangName = "flood"
-    areaFlood.EntityData.SegmentPath = "area-flood"
+    areaFlood.EntityData.SegmentPath = "area-flood" + types.AddNoKeyToken(areaFlood)
+    areaFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/flood-list-process-table/flood/" + areaFlood.EntityData.SegmentPath
     areaFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35994,6 +36749,7 @@ func (areaFlood *Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood
 type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood_AsFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -36020,7 +36776,8 @@ func (asFlood *Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood_A
     asFlood.EntityData.YangName = "as-flood"
     asFlood.EntityData.BundleName = "cisco_ios_xr"
     asFlood.EntityData.ParentYangName = "flood"
-    asFlood.EntityData.SegmentPath = "as-flood"
+    asFlood.EntityData.SegmentPath = "as-flood" + types.AddNoKeyToken(asFlood)
+    asFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/flood-list-process-table/flood/" + asFlood.EntityData.SegmentPath
     asFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36087,6 +36844,7 @@ func (routeSummary *Ospfv3_Processes_Process_DefaultVrf_RouteSummary) GetEntityD
     routeSummary.EntityData.BundleName = "cisco_ios_xr"
     routeSummary.EntityData.ParentYangName = "default-vrf"
     routeSummary.EntityData.SegmentPath = "route-summary"
+    routeSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + routeSummary.EntityData.SegmentPath
     routeSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36127,6 +36885,7 @@ func (areas *Ospfv3_Processes_Process_DefaultVrf_Areas) GetEntityData() *types.C
     areas.EntityData.BundleName = "cisco_ios_xr"
     areas.EntityData.ParentYangName = "default-vrf"
     areas.EntityData.SegmentPath = "areas"
+    areas.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + areas.EntityData.SegmentPath
     areas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36148,6 +36907,7 @@ func (areas *Ospfv3_Processes_Process_DefaultVrf_Areas) GetEntityData() *types.C
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is interface{} with range:
     // 0..4294967295.
@@ -36187,6 +36947,7 @@ func (area *Ospfv3_Processes_Process_DefaultVrf_Areas_Area) GetEntityData() *typ
     area.EntityData.BundleName = "cisco_ios_xr"
     area.EntityData.ParentYangName = "areas"
     area.EntityData.SegmentPath = "area" + types.AddKeyToken(area.AreaId, "area-id")
+    area.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/" + area.EntityData.SegmentPath
     area.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     area.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     area.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36226,6 +36987,7 @@ func (neighborDetailTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Neighb
     neighborDetailTable.EntityData.BundleName = "cisco_ios_xr"
     neighborDetailTable.EntityData.ParentYangName = "area"
     neighborDetailTable.EntityData.SegmentPath = "neighbor-detail-table"
+    neighborDetailTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + neighborDetailTable.EntityData.SegmentPath
     neighborDetailTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetailTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetailTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36233,6 +36995,7 @@ func (neighborDetailTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Neighb
     neighborDetailTable.EntityData.Children = types.NewOrderedMap()
     neighborDetailTable.EntityData.Children.Append("neighbor-detail", types.YChild{"NeighborDetail", nil})
     for i := range neighborDetailTable.NeighborDetail {
+        types.SetYListKey(neighborDetailTable.NeighborDetail[i], i)
         neighborDetailTable.EntityData.Children.Append(types.GetSegmentPath(neighborDetailTable.NeighborDetail[i]), types.YChild{"NeighborDetail", neighborDetailTable.NeighborDetail[i]})
     }
     neighborDetailTable.EntityData.Leafs = types.NewOrderedMap()
@@ -36247,6 +37010,7 @@ func (neighborDetailTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Neighb
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborDetailTable_NeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -36304,7 +37068,8 @@ func (neighborDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborDet
     neighborDetail.EntityData.YangName = "neighbor-detail"
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor-detail-table"
-    neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.SegmentPath = "neighbor-detail" + types.AddNoKeyToken(neighborDetail)
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/neighbor-detail-table/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36388,6 +37153,7 @@ func (neighborDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborDet
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor-detail"
     neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/neighbor-detail-table/neighbor-detail/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36516,6 +37282,7 @@ func (neighborRetransmission *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Nei
     neighborRetransmission.EntityData.BundleName = "cisco_ios_xr"
     neighborRetransmission.EntityData.ParentYangName = "neighbor-detail"
     neighborRetransmission.EntityData.SegmentPath = "neighbor-retransmission"
+    neighborRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/neighbor-detail-table/neighbor-detail/neighbor-detail/" + neighborRetransmission.EntityData.SegmentPath
     neighborRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36571,6 +37338,7 @@ func (neighborBfdInfo *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborDe
     neighborBfdInfo.EntityData.BundleName = "cisco_ios_xr"
     neighborBfdInfo.EntityData.ParentYangName = "neighbor-detail"
     neighborBfdInfo.EntityData.SegmentPath = "neighbor-bfd-info"
+    neighborBfdInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/neighbor-detail-table/neighbor-detail/" + neighborBfdInfo.EntityData.SegmentPath
     neighborBfdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborBfdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborBfdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36603,6 +37371,7 @@ func (interfaceBriefTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Interf
     interfaceBriefTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceBriefTable.EntityData.ParentYangName = "area"
     interfaceBriefTable.EntityData.SegmentPath = "interface-brief-table"
+    interfaceBriefTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + interfaceBriefTable.EntityData.SegmentPath
     interfaceBriefTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBriefTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBriefTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36624,6 +37393,7 @@ func (interfaceBriefTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Interf
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceBriefTable_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -36656,6 +37426,7 @@ func (interfaceBrief *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceBr
     interfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceBrief.EntityData.ParentYangName = "interface-brief-table"
     interfaceBrief.EntityData.SegmentPath = "interface-brief" + types.AddKeyToken(interfaceBrief.InterfaceName, "interface-name")
+    interfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/interface-brief-table/" + interfaceBrief.EntityData.SegmentPath
     interfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36692,6 +37463,7 @@ func (requestListTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestLi
     requestListTable.EntityData.BundleName = "cisco_ios_xr"
     requestListTable.EntityData.ParentYangName = "area"
     requestListTable.EntityData.SegmentPath = "request-list-table"
+    requestListTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + requestListTable.EntityData.SegmentPath
     requestListTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requestListTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requestListTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36699,6 +37471,7 @@ func (requestListTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestLi
     requestListTable.EntityData.Children = types.NewOrderedMap()
     requestListTable.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range requestListTable.Request {
+        types.SetYListKey(requestListTable.Request[i], i)
         requestListTable.EntityData.Children.Append(types.GetSegmentPath(requestListTable.Request[i]), types.YChild{"Request", requestListTable.Request[i]})
     }
     requestListTable.EntityData.Leafs = types.NewOrderedMap()
@@ -36713,6 +37486,7 @@ func (requestListTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestLi
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -36748,7 +37522,8 @@ func (request *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_R
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "request-list-table"
-    request.EntityData.SegmentPath = "request"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/request-list-table/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36756,6 +37531,7 @@ func (request *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_R
     request.EntityData.Children = types.NewOrderedMap()
     request.EntityData.Children.Append("request", types.YChild{"Request", nil})
     for i := range request.Request {
+        types.SetYListKey(request.Request[i], i)
         request.EntityData.Children.Append(types.GetSegmentPath(request.Request[i]), types.YChild{"Request", request.Request[i]})
     }
     request.EntityData.Leafs = types.NewOrderedMap()
@@ -36777,6 +37553,7 @@ func (request *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_R
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_Request_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -36803,7 +37580,8 @@ func (request *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_R
     request.EntityData.YangName = "request"
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "request"
-    request.EntityData.SegmentPath = "request"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/request-list-table/request/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36838,6 +37616,7 @@ func (neighborTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTabl
     neighborTable.EntityData.BundleName = "cisco_ios_xr"
     neighborTable.EntityData.ParentYangName = "area"
     neighborTable.EntityData.SegmentPath = "neighbor-table"
+    neighborTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + neighborTable.EntityData.SegmentPath
     neighborTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36845,6 +37624,7 @@ func (neighborTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTabl
     neighborTable.EntityData.Children = types.NewOrderedMap()
     neighborTable.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighborTable.Neighbor {
+        types.SetYListKey(neighborTable.Neighbor[i], i)
         neighborTable.EntityData.Children.Append(types.GetSegmentPath(neighborTable.Neighbor[i]), types.YChild{"Neighbor", neighborTable.Neighbor[i]})
     }
     neighborTable.EntityData.Leafs = types.NewOrderedMap()
@@ -36859,6 +37639,7 @@ func (neighborTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTabl
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTable_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -36916,7 +37697,8 @@ func (neighbor *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTable_Nei
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbor-table"
-    neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddNoKeyToken(neighbor)
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/neighbor-table/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37000,6 +37782,7 @@ func (neighborDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTab
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor"
     neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/neighbor-table/neighbor/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37128,6 +37911,7 @@ func (neighborRetransmission *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Nei
     neighborRetransmission.EntityData.BundleName = "cisco_ios_xr"
     neighborRetransmission.EntityData.ParentYangName = "neighbor-detail"
     neighborRetransmission.EntityData.SegmentPath = "neighbor-retransmission"
+    neighborRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/neighbor-table/neighbor/neighbor-detail/" + neighborRetransmission.EntityData.SegmentPath
     neighborRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37183,6 +37967,7 @@ func (neighborBfdInfo *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTa
     neighborBfdInfo.EntityData.BundleName = "cisco_ios_xr"
     neighborBfdInfo.EntityData.ParentYangName = "neighbor"
     neighborBfdInfo.EntityData.SegmentPath = "neighbor-bfd-info"
+    neighborBfdInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/neighbor-table/neighbor/" + neighborBfdInfo.EntityData.SegmentPath
     neighborBfdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborBfdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborBfdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37214,6 +37999,7 @@ func (interfaceTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTa
     interfaceTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceTable.EntityData.ParentYangName = "area"
     interfaceTable.EntityData.SegmentPath = "interface-table"
+    interfaceTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + interfaceTable.EntityData.SegmentPath
     interfaceTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37235,6 +38021,7 @@ func (interfaceTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTa
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -37397,6 +38184,7 @@ func (self *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interf
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interface-table"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/interface-table/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37406,6 +38194,7 @@ func (self *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interf
     self.EntityData.Children.Append("interface-bfd", types.YChild{"InterfaceBfd", &self.InterfaceBfd})
     self.EntityData.Children.Append("interface-neighbor", types.YChild{"InterfaceNeighbor", nil})
     for i := range self.InterfaceNeighbor {
+        types.SetYListKey(self.InterfaceNeighbor[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.InterfaceNeighbor[i]), types.YChild{"InterfaceNeighbor", self.InterfaceNeighbor[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -37536,6 +38325,7 @@ func (activeInterface *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceT
     activeInterface.EntityData.BundleName = "cisco_ios_xr"
     activeInterface.EntityData.ParentYangName = "interface"
     activeInterface.EntityData.SegmentPath = "active-interface"
+    activeInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/interface-table/interface/" + activeInterface.EntityData.SegmentPath
     activeInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37590,6 +38380,7 @@ func (interfaceBfd *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTabl
     interfaceBfd.EntityData.BundleName = "cisco_ios_xr"
     interfaceBfd.EntityData.ParentYangName = "interface"
     interfaceBfd.EntityData.SegmentPath = "interface-bfd"
+    interfaceBfd.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/interface-table/interface/" + interfaceBfd.EntityData.SegmentPath
     interfaceBfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37610,6 +38401,7 @@ func (interfaceBfd *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTabl
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interface_InterfaceNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor router ID . The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -37634,7 +38426,8 @@ func (interfaceNeighbor *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Interfac
     interfaceNeighbor.EntityData.YangName = "interface-neighbor"
     interfaceNeighbor.EntityData.BundleName = "cisco_ios_xr"
     interfaceNeighbor.EntityData.ParentYangName = "interface"
-    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor"
+    interfaceNeighbor.EntityData.SegmentPath = "interface-neighbor" + types.AddNoKeyToken(interfaceNeighbor)
+    interfaceNeighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/interface-table/interface/" + interfaceNeighbor.EntityData.SegmentPath
     interfaceNeighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceNeighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37670,6 +38463,7 @@ func (floodListTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTa
     floodListTable.EntityData.BundleName = "cisco_ios_xr"
     floodListTable.EntityData.ParentYangName = "area"
     floodListTable.EntityData.SegmentPath = "flood-list-table"
+    floodListTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + floodListTable.EntityData.SegmentPath
     floodListTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     floodListTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     floodListTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37691,6 +38485,7 @@ func (floodListTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTa
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -37723,6 +38518,7 @@ func (flood *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood
     flood.EntityData.BundleName = "cisco_ios_xr"
     flood.EntityData.ParentYangName = "flood-list-table"
     flood.EntityData.SegmentPath = "flood" + types.AddKeyToken(flood.InterfaceName, "interface-name")
+    flood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/flood-list-table/" + flood.EntityData.SegmentPath
     flood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     flood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     flood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37730,14 +38526,17 @@ func (flood *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood
     flood.EntityData.Children = types.NewOrderedMap()
     flood.EntityData.Children.Append("link-flood", types.YChild{"LinkFlood", nil})
     for i := range flood.LinkFlood {
+        types.SetYListKey(flood.LinkFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.LinkFlood[i]), types.YChild{"LinkFlood", flood.LinkFlood[i]})
     }
     flood.EntityData.Children.Append("area-flood", types.YChild{"AreaFlood", nil})
     for i := range flood.AreaFlood {
+        types.SetYListKey(flood.AreaFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.AreaFlood[i]), types.YChild{"AreaFlood", flood.AreaFlood[i]})
     }
     flood.EntityData.Children.Append("as-flood", types.YChild{"AsFlood", nil})
     for i := range flood.AsFlood {
+        types.SetYListKey(flood.AsFlood[i], i)
         flood.EntityData.Children.Append(types.GetSegmentPath(flood.AsFlood[i]), types.YChild{"AsFlood", flood.AsFlood[i]})
     }
     flood.EntityData.Leafs = types.NewOrderedMap()
@@ -37755,6 +38554,7 @@ func (flood *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood_LinkFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -37781,7 +38581,8 @@ func (linkFlood *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_F
     linkFlood.EntityData.YangName = "link-flood"
     linkFlood.EntityData.BundleName = "cisco_ios_xr"
     linkFlood.EntityData.ParentYangName = "flood"
-    linkFlood.EntityData.SegmentPath = "link-flood"
+    linkFlood.EntityData.SegmentPath = "link-flood" + types.AddNoKeyToken(linkFlood)
+    linkFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/flood-list-table/flood/" + linkFlood.EntityData.SegmentPath
     linkFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37804,6 +38605,7 @@ func (linkFlood *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_F
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood_AreaFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -37830,7 +38632,8 @@ func (areaFlood *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_F
     areaFlood.EntityData.YangName = "area-flood"
     areaFlood.EntityData.BundleName = "cisco_ios_xr"
     areaFlood.EntityData.ParentYangName = "flood"
-    areaFlood.EntityData.SegmentPath = "area-flood"
+    areaFlood.EntityData.SegmentPath = "area-flood" + types.AddNoKeyToken(areaFlood)
+    areaFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/flood-list-table/flood/" + areaFlood.EntityData.SegmentPath
     areaFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37853,6 +38656,7 @@ func (areaFlood *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_F
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood_AsFlood struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -37879,7 +38683,8 @@ func (asFlood *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flo
     asFlood.EntityData.YangName = "as-flood"
     asFlood.EntityData.BundleName = "cisco_ios_xr"
     asFlood.EntityData.ParentYangName = "flood"
-    asFlood.EntityData.SegmentPath = "as-flood"
+    asFlood.EntityData.SegmentPath = "as-flood" + types.AddNoKeyToken(asFlood)
+    asFlood.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/flood-list-table/flood/" + asFlood.EntityData.SegmentPath
     asFlood.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     asFlood.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     asFlood.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37915,6 +38720,7 @@ func (retransmissionListTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Re
     retransmissionListTable.EntityData.BundleName = "cisco_ios_xr"
     retransmissionListTable.EntityData.ParentYangName = "area"
     retransmissionListTable.EntityData.SegmentPath = "retransmission-list-table"
+    retransmissionListTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + retransmissionListTable.EntityData.SegmentPath
     retransmissionListTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionListTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionListTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37922,6 +38728,7 @@ func (retransmissionListTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Re
     retransmissionListTable.EntityData.Children = types.NewOrderedMap()
     retransmissionListTable.EntityData.Children.Append("retransmission", types.YChild{"Retransmission", nil})
     for i := range retransmissionListTable.Retransmission {
+        types.SetYListKey(retransmissionListTable.Retransmission[i], i)
         retransmissionListTable.EntityData.Children.Append(types.GetSegmentPath(retransmissionListTable.Retransmission[i]), types.YChild{"Retransmission", retransmissionListTable.Retransmission[i]})
     }
     retransmissionListTable.EntityData.Leafs = types.NewOrderedMap()
@@ -37936,6 +38743,7 @@ func (retransmissionListTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Re
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retransmission struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -37988,7 +38796,8 @@ func (retransmission *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Retransmiss
     retransmission.EntityData.YangName = "retransmission"
     retransmission.EntityData.BundleName = "cisco_ios_xr"
     retransmission.EntityData.ParentYangName = "retransmission-list-table"
-    retransmission.EntityData.SegmentPath = "retransmission"
+    retransmission.EntityData.SegmentPath = "retransmission" + types.AddNoKeyToken(retransmission)
+    retransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/retransmission-list-table/" + retransmission.EntityData.SegmentPath
     retransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37996,14 +38805,17 @@ func (retransmission *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Retransmiss
     retransmission.EntityData.Children = types.NewOrderedMap()
     retransmission.EntityData.Children.Append("retransmissionvirtual-link-db", types.YChild{"RetransmissionvirtualLinkDb", nil})
     for i := range retransmission.RetransmissionvirtualLinkDb {
+        types.SetYListKey(retransmission.RetransmissionvirtualLinkDb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionvirtualLinkDb[i]), types.YChild{"RetransmissionvirtualLinkDb", retransmission.RetransmissionvirtualLinkDb[i]})
     }
     retransmission.EntityData.Children.Append("retransmission-area-db", types.YChild{"RetransmissionAreaDb", nil})
     for i := range retransmission.RetransmissionAreaDb {
+        types.SetYListKey(retransmission.RetransmissionAreaDb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionAreaDb[i]), types.YChild{"RetransmissionAreaDb", retransmission.RetransmissionAreaDb[i]})
     }
     retransmission.EntityData.Children.Append("retransmission-asdb", types.YChild{"RetransmissionAsdb", nil})
     for i := range retransmission.RetransmissionAsdb {
+        types.SetYListKey(retransmission.RetransmissionAsdb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionAsdb[i]), types.YChild{"RetransmissionAsdb", retransmission.RetransmissionAsdb[i]})
     }
     retransmission.EntityData.Leafs = types.NewOrderedMap()
@@ -38027,6 +38839,7 @@ func (retransmission *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Retransmiss
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retransmission_RetransmissionvirtualLinkDb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -38053,7 +38866,8 @@ func (retransmissionvirtualLinkDb *Ospfv3_Processes_Process_DefaultVrf_Areas_Are
     retransmissionvirtualLinkDb.EntityData.YangName = "retransmissionvirtual-link-db"
     retransmissionvirtualLinkDb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionvirtualLinkDb.EntityData.ParentYangName = "retransmission"
-    retransmissionvirtualLinkDb.EntityData.SegmentPath = "retransmissionvirtual-link-db"
+    retransmissionvirtualLinkDb.EntityData.SegmentPath = "retransmissionvirtual-link-db" + types.AddNoKeyToken(retransmissionvirtualLinkDb)
+    retransmissionvirtualLinkDb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/retransmission-list-table/retransmission/" + retransmissionvirtualLinkDb.EntityData.SegmentPath
     retransmissionvirtualLinkDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionvirtualLinkDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionvirtualLinkDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38076,6 +38890,7 @@ func (retransmissionvirtualLinkDb *Ospfv3_Processes_Process_DefaultVrf_Areas_Are
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retransmission_RetransmissionAreaDb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -38102,7 +38917,8 @@ func (retransmissionAreaDb *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Retra
     retransmissionAreaDb.EntityData.YangName = "retransmission-area-db"
     retransmissionAreaDb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionAreaDb.EntityData.ParentYangName = "retransmission"
-    retransmissionAreaDb.EntityData.SegmentPath = "retransmission-area-db"
+    retransmissionAreaDb.EntityData.SegmentPath = "retransmission-area-db" + types.AddNoKeyToken(retransmissionAreaDb)
+    retransmissionAreaDb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/retransmission-list-table/retransmission/" + retransmissionAreaDb.EntityData.SegmentPath
     retransmissionAreaDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionAreaDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionAreaDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38125,6 +38941,7 @@ func (retransmissionAreaDb *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Retra
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retransmission_RetransmissionAsdb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -38151,7 +38968,8 @@ func (retransmissionAsdb *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Retrans
     retransmissionAsdb.EntityData.YangName = "retransmission-asdb"
     retransmissionAsdb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionAsdb.EntityData.ParentYangName = "retransmission"
-    retransmissionAsdb.EntityData.SegmentPath = "retransmission-asdb"
+    retransmissionAsdb.EntityData.SegmentPath = "retransmission-asdb" + types.AddNoKeyToken(retransmissionAsdb)
+    retransmissionAsdb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/retransmission-list-table/retransmission/" + retransmissionAsdb.EntityData.SegmentPath
     retransmissionAsdb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionAsdb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionAsdb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38188,6 +39006,7 @@ func (databaseTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTabl
     databaseTable.EntityData.BundleName = "cisco_ios_xr"
     databaseTable.EntityData.ParentYangName = "area"
     databaseTable.EntityData.SegmentPath = "database-table"
+    databaseTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + databaseTable.EntityData.SegmentPath
     databaseTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38219,6 +39038,7 @@ func (lsaTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Lsa
     lsaTable.EntityData.BundleName = "cisco_ios_xr"
     lsaTable.EntityData.ParentYangName = "database-table"
     lsaTable.EntityData.SegmentPath = "lsa-table"
+    lsaTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/" + lsaTable.EntityData.SegmentPath
     lsaTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38226,6 +39046,7 @@ func (lsaTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Lsa
     lsaTable.EntityData.Children = types.NewOrderedMap()
     lsaTable.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range lsaTable.Lsa {
+        types.SetYListKey(lsaTable.Lsa[i], i)
         lsaTable.EntityData.Children.Append(types.GetSegmentPath(lsaTable.Lsa[i]), types.YChild{"Lsa", lsaTable.Lsa[i]})
     }
     lsaTable.EntityData.Leafs = types.NewOrderedMap()
@@ -38240,6 +39061,7 @@ func (lsaTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Lsa
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     AreaId interface{}
@@ -38266,7 +39088,8 @@ func (lsa *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "lsa-table"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38343,6 +39166,7 @@ func (lsaInfo *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaT
     lsaInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaInfo.EntityData.ParentYangName = "lsa"
     lsaInfo.EntityData.SegmentPath = "lsa-info"
+    lsaInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/" + lsaInfo.EntityData.SegmentPath
     lsaInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38426,6 +39250,7 @@ func (lsaSummaryInfo *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTab
     lsaSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaSummaryInfo.EntityData.ParentYangName = "lsa-info"
     lsaSummaryInfo.EntityData.SegmentPath = "lsa-summary-info"
+    lsaSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + lsaSummaryInfo.EntityData.SegmentPath
     lsaSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38494,6 +39319,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "lsa-summary-info"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/lsa-summary-info/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38596,6 +39422,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "lsa-summary-info"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/lsa-summary-info/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38656,6 +39483,7 @@ func (routerLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTabl
     routerLsaType.EntityData.BundleName = "cisco_ios_xr"
     routerLsaType.EntityData.ParentYangName = "lsa-info"
     routerLsaType.EntityData.SegmentPath = "router-lsa-type"
+    routerLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + routerLsaType.EntityData.SegmentPath
     routerLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38666,6 +39494,7 @@ func (routerLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTabl
     routerLsaType.EntityData.Children.Append("rpf-path", types.YChild{"RpfPath", &routerLsaType.RpfPath})
     routerLsaType.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range routerLsaType.Link {
+        types.SetYListKey(routerLsaType.Link[i], i)
         routerLsaType.EntityData.Children.Append(types.GetSegmentPath(routerLsaType.Link[i]), types.YChild{"Link", routerLsaType.Link[i]})
     }
     routerLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -38718,6 +39547,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38820,6 +39650,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38870,6 +39701,7 @@ func (rpfPath *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaT
     rpfPath.EntityData.BundleName = "cisco_ios_xr"
     rpfPath.EntityData.ParentYangName = "router-lsa-type"
     rpfPath.EntityData.SegmentPath = "rpf-path"
+    rpfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + rpfPath.EntityData.SegmentPath
     rpfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38889,6 +39721,7 @@ func (rpfPath *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaT
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_LsaInfo_RouterLsaType_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of link. The type is Ospfv3Link.
     LinkType interface{}
@@ -38913,7 +39746,8 @@ func (link *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTabl
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "router-lsa-type"
-    link.EntityData.SegmentPath = "link"
+    link.EntityData.SegmentPath = "link" + types.AddNoKeyToken(link)
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/router-lsa-type/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38954,6 +39788,7 @@ func (networkLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTab
     networkLsaType.EntityData.BundleName = "cisco_ios_xr"
     networkLsaType.EntityData.ParentYangName = "lsa-info"
     networkLsaType.EntityData.SegmentPath = "network-lsa-type"
+    networkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + networkLsaType.EntityData.SegmentPath
     networkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39011,6 +39846,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "network-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/network-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39113,6 +39949,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "network-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/network-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39173,6 +40010,7 @@ func (interAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Dat
     interAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaPrefixLsaType.EntityData.SegmentPath = "inter-area-prefix-lsa-type"
+    interAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + interAreaPrefixLsaType.EntityData.SegmentPath
     interAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39232,6 +40070,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39334,6 +40173,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39387,6 +40227,7 @@ func (interAreaRouterLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Dat
     interAreaRouterLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaRouterLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaRouterLsaType.EntityData.SegmentPath = "inter-area-router-lsa-type"
+    interAreaRouterLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + interAreaRouterLsaType.EntityData.SegmentPath
     interAreaRouterLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaRouterLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaRouterLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39444,6 +40285,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39546,6 +40388,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39623,6 +40466,7 @@ func (externalLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTa
     externalLsaType.EntityData.BundleName = "cisco_ios_xr"
     externalLsaType.EntityData.ParentYangName = "lsa-info"
     externalLsaType.EntityData.SegmentPath = "external-lsa-type"
+    externalLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + externalLsaType.EntityData.SegmentPath
     externalLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39687,6 +40531,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "external-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/external-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39789,6 +40634,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "external-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/external-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39866,6 +40712,7 @@ func (nssalsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_
     nssalsaType.EntityData.BundleName = "cisco_ios_xr"
     nssalsaType.EntityData.ParentYangName = "lsa-info"
     nssalsaType.EntityData.SegmentPath = "nssalsa-type"
+    nssalsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + nssalsaType.EntityData.SegmentPath
     nssalsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nssalsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nssalsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -39930,6 +40777,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "nssalsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/nssalsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40032,6 +40880,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "nssalsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/nssalsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40108,6 +40957,7 @@ func (linkLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_
     linkLsaType.EntityData.BundleName = "cisco_ios_xr"
     linkLsaType.EntityData.ParentYangName = "lsa-info"
     linkLsaType.EntityData.SegmentPath = "link-lsa-type"
+    linkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + linkLsaType.EntityData.SegmentPath
     linkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40117,6 +40967,7 @@ func (linkLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_
     linkLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &linkLsaType.LsaDetail})
     linkLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range linkLsaType.Prefix {
+        types.SetYListKey(linkLsaType.Prefix[i], i)
         linkLsaType.EntityData.Children.Append(types.GetSegmentPath(linkLsaType.Prefix[i]), types.YChild{"Prefix", linkLsaType.Prefix[i]})
     }
     linkLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -40175,6 +41026,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40277,6 +41129,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40313,6 +41166,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -40336,7 +41190,8 @@ func (prefix *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTa
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "link-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/link-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40387,6 +41242,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Dat
     intraAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     intraAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     intraAreaPrefixLsaType.EntityData.SegmentPath = "intra-area-prefix-lsa-type"
+    intraAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + intraAreaPrefixLsaType.EntityData.SegmentPath
     intraAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intraAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intraAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40396,6 +41252,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Dat
     intraAreaPrefixLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &intraAreaPrefixLsaType.LsaDetail})
     intraAreaPrefixLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range intraAreaPrefixLsaType.Prefix {
+        types.SetYListKey(intraAreaPrefixLsaType.Prefix[i], i)
         intraAreaPrefixLsaType.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefixLsaType.Prefix[i]), types.YChild{"Prefix", intraAreaPrefixLsaType.Prefix[i]})
     }
     intraAreaPrefixLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -40450,6 +41307,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40552,6 +41410,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40588,6 +41447,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_LsaInfo_IntraAreaPrefixLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -40611,7 +41471,8 @@ func (prefix *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTa
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40670,6 +41531,7 @@ func (graceLsa *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Lsa
     graceLsa.EntityData.BundleName = "cisco_ios_xr"
     graceLsa.EntityData.ParentYangName = "lsa-info"
     graceLsa.EntityData.SegmentPath = "grace-lsa"
+    graceLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + graceLsa.EntityData.SegmentPath
     graceLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graceLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graceLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40733,6 +41595,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "grace-lsa"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/grace-lsa/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40835,6 +41698,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "grace-lsa"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/grace-lsa/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40900,6 +41764,7 @@ func (unknownLinkLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Databas
     unknownLinkLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLinkLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLinkLsaType.EntityData.SegmentPath = "unknown-link-lsa-type"
+    unknownLinkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + unknownLinkLsaType.EntityData.SegmentPath
     unknownLinkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLinkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLinkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -40961,6 +41826,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41063,6 +41929,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41128,6 +41995,7 @@ func (unknownAreaLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Databas
     unknownAreaLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAreaLsaType.EntityData.ParentYangName = "lsa-info"
     unknownAreaLsaType.EntityData.SegmentPath = "unknown-area-lsa-type"
+    unknownAreaLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + unknownAreaLsaType.EntityData.SegmentPath
     unknownAreaLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAreaLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAreaLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41189,6 +42057,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41291,6 +42160,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41356,6 +42226,7 @@ func (unknownAslsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseT
     unknownAslsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAslsaType.EntityData.ParentYangName = "lsa-info"
     unknownAslsaType.EntityData.SegmentPath = "unknown-aslsa-type"
+    unknownAslsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + unknownAslsaType.EntityData.SegmentPath
     unknownAslsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAslsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAslsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41417,6 +42288,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-aslsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41519,6 +42391,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-aslsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41584,6 +42457,7 @@ func (unknownLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTab
     unknownLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLsaType.EntityData.SegmentPath = "unknown-lsa-type"
+    unknownLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/" + unknownLsaType.EntityData.SegmentPath
     unknownLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41645,6 +42519,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41747,6 +42622,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-table/lsa/lsa-info/unknown-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41795,6 +42671,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseT
     lsaInternalTable.EntityData.BundleName = "cisco_ios_xr"
     lsaInternalTable.EntityData.ParentYangName = "database-table"
     lsaInternalTable.EntityData.SegmentPath = "lsa-internal-table"
+    lsaInternalTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/" + lsaInternalTable.EntityData.SegmentPath
     lsaInternalTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInternalTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInternalTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41802,6 +42679,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseT
     lsaInternalTable.EntityData.Children = types.NewOrderedMap()
     lsaInternalTable.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range lsaInternalTable.Lsa {
+        types.SetYListKey(lsaInternalTable.Lsa[i], i)
         lsaInternalTable.EntityData.Children.Append(types.GetSegmentPath(lsaInternalTable.Lsa[i]), types.YChild{"Lsa", lsaInternalTable.Lsa[i]})
     }
     lsaInternalTable.EntityData.Leafs = types.NewOrderedMap()
@@ -41816,6 +42694,7 @@ func (lsaInternalTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseT
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTable_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     AreaId interface{}
@@ -41842,7 +42721,8 @@ func (lsa *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInter
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "lsa-internal-table"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -41919,6 +42799,7 @@ func (lsaInfo *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaI
     lsaInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaInfo.EntityData.ParentYangName = "lsa"
     lsaInfo.EntityData.SegmentPath = "lsa-info"
+    lsaInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/" + lsaInfo.EntityData.SegmentPath
     lsaInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42002,6 +42883,7 @@ func (lsaSummaryInfo *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTab
     lsaSummaryInfo.EntityData.BundleName = "cisco_ios_xr"
     lsaSummaryInfo.EntityData.ParentYangName = "lsa-info"
     lsaSummaryInfo.EntityData.SegmentPath = "lsa-summary-info"
+    lsaSummaryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + lsaSummaryInfo.EntityData.SegmentPath
     lsaSummaryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaSummaryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaSummaryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42070,6 +42952,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "lsa-summary-info"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/lsa-summary-info/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42172,6 +43055,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "lsa-summary-info"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/lsa-summary-info/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42232,6 +43116,7 @@ func (routerLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTabl
     routerLsaType.EntityData.BundleName = "cisco_ios_xr"
     routerLsaType.EntityData.ParentYangName = "lsa-info"
     routerLsaType.EntityData.SegmentPath = "router-lsa-type"
+    routerLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + routerLsaType.EntityData.SegmentPath
     routerLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42242,6 +43127,7 @@ func (routerLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTabl
     routerLsaType.EntityData.Children.Append("rpf-path", types.YChild{"RpfPath", &routerLsaType.RpfPath})
     routerLsaType.EntityData.Children.Append("link", types.YChild{"Link", nil})
     for i := range routerLsaType.Link {
+        types.SetYListKey(routerLsaType.Link[i], i)
         routerLsaType.EntityData.Children.Append(types.GetSegmentPath(routerLsaType.Link[i]), types.YChild{"Link", routerLsaType.Link[i]})
     }
     routerLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -42294,6 +43180,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42396,6 +43283,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42446,6 +43334,7 @@ func (rpfPath *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaI
     rpfPath.EntityData.BundleName = "cisco_ios_xr"
     rpfPath.EntityData.ParentYangName = "router-lsa-type"
     rpfPath.EntityData.SegmentPath = "rpf-path"
+    rpfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + rpfPath.EntityData.SegmentPath
     rpfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpfPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42465,6 +43354,7 @@ func (rpfPath *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaI
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_RouterLsaType_Link struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Type of link. The type is Ospfv3Link.
     LinkType interface{}
@@ -42489,7 +43379,8 @@ func (link *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInte
     link.EntityData.YangName = "link"
     link.EntityData.BundleName = "cisco_ios_xr"
     link.EntityData.ParentYangName = "router-lsa-type"
-    link.EntityData.SegmentPath = "link"
+    link.EntityData.SegmentPath = "link" + types.AddNoKeyToken(link)
+    link.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/router-lsa-type/" + link.EntityData.SegmentPath
     link.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     link.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     link.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42530,6 +43421,7 @@ func (networkLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTab
     networkLsaType.EntityData.BundleName = "cisco_ios_xr"
     networkLsaType.EntityData.ParentYangName = "lsa-info"
     networkLsaType.EntityData.SegmentPath = "network-lsa-type"
+    networkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + networkLsaType.EntityData.SegmentPath
     networkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42587,6 +43479,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "network-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/network-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42689,6 +43582,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "network-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/network-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42749,6 +43643,7 @@ func (interAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Dat
     interAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaPrefixLsaType.EntityData.SegmentPath = "inter-area-prefix-lsa-type"
+    interAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + interAreaPrefixLsaType.EntityData.SegmentPath
     interAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42808,6 +43703,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42910,6 +43806,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/inter-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -42963,6 +43860,7 @@ func (interAreaRouterLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Dat
     interAreaRouterLsaType.EntityData.BundleName = "cisco_ios_xr"
     interAreaRouterLsaType.EntityData.ParentYangName = "lsa-info"
     interAreaRouterLsaType.EntityData.SegmentPath = "inter-area-router-lsa-type"
+    interAreaRouterLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + interAreaRouterLsaType.EntityData.SegmentPath
     interAreaRouterLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interAreaRouterLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interAreaRouterLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43020,6 +43918,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43122,6 +44021,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "inter-area-router-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/inter-area-router-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43199,6 +44099,7 @@ func (externalLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTa
     externalLsaType.EntityData.BundleName = "cisco_ios_xr"
     externalLsaType.EntityData.ParentYangName = "lsa-info"
     externalLsaType.EntityData.SegmentPath = "external-lsa-type"
+    externalLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + externalLsaType.EntityData.SegmentPath
     externalLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     externalLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     externalLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43263,6 +44164,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "external-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/external-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43365,6 +44267,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "external-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/external-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43442,6 +44345,7 @@ func (nssalsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_
     nssalsaType.EntityData.BundleName = "cisco_ios_xr"
     nssalsaType.EntityData.ParentYangName = "lsa-info"
     nssalsaType.EntityData.SegmentPath = "nssalsa-type"
+    nssalsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + nssalsaType.EntityData.SegmentPath
     nssalsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nssalsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nssalsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43506,6 +44410,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "nssalsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/nssalsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43608,6 +44513,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "nssalsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/nssalsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43684,6 +44590,7 @@ func (linkLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_
     linkLsaType.EntityData.BundleName = "cisco_ios_xr"
     linkLsaType.EntityData.ParentYangName = "lsa-info"
     linkLsaType.EntityData.SegmentPath = "link-lsa-type"
+    linkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + linkLsaType.EntityData.SegmentPath
     linkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     linkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     linkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43693,6 +44600,7 @@ func (linkLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_
     linkLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &linkLsaType.LsaDetail})
     linkLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range linkLsaType.Prefix {
+        types.SetYListKey(linkLsaType.Prefix[i], i)
         linkLsaType.EntityData.Children.Append(types.GetSegmentPath(linkLsaType.Prefix[i]), types.YChild{"Prefix", linkLsaType.Prefix[i]})
     }
     linkLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -43751,6 +44659,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43853,6 +44762,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43889,6 +44799,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_LinkLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -43912,7 +44823,8 @@ func (prefix *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaIn
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "link-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/link-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43963,6 +44875,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Dat
     intraAreaPrefixLsaType.EntityData.BundleName = "cisco_ios_xr"
     intraAreaPrefixLsaType.EntityData.ParentYangName = "lsa-info"
     intraAreaPrefixLsaType.EntityData.SegmentPath = "intra-area-prefix-lsa-type"
+    intraAreaPrefixLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + intraAreaPrefixLsaType.EntityData.SegmentPath
     intraAreaPrefixLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intraAreaPrefixLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intraAreaPrefixLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -43972,6 +44885,7 @@ func (intraAreaPrefixLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Dat
     intraAreaPrefixLsaType.EntityData.Children.Append("lsa-detail", types.YChild{"LsaDetail", &intraAreaPrefixLsaType.LsaDetail})
     intraAreaPrefixLsaType.EntityData.Children.Append("prefix", types.YChild{"Prefix", nil})
     for i := range intraAreaPrefixLsaType.Prefix {
+        types.SetYListKey(intraAreaPrefixLsaType.Prefix[i], i)
         intraAreaPrefixLsaType.EntityData.Children.Append(types.GetSegmentPath(intraAreaPrefixLsaType.Prefix[i]), types.YChild{"Prefix", intraAreaPrefixLsaType.Prefix[i]})
     }
     intraAreaPrefixLsaType.EntityData.Leafs = types.NewOrderedMap()
@@ -44026,6 +44940,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44128,6 +45043,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44164,6 +45080,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTable_Lsa_LsaInfo_IntraAreaPrefixLsaType_Prefix struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -44187,7 +45104,8 @@ func (prefix *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaIn
     prefix.EntityData.YangName = "prefix"
     prefix.EntityData.BundleName = "cisco_ios_xr"
     prefix.EntityData.ParentYangName = "intra-area-prefix-lsa-type"
-    prefix.EntityData.SegmentPath = "prefix"
+    prefix.EntityData.SegmentPath = "prefix" + types.AddNoKeyToken(prefix)
+    prefix.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/intra-area-prefix-lsa-type/" + prefix.EntityData.SegmentPath
     prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44246,6 +45164,7 @@ func (graceLsa *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Lsa
     graceLsa.EntityData.BundleName = "cisco_ios_xr"
     graceLsa.EntityData.ParentYangName = "lsa-info"
     graceLsa.EntityData.SegmentPath = "grace-lsa"
+    graceLsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + graceLsa.EntityData.SegmentPath
     graceLsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     graceLsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     graceLsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44309,6 +45228,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "grace-lsa"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/grace-lsa/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44411,6 +45331,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "grace-lsa"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/grace-lsa/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44476,6 +45397,7 @@ func (unknownLinkLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Databas
     unknownLinkLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLinkLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLinkLsaType.EntityData.SegmentPath = "unknown-link-lsa-type"
+    unknownLinkLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + unknownLinkLsaType.EntityData.SegmentPath
     unknownLinkLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLinkLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLinkLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44537,6 +45459,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44639,6 +45562,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-link-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-link-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44704,6 +45628,7 @@ func (unknownAreaLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Databas
     unknownAreaLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAreaLsaType.EntityData.ParentYangName = "lsa-info"
     unknownAreaLsaType.EntityData.SegmentPath = "unknown-area-lsa-type"
+    unknownAreaLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + unknownAreaLsaType.EntityData.SegmentPath
     unknownAreaLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAreaLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAreaLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44765,6 +45690,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44867,6 +45793,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-area-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-area-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44932,6 +45859,7 @@ func (unknownAslsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseT
     unknownAslsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownAslsaType.EntityData.ParentYangName = "lsa-info"
     unknownAslsaType.EntityData.SegmentPath = "unknown-aslsa-type"
+    unknownAslsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + unknownAslsaType.EntityData.SegmentPath
     unknownAslsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownAslsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownAslsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -44993,6 +45921,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-aslsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45095,6 +46024,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-aslsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-aslsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45160,6 +46090,7 @@ func (unknownLsaType *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTab
     unknownLsaType.EntityData.BundleName = "cisco_ios_xr"
     unknownLsaType.EntityData.ParentYangName = "lsa-info"
     unknownLsaType.EntityData.SegmentPath = "unknown-lsa-type"
+    unknownLsaType.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/" + unknownLsaType.EntityData.SegmentPath
     unknownLsaType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unknownLsaType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unknownLsaType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45221,6 +46152,7 @@ func (lsaHeader *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaHeader.EntityData.BundleName = "cisco_ios_xr"
     lsaHeader.EntityData.ParentYangName = "unknown-lsa-type"
     lsaHeader.EntityData.SegmentPath = "lsa-header"
+    lsaHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-lsa-type/" + lsaHeader.EntityData.SegmentPath
     lsaHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45323,6 +46255,7 @@ func (lsaDetail *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_Ls
     lsaDetail.EntityData.BundleName = "cisco_ios_xr"
     lsaDetail.EntityData.ParentYangName = "unknown-lsa-type"
     lsaDetail.EntityData.SegmentPath = "lsa-detail"
+    lsaDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-table/lsa-internal-table/lsa/lsa-info/unknown-lsa-type/" + lsaDetail.EntityData.SegmentPath
     lsaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45370,6 +46303,7 @@ func (databaseSummaryTable *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Datab
     databaseSummaryTable.EntityData.BundleName = "cisco_ios_xr"
     databaseSummaryTable.EntityData.ParentYangName = "area"
     databaseSummaryTable.EntityData.SegmentPath = "database-summary-table"
+    databaseSummaryTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/" + databaseSummaryTable.EntityData.SegmentPath
     databaseSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseSummaryTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45410,6 +46344,7 @@ func (databaseSummary *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseSu
     databaseSummary.EntityData.BundleName = "cisco_ios_xr"
     databaseSummary.EntityData.ParentYangName = "database-summary-table"
     databaseSummary.EntityData.SegmentPath = "database-summary"
+    databaseSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-summary-table/" + databaseSummary.EntityData.SegmentPath
     databaseSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45418,6 +46353,7 @@ func (databaseSummary *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseSu
     databaseSummary.EntityData.Children.Append("database-counters", types.YChild{"DatabaseCounters", &databaseSummary.DatabaseCounters})
     databaseSummary.EntityData.Children.Append("area-database", types.YChild{"AreaDatabase", nil})
     for i := range databaseSummary.AreaDatabase {
+        types.SetYListKey(databaseSummary.AreaDatabase[i], i)
         databaseSummary.EntityData.Children.Append(types.GetSegmentPath(databaseSummary.AreaDatabase[i]), types.YChild{"AreaDatabase", databaseSummary.AreaDatabase[i]})
     }
     databaseSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -45454,6 +46390,7 @@ func (databaseCounters *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseS
     databaseCounters.EntityData.BundleName = "cisco_ios_xr"
     databaseCounters.EntityData.ParentYangName = "database-summary"
     databaseCounters.EntityData.SegmentPath = "database-counters"
+    databaseCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-summary-table/database-summary/" + databaseCounters.EntityData.SegmentPath
     databaseCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45475,6 +46412,7 @@ func (databaseCounters *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseS
 type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseSummaryTable_DatabaseSummary_AreaDatabase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID in decimal or dotted-decimal format. The type is string with
     // length: 0..16.
@@ -45489,7 +46427,8 @@ func (areaDatabase *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseSumma
     areaDatabase.EntityData.YangName = "area-database"
     areaDatabase.EntityData.BundleName = "cisco_ios_xr"
     areaDatabase.EntityData.ParentYangName = "database-summary"
-    areaDatabase.EntityData.SegmentPath = "area-database"
+    areaDatabase.EntityData.SegmentPath = "area-database" + types.AddNoKeyToken(areaDatabase)
+    areaDatabase.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-summary-table/database-summary/" + areaDatabase.EntityData.SegmentPath
     areaDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45529,6 +46468,7 @@ func (areaDatabaseSummary *Ospfv3_Processes_Process_DefaultVrf_Areas_Area_Databa
     areaDatabaseSummary.EntityData.BundleName = "cisco_ios_xr"
     areaDatabaseSummary.EntityData.ParentYangName = "area-database"
     areaDatabaseSummary.EntityData.SegmentPath = "area-database-summary"
+    areaDatabaseSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/areas/area/database-summary-table/database-summary/area-database/" + areaDatabaseSummary.EntityData.SegmentPath
     areaDatabaseSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaDatabaseSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaDatabaseSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45562,6 +46502,7 @@ func (internalRoutes *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes) GetEnt
     internalRoutes.EntityData.BundleName = "cisco_ios_xr"
     internalRoutes.EntityData.ParentYangName = "default-vrf"
     internalRoutes.EntityData.SegmentPath = "internal-routes"
+    internalRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + internalRoutes.EntityData.SegmentPath
     internalRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45569,6 +46510,7 @@ func (internalRoutes *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes) GetEnt
     internalRoutes.EntityData.Children = types.NewOrderedMap()
     internalRoutes.EntityData.Children.Append("internal-route", types.YChild{"InternalRoute", nil})
     for i := range internalRoutes.InternalRoute {
+        types.SetYListKey(internalRoutes.InternalRoute[i], i)
         internalRoutes.EntityData.Children.Append(types.GetSegmentPath(internalRoutes.InternalRoute[i]), types.YChild{"InternalRoute", internalRoutes.InternalRoute[i]})
     }
     internalRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -45583,6 +46525,7 @@ func (internalRoutes *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes) GetEnt
 type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -45611,7 +46554,8 @@ func (internalRoute *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_Internal
     internalRoute.EntityData.YangName = "internal-route"
     internalRoute.EntityData.BundleName = "cisco_ios_xr"
     internalRoute.EntityData.ParentYangName = "internal-routes"
-    internalRoute.EntityData.SegmentPath = "internal-route"
+    internalRoute.EntityData.SegmentPath = "internal-route" + types.AddNoKeyToken(internalRoute)
+    internalRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/internal-routes/" + internalRoute.EntityData.SegmentPath
     internalRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45620,10 +46564,12 @@ func (internalRoute *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_Internal
     internalRoute.EntityData.Children.Append("route-topology", types.YChild{"RouteTopology", &internalRoute.RouteTopology})
     internalRoute.EntityData.Children.Append("route-source", types.YChild{"RouteSource", nil})
     for i := range internalRoute.RouteSource {
+        types.SetYListKey(internalRoute.RouteSource[i], i)
         internalRoute.EntityData.Children.Append(types.GetSegmentPath(internalRoute.RouteSource[i]), types.YChild{"RouteSource", internalRoute.RouteSource[i]})
     }
     internalRoute.EntityData.Children.Append("route-path", types.YChild{"RoutePath", nil})
     for i := range internalRoute.RoutePath {
+        types.SetYListKey(internalRoute.RoutePath[i], i)
         internalRoute.EntityData.Children.Append(types.GetSegmentPath(internalRoute.RoutePath[i]), types.YChild{"RoutePath", internalRoute.RoutePath[i]})
     }
     internalRoute.EntityData.Leafs = types.NewOrderedMap()
@@ -45662,6 +46608,7 @@ func (routeTopology *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_Internal
     routeTopology.EntityData.BundleName = "cisco_ios_xr"
     routeTopology.EntityData.ParentYangName = "internal-route"
     routeTopology.EntityData.SegmentPath = "route-topology"
+    routeTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/internal-routes/internal-route/" + routeTopology.EntityData.SegmentPath
     routeTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45683,6 +46630,7 @@ func (routeTopology *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_Internal
 type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RouteSource struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route source of the advertising router . The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -45702,7 +46650,8 @@ func (routeSource *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRo
     routeSource.EntityData.YangName = "route-source"
     routeSource.EntityData.BundleName = "cisco_ios_xr"
     routeSource.EntityData.ParentYangName = "internal-route"
-    routeSource.EntityData.SegmentPath = "route-source"
+    routeSource.EntityData.SegmentPath = "route-source" + types.AddNoKeyToken(routeSource)
+    routeSource.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/internal-routes/internal-route/" + routeSource.EntityData.SegmentPath
     routeSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45723,6 +46672,7 @@ func (routeSource *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRo
 type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RoutePath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route path interface name . The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -45752,7 +46702,8 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRout
     routePath.EntityData.YangName = "route-path"
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "internal-route"
-    routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.SegmentPath = "route-path" + types.AddNoKeyToken(routePath)
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/internal-routes/internal-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45761,6 +46712,7 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRout
     routePath.EntityData.Children.Append("route-backup-path", types.YChild{"RouteBackupPath", &routePath.RouteBackupPath})
     routePath.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
     for i := range routePath.NeighborNextHop {
+        types.SetYListKey(routePath.NeighborNextHop[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.NeighborNextHop[i]), types.YChild{"NeighborNextHop", routePath.NeighborNextHop[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -45816,6 +46768,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_Intern
     routeBackupPath.EntityData.BundleName = "cisco_ios_xr"
     routeBackupPath.EntityData.ParentYangName = "route-path"
     routeBackupPath.EntityData.SegmentPath = "route-backup-path"
+    routeBackupPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/internal-routes/internal-route/route-path/" + routeBackupPath.EntityData.SegmentPath
     routeBackupPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeBackupPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeBackupPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45842,6 +46795,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_Intern
 type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RoutePath_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor NextHop Interface Index. The type is interface{} with range:
     // 0..4294967295.
@@ -45853,7 +46807,8 @@ func (neighborNextHop *Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_Intern
     neighborNextHop.EntityData.YangName = "neighbor-next-hop"
     neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
     neighborNextHop.EntityData.ParentYangName = "route-path"
-    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop" + types.AddNoKeyToken(neighborNextHop)
+    neighborNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/internal-routes/internal-route/route-path/" + neighborNextHop.EntityData.SegmentPath
     neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45884,6 +46839,7 @@ func (protocolAreas *Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas) GetEntit
     protocolAreas.EntityData.BundleName = "cisco_ios_xr"
     protocolAreas.EntityData.ParentYangName = "default-vrf"
     protocolAreas.EntityData.SegmentPath = "protocol-areas"
+    protocolAreas.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + protocolAreas.EntityData.SegmentPath
     protocolAreas.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolAreas.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolAreas.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45905,6 +46861,7 @@ func (protocolAreas *Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas) GetEntit
 type Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_ProtocolArea struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Area ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -45928,6 +46885,7 @@ func (protocolArea *Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_ProtocolAr
     protocolArea.EntityData.BundleName = "cisco_ios_xr"
     protocolArea.EntityData.ParentYangName = "protocol-areas"
     protocolArea.EntityData.SegmentPath = "protocol-area" + types.AddKeyToken(protocolArea.AreaId, "area-id")
+    protocolArea.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/protocol-areas/" + protocolArea.EntityData.SegmentPath
     protocolArea.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolArea.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolArea.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45935,6 +46893,7 @@ func (protocolArea *Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_ProtocolAr
     protocolArea.EntityData.Children = types.NewOrderedMap()
     protocolArea.EntityData.Children.Append("protocol-interface", types.YChild{"ProtocolInterface", nil})
     for i := range protocolArea.ProtocolInterface {
+        types.SetYListKey(protocolArea.ProtocolInterface[i], i)
         protocolArea.EntityData.Children.Append(types.GetSegmentPath(protocolArea.ProtocolInterface[i]), types.YChild{"ProtocolInterface", protocolArea.ProtocolInterface[i]})
     }
     protocolArea.EntityData.Leafs = types.NewOrderedMap()
@@ -45952,6 +46911,7 @@ func (protocolArea *Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_ProtocolAr
 type Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_ProtocolArea_ProtocolInterface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Protocol interface name . The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -45966,7 +46926,8 @@ func (protocolInterface *Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_Proto
     protocolInterface.EntityData.YangName = "protocol-interface"
     protocolInterface.EntityData.BundleName = "cisco_ios_xr"
     protocolInterface.EntityData.ParentYangName = "protocol-area"
-    protocolInterface.EntityData.SegmentPath = "protocol-interface"
+    protocolInterface.EntityData.SegmentPath = "protocol-interface" + types.AddNoKeyToken(protocolInterface)
+    protocolInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/protocol-areas/protocol-area/" + protocolInterface.EntityData.SegmentPath
     protocolInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -45998,6 +46959,7 @@ func (connectedRoutes *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes) GetE
     connectedRoutes.EntityData.BundleName = "cisco_ios_xr"
     connectedRoutes.EntityData.ParentYangName = "default-vrf"
     connectedRoutes.EntityData.SegmentPath = "connected-routes"
+    connectedRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + connectedRoutes.EntityData.SegmentPath
     connectedRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectedRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46005,6 +46967,7 @@ func (connectedRoutes *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes) GetE
     connectedRoutes.EntityData.Children = types.NewOrderedMap()
     connectedRoutes.EntityData.Children.Append("connected-route", types.YChild{"ConnectedRoute", nil})
     for i := range connectedRoutes.ConnectedRoute {
+        types.SetYListKey(connectedRoutes.ConnectedRoute[i], i)
         connectedRoutes.EntityData.Children.Append(types.GetSegmentPath(connectedRoutes.ConnectedRoute[i]), types.YChild{"ConnectedRoute", connectedRoutes.ConnectedRoute[i]})
     }
     connectedRoutes.EntityData.Leafs = types.NewOrderedMap()
@@ -46019,6 +46982,7 @@ func (connectedRoutes *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes) GetE
 type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route prefix. The type is string with pattern:
     // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
@@ -46040,7 +47004,8 @@ func (connectedRoute *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_Connec
     connectedRoute.EntityData.YangName = "connected-route"
     connectedRoute.EntityData.BundleName = "cisco_ios_xr"
     connectedRoute.EntityData.ParentYangName = "connected-routes"
-    connectedRoute.EntityData.SegmentPath = "connected-route"
+    connectedRoute.EntityData.SegmentPath = "connected-route" + types.AddNoKeyToken(connectedRoute)
+    connectedRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/connected-routes/" + connectedRoute.EntityData.SegmentPath
     connectedRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     connectedRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     connectedRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46049,6 +47014,7 @@ func (connectedRoute *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_Connec
     connectedRoute.EntityData.Children.Append("route-topology", types.YChild{"RouteTopology", &connectedRoute.RouteTopology})
     connectedRoute.EntityData.Children.Append("route-path", types.YChild{"RoutePath", nil})
     for i := range connectedRoute.RoutePath {
+        types.SetYListKey(connectedRoute.RoutePath[i], i)
         connectedRoute.EntityData.Children.Append(types.GetSegmentPath(connectedRoute.RoutePath[i]), types.YChild{"RoutePath", connectedRoute.RoutePath[i]})
     }
     connectedRoute.EntityData.Leafs = types.NewOrderedMap()
@@ -46086,6 +47052,7 @@ func (routeTopology *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_Connect
     routeTopology.EntityData.BundleName = "cisco_ios_xr"
     routeTopology.EntityData.ParentYangName = "connected-route"
     routeTopology.EntityData.SegmentPath = "route-topology"
+    routeTopology.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/connected-routes/connected-route/" + routeTopology.EntityData.SegmentPath
     routeTopology.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeTopology.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46107,6 +47074,7 @@ func (routeTopology *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_Connect
 type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute_RoutePath struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Route path interface name . The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -46136,7 +47104,8 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRo
     routePath.EntityData.YangName = "route-path"
     routePath.EntityData.BundleName = "cisco_ios_xr"
     routePath.EntityData.ParentYangName = "connected-route"
-    routePath.EntityData.SegmentPath = "route-path"
+    routePath.EntityData.SegmentPath = "route-path" + types.AddNoKeyToken(routePath)
+    routePath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/connected-routes/connected-route/" + routePath.EntityData.SegmentPath
     routePath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routePath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routePath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46145,6 +47114,7 @@ func (routePath *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRo
     routePath.EntityData.Children.Append("route-backup-path", types.YChild{"RouteBackupPath", &routePath.RouteBackupPath})
     routePath.EntityData.Children.Append("neighbor-next-hop", types.YChild{"NeighborNextHop", nil})
     for i := range routePath.NeighborNextHop {
+        types.SetYListKey(routePath.NeighborNextHop[i], i)
         routePath.EntityData.Children.Append(types.GetSegmentPath(routePath.NeighborNextHop[i]), types.YChild{"NeighborNextHop", routePath.NeighborNextHop[i]})
     }
     routePath.EntityData.Leafs = types.NewOrderedMap()
@@ -46200,6 +47170,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_Conne
     routeBackupPath.EntityData.BundleName = "cisco_ios_xr"
     routeBackupPath.EntityData.ParentYangName = "route-path"
     routeBackupPath.EntityData.SegmentPath = "route-backup-path"
+    routeBackupPath.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/connected-routes/connected-route/route-path/" + routeBackupPath.EntityData.SegmentPath
     routeBackupPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routeBackupPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routeBackupPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46226,6 +47197,7 @@ func (routeBackupPath *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_Conne
 type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute_RoutePath_NeighborNextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Neighbor NextHop Interface Index. The type is interface{} with range:
     // 0..4294967295.
@@ -46237,7 +47209,8 @@ func (neighborNextHop *Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_Conne
     neighborNextHop.EntityData.YangName = "neighbor-next-hop"
     neighborNextHop.EntityData.BundleName = "cisco_ios_xr"
     neighborNextHop.EntityData.ParentYangName = "route-path"
-    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop"
+    neighborNextHop.EntityData.SegmentPath = "neighbor-next-hop" + types.AddNoKeyToken(neighborNextHop)
+    neighborNextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/connected-routes/connected-route/route-path/" + neighborNextHop.EntityData.SegmentPath
     neighborNextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborNextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborNextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46279,6 +47252,7 @@ func (vrfStatistics *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics) GetEntit
     vrfStatistics.EntityData.BundleName = "cisco_ios_xr"
     vrfStatistics.EntityData.ParentYangName = "default-vrf"
     vrfStatistics.EntityData.SegmentPath = "vrf-statistics"
+    vrfStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + vrfStatistics.EntityData.SegmentPath
     vrfStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46313,6 +47287,7 @@ func (protocolStats *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_ProtocolS
     protocolStats.EntityData.BundleName = "cisco_ios_xr"
     protocolStats.EntityData.ParentYangName = "vrf-statistics"
     protocolStats.EntityData.SegmentPath = "protocol-stats"
+    protocolStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/" + protocolStats.EntityData.SegmentPath
     protocolStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46334,6 +47309,7 @@ func (protocolStats *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_ProtocolS
 type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_ProtocolStats_ProtocolStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -46437,6 +47413,7 @@ func (protocolStat *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_ProtocolSt
     protocolStat.EntityData.BundleName = "cisco_ios_xr"
     protocolStat.EntityData.ParentYangName = "protocol-stats"
     protocolStat.EntityData.SegmentPath = "protocol-stat" + types.AddKeyToken(protocolStat.InterfaceName, "interface-name")
+    protocolStat.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/protocol-stats/" + protocolStat.EntityData.SegmentPath
     protocolStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocolStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocolStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46493,6 +47470,7 @@ func (spfStats *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats) GetE
     spfStats.EntityData.BundleName = "cisco_ios_xr"
     spfStats.EntityData.ParentYangName = "vrf-statistics"
     spfStats.EntityData.SegmentPath = "spf-stats"
+    spfStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/" + spfStats.EntityData.SegmentPath
     spfStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46501,6 +47479,7 @@ func (spfStats *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats) GetE
     spfStats.EntityData.Children.Append("spf-header", types.YChild{"SpfHeader", &spfStats.SpfHeader})
     spfStats.EntityData.Children.Append("spf-runtime", types.YChild{"SpfRuntime", nil})
     for i := range spfStats.SpfRuntime {
+        types.SetYListKey(spfStats.SpfRuntime[i], i)
         spfStats.EntityData.Children.Append(types.GetSegmentPath(spfStats.SpfRuntime[i]), types.YChild{"SpfRuntime", spfStats.SpfRuntime[i]})
     }
     spfStats.EntityData.Leafs = types.NewOrderedMap()
@@ -46535,6 +47514,7 @@ func (spfHeader *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfH
     spfHeader.EntityData.BundleName = "cisco_ios_xr"
     spfHeader.EntityData.ParentYangName = "spf-stats"
     spfHeader.EntityData.SegmentPath = "spf-header"
+    spfHeader.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/spf-stats/" + spfHeader.EntityData.SegmentPath
     spfHeader.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfHeader.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfHeader.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46542,6 +47522,7 @@ func (spfHeader *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfH
     spfHeader.EntityData.Children = types.NewOrderedMap()
     spfHeader.EntityData.Children.Append("area-summary", types.YChild{"AreaSummary", nil})
     for i := range spfHeader.AreaSummary {
+        types.SetYListKey(spfHeader.AreaSummary[i], i)
         spfHeader.EntityData.Children.Append(types.GetSegmentPath(spfHeader.AreaSummary[i]), types.YChild{"AreaSummary", spfHeader.AreaSummary[i]})
     }
     spfHeader.EntityData.Leafs = types.NewOrderedMap()
@@ -46558,6 +47539,7 @@ func (spfHeader *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfH
 type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfHeader_AreaSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID of the area SPF statistics. The type is interface{} with range:
     // 0..4294967295.
@@ -46573,7 +47555,8 @@ func (areaSummary *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_Sp
     areaSummary.EntityData.YangName = "area-summary"
     areaSummary.EntityData.BundleName = "cisco_ios_xr"
     areaSummary.EntityData.ParentYangName = "spf-header"
-    areaSummary.EntityData.SegmentPath = "area-summary"
+    areaSummary.EntityData.SegmentPath = "area-summary" + types.AddNoKeyToken(areaSummary)
+    areaSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/spf-stats/spf-header/" + areaSummary.EntityData.SegmentPath
     areaSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46593,6 +47576,7 @@ func (areaSummary *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_Sp
 type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfRuntime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SPF calculation start time. The type is interface{} with range:
     // 0..4294967295.
@@ -46635,7 +47619,8 @@ func (spfRuntime *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_Spf
     spfRuntime.EntityData.YangName = "spf-runtime"
     spfRuntime.EntityData.BundleName = "cisco_ios_xr"
     spfRuntime.EntityData.ParentYangName = "spf-stats"
-    spfRuntime.EntityData.SegmentPath = "spf-runtime"
+    spfRuntime.EntityData.SegmentPath = "spf-runtime" + types.AddNoKeyToken(spfRuntime)
+    spfRuntime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/spf-stats/" + spfRuntime.EntityData.SegmentPath
     spfRuntime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfRuntime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfRuntime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46644,10 +47629,12 @@ func (spfRuntime *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_Spf
     spfRuntime.EntityData.Children.Append("global-time", types.YChild{"GlobalTime", &spfRuntime.GlobalTime})
     spfRuntime.EntityData.Children.Append("lsa", types.YChild{"Lsa", nil})
     for i := range spfRuntime.Lsa {
+        types.SetYListKey(spfRuntime.Lsa[i], i)
         spfRuntime.EntityData.Children.Append(types.GetSegmentPath(spfRuntime.Lsa[i]), types.YChild{"Lsa", spfRuntime.Lsa[i]})
     }
     spfRuntime.EntityData.Children.Append("area-stat", types.YChild{"AreaStat", nil})
     for i := range spfRuntime.AreaStat {
+        types.SetYListKey(spfRuntime.AreaStat[i], i)
         spfRuntime.EntityData.Children.Append(types.GetSegmentPath(spfRuntime.AreaStat[i]), types.YChild{"AreaStat", spfRuntime.AreaStat[i]})
     }
     spfRuntime.EntityData.Leafs = types.NewOrderedMap()
@@ -46710,6 +47697,7 @@ func (globalTime *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_Spf
     globalTime.EntityData.BundleName = "cisco_ios_xr"
     globalTime.EntityData.ParentYangName = "spf-runtime"
     globalTime.EntityData.SegmentPath = "global-time"
+    globalTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/spf-stats/spf-runtime/" + globalTime.EntityData.SegmentPath
     globalTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     globalTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     globalTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46736,6 +47724,7 @@ func (globalTime *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_Spf
 type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfRuntime_Lsa struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID. The type is interface{} with range: 0..4294967295.
     LsaAreaId interface{}
@@ -46760,7 +47749,8 @@ func (lsa *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfRuntime
     lsa.EntityData.YangName = "lsa"
     lsa.EntityData.BundleName = "cisco_ios_xr"
     lsa.EntityData.ParentYangName = "spf-runtime"
-    lsa.EntityData.SegmentPath = "lsa"
+    lsa.EntityData.SegmentPath = "lsa" + types.AddNoKeyToken(lsa)
+    lsa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/spf-stats/spf-runtime/" + lsa.EntityData.SegmentPath
     lsa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lsa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lsa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46783,6 +47773,7 @@ func (lsa *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfRuntime
 type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfRuntime_AreaStat struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID for area of these SPF statistics. The type is interface{} with
     // range: 0..4294967295.
@@ -46801,7 +47792,8 @@ func (areaStat *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfRu
     areaStat.EntityData.YangName = "area-stat"
     areaStat.EntityData.BundleName = "cisco_ios_xr"
     areaStat.EntityData.ParentYangName = "spf-runtime"
-    areaStat.EntityData.SegmentPath = "area-stat"
+    areaStat.EntityData.SegmentPath = "area-stat" + types.AddNoKeyToken(areaStat)
+    areaStat.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/spf-stats/spf-runtime/" + areaStat.EntityData.SegmentPath
     areaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46865,6 +47857,7 @@ func (spfStatTime *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_Sp
     spfStatTime.EntityData.BundleName = "cisco_ios_xr"
     spfStatTime.EntityData.ParentYangName = "area-stat"
     spfStatTime.EntityData.SegmentPath = "spf-stat-time"
+    spfStatTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/spf-stats/spf-runtime/area-stat/" + spfStatTime.EntityData.SegmentPath
     spfStatTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     spfStatTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     spfStatTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -46976,6 +47969,7 @@ func (rawioStats *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_RawioStats) 
     rawioStats.EntityData.BundleName = "cisco_ios_xr"
     rawioStats.EntityData.ParentYangName = "vrf-statistics"
     rawioStats.EntityData.SegmentPath = "rawio-stats"
+    rawioStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/" + rawioStats.EntityData.SegmentPath
     rawioStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rawioStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rawioStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47037,6 +48031,7 @@ func (prefixPriorityStats *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_Pre
     prefixPriorityStats.EntityData.BundleName = "cisco_ios_xr"
     prefixPriorityStats.EntityData.ParentYangName = "vrf-statistics"
     prefixPriorityStats.EntityData.SegmentPath = "prefix-priority-stats"
+    prefixPriorityStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/" + prefixPriorityStats.EntityData.SegmentPath
     prefixPriorityStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prefixPriorityStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prefixPriorityStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47102,6 +48097,7 @@ func (vrfRibBatchStats *Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_VrfRib
     vrfRibBatchStats.EntityData.BundleName = "cisco_ios_xr"
     vrfRibBatchStats.EntityData.ParentYangName = "vrf-statistics"
     vrfRibBatchStats.EntityData.SegmentPath = "vrf-rib-batch-stats"
+    vrfRibBatchStats.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/vrf-statistics/" + vrfRibBatchStats.EntityData.SegmentPath
     vrfRibBatchStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfRibBatchStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfRibBatchStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47146,6 +48142,7 @@ func (summary *Ospfv3_Processes_Process_DefaultVrf_Summary) GetEntityData() *typ
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "default-vrf"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47195,6 +48192,7 @@ func (protocol *Ospfv3_Processes_Process_DefaultVrf_Summary_Protocol) GetEntityD
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "summary"
     protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47408,6 +48406,7 @@ func (ospfv3 *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3) GetEntityData(
     ospfv3.EntityData.BundleName = "cisco_ios_xr"
     ospfv3.EntityData.ParentYangName = "summary"
     ospfv3.EntityData.SegmentPath = "ospfv3"
+    ospfv3.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/" + ospfv3.EntityData.SegmentPath
     ospfv3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ospfv3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ospfv3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47416,10 +48415,12 @@ func (ospfv3 *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3) GetEntityData(
     ospfv3.EntityData.Children.Append("domain-id", types.YChild{"DomainId", &ospfv3.DomainId})
     ospfv3.EntityData.Children.Append("stub-router", types.YChild{"StubRouter", nil})
     for i := range ospfv3.StubRouter {
+        types.SetYListKey(ospfv3.StubRouter[i], i)
         ospfv3.EntityData.Children.Append(types.GetSegmentPath(ospfv3.StubRouter[i]), types.YChild{"StubRouter", ospfv3.StubRouter[i]})
     }
     ospfv3.EntityData.Children.Append("ipfrr-tiebreakers", types.YChild{"IpfrrTiebreakers", nil})
     for i := range ospfv3.IpfrrTiebreakers {
+        types.SetYListKey(ospfv3.IpfrrTiebreakers[i], i)
         ospfv3.EntityData.Children.Append(types.GetSegmentPath(ospfv3.IpfrrTiebreakers[i]), types.YChild{"IpfrrTiebreakers", ospfv3.IpfrrTiebreakers[i]})
     }
     ospfv3.EntityData.Leafs = types.NewOrderedMap()
@@ -47499,6 +48500,7 @@ func (domainId *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_DomainId) Get
     domainId.EntityData.BundleName = "cisco_ios_xr"
     domainId.EntityData.ParentYangName = "ospfv3"
     domainId.EntityData.SegmentPath = "domain-id"
+    domainId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/" + domainId.EntityData.SegmentPath
     domainId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     domainId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     domainId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47507,6 +48509,7 @@ func (domainId *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_DomainId) Get
     domainId.EntityData.Children.Append("primary-domain-id", types.YChild{"PrimaryDomainId", &domainId.PrimaryDomainId})
     domainId.EntityData.Children.Append("secondary-domain-id", types.YChild{"SecondaryDomainId", nil})
     for i := range domainId.SecondaryDomainId {
+        types.SetYListKey(domainId.SecondaryDomainId[i], i)
         domainId.EntityData.Children.Append(types.GetSegmentPath(domainId.SecondaryDomainId[i]), types.YChild{"SecondaryDomainId", domainId.SecondaryDomainId[i]})
     }
     domainId.EntityData.Leafs = types.NewOrderedMap()
@@ -47536,6 +48539,7 @@ func (primaryDomainId *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_Domain
     primaryDomainId.EntityData.BundleName = "cisco_ios_xr"
     primaryDomainId.EntityData.ParentYangName = "domain-id"
     primaryDomainId.EntityData.SegmentPath = "primary-domain-id"
+    primaryDomainId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/domain-id/" + primaryDomainId.EntityData.SegmentPath
     primaryDomainId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryDomainId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryDomainId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47555,6 +48559,7 @@ func (primaryDomainId *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_Domain
 type Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_DomainId_SecondaryDomainId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Domain ID Type. The type is interface{} with range: 0..65535.
     DomainIdType interface{}
@@ -47569,7 +48574,8 @@ func (secondaryDomainId *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_Doma
     secondaryDomainId.EntityData.YangName = "secondary-domain-id"
     secondaryDomainId.EntityData.BundleName = "cisco_ios_xr"
     secondaryDomainId.EntityData.ParentYangName = "domain-id"
-    secondaryDomainId.EntityData.SegmentPath = "secondary-domain-id"
+    secondaryDomainId.EntityData.SegmentPath = "secondary-domain-id" + types.AddNoKeyToken(secondaryDomainId)
+    secondaryDomainId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/domain-id/" + secondaryDomainId.EntityData.SegmentPath
     secondaryDomainId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryDomainId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryDomainId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47589,6 +48595,7 @@ func (secondaryDomainId *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_Doma
 type Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Stub router mode. The type is StubRouterMode.
     Mode interface{}
@@ -47641,7 +48648,8 @@ func (stubRouter *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter)
     stubRouter.EntityData.YangName = "stub-router"
     stubRouter.EntityData.BundleName = "cisco_ios_xr"
     stubRouter.EntityData.ParentYangName = "ospfv3"
-    stubRouter.EntityData.SegmentPath = "stub-router"
+    stubRouter.EntityData.SegmentPath = "stub-router" + types.AddNoKeyToken(stubRouter)
+    stubRouter.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/" + stubRouter.EntityData.SegmentPath
     stubRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stubRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stubRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47652,6 +48660,7 @@ func (stubRouter *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter)
     stubRouter.EntityData.Children.Append("abr-resume-time", types.YChild{"AbrResumeTime", &stubRouter.AbrResumeTime})
     stubRouter.EntityData.Children.Append("trigger", types.YChild{"Trigger", nil})
     for i := range stubRouter.Trigger {
+        types.SetYListKey(stubRouter.Trigger[i], i)
         stubRouter.EntityData.Children.Append(types.GetSegmentPath(stubRouter.Trigger[i]), types.YChild{"Trigger", stubRouter.Trigger[i]})
     }
     stubRouter.EntityData.Leafs = types.NewOrderedMap()
@@ -47692,6 +48701,7 @@ func (unsetTime *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter_U
     unsetTime.EntityData.BundleName = "cisco_ios_xr"
     unsetTime.EntityData.ParentYangName = "stub-router"
     unsetTime.EntityData.SegmentPath = "unset-time"
+    unsetTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/stub-router/" + unsetTime.EntityData.SegmentPath
     unsetTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unsetTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unsetTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47728,6 +48738,7 @@ func (startTime *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter_S
     startTime.EntityData.BundleName = "cisco_ios_xr"
     startTime.EntityData.ParentYangName = "stub-router"
     startTime.EntityData.SegmentPath = "start-time"
+    startTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/stub-router/" + startTime.EntityData.SegmentPath
     startTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47764,6 +48775,7 @@ func (abrResumeTime *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRout
     abrResumeTime.EntityData.BundleName = "cisco_ios_xr"
     abrResumeTime.EntityData.ParentYangName = "stub-router"
     abrResumeTime.EntityData.SegmentPath = "abr-resume-time"
+    abrResumeTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/stub-router/" + abrResumeTime.EntityData.SegmentPath
     abrResumeTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     abrResumeTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     abrResumeTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47783,6 +48795,7 @@ func (abrResumeTime *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRout
 type Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter_Trigger struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Stub Router Trigger type. The type is StubRouterTrigger.
     Trigger interface{}
@@ -47811,7 +48824,8 @@ func (trigger *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter_Tri
     trigger.EntityData.YangName = "trigger"
     trigger.EntityData.BundleName = "cisco_ios_xr"
     trigger.EntityData.ParentYangName = "stub-router"
-    trigger.EntityData.SegmentPath = "trigger"
+    trigger.EntityData.SegmentPath = "trigger" + types.AddNoKeyToken(trigger)
+    trigger.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/stub-router/" + trigger.EntityData.SegmentPath
     trigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47852,6 +48866,7 @@ func (unsetTime *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter_T
     unsetTime.EntityData.BundleName = "cisco_ios_xr"
     unsetTime.EntityData.ParentYangName = "trigger"
     unsetTime.EntityData.SegmentPath = "unset-time"
+    unsetTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/stub-router/trigger/" + unsetTime.EntityData.SegmentPath
     unsetTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unsetTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unsetTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47888,6 +48903,7 @@ func (startTime *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter_T
     startTime.EntityData.BundleName = "cisco_ios_xr"
     startTime.EntityData.ParentYangName = "trigger"
     startTime.EntityData.SegmentPath = "start-time"
+    startTime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/stub-router/trigger/" + startTime.EntityData.SegmentPath
     startTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     startTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     startTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47907,6 +48923,7 @@ func (startTime *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_StubRouter_T
 type Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_IpfrrTiebreakers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Tiebreaker Type. The type is IpfrrTbrkr.
     TiebreakerType interface{}
@@ -47920,7 +48937,8 @@ func (ipfrrTiebreakers *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_Ipfrr
     ipfrrTiebreakers.EntityData.YangName = "ipfrr-tiebreakers"
     ipfrrTiebreakers.EntityData.BundleName = "cisco_ios_xr"
     ipfrrTiebreakers.EntityData.ParentYangName = "ospfv3"
-    ipfrrTiebreakers.EntityData.SegmentPath = "ipfrr-tiebreakers"
+    ipfrrTiebreakers.EntityData.SegmentPath = "ipfrr-tiebreakers" + types.AddNoKeyToken(ipfrrTiebreakers)
+    ipfrrTiebreakers.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/ospfv3/" + ipfrrTiebreakers.EntityData.SegmentPath
     ipfrrTiebreakers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrTiebreakers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrTiebreakers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -47984,6 +49002,7 @@ func (route *Ospfv3_Processes_Process_DefaultVrf_Summary_Route) GetEntityData() 
     route.EntityData.BundleName = "cisco_ios_xr"
     route.EntityData.ParentYangName = "summary"
     route.EntityData.SegmentPath = "route"
+    route.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/" + route.EntityData.SegmentPath
     route.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     route.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     route.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48025,6 +49044,7 @@ func (retransmissionListProcessTable *Ospfv3_Processes_Process_DefaultVrf_Retran
     retransmissionListProcessTable.EntityData.BundleName = "cisco_ios_xr"
     retransmissionListProcessTable.EntityData.ParentYangName = "default-vrf"
     retransmissionListProcessTable.EntityData.SegmentPath = "retransmission-list-process-table"
+    retransmissionListProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + retransmissionListProcessTable.EntityData.SegmentPath
     retransmissionListProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionListProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionListProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48032,6 +49052,7 @@ func (retransmissionListProcessTable *Ospfv3_Processes_Process_DefaultVrf_Retran
     retransmissionListProcessTable.EntityData.Children = types.NewOrderedMap()
     retransmissionListProcessTable.EntityData.Children.Append("retransmission", types.YChild{"Retransmission", nil})
     for i := range retransmissionListProcessTable.Retransmission {
+        types.SetYListKey(retransmissionListProcessTable.Retransmission[i], i)
         retransmissionListProcessTable.EntityData.Children.Append(types.GetSegmentPath(retransmissionListProcessTable.Retransmission[i]), types.YChild{"Retransmission", retransmissionListProcessTable.Retransmission[i]})
     }
     retransmissionListProcessTable.EntityData.Leafs = types.NewOrderedMap()
@@ -48046,6 +49067,7 @@ func (retransmissionListProcessTable *Ospfv3_Processes_Process_DefaultVrf_Retran
 type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransmission struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -48098,7 +49120,8 @@ func (retransmission *Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProc
     retransmission.EntityData.YangName = "retransmission"
     retransmission.EntityData.BundleName = "cisco_ios_xr"
     retransmission.EntityData.ParentYangName = "retransmission-list-process-table"
-    retransmission.EntityData.SegmentPath = "retransmission"
+    retransmission.EntityData.SegmentPath = "retransmission" + types.AddNoKeyToken(retransmission)
+    retransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/retransmission-list-process-table/" + retransmission.EntityData.SegmentPath
     retransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48106,14 +49129,17 @@ func (retransmission *Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProc
     retransmission.EntityData.Children = types.NewOrderedMap()
     retransmission.EntityData.Children.Append("retransmissionvirtual-link-db", types.YChild{"RetransmissionvirtualLinkDb", nil})
     for i := range retransmission.RetransmissionvirtualLinkDb {
+        types.SetYListKey(retransmission.RetransmissionvirtualLinkDb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionvirtualLinkDb[i]), types.YChild{"RetransmissionvirtualLinkDb", retransmission.RetransmissionvirtualLinkDb[i]})
     }
     retransmission.EntityData.Children.Append("retransmission-area-db", types.YChild{"RetransmissionAreaDb", nil})
     for i := range retransmission.RetransmissionAreaDb {
+        types.SetYListKey(retransmission.RetransmissionAreaDb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionAreaDb[i]), types.YChild{"RetransmissionAreaDb", retransmission.RetransmissionAreaDb[i]})
     }
     retransmission.EntityData.Children.Append("retransmission-asdb", types.YChild{"RetransmissionAsdb", nil})
     for i := range retransmission.RetransmissionAsdb {
+        types.SetYListKey(retransmission.RetransmissionAsdb[i], i)
         retransmission.EntityData.Children.Append(types.GetSegmentPath(retransmission.RetransmissionAsdb[i]), types.YChild{"RetransmissionAsdb", retransmission.RetransmissionAsdb[i]})
     }
     retransmission.EntityData.Leafs = types.NewOrderedMap()
@@ -48137,6 +49163,7 @@ func (retransmission *Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProc
 type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransmission_RetransmissionvirtualLinkDb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -48163,7 +49190,8 @@ func (retransmissionvirtualLinkDb *Ospfv3_Processes_Process_DefaultVrf_Retransmi
     retransmissionvirtualLinkDb.EntityData.YangName = "retransmissionvirtual-link-db"
     retransmissionvirtualLinkDb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionvirtualLinkDb.EntityData.ParentYangName = "retransmission"
-    retransmissionvirtualLinkDb.EntityData.SegmentPath = "retransmissionvirtual-link-db"
+    retransmissionvirtualLinkDb.EntityData.SegmentPath = "retransmissionvirtual-link-db" + types.AddNoKeyToken(retransmissionvirtualLinkDb)
+    retransmissionvirtualLinkDb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/retransmission-list-process-table/retransmission/" + retransmissionvirtualLinkDb.EntityData.SegmentPath
     retransmissionvirtualLinkDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionvirtualLinkDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionvirtualLinkDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48186,6 +49214,7 @@ func (retransmissionvirtualLinkDb *Ospfv3_Processes_Process_DefaultVrf_Retransmi
 type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransmission_RetransmissionAreaDb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -48212,7 +49241,8 @@ func (retransmissionAreaDb *Ospfv3_Processes_Process_DefaultVrf_RetransmissionLi
     retransmissionAreaDb.EntityData.YangName = "retransmission-area-db"
     retransmissionAreaDb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionAreaDb.EntityData.ParentYangName = "retransmission"
-    retransmissionAreaDb.EntityData.SegmentPath = "retransmission-area-db"
+    retransmissionAreaDb.EntityData.SegmentPath = "retransmission-area-db" + types.AddNoKeyToken(retransmissionAreaDb)
+    retransmissionAreaDb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/retransmission-list-process-table/retransmission/" + retransmissionAreaDb.EntityData.SegmentPath
     retransmissionAreaDb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionAreaDb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionAreaDb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48235,6 +49265,7 @@ func (retransmissionAreaDb *Ospfv3_Processes_Process_DefaultVrf_RetransmissionLi
 type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransmission_RetransmissionAsdb struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // LSA type. The type is Ospfv3Lsa1.
     HeaderLsaType interface{}
@@ -48261,7 +49292,8 @@ func (retransmissionAsdb *Ospfv3_Processes_Process_DefaultVrf_RetransmissionList
     retransmissionAsdb.EntityData.YangName = "retransmission-asdb"
     retransmissionAsdb.EntityData.BundleName = "cisco_ios_xr"
     retransmissionAsdb.EntityData.ParentYangName = "retransmission"
-    retransmissionAsdb.EntityData.SegmentPath = "retransmission-asdb"
+    retransmissionAsdb.EntityData.SegmentPath = "retransmission-asdb" + types.AddNoKeyToken(retransmissionAsdb)
+    retransmissionAsdb.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/retransmission-list-process-table/retransmission/" + retransmissionAsdb.EntityData.SegmentPath
     retransmissionAsdb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmissionAsdb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmissionAsdb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48296,6 +49328,7 @@ func (badChecksums *Ospfv3_Processes_Process_DefaultVrf_BadChecksums) GetEntityD
     badChecksums.EntityData.BundleName = "cisco_ios_xr"
     badChecksums.EntityData.ParentYangName = "default-vrf"
     badChecksums.EntityData.SegmentPath = "bad-checksums"
+    badChecksums.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + badChecksums.EntityData.SegmentPath
     badChecksums.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     badChecksums.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     badChecksums.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48317,6 +49350,7 @@ func (badChecksums *Ospfv3_Processes_Process_DefaultVrf_BadChecksums) GetEntityD
 type Ospfv3_Processes_Process_DefaultVrf_BadChecksums_BadChecksum struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bad Checksum Packets number. The type is
     // interface{} with range: 0..9.
@@ -48342,6 +49376,7 @@ func (badChecksum *Ospfv3_Processes_Process_DefaultVrf_BadChecksums_BadChecksum)
     badChecksum.EntityData.BundleName = "cisco_ios_xr"
     badChecksum.EntityData.ParentYangName = "bad-checksums"
     badChecksum.EntityData.SegmentPath = "bad-checksum" + types.AddKeyToken(badChecksum.PacketNumber, "packet-number")
+    badChecksum.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/bad-checksums/" + badChecksum.EntityData.SegmentPath
     badChecksum.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     badChecksum.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     badChecksum.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48380,6 +49415,7 @@ func (timestamp *Ospfv3_Processes_Process_DefaultVrf_BadChecksums_BadChecksum_Ti
     timestamp.EntityData.BundleName = "cisco_ios_xr"
     timestamp.EntityData.ParentYangName = "bad-checksum"
     timestamp.EntityData.SegmentPath = "timestamp"
+    timestamp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/bad-checksums/bad-checksum/" + timestamp.EntityData.SegmentPath
     timestamp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timestamp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timestamp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48410,6 +49446,7 @@ func (databaseSummaryTable *Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryT
     databaseSummaryTable.EntityData.BundleName = "cisco_ios_xr"
     databaseSummaryTable.EntityData.ParentYangName = "default-vrf"
     databaseSummaryTable.EntityData.SegmentPath = "database-summary-table"
+    databaseSummaryTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + databaseSummaryTable.EntityData.SegmentPath
     databaseSummaryTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseSummaryTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseSummaryTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48450,6 +49487,7 @@ func (databaseSummary *Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryTable_
     databaseSummary.EntityData.BundleName = "cisco_ios_xr"
     databaseSummary.EntityData.ParentYangName = "database-summary-table"
     databaseSummary.EntityData.SegmentPath = "database-summary"
+    databaseSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-summary-table/" + databaseSummary.EntityData.SegmentPath
     databaseSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48458,6 +49496,7 @@ func (databaseSummary *Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryTable_
     databaseSummary.EntityData.Children.Append("database-counters", types.YChild{"DatabaseCounters", &databaseSummary.DatabaseCounters})
     databaseSummary.EntityData.Children.Append("area-database", types.YChild{"AreaDatabase", nil})
     for i := range databaseSummary.AreaDatabase {
+        types.SetYListKey(databaseSummary.AreaDatabase[i], i)
         databaseSummary.EntityData.Children.Append(types.GetSegmentPath(databaseSummary.AreaDatabase[i]), types.YChild{"AreaDatabase", databaseSummary.AreaDatabase[i]})
     }
     databaseSummary.EntityData.Leafs = types.NewOrderedMap()
@@ -48494,6 +49533,7 @@ func (databaseCounters *Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryTable
     databaseCounters.EntityData.BundleName = "cisco_ios_xr"
     databaseCounters.EntityData.ParentYangName = "database-summary"
     databaseCounters.EntityData.SegmentPath = "database-counters"
+    databaseCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-summary-table/database-summary/" + databaseCounters.EntityData.SegmentPath
     databaseCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     databaseCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     databaseCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48515,6 +49555,7 @@ func (databaseCounters *Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryTable
 type Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryTable_DatabaseSummary_AreaDatabase struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Area ID in decimal or dotted-decimal format. The type is string with
     // length: 0..16.
@@ -48529,7 +49570,8 @@ func (areaDatabase *Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryTable_Dat
     areaDatabase.EntityData.YangName = "area-database"
     areaDatabase.EntityData.BundleName = "cisco_ios_xr"
     areaDatabase.EntityData.ParentYangName = "database-summary"
-    areaDatabase.EntityData.SegmentPath = "area-database"
+    areaDatabase.EntityData.SegmentPath = "area-database" + types.AddNoKeyToken(areaDatabase)
+    areaDatabase.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-summary-table/database-summary/" + areaDatabase.EntityData.SegmentPath
     areaDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48569,6 +49611,7 @@ func (areaDatabaseSummary *Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryTa
     areaDatabaseSummary.EntityData.BundleName = "cisco_ios_xr"
     areaDatabaseSummary.EntityData.ParentYangName = "area-database"
     areaDatabaseSummary.EntityData.SegmentPath = "area-database-summary"
+    areaDatabaseSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/database-summary-table/database-summary/area-database/" + areaDatabaseSummary.EntityData.SegmentPath
     areaDatabaseSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     areaDatabaseSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     areaDatabaseSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48602,6 +49645,7 @@ func (neighborProcessTable *Ospfv3_Processes_Process_DefaultVrf_NeighborProcessT
     neighborProcessTable.EntityData.BundleName = "cisco_ios_xr"
     neighborProcessTable.EntityData.ParentYangName = "default-vrf"
     neighborProcessTable.EntityData.SegmentPath = "neighbor-process-table"
+    neighborProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + neighborProcessTable.EntityData.SegmentPath
     neighborProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48609,6 +49653,7 @@ func (neighborProcessTable *Ospfv3_Processes_Process_DefaultVrf_NeighborProcessT
     neighborProcessTable.EntityData.Children = types.NewOrderedMap()
     neighborProcessTable.EntityData.Children.Append("neighbor", types.YChild{"Neighbor", nil})
     for i := range neighborProcessTable.Neighbor {
+        types.SetYListKey(neighborProcessTable.Neighbor[i], i)
         neighborProcessTable.EntityData.Children.Append(types.GetSegmentPath(neighborProcessTable.Neighbor[i]), types.YChild{"Neighbor", neighborProcessTable.Neighbor[i]})
     }
     neighborProcessTable.EntityData.Leafs = types.NewOrderedMap()
@@ -48623,6 +49668,7 @@ func (neighborProcessTable *Ospfv3_Processes_Process_DefaultVrf_NeighborProcessT
 type Ospfv3_Processes_Process_DefaultVrf_NeighborProcessTable_Neighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -48680,7 +49726,8 @@ func (neighbor *Ospfv3_Processes_Process_DefaultVrf_NeighborProcessTable_Neighbo
     neighbor.EntityData.YangName = "neighbor"
     neighbor.EntityData.BundleName = "cisco_ios_xr"
     neighbor.EntityData.ParentYangName = "neighbor-process-table"
-    neighbor.EntityData.SegmentPath = "neighbor"
+    neighbor.EntityData.SegmentPath = "neighbor" + types.AddNoKeyToken(neighbor)
+    neighbor.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/neighbor-process-table/" + neighbor.EntityData.SegmentPath
     neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48764,6 +49811,7 @@ func (neighborDetail *Ospfv3_Processes_Process_DefaultVrf_NeighborProcessTable_N
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor"
     neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/neighbor-process-table/neighbor/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48892,6 +49940,7 @@ func (neighborRetransmission *Ospfv3_Processes_Process_DefaultVrf_NeighborProces
     neighborRetransmission.EntityData.BundleName = "cisco_ios_xr"
     neighborRetransmission.EntityData.ParentYangName = "neighbor-detail"
     neighborRetransmission.EntityData.SegmentPath = "neighbor-retransmission"
+    neighborRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/neighbor-process-table/neighbor/neighbor-detail/" + neighborRetransmission.EntityData.SegmentPath
     neighborRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48947,6 +49996,7 @@ func (neighborBfdInfo *Ospfv3_Processes_Process_DefaultVrf_NeighborProcessTable_
     neighborBfdInfo.EntityData.BundleName = "cisco_ios_xr"
     neighborBfdInfo.EntityData.ParentYangName = "neighbor"
     neighborBfdInfo.EntityData.SegmentPath = "neighbor-bfd-info"
+    neighborBfdInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/neighbor-process-table/neighbor/" + neighborBfdInfo.EntityData.SegmentPath
     neighborBfdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborBfdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborBfdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48978,6 +50028,7 @@ func (fastReroutes *Ospfv3_Processes_Process_DefaultVrf_FastReroutes) GetEntityD
     fastReroutes.EntityData.BundleName = "cisco_ios_xr"
     fastReroutes.EntityData.ParentYangName = "default-vrf"
     fastReroutes.EntityData.SegmentPath = "fast-reroutes"
+    fastReroutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + fastReroutes.EntityData.SegmentPath
     fastReroutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastReroutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastReroutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -48985,6 +50036,7 @@ func (fastReroutes *Ospfv3_Processes_Process_DefaultVrf_FastReroutes) GetEntityD
     fastReroutes.EntityData.Children = types.NewOrderedMap()
     fastReroutes.EntityData.Children.Append("fast-reroute", types.YChild{"FastReroute", nil})
     for i := range fastReroutes.FastReroute {
+        types.SetYListKey(fastReroutes.FastReroute[i], i)
         fastReroutes.EntityData.Children.Append(types.GetSegmentPath(fastReroutes.FastReroute[i]), types.YChild{"FastReroute", fastReroutes.FastReroute[i]})
     }
     fastReroutes.EntityData.Leafs = types.NewOrderedMap()
@@ -48999,6 +50051,7 @@ func (fastReroutes *Ospfv3_Processes_Process_DefaultVrf_FastReroutes) GetEntityD
 type Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Router ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -49028,7 +50081,8 @@ func (fastReroute *Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute)
     fastReroute.EntityData.YangName = "fast-reroute"
     fastReroute.EntityData.BundleName = "cisco_ios_xr"
     fastReroute.EntityData.ParentYangName = "fast-reroutes"
-    fastReroute.EntityData.SegmentPath = "fast-reroute"
+    fastReroute.EntityData.SegmentPath = "fast-reroute" + types.AddNoKeyToken(fastReroute)
+    fastReroute.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/fast-reroutes/" + fastReroute.EntityData.SegmentPath
     fastReroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fastReroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fastReroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49036,6 +50090,7 @@ func (fastReroute *Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute)
     fastReroute.EntityData.Children = types.NewOrderedMap()
     fastReroute.EntityData.Children.Append("ipfrr-topo", types.YChild{"IpfrrTopo", nil})
     for i := range fastReroute.IpfrrTopo {
+        types.SetYListKey(fastReroute.IpfrrTopo[i], i)
         fastReroute.EntityData.Children.Append(types.GetSegmentPath(fastReroute.IpfrrTopo[i]), types.YChild{"IpfrrTopo", fastReroute.IpfrrTopo[i]})
     }
     fastReroute.EntityData.Leafs = types.NewOrderedMap()
@@ -49055,6 +50110,7 @@ func (fastReroute *Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute)
 type Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute_IpfrrTopo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IPFRR Topology Node ID. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -49084,7 +50140,8 @@ func (ipfrrTopo *Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute_Ip
     ipfrrTopo.EntityData.YangName = "ipfrr-topo"
     ipfrrTopo.EntityData.BundleName = "cisco_ios_xr"
     ipfrrTopo.EntityData.ParentYangName = "fast-reroute"
-    ipfrrTopo.EntityData.SegmentPath = "ipfrr-topo"
+    ipfrrTopo.EntityData.SegmentPath = "ipfrr-topo" + types.AddNoKeyToken(ipfrrTopo)
+    ipfrrTopo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/fast-reroutes/fast-reroute/" + ipfrrTopo.EntityData.SegmentPath
     ipfrrTopo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipfrrTopo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipfrrTopo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49122,6 +50179,7 @@ func (interfaceBriefProcessTable *Ospfv3_Processes_Process_DefaultVrf_InterfaceB
     interfaceBriefProcessTable.EntityData.BundleName = "cisco_ios_xr"
     interfaceBriefProcessTable.EntityData.ParentYangName = "default-vrf"
     interfaceBriefProcessTable.EntityData.SegmentPath = "interface-brief-process-table"
+    interfaceBriefProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + interfaceBriefProcessTable.EntityData.SegmentPath
     interfaceBriefProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBriefProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBriefProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49143,6 +50201,7 @@ func (interfaceBriefProcessTable *Ospfv3_Processes_Process_DefaultVrf_InterfaceB
 type Ospfv3_Processes_Process_DefaultVrf_InterfaceBriefProcessTable_InterfaceBrief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -49175,6 +50234,7 @@ func (interfaceBrief *Ospfv3_Processes_Process_DefaultVrf_InterfaceBriefProcessT
     interfaceBrief.EntityData.BundleName = "cisco_ios_xr"
     interfaceBrief.EntityData.ParentYangName = "interface-brief-process-table"
     interfaceBrief.EntityData.SegmentPath = "interface-brief" + types.AddKeyToken(interfaceBrief.InterfaceName, "interface-name")
+    interfaceBrief.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/interface-brief-process-table/" + interfaceBrief.EntityData.SegmentPath
     interfaceBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49211,6 +50271,7 @@ func (neighborDetailProcessTable *Ospfv3_Processes_Process_DefaultVrf_NeighborDe
     neighborDetailProcessTable.EntityData.BundleName = "cisco_ios_xr"
     neighborDetailProcessTable.EntityData.ParentYangName = "default-vrf"
     neighborDetailProcessTable.EntityData.SegmentPath = "neighbor-detail-process-table"
+    neighborDetailProcessTable.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/" + neighborDetailProcessTable.EntityData.SegmentPath
     neighborDetailProcessTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetailProcessTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetailProcessTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49218,6 +50279,7 @@ func (neighborDetailProcessTable *Ospfv3_Processes_Process_DefaultVrf_NeighborDe
     neighborDetailProcessTable.EntityData.Children = types.NewOrderedMap()
     neighborDetailProcessTable.EntityData.Children.Append("neighbor-detail", types.YChild{"NeighborDetail", nil})
     for i := range neighborDetailProcessTable.NeighborDetail {
+        types.SetYListKey(neighborDetailProcessTable.NeighborDetail[i], i)
         neighborDetailProcessTable.EntityData.Children.Append(types.GetSegmentPath(neighborDetailProcessTable.NeighborDetail[i]), types.YChild{"NeighborDetail", neighborDetailProcessTable.NeighborDetail[i]})
     }
     neighborDetailProcessTable.EntityData.Leafs = types.NewOrderedMap()
@@ -49232,6 +50294,7 @@ func (neighborDetailProcessTable *Ospfv3_Processes_Process_DefaultVrf_NeighborDe
 type Ospfv3_Processes_Process_DefaultVrf_NeighborDetailProcessTable_NeighborDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -49289,7 +50352,8 @@ func (neighborDetail *Ospfv3_Processes_Process_DefaultVrf_NeighborDetailProcessT
     neighborDetail.EntityData.YangName = "neighbor-detail"
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor-detail-process-table"
-    neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.SegmentPath = "neighbor-detail" + types.AddNoKeyToken(neighborDetail)
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/neighbor-detail-process-table/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49373,6 +50437,7 @@ func (neighborDetail *Ospfv3_Processes_Process_DefaultVrf_NeighborDetailProcessT
     neighborDetail.EntityData.BundleName = "cisco_ios_xr"
     neighborDetail.EntityData.ParentYangName = "neighbor-detail"
     neighborDetail.EntityData.SegmentPath = "neighbor-detail"
+    neighborDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/neighbor-detail-process-table/neighbor-detail/" + neighborDetail.EntityData.SegmentPath
     neighborDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49501,6 +50566,7 @@ func (neighborRetransmission *Ospfv3_Processes_Process_DefaultVrf_NeighborDetail
     neighborRetransmission.EntityData.BundleName = "cisco_ios_xr"
     neighborRetransmission.EntityData.ParentYangName = "neighbor-detail"
     neighborRetransmission.EntityData.SegmentPath = "neighbor-retransmission"
+    neighborRetransmission.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/neighbor-detail-process-table/neighbor-detail/neighbor-detail/" + neighborRetransmission.EntityData.SegmentPath
     neighborRetransmission.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborRetransmission.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborRetransmission.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -49556,6 +50622,7 @@ func (neighborBfdInfo *Ospfv3_Processes_Process_DefaultVrf_NeighborDetailProcess
     neighborBfdInfo.EntityData.BundleName = "cisco_ios_xr"
     neighborBfdInfo.EntityData.ParentYangName = "neighbor-detail"
     neighborBfdInfo.EntityData.SegmentPath = "neighbor-bfd-info"
+    neighborBfdInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/neighbor-detail-process-table/neighbor-detail/" + neighborBfdInfo.EntityData.SegmentPath
     neighborBfdInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     neighborBfdInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     neighborBfdInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

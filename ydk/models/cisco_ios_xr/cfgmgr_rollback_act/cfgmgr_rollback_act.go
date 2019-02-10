@@ -42,6 +42,7 @@ func (rollBackConfigurationLast *RollBackConfigurationLast) GetEntityData() *typ
     rollBackConfigurationLast.EntityData.BundleName = "cisco_ios_xr"
     rollBackConfigurationLast.EntityData.ParentYangName = "Cisco-IOS-XR-cfgmgr-rollback-act"
     rollBackConfigurationLast.EntityData.SegmentPath = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-last"
+    rollBackConfigurationLast.EntityData.AbsolutePath = rollBackConfigurationLast.EntityData.SegmentPath
     rollBackConfigurationLast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rollBackConfigurationLast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rollBackConfigurationLast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -84,6 +85,7 @@ func (input *RollBackConfigurationLast_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "roll-back-configuration-last"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-last/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -117,6 +119,7 @@ func (rollBackConfigurationTo *RollBackConfigurationTo) GetEntityData() *types.C
     rollBackConfigurationTo.EntityData.BundleName = "cisco_ios_xr"
     rollBackConfigurationTo.EntityData.ParentYangName = "Cisco-IOS-XR-cfgmgr-rollback-act"
     rollBackConfigurationTo.EntityData.SegmentPath = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to"
+    rollBackConfigurationTo.EntityData.AbsolutePath = rollBackConfigurationTo.EntityData.SegmentPath
     rollBackConfigurationTo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rollBackConfigurationTo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rollBackConfigurationTo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -158,6 +161,7 @@ func (input *RollBackConfigurationTo_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "roll-back-configuration-to"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -191,6 +195,7 @@ func (rollBackConfigurationToExclude *RollBackConfigurationToExclude) GetEntityD
     rollBackConfigurationToExclude.EntityData.BundleName = "cisco_ios_xr"
     rollBackConfigurationToExclude.EntityData.ParentYangName = "Cisco-IOS-XR-cfgmgr-rollback-act"
     rollBackConfigurationToExclude.EntityData.SegmentPath = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to-exclude"
+    rollBackConfigurationToExclude.EntityData.AbsolutePath = rollBackConfigurationToExclude.EntityData.SegmentPath
     rollBackConfigurationToExclude.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rollBackConfigurationToExclude.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rollBackConfigurationToExclude.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -232,6 +237,7 @@ func (input *RollBackConfigurationToExclude_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "roll-back-configuration-to-exclude"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration-to-exclude/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -265,6 +271,7 @@ func (rollBackConfiguration *RollBackConfiguration) GetEntityData() *types.Commo
     rollBackConfiguration.EntityData.BundleName = "cisco_ios_xr"
     rollBackConfiguration.EntityData.ParentYangName = "Cisco-IOS-XR-cfgmgr-rollback-act"
     rollBackConfiguration.EntityData.SegmentPath = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration"
+    rollBackConfiguration.EntityData.AbsolutePath = rollBackConfiguration.EntityData.SegmentPath
     rollBackConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rollBackConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rollBackConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -306,6 +313,7 @@ func (input *RollBackConfiguration_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "roll-back-configuration"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-cfgmgr-rollback-act:roll-back-configuration/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

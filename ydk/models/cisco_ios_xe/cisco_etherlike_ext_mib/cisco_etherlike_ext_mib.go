@@ -48,6 +48,7 @@ func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetEntityData() *types.CommonE
     cISCOETHERLIKEEXTMIB.EntityData.BundleName = "cisco_ios_xe"
     cISCOETHERLIKEEXTMIB.EntityData.ParentYangName = "CISCO-ETHERLIKE-EXT-MIB"
     cISCOETHERLIKEEXTMIB.EntityData.SegmentPath = "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB"
+    cISCOETHERLIKEEXTMIB.EntityData.AbsolutePath = cISCOETHERLIKEEXTMIB.EntityData.SegmentPath
     cISCOETHERLIKEEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cISCOETHERLIKEEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cISCOETHERLIKEEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -88,6 +89,7 @@ func (ceeDot3PauseExtTable *CISCOETHERLIKEEXTMIB_CeeDot3PauseExtTable) GetEntity
     ceeDot3PauseExtTable.EntityData.BundleName = "cisco_ios_xe"
     ceeDot3PauseExtTable.EntityData.ParentYangName = "CISCO-ETHERLIKE-EXT-MIB"
     ceeDot3PauseExtTable.EntityData.SegmentPath = "ceeDot3PauseExtTable"
+    ceeDot3PauseExtTable.EntityData.AbsolutePath = "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/" + ceeDot3PauseExtTable.EntityData.SegmentPath
     ceeDot3PauseExtTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceeDot3PauseExtTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceeDot3PauseExtTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -112,6 +114,7 @@ func (ceeDot3PauseExtTable *CISCOETHERLIKEEXTMIB_CeeDot3PauseExtTable) GetEntity
 type CISCOETHERLIKEEXTMIB_CeeDot3PauseExtTable_CeeDot3PauseExtEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to
@@ -149,6 +152,7 @@ func (ceeDot3PauseExtEntry *CISCOETHERLIKEEXTMIB_CeeDot3PauseExtTable_CeeDot3Pau
     ceeDot3PauseExtEntry.EntityData.BundleName = "cisco_ios_xe"
     ceeDot3PauseExtEntry.EntityData.ParentYangName = "ceeDot3PauseExtTable"
     ceeDot3PauseExtEntry.EntityData.SegmentPath = "ceeDot3PauseExtEntry" + types.AddKeyToken(ceeDot3PauseExtEntry.Dot3StatsIndex, "dot3StatsIndex")
+    ceeDot3PauseExtEntry.EntityData.AbsolutePath = "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/ceeDot3PauseExtTable/" + ceeDot3PauseExtEntry.EntityData.SegmentPath
     ceeDot3PauseExtEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceeDot3PauseExtEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceeDot3PauseExtEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -194,6 +198,7 @@ func (ceeSubInterfaceTable *CISCOETHERLIKEEXTMIB_CeeSubInterfaceTable) GetEntity
     ceeSubInterfaceTable.EntityData.BundleName = "cisco_ios_xe"
     ceeSubInterfaceTable.EntityData.ParentYangName = "CISCO-ETHERLIKE-EXT-MIB"
     ceeSubInterfaceTable.EntityData.SegmentPath = "ceeSubInterfaceTable"
+    ceeSubInterfaceTable.EntityData.AbsolutePath = "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/" + ceeSubInterfaceTable.EntityData.SegmentPath
     ceeSubInterfaceTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceeSubInterfaceTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceeSubInterfaceTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -225,6 +230,7 @@ func (ceeSubInterfaceTable *CISCOETHERLIKEEXTMIB_CeeSubInterfaceTable) GetEntity
 type CISCOETHERLIKEEXTMIB_CeeSubInterfaceTable_CeeSubInterfaceEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -242,6 +248,7 @@ func (ceeSubInterfaceEntry *CISCOETHERLIKEEXTMIB_CeeSubInterfaceTable_CeeSubInte
     ceeSubInterfaceEntry.EntityData.BundleName = "cisco_ios_xe"
     ceeSubInterfaceEntry.EntityData.ParentYangName = "ceeSubInterfaceTable"
     ceeSubInterfaceEntry.EntityData.SegmentPath = "ceeSubInterfaceEntry" + types.AddKeyToken(ceeSubInterfaceEntry.IfIndex, "ifIndex")
+    ceeSubInterfaceEntry.EntityData.AbsolutePath = "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/ceeSubInterfaceTable/" + ceeSubInterfaceEntry.EntityData.SegmentPath
     ceeSubInterfaceEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ceeSubInterfaceEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ceeSubInterfaceEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

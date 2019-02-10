@@ -147,6 +147,7 @@ func (issu *Issu) GetEntityData() *types.CommonEntityData {
     issu.EntityData.BundleName = "cisco_ios_xr"
     issu.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-issu"
     issu.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-issu:issu"
+    issu.EntityData.AbsolutePath = issu.EntityData.SegmentPath
     issu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     issu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     issu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -221,6 +222,7 @@ func (status *Issu_Status) GetEntityData() *types.CommonEntityData {
     status.EntityData.BundleName = "cisco_ios_xr"
     status.EntityData.ParentYangName = "issu"
     status.EntityData.SegmentPath = "status"
+    status.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/" + status.EntityData.SegmentPath
     status.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     status.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     status.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -273,6 +275,7 @@ func (prepare *Issu_Status_Prepare) GetEntityData() *types.CommonEntityData {
     prepare.EntityData.BundleName = "cisco_ios_xr"
     prepare.EntityData.ParentYangName = "status"
     prepare.EntityData.SegmentPath = "prepare"
+    prepare.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/status/" + prepare.EntityData.SegmentPath
     prepare.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prepare.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepare.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -325,6 +328,7 @@ func (activate *Issu_Status_Activate) GetEntityData() *types.CommonEntityData {
     activate.EntityData.BundleName = "cisco_ios_xr"
     activate.EntityData.ParentYangName = "status"
     activate.EntityData.SegmentPath = "activate"
+    activate.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/status/" + activate.EntityData.SegmentPath
     activate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -370,6 +374,7 @@ func (self *Issu_Status_Error) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "status"
     self.EntityData.SegmentPath = "error"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/status/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -415,6 +420,7 @@ func (details *Issu_Status_Error_Details) GetEntityData() *types.CommonEntityDat
     details.EntityData.BundleName = "cisco_ios_xr"
     details.EntityData.ParentYangName = "error"
     details.EntityData.SegmentPath = "details"
+    details.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/status/error/" + details.EntityData.SegmentPath
     details.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     details.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     details.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -468,6 +474,7 @@ func (clients *Issu_Clients) GetEntityData() *types.CommonEntityData {
     clients.EntityData.BundleName = "cisco_ios_xr"
     clients.EntityData.ParentYangName = "issu"
     clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/" + clients.EntityData.SegmentPath
     clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -490,6 +497,7 @@ func (clients *Issu_Clients) GetEntityData() *types.CommonEntityData {
 type Issu_Clients_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Name of the registered feature. The type is
     // string.
@@ -525,6 +533,7 @@ func (client *Issu_Clients_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "clients"
     client.EntityData.SegmentPath = "client" + types.AddKeyToken(client.Name, "name") + types.AddKeyToken(client.Location, "location")
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/clients/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -627,6 +636,7 @@ func (internals *Issu_Internals) GetEntityData() *types.CommonEntityData {
     internals.EntityData.BundleName = "cisco_ios_xr"
     internals.EntityData.ParentYangName = "issu"
     internals.EntityData.SegmentPath = "internals"
+    internals.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/" + internals.EntityData.SegmentPath
     internals.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internals.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internals.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -687,6 +697,7 @@ func (orchestrator *Issu_Internals_Orchestrator) GetEntityData() *types.CommonEn
     orchestrator.EntityData.BundleName = "cisco_ios_xr"
     orchestrator.EntityData.ParentYangName = "internals"
     orchestrator.EntityData.SegmentPath = "orchestrator"
+    orchestrator.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/" + orchestrator.EntityData.SegmentPath
     orchestrator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     orchestrator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     orchestrator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -728,6 +739,7 @@ func (operationStartDetails *Issu_Internals_Orchestrator_OperationStartDetails) 
     operationStartDetails.EntityData.BundleName = "cisco_ios_xr"
     operationStartDetails.EntityData.ParentYangName = "orchestrator"
     operationStartDetails.EntityData.SegmentPath = "operation-start-details"
+    operationStartDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/" + operationStartDetails.EntityData.SegmentPath
     operationStartDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     operationStartDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     operationStartDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -773,6 +785,7 @@ func (internalPrepare *Issu_Internals_Orchestrator_InternalPrepare) GetEntityDat
     internalPrepare.EntityData.BundleName = "cisco_ios_xr"
     internalPrepare.EntityData.ParentYangName = "orchestrator"
     internalPrepare.EntityData.SegmentPath = "internal-prepare"
+    internalPrepare.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/" + internalPrepare.EntityData.SegmentPath
     internalPrepare.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalPrepare.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalPrepare.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -807,6 +820,7 @@ func (prepareStageHistory *Issu_Internals_Orchestrator_InternalPrepare_PrepareSt
     prepareStageHistory.EntityData.BundleName = "cisco_ios_xr"
     prepareStageHistory.EntityData.ParentYangName = "internal-prepare"
     prepareStageHistory.EntityData.SegmentPath = "prepare-stage-history"
+    prepareStageHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/internal-prepare/" + prepareStageHistory.EntityData.SegmentPath
     prepareStageHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prepareStageHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepareStageHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -827,6 +841,7 @@ func (prepareStageHistory *Issu_Internals_Orchestrator_InternalPrepare_PrepareSt
 type Issu_Internals_Orchestrator_InternalPrepare_PrepareStageHistory_HistoricalStage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Integer stage index. The type is interface{} with
     // range: 0..4294967295.
@@ -862,6 +877,7 @@ func (historicalStage *Issu_Internals_Orchestrator_InternalPrepare_PrepareStageH
     historicalStage.EntityData.BundleName = "cisco_ios_xr"
     historicalStage.EntityData.ParentYangName = "prepare-stage-history"
     historicalStage.EntityData.SegmentPath = "historical-stage" + types.AddKeyToken(historicalStage.StageIndex, "stage-index")
+    historicalStage.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/internal-prepare/prepare-stage-history/" + historicalStage.EntityData.SegmentPath
     historicalStage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     historicalStage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     historicalStage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -929,6 +945,7 @@ func (internalActivate *Issu_Internals_Orchestrator_InternalActivate) GetEntityD
     internalActivate.EntityData.BundleName = "cisco_ios_xr"
     internalActivate.EntityData.ParentYangName = "orchestrator"
     internalActivate.EntityData.SegmentPath = "internal-activate"
+    internalActivate.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/" + internalActivate.EntityData.SegmentPath
     internalActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     internalActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     internalActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -967,6 +984,7 @@ func (activateStageHistory *Issu_Internals_Orchestrator_InternalActivate_Activat
     activateStageHistory.EntityData.BundleName = "cisco_ios_xr"
     activateStageHistory.EntityData.ParentYangName = "internal-activate"
     activateStageHistory.EntityData.SegmentPath = "activate-stage-history"
+    activateStageHistory.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/internal-activate/" + activateStageHistory.EntityData.SegmentPath
     activateStageHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activateStageHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activateStageHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -987,6 +1005,7 @@ func (activateStageHistory *Issu_Internals_Orchestrator_InternalActivate_Activat
 type Issu_Internals_Orchestrator_InternalActivate_ActivateStageHistory_HistoricalStage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Integer stage index. The type is interface{} with
     // range: 0..4294967295.
@@ -1022,6 +1041,7 @@ func (historicalStage *Issu_Internals_Orchestrator_InternalActivate_ActivateStag
     historicalStage.EntityData.BundleName = "cisco_ios_xr"
     historicalStage.EntityData.ParentYangName = "activate-stage-history"
     historicalStage.EntityData.SegmentPath = "historical-stage" + types.AddKeyToken(historicalStage.StageIndex, "stage-index")
+    historicalStage.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/internal-activate/activate-stage-history/" + historicalStage.EntityData.SegmentPath
     historicalStage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     historicalStage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     historicalStage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1092,6 +1112,7 @@ func (self *Issu_Internals_Orchestrator_Error) GetEntityData() *types.CommonEnti
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "orchestrator"
     self.EntityData.SegmentPath = "error"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1137,6 +1158,7 @@ func (agents *Issu_Internals_Agents) GetEntityData() *types.CommonEntityData {
     agents.EntityData.BundleName = "cisco_ios_xr"
     agents.EntityData.ParentYangName = "internals"
     agents.EntityData.SegmentPath = "agents"
+    agents.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/" + agents.EntityData.SegmentPath
     agents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1168,6 +1190,7 @@ func (requests *Issu_Internals_Agents_Requests) GetEntityData() *types.CommonEnt
     requests.EntityData.BundleName = "cisco_ios_xr"
     requests.EntityData.ParentYangName = "agents"
     requests.EntityData.SegmentPath = "requests"
+    requests.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/" + requests.EntityData.SegmentPath
     requests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1188,6 +1211,7 @@ func (requests *Issu_Internals_Agents_Requests) GetEntityData() *types.CommonEnt
 type Issu_Internals_Agents_Requests_Request struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Integer request index. The type is interface{}
     // with range: 0..4294967295.
@@ -1217,6 +1241,7 @@ func (request *Issu_Internals_Agents_Requests_Request) GetEntityData() *types.Co
     request.EntityData.BundleName = "cisco_ios_xr"
     request.EntityData.ParentYangName = "requests"
     request.EntityData.SegmentPath = "request" + types.AddKeyToken(request.RequestIndex, "request-index")
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/requests/" + request.EntityData.SegmentPath
     request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1257,6 +1282,7 @@ func (checkpoint *Issu_Internals_Agents_Requests_Request_Checkpoint) GetEntityDa
     checkpoint.EntityData.BundleName = "cisco_ios_xr"
     checkpoint.EntityData.ParentYangName = "request"
     checkpoint.EntityData.SegmentPath = "checkpoint"
+    checkpoint.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/requests/request/" + checkpoint.EntityData.SegmentPath
     checkpoint.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     checkpoint.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     checkpoint.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1301,6 +1327,7 @@ func (agents *Issu_Internals_Agents_Requests_Request_Agents) GetEntityData() *ty
     agents.EntityData.BundleName = "cisco_ios_xr"
     agents.EntityData.ParentYangName = "request"
     agents.EntityData.SegmentPath = "agents"
+    agents.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/requests/request/" + agents.EntityData.SegmentPath
     agents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1321,6 +1348,7 @@ func (agents *Issu_Internals_Agents_Requests_Request_Agents) GetEntityData() *ty
 type Issu_Internals_Agents_Requests_Request_Agents_Agent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Integer agent index. The type is interface{} with
     // range: 0..4294967295.
@@ -1342,6 +1370,7 @@ func (agent *Issu_Internals_Agents_Requests_Request_Agents_Agent) GetEntityData(
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "agents"
     agent.EntityData.SegmentPath = "agent" + types.AddKeyToken(agent.AgentIndex, "agent-index")
+    agent.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/requests/request/agents/" + agent.EntityData.SegmentPath
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1376,6 +1405,7 @@ func (responseContents *Issu_Internals_Agents_Requests_Request_Agents_Agent_Resp
     responseContents.EntityData.BundleName = "cisco_ios_xr"
     responseContents.EntityData.ParentYangName = "agent"
     responseContents.EntityData.SegmentPath = "response-contents"
+    responseContents.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/requests/request/agents/agent/" + responseContents.EntityData.SegmentPath
     responseContents.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     responseContents.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     responseContents.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1437,6 +1467,7 @@ func (inventory *Issu_Internals_Agents_Inventory) GetEntityData() *types.CommonE
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "agents"
     inventory.EntityData.SegmentPath = "inventory"
+    inventory.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/" + inventory.EntityData.SegmentPath
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1457,6 +1488,7 @@ func (inventory *Issu_Internals_Agents_Inventory) GetEntityData() *types.CommonE
 type Issu_Internals_Agents_Inventory_Agent struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Integer agent index. The type is interface{} with
     // range: 0..4294967295.
@@ -1475,6 +1507,7 @@ func (agent *Issu_Internals_Agents_Inventory_Agent) GetEntityData() *types.Commo
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "inventory"
     agent.EntityData.SegmentPath = "agent" + types.AddKeyToken(agent.AgentIndex, "agent-index")
+    agent.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/inventory/" + agent.EntityData.SegmentPath
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1513,6 +1546,7 @@ func (reloadTracking *Issu_Internals_Agents_ReloadTracking) GetEntityData() *typ
     reloadTracking.EntityData.BundleName = "cisco_ios_xr"
     reloadTracking.EntityData.ParentYangName = "agents"
     reloadTracking.EntityData.SegmentPath = "reload-tracking"
+    reloadTracking.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/" + reloadTracking.EntityData.SegmentPath
     reloadTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reloadTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reloadTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1535,6 +1569,7 @@ func (reloadTracking *Issu_Internals_Agents_ReloadTracking) GetEntityData() *typ
 type Issu_Internals_Agents_ReloadTracking_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Integer node index. The type is interface{} with
     // range: 0..4294967295.
@@ -1553,6 +1588,7 @@ func (node *Issu_Internals_Agents_ReloadTracking_Node) GetEntityData() *types.Co
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "reload-tracking"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeIndex, "node-index")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/reload-tracking/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1584,6 +1620,7 @@ func (inventoryMonitor *Issu_Internals_InventoryMonitor) GetEntityData() *types.
     inventoryMonitor.EntityData.BundleName = "cisco_ios_xr"
     inventoryMonitor.EntityData.ParentYangName = "internals"
     inventoryMonitor.EntityData.SegmentPath = "inventory-monitor"
+    inventoryMonitor.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/" + inventoryMonitor.EntityData.SegmentPath
     inventoryMonitor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventoryMonitor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventoryMonitor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1614,6 +1651,7 @@ func (inventory *Issu_Internals_InventoryMonitor_Inventory) GetEntityData() *typ
     inventory.EntityData.BundleName = "cisco_ios_xr"
     inventory.EntityData.ParentYangName = "inventory-monitor"
     inventory.EntityData.SegmentPath = "inventory"
+    inventory.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/inventory-monitor/" + inventory.EntityData.SegmentPath
     inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1635,6 +1673,7 @@ func (inventory *Issu_Internals_InventoryMonitor_Inventory) GetEntityData() *typ
 type Issu_Internals_InventoryMonitor_Inventory_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string.
     Node interface{}
@@ -1649,6 +1688,7 @@ func (node *Issu_Internals_InventoryMonitor_Inventory_Node) GetEntityData() *typ
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "inventory"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Node, "node")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-issu:issu/internals/inventory-monitor/inventory/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

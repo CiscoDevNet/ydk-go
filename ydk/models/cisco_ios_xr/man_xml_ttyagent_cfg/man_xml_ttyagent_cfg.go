@@ -43,6 +43,7 @@ func (xrXml *XrXml) GetEntityData() *types.CommonEntityData {
     xrXml.EntityData.BundleName = "cisco_ios_xr"
     xrXml.EntityData.ParentYangName = "Cisco-IOS-XR-man-xml-ttyagent-cfg"
     xrXml.EntityData.SegmentPath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml"
+    xrXml.EntityData.AbsolutePath = xrXml.EntityData.SegmentPath
     xrXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -78,6 +79,7 @@ func (agent *XrXml_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "xr-xml"
     agent.EntityData.SegmentPath = "agent"
+    agent.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/" + agent.EntityData.SegmentPath
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -133,6 +135,7 @@ func (self *XrXml_Agent_Default) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "agent"
     self.EntityData.SegmentPath = "default"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -170,6 +173,7 @@ func (session *XrXml_Agent_Default_Session) GetEntityData() *types.CommonEntityD
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "default"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -204,6 +208,7 @@ func (throttle *XrXml_Agent_Default_Throttle) GetEntityData() *types.CommonEntit
     throttle.EntityData.BundleName = "cisco_ios_xr"
     throttle.EntityData.ParentYangName = "default"
     throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/" + throttle.EntityData.SegmentPath
     throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -234,6 +239,7 @@ func (vrfs *XrXml_Agent_Default_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "default"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -255,6 +261,7 @@ func (vrfs *XrXml_Agent_Default_Vrfs) GetEntityData() *types.CommonEntityData {
 type XrXml_Agent_Default_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
     VrfName interface{}
@@ -279,6 +286,7 @@ func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetEntityData() *types.CommonEntityData
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/default/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -327,6 +335,7 @@ func (tty *XrXml_Agent_Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.BundleName = "cisco_ios_xr"
     tty.EntityData.ParentYangName = "agent"
     tty.EntityData.SegmentPath = "tty"
+    tty.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/" + tty.EntityData.SegmentPath
     tty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -361,6 +370,7 @@ func (session *XrXml_Agent_Tty_Session) GetEntityData() *types.CommonEntityData 
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "tty"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/tty/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -395,6 +405,7 @@ func (throttle *XrXml_Agent_Tty_Throttle) GetEntityData() *types.CommonEntityDat
     throttle.EntityData.BundleName = "cisco_ios_xr"
     throttle.EntityData.ParentYangName = "tty"
     throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/tty/" + throttle.EntityData.SegmentPath
     throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -443,6 +454,7 @@ func (ssl *XrXml_Agent_Ssl) GetEntityData() *types.CommonEntityData {
     ssl.EntityData.BundleName = "cisco_ios_xr"
     ssl.EntityData.ParentYangName = "agent"
     ssl.EntityData.SegmentPath = "ssl"
+    ssl.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/" + ssl.EntityData.SegmentPath
     ssl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -478,6 +490,7 @@ func (session *XrXml_Agent_Ssl_Session) GetEntityData() *types.CommonEntityData 
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "ssl"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -512,6 +525,7 @@ func (throttle *XrXml_Agent_Ssl_Throttle) GetEntityData() *types.CommonEntityDat
     throttle.EntityData.BundleName = "cisco_ios_xr"
     throttle.EntityData.ParentYangName = "ssl"
     throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/" + throttle.EntityData.SegmentPath
     throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -542,6 +556,7 @@ func (vrfs *XrXml_Agent_Ssl_Vrfs) GetEntityData() *types.CommonEntityData {
     vrfs.EntityData.BundleName = "cisco_ios_xr"
     vrfs.EntityData.ParentYangName = "ssl"
     vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/" + vrfs.EntityData.SegmentPath
     vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -563,6 +578,7 @@ func (vrfs *XrXml_Agent_Ssl_Vrfs) GetEntityData() *types.CommonEntityData {
 type XrXml_Agent_Ssl_Vrfs_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
     VrfName interface{}
@@ -587,6 +603,7 @@ func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrfs"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml/agent/ssl/vrfs/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -620,6 +637,7 @@ func (netconf *Netconf) GetEntityData() *types.CommonEntityData {
     netconf.EntityData.BundleName = "cisco_ios_xr"
     netconf.EntityData.ParentYangName = "Cisco-IOS-XR-man-xml-ttyagent-cfg"
     netconf.EntityData.SegmentPath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf"
+    netconf.EntityData.AbsolutePath = netconf.EntityData.SegmentPath
     netconf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     netconf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     netconf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -649,6 +667,7 @@ func (agent *Netconf_Agent) GetEntityData() *types.CommonEntityData {
     agent.EntityData.BundleName = "cisco_ios_xr"
     agent.EntityData.ParentYangName = "netconf"
     agent.EntityData.SegmentPath = "agent"
+    agent.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/" + agent.EntityData.SegmentPath
     agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -684,6 +703,7 @@ func (tty *Netconf_Agent_Tty) GetEntityData() *types.CommonEntityData {
     tty.EntityData.BundleName = "cisco_ios_xr"
     tty.EntityData.ParentYangName = "agent"
     tty.EntityData.SegmentPath = "tty"
+    tty.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/agent/" + tty.EntityData.SegmentPath
     tty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -724,6 +744,7 @@ func (throttle *Netconf_Agent_Tty_Throttle) GetEntityData() *types.CommonEntityD
     throttle.EntityData.BundleName = "cisco_ios_xr"
     throttle.EntityData.ParentYangName = "tty"
     throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/agent/tty/" + throttle.EntityData.SegmentPath
     throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -756,6 +777,7 @@ func (session *Netconf_Agent_Tty_Session) GetEntityData() *types.CommonEntityDat
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "tty"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/agent/tty/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

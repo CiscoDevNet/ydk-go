@@ -196,6 +196,7 @@ func (logicalChannels *LogicalChannels) GetEntityData() *types.CommonEntityData 
     logicalChannels.EntityData.BundleName = "cisco_ios_xr"
     logicalChannels.EntityData.ParentYangName = "Cisco-IOS-XR-terminal-device-cfg"
     logicalChannels.EntityData.SegmentPath = "Cisco-IOS-XR-terminal-device-cfg:logical-channels"
+    logicalChannels.EntityData.AbsolutePath = logicalChannels.EntityData.SegmentPath
     logicalChannels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logicalChannels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logicalChannels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -217,6 +218,7 @@ func (logicalChannels *LogicalChannels) GetEntityData() *types.CommonEntityData 
 type LogicalChannels_Channel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Logical Channel Index. The type is interface{}
     // with range: 0..4294967295.
@@ -261,6 +263,7 @@ func (channel *LogicalChannels_Channel) GetEntityData() *types.CommonEntityData 
     channel.EntityData.BundleName = "cisco_ios_xr"
     channel.EntityData.ParentYangName = "logical-channels"
     channel.EntityData.SegmentPath = "channel" + types.AddKeyToken(channel.ChannelIndex, "channel-index")
+    channel.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-cfg:logical-channels/" + channel.EntityData.SegmentPath
     channel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     channel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     channel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -301,6 +304,7 @@ func (logicalChannelAssignments *LogicalChannels_Channel_LogicalChannelAssignmen
     logicalChannelAssignments.EntityData.BundleName = "cisco_ios_xr"
     logicalChannelAssignments.EntityData.ParentYangName = "channel"
     logicalChannelAssignments.EntityData.SegmentPath = "logical-channel-assignments"
+    logicalChannelAssignments.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-cfg:logical-channels/channel/" + logicalChannelAssignments.EntityData.SegmentPath
     logicalChannelAssignments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logicalChannelAssignments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logicalChannelAssignments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -322,6 +326,7 @@ func (logicalChannelAssignments *LogicalChannels_Channel_LogicalChannelAssignmen
 type LogicalChannels_Channel_LogicalChannelAssignments_LogicalChannelAssignment struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Logical channel assignment index. The type is
     // interface{} with range: 0..4294967295.
@@ -353,6 +358,7 @@ func (logicalChannelAssignment *LogicalChannels_Channel_LogicalChannelAssignment
     logicalChannelAssignment.EntityData.BundleName = "cisco_ios_xr"
     logicalChannelAssignment.EntityData.ParentYangName = "logical-channel-assignments"
     logicalChannelAssignment.EntityData.SegmentPath = "logical-channel-assignment" + types.AddKeyToken(logicalChannelAssignment.AssignmentIndex, "assignment-index")
+    logicalChannelAssignment.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-cfg:logical-channels/channel/logical-channel-assignments/" + logicalChannelAssignment.EntityData.SegmentPath
     logicalChannelAssignment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logicalChannelAssignment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logicalChannelAssignment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -398,6 +404,7 @@ func (otn *LogicalChannels_Channel_Otn) GetEntityData() *types.CommonEntityData 
     otn.EntityData.BundleName = "cisco_ios_xr"
     otn.EntityData.ParentYangName = "channel"
     otn.EntityData.SegmentPath = "otn"
+    otn.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-cfg:logical-channels/channel/" + otn.EntityData.SegmentPath
     otn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     otn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     otn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -429,6 +436,7 @@ func (opticalChannels *OpticalChannels) GetEntityData() *types.CommonEntityData 
     opticalChannels.EntityData.BundleName = "cisco_ios_xr"
     opticalChannels.EntityData.ParentYangName = "Cisco-IOS-XR-terminal-device-cfg"
     opticalChannels.EntityData.SegmentPath = "Cisco-IOS-XR-terminal-device-cfg:optical-channels"
+    opticalChannels.EntityData.AbsolutePath = opticalChannels.EntityData.SegmentPath
     opticalChannels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalChannels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalChannels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -450,6 +458,7 @@ func (opticalChannels *OpticalChannels) GetEntityData() *types.CommonEntityData 
 type OpticalChannels_OpticalChannel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Optical Channel Name. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -468,6 +477,7 @@ func (opticalChannel *OpticalChannels_OpticalChannel) GetEntityData() *types.Com
     opticalChannel.EntityData.BundleName = "cisco_ios_xr"
     opticalChannel.EntityData.ParentYangName = "optical-channels"
     opticalChannel.EntityData.SegmentPath = "optical-channel" + types.AddKeyToken(opticalChannel.Ifname, "ifname")
+    opticalChannel.EntityData.AbsolutePath = "Cisco-IOS-XR-terminal-device-cfg:optical-channels/" + opticalChannel.EntityData.SegmentPath
     opticalChannel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     opticalChannel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     opticalChannel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

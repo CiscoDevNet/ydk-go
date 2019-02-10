@@ -117,6 +117,7 @@ func (classifiers *Classifiers) GetEntityData() *types.CommonEntityData {
     classifiers.EntityData.BundleName = "ietf"
     classifiers.EntityData.ParentYangName = "ietf-diffserv-classifier"
     classifiers.EntityData.SegmentPath = "ietf-diffserv-classifier:classifiers"
+    classifiers.EntityData.AbsolutePath = classifiers.EntityData.SegmentPath
     classifiers.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     classifiers.EntityData.NamespaceTable = ietf.GetNamespaces()
     classifiers.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -138,6 +139,7 @@ func (classifiers *Classifiers) GetEntityData() *types.CommonEntityData {
 type Classifiers_ClassifierEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Diffserv classifier name. The type is string.
     ClassifierEntryName interface{}
@@ -161,6 +163,7 @@ func (classifierEntry *Classifiers_ClassifierEntry) GetEntityData() *types.Commo
     classifierEntry.EntityData.BundleName = "ietf"
     classifierEntry.EntityData.ParentYangName = "classifiers"
     classifierEntry.EntityData.SegmentPath = "classifier-entry" + types.AddKeyToken(classifierEntry.ClassifierEntryName, "classifier-entry-name")
+    classifierEntry.EntityData.AbsolutePath = "ietf-diffserv-classifier:classifiers/" + classifierEntry.EntityData.SegmentPath
     classifierEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     classifierEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     classifierEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -185,6 +188,7 @@ func (classifierEntry *Classifiers_ClassifierEntry) GetEntityData() *types.Commo
 type Classifiers_ClassifierEntry_FilterEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This leaf defines type of the filter. The type is
     // one of the following:
@@ -227,6 +231,7 @@ func (filterEntry *Classifiers_ClassifierEntry_FilterEntry) GetEntityData() *typ
     filterEntry.EntityData.BundleName = "ietf"
     filterEntry.EntityData.ParentYangName = "classifier-entry"
     filterEntry.EntityData.SegmentPath = "filter-entry" + types.AddKeyToken(filterEntry.FilterType, "filter-type") + types.AddKeyToken(filterEntry.FilterLogicalNot, "filter-logical-not")
+    filterEntry.EntityData.AbsolutePath = "ietf-diffserv-classifier:classifiers/classifier-entry/" + filterEntry.EntityData.SegmentPath
     filterEntry.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     filterEntry.EntityData.NamespaceTable = ietf.GetNamespaces()
     filterEntry.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -270,6 +275,7 @@ func (filterEntry *Classifiers_ClassifierEntry_FilterEntry) GetEntityData() *typ
 type Classifiers_ClassifierEntry_FilterEntry_DscpCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Minimum value of dscp range. The type is
     // interface{} with range: 0..63.
@@ -286,6 +292,7 @@ func (dscpCfg *Classifiers_ClassifierEntry_FilterEntry_DscpCfg) GetEntityData() 
     dscpCfg.EntityData.BundleName = "ietf"
     dscpCfg.EntityData.ParentYangName = "filter-entry"
     dscpCfg.EntityData.SegmentPath = "dscp-cfg" + types.AddKeyToken(dscpCfg.DscpMin, "dscp-min") + types.AddKeyToken(dscpCfg.DscpMax, "dscp-max")
+    dscpCfg.EntityData.AbsolutePath = "ietf-diffserv-classifier:classifiers/classifier-entry/filter-entry/" + dscpCfg.EntityData.SegmentPath
     dscpCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     dscpCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     dscpCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -305,6 +312,7 @@ func (dscpCfg *Classifiers_ClassifierEntry_FilterEntry_DscpCfg) GetEntityData() 
 type Classifiers_ClassifierEntry_FilterEntry_SourceIpAddressCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. source ip prefix. The type is one of the following
     // types: string with pattern:
@@ -320,6 +328,7 @@ func (sourceIpAddressCfg *Classifiers_ClassifierEntry_FilterEntry_SourceIpAddres
     sourceIpAddressCfg.EntityData.BundleName = "ietf"
     sourceIpAddressCfg.EntityData.ParentYangName = "filter-entry"
     sourceIpAddressCfg.EntityData.SegmentPath = "source-ip-address-cfg" + types.AddKeyToken(sourceIpAddressCfg.SourceIpAddr, "source-ip-addr")
+    sourceIpAddressCfg.EntityData.AbsolutePath = "ietf-diffserv-classifier:classifiers/classifier-entry/filter-entry/" + sourceIpAddressCfg.EntityData.SegmentPath
     sourceIpAddressCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sourceIpAddressCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     sourceIpAddressCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -338,6 +347,7 @@ func (sourceIpAddressCfg *Classifiers_ClassifierEntry_FilterEntry_SourceIpAddres
 type Classifiers_ClassifierEntry_FilterEntry_DestinationIpAddressCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. destination ip prefix. The type is one of the
     // following types: string with pattern:
@@ -353,6 +363,7 @@ func (destinationIpAddressCfg *Classifiers_ClassifierEntry_FilterEntry_Destinati
     destinationIpAddressCfg.EntityData.BundleName = "ietf"
     destinationIpAddressCfg.EntityData.ParentYangName = "filter-entry"
     destinationIpAddressCfg.EntityData.SegmentPath = "destination-ip-address-cfg" + types.AddKeyToken(destinationIpAddressCfg.DestinationIpAddr, "destination-ip-addr")
+    destinationIpAddressCfg.EntityData.AbsolutePath = "ietf-diffserv-classifier:classifiers/classifier-entry/filter-entry/" + destinationIpAddressCfg.EntityData.SegmentPath
     destinationIpAddressCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     destinationIpAddressCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     destinationIpAddressCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -371,6 +382,7 @@ func (destinationIpAddressCfg *Classifiers_ClassifierEntry_FilterEntry_Destinati
 type Classifiers_ClassifierEntry_FilterEntry_SourcePortCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. minimum value of source port range. The type is
     // interface{} with range: 0..65535.
@@ -387,6 +399,7 @@ func (sourcePortCfg *Classifiers_ClassifierEntry_FilterEntry_SourcePortCfg) GetE
     sourcePortCfg.EntityData.BundleName = "ietf"
     sourcePortCfg.EntityData.ParentYangName = "filter-entry"
     sourcePortCfg.EntityData.SegmentPath = "source-port-cfg" + types.AddKeyToken(sourcePortCfg.SourcePortMin, "source-port-min") + types.AddKeyToken(sourcePortCfg.SourcePortMax, "source-port-max")
+    sourcePortCfg.EntityData.AbsolutePath = "ietf-diffserv-classifier:classifiers/classifier-entry/filter-entry/" + sourcePortCfg.EntityData.SegmentPath
     sourcePortCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     sourcePortCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     sourcePortCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -406,6 +419,7 @@ func (sourcePortCfg *Classifiers_ClassifierEntry_FilterEntry_SourcePortCfg) GetE
 type Classifiers_ClassifierEntry_FilterEntry_DestinationPortCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. minimum value of destination port range. The type
     // is interface{} with range: 0..65535.
@@ -422,6 +436,7 @@ func (destinationPortCfg *Classifiers_ClassifierEntry_FilterEntry_DestinationPor
     destinationPortCfg.EntityData.BundleName = "ietf"
     destinationPortCfg.EntityData.ParentYangName = "filter-entry"
     destinationPortCfg.EntityData.SegmentPath = "destination-port-cfg" + types.AddKeyToken(destinationPortCfg.DestinationPortMin, "destination-port-min") + types.AddKeyToken(destinationPortCfg.DestinationPortMax, "destination-port-max")
+    destinationPortCfg.EntityData.AbsolutePath = "ietf-diffserv-classifier:classifiers/classifier-entry/filter-entry/" + destinationPortCfg.EntityData.SegmentPath
     destinationPortCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     destinationPortCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     destinationPortCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -441,6 +456,7 @@ func (destinationPortCfg *Classifiers_ClassifierEntry_FilterEntry_DestinationPor
 type Classifiers_ClassifierEntry_FilterEntry_ProtocolCfg struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. minimum value of protocol range. The type is
     // interface{} with range: 0..255.
@@ -457,6 +473,7 @@ func (protocolCfg *Classifiers_ClassifierEntry_FilterEntry_ProtocolCfg) GetEntit
     protocolCfg.EntityData.BundleName = "ietf"
     protocolCfg.EntityData.ParentYangName = "filter-entry"
     protocolCfg.EntityData.SegmentPath = "protocol-cfg" + types.AddKeyToken(protocolCfg.ProtocolMin, "protocol-min") + types.AddKeyToken(protocolCfg.ProtocolMax, "protocol-max")
+    protocolCfg.EntityData.AbsolutePath = "ietf-diffserv-classifier:classifiers/classifier-entry/filter-entry/" + protocolCfg.EntityData.SegmentPath
     protocolCfg.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     protocolCfg.EntityData.NamespaceTable = ietf.GetNamespaces()
     protocolCfg.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

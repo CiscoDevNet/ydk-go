@@ -486,6 +486,7 @@ func (subscriber *Subscriber) GetEntityData() *types.CommonEntityData {
     subscriber.EntityData.BundleName = "cisco_ios_xr"
     subscriber.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-oper"
     subscriber.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-oper:subscriber"
+    subscriber.EntityData.AbsolutePath = subscriber.EntityData.SegmentPath
     subscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -516,6 +517,7 @@ func (manager *Subscriber_Manager) GetEntityData() *types.CommonEntityData {
     manager.EntityData.BundleName = "cisco_ios_xr"
     manager.EntityData.ParentYangName = "subscriber"
     manager.EntityData.SegmentPath = "manager"
+    manager.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/" + manager.EntityData.SegmentPath
     manager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     manager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     manager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -546,6 +548,7 @@ func (nodes *Subscriber_Manager_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "manager"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -568,6 +571,7 @@ func (nodes *Subscriber_Manager_Nodes) GetEntityData() *types.CommonEntityData {
 type Subscriber_Manager_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -583,6 +587,7 @@ func (node *Subscriber_Manager_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -619,6 +624,7 @@ func (statistics *Subscriber_Manager_Nodes_Node_Statistics) GetEntityData() *typ
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "node"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -683,6 +689,7 @@ func (aaa *Subscriber_Manager_Nodes_Node_Statistics_Aaa) GetEntityData() *types.
     aaa.EntityData.BundleName = "cisco_ios_xr"
     aaa.EntityData.ParentYangName = "statistics"
     aaa.EntityData.SegmentPath = "aaa"
+    aaa.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/" + aaa.EntityData.SegmentPath
     aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -757,6 +764,7 @@ func (aggregateAccounting *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     aggregateAccounting.EntityData.BundleName = "cisco_ios_xr"
     aggregateAccounting.EntityData.ParentYangName = "aaa"
     aggregateAccounting.EntityData.SegmentPath = "aggregate-accounting"
+    aggregateAccounting.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + aggregateAccounting.EntityData.SegmentPath
     aggregateAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -817,6 +825,7 @@ func (start *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccounting_St
     start.EntityData.BundleName = "cisco_ios_xr"
     start.EntityData.ParentYangName = "aggregate-accounting"
     start.EntityData.SegmentPath = "start"
+    start.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting/" + start.EntityData.SegmentPath
     start.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -872,6 +881,7 @@ func (stop *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccounting_Sto
     stop.EntityData.BundleName = "cisco_ios_xr"
     stop.EntityData.ParentYangName = "aggregate-accounting"
     stop.EntityData.SegmentPath = "stop"
+    stop.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting/" + stop.EntityData.SegmentPath
     stop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -927,6 +937,7 @@ func (interim *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccounting_
     interim.EntityData.BundleName = "cisco_ios_xr"
     interim.EntityData.ParentYangName = "aggregate-accounting"
     interim.EntityData.SegmentPath = "interim"
+    interim.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting/" + interim.EntityData.SegmentPath
     interim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -982,6 +993,7 @@ func (passThrough *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccount
     passThrough.EntityData.BundleName = "cisco_ios_xr"
     passThrough.EntityData.ParentYangName = "aggregate-accounting"
     passThrough.EntityData.SegmentPath = "pass-through"
+    passThrough.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting/" + passThrough.EntityData.SegmentPath
     passThrough.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     passThrough.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passThrough.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1037,6 +1049,7 @@ func (update *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccounting_U
     update.EntityData.BundleName = "cisco_ios_xr"
     update.EntityData.ParentYangName = "aggregate-accounting"
     update.EntityData.SegmentPath = "update"
+    update.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting/" + update.EntityData.SegmentPath
     update.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     update.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1088,6 +1101,7 @@ func (interimInflight *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAcc
     interimInflight.EntityData.BundleName = "cisco_ios_xr"
     interimInflight.EntityData.ParentYangName = "aggregate-accounting"
     interimInflight.EntityData.SegmentPath = "interim-inflight"
+    interimInflight.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting/" + interimInflight.EntityData.SegmentPath
     interimInflight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interimInflight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interimInflight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1151,6 +1165,7 @@ func (authentication *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Authenticatio
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "aaa"
     authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1200,6 +1215,7 @@ func (aggregateMobility *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateM
     aggregateMobility.EntityData.BundleName = "cisco_ios_xr"
     aggregateMobility.EntityData.ParentYangName = "aaa"
     aggregateMobility.EntityData.SegmentPath = "aggregate-mobility"
+    aggregateMobility.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + aggregateMobility.EntityData.SegmentPath
     aggregateMobility.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateMobility.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateMobility.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1261,6 +1277,7 @@ func (aggregateAuthentication *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggr
     aggregateAuthentication.EntityData.BundleName = "cisco_ios_xr"
     aggregateAuthentication.EntityData.ParentYangName = "aaa"
     aggregateAuthentication.EntityData.SegmentPath = "aggregate-authentication"
+    aggregateAuthentication.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + aggregateAuthentication.EntityData.SegmentPath
     aggregateAuthentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAuthentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAuthentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1310,6 +1327,7 @@ func (accountingStatsAll *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accountin
     accountingStatsAll.EntityData.BundleName = "cisco_ios_xr"
     accountingStatsAll.EntityData.ParentYangName = "aaa"
     accountingStatsAll.EntityData.SegmentPath = "accounting-stats-all"
+    accountingStatsAll.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + accountingStatsAll.EntityData.SegmentPath
     accountingStatsAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountingStatsAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingStatsAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1377,6 +1395,7 @@ func (accountingStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Account
     accountingStatistics.EntityData.BundleName = "cisco_ios_xr"
     accountingStatistics.EntityData.ParentYangName = "accounting-stats-all"
     accountingStatistics.EntityData.SegmentPath = "accounting-statistics"
+    accountingStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/" + accountingStatistics.EntityData.SegmentPath
     accountingStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1437,6 +1456,7 @@ func (start *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_Acc
     start.EntityData.BundleName = "cisco_ios_xr"
     start.EntityData.ParentYangName = "accounting-statistics"
     start.EntityData.SegmentPath = "start"
+    start.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/accounting-statistics/" + start.EntityData.SegmentPath
     start.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1492,6 +1512,7 @@ func (stop *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_Acco
     stop.EntityData.BundleName = "cisco_ios_xr"
     stop.EntityData.ParentYangName = "accounting-statistics"
     stop.EntityData.SegmentPath = "stop"
+    stop.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/accounting-statistics/" + stop.EntityData.SegmentPath
     stop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1547,6 +1568,7 @@ func (interim *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_A
     interim.EntityData.BundleName = "cisco_ios_xr"
     interim.EntityData.ParentYangName = "accounting-statistics"
     interim.EntityData.SegmentPath = "interim"
+    interim.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/accounting-statistics/" + interim.EntityData.SegmentPath
     interim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1602,6 +1624,7 @@ func (passThrough *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsA
     passThrough.EntityData.BundleName = "cisco_ios_xr"
     passThrough.EntityData.ParentYangName = "accounting-statistics"
     passThrough.EntityData.SegmentPath = "pass-through"
+    passThrough.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/accounting-statistics/" + passThrough.EntityData.SegmentPath
     passThrough.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     passThrough.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passThrough.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1657,6 +1680,7 @@ func (update *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStatsAll_Ac
     update.EntityData.BundleName = "cisco_ios_xr"
     update.EntityData.ParentYangName = "accounting-statistics"
     update.EntityData.SegmentPath = "update"
+    update.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/accounting-statistics/" + update.EntityData.SegmentPath
     update.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     update.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1708,6 +1732,7 @@ func (interimInflight *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingSt
     interimInflight.EntityData.BundleName = "cisco_ios_xr"
     interimInflight.EntityData.ParentYangName = "accounting-statistics"
     interimInflight.EntityData.SegmentPath = "interim-inflight"
+    interimInflight.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/accounting-statistics/" + interimInflight.EntityData.SegmentPath
     interimInflight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interimInflight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interimInflight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1771,6 +1796,7 @@ func (authenticationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Acc
     authenticationStatistics.EntityData.BundleName = "cisco_ios_xr"
     authenticationStatistics.EntityData.ParentYangName = "accounting-stats-all"
     authenticationStatistics.EntityData.SegmentPath = "authentication-statistics"
+    authenticationStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/" + authenticationStatistics.EntityData.SegmentPath
     authenticationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1836,6 +1862,7 @@ func (authorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Acco
     authorizationStatistics.EntityData.BundleName = "cisco_ios_xr"
     authorizationStatistics.EntityData.ParentYangName = "accounting-stats-all"
     authorizationStatistics.EntityData.SegmentPath = "authorization-statistics"
+    authorizationStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/" + authorizationStatistics.EntityData.SegmentPath
     authorizationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorizationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorizationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1933,6 +1960,7 @@ func (changeOfAuthorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_
     changeOfAuthorizationStatistics.EntityData.BundleName = "cisco_ios_xr"
     changeOfAuthorizationStatistics.EntityData.ParentYangName = "accounting-stats-all"
     changeOfAuthorizationStatistics.EntityData.SegmentPath = "change-of-authorization-statistics"
+    changeOfAuthorizationStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/" + changeOfAuthorizationStatistics.EntityData.SegmentPath
     changeOfAuthorizationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeOfAuthorizationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeOfAuthorizationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1988,6 +2016,7 @@ func (accountLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStats
     accountLogon.EntityData.BundleName = "cisco_ios_xr"
     accountLogon.EntityData.ParentYangName = "change-of-authorization-statistics"
     accountLogon.EntityData.SegmentPath = "account-logon"
+    accountLogon.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/change-of-authorization-statistics/" + accountLogon.EntityData.SegmentPath
     accountLogon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2028,6 +2057,7 @@ func (accountLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStat
     accountLogoff.EntityData.BundleName = "cisco_ios_xr"
     accountLogoff.EntityData.ParentYangName = "change-of-authorization-statistics"
     accountLogoff.EntityData.SegmentPath = "account-logoff"
+    accountLogoff.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/change-of-authorization-statistics/" + accountLogoff.EntityData.SegmentPath
     accountLogoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2068,6 +2098,7 @@ func (accountUpdate *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStat
     accountUpdate.EntityData.BundleName = "cisco_ios_xr"
     accountUpdate.EntityData.ParentYangName = "change-of-authorization-statistics"
     accountUpdate.EntityData.SegmentPath = "account-update"
+    accountUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/change-of-authorization-statistics/" + accountUpdate.EntityData.SegmentPath
     accountUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2108,6 +2139,7 @@ func (sessionDisconnect *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting
     sessionDisconnect.EntityData.BundleName = "cisco_ios_xr"
     sessionDisconnect.EntityData.ParentYangName = "change-of-authorization-statistics"
     sessionDisconnect.EntityData.SegmentPath = "session-disconnect"
+    sessionDisconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/change-of-authorization-statistics/" + sessionDisconnect.EntityData.SegmentPath
     sessionDisconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDisconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDisconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2148,6 +2180,7 @@ func (singleServiceLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accountin
     singleServiceLogon.EntityData.BundleName = "cisco_ios_xr"
     singleServiceLogon.EntityData.ParentYangName = "change-of-authorization-statistics"
     singleServiceLogon.EntityData.SegmentPath = "single-service-logon"
+    singleServiceLogon.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/change-of-authorization-statistics/" + singleServiceLogon.EntityData.SegmentPath
     singleServiceLogon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2188,6 +2221,7 @@ func (singleServiceLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounti
     singleServiceLogoff.EntityData.BundleName = "cisco_ios_xr"
     singleServiceLogoff.EntityData.ParentYangName = "change-of-authorization-statistics"
     singleServiceLogoff.EntityData.SegmentPath = "single-service-logoff"
+    singleServiceLogoff.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/change-of-authorization-statistics/" + singleServiceLogoff.EntityData.SegmentPath
     singleServiceLogoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2228,6 +2262,7 @@ func (singleServiceModify *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounti
     singleServiceModify.EntityData.BundleName = "cisco_ios_xr"
     singleServiceModify.EntityData.ParentYangName = "change-of-authorization-statistics"
     singleServiceModify.EntityData.SegmentPath = "single-service-modify"
+    singleServiceModify.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/change-of-authorization-statistics/" + singleServiceModify.EntityData.SegmentPath
     singleServiceModify.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceModify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceModify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2268,6 +2303,7 @@ func (serviceMulti *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AccountingStats
     serviceMulti.EntityData.BundleName = "cisco_ios_xr"
     serviceMulti.EntityData.ParentYangName = "change-of-authorization-statistics"
     serviceMulti.EntityData.SegmentPath = "service-multi"
+    serviceMulti.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/change-of-authorization-statistics/" + serviceMulti.EntityData.SegmentPath
     serviceMulti.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceMulti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceMulti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2312,6 +2348,7 @@ func (mobilityStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accountin
     mobilityStatistics.EntityData.BundleName = "cisco_ios_xr"
     mobilityStatistics.EntityData.ParentYangName = "accounting-stats-all"
     mobilityStatistics.EntityData.SegmentPath = "mobility-statistics"
+    mobilityStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting-stats-all/" + mobilityStatistics.EntityData.SegmentPath
     mobilityStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobilityStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobilityStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2405,6 +2442,7 @@ func (changeOfAuthorization *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Change
     changeOfAuthorization.EntityData.BundleName = "cisco_ios_xr"
     changeOfAuthorization.EntityData.ParentYangName = "aaa"
     changeOfAuthorization.EntityData.SegmentPath = "change-of-authorization"
+    changeOfAuthorization.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + changeOfAuthorization.EntityData.SegmentPath
     changeOfAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeOfAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeOfAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2460,6 +2498,7 @@ func (accountLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAuthori
     accountLogon.EntityData.BundleName = "cisco_ios_xr"
     accountLogon.EntityData.ParentYangName = "change-of-authorization"
     accountLogon.EntityData.SegmentPath = "account-logon"
+    accountLogon.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/change-of-authorization/" + accountLogon.EntityData.SegmentPath
     accountLogon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2500,6 +2539,7 @@ func (accountLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAuthor
     accountLogoff.EntityData.BundleName = "cisco_ios_xr"
     accountLogoff.EntityData.ParentYangName = "change-of-authorization"
     accountLogoff.EntityData.SegmentPath = "account-logoff"
+    accountLogoff.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/change-of-authorization/" + accountLogoff.EntityData.SegmentPath
     accountLogoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2540,6 +2580,7 @@ func (accountUpdate *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAuthor
     accountUpdate.EntityData.BundleName = "cisco_ios_xr"
     accountUpdate.EntityData.ParentYangName = "change-of-authorization"
     accountUpdate.EntityData.SegmentPath = "account-update"
+    accountUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/change-of-authorization/" + accountUpdate.EntityData.SegmentPath
     accountUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2580,6 +2621,7 @@ func (sessionDisconnect *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAu
     sessionDisconnect.EntityData.BundleName = "cisco_ios_xr"
     sessionDisconnect.EntityData.ParentYangName = "change-of-authorization"
     sessionDisconnect.EntityData.SegmentPath = "session-disconnect"
+    sessionDisconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/change-of-authorization/" + sessionDisconnect.EntityData.SegmentPath
     sessionDisconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDisconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDisconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2620,6 +2662,7 @@ func (singleServiceLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfA
     singleServiceLogon.EntityData.BundleName = "cisco_ios_xr"
     singleServiceLogon.EntityData.ParentYangName = "change-of-authorization"
     singleServiceLogon.EntityData.SegmentPath = "single-service-logon"
+    singleServiceLogon.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/change-of-authorization/" + singleServiceLogon.EntityData.SegmentPath
     singleServiceLogon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2660,6 +2703,7 @@ func (singleServiceLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOf
     singleServiceLogoff.EntityData.BundleName = "cisco_ios_xr"
     singleServiceLogoff.EntityData.ParentYangName = "change-of-authorization"
     singleServiceLogoff.EntityData.SegmentPath = "single-service-logoff"
+    singleServiceLogoff.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/change-of-authorization/" + singleServiceLogoff.EntityData.SegmentPath
     singleServiceLogoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2700,6 +2744,7 @@ func (singleServiceModify *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOf
     singleServiceModify.EntityData.BundleName = "cisco_ios_xr"
     singleServiceModify.EntityData.ParentYangName = "change-of-authorization"
     singleServiceModify.EntityData.SegmentPath = "single-service-modify"
+    singleServiceModify.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/change-of-authorization/" + singleServiceModify.EntityData.SegmentPath
     singleServiceModify.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceModify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceModify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2740,6 +2785,7 @@ func (serviceMulti *Subscriber_Manager_Nodes_Node_Statistics_Aaa_ChangeOfAuthori
     serviceMulti.EntityData.BundleName = "cisco_ios_xr"
     serviceMulti.EntityData.ParentYangName = "change-of-authorization"
     serviceMulti.EntityData.SegmentPath = "service-multi"
+    serviceMulti.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/change-of-authorization/" + serviceMulti.EntityData.SegmentPath
     serviceMulti.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceMulti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceMulti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2800,6 +2846,7 @@ func (authorization *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Authorization)
     authorization.EntityData.BundleName = "cisco_ios_xr"
     authorization.EntityData.ParentYangName = "aaa"
     authorization.EntityData.SegmentPath = "authorization"
+    authorization.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + authorization.EntityData.SegmentPath
     authorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2865,6 +2912,7 @@ func (aggregateAuthorization *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggre
     aggregateAuthorization.EntityData.BundleName = "cisco_ios_xr"
     aggregateAuthorization.EntityData.ParentYangName = "aaa"
     aggregateAuthorization.EntityData.SegmentPath = "aggregate-authorization"
+    aggregateAuthorization.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + aggregateAuthorization.EntityData.SegmentPath
     aggregateAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2914,6 +2962,7 @@ func (aggregateAccountingStatsAll *Subscriber_Manager_Nodes_Node_Statistics_Aaa_
     aggregateAccountingStatsAll.EntityData.BundleName = "cisco_ios_xr"
     aggregateAccountingStatsAll.EntityData.ParentYangName = "aaa"
     aggregateAccountingStatsAll.EntityData.SegmentPath = "aggregate-accounting-stats-all"
+    aggregateAccountingStatsAll.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + aggregateAccountingStatsAll.EntityData.SegmentPath
     aggregateAccountingStatsAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateAccountingStatsAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateAccountingStatsAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2981,6 +3030,7 @@ func (accountingStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggrega
     accountingStatistics.EntityData.BundleName = "cisco_ios_xr"
     accountingStatistics.EntityData.ParentYangName = "aggregate-accounting-stats-all"
     accountingStatistics.EntityData.SegmentPath = "accounting-statistics"
+    accountingStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/" + accountingStatistics.EntityData.SegmentPath
     accountingStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3041,6 +3091,7 @@ func (start *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingSta
     start.EntityData.BundleName = "cisco_ios_xr"
     start.EntityData.ParentYangName = "accounting-statistics"
     start.EntityData.SegmentPath = "start"
+    start.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/accounting-statistics/" + start.EntityData.SegmentPath
     start.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3096,6 +3147,7 @@ func (stop *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingStat
     stop.EntityData.BundleName = "cisco_ios_xr"
     stop.EntityData.ParentYangName = "accounting-statistics"
     stop.EntityData.SegmentPath = "stop"
+    stop.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/accounting-statistics/" + stop.EntityData.SegmentPath
     stop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3151,6 +3203,7 @@ func (interim *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingS
     interim.EntityData.BundleName = "cisco_ios_xr"
     interim.EntityData.ParentYangName = "accounting-statistics"
     interim.EntityData.SegmentPath = "interim"
+    interim.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/accounting-statistics/" + interim.EntityData.SegmentPath
     interim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3206,6 +3259,7 @@ func (passThrough *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccount
     passThrough.EntityData.BundleName = "cisco_ios_xr"
     passThrough.EntityData.ParentYangName = "accounting-statistics"
     passThrough.EntityData.SegmentPath = "pass-through"
+    passThrough.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/accounting-statistics/" + passThrough.EntityData.SegmentPath
     passThrough.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     passThrough.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passThrough.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3261,6 +3315,7 @@ func (update *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccountingSt
     update.EntityData.BundleName = "cisco_ios_xr"
     update.EntityData.ParentYangName = "accounting-statistics"
     update.EntityData.SegmentPath = "update"
+    update.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/accounting-statistics/" + update.EntityData.SegmentPath
     update.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     update.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3312,6 +3367,7 @@ func (interimInflight *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAcc
     interimInflight.EntityData.BundleName = "cisco_ios_xr"
     interimInflight.EntityData.ParentYangName = "accounting-statistics"
     interimInflight.EntityData.SegmentPath = "interim-inflight"
+    interimInflight.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/accounting-statistics/" + interimInflight.EntityData.SegmentPath
     interimInflight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interimInflight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interimInflight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3375,6 +3431,7 @@ func (authenticationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Agg
     authenticationStatistics.EntityData.BundleName = "cisco_ios_xr"
     authenticationStatistics.EntityData.ParentYangName = "aggregate-accounting-stats-all"
     authenticationStatistics.EntityData.SegmentPath = "authentication-statistics"
+    authenticationStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/" + authenticationStatistics.EntityData.SegmentPath
     authenticationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3440,6 +3497,7 @@ func (authorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggr
     authorizationStatistics.EntityData.BundleName = "cisco_ios_xr"
     authorizationStatistics.EntityData.ParentYangName = "aggregate-accounting-stats-all"
     authorizationStatistics.EntityData.SegmentPath = "authorization-statistics"
+    authorizationStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/" + authorizationStatistics.EntityData.SegmentPath
     authorizationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorizationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorizationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3537,6 +3595,7 @@ func (changeOfAuthorizationStatistics *Subscriber_Manager_Nodes_Node_Statistics_
     changeOfAuthorizationStatistics.EntityData.BundleName = "cisco_ios_xr"
     changeOfAuthorizationStatistics.EntityData.ParentYangName = "aggregate-accounting-stats-all"
     changeOfAuthorizationStatistics.EntityData.SegmentPath = "change-of-authorization-statistics"
+    changeOfAuthorizationStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/" + changeOfAuthorizationStatistics.EntityData.SegmentPath
     changeOfAuthorizationStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     changeOfAuthorizationStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     changeOfAuthorizationStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3592,6 +3651,7 @@ func (accountLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccoun
     accountLogon.EntityData.BundleName = "cisco_ios_xr"
     accountLogon.EntityData.ParentYangName = "change-of-authorization-statistics"
     accountLogon.EntityData.SegmentPath = "account-logon"
+    accountLogon.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/change-of-authorization-statistics/" + accountLogon.EntityData.SegmentPath
     accountLogon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3632,6 +3692,7 @@ func (accountLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccou
     accountLogoff.EntityData.BundleName = "cisco_ios_xr"
     accountLogoff.EntityData.ParentYangName = "change-of-authorization-statistics"
     accountLogoff.EntityData.SegmentPath = "account-logoff"
+    accountLogoff.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/change-of-authorization-statistics/" + accountLogoff.EntityData.SegmentPath
     accountLogoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3672,6 +3733,7 @@ func (accountUpdate *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccou
     accountUpdate.EntityData.BundleName = "cisco_ios_xr"
     accountUpdate.EntityData.ParentYangName = "change-of-authorization-statistics"
     accountUpdate.EntityData.SegmentPath = "account-update"
+    accountUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/change-of-authorization-statistics/" + accountUpdate.EntityData.SegmentPath
     accountUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3712,6 +3774,7 @@ func (sessionDisconnect *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateA
     sessionDisconnect.EntityData.BundleName = "cisco_ios_xr"
     sessionDisconnect.EntityData.ParentYangName = "change-of-authorization-statistics"
     sessionDisconnect.EntityData.SegmentPath = "session-disconnect"
+    sessionDisconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/change-of-authorization-statistics/" + sessionDisconnect.EntityData.SegmentPath
     sessionDisconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDisconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDisconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3752,6 +3815,7 @@ func (singleServiceLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregate
     singleServiceLogon.EntityData.BundleName = "cisco_ios_xr"
     singleServiceLogon.EntityData.ParentYangName = "change-of-authorization-statistics"
     singleServiceLogon.EntityData.SegmentPath = "single-service-logon"
+    singleServiceLogon.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/change-of-authorization-statistics/" + singleServiceLogon.EntityData.SegmentPath
     singleServiceLogon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3792,6 +3856,7 @@ func (singleServiceLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     singleServiceLogoff.EntityData.BundleName = "cisco_ios_xr"
     singleServiceLogoff.EntityData.ParentYangName = "change-of-authorization-statistics"
     singleServiceLogoff.EntityData.SegmentPath = "single-service-logoff"
+    singleServiceLogoff.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/change-of-authorization-statistics/" + singleServiceLogoff.EntityData.SegmentPath
     singleServiceLogoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3832,6 +3897,7 @@ func (singleServiceModify *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     singleServiceModify.EntityData.BundleName = "cisco_ios_xr"
     singleServiceModify.EntityData.ParentYangName = "change-of-authorization-statistics"
     singleServiceModify.EntityData.SegmentPath = "single-service-modify"
+    singleServiceModify.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/change-of-authorization-statistics/" + singleServiceModify.EntityData.SegmentPath
     singleServiceModify.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceModify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceModify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3872,6 +3938,7 @@ func (serviceMulti *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateAccoun
     serviceMulti.EntityData.BundleName = "cisco_ios_xr"
     serviceMulti.EntityData.ParentYangName = "change-of-authorization-statistics"
     serviceMulti.EntityData.SegmentPath = "service-multi"
+    serviceMulti.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/change-of-authorization-statistics/" + serviceMulti.EntityData.SegmentPath
     serviceMulti.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceMulti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceMulti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3916,6 +3983,7 @@ func (mobilityStatistics *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregate
     mobilityStatistics.EntityData.BundleName = "cisco_ios_xr"
     mobilityStatistics.EntityData.ParentYangName = "aggregate-accounting-stats-all"
     mobilityStatistics.EntityData.SegmentPath = "mobility-statistics"
+    mobilityStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-accounting-stats-all/" + mobilityStatistics.EntityData.SegmentPath
     mobilityStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobilityStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobilityStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3982,6 +4050,7 @@ func (accounting *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting) GetEn
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "aaa"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4042,6 +4111,7 @@ func (start *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_Start) GetE
     start.EntityData.BundleName = "cisco_ios_xr"
     start.EntityData.ParentYangName = "accounting"
     start.EntityData.SegmentPath = "start"
+    start.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting/" + start.EntityData.SegmentPath
     start.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     start.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4097,6 +4167,7 @@ func (stop *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_Stop) GetEnt
     stop.EntityData.BundleName = "cisco_ios_xr"
     stop.EntityData.ParentYangName = "accounting"
     stop.EntityData.SegmentPath = "stop"
+    stop.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting/" + stop.EntityData.SegmentPath
     stop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4152,6 +4223,7 @@ func (interim *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_Interim) 
     interim.EntityData.BundleName = "cisco_ios_xr"
     interim.EntityData.ParentYangName = "accounting"
     interim.EntityData.SegmentPath = "interim"
+    interim.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting/" + interim.EntityData.SegmentPath
     interim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4207,6 +4279,7 @@ func (passThrough *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_PassT
     passThrough.EntityData.BundleName = "cisco_ios_xr"
     passThrough.EntityData.ParentYangName = "accounting"
     passThrough.EntityData.SegmentPath = "pass-through"
+    passThrough.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting/" + passThrough.EntityData.SegmentPath
     passThrough.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     passThrough.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     passThrough.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4262,6 +4335,7 @@ func (update *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_Update) Ge
     update.EntityData.BundleName = "cisco_ios_xr"
     update.EntityData.ParentYangName = "accounting"
     update.EntityData.SegmentPath = "update"
+    update.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting/" + update.EntityData.SegmentPath
     update.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     update.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4313,6 +4387,7 @@ func (interimInflight *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Accounting_I
     interimInflight.EntityData.BundleName = "cisco_ios_xr"
     interimInflight.EntityData.ParentYangName = "accounting"
     interimInflight.EntityData.SegmentPath = "interim-inflight"
+    interimInflight.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/accounting/" + interimInflight.EntityData.SegmentPath
     interimInflight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interimInflight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interimInflight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4360,6 +4435,7 @@ func (mobility *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Mobility) GetEntity
     mobility.EntityData.BundleName = "cisco_ios_xr"
     mobility.EntityData.ParentYangName = "aaa"
     mobility.EntityData.SegmentPath = "mobility"
+    mobility.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + mobility.EntityData.SegmentPath
     mobility.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobility.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobility.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4454,6 +4530,7 @@ func (aggregateChangeOfAuthorization *Subscriber_Manager_Nodes_Node_Statistics_A
     aggregateChangeOfAuthorization.EntityData.BundleName = "cisco_ios_xr"
     aggregateChangeOfAuthorization.EntityData.ParentYangName = "aaa"
     aggregateChangeOfAuthorization.EntityData.SegmentPath = "aggregate-change-of-authorization"
+    aggregateChangeOfAuthorization.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/" + aggregateChangeOfAuthorization.EntityData.SegmentPath
     aggregateChangeOfAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateChangeOfAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateChangeOfAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4509,6 +4586,7 @@ func (accountLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateChange
     accountLogon.EntityData.BundleName = "cisco_ios_xr"
     accountLogon.EntityData.ParentYangName = "aggregate-change-of-authorization"
     accountLogon.EntityData.SegmentPath = "account-logon"
+    accountLogon.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-change-of-authorization/" + accountLogon.EntityData.SegmentPath
     accountLogon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4549,6 +4627,7 @@ func (accountLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateChang
     accountLogoff.EntityData.BundleName = "cisco_ios_xr"
     accountLogoff.EntityData.ParentYangName = "aggregate-change-of-authorization"
     accountLogoff.EntityData.SegmentPath = "account-logoff"
+    accountLogoff.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-change-of-authorization/" + accountLogoff.EntityData.SegmentPath
     accountLogoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4589,6 +4668,7 @@ func (accountUpdate *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateChang
     accountUpdate.EntityData.BundleName = "cisco_ios_xr"
     accountUpdate.EntityData.ParentYangName = "aggregate-change-of-authorization"
     accountUpdate.EntityData.SegmentPath = "account-update"
+    accountUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-change-of-authorization/" + accountUpdate.EntityData.SegmentPath
     accountUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4629,6 +4709,7 @@ func (sessionDisconnect *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateC
     sessionDisconnect.EntityData.BundleName = "cisco_ios_xr"
     sessionDisconnect.EntityData.ParentYangName = "aggregate-change-of-authorization"
     sessionDisconnect.EntityData.SegmentPath = "session-disconnect"
+    sessionDisconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-change-of-authorization/" + sessionDisconnect.EntityData.SegmentPath
     sessionDisconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDisconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDisconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4669,6 +4750,7 @@ func (singleServiceLogon *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregate
     singleServiceLogon.EntityData.BundleName = "cisco_ios_xr"
     singleServiceLogon.EntityData.ParentYangName = "aggregate-change-of-authorization"
     singleServiceLogon.EntityData.SegmentPath = "single-service-logon"
+    singleServiceLogon.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-change-of-authorization/" + singleServiceLogon.EntityData.SegmentPath
     singleServiceLogon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceLogon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4709,6 +4791,7 @@ func (singleServiceLogoff *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     singleServiceLogoff.EntityData.BundleName = "cisco_ios_xr"
     singleServiceLogoff.EntityData.ParentYangName = "aggregate-change-of-authorization"
     singleServiceLogoff.EntityData.SegmentPath = "single-service-logoff"
+    singleServiceLogoff.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-change-of-authorization/" + singleServiceLogoff.EntityData.SegmentPath
     singleServiceLogoff.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceLogoff.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceLogoff.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4749,6 +4832,7 @@ func (singleServiceModify *Subscriber_Manager_Nodes_Node_Statistics_Aaa_Aggregat
     singleServiceModify.EntityData.BundleName = "cisco_ios_xr"
     singleServiceModify.EntityData.ParentYangName = "aggregate-change-of-authorization"
     singleServiceModify.EntityData.SegmentPath = "single-service-modify"
+    singleServiceModify.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-change-of-authorization/" + singleServiceModify.EntityData.SegmentPath
     singleServiceModify.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     singleServiceModify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     singleServiceModify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4789,6 +4873,7 @@ func (serviceMulti *Subscriber_Manager_Nodes_Node_Statistics_Aaa_AggregateChange
     serviceMulti.EntityData.BundleName = "cisco_ios_xr"
     serviceMulti.EntityData.ParentYangName = "aggregate-change-of-authorization"
     serviceMulti.EntityData.SegmentPath = "service-multi"
+    serviceMulti.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/aaa/aggregate-change-of-authorization/" + serviceMulti.EntityData.SegmentPath
     serviceMulti.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceMulti.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceMulti.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4893,6 +4978,7 @@ func (aggregateSummary *Subscriber_Manager_Nodes_Node_Statistics_AggregateSummar
     aggregateSummary.EntityData.BundleName = "cisco_ios_xr"
     aggregateSummary.EntityData.ParentYangName = "statistics"
     aggregateSummary.EntityData.SegmentPath = "aggregate-summary"
+    aggregateSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/" + aggregateSummary.EntityData.SegmentPath
     aggregateSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     aggregateSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     aggregateSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5135,6 +5221,7 @@ func (srg *Subscriber_Manager_Nodes_Node_Statistics_Srg) GetEntityData() *types.
     srg.EntityData.BundleName = "cisco_ios_xr"
     srg.EntityData.ParentYangName = "statistics"
     srg.EntityData.SegmentPath = "srg"
+    srg.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/node/statistics/" + srg.EntityData.SegmentPath
     srg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5216,6 +5303,7 @@ func (session *Subscriber_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "subscriber"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5246,6 +5334,7 @@ func (nodes *Subscriber_Session_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "session"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5268,6 +5357,7 @@ func (nodes *Subscriber_Session_Nodes) GetEntityData() *types.CommonEntityData {
 type Subscriber_Session_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -5319,6 +5409,7 @@ func (node *Subscriber_Session_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5363,6 +5454,7 @@ func (authorSummaries *Subscriber_Session_Nodes_Node_AuthorSummaries) GetEntityD
     authorSummaries.EntityData.BundleName = "cisco_ios_xr"
     authorSummaries.EntityData.ParentYangName = "node"
     authorSummaries.EntityData.SegmentPath = "author-summaries"
+    authorSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + authorSummaries.EntityData.SegmentPath
     authorSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5384,6 +5476,7 @@ func (authorSummaries *Subscriber_Session_Nodes_Node_AuthorSummaries) GetEntityD
 type Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Authorization state. The type is
     // SubscriberAuthorStateFilterFlag.
@@ -5402,6 +5495,7 @@ func (authorSummary *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary
     authorSummary.EntityData.BundleName = "cisco_ios_xr"
     authorSummary.EntityData.ParentYangName = "author-summaries"
     authorSummary.EntityData.SegmentPath = "author-summary" + types.AddKeyToken(authorSummary.AuthorState, "author-state")
+    authorSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/" + authorSummary.EntityData.SegmentPath
     authorSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authorSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authorSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5439,6 +5533,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary_State
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "author-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/author-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5493,6 +5588,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary_StateXr
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/author-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5551,6 +5647,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSumm
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/author-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5609,6 +5706,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSu
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/author-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5650,6 +5748,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSumma
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "author-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/author-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5698,6 +5797,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSummary_Address
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/author-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5749,6 +5849,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSumm
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/author-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5800,6 +5901,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AuthorSummaries_AuthorSu
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/author-summaries/author-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5837,6 +5939,7 @@ func (summary *Subscriber_Session_Nodes_Node_Summary) GetEntityData() *types.Com
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "node"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5873,6 +5976,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_Summary_StateXr) GetEntityData() *t
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5927,6 +6031,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_Summary_StateXr_Pppoe) GetEntityData(
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5985,6 +6090,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Summary_StateXr_IpSubscrib
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6043,6 +6149,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Summary_StateXr_IpSubscr
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6084,6 +6191,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_Summary_AddressFamilyXr) Ge
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6132,6 +6240,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_Summary_AddressFamilyXr_Pppoe) GetEnt
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6183,6 +6292,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Summary_AddressFamilyXr_Ip
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6234,6 +6344,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Summary_AddressFamilyXr_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6269,6 +6380,7 @@ func (macSummaries *Subscriber_Session_Nodes_Node_MacSummaries) GetEntityData() 
     macSummaries.EntityData.BundleName = "cisco_ios_xr"
     macSummaries.EntityData.ParentYangName = "node"
     macSummaries.EntityData.SegmentPath = "mac-summaries"
+    macSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + macSummaries.EntityData.SegmentPath
     macSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6290,6 +6402,7 @@ func (macSummaries *Subscriber_Session_Nodes_Node_MacSummaries) GetEntityData() 
 type Subscriber_Session_Nodes_Node_MacSummaries_MacSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subscriber MAC address. The type is string with
     // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -6308,6 +6421,7 @@ func (macSummary *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary) GetEnti
     macSummary.EntityData.BundleName = "cisco_ios_xr"
     macSummary.EntityData.ParentYangName = "mac-summaries"
     macSummary.EntityData.SegmentPath = "mac-summary" + types.AddKeyToken(macSummary.MacAddress, "mac-address")
+    macSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/" + macSummary.EntityData.SegmentPath
     macSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6345,6 +6459,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_StateXr) Ge
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "mac-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/mac-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6399,6 +6514,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_StateXr_Pppoe
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/mac-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6457,6 +6573,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_St
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/mac-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6515,6 +6632,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/mac-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6556,6 +6674,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_Add
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "mac-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/mac-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6604,6 +6723,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_AddressFamily
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/mac-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6655,6 +6775,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_Ad
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/mac-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6706,6 +6827,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_MacSummaries_MacSummary_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/mac-summaries/mac-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6741,6 +6863,7 @@ func (interfaceSummaries *Subscriber_Session_Nodes_Node_InterfaceSummaries) GetE
     interfaceSummaries.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummaries.EntityData.ParentYangName = "node"
     interfaceSummaries.EntityData.SegmentPath = "interface-summaries"
+    interfaceSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + interfaceSummaries.EntityData.SegmentPath
     interfaceSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6762,6 +6885,7 @@ func (interfaceSummaries *Subscriber_Session_Nodes_Node_InterfaceSummaries) GetE
 type Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -6780,6 +6904,7 @@ func (interfaceSummary *Subscriber_Session_Nodes_Node_InterfaceSummaries_Interfa
     interfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     interfaceSummary.EntityData.ParentYangName = "interface-summaries"
     interfaceSummary.EntityData.SegmentPath = "interface-summary" + types.AddKeyToken(interfaceSummary.InterfaceName, "interface-name")
+    interfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/" + interfaceSummary.EntityData.SegmentPath
     interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6817,6 +6942,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "interface-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/interface-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6871,6 +6997,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary_S
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/interface-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6929,6 +7056,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_InterfaceSummaries_Interfa
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/interface-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6987,6 +7115,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_InterfaceSummaries_Inter
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/interface-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7028,6 +7157,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_InterfaceSummaries_Interfac
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "interface-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/interface-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7076,6 +7206,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary_A
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/interface-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7127,6 +7258,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_InterfaceSummaries_Interfa
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/interface-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7178,6 +7310,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_InterfaceSummaries_Inter
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/interface-summaries/interface-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7214,6 +7347,7 @@ func (authenticationSummaries *Subscriber_Session_Nodes_Node_AuthenticationSumma
     authenticationSummaries.EntityData.BundleName = "cisco_ios_xr"
     authenticationSummaries.EntityData.ParentYangName = "node"
     authenticationSummaries.EntityData.SegmentPath = "authentication-summaries"
+    authenticationSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + authenticationSummaries.EntityData.SegmentPath
     authenticationSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7235,6 +7369,7 @@ func (authenticationSummaries *Subscriber_Session_Nodes_Node_AuthenticationSumma
 type Subscriber_Session_Nodes_Node_AuthenticationSummaries_AuthenticationSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Authentication state. The type is
     // SubscriberAuthenStateFilterFlag.
@@ -7253,6 +7388,7 @@ func (authenticationSummary *Subscriber_Session_Nodes_Node_AuthenticationSummari
     authenticationSummary.EntityData.BundleName = "cisco_ios_xr"
     authenticationSummary.EntityData.ParentYangName = "authentication-summaries"
     authenticationSummary.EntityData.SegmentPath = "authentication-summary" + types.AddKeyToken(authenticationSummary.AuthenticationState, "authentication-state")
+    authenticationSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/" + authenticationSummary.EntityData.SegmentPath
     authenticationSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authenticationSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authenticationSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7290,6 +7426,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Authenticat
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "authentication-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/authentication-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7344,6 +7481,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Authenticatio
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/authentication-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7402,6 +7540,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Au
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/authentication-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7460,6 +7599,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AuthenticationSummaries_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/authentication-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7501,6 +7641,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Aut
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "authentication-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/authentication-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7549,6 +7690,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Authenticatio
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/authentication-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7600,6 +7742,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AuthenticationSummaries_Au
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/authentication-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7651,6 +7794,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AuthenticationSummaries_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/authentication-summaries/authentication-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7686,6 +7830,7 @@ func (stateSummaries *Subscriber_Session_Nodes_Node_StateSummaries) GetEntityDat
     stateSummaries.EntityData.BundleName = "cisco_ios_xr"
     stateSummaries.EntityData.ParentYangName = "node"
     stateSummaries.EntityData.SegmentPath = "state-summaries"
+    stateSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + stateSummaries.EntityData.SegmentPath
     stateSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7707,6 +7852,7 @@ func (stateSummaries *Subscriber_Session_Nodes_Node_StateSummaries) GetEntityDat
 type Subscriber_Session_Nodes_Node_StateSummaries_StateSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subscriber state. The type is
     // SubscriberStateFilterFlag.
@@ -7725,6 +7871,7 @@ func (stateSummary *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary) G
     stateSummary.EntityData.BundleName = "cisco_ios_xr"
     stateSummary.EntityData.ParentYangName = "state-summaries"
     stateSummary.EntityData.SegmentPath = "state-summary" + types.AddKeyToken(stateSummary.State, "state")
+    stateSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/" + stateSummary.EntityData.SegmentPath
     stateSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7762,6 +7909,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary_StateXr
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "state-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/state-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7816,6 +7964,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary_StateXr_P
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/state-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7874,6 +8023,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_StateSummaries_StateSummar
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/state-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7932,6 +8082,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_StateSummaries_StateSumm
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/state-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7973,6 +8124,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "state-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/state-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8021,6 +8173,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_StateSummaries_StateSummary_AddressFa
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/state-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8072,6 +8225,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_StateSummaries_StateSummar
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/state-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8123,6 +8277,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_StateSummaries_StateSumm
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/state-summaries/state-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8159,6 +8314,7 @@ func (ipv4AddressVrfSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSumma
     ipv4AddressVrfSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressVrfSummaries.EntityData.ParentYangName = "node"
     ipv4AddressVrfSummaries.EntityData.SegmentPath = "ipv4-address-vrf-summaries"
+    ipv4AddressVrfSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + ipv4AddressVrfSummaries.EntityData.SegmentPath
     ipv4AddressVrfSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressVrfSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressVrfSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8166,6 +8322,7 @@ func (ipv4AddressVrfSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSumma
     ipv4AddressVrfSummaries.EntityData.Children = types.NewOrderedMap()
     ipv4AddressVrfSummaries.EntityData.Children.Append("ipv4-address-vrf-summary", types.YChild{"Ipv4AddressVrfSummary", nil})
     for i := range ipv4AddressVrfSummaries.Ipv4AddressVrfSummary {
+        types.SetYListKey(ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i], i)
         ipv4AddressVrfSummaries.EntityData.Children.Append(types.GetSegmentPath(ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i]), types.YChild{"Ipv4AddressVrfSummary", ipv4AddressVrfSummaries.Ipv4AddressVrfSummary[i]})
     }
     ipv4AddressVrfSummaries.EntityData.Leafs = types.NewOrderedMap()
@@ -8180,6 +8337,7 @@ func (ipv4AddressVrfSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSumma
 type Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
@@ -8200,7 +8358,8 @@ func (ipv4AddressVrfSummary *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummari
     ipv4AddressVrfSummary.EntityData.YangName = "ipv4-address-vrf-summary"
     ipv4AddressVrfSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressVrfSummary.EntityData.ParentYangName = "ipv4-address-vrf-summaries"
-    ipv4AddressVrfSummary.EntityData.SegmentPath = "ipv4-address-vrf-summary"
+    ipv4AddressVrfSummary.EntityData.SegmentPath = "ipv4-address-vrf-summary" + types.AddNoKeyToken(ipv4AddressVrfSummary)
+    ipv4AddressVrfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/" + ipv4AddressVrfSummary.EntityData.SegmentPath
     ipv4AddressVrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressVrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressVrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8239,6 +8398,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4Address
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "ipv4-address-vrf-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8293,6 +8453,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVr
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8351,6 +8512,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ip
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8409,6 +8571,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8450,6 +8613,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "ipv4-address-vrf-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8498,6 +8662,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVr
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8549,6 +8714,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ip
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8600,6 +8766,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-vrf-summaries/ipv4-address-vrf-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8636,6 +8803,7 @@ func (addressFamilySummaries *Subscriber_Session_Nodes_Node_AddressFamilySummari
     addressFamilySummaries.EntityData.BundleName = "cisco_ios_xr"
     addressFamilySummaries.EntityData.ParentYangName = "node"
     addressFamilySummaries.EntityData.SegmentPath = "address-family-summaries"
+    addressFamilySummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + addressFamilySummaries.EntityData.SegmentPath
     addressFamilySummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilySummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilySummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8657,6 +8825,7 @@ func (addressFamilySummaries *Subscriber_Session_Nodes_Node_AddressFamilySummari
 type Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamilySummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Address family. The type is
     // SubscriberAddressFamilyFilterFlag.
@@ -8675,6 +8844,7 @@ func (addressFamilySummary *Subscriber_Session_Nodes_Node_AddressFamilySummaries
     addressFamilySummary.EntityData.BundleName = "cisco_ios_xr"
     addressFamilySummary.EntityData.ParentYangName = "address-family-summaries"
     addressFamilySummary.EntityData.SegmentPath = "address-family-summary" + types.AddKeyToken(addressFamilySummary.AddressFamily, "address-family")
+    addressFamilySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/" + addressFamilySummary.EntityData.SegmentPath
     addressFamilySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8712,6 +8882,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamil
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "address-family-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/address-family-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8766,6 +8937,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamilyS
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/address-family-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8824,6 +8996,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AddressFamilySummaries_Add
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/address-family-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8882,6 +9055,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AddressFamilySummaries_A
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/address-family-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8923,6 +9097,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_AddressFamilySummaries_Addr
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "address-family-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/address-family-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8971,6 +9146,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_AddressFamilySummaries_AddressFamilyS
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/address-family-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9022,6 +9198,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AddressFamilySummaries_Add
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/address-family-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9073,6 +9250,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AddressFamilySummaries_A
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/address-family-summaries/address-family-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9108,6 +9286,7 @@ func (usernameSummaries *Subscriber_Session_Nodes_Node_UsernameSummaries) GetEnt
     usernameSummaries.EntityData.BundleName = "cisco_ios_xr"
     usernameSummaries.EntityData.ParentYangName = "node"
     usernameSummaries.EntityData.SegmentPath = "username-summaries"
+    usernameSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + usernameSummaries.EntityData.SegmentPath
     usernameSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usernameSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usernameSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9129,6 +9308,7 @@ func (usernameSummaries *Subscriber_Session_Nodes_Node_UsernameSummaries) GetEnt
 type Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subscriber username. The type is string with
     // pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -9147,6 +9327,7 @@ func (usernameSummary *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameS
     usernameSummary.EntityData.BundleName = "cisco_ios_xr"
     usernameSummary.EntityData.ParentYangName = "username-summaries"
     usernameSummary.EntityData.SegmentPath = "username-summary" + types.AddKeyToken(usernameSummary.Username, "username")
+    usernameSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/" + usernameSummary.EntityData.SegmentPath
     usernameSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usernameSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usernameSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9184,6 +9365,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary_S
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "username-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/username-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9238,6 +9420,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary_Sta
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/username-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9296,6 +9479,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_UsernameSummaries_Username
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/username-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9354,6 +9538,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_UsernameSummaries_Userna
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/username-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9395,6 +9580,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameS
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "username-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/username-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9443,6 +9629,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary_Add
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/username-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9494,6 +9681,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_UsernameSummaries_Username
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/username-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9545,6 +9733,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_UsernameSummaries_Userna
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/username-summaries/username-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9581,6 +9770,7 @@ func (accessInterfaceSummaries *Subscriber_Session_Nodes_Node_AccessInterfaceSum
     accessInterfaceSummaries.EntityData.BundleName = "cisco_ios_xr"
     accessInterfaceSummaries.EntityData.ParentYangName = "node"
     accessInterfaceSummaries.EntityData.SegmentPath = "access-interface-summaries"
+    accessInterfaceSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + accessInterfaceSummaries.EntityData.SegmentPath
     accessInterfaceSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterfaceSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaceSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9602,6 +9792,7 @@ func (accessInterfaceSummaries *Subscriber_Session_Nodes_Node_AccessInterfaceSum
 type Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterfaceSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -9620,6 +9811,7 @@ func (accessInterfaceSummary *Subscriber_Session_Nodes_Node_AccessInterfaceSumma
     accessInterfaceSummary.EntityData.BundleName = "cisco_ios_xr"
     accessInterfaceSummary.EntityData.ParentYangName = "access-interface-summaries"
     accessInterfaceSummary.EntityData.SegmentPath = "access-interface-summary" + types.AddKeyToken(accessInterfaceSummary.InterfaceName, "interface-name")
+    accessInterfaceSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/" + accessInterfaceSummary.EntityData.SegmentPath
     accessInterfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accessInterfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accessInterfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9657,6 +9849,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInte
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "access-interface-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/access-interface-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9711,6 +9904,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterf
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/access-interface-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9769,6 +9963,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_A
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/access-interface-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9827,6 +10022,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/access-interface-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9868,6 +10064,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_Ac
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "access-interface-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/access-interface-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9916,6 +10113,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterf
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/access-interface-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9967,6 +10165,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_A
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/access-interface-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10018,6 +10217,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_AccessInterfaceSummaries
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/access-interface-summaries/access-interface-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10054,6 +10254,7 @@ func (ipv4AddressSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries) 
     ipv4AddressSummaries.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressSummaries.EntityData.ParentYangName = "node"
     ipv4AddressSummaries.EntityData.SegmentPath = "ipv4-address-summaries"
+    ipv4AddressSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + ipv4AddressSummaries.EntityData.SegmentPath
     ipv4AddressSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10075,6 +10276,7 @@ func (ipv4AddressSummaries *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries) 
 type Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Subscriber IPv4 address. The type is string with
     // pattern:
@@ -10094,6 +10296,7 @@ func (ipv4AddressSummary *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv
     ipv4AddressSummary.EntityData.BundleName = "cisco_ios_xr"
     ipv4AddressSummary.EntityData.ParentYangName = "ipv4-address-summaries"
     ipv4AddressSummary.EntityData.SegmentPath = "ipv4-address-summary" + types.AddKeyToken(ipv4AddressSummary.Address, "address")
+    ipv4AddressSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/" + ipv4AddressSummary.EntityData.SegmentPath
     ipv4AddressSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4AddressSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4AddressSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10131,6 +10334,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSum
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "ipv4-address-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/ipv4-address-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10185,6 +10389,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSumma
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/ipv4-address-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10243,6 +10448,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4A
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/ipv4-address-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10301,6 +10507,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/ipv4-address-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10342,6 +10549,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4Ad
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "ipv4-address-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/ipv4-address-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10390,6 +10598,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSumma
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/ipv4-address-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10441,6 +10650,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4A
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/ipv4-address-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10492,6 +10702,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/ipv4-address-summaries/ipv4-address-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10527,6 +10738,7 @@ func (vrfSummaries *Subscriber_Session_Nodes_Node_VrfSummaries) GetEntityData() 
     vrfSummaries.EntityData.BundleName = "cisco_ios_xr"
     vrfSummaries.EntityData.ParentYangName = "node"
     vrfSummaries.EntityData.SegmentPath = "vrf-summaries"
+    vrfSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + vrfSummaries.EntityData.SegmentPath
     vrfSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10548,6 +10760,7 @@ func (vrfSummaries *Subscriber_Session_Nodes_Node_VrfSummaries) GetEntityData() 
 type Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -10566,6 +10779,7 @@ func (vrfSummary *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary) GetEnti
     vrfSummary.EntityData.BundleName = "cisco_ios_xr"
     vrfSummary.EntityData.ParentYangName = "vrf-summaries"
     vrfSummary.EntityData.SegmentPath = "vrf-summary" + types.AddKeyToken(vrfSummary.VrfName, "vrf-name")
+    vrfSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/" + vrfSummary.EntityData.SegmentPath
     vrfSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10603,6 +10817,7 @@ func (stateXr *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_StateXr) Ge
     stateXr.EntityData.BundleName = "cisco_ios_xr"
     stateXr.EntityData.ParentYangName = "vrf-summary"
     stateXr.EntityData.SegmentPath = "state-xr"
+    stateXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/vrf-summary/" + stateXr.EntityData.SegmentPath
     stateXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10657,6 +10872,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_StateXr_Pppoe
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "state-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/vrf-summary/state-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10715,6 +10931,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_St
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "state-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/vrf-summary/state-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10773,6 +10990,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "state-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/vrf-summary/state-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10814,6 +11032,7 @@ func (addressFamilyXr *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_Add
     addressFamilyXr.EntityData.BundleName = "cisco_ios_xr"
     addressFamilyXr.EntityData.ParentYangName = "vrf-summary"
     addressFamilyXr.EntityData.SegmentPath = "address-family-xr"
+    addressFamilyXr.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/vrf-summary/" + addressFamilyXr.EntityData.SegmentPath
     addressFamilyXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamilyXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamilyXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10862,6 +11081,7 @@ func (pppoe *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_AddressFamily
     pppoe.EntityData.BundleName = "cisco_ios_xr"
     pppoe.EntityData.ParentYangName = "address-family-xr"
     pppoe.EntityData.SegmentPath = "pppoe"
+    pppoe.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/vrf-summary/address-family-xr/" + pppoe.EntityData.SegmentPath
     pppoe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pppoe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pppoe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10913,6 +11133,7 @@ func (ipSubscriberDhcp *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_Ad
     ipSubscriberDhcp.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberDhcp.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberDhcp.EntityData.SegmentPath = "ip-subscriber-dhcp"
+    ipSubscriberDhcp.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/vrf-summary/address-family-xr/" + ipSubscriberDhcp.EntityData.SegmentPath
     ipSubscriberDhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberDhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberDhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10964,6 +11185,7 @@ func (ipSubscriberPacket *Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary_
     ipSubscriberPacket.EntityData.BundleName = "cisco_ios_xr"
     ipSubscriberPacket.EntityData.ParentYangName = "address-family-xr"
     ipSubscriberPacket.EntityData.SegmentPath = "ip-subscriber-packet"
+    ipSubscriberPacket.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/vrf-summaries/vrf-summary/address-family-xr/" + ipSubscriberPacket.EntityData.SegmentPath
     ipSubscriberPacket.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipSubscriberPacket.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipSubscriberPacket.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10999,6 +11221,7 @@ func (sessions *Subscriber_Session_Nodes_Node_Sessions) GetEntityData() *types.C
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "node"
     sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11020,6 +11243,7 @@ func (sessions *Subscriber_Session_Nodes_Node_Sessions) GetEntityData() *types.C
 type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Session ID. The type is string with pattern:
     // [0-9a-fA-F]{1,8}.
@@ -11152,6 +11376,7 @@ func (session *Subscriber_Session_Nodes_Node_Sessions_Session) GetEntityData() *
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionId, "session-id")
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11162,6 +11387,7 @@ func (session *Subscriber_Session_Nodes_Node_Sessions_Session) GetEntityData() *
     session.EntityData.Children.Append("mobility-attributes", types.YChild{"MobilityAttributes", &session.MobilityAttributes})
     session.EntityData.Children.Append("session-change-of-authorization", types.YChild{"SessionChangeOfAuthorization", nil})
     for i := range session.SessionChangeOfAuthorization {
+        types.SetYListKey(session.SessionChangeOfAuthorization[i], i)
         session.EntityData.Children.Append(types.GetSegmentPath(session.SessionChangeOfAuthorization[i]), types.YChild{"SessionChangeOfAuthorization", session.SessionChangeOfAuthorization[i]})
     }
     session.EntityData.Leafs = types.NewOrderedMap()
@@ -11221,6 +11447,7 @@ func (accounting *Subscriber_Session_Nodes_Node_Sessions_Session_Accounting) Get
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "session"
     accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11228,6 +11455,7 @@ func (accounting *Subscriber_Session_Nodes_Node_Sessions_Session_Accounting) Get
     accounting.EntityData.Children = types.NewOrderedMap()
     accounting.EntityData.Children.Append("accounting-session", types.YChild{"AccountingSession", nil})
     for i := range accounting.AccountingSession {
+        types.SetYListKey(accounting.AccountingSession[i], i)
         accounting.EntityData.Children.Append(types.GetSegmentPath(accounting.AccountingSession[i]), types.YChild{"AccountingSession", accounting.AccountingSession[i]})
     }
     accounting.EntityData.Leafs = types.NewOrderedMap()
@@ -11242,6 +11470,7 @@ func (accounting *Subscriber_Session_Nodes_Node_Sessions_Session_Accounting) Get
 type Subscriber_Session_Nodes_Node_Sessions_Session_Accounting_AccountingSession struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Accounting State Error Code for Accounting Session. The type is interface{}
     // with range: 0..4294967295.
@@ -11304,7 +11533,8 @@ func (accountingSession *Subscriber_Session_Nodes_Node_Sessions_Session_Accounti
     accountingSession.EntityData.YangName = "accounting-session"
     accountingSession.EntityData.BundleName = "cisco_ios_xr"
     accountingSession.EntityData.ParentYangName = "accounting"
-    accountingSession.EntityData.SegmentPath = "accounting-session"
+    accountingSession.EntityData.SegmentPath = "accounting-session" + types.AddNoKeyToken(accountingSession)
+    accountingSession.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/accounting/" + accountingSession.EntityData.SegmentPath
     accountingSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accountingSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accountingSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11520,6 +11750,7 @@ func (userProfileAttributes *Subscriber_Session_Nodes_Node_Sessions_Session_User
     userProfileAttributes.EntityData.BundleName = "cisco_ios_xr"
     userProfileAttributes.EntityData.ParentYangName = "session"
     userProfileAttributes.EntityData.SegmentPath = "user-profile-attributes"
+    userProfileAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/" + userProfileAttributes.EntityData.SegmentPath
     userProfileAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     userProfileAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     userProfileAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11625,6 +11856,7 @@ func (mobilityAttributes *Subscriber_Session_Nodes_Node_Sessions_Session_Mobilit
     mobilityAttributes.EntityData.BundleName = "cisco_ios_xr"
     mobilityAttributes.EntityData.ParentYangName = "session"
     mobilityAttributes.EntityData.SegmentPath = "mobility-attributes"
+    mobilityAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/" + mobilityAttributes.EntityData.SegmentPath
     mobilityAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mobilityAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mobilityAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11652,6 +11884,7 @@ func (mobilityAttributes *Subscriber_Session_Nodes_Node_Sessions_Session_Mobilit
 type Subscriber_Session_Nodes_Node_Sessions_Session_SessionChangeOfAuthorization struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Coa Request Acked. The type is bool.
     RequestAcked interface{}
@@ -11678,7 +11911,8 @@ func (sessionChangeOfAuthorization *Subscriber_Session_Nodes_Node_Sessions_Sessi
     sessionChangeOfAuthorization.EntityData.YangName = "session-change-of-authorization"
     sessionChangeOfAuthorization.EntityData.BundleName = "cisco_ios_xr"
     sessionChangeOfAuthorization.EntityData.ParentYangName = "session"
-    sessionChangeOfAuthorization.EntityData.SegmentPath = "session-change-of-authorization"
+    sessionChangeOfAuthorization.EntityData.SegmentPath = "session-change-of-authorization" + types.AddNoKeyToken(sessionChangeOfAuthorization)
+    sessionChangeOfAuthorization.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/node/sessions/session/" + sessionChangeOfAuthorization.EntityData.SegmentPath
     sessionChangeOfAuthorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionChangeOfAuthorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionChangeOfAuthorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11712,6 +11946,7 @@ func (iedgeLicenseManager *IedgeLicenseManager) GetEntityData() *types.CommonEnt
     iedgeLicenseManager.EntityData.BundleName = "cisco_ios_xr"
     iedgeLicenseManager.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-oper"
     iedgeLicenseManager.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager"
+    iedgeLicenseManager.EntityData.AbsolutePath = iedgeLicenseManager.EntityData.SegmentPath
     iedgeLicenseManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iedgeLicenseManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iedgeLicenseManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11743,6 +11978,7 @@ func (nodes *IedgeLicenseManager_Nodes) GetEntityData() *types.CommonEntityData 
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "iedge-license-manager"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11764,6 +12000,7 @@ func (nodes *IedgeLicenseManager_Nodes) GetEntityData() *types.CommonEntityData 
 type IedgeLicenseManager_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node id to filter on. For example, 0/1/CPU0.
     // The type is string with pattern:
@@ -11780,6 +12017,7 @@ func (node *IedgeLicenseManager_Nodes_Node) GetEntityData() *types.CommonEntityD
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.Nodeid, "nodeid")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11821,6 +12059,7 @@ func (iedgeLicenseManagerSummary *IedgeLicenseManager_Nodes_Node_IedgeLicenseMan
     iedgeLicenseManagerSummary.EntityData.BundleName = "cisco_ios_xr"
     iedgeLicenseManagerSummary.EntityData.ParentYangName = "node"
     iedgeLicenseManagerSummary.EntityData.SegmentPath = "iedge-license-manager-summary"
+    iedgeLicenseManagerSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager/nodes/node/" + iedgeLicenseManagerSummary.EntityData.SegmentPath
     iedgeLicenseManagerSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     iedgeLicenseManagerSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     iedgeLicenseManagerSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

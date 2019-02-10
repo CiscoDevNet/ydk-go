@@ -51,6 +51,7 @@ func (lldpSnoopData *LldpSnoopData) GetEntityData() *types.CommonEntityData {
     lldpSnoopData.EntityData.BundleName = "cisco_ios_xr"
     lldpSnoopData.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1k-mxp-lldp-oper"
     lldpSnoopData.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data"
+    lldpSnoopData.EntityData.AbsolutePath = lldpSnoopData.EntityData.SegmentPath
     lldpSnoopData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lldpSnoopData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lldpSnoopData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -81,6 +82,7 @@ func (ethernetControllerNames *LldpSnoopData_EthernetControllerNames) GetEntityD
     ethernetControllerNames.EntityData.BundleName = "cisco_ios_xr"
     ethernetControllerNames.EntityData.ParentYangName = "lldp-snoop-data"
     ethernetControllerNames.EntityData.SegmentPath = "ethernet-controller-names"
+    ethernetControllerNames.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/" + ethernetControllerNames.EntityData.SegmentPath
     ethernetControllerNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetControllerNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetControllerNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -102,6 +104,7 @@ func (ethernetControllerNames *LldpSnoopData_EthernetControllerNames) GetEntityD
 type LldpSnoopData_EthernetControllerNames_EthernetControllerName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -154,6 +157,7 @@ func (ethernetControllerName *LldpSnoopData_EthernetControllerNames_EthernetCont
     ethernetControllerName.EntityData.BundleName = "cisco_ios_xr"
     ethernetControllerName.EntityData.ParentYangName = "ethernet-controller-names"
     ethernetControllerName.EntityData.SegmentPath = "ethernet-controller-name" + types.AddKeyToken(ethernetControllerName.Name, "name")
+    ethernetControllerName.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/ethernet-controller-names/" + ethernetControllerName.EntityData.SegmentPath
     ethernetControllerName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetControllerName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetControllerName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -197,6 +201,7 @@ func (networkAddresses *LldpSnoopData_EthernetControllerNames_EthernetController
     networkAddresses.EntityData.BundleName = "cisco_ios_xr"
     networkAddresses.EntityData.ParentYangName = "ethernet-controller-name"
     networkAddresses.EntityData.SegmentPath = "network-addresses"
+    networkAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/ethernet-controller-names/ethernet-controller-name/" + networkAddresses.EntityData.SegmentPath
     networkAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -204,6 +209,7 @@ func (networkAddresses *LldpSnoopData_EthernetControllerNames_EthernetController
     networkAddresses.EntityData.Children = types.NewOrderedMap()
     networkAddresses.EntityData.Children.Append("lldp-addr-entry", types.YChild{"LldpAddrEntry", nil})
     for i := range networkAddresses.LldpAddrEntry {
+        types.SetYListKey(networkAddresses.LldpAddrEntry[i], i)
         networkAddresses.EntityData.Children.Append(types.GetSegmentPath(networkAddresses.LldpAddrEntry[i]), types.YChild{"LldpAddrEntry", networkAddresses.LldpAddrEntry[i]})
     }
     networkAddresses.EntityData.Leafs = types.NewOrderedMap()
@@ -218,6 +224,7 @@ func (networkAddresses *LldpSnoopData_EthernetControllerNames_EthernetController
 type LldpSnoopData_EthernetControllerNames_EthernetControllerName_NetworkAddresses_LldpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // MA sub type. The type is interface{} with range: 0..255.
     MaSubtype interface{}
@@ -234,7 +241,8 @@ func (lldpAddrEntry *LldpSnoopData_EthernetControllerNames_EthernetControllerNam
     lldpAddrEntry.EntityData.YangName = "lldp-addr-entry"
     lldpAddrEntry.EntityData.BundleName = "cisco_ios_xr"
     lldpAddrEntry.EntityData.ParentYangName = "network-addresses"
-    lldpAddrEntry.EntityData.SegmentPath = "lldp-addr-entry"
+    lldpAddrEntry.EntityData.SegmentPath = "lldp-addr-entry" + types.AddNoKeyToken(lldpAddrEntry)
+    lldpAddrEntry.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/ethernet-controller-names/ethernet-controller-name/network-addresses/" + lldpAddrEntry.EntityData.SegmentPath
     lldpAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     lldpAddrEntry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     lldpAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -274,6 +282,7 @@ func (address *LldpSnoopData_EthernetControllerNames_EthernetControllerName_Netw
     address.EntityData.BundleName = "cisco_ios_xr"
     address.EntityData.ParentYangName = "lldp-addr-entry"
     address.EntityData.SegmentPath = "address"
+    address.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-mxp-lldp-oper:lldp-snoop-data/ethernet-controller-names/ethernet-controller-name/network-addresses/lldp-addr-entry/" + address.EntityData.SegmentPath
     address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

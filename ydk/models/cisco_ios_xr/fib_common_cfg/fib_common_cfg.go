@@ -79,6 +79,7 @@ func (fib *Fib) GetEntityData() *types.CommonEntityData {
     fib.EntityData.BundleName = "cisco_ios_xr"
     fib.EntityData.ParentYangName = "Cisco-IOS-XR-fib-common-cfg"
     fib.EntityData.SegmentPath = "Cisco-IOS-XR-fib-common-cfg:fib"
+    fib.EntityData.AbsolutePath = fib.EntityData.SegmentPath
     fib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -114,6 +115,7 @@ func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetEntityData() 
     pbtsForwardClassFallbacks.EntityData.BundleName = "cisco_ios_xr"
     pbtsForwardClassFallbacks.EntityData.ParentYangName = "fib"
     pbtsForwardClassFallbacks.EntityData.SegmentPath = "pbts-forward-class-fallbacks"
+    pbtsForwardClassFallbacks.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-cfg:fib/" + pbtsForwardClassFallbacks.EntityData.SegmentPath
     pbtsForwardClassFallbacks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsForwardClassFallbacks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsForwardClassFallbacks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -135,6 +137,7 @@ func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetEntityData() 
 type Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. PBTS forward class number. The type is one of the
     // following types: enumeration FibPbtsForwardClass, or int with range: 0..8.
@@ -155,6 +158,7 @@ func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFa
     pbtsForwardClassFallback.EntityData.BundleName = "cisco_ios_xr"
     pbtsForwardClassFallback.EntityData.ParentYangName = "pbts-forward-class-fallbacks"
     pbtsForwardClassFallback.EntityData.SegmentPath = "pbts-forward-class-fallback" + types.AddKeyToken(pbtsForwardClassFallback.ForwardClassNumber, "forward-class-number")
+    pbtsForwardClassFallback.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-cfg:fib/pbts-forward-class-fallbacks/" + pbtsForwardClassFallback.EntityData.SegmentPath
     pbtsForwardClassFallback.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pbtsForwardClassFallback.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pbtsForwardClassFallback.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -186,6 +190,7 @@ func (platform *Fib_Platform) GetEntityData() *types.CommonEntityData {
     platform.EntityData.BundleName = "cisco_ios_xr"
     platform.EntityData.ParentYangName = "fib"
     platform.EntityData.SegmentPath = "platform"
+    platform.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-cfg:fib/" + platform.EntityData.SegmentPath
     platform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     platform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     platform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -216,6 +221,7 @@ func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetEntityData
     labelSwitchedMulticast.EntityData.BundleName = "cisco_ios_xr"
     labelSwitchedMulticast.EntityData.ParentYangName = "platform"
     labelSwitchedMulticast.EntityData.SegmentPath = "label-switched-multicast"
+    labelSwitchedMulticast.EntityData.AbsolutePath = "Cisco-IOS-XR-fib-common-cfg:fib/platform/" + labelSwitchedMulticast.EntityData.SegmentPath
     labelSwitchedMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     labelSwitchedMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     labelSwitchedMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

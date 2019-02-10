@@ -220,6 +220,7 @@ func (getConfig *GetConfig) GetEntityData() *types.CommonEntityData {
     getConfig.EntityData.BundleName = "ietf"
     getConfig.EntityData.ParentYangName = "ietf-netconf"
     getConfig.EntityData.SegmentPath = "ietf-netconf:get-config"
+    getConfig.EntityData.AbsolutePath = getConfig.EntityData.SegmentPath
     getConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     getConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     getConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -256,6 +257,7 @@ func (input *GetConfig_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "get-config"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:get-config/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -295,6 +297,7 @@ func (source *GetConfig_Input_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.BundleName = "ietf"
     source.EntityData.ParentYangName = "input"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "ietf-netconf:get-config/input/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     source.EntityData.NamespaceTable = ietf.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -327,6 +330,7 @@ func (output *GetConfig_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "ietf"
     output.EntityData.ParentYangName = "get-config"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "ietf-netconf:get-config/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -357,6 +361,7 @@ func (editConfig *EditConfig) GetEntityData() *types.CommonEntityData {
     editConfig.EntityData.BundleName = "ietf"
     editConfig.EntityData.ParentYangName = "ietf-netconf"
     editConfig.EntityData.SegmentPath = "ietf-netconf:edit-config"
+    editConfig.EntityData.AbsolutePath = editConfig.EntityData.SegmentPath
     editConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     editConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     editConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -403,6 +408,7 @@ func (input *EditConfig_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "edit-config"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:edit-config/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -440,6 +446,7 @@ func (target *EditConfig_Input_Target) GetEntityData() *types.CommonEntityData {
     target.EntityData.BundleName = "ietf"
     target.EntityData.ParentYangName = "input"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "ietf-netconf:edit-config/input/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -516,6 +523,7 @@ func (copyConfig *CopyConfig) GetEntityData() *types.CommonEntityData {
     copyConfig.EntityData.BundleName = "ietf"
     copyConfig.EntityData.ParentYangName = "ietf-netconf"
     copyConfig.EntityData.SegmentPath = "ietf-netconf:copy-config"
+    copyConfig.EntityData.AbsolutePath = copyConfig.EntityData.SegmentPath
     copyConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     copyConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     copyConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -551,6 +559,7 @@ func (input *CopyConfig_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "copy-config"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:copy-config/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -592,6 +601,7 @@ func (target *CopyConfig_Input_Target) GetEntityData() *types.CommonEntityData {
     target.EntityData.BundleName = "ietf"
     target.EntityData.ParentYangName = "input"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "ietf-netconf:copy-config/input/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -638,6 +648,7 @@ func (source *CopyConfig_Input_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.BundleName = "ietf"
     source.EntityData.ParentYangName = "input"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "ietf-netconf:copy-config/input/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     source.EntityData.NamespaceTable = ietf.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -671,6 +682,7 @@ func (deleteConfig *DeleteConfig) GetEntityData() *types.CommonEntityData {
     deleteConfig.EntityData.BundleName = "ietf"
     deleteConfig.EntityData.ParentYangName = "ietf-netconf"
     deleteConfig.EntityData.SegmentPath = "ietf-netconf:delete-config"
+    deleteConfig.EntityData.AbsolutePath = deleteConfig.EntityData.SegmentPath
     deleteConfig.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     deleteConfig.EntityData.NamespaceTable = ietf.GetNamespaces()
     deleteConfig.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -699,6 +711,7 @@ func (input *DeleteConfig_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "delete-config"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:delete-config/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -731,6 +744,7 @@ func (target *DeleteConfig_Input_Target) GetEntityData() *types.CommonEntityData
     target.EntityData.BundleName = "ietf"
     target.EntityData.ParentYangName = "input"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "ietf-netconf:delete-config/input/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -762,6 +776,7 @@ func (lock *Lock) GetEntityData() *types.CommonEntityData {
     lock.EntityData.BundleName = "ietf"
     lock.EntityData.ParentYangName = "ietf-netconf"
     lock.EntityData.SegmentPath = "ietf-netconf:lock"
+    lock.EntityData.AbsolutePath = lock.EntityData.SegmentPath
     lock.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     lock.EntityData.NamespaceTable = ietf.GetNamespaces()
     lock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -790,6 +805,7 @@ func (input *Lock_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "lock"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:lock/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -825,6 +841,7 @@ func (target *Lock_Input_Target) GetEntityData() *types.CommonEntityData {
     target.EntityData.BundleName = "ietf"
     target.EntityData.ParentYangName = "input"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "ietf-netconf:lock/input/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -857,6 +874,7 @@ func (unlock *Unlock) GetEntityData() *types.CommonEntityData {
     unlock.EntityData.BundleName = "ietf"
     unlock.EntityData.ParentYangName = "ietf-netconf"
     unlock.EntityData.SegmentPath = "ietf-netconf:unlock"
+    unlock.EntityData.AbsolutePath = unlock.EntityData.SegmentPath
     unlock.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     unlock.EntityData.NamespaceTable = ietf.GetNamespaces()
     unlock.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -885,6 +903,7 @@ func (input *Unlock_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "unlock"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:unlock/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -920,6 +939,7 @@ func (target *Unlock_Input_Target) GetEntityData() *types.CommonEntityData {
     target.EntityData.BundleName = "ietf"
     target.EntityData.ParentYangName = "input"
     target.EntityData.SegmentPath = "target"
+    target.EntityData.AbsolutePath = "ietf-netconf:unlock/input/" + target.EntityData.SegmentPath
     target.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     target.EntityData.NamespaceTable = ietf.GetNamespaces()
     target.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -954,6 +974,7 @@ func (get *Get) GetEntityData() *types.CommonEntityData {
     get.EntityData.BundleName = "ietf"
     get.EntityData.ParentYangName = "ietf-netconf"
     get.EntityData.SegmentPath = "ietf-netconf:get"
+    get.EntityData.AbsolutePath = get.EntityData.SegmentPath
     get.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     get.EntityData.NamespaceTable = ietf.GetNamespaces()
     get.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -988,6 +1009,7 @@ func (input *Get_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "get"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:get/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1019,6 +1041,7 @@ func (output *Get_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "ietf"
     output.EntityData.ParentYangName = "get"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "ietf-netconf:get/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     output.EntityData.NamespaceTable = ietf.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1045,6 +1068,7 @@ func (closeSession *CloseSession) GetEntityData() *types.CommonEntityData {
     closeSession.EntityData.BundleName = "ietf"
     closeSession.EntityData.ParentYangName = "ietf-netconf"
     closeSession.EntityData.SegmentPath = "ietf-netconf:close-session"
+    closeSession.EntityData.AbsolutePath = closeSession.EntityData.SegmentPath
     closeSession.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     closeSession.EntityData.NamespaceTable = ietf.GetNamespaces()
     closeSession.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1073,6 +1097,7 @@ func (killSession *KillSession) GetEntityData() *types.CommonEntityData {
     killSession.EntityData.BundleName = "ietf"
     killSession.EntityData.ParentYangName = "ietf-netconf"
     killSession.EntityData.SegmentPath = "ietf-netconf:kill-session"
+    killSession.EntityData.AbsolutePath = killSession.EntityData.SegmentPath
     killSession.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     killSession.EntityData.NamespaceTable = ietf.GetNamespaces()
     killSession.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1102,6 +1127,7 @@ func (input *KillSession_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "kill-session"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:kill-session/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1132,6 +1158,7 @@ func (commit *Commit) GetEntityData() *types.CommonEntityData {
     commit.EntityData.BundleName = "ietf"
     commit.EntityData.ParentYangName = "ietf-netconf"
     commit.EntityData.SegmentPath = "ietf-netconf:commit"
+    commit.EntityData.AbsolutePath = commit.EntityData.SegmentPath
     commit.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     commit.EntityData.NamespaceTable = ietf.GetNamespaces()
     commit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1179,6 +1206,7 @@ func (input *Commit_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "commit"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:commit/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1209,6 +1237,7 @@ func (discardChanges *DiscardChanges) GetEntityData() *types.CommonEntityData {
     discardChanges.EntityData.BundleName = "ietf"
     discardChanges.EntityData.ParentYangName = "ietf-netconf"
     discardChanges.EntityData.SegmentPath = "ietf-netconf:discard-changes"
+    discardChanges.EntityData.AbsolutePath = discardChanges.EntityData.SegmentPath
     discardChanges.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     discardChanges.EntityData.NamespaceTable = ietf.GetNamespaces()
     discardChanges.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1240,6 +1269,7 @@ func (cancelCommit *CancelCommit) GetEntityData() *types.CommonEntityData {
     cancelCommit.EntityData.BundleName = "ietf"
     cancelCommit.EntityData.ParentYangName = "ietf-netconf"
     cancelCommit.EntityData.SegmentPath = "ietf-netconf:cancel-commit"
+    cancelCommit.EntityData.AbsolutePath = cancelCommit.EntityData.SegmentPath
     cancelCommit.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     cancelCommit.EntityData.NamespaceTable = ietf.GetNamespaces()
     cancelCommit.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1271,6 +1301,7 @@ func (input *CancelCommit_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "cancel-commit"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:cancel-commit/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1300,6 +1331,7 @@ func (validate *Validate) GetEntityData() *types.CommonEntityData {
     validate.EntityData.BundleName = "ietf"
     validate.EntityData.ParentYangName = "ietf-netconf"
     validate.EntityData.SegmentPath = "ietf-netconf:validate"
+    validate.EntityData.AbsolutePath = validate.EntityData.SegmentPath
     validate.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     validate.EntityData.NamespaceTable = ietf.GetNamespaces()
     validate.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1328,6 +1360,7 @@ func (input *Validate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "ietf"
     input.EntityData.ParentYangName = "validate"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "ietf-netconf:validate/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     input.EntityData.NamespaceTable = ietf.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -1371,6 +1404,7 @@ func (source *Validate_Input_Source) GetEntityData() *types.CommonEntityData {
     source.EntityData.BundleName = "ietf"
     source.EntityData.ParentYangName = "input"
     source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "ietf-netconf:validate/input/" + source.EntityData.SegmentPath
     source.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     source.EntityData.NamespaceTable = ietf.GetNamespaces()
     source.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

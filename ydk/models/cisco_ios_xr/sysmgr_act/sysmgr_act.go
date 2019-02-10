@@ -36,6 +36,7 @@ func (sysmgrProcessRestart *SysmgrProcessRestart) GetEntityData() *types.CommonE
     sysmgrProcessRestart.EntityData.BundleName = "cisco_ios_xr"
     sysmgrProcessRestart.EntityData.ParentYangName = "Cisco-IOS-XR-sysmgr-act"
     sysmgrProcessRestart.EntityData.SegmentPath = "Cisco-IOS-XR-sysmgr-act:sysmgr-process-restart"
+    sysmgrProcessRestart.EntityData.AbsolutePath = sysmgrProcessRestart.EntityData.SegmentPath
     sysmgrProcessRestart.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sysmgrProcessRestart.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sysmgrProcessRestart.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -68,6 +69,7 @@ func (input *SysmgrProcessRestart_Input) GetEntityData() *types.CommonEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "sysmgr-process-restart"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-sysmgr-act:sysmgr-process-restart/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

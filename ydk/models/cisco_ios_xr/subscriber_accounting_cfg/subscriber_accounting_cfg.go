@@ -44,6 +44,7 @@ func (subscriberAccounting *SubscriberAccounting) GetEntityData() *types.CommonE
     subscriberAccounting.EntityData.BundleName = "cisco_ios_xr"
     subscriberAccounting.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-accounting-cfg"
     subscriberAccounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:subscriber-accounting"
+    subscriberAccounting.EntityData.AbsolutePath = subscriberAccounting.EntityData.SegmentPath
     subscriberAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriberAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriberAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -74,6 +75,7 @@ func (prepaidConfigurations *SubscriberAccounting_PrepaidConfigurations) GetEnti
     prepaidConfigurations.EntityData.BundleName = "cisco_ios_xr"
     prepaidConfigurations.EntityData.ParentYangName = "subscriber-accounting"
     prepaidConfigurations.EntityData.SegmentPath = "prepaid-configurations"
+    prepaidConfigurations.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-cfg:subscriber-accounting/" + prepaidConfigurations.EntityData.SegmentPath
     prepaidConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prepaidConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepaidConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -95,6 +97,7 @@ func (prepaidConfigurations *SubscriberAccounting_PrepaidConfigurations) GetEnti
 type SubscriberAccounting_PrepaidConfigurations_PrepaidConfiguration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Prepaid configuration name or default. The type is
     // string with length: 1..64.
@@ -138,6 +141,7 @@ func (prepaidConfiguration *SubscriberAccounting_PrepaidConfigurations_PrepaidCo
     prepaidConfiguration.EntityData.BundleName = "cisco_ios_xr"
     prepaidConfiguration.EntityData.ParentYangName = "prepaid-configurations"
     prepaidConfiguration.EntityData.SegmentPath = "prepaid-configuration" + types.AddKeyToken(prepaidConfiguration.PrepaidConfigName, "prepaid-config-name")
+    prepaidConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-subscriber-accounting-cfg:subscriber-accounting/prepaid-configurations/" + prepaidConfiguration.EntityData.SegmentPath
     prepaidConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prepaidConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepaidConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

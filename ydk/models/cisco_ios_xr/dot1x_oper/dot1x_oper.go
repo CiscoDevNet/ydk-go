@@ -46,6 +46,7 @@ func (dot1x *Dot1x) GetEntityData() *types.CommonEntityData {
     dot1x.EntityData.BundleName = "cisco_ios_xr"
     dot1x.EntityData.ParentYangName = "Cisco-IOS-XR-dot1x-oper"
     dot1x.EntityData.SegmentPath = "Cisco-IOS-XR-dot1x-oper:dot1x"
+    dot1x.EntityData.AbsolutePath = dot1x.EntityData.SegmentPath
     dot1x.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dot1x.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dot1x.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -77,6 +78,7 @@ func (statistics *Dot1x_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "dot1x"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -107,6 +109,7 @@ func (interfaceStatistics *Dot1x_Statistics_InterfaceStatistics) GetEntityData()
     interfaceStatistics.EntityData.BundleName = "cisco_ios_xr"
     interfaceStatistics.EntityData.ParentYangName = "statistics"
     interfaceStatistics.EntityData.SegmentPath = "interface-statistics"
+    interfaceStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/" + interfaceStatistics.EntityData.SegmentPath
     interfaceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -128,6 +131,7 @@ func (interfaceStatistics *Dot1x_Statistics_InterfaceStatistics) GetEntityData()
 type Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -158,6 +162,7 @@ func (interfaceStatistic *Dot1x_Statistics_InterfaceStatistics_InterfaceStatisti
     interfaceStatistic.EntityData.BundleName = "cisco_ios_xr"
     interfaceStatistic.EntityData.ParentYangName = "interface-statistics"
     interfaceStatistic.EntityData.SegmentPath = "interface-statistic" + types.AddKeyToken(interfaceStatistic.Name, "name")
+    interfaceStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/interface-statistics/" + interfaceStatistic.EntityData.SegmentPath
     interfaceStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -199,6 +204,7 @@ func (idb *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Idb) GetEntit
     idb.EntityData.BundleName = "cisco_ios_xr"
     idb.EntityData.ParentYangName = "interface-statistic"
     idb.EntityData.SegmentPath = "idb"
+    idb.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/interface-statistics/interface-statistic/" + idb.EntityData.SegmentPath
     idb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -266,6 +272,7 @@ func (auth *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth) GetEnt
     auth.EntityData.BundleName = "cisco_ios_xr"
     auth.EntityData.ParentYangName = "interface-statistic"
     auth.EntityData.SegmentPath = "auth"
+    auth.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/interface-statistics/interface-statistic/" + auth.EntityData.SegmentPath
     auth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -322,6 +329,7 @@ func (portControl *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Auth_
     portControl.EntityData.BundleName = "cisco_ios_xr"
     portControl.EntityData.ParentYangName = "auth"
     portControl.EntityData.SegmentPath = "port-control"
+    portControl.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/interface-statistics/interface-statistic/auth/" + portControl.EntityData.SegmentPath
     portControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -380,6 +388,7 @@ func (supp *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_Supp) GetEnt
     supp.EntityData.BundleName = "cisco_ios_xr"
     supp.EntityData.ParentYangName = "interface-statistic"
     supp.EntityData.SegmentPath = "supp"
+    supp.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/interface-statistics/interface-statistic/" + supp.EntityData.SegmentPath
     supp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     supp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     supp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -435,6 +444,7 @@ func (localEap *Dot1x_Statistics_InterfaceStatistics_InterfaceStatistic_LocalEap
     localEap.EntityData.BundleName = "cisco_ios_xr"
     localEap.EntityData.ParentYangName = "interface-statistic"
     localEap.EntityData.SegmentPath = "local-eap"
+    localEap.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/statistics/interface-statistics/interface-statistic/" + localEap.EntityData.SegmentPath
     localEap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localEap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localEap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -471,6 +481,7 @@ func (nodes *Dot1x_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "dot1x"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -492,6 +503,7 @@ func (nodes *Dot1x_Nodes) GetEntityData() *types.CommonEntityData {
 type Dot1x_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -510,6 +522,7 @@ func (node *Dot1x_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -547,6 +560,7 @@ func (dot1xDefaults *Dot1x_Nodes_Node_Dot1xDefaults) GetEntityData() *types.Comm
     dot1xDefaults.EntityData.BundleName = "cisco_ios_xr"
     dot1xDefaults.EntityData.ParentYangName = "node"
     dot1xDefaults.EntityData.SegmentPath = "dot1x-defaults"
+    dot1xDefaults.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/" + dot1xDefaults.EntityData.SegmentPath
     dot1xDefaults.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dot1xDefaults.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dot1xDefaults.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -605,6 +619,7 @@ func (authTimers *Dot1x_Nodes_Node_Dot1xDefaults_AuthTimers) GetEntityData() *ty
     authTimers.EntityData.BundleName = "cisco_ios_xr"
     authTimers.EntityData.ParentYangName = "dot1x-defaults"
     authTimers.EntityData.SegmentPath = "auth-timers"
+    authTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/dot1x-defaults/" + authTimers.EntityData.SegmentPath
     authTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -656,6 +671,7 @@ func (suppTimers *Dot1x_Nodes_Node_Dot1xDefaults_SuppTimers) GetEntityData() *ty
     suppTimers.EntityData.BundleName = "cisco_ios_xr"
     suppTimers.EntityData.ParentYangName = "dot1x-defaults"
     suppTimers.EntityData.SegmentPath = "supp-timers"
+    suppTimers.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/dot1x-defaults/" + suppTimers.EntityData.SegmentPath
     suppTimers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppTimers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppTimers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -692,6 +708,7 @@ func (statistics *Dot1x_Nodes_Node_Statistics) GetEntityData() *types.CommonEnti
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "node"
     statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -700,6 +717,7 @@ func (statistics *Dot1x_Nodes_Node_Statistics) GetEntityData() *types.CommonEnti
     statistics.EntityData.Children.Append("gl-stats", types.YChild{"GlStats", &statistics.GlStats})
     statistics.EntityData.Children.Append("if-stats", types.YChild{"IfStats", nil})
     for i := range statistics.IfStats {
+        types.SetYListKey(statistics.IfStats[i], i)
         statistics.EntityData.Children.Append(types.GetSegmentPath(statistics.IfStats[i]), types.YChild{"IfStats", statistics.IfStats[i]})
     }
     statistics.EntityData.Leafs = types.NewOrderedMap()
@@ -737,6 +755,7 @@ func (glStats *Dot1x_Nodes_Node_Statistics_GlStats) GetEntityData() *types.Commo
     glStats.EntityData.BundleName = "cisco_ios_xr"
     glStats.EntityData.ParentYangName = "statistics"
     glStats.EntityData.SegmentPath = "gl-stats"
+    glStats.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/statistics/" + glStats.EntityData.SegmentPath
     glStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     glStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     glStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -791,6 +810,7 @@ func (portControl *Dot1x_Nodes_Node_Statistics_GlStats_PortControl) GetEntityDat
     portControl.EntityData.BundleName = "cisco_ios_xr"
     portControl.EntityData.ParentYangName = "gl-stats"
     portControl.EntityData.SegmentPath = "port-control"
+    portControl.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/statistics/gl-stats/" + portControl.EntityData.SegmentPath
     portControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -816,6 +836,7 @@ func (portControl *Dot1x_Nodes_Node_Statistics_GlStats_PortControl) GetEntityDat
 type Dot1x_Nodes_Node_Statistics_IfStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Display name . The type is string.
     InterfaceName interface{}
@@ -841,7 +862,8 @@ func (ifStats *Dot1x_Nodes_Node_Statistics_IfStats) GetEntityData() *types.Commo
     ifStats.EntityData.YangName = "if-stats"
     ifStats.EntityData.BundleName = "cisco_ios_xr"
     ifStats.EntityData.ParentYangName = "statistics"
-    ifStats.EntityData.SegmentPath = "if-stats"
+    ifStats.EntityData.SegmentPath = "if-stats" + types.AddNoKeyToken(ifStats)
+    ifStats.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/statistics/" + ifStats.EntityData.SegmentPath
     ifStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ifStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ifStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -882,6 +904,7 @@ func (idb *Dot1x_Nodes_Node_Statistics_IfStats_Idb) GetEntityData() *types.Commo
     idb.EntityData.BundleName = "cisco_ios_xr"
     idb.EntityData.ParentYangName = "if-stats"
     idb.EntityData.SegmentPath = "idb"
+    idb.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/statistics/if-stats/" + idb.EntityData.SegmentPath
     idb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     idb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     idb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -949,6 +972,7 @@ func (auth *Dot1x_Nodes_Node_Statistics_IfStats_Auth) GetEntityData() *types.Com
     auth.EntityData.BundleName = "cisco_ios_xr"
     auth.EntityData.ParentYangName = "if-stats"
     auth.EntityData.SegmentPath = "auth"
+    auth.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/statistics/if-stats/" + auth.EntityData.SegmentPath
     auth.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auth.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auth.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1005,6 +1029,7 @@ func (portControl *Dot1x_Nodes_Node_Statistics_IfStats_Auth_PortControl) GetEnti
     portControl.EntityData.BundleName = "cisco_ios_xr"
     portControl.EntityData.ParentYangName = "auth"
     portControl.EntityData.SegmentPath = "port-control"
+    portControl.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/statistics/if-stats/auth/" + portControl.EntityData.SegmentPath
     portControl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     portControl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     portControl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1063,6 +1088,7 @@ func (supp *Dot1x_Nodes_Node_Statistics_IfStats_Supp) GetEntityData() *types.Com
     supp.EntityData.BundleName = "cisco_ios_xr"
     supp.EntityData.ParentYangName = "if-stats"
     supp.EntityData.SegmentPath = "supp"
+    supp.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/statistics/if-stats/" + supp.EntityData.SegmentPath
     supp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     supp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     supp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1118,6 +1144,7 @@ func (localEap *Dot1x_Nodes_Node_Statistics_IfStats_LocalEap) GetEntityData() *t
     localEap.EntityData.BundleName = "cisco_ios_xr"
     localEap.EntityData.ParentYangName = "if-stats"
     localEap.EntityData.SegmentPath = "local-eap"
+    localEap.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/nodes/node/statistics/if-stats/" + localEap.EntityData.SegmentPath
     localEap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localEap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localEap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1153,6 +1180,7 @@ func (session *Dot1x_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "dot1x"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1183,6 +1211,7 @@ func (interfaceSessions *Dot1x_Session_InterfaceSessions) GetEntityData() *types
     interfaceSessions.EntityData.BundleName = "cisco_ios_xr"
     interfaceSessions.EntityData.ParentYangName = "session"
     interfaceSessions.EntityData.SegmentPath = "interface-sessions"
+    interfaceSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/session/" + interfaceSessions.EntityData.SegmentPath
     interfaceSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1204,6 +1233,7 @@ func (interfaceSessions *Dot1x_Session_InterfaceSessions) GetEntityData() *types
 type Dot1x_Session_InterfaceSessions_InterfaceSession struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -1237,6 +1267,7 @@ func (interfaceSession *Dot1x_Session_InterfaceSessions_InterfaceSession) GetEnt
     interfaceSession.EntityData.BundleName = "cisco_ios_xr"
     interfaceSession.EntityData.ParentYangName = "interface-sessions"
     interfaceSession.EntityData.SegmentPath = "interface-session" + types.AddKeyToken(interfaceSession.Name, "name")
+    interfaceSession.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/" + interfaceSession.EntityData.SegmentPath
     interfaceSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1288,6 +1319,7 @@ func (intfInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo) GetEn
     intfInfo.EntityData.BundleName = "cisco_ios_xr"
     intfInfo.EntityData.ParentYangName = "interface-session"
     intfInfo.EntityData.SegmentPath = "intf-info"
+    intfInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/interface-session/" + intfInfo.EntityData.SegmentPath
     intfInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     intfInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     intfInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1335,6 +1367,7 @@ func (authInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthIn
     authInfo.EntityData.BundleName = "cisco_ios_xr"
     authInfo.EntityData.ParentYangName = "intf-info"
     authInfo.EntityData.SegmentPath = "auth-info"
+    authInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/interface-session/intf-info/" + authInfo.EntityData.SegmentPath
     authInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1342,6 +1375,7 @@ func (authInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthIn
     authInfo.EntityData.Children = types.NewOrderedMap()
     authInfo.EntityData.Children.Append("client", types.YChild{"Client", nil})
     for i := range authInfo.Client {
+        types.SetYListKey(authInfo.Client[i], i)
         authInfo.EntityData.Children.Append(types.GetSegmentPath(authInfo.Client[i]), types.YChild{"Client", authInfo.Client[i]})
     }
     authInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1360,6 +1394,7 @@ func (authInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthIn
 type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // formatted MAC Address. The type is string.
     Mac interface{}
@@ -1388,7 +1423,8 @@ func (client *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_AuthInfo
     client.EntityData.YangName = "client"
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "auth-info"
-    client.EntityData.SegmentPath = "client"
+    client.EntityData.SegmentPath = "client" + types.AddNoKeyToken(client)
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/interface-session/intf-info/auth-info/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1431,6 +1467,7 @@ func (suppInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppIn
     suppInfo.EntityData.BundleName = "cisco_ios_xr"
     suppInfo.EntityData.ParentYangName = "intf-info"
     suppInfo.EntityData.SegmentPath = "supp-info"
+    suppInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/interface-session/intf-info/" + suppInfo.EntityData.SegmentPath
     suppInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     suppInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     suppInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1438,6 +1475,7 @@ func (suppInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppIn
     suppInfo.EntityData.Children = types.NewOrderedMap()
     suppInfo.EntityData.Children.Append("client", types.YChild{"Client", nil})
     for i := range suppInfo.Client {
+        types.SetYListKey(suppInfo.Client[i], i)
         suppInfo.EntityData.Children.Append(types.GetSegmentPath(suppInfo.Client[i]), types.YChild{"Client", suppInfo.Client[i]})
     }
     suppInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1454,6 +1492,7 @@ func (suppInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppIn
 type Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo_Client struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // formatted MAC Address. The type is string.
     Mac interface{}
@@ -1476,7 +1515,8 @@ func (client *Dot1x_Session_InterfaceSessions_InterfaceSession_IntfInfo_SuppInfo
     client.EntityData.YangName = "client"
     client.EntityData.BundleName = "cisco_ios_xr"
     client.EntityData.ParentYangName = "supp-info"
-    client.EntityData.SegmentPath = "client"
+    client.EntityData.SegmentPath = "client" + types.AddNoKeyToken(client)
+    client.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/interface-session/intf-info/supp-info/" + client.EntityData.SegmentPath
     client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1525,6 +1565,7 @@ func (mkaStatusInfo *Dot1x_Session_InterfaceSessions_InterfaceSession_MkaStatusI
     mkaStatusInfo.EntityData.BundleName = "cisco_ios_xr"
     mkaStatusInfo.EntityData.ParentYangName = "interface-session"
     mkaStatusInfo.EntityData.SegmentPath = "mka-status-info"
+    mkaStatusInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-dot1x-oper:dot1x/session/interface-sessions/interface-session/" + mkaStatusInfo.EntityData.SegmentPath
     mkaStatusInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mkaStatusInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mkaStatusInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

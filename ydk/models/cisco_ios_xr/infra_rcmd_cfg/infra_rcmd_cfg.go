@@ -106,6 +106,7 @@ func (routerConvergence *RouterConvergence) GetEntityData() *types.CommonEntityD
     routerConvergence.EntityData.BundleName = "cisco_ios_xr"
     routerConvergence.EntityData.ParentYangName = "Cisco-IOS-XR-infra-rcmd-cfg"
     routerConvergence.EntityData.SegmentPath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence"
+    routerConvergence.EntityData.AbsolutePath = routerConvergence.EntityData.SegmentPath
     routerConvergence.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     routerConvergence.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     routerConvergence.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -146,6 +147,7 @@ func (protocols *RouterConvergence_Protocols) GetEntityData() *types.CommonEntit
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "router-convergence"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -167,6 +169,7 @@ func (protocols *RouterConvergence_Protocols) GetEntityData() *types.CommonEntit
 type RouterConvergence_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify the protocol. The type is ProtocolName.
     ProtocolName interface{}
@@ -186,6 +189,7 @@ func (protocol *RouterConvergence_Protocols_Protocol) GetEntityData() *types.Com
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
     protocol.EntityData.SegmentPath = "protocol" + types.AddKeyToken(protocol.ProtocolName, "protocol-name")
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -218,6 +222,7 @@ func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetEntityData
     priorities.EntityData.BundleName = "cisco_ios_xr"
     priorities.EntityData.ParentYangName = "protocol"
     priorities.EntityData.SegmentPath = "priorities"
+    priorities.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/protocols/protocol/" + priorities.EntityData.SegmentPath
     priorities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priorities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priorities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -239,6 +244,7 @@ func (priorities *RouterConvergence_Protocols_Protocol_Priorities) GetEntityData
 type RouterConvergence_Protocols_Protocol_Priorities_Priority struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specify the priority. The type is RcmdPriority.
     RcmdPriority interface{}
@@ -270,6 +276,7 @@ func (priority *RouterConvergence_Protocols_Protocol_Priorities_Priority) GetEnt
     priority.EntityData.BundleName = "cisco_ios_xr"
     priority.EntityData.ParentYangName = "priorities"
     priority.EntityData.SegmentPath = "priority" + types.AddKeyToken(priority.RcmdPriority, "rcmd-priority")
+    priority.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/protocols/protocol/priorities/" + priority.EntityData.SegmentPath
     priority.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     priority.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     priority.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -321,6 +328,7 @@ func (storageLocation *RouterConvergence_StorageLocation) GetEntityData() *types
     storageLocation.EntityData.BundleName = "cisco_ios_xr"
     storageLocation.EntityData.ParentYangName = "router-convergence"
     storageLocation.EntityData.SegmentPath = "storage-location"
+    storageLocation.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/" + storageLocation.EntityData.SegmentPath
     storageLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     storageLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     storageLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -355,6 +363,7 @@ func (mplsLdp *RouterConvergence_MplsLdp) GetEntityData() *types.CommonEntityDat
     mplsLdp.EntityData.BundleName = "cisco_ios_xr"
     mplsLdp.EntityData.ParentYangName = "router-convergence"
     mplsLdp.EntityData.SegmentPath = "mpls-ldp"
+    mplsLdp.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/" + mplsLdp.EntityData.SegmentPath
     mplsLdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsLdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsLdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -387,6 +396,7 @@ func (remoteLfa *RouterConvergence_MplsLdp_RemoteLfa) GetEntityData() *types.Com
     remoteLfa.EntityData.BundleName = "cisco_ios_xr"
     remoteLfa.EntityData.ParentYangName = "mpls-ldp"
     remoteLfa.EntityData.SegmentPath = "remote-lfa"
+    remoteLfa.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/mpls-ldp/" + remoteLfa.EntityData.SegmentPath
     remoteLfa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     remoteLfa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     remoteLfa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -417,6 +427,7 @@ func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetEntityData() 
     collectDiagnostics.EntityData.BundleName = "cisco_ios_xr"
     collectDiagnostics.EntityData.ParentYangName = "router-convergence"
     collectDiagnostics.EntityData.SegmentPath = "collect-diagnostics"
+    collectDiagnostics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/" + collectDiagnostics.EntityData.SegmentPath
     collectDiagnostics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collectDiagnostics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectDiagnostics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -438,6 +449,7 @@ func (collectDiagnostics *RouterConvergence_CollectDiagnostics) GetEntityData() 
 type RouterConvergence_CollectDiagnostics_CollectDiagnostic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Specified location. The type is string with
     // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -454,6 +466,7 @@ func (collectDiagnostic *RouterConvergence_CollectDiagnostics_CollectDiagnostic)
     collectDiagnostic.EntityData.BundleName = "cisco_ios_xr"
     collectDiagnostic.EntityData.ParentYangName = "collect-diagnostics"
     collectDiagnostic.EntityData.SegmentPath = "collect-diagnostic" + types.AddKeyToken(collectDiagnostic.NodeName, "node-name")
+    collectDiagnostic.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/collect-diagnostics/" + collectDiagnostic.EntityData.SegmentPath
     collectDiagnostic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     collectDiagnostic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     collectDiagnostic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -485,6 +498,7 @@ func (nodes *RouterConvergence_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "router-convergence"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -507,6 +521,7 @@ func (nodes *RouterConvergence_Nodes) GetEntityData() *types.CommonEntityData {
 type RouterConvergence_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Wildcard expression(eg. */*/*, R/*/*, R/S/*,
     // R/S/I). The type is string with pattern:
@@ -529,6 +544,7 @@ func (node *RouterConvergence_Nodes_Node) GetEntityData() *types.CommonEntityDat
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

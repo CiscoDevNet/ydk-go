@@ -41,6 +41,7 @@ func (sNMPTARGETMIB *SNMPTARGETMIB) GetEntityData() *types.CommonEntityData {
     sNMPTARGETMIB.EntityData.BundleName = "cisco_ios_xe"
     sNMPTARGETMIB.EntityData.ParentYangName = "SNMP-TARGET-MIB"
     sNMPTARGETMIB.EntityData.SegmentPath = "SNMP-TARGET-MIB:SNMP-TARGET-MIB"
+    sNMPTARGETMIB.EntityData.AbsolutePath = sNMPTARGETMIB.EntityData.SegmentPath
     sNMPTARGETMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sNMPTARGETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sNMPTARGETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -90,6 +91,7 @@ func (snmpTargetObjects *SNMPTARGETMIB_SnmpTargetObjects) GetEntityData() *types
     snmpTargetObjects.EntityData.BundleName = "cisco_ios_xe"
     snmpTargetObjects.EntityData.ParentYangName = "SNMP-TARGET-MIB"
     snmpTargetObjects.EntityData.SegmentPath = "snmpTargetObjects"
+    snmpTargetObjects.EntityData.AbsolutePath = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/" + snmpTargetObjects.EntityData.SegmentPath
     snmpTargetObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpTargetObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpTargetObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -125,6 +127,7 @@ func (snmpTargetAddrTable *SNMPTARGETMIB_SnmpTargetAddrTable) GetEntityData() *t
     snmpTargetAddrTable.EntityData.BundleName = "cisco_ios_xe"
     snmpTargetAddrTable.EntityData.ParentYangName = "SNMP-TARGET-MIB"
     snmpTargetAddrTable.EntityData.SegmentPath = "snmpTargetAddrTable"
+    snmpTargetAddrTable.EntityData.AbsolutePath = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/" + snmpTargetAddrTable.EntityData.SegmentPath
     snmpTargetAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpTargetAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpTargetAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -150,6 +153,7 @@ func (snmpTargetAddrTable *SNMPTARGETMIB_SnmpTargetAddrTable) GetEntityData() *t
 type SNMPTARGETMIB_SnmpTargetAddrTable_SnmpTargetAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The locally arbitrary, but unique identifier
     // associated with this snmpTargetAddrEntry. The type is string with length:
@@ -222,6 +226,7 @@ func (snmpTargetAddrEntry *SNMPTARGETMIB_SnmpTargetAddrTable_SnmpTargetAddrEntry
     snmpTargetAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     snmpTargetAddrEntry.EntityData.ParentYangName = "snmpTargetAddrTable"
     snmpTargetAddrEntry.EntityData.SegmentPath = "snmpTargetAddrEntry" + types.AddKeyToken(snmpTargetAddrEntry.SnmpTargetAddrName, "snmpTargetAddrName")
+    snmpTargetAddrEntry.EntityData.AbsolutePath = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/snmpTargetAddrTable/" + snmpTargetAddrEntry.EntityData.SegmentPath
     snmpTargetAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpTargetAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpTargetAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -262,6 +267,7 @@ func (snmpTargetParamsTable *SNMPTARGETMIB_SnmpTargetParamsTable) GetEntityData(
     snmpTargetParamsTable.EntityData.BundleName = "cisco_ios_xe"
     snmpTargetParamsTable.EntityData.ParentYangName = "SNMP-TARGET-MIB"
     snmpTargetParamsTable.EntityData.SegmentPath = "snmpTargetParamsTable"
+    snmpTargetParamsTable.EntityData.AbsolutePath = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/" + snmpTargetParamsTable.EntityData.SegmentPath
     snmpTargetParamsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpTargetParamsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpTargetParamsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -286,6 +292,7 @@ func (snmpTargetParamsTable *SNMPTARGETMIB_SnmpTargetParamsTable) GetEntityData(
 type SNMPTARGETMIB_SnmpTargetParamsTable_SnmpTargetParamsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The locally arbitrary, but unique identifier
     // associated with this snmpTargetParamsEntry. The type is string with length:
@@ -336,6 +343,7 @@ func (snmpTargetParamsEntry *SNMPTARGETMIB_SnmpTargetParamsTable_SnmpTargetParam
     snmpTargetParamsEntry.EntityData.BundleName = "cisco_ios_xe"
     snmpTargetParamsEntry.EntityData.ParentYangName = "snmpTargetParamsTable"
     snmpTargetParamsEntry.EntityData.SegmentPath = "snmpTargetParamsEntry" + types.AddKeyToken(snmpTargetParamsEntry.SnmpTargetParamsName, "snmpTargetParamsName")
+    snmpTargetParamsEntry.EntityData.AbsolutePath = "SNMP-TARGET-MIB:SNMP-TARGET-MIB/snmpTargetParamsTable/" + snmpTargetParamsEntry.EntityData.SegmentPath
     snmpTargetParamsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     snmpTargetParamsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     snmpTargetParamsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

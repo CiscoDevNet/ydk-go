@@ -66,6 +66,7 @@ func (self *Switch) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     self.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:switch"
+    self.EntityData.AbsolutePath = self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -104,6 +105,7 @@ func (input *Switch_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "switch"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:switch/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -136,6 +138,7 @@ func (statck *Switch_Input_Statck) GetEntityData() *types.CommonEntityData {
     statck.EntityData.BundleName = "cisco_ios_xe"
     statck.EntityData.ParentYangName = "input"
     statck.EntityData.SegmentPath = "statck"
+    statck.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:switch/input/" + statck.EntityData.SegmentPath
     statck.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     statck.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     statck.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -164,6 +167,7 @@ func (output *Switch_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "switch"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:switch/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -196,6 +200,7 @@ func (self *Default) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     self.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:default"
+    self.EntityData.AbsolutePath = self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -226,6 +231,7 @@ func (input *Default_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "default"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:default/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -254,6 +260,7 @@ func (output *Default_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "default"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:default/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -286,6 +293,7 @@ func (clear *Clear) GetEntityData() *types.CommonEntityData {
     clear.EntityData.BundleName = "cisco_ios_xe"
     clear.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     clear.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:clear"
+    clear.EntityData.AbsolutePath = clear.EntityData.SegmentPath
     clear.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clear.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clear.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -338,6 +346,7 @@ func (input *Clear_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "clear"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -377,6 +386,7 @@ func (flow *Clear_Input_Flow) GetEntityData() *types.CommonEntityData {
     flow.EntityData.BundleName = "cisco_ios_xe"
     flow.EntityData.ParentYangName = "input"
     flow.EntityData.SegmentPath = "flow"
+    flow.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/" + flow.EntityData.SegmentPath
     flow.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     flow.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     flow.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -415,6 +425,7 @@ func (monitor *Clear_Input_Flow_Monitor) GetEntityData() *types.CommonEntityData
     monitor.EntityData.BundleName = "cisco_ios_xe"
     monitor.EntityData.ParentYangName = "flow"
     monitor.EntityData.SegmentPath = "monitor"
+    monitor.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/flow/" + monitor.EntityData.SegmentPath
     monitor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     monitor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     monitor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -446,6 +457,7 @@ func (cache *Clear_Input_Flow_Monitor_Cache) GetEntityData() *types.CommonEntity
     cache.EntityData.BundleName = "cisco_ios_xe"
     cache.EntityData.ParentYangName = "monitor"
     cache.EntityData.SegmentPath = "cache"
+    cache.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/flow/monitor/" + cache.EntityData.SegmentPath
     cache.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cache.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cache.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -477,6 +489,7 @@ func (exporter *Clear_Input_Flow_Exporter) GetEntityData() *types.CommonEntityDa
     exporter.EntityData.BundleName = "cisco_ios_xe"
     exporter.EntityData.ParentYangName = "flow"
     exporter.EntityData.SegmentPath = "exporter"
+    exporter.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/flow/" + exporter.EntityData.SegmentPath
     exporter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     exporter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     exporter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -512,6 +525,7 @@ func (ip *Clear_Input_Ip) GetEntityData() *types.CommonEntityData {
     ip.EntityData.BundleName = "cisco_ios_xe"
     ip.EntityData.ParentYangName = "input"
     ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/" + ip.EntityData.SegmentPath
     ip.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -543,6 +557,7 @@ func (dhcp *Clear_Input_Ip_Dhcp) GetEntityData() *types.CommonEntityData {
     dhcp.EntityData.BundleName = "cisco_ios_xe"
     dhcp.EntityData.ParentYangName = "ip"
     dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/ip/" + dhcp.EntityData.SegmentPath
     dhcp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     dhcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -576,6 +591,7 @@ func (binding *Clear_Input_Ip_Dhcp_Binding) GetEntityData() *types.CommonEntityD
     binding.EntityData.BundleName = "cisco_ios_xe"
     binding.EntityData.ParentYangName = "dhcp"
     binding.EntityData.SegmentPath = "binding"
+    binding.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/ip/dhcp/" + binding.EntityData.SegmentPath
     binding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     binding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     binding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -608,6 +624,7 @@ func (ospf *Clear_Input_Ip_Ospf) GetEntityData() *types.CommonEntityData {
     ospf.EntityData.BundleName = "cisco_ios_xe"
     ospf.EntityData.ParentYangName = "ip"
     ospf.EntityData.SegmentPath = "ospf"
+    ospf.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/ip/" + ospf.EntityData.SegmentPath
     ospf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ospf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ospf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -645,6 +662,7 @@ func (bgp *Clear_Input_Ip_Bgp) GetEntityData() *types.CommonEntityData {
     bgp.EntityData.BundleName = "cisco_ios_xe"
     bgp.EntityData.ParentYangName = "ip"
     bgp.EntityData.SegmentPath = "bgp"
+    bgp.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/ip/" + bgp.EntityData.SegmentPath
     bgp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bgp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bgp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -685,6 +703,7 @@ func (arpCache *Clear_Input_ArpCache) GetEntityData() *types.CommonEntityData {
     arpCache.EntityData.BundleName = "cisco_ios_xe"
     arpCache.EntityData.ParentYangName = "input"
     arpCache.EntityData.SegmentPath = "arp-cache"
+    arpCache.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/" + arpCache.EntityData.SegmentPath
     arpCache.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     arpCache.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     arpCache.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -716,6 +735,7 @@ func (aaa *Clear_Input_Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.BundleName = "cisco_ios_xe"
     aaa.EntityData.ParentYangName = "input"
     aaa.EntityData.SegmentPath = "aaa"
+    aaa.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/" + aaa.EntityData.SegmentPath
     aaa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -745,6 +765,7 @@ func (local *Clear_Input_Aaa_Local) GetEntityData() *types.CommonEntityData {
     local.EntityData.BundleName = "cisco_ios_xe"
     local.EntityData.ParentYangName = "aaa"
     local.EntityData.SegmentPath = "local"
+    local.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/aaa/" + local.EntityData.SegmentPath
     local.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     local.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     local.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -774,6 +795,7 @@ func (user *Clear_Input_Aaa_Local_User) GetEntityData() *types.CommonEntityData 
     user.EntityData.BundleName = "cisco_ios_xe"
     user.EntityData.ParentYangName = "local"
     user.EntityData.SegmentPath = "user"
+    user.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/aaa/local/" + user.EntityData.SegmentPath
     user.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     user.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     user.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -803,6 +825,7 @@ func (lockout *Clear_Input_Aaa_Local_User_Lockout) GetEntityData() *types.Common
     lockout.EntityData.BundleName = "cisco_ios_xe"
     lockout.EntityData.ParentYangName = "user"
     lockout.EntityData.SegmentPath = "lockout"
+    lockout.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/aaa/local/user/" + lockout.EntityData.SegmentPath
     lockout.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lockout.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lockout.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -832,6 +855,7 @@ func (platform *Clear_Input_Platform) GetEntityData() *types.CommonEntityData {
     platform.EntityData.BundleName = "cisco_ios_xe"
     platform.EntityData.ParentYangName = "input"
     platform.EntityData.SegmentPath = "platform"
+    platform.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/" + platform.EntityData.SegmentPath
     platform.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     platform.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     platform.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -861,6 +885,7 @@ func (hardware *Clear_Input_Platform_Hardware) GetEntityData() *types.CommonEnti
     hardware.EntityData.BundleName = "cisco_ios_xe"
     hardware.EntityData.ParentYangName = "platform"
     hardware.EntityData.SegmentPath = "hardware"
+    hardware.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/platform/" + hardware.EntityData.SegmentPath
     hardware.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     hardware.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     hardware.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -890,6 +915,7 @@ func (qfp *Clear_Input_Platform_Hardware_Qfp) GetEntityData() *types.CommonEntit
     qfp.EntityData.BundleName = "cisco_ios_xe"
     qfp.EntityData.ParentYangName = "hardware"
     qfp.EntityData.SegmentPath = "qfp"
+    qfp.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/platform/hardware/" + qfp.EntityData.SegmentPath
     qfp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     qfp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     qfp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -919,6 +945,7 @@ func (active *Clear_Input_Platform_Hardware_Qfp_Active) GetEntityData() *types.C
     active.EntityData.BundleName = "cisco_ios_xe"
     active.EntityData.ParentYangName = "qfp"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/platform/hardware/qfp/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -948,6 +975,7 @@ func (feature *Clear_Input_Platform_Hardware_Qfp_Active_Feature) GetEntityData()
     feature.EntityData.BundleName = "cisco_ios_xe"
     feature.EntityData.ParentYangName = "active"
     feature.EntityData.SegmentPath = "feature"
+    feature.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/platform/hardware/qfp/active/" + feature.EntityData.SegmentPath
     feature.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     feature.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     feature.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -977,6 +1005,7 @@ func (firewall *Clear_Input_Platform_Hardware_Qfp_Active_Feature_Firewall) GetEn
     firewall.EntityData.BundleName = "cisco_ios_xe"
     firewall.EntityData.ParentYangName = "feature"
     firewall.EntityData.SegmentPath = "firewall"
+    firewall.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/platform/hardware/qfp/active/feature/" + firewall.EntityData.SegmentPath
     firewall.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     firewall.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     firewall.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1006,6 +1035,7 @@ func (zonePair *Clear_Input_ZonePair) GetEntityData() *types.CommonEntityData {
     zonePair.EntityData.BundleName = "cisco_ios_xe"
     zonePair.EntityData.ParentYangName = "input"
     zonePair.EntityData.SegmentPath = "zone-pair"
+    zonePair.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/input/" + zonePair.EntityData.SegmentPath
     zonePair.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     zonePair.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     zonePair.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1034,6 +1064,7 @@ func (output *Clear_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "clear"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:clear/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1066,6 +1097,7 @@ func (release *Release) GetEntityData() *types.CommonEntityData {
     release.EntityData.BundleName = "cisco_ios_xe"
     release.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     release.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:release"
+    release.EntityData.AbsolutePath = release.EntityData.SegmentPath
     release.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     release.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     release.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1095,6 +1127,7 @@ func (input *Release_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "release"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:release/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1123,6 +1156,7 @@ func (output *Release_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "release"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:release/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1155,6 +1189,7 @@ func (reload *Reload) GetEntityData() *types.CommonEntityData {
     reload.EntityData.BundleName = "cisco_ios_xe"
     reload.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     reload.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:reload"
+    reload.EntityData.AbsolutePath = reload.EntityData.SegmentPath
     reload.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     reload.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     reload.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1187,6 +1222,7 @@ func (input *Reload_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "reload"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:reload/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1216,6 +1252,7 @@ func (output *Reload_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "reload"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:reload/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1247,6 +1284,7 @@ func (cellular *Cellular) GetEntityData() *types.CommonEntityData {
     cellular.EntityData.BundleName = "cisco_ios_xe"
     cellular.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     cellular.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:cellular"
+    cellular.EntityData.AbsolutePath = cellular.EntityData.SegmentPath
     cellular.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cellular.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cellular.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1279,6 +1317,7 @@ func (input *Cellular_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "cellular"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:cellular/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1314,6 +1353,7 @@ func (lte *Cellular_Input_Lte) GetEntityData() *types.CommonEntityData {
     lte.EntityData.BundleName = "cisco_ios_xe"
     lte.EntityData.ParentYangName = "input"
     lte.EntityData.SegmentPath = "lte"
+    lte.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:cellular/input/" + lte.EntityData.SegmentPath
     lte.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     lte.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     lte.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1350,6 +1390,7 @@ func (technology *Cellular_Input_Lte_Technology) GetEntityData() *types.CommonEn
     technology.EntityData.BundleName = "cisco_ios_xe"
     technology.EntityData.ParentYangName = "lte"
     technology.EntityData.SegmentPath = "technology"
+    technology.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:cellular/input/lte/" + technology.EntityData.SegmentPath
     technology.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     technology.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     technology.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1383,6 +1424,7 @@ func (profile *Cellular_Input_Lte_Profile) GetEntityData() *types.CommonEntityDa
     profile.EntityData.BundleName = "cisco_ios_xe"
     profile.EntityData.ParentYangName = "lte"
     profile.EntityData.SegmentPath = "profile"
+    profile.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:cellular/input/lte/" + profile.EntityData.SegmentPath
     profile.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     profile.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     profile.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1413,6 +1455,7 @@ func (self *Cellular_Input_Lte_Profile_Delete) GetEntityData() *types.CommonEnti
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "profile"
     self.EntityData.SegmentPath = "delete"
+    self.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:cellular/input/lte/profile/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1472,6 +1515,7 @@ func (create *Cellular_Input_Lte_Profile_Create) GetEntityData() *types.CommonEn
     create.EntityData.BundleName = "cisco_ios_xe"
     create.EntityData.ParentYangName = "profile"
     create.EntityData.SegmentPath = "create"
+    create.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:cellular/input/lte/profile/" + create.EntityData.SegmentPath
     create.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     create.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     create.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1510,6 +1554,7 @@ func (output *Cellular_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "cellular"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:cellular/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1541,6 +1586,7 @@ func (license *License) GetEntityData() *types.CommonEntityData {
     license.EntityData.BundleName = "cisco_ios_xe"
     license.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     license.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:license"
+    license.EntityData.AbsolutePath = license.EntityData.SegmentPath
     license.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     license.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     license.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1570,6 +1616,7 @@ func (input *License_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "license"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:license/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1604,6 +1651,7 @@ func (smart *License_Input_Smart) GetEntityData() *types.CommonEntityData {
     smart.EntityData.BundleName = "cisco_ios_xe"
     smart.EntityData.ParentYangName = "input"
     smart.EntityData.SegmentPath = "smart"
+    smart.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:license/input/" + smart.EntityData.SegmentPath
     smart.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     smart.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     smart.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1637,6 +1685,7 @@ func (register *License_Input_Smart_Register) GetEntityData() *types.CommonEntit
     register.EntityData.BundleName = "cisco_ios_xe"
     register.EntityData.ParentYangName = "smart"
     register.EntityData.SegmentPath = "register"
+    register.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:license/input/smart/" + register.EntityData.SegmentPath
     register.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     register.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     register.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1669,6 +1718,7 @@ func (renew *License_Input_Smart_Renew) GetEntityData() *types.CommonEntityData 
     renew.EntityData.BundleName = "cisco_ios_xe"
     renew.EntityData.ParentYangName = "smart"
     renew.EntityData.SegmentPath = "renew"
+    renew.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:license/input/smart/" + renew.EntityData.SegmentPath
     renew.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     renew.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     renew.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1698,6 +1748,7 @@ func (output *License_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "license"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:license/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1730,6 +1781,7 @@ func (service *Service) GetEntityData() *types.CommonEntityData {
     service.EntityData.BundleName = "cisco_ios_xe"
     service.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     service.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:service"
+    service.EntityData.AbsolutePath = service.EntityData.SegmentPath
     service.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     service.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     service.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1759,6 +1811,7 @@ func (input *Service_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "service"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:service/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1814,6 +1867,7 @@ func (sdAvc *Service_Input_SdAvc) GetEntityData() *types.CommonEntityData {
     sdAvc.EntityData.BundleName = "cisco_ios_xe"
     sdAvc.EntityData.ParentYangName = "input"
     sdAvc.EntityData.SegmentPath = "sd-avc"
+    sdAvc.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:service/input/" + sdAvc.EntityData.SegmentPath
     sdAvc.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     sdAvc.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     sdAvc.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1851,6 +1905,7 @@ func (configure *Service_Input_SdAvc_Configure) GetEntityData() *types.CommonEnt
     configure.EntityData.BundleName = "cisco_ios_xe"
     configure.EntityData.ParentYangName = "sd-avc"
     configure.EntityData.SegmentPath = "configure"
+    configure.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:service/input/sd-avc/" + configure.EntityData.SegmentPath
     configure.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     configure.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     configure.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1886,6 +1941,7 @@ func (gateway *Service_Input_SdAvc_Configure_Gateway) GetEntityData() *types.Com
     gateway.EntityData.BundleName = "cisco_ios_xe"
     gateway.EntityData.ParentYangName = "configure"
     gateway.EntityData.SegmentPath = "gateway"
+    gateway.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:service/input/sd-avc/configure/" + gateway.EntityData.SegmentPath
     gateway.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     gateway.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     gateway.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1916,6 +1972,7 @@ func (install *Service_Input_SdAvc_Install) GetEntityData() *types.CommonEntityD
     install.EntityData.BundleName = "cisco_ios_xe"
     install.EntityData.ParentYangName = "sd-avc"
     install.EntityData.SegmentPath = "install"
+    install.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:service/input/sd-avc/" + install.EntityData.SegmentPath
     install.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     install.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     install.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1944,6 +2001,7 @@ func (upgrade *Service_Input_SdAvc_Upgrade) GetEntityData() *types.CommonEntityD
     upgrade.EntityData.BundleName = "cisco_ios_xe"
     upgrade.EntityData.ParentYangName = "sd-avc"
     upgrade.EntityData.SegmentPath = "upgrade"
+    upgrade.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:service/input/sd-avc/" + upgrade.EntityData.SegmentPath
     upgrade.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     upgrade.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     upgrade.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1972,6 +2030,7 @@ func (output *Service_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "service"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:service/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2004,6 +2063,7 @@ func (virtualService *VirtualService) GetEntityData() *types.CommonEntityData {
     virtualService.EntityData.BundleName = "cisco_ios_xe"
     virtualService.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     virtualService.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:virtual-service"
+    virtualService.EntityData.AbsolutePath = virtualService.EntityData.SegmentPath
     virtualService.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     virtualService.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     virtualService.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2039,6 +2099,7 @@ func (input *VirtualService_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "virtual-service"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:virtual-service/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2075,6 +2136,7 @@ func (install *VirtualService_Input_Install) GetEntityData() *types.CommonEntity
     install.EntityData.BundleName = "cisco_ios_xe"
     install.EntityData.ParentYangName = "input"
     install.EntityData.SegmentPath = "install"
+    install.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:virtual-service/input/" + install.EntityData.SegmentPath
     install.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     install.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     install.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2105,6 +2167,7 @@ func (uninstall *VirtualService_Input_Uninstall) GetEntityData() *types.CommonEn
     uninstall.EntityData.BundleName = "cisco_ios_xe"
     uninstall.EntityData.ParentYangName = "input"
     uninstall.EntityData.SegmentPath = "uninstall"
+    uninstall.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:virtual-service/input/" + uninstall.EntityData.SegmentPath
     uninstall.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     uninstall.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     uninstall.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2136,6 +2199,7 @@ func (upgrade *VirtualService_Input_Upgrade) GetEntityData() *types.CommonEntity
     upgrade.EntityData.BundleName = "cisco_ios_xe"
     upgrade.EntityData.ParentYangName = "input"
     upgrade.EntityData.SegmentPath = "upgrade"
+    upgrade.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:virtual-service/input/" + upgrade.EntityData.SegmentPath
     upgrade.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     upgrade.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     upgrade.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2165,6 +2229,7 @@ func (output *VirtualService_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "virtual-service"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:virtual-service/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2197,6 +2262,7 @@ func (self *Copy) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     self.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:copy"
+    self.EntityData.AbsolutePath = self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2233,6 +2299,7 @@ func (input *Copy_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "copy"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:copy/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2262,6 +2329,7 @@ func (output *Copy_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "copy"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:copy/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2294,6 +2362,7 @@ func (self *Delete) GetEntityData() *types.CommonEntityData {
     self.EntityData.BundleName = "cisco_ios_xe"
     self.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     self.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:delete"
+    self.EntityData.AbsolutePath = self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2325,6 +2394,7 @@ func (input *Delete_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "delete"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:delete/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2353,6 +2423,7 @@ func (output *Delete_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "delete"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:delete/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2385,6 +2456,7 @@ func (appHosting *AppHosting) GetEntityData() *types.CommonEntityData {
     appHosting.EntityData.BundleName = "cisco_ios_xe"
     appHosting.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     appHosting.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:app-hosting"
+    appHosting.EntityData.AbsolutePath = appHosting.EntityData.SegmentPath
     appHosting.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     appHosting.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     appHosting.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2429,6 +2501,7 @@ func (input *AppHosting_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "app-hosting"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:app-hosting/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2465,6 +2538,7 @@ func (install *AppHosting_Input_Install) GetEntityData() *types.CommonEntityData
     install.EntityData.BundleName = "cisco_ios_xe"
     install.EntityData.ParentYangName = "input"
     install.EntityData.SegmentPath = "install"
+    install.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:app-hosting/input/" + install.EntityData.SegmentPath
     install.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     install.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     install.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2494,6 +2568,7 @@ func (uninstall *AppHosting_Input_Uninstall) GetEntityData() *types.CommonEntity
     uninstall.EntityData.BundleName = "cisco_ios_xe"
     uninstall.EntityData.ParentYangName = "input"
     uninstall.EntityData.SegmentPath = "uninstall"
+    uninstall.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:app-hosting/input/" + uninstall.EntityData.SegmentPath
     uninstall.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     uninstall.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     uninstall.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2522,6 +2597,7 @@ func (activate *AppHosting_Input_Activate) GetEntityData() *types.CommonEntityDa
     activate.EntityData.BundleName = "cisco_ios_xe"
     activate.EntityData.ParentYangName = "input"
     activate.EntityData.SegmentPath = "activate"
+    activate.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:app-hosting/input/" + activate.EntityData.SegmentPath
     activate.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     activate.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     activate.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2550,6 +2626,7 @@ func (deactivate *AppHosting_Input_Deactivate) GetEntityData() *types.CommonEnti
     deactivate.EntityData.BundleName = "cisco_ios_xe"
     deactivate.EntityData.ParentYangName = "input"
     deactivate.EntityData.SegmentPath = "deactivate"
+    deactivate.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:app-hosting/input/" + deactivate.EntityData.SegmentPath
     deactivate.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     deactivate.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     deactivate.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2578,6 +2655,7 @@ func (start *AppHosting_Input_Start) GetEntityData() *types.CommonEntityData {
     start.EntityData.BundleName = "cisco_ios_xe"
     start.EntityData.ParentYangName = "input"
     start.EntityData.SegmentPath = "start"
+    start.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:app-hosting/input/" + start.EntityData.SegmentPath
     start.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     start.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2606,6 +2684,7 @@ func (stop *AppHosting_Input_Stop) GetEntityData() *types.CommonEntityData {
     stop.EntityData.BundleName = "cisco_ios_xe"
     stop.EntityData.ParentYangName = "input"
     stop.EntityData.SegmentPath = "stop"
+    stop.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:app-hosting/input/" + stop.EntityData.SegmentPath
     stop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2634,6 +2713,7 @@ func (output *AppHosting_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "app-hosting"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:app-hosting/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2666,6 +2746,7 @@ func (guestshell *Guestshell) GetEntityData() *types.CommonEntityData {
     guestshell.EntityData.BundleName = "cisco_ios_xe"
     guestshell.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     guestshell.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:guestshell"
+    guestshell.EntityData.AbsolutePath = guestshell.EntityData.SegmentPath
     guestshell.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     guestshell.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     guestshell.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2701,6 +2782,7 @@ func (input *Guestshell_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "guestshell"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:guestshell/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2731,6 +2813,7 @@ func (output *Guestshell_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "guestshell"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:guestshell/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2763,6 +2846,7 @@ func (start *Start) GetEntityData() *types.CommonEntityData {
     start.EntityData.BundleName = "cisco_ios_xe"
     start.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     start.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:start"
+    start.EntityData.AbsolutePath = start.EntityData.SegmentPath
     start.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     start.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     start.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2792,6 +2876,7 @@ func (input *Start_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "start"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:start/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2820,6 +2905,7 @@ func (output *Start_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "start"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:start/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2852,6 +2938,7 @@ func (stop *Stop) GetEntityData() *types.CommonEntityData {
     stop.EntityData.BundleName = "cisco_ios_xe"
     stop.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     stop.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:stop"
+    stop.EntityData.AbsolutePath = stop.EntityData.SegmentPath
     stop.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     stop.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     stop.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2881,6 +2968,7 @@ func (input *Stop_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "stop"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:stop/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2909,6 +2997,7 @@ func (output *Stop_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "stop"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:stop/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2941,6 +3030,7 @@ func (utd *Utd) GetEntityData() *types.CommonEntityData {
     utd.EntityData.BundleName = "cisco_ios_xe"
     utd.EntityData.ParentYangName = "Cisco-IOS-XE-rpc"
     utd.EntityData.SegmentPath = "Cisco-IOS-XE-rpc:utd"
+    utd.EntityData.AbsolutePath = utd.EntityData.SegmentPath
     utd.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     utd.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     utd.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2970,6 +3060,7 @@ func (input *Utd_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xe"
     input.EntityData.ParentYangName = "utd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2999,6 +3090,7 @@ func (threatInspection *Utd_Input_ThreatInspection) GetEntityData() *types.Commo
     threatInspection.EntityData.BundleName = "cisco_ios_xe"
     threatInspection.EntityData.ParentYangName = "input"
     threatInspection.EntityData.SegmentPath = "threat-inspection"
+    threatInspection.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/" + threatInspection.EntityData.SegmentPath
     threatInspection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     threatInspection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     threatInspection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3031,6 +3123,7 @@ func (signature *Utd_Input_ThreatInspection_Signature) GetEntityData() *types.Co
     signature.EntityData.BundleName = "cisco_ios_xe"
     signature.EntityData.ParentYangName = "threat-inspection"
     signature.EntityData.SegmentPath = "signature"
+    signature.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/" + signature.EntityData.SegmentPath
     signature.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     signature.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     signature.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3061,6 +3154,7 @@ func (_Saved *Utd_Input_ThreatInspection_Signature__Saved) GetEntityData() *type
     _Saved.EntityData.BundleName = "cisco_ios_xe"
     _Saved.EntityData.ParentYangName = "signature"
     _Saved.EntityData.SegmentPath = "_saved"
+    _Saved.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/" + _Saved.EntityData.SegmentPath
     _Saved.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     _Saved.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     _Saved.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3089,6 +3183,7 @@ func (_Manual *Utd_Input_ThreatInspection_Signature__Manual) GetEntityData() *ty
     _Manual.EntityData.BundleName = "cisco_ios_xe"
     _Manual.EntityData.ParentYangName = "signature"
     _Manual.EntityData.SegmentPath = "_manual"
+    _Manual.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/" + _Manual.EntityData.SegmentPath
     _Manual.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     _Manual.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     _Manual.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3118,6 +3213,7 @@ func (update *Utd_Input_ThreatInspection_Signature__Manual_Update) GetEntityData
     update.EntityData.BundleName = "cisco_ios_xe"
     update.EntityData.ParentYangName = "_manual"
     update.EntityData.SegmentPath = "update"
+    update.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/" + update.EntityData.SegmentPath
     update.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     update.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     update.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3150,6 +3246,7 @@ func (server *Utd_Input_ThreatInspection_Signature__Manual_Update_Server) GetEnt
     server.EntityData.BundleName = "cisco_ios_xe"
     server.EntityData.ParentYangName = "update"
     server.EntityData.SegmentPath = "server"
+    server.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/" + server.EntityData.SegmentPath
     server.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     server.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     server.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3185,6 +3282,7 @@ func (cisco *Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Cisco) G
     cisco.EntityData.BundleName = "cisco_ios_xe"
     cisco.EntityData.ParentYangName = "server"
     cisco.EntityData.SegmentPath = "cisco"
+    cisco.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/server/" + cisco.EntityData.SegmentPath
     cisco.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cisco.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cisco.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3218,6 +3316,7 @@ func (url *Utd_Input_ThreatInspection_Signature__Manual_Update_Server_Url) GetEn
     url.EntityData.BundleName = "cisco_ios_xe"
     url.EntityData.ParentYangName = "server"
     url.EntityData.SegmentPath = "url"
+    url.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/server/" + url.EntityData.SegmentPath
     url.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     url.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     url.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3255,6 +3354,7 @@ func (_Credentials *Utd_Input_ThreatInspection_Signature__Manual_Update_Server_U
     _Credentials.EntityData.BundleName = "cisco_ios_xe"
     _Credentials.EntityData.ParentYangName = "url"
     _Credentials.EntityData.SegmentPath = "_credentials"
+    _Credentials.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/server/url/" + _Credentials.EntityData.SegmentPath
     _Credentials.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     _Credentials.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     _Credentials.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3285,6 +3385,7 @@ func (_NoCredentials *Utd_Input_ThreatInspection_Signature__Manual_Update_Server
     _NoCredentials.EntityData.BundleName = "cisco_ios_xe"
     _NoCredentials.EntityData.ParentYangName = "url"
     _NoCredentials.EntityData.SegmentPath = "_no-credentials"
+    _NoCredentials.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/server/url/" + _NoCredentials.EntityData.SegmentPath
     _NoCredentials.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     _NoCredentials.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     _NoCredentials.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3313,6 +3414,7 @@ func (output *Utd_Output) GetEntityData() *types.CommonEntityData {
     output.EntityData.BundleName = "cisco_ios_xe"
     output.EntityData.ParentYangName = "utd"
     output.EntityData.SegmentPath = "output"
+    output.EntityData.AbsolutePath = "Cisco-IOS-XE-rpc:utd/" + output.EntityData.SegmentPath
     output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

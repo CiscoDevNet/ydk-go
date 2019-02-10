@@ -63,6 +63,7 @@ func (tCPMIB *TCPMIB) GetEntityData() *types.CommonEntityData {
     tCPMIB.EntityData.BundleName = "cisco_ios_xe"
     tCPMIB.EntityData.ParentYangName = "TCP-MIB"
     tCPMIB.EntityData.SegmentPath = "TCP-MIB:TCP-MIB"
+    tCPMIB.EntityData.AbsolutePath = tCPMIB.EntityData.SegmentPath
     tCPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tCPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tCPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -195,6 +196,7 @@ func (tcp *TCPMIB_Tcp) GetEntityData() *types.CommonEntityData {
     tcp.EntityData.BundleName = "cisco_ios_xe"
     tcp.EntityData.ParentYangName = "TCP-MIB"
     tcp.EntityData.SegmentPath = "tcp"
+    tcp.EntityData.AbsolutePath = "TCP-MIB:TCP-MIB/" + tcp.EntityData.SegmentPath
     tcp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -261,6 +263,7 @@ func (tcpConnTable *TCPMIB_TcpConnTable) GetEntityData() *types.CommonEntityData
     tcpConnTable.EntityData.BundleName = "cisco_ios_xe"
     tcpConnTable.EntityData.ParentYangName = "TCP-MIB"
     tcpConnTable.EntityData.SegmentPath = "tcpConnTable"
+    tcpConnTable.EntityData.AbsolutePath = "TCP-MIB:TCP-MIB/" + tcpConnTable.EntityData.SegmentPath
     tcpConnTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcpConnTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcpConnTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -286,6 +289,7 @@ func (tcpConnTable *TCPMIB_TcpConnTable) GetEntityData() *types.CommonEntityData
 type TCPMIB_TcpConnTable_TcpConnEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The local IP address for this TCP connection.  In
     // the case of a connection in the listen state willing to accept connections
@@ -326,6 +330,7 @@ func (tcpConnEntry *TCPMIB_TcpConnTable_TcpConnEntry) GetEntityData() *types.Com
     tcpConnEntry.EntityData.BundleName = "cisco_ios_xe"
     tcpConnEntry.EntityData.ParentYangName = "tcpConnTable"
     tcpConnEntry.EntityData.SegmentPath = "tcpConnEntry" + types.AddKeyToken(tcpConnEntry.TcpConnLocalAddress, "tcpConnLocalAddress") + types.AddKeyToken(tcpConnEntry.TcpConnLocalPort, "tcpConnLocalPort") + types.AddKeyToken(tcpConnEntry.TcpConnRemAddress, "tcpConnRemAddress") + types.AddKeyToken(tcpConnEntry.TcpConnRemPort, "tcpConnRemPort")
+    tcpConnEntry.EntityData.AbsolutePath = "TCP-MIB:TCP-MIB/tcpConnTable/" + tcpConnEntry.EntityData.SegmentPath
     tcpConnEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcpConnEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcpConnEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -394,6 +399,7 @@ func (tcpConnectionTable *TCPMIB_TcpConnectionTable) GetEntityData() *types.Comm
     tcpConnectionTable.EntityData.BundleName = "cisco_ios_xe"
     tcpConnectionTable.EntityData.ParentYangName = "TCP-MIB"
     tcpConnectionTable.EntityData.SegmentPath = "tcpConnectionTable"
+    tcpConnectionTable.EntityData.AbsolutePath = "TCP-MIB:TCP-MIB/" + tcpConnectionTable.EntityData.SegmentPath
     tcpConnectionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcpConnectionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcpConnectionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -419,6 +425,7 @@ func (tcpConnectionTable *TCPMIB_TcpConnectionTable) GetEntityData() *types.Comm
 type TCPMIB_TcpConnectionTable_TcpConnectionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The address type of tcpConnectionLocalAddress. The
     // type is InetAddressType.
@@ -482,6 +489,7 @@ func (tcpConnectionEntry *TCPMIB_TcpConnectionTable_TcpConnectionEntry) GetEntit
     tcpConnectionEntry.EntityData.BundleName = "cisco_ios_xe"
     tcpConnectionEntry.EntityData.ParentYangName = "tcpConnectionTable"
     tcpConnectionEntry.EntityData.SegmentPath = "tcpConnectionEntry" + types.AddKeyToken(tcpConnectionEntry.TcpConnectionLocalAddressType, "tcpConnectionLocalAddressType") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionLocalAddress, "tcpConnectionLocalAddress") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionLocalPort, "tcpConnectionLocalPort") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionRemAddressType, "tcpConnectionRemAddressType") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionRemAddress, "tcpConnectionRemAddress") + types.AddKeyToken(tcpConnectionEntry.TcpConnectionRemPort, "tcpConnectionRemPort")
+    tcpConnectionEntry.EntityData.AbsolutePath = "TCP-MIB:TCP-MIB/tcpConnectionTable/" + tcpConnectionEntry.EntityData.SegmentPath
     tcpConnectionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcpConnectionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcpConnectionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -577,6 +585,7 @@ func (tcpListenerTable *TCPMIB_TcpListenerTable) GetEntityData() *types.CommonEn
     tcpListenerTable.EntityData.BundleName = "cisco_ios_xe"
     tcpListenerTable.EntityData.ParentYangName = "TCP-MIB"
     tcpListenerTable.EntityData.SegmentPath = "tcpListenerTable"
+    tcpListenerTable.EntityData.AbsolutePath = "TCP-MIB:TCP-MIB/" + tcpListenerTable.EntityData.SegmentPath
     tcpListenerTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcpListenerTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcpListenerTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -599,6 +608,7 @@ func (tcpListenerTable *TCPMIB_TcpListenerTable) GetEntityData() *types.CommonEn
 type TCPMIB_TcpListenerTable_TcpListenerEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The address type of tcpListenerLocalAddress.  The
     // value should be unknown (0) if connection initiations to all local IP
@@ -642,6 +652,7 @@ func (tcpListenerEntry *TCPMIB_TcpListenerTable_TcpListenerEntry) GetEntityData(
     tcpListenerEntry.EntityData.BundleName = "cisco_ios_xe"
     tcpListenerEntry.EntityData.ParentYangName = "tcpListenerTable"
     tcpListenerEntry.EntityData.SegmentPath = "tcpListenerEntry" + types.AddKeyToken(tcpListenerEntry.TcpListenerLocalAddressType, "tcpListenerLocalAddressType") + types.AddKeyToken(tcpListenerEntry.TcpListenerLocalAddress, "tcpListenerLocalAddress") + types.AddKeyToken(tcpListenerEntry.TcpListenerLocalPort, "tcpListenerLocalPort")
+    tcpListenerEntry.EntityData.AbsolutePath = "TCP-MIB:TCP-MIB/tcpListenerTable/" + tcpListenerEntry.EntityData.SegmentPath
     tcpListenerEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcpListenerEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcpListenerEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

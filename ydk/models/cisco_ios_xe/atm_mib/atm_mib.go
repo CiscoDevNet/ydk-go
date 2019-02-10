@@ -72,6 +72,7 @@ func (aTMMIB *ATMMIB) GetEntityData() *types.CommonEntityData {
     aTMMIB.EntityData.BundleName = "cisco_ios_xe"
     aTMMIB.EntityData.ParentYangName = "ATM-MIB"
     aTMMIB.EntityData.SegmentPath = "ATM-MIB:ATM-MIB"
+    aTMMIB.EntityData.AbsolutePath = aTMMIB.EntityData.SegmentPath
     aTMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aTMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aTMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -140,6 +141,7 @@ func (atmMIBObjects *ATMMIB_AtmMIBObjects) GetEntityData() *types.CommonEntityDa
     atmMIBObjects.EntityData.BundleName = "cisco_ios_xe"
     atmMIBObjects.EntityData.ParentYangName = "ATM-MIB"
     atmMIBObjects.EntityData.SegmentPath = "atmMIBObjects"
+    atmMIBObjects.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmMIBObjects.EntityData.SegmentPath
     atmMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -175,6 +177,7 @@ func (atmInterfaceConfTable *ATMMIB_AtmInterfaceConfTable) GetEntityData() *type
     atmInterfaceConfTable.EntityData.BundleName = "cisco_ios_xe"
     atmInterfaceConfTable.EntityData.ParentYangName = "ATM-MIB"
     atmInterfaceConfTable.EntityData.SegmentPath = "atmInterfaceConfTable"
+    atmInterfaceConfTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmInterfaceConfTable.EntityData.SegmentPath
     atmInterfaceConfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmInterfaceConfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmInterfaceConfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -198,6 +201,7 @@ func (atmInterfaceConfTable *ATMMIB_AtmInterfaceConfTable) GetEntityData() *type
 type ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -467,6 +471,7 @@ func (atmInterfaceConfEntry *ATMMIB_AtmInterfaceConfTable_AtmInterfaceConfEntry)
     atmInterfaceConfEntry.EntityData.BundleName = "cisco_ios_xe"
     atmInterfaceConfEntry.EntityData.ParentYangName = "atmInterfaceConfTable"
     atmInterfaceConfEntry.EntityData.SegmentPath = "atmInterfaceConfEntry" + types.AddKeyToken(atmInterfaceConfEntry.IfIndex, "ifIndex")
+    atmInterfaceConfEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/atmInterfaceConfTable/" + atmInterfaceConfEntry.EntityData.SegmentPath
     atmInterfaceConfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmInterfaceConfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmInterfaceConfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -559,6 +564,7 @@ func (atmInterfaceDs3PlcpTable *ATMMIB_AtmInterfaceDs3PlcpTable) GetEntityData()
     atmInterfaceDs3PlcpTable.EntityData.BundleName = "cisco_ios_xe"
     atmInterfaceDs3PlcpTable.EntityData.ParentYangName = "ATM-MIB"
     atmInterfaceDs3PlcpTable.EntityData.SegmentPath = "atmInterfaceDs3PlcpTable"
+    atmInterfaceDs3PlcpTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmInterfaceDs3PlcpTable.EntityData.SegmentPath
     atmInterfaceDs3PlcpTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmInterfaceDs3PlcpTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmInterfaceDs3PlcpTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -582,6 +588,7 @@ func (atmInterfaceDs3PlcpTable *ATMMIB_AtmInterfaceDs3PlcpTable) GetEntityData()
 type ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3PlcpEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -612,6 +619,7 @@ func (atmInterfaceDs3PlcpEntry *ATMMIB_AtmInterfaceDs3PlcpTable_AtmInterfaceDs3P
     atmInterfaceDs3PlcpEntry.EntityData.BundleName = "cisco_ios_xe"
     atmInterfaceDs3PlcpEntry.EntityData.ParentYangName = "atmInterfaceDs3PlcpTable"
     atmInterfaceDs3PlcpEntry.EntityData.SegmentPath = "atmInterfaceDs3PlcpEntry" + types.AddKeyToken(atmInterfaceDs3PlcpEntry.IfIndex, "ifIndex")
+    atmInterfaceDs3PlcpEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/atmInterfaceDs3PlcpTable/" + atmInterfaceDs3PlcpEntry.EntityData.SegmentPath
     atmInterfaceDs3PlcpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmInterfaceDs3PlcpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmInterfaceDs3PlcpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -659,6 +667,7 @@ func (atmInterfaceTCTable *ATMMIB_AtmInterfaceTCTable) GetEntityData() *types.Co
     atmInterfaceTCTable.EntityData.BundleName = "cisco_ios_xe"
     atmInterfaceTCTable.EntityData.ParentYangName = "ATM-MIB"
     atmInterfaceTCTable.EntityData.SegmentPath = "atmInterfaceTCTable"
+    atmInterfaceTCTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmInterfaceTCTable.EntityData.SegmentPath
     atmInterfaceTCTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmInterfaceTCTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmInterfaceTCTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -682,6 +691,7 @@ func (atmInterfaceTCTable *ATMMIB_AtmInterfaceTCTable) GetEntityData() *types.Co
 type ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -707,6 +717,7 @@ func (atmInterfaceTCEntry *ATMMIB_AtmInterfaceTCTable_AtmInterfaceTCEntry) GetEn
     atmInterfaceTCEntry.EntityData.BundleName = "cisco_ios_xe"
     atmInterfaceTCEntry.EntityData.ParentYangName = "atmInterfaceTCTable"
     atmInterfaceTCEntry.EntityData.SegmentPath = "atmInterfaceTCEntry" + types.AddKeyToken(atmInterfaceTCEntry.IfIndex, "ifIndex")
+    atmInterfaceTCEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/atmInterfaceTCTable/" + atmInterfaceTCEntry.EntityData.SegmentPath
     atmInterfaceTCEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmInterfaceTCEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmInterfaceTCEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -750,6 +761,7 @@ func (atmTrafficDescrParamTable *ATMMIB_AtmTrafficDescrParamTable) GetEntityData
     atmTrafficDescrParamTable.EntityData.BundleName = "cisco_ios_xe"
     atmTrafficDescrParamTable.EntityData.ParentYangName = "ATM-MIB"
     atmTrafficDescrParamTable.EntityData.SegmentPath = "atmTrafficDescrParamTable"
+    atmTrafficDescrParamTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmTrafficDescrParamTable.EntityData.SegmentPath
     atmTrafficDescrParamTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmTrafficDescrParamTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmTrafficDescrParamTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -772,6 +784,7 @@ func (atmTrafficDescrParamTable *ATMMIB_AtmTrafficDescrParamTable) GetEntityData
 type ATMMIB_AtmTrafficDescrParamTable_AtmTrafficDescrParamEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This object is used by the virtual link table
     // (i.e., VPL or VCL table) to identify the row of this table. When creating a
@@ -846,6 +859,7 @@ func (atmTrafficDescrParamEntry *ATMMIB_AtmTrafficDescrParamTable_AtmTrafficDesc
     atmTrafficDescrParamEntry.EntityData.BundleName = "cisco_ios_xe"
     atmTrafficDescrParamEntry.EntityData.ParentYangName = "atmTrafficDescrParamTable"
     atmTrafficDescrParamEntry.EntityData.SegmentPath = "atmTrafficDescrParamEntry" + types.AddKeyToken(atmTrafficDescrParamEntry.AtmTrafficDescrParamIndex, "atmTrafficDescrParamIndex")
+    atmTrafficDescrParamEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/atmTrafficDescrParamTable/" + atmTrafficDescrParamEntry.EntityData.SegmentPath
     atmTrafficDescrParamEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmTrafficDescrParamEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmTrafficDescrParamEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -925,6 +939,7 @@ func (atmVplTable *ATMMIB_AtmVplTable) GetEntityData() *types.CommonEntityData {
     atmVplTable.EntityData.BundleName = "cisco_ios_xe"
     atmVplTable.EntityData.ParentYangName = "ATM-MIB"
     atmVplTable.EntityData.SegmentPath = "atmVplTable"
+    atmVplTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmVplTable.EntityData.SegmentPath
     atmVplTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmVplTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmVplTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1020,6 +1035,7 @@ func (atmVplTable *ATMMIB_AtmVplTable) GetEntityData() *types.CommonEntityData {
 type ATMMIB_AtmVplTable_AtmVplEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1086,6 +1102,7 @@ func (atmVplEntry *ATMMIB_AtmVplTable_AtmVplEntry) GetEntityData() *types.Common
     atmVplEntry.EntityData.BundleName = "cisco_ios_xe"
     atmVplEntry.EntityData.ParentYangName = "atmVplTable"
     atmVplEntry.EntityData.SegmentPath = "atmVplEntry" + types.AddKeyToken(atmVplEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmVplEntry.AtmVplVpi, "atmVplVpi")
+    atmVplEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/atmVplTable/" + atmVplEntry.EntityData.SegmentPath
     atmVplEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmVplEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmVplEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1164,6 +1181,7 @@ func (atmVclTable *ATMMIB_AtmVclTable) GetEntityData() *types.CommonEntityData {
     atmVclTable.EntityData.BundleName = "cisco_ios_xe"
     atmVclTable.EntityData.ParentYangName = "ATM-MIB"
     atmVclTable.EntityData.SegmentPath = "atmVclTable"
+    atmVclTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmVclTable.EntityData.SegmentPath
     atmVclTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmVclTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmVclTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1261,6 +1279,7 @@ func (atmVclTable *ATMMIB_AtmVclTable) GetEntityData() *types.CommonEntityData {
 type ATMMIB_AtmVclTable_AtmVclEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -1473,6 +1492,7 @@ func (atmVclEntry *ATMMIB_AtmVclTable_AtmVclEntry) GetEntityData() *types.Common
     atmVclEntry.EntityData.BundleName = "cisco_ios_xe"
     atmVclEntry.EntityData.ParentYangName = "atmVclTable"
     atmVclEntry.EntityData.SegmentPath = "atmVclEntry" + types.AddKeyToken(atmVclEntry.IfIndex, "ifIndex") + types.AddKeyToken(atmVclEntry.AtmVclVpi, "atmVclVpi") + types.AddKeyToken(atmVclEntry.AtmVclVci, "atmVclVci")
+    atmVclEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/atmVclTable/" + atmVclEntry.EntityData.SegmentPath
     atmVclEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmVclEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmVclEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1678,6 +1698,7 @@ func (atmVpCrossConnectTable *ATMMIB_AtmVpCrossConnectTable) GetEntityData() *ty
     atmVpCrossConnectTable.EntityData.BundleName = "cisco_ios_xe"
     atmVpCrossConnectTable.EntityData.ParentYangName = "ATM-MIB"
     atmVpCrossConnectTable.EntityData.SegmentPath = "atmVpCrossConnectTable"
+    atmVpCrossConnectTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmVpCrossConnectTable.EntityData.SegmentPath
     atmVpCrossConnectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmVpCrossConnectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmVpCrossConnectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1819,6 +1840,7 @@ func (atmVpCrossConnectTable *ATMMIB_AtmVpCrossConnectTable) GetEntityData() *ty
 type ATMMIB_AtmVpCrossConnectTable_AtmVpCrossConnectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique value to identify this VP cross-connect.
     // For each VPL associated with this cross-connect, the agent reports this
@@ -1888,6 +1910,7 @@ func (atmVpCrossConnectEntry *ATMMIB_AtmVpCrossConnectTable_AtmVpCrossConnectEnt
     atmVpCrossConnectEntry.EntityData.BundleName = "cisco_ios_xe"
     atmVpCrossConnectEntry.EntityData.ParentYangName = "atmVpCrossConnectTable"
     atmVpCrossConnectEntry.EntityData.SegmentPath = "atmVpCrossConnectEntry" + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectIndex, "atmVpCrossConnectIndex") + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectLowIfIndex, "atmVpCrossConnectLowIfIndex") + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectLowVpi, "atmVpCrossConnectLowVpi") + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectHighIfIndex, "atmVpCrossConnectHighIfIndex") + types.AddKeyToken(atmVpCrossConnectEntry.AtmVpCrossConnectHighVpi, "atmVpCrossConnectHighVpi")
+    atmVpCrossConnectEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/atmVpCrossConnectTable/" + atmVpCrossConnectEntry.EntityData.SegmentPath
     atmVpCrossConnectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmVpCrossConnectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmVpCrossConnectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1990,6 +2013,7 @@ func (atmVcCrossConnectTable *ATMMIB_AtmVcCrossConnectTable) GetEntityData() *ty
     atmVcCrossConnectTable.EntityData.BundleName = "cisco_ios_xe"
     atmVcCrossConnectTable.EntityData.ParentYangName = "ATM-MIB"
     atmVcCrossConnectTable.EntityData.SegmentPath = "atmVcCrossConnectTable"
+    atmVcCrossConnectTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + atmVcCrossConnectTable.EntityData.SegmentPath
     atmVcCrossConnectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmVcCrossConnectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmVcCrossConnectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2132,6 +2156,7 @@ func (atmVcCrossConnectTable *ATMMIB_AtmVcCrossConnectTable) GetEntityData() *ty
 type ATMMIB_AtmVcCrossConnectTable_AtmVcCrossConnectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique value to identify this VC cross-connect.
     // For each VCL associated with this cross-connect, the agent reports this
@@ -2211,6 +2236,7 @@ func (atmVcCrossConnectEntry *ATMMIB_AtmVcCrossConnectTable_AtmVcCrossConnectEnt
     atmVcCrossConnectEntry.EntityData.BundleName = "cisco_ios_xe"
     atmVcCrossConnectEntry.EntityData.ParentYangName = "atmVcCrossConnectTable"
     atmVcCrossConnectEntry.EntityData.SegmentPath = "atmVcCrossConnectEntry" + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectIndex, "atmVcCrossConnectIndex") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectLowIfIndex, "atmVcCrossConnectLowIfIndex") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectLowVpi, "atmVcCrossConnectLowVpi") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectLowVci, "atmVcCrossConnectLowVci") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectHighIfIndex, "atmVcCrossConnectHighIfIndex") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectHighVpi, "atmVcCrossConnectHighVpi") + types.AddKeyToken(atmVcCrossConnectEntry.AtmVcCrossConnectHighVci, "atmVcCrossConnectHighVci")
+    atmVcCrossConnectEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/atmVcCrossConnectTable/" + atmVcCrossConnectEntry.EntityData.SegmentPath
     atmVcCrossConnectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     atmVcCrossConnectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     atmVcCrossConnectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2255,6 +2281,7 @@ func (aal5VccTable *ATMMIB_Aal5VccTable) GetEntityData() *types.CommonEntityData
     aal5VccTable.EntityData.BundleName = "cisco_ios_xe"
     aal5VccTable.EntityData.ParentYangName = "ATM-MIB"
     aal5VccTable.EntityData.SegmentPath = "aal5VccTable"
+    aal5VccTable.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/" + aal5VccTable.EntityData.SegmentPath
     aal5VccTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aal5VccTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aal5VccTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2279,6 +2306,7 @@ func (aal5VccTable *ATMMIB_Aal5VccTable) GetEntityData() *types.CommonEntityData
 type ATMMIB_Aal5VccTable_Aal5VccEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -2386,6 +2414,7 @@ func (aal5VccEntry *ATMMIB_Aal5VccTable_Aal5VccEntry) GetEntityData() *types.Com
     aal5VccEntry.EntityData.BundleName = "cisco_ios_xe"
     aal5VccEntry.EntityData.ParentYangName = "aal5VccTable"
     aal5VccEntry.EntityData.SegmentPath = "aal5VccEntry" + types.AddKeyToken(aal5VccEntry.IfIndex, "ifIndex") + types.AddKeyToken(aal5VccEntry.Aal5VccVpi, "aal5VccVpi") + types.AddKeyToken(aal5VccEntry.Aal5VccVci, "aal5VccVci")
+    aal5VccEntry.EntityData.AbsolutePath = "ATM-MIB:ATM-MIB/aal5VccTable/" + aal5VccEntry.EntityData.SegmentPath
     aal5VccEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aal5VccEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aal5VccEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

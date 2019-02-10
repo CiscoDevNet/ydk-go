@@ -271,6 +271,7 @@ func (macAccounting *MacAccounting) GetEntityData() *types.CommonEntityData {
     macAccounting.EntityData.BundleName = "cisco_ios_xr"
     macAccounting.EntityData.ParentYangName = "Cisco-IOS-XR-l2-eth-infra-oper"
     macAccounting.EntityData.SegmentPath = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting"
+    macAccounting.EntityData.AbsolutePath = macAccounting.EntityData.SegmentPath
     macAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     macAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     macAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -303,6 +304,7 @@ func (interfaces *MacAccounting_Interfaces) GetEntityData() *types.CommonEntityD
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "mac-accounting"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -326,6 +328,7 @@ func (interfaces *MacAccounting_Interfaces) GetEntityData() *types.CommonEntityD
 type MacAccounting_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -349,6 +352,7 @@ func (self *MacAccounting_Interfaces_Interface) GetEntityData() *types.CommonEnt
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,10 +361,12 @@ func (self *MacAccounting_Interfaces_Interface) GetEntityData() *types.CommonEnt
     self.EntityData.Children.Append("state", types.YChild{"State", &self.State})
     self.EntityData.Children.Append("ingress-statistic", types.YChild{"IngressStatistic", nil})
     for i := range self.IngressStatistic {
+        types.SetYListKey(self.IngressStatistic[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.IngressStatistic[i]), types.YChild{"IngressStatistic", self.IngressStatistic[i]})
     }
     self.EntityData.Children.Append("egress-statistic", types.YChild{"EgressStatistic", nil})
     for i := range self.EgressStatistic {
+        types.SetYListKey(self.EgressStatistic[i], i)
         self.EntityData.Children.Append(types.GetSegmentPath(self.EgressStatistic[i]), types.YChild{"EgressStatistic", self.EgressStatistic[i]})
     }
     self.EntityData.Leafs = types.NewOrderedMap()
@@ -402,6 +408,7 @@ func (state *MacAccounting_Interfaces_Interface_State) GetEntityData() *types.Co
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/interfaces/interface/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -424,6 +431,7 @@ func (state *MacAccounting_Interfaces_Interface_State) GetEntityData() *types.Co
 type MacAccounting_Interfaces_Interface_IngressStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // 48bit MAC address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -443,7 +451,8 @@ func (ingressStatistic *MacAccounting_Interfaces_Interface_IngressStatistic) Get
     ingressStatistic.EntityData.YangName = "ingress-statistic"
     ingressStatistic.EntityData.BundleName = "cisco_ios_xr"
     ingressStatistic.EntityData.ParentYangName = "interface"
-    ingressStatistic.EntityData.SegmentPath = "ingress-statistic"
+    ingressStatistic.EntityData.SegmentPath = "ingress-statistic" + types.AddNoKeyToken(ingressStatistic)
+    ingressStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/interfaces/interface/" + ingressStatistic.EntityData.SegmentPath
     ingressStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ingressStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ingressStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -464,6 +473,7 @@ func (ingressStatistic *MacAccounting_Interfaces_Interface_IngressStatistic) Get
 type MacAccounting_Interfaces_Interface_EgressStatistic struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // 48bit MAC address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -483,7 +493,8 @@ func (egressStatistic *MacAccounting_Interfaces_Interface_EgressStatistic) GetEn
     egressStatistic.EntityData.YangName = "egress-statistic"
     egressStatistic.EntityData.BundleName = "cisco_ios_xr"
     egressStatistic.EntityData.ParentYangName = "interface"
-    egressStatistic.EntityData.SegmentPath = "egress-statistic"
+    egressStatistic.EntityData.SegmentPath = "egress-statistic" + types.AddNoKeyToken(egressStatistic)
+    egressStatistic.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/interfaces/interface/" + egressStatistic.EntityData.SegmentPath
     egressStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     egressStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     egressStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -515,6 +526,7 @@ func (vlan *Vlan) GetEntityData() *types.CommonEntityData {
     vlan.EntityData.BundleName = "cisco_ios_xr"
     vlan.EntityData.ParentYangName = "Cisco-IOS-XR-l2-eth-infra-oper"
     vlan.EntityData.SegmentPath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan"
+    vlan.EntityData.AbsolutePath = vlan.EntityData.SegmentPath
     vlan.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlan.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlan.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -545,6 +557,7 @@ func (nodes *Vlan_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "vlan"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -566,6 +579,7 @@ func (nodes *Vlan_Nodes) GetEntityData() *types.CommonEntityData {
 type Vlan_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
     // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -587,6 +601,7 @@ func (node *Vlan_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeId, "node-id")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -620,6 +635,7 @@ func (trunks *Vlan_Nodes_Node_Trunks) GetEntityData() *types.CommonEntityData {
     trunks.EntityData.BundleName = "cisco_ios_xr"
     trunks.EntityData.ParentYangName = "node"
     trunks.EntityData.SegmentPath = "trunks"
+    trunks.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/" + trunks.EntityData.SegmentPath
     trunks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trunks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trunks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -642,6 +658,7 @@ func (trunks *Vlan_Nodes_Node_Trunks) GetEntityData() *types.CommonEntityData {
 type Vlan_Nodes_Node_Trunks_Trunk struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -687,6 +704,7 @@ func (trunk *Vlan_Nodes_Node_Trunks_Trunk) GetEntityData() *types.CommonEntityDa
     trunk.EntityData.BundleName = "cisco_ios_xr"
     trunk.EntityData.ParentYangName = "trunks"
     trunk.EntityData.SegmentPath = "trunk" + types.AddKeyToken(trunk.Interface, "interface")
+    trunk.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/" + trunk.EntityData.SegmentPath
     trunk.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trunk.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trunk.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -746,6 +764,7 @@ func (layer2SubInterfaces *Vlan_Nodes_Node_Trunks_Trunk_Layer2SubInterfaces) Get
     layer2SubInterfaces.EntityData.BundleName = "cisco_ios_xr"
     layer2SubInterfaces.EntityData.ParentYangName = "trunk"
     layer2SubInterfaces.EntityData.SegmentPath = "layer2-sub-interfaces"
+    layer2SubInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/" + layer2SubInterfaces.EntityData.SegmentPath
     layer2SubInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     layer2SubInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     layer2SubInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -790,6 +809,7 @@ func (stateCounters *Vlan_Nodes_Node_Trunks_Trunk_Layer2SubInterfaces_StateCount
     stateCounters.EntityData.BundleName = "cisco_ios_xr"
     stateCounters.EntityData.ParentYangName = "layer2-sub-interfaces"
     stateCounters.EntityData.SegmentPath = "state-counters"
+    stateCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/layer2-sub-interfaces/" + stateCounters.EntityData.SegmentPath
     stateCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -841,6 +861,7 @@ func (layer3SubInterfaces *Vlan_Nodes_Node_Trunks_Trunk_Layer3SubInterfaces) Get
     layer3SubInterfaces.EntityData.BundleName = "cisco_ios_xr"
     layer3SubInterfaces.EntityData.ParentYangName = "trunk"
     layer3SubInterfaces.EntityData.SegmentPath = "layer3-sub-interfaces"
+    layer3SubInterfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/" + layer3SubInterfaces.EntityData.SegmentPath
     layer3SubInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     layer3SubInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     layer3SubInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -885,6 +906,7 @@ func (stateCounters *Vlan_Nodes_Node_Trunks_Trunk_Layer3SubInterfaces_StateCount
     stateCounters.EntityData.BundleName = "cisco_ios_xr"
     stateCounters.EntityData.ParentYangName = "layer3-sub-interfaces"
     stateCounters.EntityData.SegmentPath = "state-counters"
+    stateCounters.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/layer3-sub-interfaces/" + stateCounters.EntityData.SegmentPath
     stateCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stateCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stateCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -922,6 +944,7 @@ func (vlanSwitched *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched) GetEntityData() *
     vlanSwitched.EntityData.BundleName = "cisco_ios_xr"
     vlanSwitched.EntityData.ParentYangName = "trunk"
     vlanSwitched.EntityData.SegmentPath = "vlan-switched"
+    vlanSwitched.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/" + vlanSwitched.EntityData.SegmentPath
     vlanSwitched.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanSwitched.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanSwitched.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -986,6 +1009,7 @@ func (trunkVlanRanges *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges
     trunkVlanRanges.EntityData.BundleName = "cisco_ios_xr"
     trunkVlanRanges.EntityData.ParentYangName = "vlan-switched"
     trunkVlanRanges.EntityData.SegmentPath = "trunk-vlan-ranges"
+    trunkVlanRanges.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/vlan-switched/" + trunkVlanRanges.EntityData.SegmentPath
     trunkVlanRanges.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trunkVlanRanges.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trunkVlanRanges.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -994,10 +1018,12 @@ func (trunkVlanRanges *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges
     trunkVlanRanges.EntityData.Children.Append("local-traffic-stack", types.YChild{"LocalTrafficStack", &trunkVlanRanges.LocalTrafficStack})
     trunkVlanRanges.EntityData.Children.Append("tags-to-match", types.YChild{"TagsToMatch", nil})
     for i := range trunkVlanRanges.TagsToMatch {
+        types.SetYListKey(trunkVlanRanges.TagsToMatch[i], i)
         trunkVlanRanges.EntityData.Children.Append(types.GetSegmentPath(trunkVlanRanges.TagsToMatch[i]), types.YChild{"TagsToMatch", trunkVlanRanges.TagsToMatch[i]})
     }
     trunkVlanRanges.EntityData.Children.Append("pushe", types.YChild{"Pushe", nil})
     for i := range trunkVlanRanges.Pushe {
+        types.SetYListKey(trunkVlanRanges.Pushe[i], i)
         trunkVlanRanges.EntityData.Children.Append(types.GetSegmentPath(trunkVlanRanges.Pushe[i]), types.YChild{"Pushe", trunkVlanRanges.Pushe[i]})
     }
     trunkVlanRanges.EntityData.Leafs = types.NewOrderedMap()
@@ -1031,6 +1057,7 @@ func (localTrafficStack *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRang
     localTrafficStack.EntityData.BundleName = "cisco_ios_xr"
     localTrafficStack.EntityData.ParentYangName = "trunk-vlan-ranges"
     localTrafficStack.EntityData.SegmentPath = "local-traffic-stack"
+    localTrafficStack.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/vlan-switched/trunk-vlan-ranges/" + localTrafficStack.EntityData.SegmentPath
     localTrafficStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1038,6 +1065,7 @@ func (localTrafficStack *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRang
     localTrafficStack.EntityData.Children = types.NewOrderedMap()
     localTrafficStack.EntityData.Children.Append("local-traffic-tag", types.YChild{"LocalTrafficTag", nil})
     for i := range localTrafficStack.LocalTrafficTag {
+        types.SetYListKey(localTrafficStack.LocalTrafficTag[i], i)
         localTrafficStack.EntityData.Children.Append(types.GetSegmentPath(localTrafficStack.LocalTrafficTag[i]), types.YChild{"LocalTrafficTag", localTrafficStack.LocalTrafficTag[i]})
     }
     localTrafficStack.EntityData.Leafs = types.NewOrderedMap()
@@ -1052,6 +1080,7 @@ func (localTrafficStack *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRang
 type Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_LocalTrafficStack_LocalTrafficTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -1065,7 +1094,8 @@ func (localTrafficTag *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges
     localTrafficTag.EntityData.YangName = "local-traffic-tag"
     localTrafficTag.EntityData.BundleName = "cisco_ios_xr"
     localTrafficTag.EntityData.ParentYangName = "local-traffic-stack"
-    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag"
+    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag" + types.AddNoKeyToken(localTrafficTag)
+    localTrafficTag.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/vlan-switched/trunk-vlan-ranges/local-traffic-stack/" + localTrafficTag.EntityData.SegmentPath
     localTrafficTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1085,6 +1115,7 @@ func (localTrafficTag *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges
 type Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_TagsToMatch struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag to match. The type is EfpTagEtype.
     Ethertype interface{}
@@ -1102,7 +1133,8 @@ func (tagsToMatch *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_Tag
     tagsToMatch.EntityData.YangName = "tags-to-match"
     tagsToMatch.EntityData.BundleName = "cisco_ios_xr"
     tagsToMatch.EntityData.ParentYangName = "trunk-vlan-ranges"
-    tagsToMatch.EntityData.SegmentPath = "tags-to-match"
+    tagsToMatch.EntityData.SegmentPath = "tags-to-match" + types.AddNoKeyToken(tagsToMatch)
+    tagsToMatch.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/vlan-switched/trunk-vlan-ranges/" + tagsToMatch.EntityData.SegmentPath
     tagsToMatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagsToMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagsToMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1110,6 +1142,7 @@ func (tagsToMatch *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_Tag
     tagsToMatch.EntityData.Children = types.NewOrderedMap()
     tagsToMatch.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range tagsToMatch.VlanRange {
+        types.SetYListKey(tagsToMatch.VlanRange[i], i)
         tagsToMatch.EntityData.Children.Append(types.GetSegmentPath(tagsToMatch.VlanRange[i]), types.YChild{"VlanRange", tagsToMatch.VlanRange[i]})
     }
     tagsToMatch.EntityData.Leafs = types.NewOrderedMap()
@@ -1126,6 +1159,7 @@ func (tagsToMatch *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_Tag
 type Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_TagsToMatch_VlanRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VLAN ID Low. The type is interface{} with range: 0..65535.
     VlanIdLow interface{}
@@ -1139,7 +1173,8 @@ func (vlanRange *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_TagsT
     vlanRange.EntityData.YangName = "vlan-range"
     vlanRange.EntityData.BundleName = "cisco_ios_xr"
     vlanRange.EntityData.ParentYangName = "tags-to-match"
-    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
+    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/vlan-switched/trunk-vlan-ranges/tags-to-match/" + vlanRange.EntityData.SegmentPath
     vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1159,6 +1194,7 @@ func (vlanRange *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_TagsT
 type Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_Pushe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -1172,7 +1208,8 @@ func (pushe *Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges_Pushe) Ge
     pushe.EntityData.YangName = "pushe"
     pushe.EntityData.BundleName = "cisco_ios_xr"
     pushe.EntityData.ParentYangName = "trunk-vlan-ranges"
-    pushe.EntityData.SegmentPath = "pushe"
+    pushe.EntityData.SegmentPath = "pushe" + types.AddNoKeyToken(pushe)
+    pushe.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/trunks/trunk/vlan-switched/trunk-vlan-ranges/" + pushe.EntityData.SegmentPath
     pushe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pushe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pushe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1204,6 +1241,7 @@ func (interfaces *Vlan_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntit
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1226,6 +1264,7 @@ func (interfaces *Vlan_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntit
 type Vlan_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -1259,6 +1298,7 @@ func (self *Vlan_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonE
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.Interface, "interface")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1322,6 +1362,7 @@ func (encapsulationDetails *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDe
     encapsulationDetails.EntityData.BundleName = "cisco_ios_xr"
     encapsulationDetails.EntityData.ParentYangName = "interface"
     encapsulationDetails.EntityData.SegmentPath = "encapsulation-details"
+    encapsulationDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/" + encapsulationDetails.EntityData.SegmentPath
     encapsulationDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     encapsulationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encapsulationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1363,6 +1404,7 @@ func (stack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Stack) Ge
     stack.EntityData.BundleName = "cisco_ios_xr"
     stack.EntityData.ParentYangName = "encapsulation-details"
     stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/encapsulation-details/" + stack.EntityData.SegmentPath
     stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1426,6 +1468,7 @@ func (serviceInstanceDetails *Vlan_Nodes_Node_Interfaces_Interface_Encapsulation
     serviceInstanceDetails.EntityData.BundleName = "cisco_ios_xr"
     serviceInstanceDetails.EntityData.ParentYangName = "encapsulation-details"
     serviceInstanceDetails.EntityData.SegmentPath = "service-instance-details"
+    serviceInstanceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/encapsulation-details/" + serviceInstanceDetails.EntityData.SegmentPath
     serviceInstanceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1434,10 +1477,12 @@ func (serviceInstanceDetails *Vlan_Nodes_Node_Interfaces_Interface_Encapsulation
     serviceInstanceDetails.EntityData.Children.Append("local-traffic-stack", types.YChild{"LocalTrafficStack", &serviceInstanceDetails.LocalTrafficStack})
     serviceInstanceDetails.EntityData.Children.Append("tags-to-match", types.YChild{"TagsToMatch", nil})
     for i := range serviceInstanceDetails.TagsToMatch {
+        types.SetYListKey(serviceInstanceDetails.TagsToMatch[i], i)
         serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.TagsToMatch[i]), types.YChild{"TagsToMatch", serviceInstanceDetails.TagsToMatch[i]})
     }
     serviceInstanceDetails.EntityData.Children.Append("pushe", types.YChild{"Pushe", nil})
     for i := range serviceInstanceDetails.Pushe {
+        types.SetYListKey(serviceInstanceDetails.Pushe[i], i)
         serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.Pushe[i]), types.YChild{"Pushe", serviceInstanceDetails.Pushe[i]})
     }
     serviceInstanceDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -1471,6 +1516,7 @@ func (localTrafficStack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetai
     localTrafficStack.EntityData.BundleName = "cisco_ios_xr"
     localTrafficStack.EntityData.ParentYangName = "service-instance-details"
     localTrafficStack.EntityData.SegmentPath = "local-traffic-stack"
+    localTrafficStack.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/encapsulation-details/service-instance-details/" + localTrafficStack.EntityData.SegmentPath
     localTrafficStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1478,6 +1524,7 @@ func (localTrafficStack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetai
     localTrafficStack.EntityData.Children = types.NewOrderedMap()
     localTrafficStack.EntityData.Children.Append("local-traffic-tag", types.YChild{"LocalTrafficTag", nil})
     for i := range localTrafficStack.LocalTrafficTag {
+        types.SetYListKey(localTrafficStack.LocalTrafficTag[i], i)
         localTrafficStack.EntityData.Children.Append(types.GetSegmentPath(localTrafficStack.LocalTrafficTag[i]), types.YChild{"LocalTrafficTag", localTrafficStack.LocalTrafficTag[i]})
     }
     localTrafficStack.EntityData.Leafs = types.NewOrderedMap()
@@ -1492,6 +1539,7 @@ func (localTrafficStack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetai
 type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -1505,7 +1553,8 @@ func (localTrafficTag *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails
     localTrafficTag.EntityData.YangName = "local-traffic-tag"
     localTrafficTag.EntityData.BundleName = "cisco_ios_xr"
     localTrafficTag.EntityData.ParentYangName = "local-traffic-stack"
-    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag"
+    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag" + types.AddNoKeyToken(localTrafficTag)
+    localTrafficTag.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/encapsulation-details/service-instance-details/local-traffic-stack/" + localTrafficTag.EntityData.SegmentPath
     localTrafficTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1525,6 +1574,7 @@ func (localTrafficTag *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails
 type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag to match. The type is EfpTagEtype.
     Ethertype interface{}
@@ -1542,7 +1592,8 @@ func (tagsToMatch *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Ser
     tagsToMatch.EntityData.YangName = "tags-to-match"
     tagsToMatch.EntityData.BundleName = "cisco_ios_xr"
     tagsToMatch.EntityData.ParentYangName = "service-instance-details"
-    tagsToMatch.EntityData.SegmentPath = "tags-to-match"
+    tagsToMatch.EntityData.SegmentPath = "tags-to-match" + types.AddNoKeyToken(tagsToMatch)
+    tagsToMatch.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/encapsulation-details/service-instance-details/" + tagsToMatch.EntityData.SegmentPath
     tagsToMatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagsToMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagsToMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1550,6 +1601,7 @@ func (tagsToMatch *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Ser
     tagsToMatch.EntityData.Children = types.NewOrderedMap()
     tagsToMatch.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range tagsToMatch.VlanRange {
+        types.SetYListKey(tagsToMatch.VlanRange[i], i)
         tagsToMatch.EntityData.Children.Append(types.GetSegmentPath(tagsToMatch.VlanRange[i]), types.YChild{"VlanRange", tagsToMatch.VlanRange[i]})
     }
     tagsToMatch.EntityData.Leafs = types.NewOrderedMap()
@@ -1566,6 +1618,7 @@ func (tagsToMatch *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Ser
 type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VLAN ID Low. The type is interface{} with range: 0..65535.
     VlanIdLow interface{}
@@ -1579,7 +1632,8 @@ func (vlanRange *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Servi
     vlanRange.EntityData.YangName = "vlan-range"
     vlanRange.EntityData.BundleName = "cisco_ios_xr"
     vlanRange.EntityData.ParentYangName = "tags-to-match"
-    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
+    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/encapsulation-details/service-instance-details/tags-to-match/" + vlanRange.EntityData.SegmentPath
     vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1599,6 +1653,7 @@ func (vlanRange *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_Servi
 type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDetails_Pushe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -1612,7 +1667,8 @@ func (pushe *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceIn
     pushe.EntityData.YangName = "pushe"
     pushe.EntityData.BundleName = "cisco_ios_xr"
     pushe.EntityData.ParentYangName = "service-instance-details"
-    pushe.EntityData.SegmentPath = "pushe"
+    pushe.EntityData.SegmentPath = "pushe" + types.AddNoKeyToken(pushe)
+    pushe.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/encapsulation-details/service-instance-details/" + pushe.EntityData.SegmentPath
     pushe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pushe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pushe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1646,6 +1702,7 @@ func (dot1adDot1qStack *Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetail
     dot1adDot1qStack.EntityData.BundleName = "cisco_ios_xr"
     dot1adDot1qStack.EntityData.ParentYangName = "encapsulation-details"
     dot1adDot1qStack.EntityData.SegmentPath = "dot1ad-dot1q-stack"
+    dot1adDot1qStack.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/interfaces/interface/encapsulation-details/" + dot1adDot1qStack.EntityData.SegmentPath
     dot1adDot1qStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dot1adDot1qStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dot1adDot1qStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1678,6 +1735,7 @@ func (tagAllocations *Vlan_Nodes_Node_TagAllocations) GetEntityData() *types.Com
     tagAllocations.EntityData.BundleName = "cisco_ios_xr"
     tagAllocations.EntityData.ParentYangName = "node"
     tagAllocations.EntityData.SegmentPath = "tag-allocations"
+    tagAllocations.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/" + tagAllocations.EntityData.SegmentPath
     tagAllocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagAllocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagAllocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1685,6 +1743,7 @@ func (tagAllocations *Vlan_Nodes_Node_TagAllocations) GetEntityData() *types.Com
     tagAllocations.EntityData.Children = types.NewOrderedMap()
     tagAllocations.EntityData.Children.Append("tag-allocation", types.YChild{"TagAllocation", nil})
     for i := range tagAllocations.TagAllocation {
+        types.SetYListKey(tagAllocations.TagAllocation[i], i)
         tagAllocations.EntityData.Children.Append(types.GetSegmentPath(tagAllocations.TagAllocation[i]), types.YChild{"TagAllocation", tagAllocations.TagAllocation[i]})
     }
     tagAllocations.EntityData.Leafs = types.NewOrderedMap()
@@ -1700,6 +1759,7 @@ func (tagAllocations *Vlan_Nodes_Node_TagAllocations) GetEntityData() *types.Com
 type Vlan_Nodes_Node_TagAllocations_TagAllocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
@@ -1738,7 +1798,8 @@ func (tagAllocation *Vlan_Nodes_Node_TagAllocations_TagAllocation) GetEntityData
     tagAllocation.EntityData.YangName = "tag-allocation"
     tagAllocation.EntityData.BundleName = "cisco_ios_xr"
     tagAllocation.EntityData.ParentYangName = "tag-allocations"
-    tagAllocation.EntityData.SegmentPath = "tag-allocation"
+    tagAllocation.EntityData.SegmentPath = "tag-allocation" + types.AddNoKeyToken(tagAllocation)
+    tagAllocation.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/" + tagAllocation.EntityData.SegmentPath
     tagAllocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagAllocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagAllocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1804,6 +1865,7 @@ func (encapsulationDetails *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsu
     encapsulationDetails.EntityData.BundleName = "cisco_ios_xr"
     encapsulationDetails.EntityData.ParentYangName = "tag-allocation"
     encapsulationDetails.EntityData.SegmentPath = "encapsulation-details"
+    encapsulationDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/" + encapsulationDetails.EntityData.SegmentPath
     encapsulationDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     encapsulationDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encapsulationDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1845,6 +1907,7 @@ func (stack *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_S
     stack.EntityData.BundleName = "cisco_ios_xr"
     stack.EntityData.ParentYangName = "encapsulation-details"
     stack.EntityData.SegmentPath = "stack"
+    stack.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/encapsulation-details/" + stack.EntityData.SegmentPath
     stack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     stack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     stack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1908,6 +1971,7 @@ func (serviceInstanceDetails *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encap
     serviceInstanceDetails.EntityData.BundleName = "cisco_ios_xr"
     serviceInstanceDetails.EntityData.ParentYangName = "encapsulation-details"
     serviceInstanceDetails.EntityData.SegmentPath = "service-instance-details"
+    serviceInstanceDetails.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/encapsulation-details/" + serviceInstanceDetails.EntityData.SegmentPath
     serviceInstanceDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     serviceInstanceDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     serviceInstanceDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1916,10 +1980,12 @@ func (serviceInstanceDetails *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encap
     serviceInstanceDetails.EntityData.Children.Append("local-traffic-stack", types.YChild{"LocalTrafficStack", &serviceInstanceDetails.LocalTrafficStack})
     serviceInstanceDetails.EntityData.Children.Append("tags-to-match", types.YChild{"TagsToMatch", nil})
     for i := range serviceInstanceDetails.TagsToMatch {
+        types.SetYListKey(serviceInstanceDetails.TagsToMatch[i], i)
         serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.TagsToMatch[i]), types.YChild{"TagsToMatch", serviceInstanceDetails.TagsToMatch[i]})
     }
     serviceInstanceDetails.EntityData.Children.Append("pushe", types.YChild{"Pushe", nil})
     for i := range serviceInstanceDetails.Pushe {
+        types.SetYListKey(serviceInstanceDetails.Pushe[i], i)
         serviceInstanceDetails.EntityData.Children.Append(types.GetSegmentPath(serviceInstanceDetails.Pushe[i]), types.YChild{"Pushe", serviceInstanceDetails.Pushe[i]})
     }
     serviceInstanceDetails.EntityData.Leafs = types.NewOrderedMap()
@@ -1953,6 +2019,7 @@ func (localTrafficStack *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsulat
     localTrafficStack.EntityData.BundleName = "cisco_ios_xr"
     localTrafficStack.EntityData.ParentYangName = "service-instance-details"
     localTrafficStack.EntityData.SegmentPath = "local-traffic-stack"
+    localTrafficStack.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/encapsulation-details/service-instance-details/" + localTrafficStack.EntityData.SegmentPath
     localTrafficStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1960,6 +2027,7 @@ func (localTrafficStack *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsulat
     localTrafficStack.EntityData.Children = types.NewOrderedMap()
     localTrafficStack.EntityData.Children.Append("local-traffic-tag", types.YChild{"LocalTrafficTag", nil})
     for i := range localTrafficStack.LocalTrafficTag {
+        types.SetYListKey(localTrafficStack.LocalTrafficTag[i], i)
         localTrafficStack.EntityData.Children.Append(types.GetSegmentPath(localTrafficStack.LocalTrafficTag[i]), types.YChild{"LocalTrafficTag", localTrafficStack.LocalTrafficTag[i]})
     }
     localTrafficStack.EntityData.Leafs = types.NewOrderedMap()
@@ -1974,6 +2042,7 @@ func (localTrafficStack *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsulat
 type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_LocalTrafficStack_LocalTrafficTag struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -1987,7 +2056,8 @@ func (localTrafficTag *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsulatio
     localTrafficTag.EntityData.YangName = "local-traffic-tag"
     localTrafficTag.EntityData.BundleName = "cisco_ios_xr"
     localTrafficTag.EntityData.ParentYangName = "local-traffic-stack"
-    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag"
+    localTrafficTag.EntityData.SegmentPath = "local-traffic-tag" + types.AddNoKeyToken(localTrafficTag)
+    localTrafficTag.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/encapsulation-details/service-instance-details/local-traffic-stack/" + localTrafficTag.EntityData.SegmentPath
     localTrafficTag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localTrafficTag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localTrafficTag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2007,6 +2077,7 @@ func (localTrafficTag *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsulatio
 type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag to match. The type is EfpTagEtype.
     Ethertype interface{}
@@ -2024,7 +2095,8 @@ func (tagsToMatch *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDet
     tagsToMatch.EntityData.YangName = "tags-to-match"
     tagsToMatch.EntityData.BundleName = "cisco_ios_xr"
     tagsToMatch.EntityData.ParentYangName = "service-instance-details"
-    tagsToMatch.EntityData.SegmentPath = "tags-to-match"
+    tagsToMatch.EntityData.SegmentPath = "tags-to-match" + types.AddNoKeyToken(tagsToMatch)
+    tagsToMatch.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/encapsulation-details/service-instance-details/" + tagsToMatch.EntityData.SegmentPath
     tagsToMatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tagsToMatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tagsToMatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2032,6 +2104,7 @@ func (tagsToMatch *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDet
     tagsToMatch.EntityData.Children = types.NewOrderedMap()
     tagsToMatch.EntityData.Children.Append("vlan-range", types.YChild{"VlanRange", nil})
     for i := range tagsToMatch.VlanRange {
+        types.SetYListKey(tagsToMatch.VlanRange[i], i)
         tagsToMatch.EntityData.Children.Append(types.GetSegmentPath(tagsToMatch.VlanRange[i]), types.YChild{"VlanRange", tagsToMatch.VlanRange[i]})
     }
     tagsToMatch.EntityData.Leafs = types.NewOrderedMap()
@@ -2048,6 +2121,7 @@ func (tagsToMatch *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDet
 type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_TagsToMatch_VlanRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // VLAN ID Low. The type is interface{} with range: 0..65535.
     VlanIdLow interface{}
@@ -2061,7 +2135,8 @@ func (vlanRange *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetai
     vlanRange.EntityData.YangName = "vlan-range"
     vlanRange.EntityData.BundleName = "cisco_ios_xr"
     vlanRange.EntityData.ParentYangName = "tags-to-match"
-    vlanRange.EntityData.SegmentPath = "vlan-range"
+    vlanRange.EntityData.SegmentPath = "vlan-range" + types.AddNoKeyToken(vlanRange)
+    vlanRange.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/encapsulation-details/service-instance-details/tags-to-match/" + vlanRange.EntityData.SegmentPath
     vlanRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vlanRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vlanRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2081,6 +2156,7 @@ func (vlanRange *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetai
 type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceInstanceDetails_Pushe struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Ethertype of tag. The type is EfpTagEtype.
     Ethertype interface{}
@@ -2094,7 +2170,8 @@ func (pushe *Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_S
     pushe.EntityData.YangName = "pushe"
     pushe.EntityData.BundleName = "cisco_ios_xr"
     pushe.EntityData.ParentYangName = "service-instance-details"
-    pushe.EntityData.SegmentPath = "pushe"
+    pushe.EntityData.SegmentPath = "pushe" + types.AddNoKeyToken(pushe)
+    pushe.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/encapsulation-details/service-instance-details/" + pushe.EntityData.SegmentPath
     pushe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pushe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pushe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2128,6 +2205,7 @@ func (dot1adDot1qStack *Vlan_Nodes_Node_TagAllocations_TagAllocation_Encapsulati
     dot1adDot1qStack.EntityData.BundleName = "cisco_ios_xr"
     dot1adDot1qStack.EntityData.ParentYangName = "encapsulation-details"
     dot1adDot1qStack.EntityData.SegmentPath = "dot1ad-dot1q-stack"
+    dot1adDot1qStack.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/node/tag-allocations/tag-allocation/encapsulation-details/" + dot1adDot1qStack.EntityData.SegmentPath
     dot1adDot1qStack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     dot1adDot1qStack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     dot1adDot1qStack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2158,6 +2236,7 @@ func (ethernetEncapsulation *EthernetEncapsulation) GetEntityData() *types.Commo
     ethernetEncapsulation.EntityData.BundleName = "cisco_ios_xr"
     ethernetEncapsulation.EntityData.ParentYangName = "Cisco-IOS-XR-l2-eth-infra-oper"
     ethernetEncapsulation.EntityData.SegmentPath = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation"
+    ethernetEncapsulation.EntityData.AbsolutePath = ethernetEncapsulation.EntityData.SegmentPath
     ethernetEncapsulation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ethernetEncapsulation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ethernetEncapsulation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2188,6 +2267,7 @@ func (nodes *EthernetEncapsulation_Nodes) GetEntityData() *types.CommonEntityDat
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "ethernet-encapsulation"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2210,6 +2290,7 @@ func (nodes *EthernetEncapsulation_Nodes) GetEntityData() *types.CommonEntityDat
 type EthernetEncapsulation_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
     // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -2225,6 +2306,7 @@ func (node *EthernetEncapsulation_Nodes_Node) GetEntityData() *types.CommonEntit
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2258,6 +2340,7 @@ func (unicastMacFilters *EthernetEncapsulation_Nodes_Node_UnicastMacFilters) Get
     unicastMacFilters.EntityData.BundleName = "cisco_ios_xr"
     unicastMacFilters.EntityData.ParentYangName = "node"
     unicastMacFilters.EntityData.SegmentPath = "unicast-mac-filters"
+    unicastMacFilters.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/nodes/node/" + unicastMacFilters.EntityData.SegmentPath
     unicastMacFilters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicastMacFilters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastMacFilters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2280,6 +2363,7 @@ func (unicastMacFilters *EthernetEncapsulation_Nodes_Node_UnicastMacFilters) Get
 type EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The interface name. The type is string with
     // pattern: [a-zA-Z0-9._/-]+.
@@ -2296,6 +2380,7 @@ func (unicastMacFilter *EthernetEncapsulation_Nodes_Node_UnicastMacFilters_Unica
     unicastMacFilter.EntityData.BundleName = "cisco_ios_xr"
     unicastMacFilter.EntityData.ParentYangName = "unicast-mac-filters"
     unicastMacFilter.EntityData.SegmentPath = "unicast-mac-filter" + types.AddKeyToken(unicastMacFilter.InterfaceName, "interface-name")
+    unicastMacFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/nodes/node/unicast-mac-filters/" + unicastMacFilter.EntityData.SegmentPath
     unicastMacFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicastMacFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastMacFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2303,6 +2388,7 @@ func (unicastMacFilter *EthernetEncapsulation_Nodes_Node_UnicastMacFilters_Unica
     unicastMacFilter.EntityData.Children = types.NewOrderedMap()
     unicastMacFilter.EntityData.Children.Append("unicast-filter", types.YChild{"UnicastFilter", nil})
     for i := range unicastMacFilter.UnicastFilter {
+        types.SetYListKey(unicastMacFilter.UnicastFilter[i], i)
         unicastMacFilter.EntityData.Children.Append(types.GetSegmentPath(unicastMacFilter.UnicastFilter[i]), types.YChild{"UnicastFilter", unicastMacFilter.UnicastFilter[i]})
     }
     unicastMacFilter.EntityData.Leafs = types.NewOrderedMap()
@@ -2318,6 +2404,7 @@ func (unicastMacFilter *EthernetEncapsulation_Nodes_Node_UnicastMacFilters_Unica
 type EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter_UnicastFilter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // MAC address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -2332,7 +2419,8 @@ func (unicastFilter *EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastM
     unicastFilter.EntityData.YangName = "unicast-filter"
     unicastFilter.EntityData.BundleName = "cisco_ios_xr"
     unicastFilter.EntityData.ParentYangName = "unicast-mac-filter"
-    unicastFilter.EntityData.SegmentPath = "unicast-filter"
+    unicastFilter.EntityData.SegmentPath = "unicast-filter" + types.AddNoKeyToken(unicastFilter)
+    unicastFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/nodes/node/unicast-mac-filters/unicast-mac-filter/" + unicastFilter.EntityData.SegmentPath
     unicastFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unicastFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unicastFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

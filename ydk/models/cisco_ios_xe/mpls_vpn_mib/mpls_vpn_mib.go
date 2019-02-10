@@ -66,6 +66,7 @@ func (mPLSVPNMIB *MPLSVPNMIB) GetEntityData() *types.CommonEntityData {
     mPLSVPNMIB.EntityData.BundleName = "cisco_ios_xe"
     mPLSVPNMIB.EntityData.ParentYangName = "MPLS-VPN-MIB"
     mPLSVPNMIB.EntityData.SegmentPath = "MPLS-VPN-MIB:MPLS-VPN-MIB"
+    mPLSVPNMIB.EntityData.AbsolutePath = mPLSVPNMIB.EntityData.SegmentPath
     mPLSVPNMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mPLSVPNMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mPLSVPNMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -121,6 +122,7 @@ func (mplsVpnScalars *MPLSVPNMIB_MplsVpnScalars) GetEntityData() *types.CommonEn
     mplsVpnScalars.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnScalars.EntityData.ParentYangName = "MPLS-VPN-MIB"
     mplsVpnScalars.EntityData.SegmentPath = "mplsVpnScalars"
+    mplsVpnScalars.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/" + mplsVpnScalars.EntityData.SegmentPath
     mplsVpnScalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnScalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnScalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -158,6 +160,7 @@ func (mplsVpnInterfaceConfTable *MPLSVPNMIB_MplsVpnInterfaceConfTable) GetEntity
     mplsVpnInterfaceConfTable.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnInterfaceConfTable.EntityData.ParentYangName = "MPLS-VPN-MIB"
     mplsVpnInterfaceConfTable.EntityData.SegmentPath = "mplsVpnInterfaceConfTable"
+    mplsVpnInterfaceConfTable.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/" + mplsVpnInterfaceConfTable.EntityData.SegmentPath
     mplsVpnInterfaceConfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnInterfaceConfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnInterfaceConfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -184,6 +187,7 @@ func (mplsVpnInterfaceConfTable *MPLSVPNMIB_MplsVpnInterfaceConfTable) GetEntity
 type MPLSVPNMIB_MplsVpnInterfaceConfTable_MplsVpnInterfaceConfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
     // mpls_vpn_mib.MPLSVPNMIB_MplsVpnVrfTable_MplsVpnVrfEntry_MplsVpnVrfName
@@ -230,6 +234,7 @@ func (mplsVpnInterfaceConfEntry *MPLSVPNMIB_MplsVpnInterfaceConfTable_MplsVpnInt
     mplsVpnInterfaceConfEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnInterfaceConfEntry.EntityData.ParentYangName = "mplsVpnInterfaceConfTable"
     mplsVpnInterfaceConfEntry.EntityData.SegmentPath = "mplsVpnInterfaceConfEntry" + types.AddKeyToken(mplsVpnInterfaceConfEntry.MplsVpnVrfName, "mplsVpnVrfName") + types.AddKeyToken(mplsVpnInterfaceConfEntry.MplsVpnInterfaceConfIndex, "mplsVpnInterfaceConfIndex")
+    mplsVpnInterfaceConfEntry.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnInterfaceConfTable/" + mplsVpnInterfaceConfEntry.EntityData.SegmentPath
     mplsVpnInterfaceConfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnInterfaceConfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnInterfaceConfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -293,6 +298,7 @@ func (mplsVpnVrfTable *MPLSVPNMIB_MplsVpnVrfTable) GetEntityData() *types.Common
     mplsVpnVrfTable.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfTable.EntityData.ParentYangName = "MPLS-VPN-MIB"
     mplsVpnVrfTable.EntityData.SegmentPath = "mplsVpnVrfTable"
+    mplsVpnVrfTable.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/" + mplsVpnVrfTable.EntityData.SegmentPath
     mplsVpnVrfTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -317,6 +323,7 @@ func (mplsVpnVrfTable *MPLSVPNMIB_MplsVpnVrfTable) GetEntityData() *types.Common
 type MPLSVPNMIB_MplsVpnVrfTable_MplsVpnVrfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The human-readable name of this VPN. This MAY be
     // equivalent to the RFC2685 VPN-ID. The type is string with length: 0..31.
@@ -407,6 +414,7 @@ func (mplsVpnVrfEntry *MPLSVPNMIB_MplsVpnVrfTable_MplsVpnVrfEntry) GetEntityData
     mplsVpnVrfEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfEntry.EntityData.ParentYangName = "mplsVpnVrfTable"
     mplsVpnVrfEntry.EntityData.SegmentPath = "mplsVpnVrfEntry" + types.AddKeyToken(mplsVpnVrfEntry.MplsVpnVrfName, "mplsVpnVrfName")
+    mplsVpnVrfEntry.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfTable/" + mplsVpnVrfEntry.EntityData.SegmentPath
     mplsVpnVrfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -467,6 +475,7 @@ func (mplsVpnVrfRouteTargetTable *MPLSVPNMIB_MplsVpnVrfRouteTargetTable) GetEnti
     mplsVpnVrfRouteTargetTable.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfRouteTargetTable.EntityData.ParentYangName = "MPLS-VPN-MIB"
     mplsVpnVrfRouteTargetTable.EntityData.SegmentPath = "mplsVpnVrfRouteTargetTable"
+    mplsVpnVrfRouteTargetTable.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/" + mplsVpnVrfRouteTargetTable.EntityData.SegmentPath
     mplsVpnVrfRouteTargetTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfRouteTargetTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfRouteTargetTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -491,6 +500,7 @@ func (mplsVpnVrfRouteTargetTable *MPLSVPNMIB_MplsVpnVrfRouteTargetTable) GetEnti
 type MPLSVPNMIB_MplsVpnVrfRouteTargetTable_MplsVpnVrfRouteTargetEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
     // mpls_vpn_mib.MPLSVPNMIB_MplsVpnVrfTable_MplsVpnVrfEntry_MplsVpnVrfName
@@ -521,6 +531,7 @@ func (mplsVpnVrfRouteTargetEntry *MPLSVPNMIB_MplsVpnVrfRouteTargetTable_MplsVpnV
     mplsVpnVrfRouteTargetEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfRouteTargetEntry.EntityData.ParentYangName = "mplsVpnVrfRouteTargetTable"
     mplsVpnVrfRouteTargetEntry.EntityData.SegmentPath = "mplsVpnVrfRouteTargetEntry" + types.AddKeyToken(mplsVpnVrfRouteTargetEntry.MplsVpnVrfName, "mplsVpnVrfName") + types.AddKeyToken(mplsVpnVrfRouteTargetEntry.MplsVpnVrfRouteTargetIndex, "mplsVpnVrfRouteTargetIndex") + types.AddKeyToken(mplsVpnVrfRouteTargetEntry.MplsVpnVrfRouteTargetType, "mplsVpnVrfRouteTargetType")
+    mplsVpnVrfRouteTargetEntry.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTargetTable/" + mplsVpnVrfRouteTargetEntry.EntityData.SegmentPath
     mplsVpnVrfRouteTargetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfRouteTargetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfRouteTargetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -570,6 +581,7 @@ func (mplsVpnVrfBgpNbrAddrTable *MPLSVPNMIB_MplsVpnVrfBgpNbrAddrTable) GetEntity
     mplsVpnVrfBgpNbrAddrTable.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfBgpNbrAddrTable.EntityData.ParentYangName = "MPLS-VPN-MIB"
     mplsVpnVrfBgpNbrAddrTable.EntityData.SegmentPath = "mplsVpnVrfBgpNbrAddrTable"
+    mplsVpnVrfBgpNbrAddrTable.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/" + mplsVpnVrfBgpNbrAddrTable.EntityData.SegmentPath
     mplsVpnVrfBgpNbrAddrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfBgpNbrAddrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfBgpNbrAddrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -594,6 +606,7 @@ func (mplsVpnVrfBgpNbrAddrTable *MPLSVPNMIB_MplsVpnVrfBgpNbrAddrTable) GetEntity
 type MPLSVPNMIB_MplsVpnVrfBgpNbrAddrTable_MplsVpnVrfBgpNbrAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
     // mpls_vpn_mib.MPLSVPNMIB_MplsVpnVrfTable_MplsVpnVrfEntry_MplsVpnVrfName
@@ -633,6 +646,7 @@ func (mplsVpnVrfBgpNbrAddrEntry *MPLSVPNMIB_MplsVpnVrfBgpNbrAddrTable_MplsVpnVrf
     mplsVpnVrfBgpNbrAddrEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfBgpNbrAddrEntry.EntityData.ParentYangName = "mplsVpnVrfBgpNbrAddrTable"
     mplsVpnVrfBgpNbrAddrEntry.EntityData.SegmentPath = "mplsVpnVrfBgpNbrAddrEntry" + types.AddKeyToken(mplsVpnVrfBgpNbrAddrEntry.MplsVpnVrfName, "mplsVpnVrfName") + types.AddKeyToken(mplsVpnVrfBgpNbrAddrEntry.MplsVpnInterfaceConfIndex, "mplsVpnInterfaceConfIndex") + types.AddKeyToken(mplsVpnVrfBgpNbrAddrEntry.MplsVpnVrfBgpNbrIndex, "mplsVpnVrfBgpNbrIndex")
+    mplsVpnVrfBgpNbrAddrEntry.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrAddrTable/" + mplsVpnVrfBgpNbrAddrEntry.EntityData.SegmentPath
     mplsVpnVrfBgpNbrAddrEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfBgpNbrAddrEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfBgpNbrAddrEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -682,6 +696,7 @@ func (mplsVpnVrfBgpNbrPrefixTable *MPLSVPNMIB_MplsVpnVrfBgpNbrPrefixTable) GetEn
     mplsVpnVrfBgpNbrPrefixTable.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfBgpNbrPrefixTable.EntityData.ParentYangName = "MPLS-VPN-MIB"
     mplsVpnVrfBgpNbrPrefixTable.EntityData.SegmentPath = "mplsVpnVrfBgpNbrPrefixTable"
+    mplsVpnVrfBgpNbrPrefixTable.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/" + mplsVpnVrfBgpNbrPrefixTable.EntityData.SegmentPath
     mplsVpnVrfBgpNbrPrefixTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfBgpNbrPrefixTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfBgpNbrPrefixTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -706,6 +721,7 @@ func (mplsVpnVrfBgpNbrPrefixTable *MPLSVPNMIB_MplsVpnVrfBgpNbrPrefixTable) GetEn
 type MPLSVPNMIB_MplsVpnVrfBgpNbrPrefixTable_MplsVpnVrfBgpNbrPrefixEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
     // mpls_vpn_mib.MPLSVPNMIB_MplsVpnVrfTable_MplsVpnVrfEntry_MplsVpnVrfName
@@ -797,6 +813,7 @@ func (mplsVpnVrfBgpNbrPrefixEntry *MPLSVPNMIB_MplsVpnVrfBgpNbrPrefixTable_MplsVp
     mplsVpnVrfBgpNbrPrefixEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfBgpNbrPrefixEntry.EntityData.ParentYangName = "mplsVpnVrfBgpNbrPrefixTable"
     mplsVpnVrfBgpNbrPrefixEntry.EntityData.SegmentPath = "mplsVpnVrfBgpNbrPrefixEntry" + types.AddKeyToken(mplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfName, "mplsVpnVrfName") + types.AddKeyToken(mplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrIpAddrPrefix, "mplsVpnVrfBgpPathAttrIpAddrPrefix") + types.AddKeyToken(mplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrIpAddrPrefixLen, "mplsVpnVrfBgpPathAttrIpAddrPrefixLen") + types.AddKeyToken(mplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrPeer, "mplsVpnVrfBgpPathAttrPeer")
+    mplsVpnVrfBgpNbrPrefixEntry.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrPrefixTable/" + mplsVpnVrfBgpNbrPrefixEntry.EntityData.SegmentPath
     mplsVpnVrfBgpNbrPrefixEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfBgpNbrPrefixEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfBgpNbrPrefixEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -877,6 +894,7 @@ func (mplsVpnVrfRouteTable *MPLSVPNMIB_MplsVpnVrfRouteTable) GetEntityData() *ty
     mplsVpnVrfRouteTable.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfRouteTable.EntityData.ParentYangName = "MPLS-VPN-MIB"
     mplsVpnVrfRouteTable.EntityData.SegmentPath = "mplsVpnVrfRouteTable"
+    mplsVpnVrfRouteTable.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/" + mplsVpnVrfRouteTable.EntityData.SegmentPath
     mplsVpnVrfRouteTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfRouteTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfRouteTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -902,6 +920,7 @@ func (mplsVpnVrfRouteTable *MPLSVPNMIB_MplsVpnVrfRouteTable) GetEntityData() *ty
 type MPLSVPNMIB_MplsVpnVrfRouteTable_MplsVpnVrfRouteEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
     // mpls_vpn_mib.MPLSVPNMIB_MplsVpnVrfTable_MplsVpnVrfEntry_MplsVpnVrfName
@@ -1044,6 +1063,7 @@ func (mplsVpnVrfRouteEntry *MPLSVPNMIB_MplsVpnVrfRouteTable_MplsVpnVrfRouteEntry
     mplsVpnVrfRouteEntry.EntityData.BundleName = "cisco_ios_xe"
     mplsVpnVrfRouteEntry.EntityData.ParentYangName = "mplsVpnVrfRouteTable"
     mplsVpnVrfRouteEntry.EntityData.SegmentPath = "mplsVpnVrfRouteEntry" + types.AddKeyToken(mplsVpnVrfRouteEntry.MplsVpnVrfName, "mplsVpnVrfName") + types.AddKeyToken(mplsVpnVrfRouteEntry.MplsVpnVrfRouteDest, "mplsVpnVrfRouteDest") + types.AddKeyToken(mplsVpnVrfRouteEntry.MplsVpnVrfRouteMask, "mplsVpnVrfRouteMask") + types.AddKeyToken(mplsVpnVrfRouteEntry.MplsVpnVrfRouteTos, "mplsVpnVrfRouteTos") + types.AddKeyToken(mplsVpnVrfRouteEntry.MplsVpnVrfRouteNextHop, "mplsVpnVrfRouteNextHop")
+    mplsVpnVrfRouteEntry.EntityData.AbsolutePath = "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTable/" + mplsVpnVrfRouteEntry.EntityData.SegmentPath
     mplsVpnVrfRouteEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     mplsVpnVrfRouteEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     mplsVpnVrfRouteEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

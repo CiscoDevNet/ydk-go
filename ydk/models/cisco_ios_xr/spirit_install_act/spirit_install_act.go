@@ -52,6 +52,7 @@ func (installAdd *InstallAdd) GetEntityData() *types.CommonEntityData {
     installAdd.EntityData.BundleName = "cisco_ios_xr"
     installAdd.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installAdd.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-add"
+    installAdd.EntityData.AbsolutePath = installAdd.EntityData.SegmentPath
     installAdd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installAdd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installAdd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -83,6 +84,7 @@ func (input *InstallAdd_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-add"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-add/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -113,6 +115,7 @@ func (installCommit *InstallCommit) GetEntityData() *types.CommonEntityData {
     installCommit.EntityData.BundleName = "cisco_ios_xr"
     installCommit.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installCommit.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-commit"
+    installCommit.EntityData.AbsolutePath = installCommit.EntityData.SegmentPath
     installCommit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installCommit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installCommit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -141,6 +144,7 @@ func (input *InstallCommit_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-commit"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-commit/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -170,6 +174,7 @@ func (installRemove *InstallRemove) GetEntityData() *types.CommonEntityData {
     installRemove.EntityData.BundleName = "cisco_ios_xr"
     installRemove.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installRemove.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-remove"
+    installRemove.EntityData.AbsolutePath = installRemove.EntityData.SegmentPath
     installRemove.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installRemove.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installRemove.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -208,6 +213,7 @@ func (input *InstallRemove_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-remove"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-remove/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -239,6 +245,7 @@ func (packages *InstallRemove_Input_Packages) GetEntityData() *types.CommonEntit
     packages.EntityData.BundleName = "cisco_ios_xr"
     packages.EntityData.ParentYangName = "input"
     packages.EntityData.SegmentPath = "packages"
+    packages.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-remove/input/" + packages.EntityData.SegmentPath
     packages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -267,6 +274,7 @@ func (ids *InstallRemove_Input_Ids) GetEntityData() *types.CommonEntityData {
     ids.EntityData.BundleName = "cisco_ios_xr"
     ids.EntityData.ParentYangName = "input"
     ids.EntityData.SegmentPath = "ids"
+    ids.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-remove/input/" + ids.EntityData.SegmentPath
     ids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -296,6 +304,7 @@ func (installPrepare *InstallPrepare) GetEntityData() *types.CommonEntityData {
     installPrepare.EntityData.BundleName = "cisco_ios_xr"
     installPrepare.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installPrepare.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-prepare"
+    installPrepare.EntityData.AbsolutePath = installPrepare.EntityData.SegmentPath
     installPrepare.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installPrepare.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installPrepare.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -333,6 +342,7 @@ func (input *InstallPrepare_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-prepare"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-prepare/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -364,6 +374,7 @@ func (packages *InstallPrepare_Input_Packages) GetEntityData() *types.CommonEnti
     packages.EntityData.BundleName = "cisco_ios_xr"
     packages.EntityData.ParentYangName = "input"
     packages.EntityData.SegmentPath = "packages"
+    packages.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-prepare/input/" + packages.EntityData.SegmentPath
     packages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -392,6 +403,7 @@ func (ids *InstallPrepare_Input_Ids) GetEntityData() *types.CommonEntityData {
     ids.EntityData.BundleName = "cisco_ios_xr"
     ids.EntityData.ParentYangName = "input"
     ids.EntityData.SegmentPath = "ids"
+    ids.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-prepare/input/" + ids.EntityData.SegmentPath
     ids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -423,6 +435,7 @@ func (prepareForce *InstallPrepare_Input_PrepareForce) GetEntityData() *types.Co
     prepareForce.EntityData.BundleName = "cisco_ios_xr"
     prepareForce.EntityData.ParentYangName = "input"
     prepareForce.EntityData.SegmentPath = "prepare-force"
+    prepareForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-prepare/input/" + prepareForce.EntityData.SegmentPath
     prepareForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     prepareForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     prepareForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -453,6 +466,7 @@ func (installActivate *InstallActivate) GetEntityData() *types.CommonEntityData 
     installActivate.EntityData.BundleName = "cisco_ios_xr"
     installActivate.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installActivate.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-activate"
+    installActivate.EntityData.AbsolutePath = installActivate.EntityData.SegmentPath
     installActivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installActivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installActivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -539,6 +553,7 @@ func (input *InstallActivate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-activate"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -588,6 +603,7 @@ func (warm *InstallActivate_Input_Warm) GetEntityData() *types.CommonEntityData 
     warm.EntityData.BundleName = "cisco_ios_xr"
     warm.EntityData.ParentYangName = "input"
     warm.EntityData.SegmentPath = "warm"
+    warm.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + warm.EntityData.SegmentPath
     warm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     warm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     warm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -620,6 +636,7 @@ func (warmForce *InstallActivate_Input_WarmForce) GetEntityData() *types.CommonE
     warmForce.EntityData.BundleName = "cisco_ios_xr"
     warmForce.EntityData.ParentYangName = "input"
     warmForce.EntityData.SegmentPath = "warm-force"
+    warmForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + warmForce.EntityData.SegmentPath
     warmForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     warmForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     warmForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -652,6 +669,7 @@ func (warmReplace *InstallActivate_Input_WarmReplace) GetEntityData() *types.Com
     warmReplace.EntityData.BundleName = "cisco_ios_xr"
     warmReplace.EntityData.ParentYangName = "input"
     warmReplace.EntityData.SegmentPath = "warm-replace"
+    warmReplace.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + warmReplace.EntityData.SegmentPath
     warmReplace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     warmReplace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     warmReplace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -684,6 +702,7 @@ func (warmReplaceForce *InstallActivate_Input_WarmReplaceForce) GetEntityData() 
     warmReplaceForce.EntityData.BundleName = "cisco_ios_xr"
     warmReplaceForce.EntityData.ParentYangName = "input"
     warmReplaceForce.EntityData.SegmentPath = "warm-replace-force"
+    warmReplaceForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + warmReplaceForce.EntityData.SegmentPath
     warmReplaceForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     warmReplaceForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     warmReplaceForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -716,6 +735,7 @@ func (reload *InstallActivate_Input_Reload) GetEntityData() *types.CommonEntityD
     reload.EntityData.BundleName = "cisco_ios_xr"
     reload.EntityData.ParentYangName = "input"
     reload.EntityData.SegmentPath = "reload"
+    reload.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + reload.EntityData.SegmentPath
     reload.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -748,6 +768,7 @@ func (reloadForce *InstallActivate_Input_ReloadForce) GetEntityData() *types.Com
     reloadForce.EntityData.BundleName = "cisco_ios_xr"
     reloadForce.EntityData.ParentYangName = "input"
     reloadForce.EntityData.SegmentPath = "reload-force"
+    reloadForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + reloadForce.EntityData.SegmentPath
     reloadForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reloadForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reloadForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -780,6 +801,7 @@ func (replace *InstallActivate_Input_Replace) GetEntityData() *types.CommonEntit
     replace.EntityData.BundleName = "cisco_ios_xr"
     replace.EntityData.ParentYangName = "input"
     replace.EntityData.SegmentPath = "replace"
+    replace.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + replace.EntityData.SegmentPath
     replace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -812,6 +834,7 @@ func (replaceForce *InstallActivate_Input_ReplaceForce) GetEntityData() *types.C
     replaceForce.EntityData.BundleName = "cisco_ios_xr"
     replaceForce.EntityData.ParentYangName = "input"
     replaceForce.EntityData.SegmentPath = "replace-force"
+    replaceForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + replaceForce.EntityData.SegmentPath
     replaceForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replaceForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replaceForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -844,6 +867,7 @@ func (activateForce *InstallActivate_Input_ActivateForce) GetEntityData() *types
     activateForce.EntityData.BundleName = "cisco_ios_xr"
     activateForce.EntityData.ParentYangName = "input"
     activateForce.EntityData.SegmentPath = "activate-force"
+    activateForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + activateForce.EntityData.SegmentPath
     activateForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activateForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activateForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -873,6 +897,7 @@ func (packages *InstallActivate_Input_Packages) GetEntityData() *types.CommonEnt
     packages.EntityData.BundleName = "cisco_ios_xr"
     packages.EntityData.ParentYangName = "input"
     packages.EntityData.SegmentPath = "packages"
+    packages.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + packages.EntityData.SegmentPath
     packages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -901,6 +926,7 @@ func (ids *InstallActivate_Input_Ids) GetEntityData() *types.CommonEntityData {
     ids.EntityData.BundleName = "cisco_ios_xr"
     ids.EntityData.ParentYangName = "input"
     ids.EntityData.SegmentPath = "ids"
+    ids.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-activate/input/" + ids.EntityData.SegmentPath
     ids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -930,6 +956,7 @@ func (installDeactivate *InstallDeactivate) GetEntityData() *types.CommonEntityD
     installDeactivate.EntityData.BundleName = "cisco_ios_xr"
     installDeactivate.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installDeactivate.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-deactivate"
+    installDeactivate.EntityData.AbsolutePath = installDeactivate.EntityData.SegmentPath
     installDeactivate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installDeactivate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installDeactivate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -967,6 +994,7 @@ func (input *InstallDeactivate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-deactivate"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-deactivate/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1001,6 +1029,7 @@ func (reload *InstallDeactivate_Input_Reload) GetEntityData() *types.CommonEntit
     reload.EntityData.BundleName = "cisco_ios_xr"
     reload.EntityData.ParentYangName = "input"
     reload.EntityData.SegmentPath = "reload"
+    reload.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-deactivate/input/" + reload.EntityData.SegmentPath
     reload.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reload.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reload.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1030,6 +1059,7 @@ func (packages *InstallDeactivate_Input_Packages) GetEntityData() *types.CommonE
     packages.EntityData.BundleName = "cisco_ios_xr"
     packages.EntityData.ParentYangName = "input"
     packages.EntityData.SegmentPath = "packages"
+    packages.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-deactivate/input/" + packages.EntityData.SegmentPath
     packages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1058,6 +1088,7 @@ func (ids *InstallDeactivate_Input_Ids) GetEntityData() *types.CommonEntityData 
     ids.EntityData.BundleName = "cisco_ios_xr"
     ids.EntityData.ParentYangName = "input"
     ids.EntityData.SegmentPath = "ids"
+    ids.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-deactivate/input/" + ids.EntityData.SegmentPath
     ids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1087,6 +1118,7 @@ func (installExtract *InstallExtract) GetEntityData() *types.CommonEntityData {
     installExtract.EntityData.BundleName = "cisco_ios_xr"
     installExtract.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installExtract.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-extract"
+    installExtract.EntityData.AbsolutePath = installExtract.EntityData.SegmentPath
     installExtract.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installExtract.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installExtract.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1115,6 +1147,7 @@ func (input *InstallExtract_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-extract"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-extract/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1143,6 +1176,7 @@ func (packages *InstallExtract_Input_Packages) GetEntityData() *types.CommonEnti
     packages.EntityData.BundleName = "cisco_ios_xr"
     packages.EntityData.ParentYangName = "input"
     packages.EntityData.SegmentPath = "packages"
+    packages.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-extract/input/" + packages.EntityData.SegmentPath
     packages.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     packages.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     packages.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1172,6 +1206,7 @@ func (installVerify *InstallVerify) GetEntityData() *types.CommonEntityData {
     installVerify.EntityData.BundleName = "cisco_ios_xr"
     installVerify.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installVerify.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-verify"
+    installVerify.EntityData.AbsolutePath = installVerify.EntityData.SegmentPath
     installVerify.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installVerify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installVerify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1200,6 +1235,7 @@ func (input *InstallVerify_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-verify"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-verify/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1229,6 +1265,7 @@ func (installUpdate *InstallUpdate) GetEntityData() *types.CommonEntityData {
     installUpdate.EntityData.BundleName = "cisco_ios_xr"
     installUpdate.EntityData.ParentYangName = "Cisco-IOS-XR-spirit-install-act"
     installUpdate.EntityData.SegmentPath = "Cisco-IOS-XR-spirit-install-act:install-update"
+    installUpdate.EntityData.AbsolutePath = installUpdate.EntityData.SegmentPath
     installUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     installUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     installUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1287,6 +1324,7 @@ func (input *InstallUpdate_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "install-update"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1328,6 +1366,7 @@ func (warm *InstallUpdate_Input_Warm) GetEntityData() *types.CommonEntityData {
     warm.EntityData.BundleName = "cisco_ios_xr"
     warm.EntityData.ParentYangName = "input"
     warm.EntityData.SegmentPath = "warm"
+    warm.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + warm.EntityData.SegmentPath
     warm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     warm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     warm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1360,6 +1399,7 @@ func (warmForce *InstallUpdate_Input_WarmForce) GetEntityData() *types.CommonEnt
     warmForce.EntityData.BundleName = "cisco_ios_xr"
     warmForce.EntityData.ParentYangName = "input"
     warmForce.EntityData.SegmentPath = "warm-force"
+    warmForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + warmForce.EntityData.SegmentPath
     warmForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     warmForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     warmForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1392,6 +1432,7 @@ func (warmReplace *InstallUpdate_Input_WarmReplace) GetEntityData() *types.Commo
     warmReplace.EntityData.BundleName = "cisco_ios_xr"
     warmReplace.EntityData.ParentYangName = "input"
     warmReplace.EntityData.SegmentPath = "warm-replace"
+    warmReplace.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + warmReplace.EntityData.SegmentPath
     warmReplace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     warmReplace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     warmReplace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1424,6 +1465,7 @@ func (warmReplaceForce *InstallUpdate_Input_WarmReplaceForce) GetEntityData() *t
     warmReplaceForce.EntityData.BundleName = "cisco_ios_xr"
     warmReplaceForce.EntityData.ParentYangName = "input"
     warmReplaceForce.EntityData.SegmentPath = "warm-replace-force"
+    warmReplaceForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + warmReplaceForce.EntityData.SegmentPath
     warmReplaceForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     warmReplaceForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     warmReplaceForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1456,6 +1498,7 @@ func (force *InstallUpdate_Input_Force) GetEntityData() *types.CommonEntityData 
     force.EntityData.BundleName = "cisco_ios_xr"
     force.EntityData.ParentYangName = "input"
     force.EntityData.SegmentPath = "force"
+    force.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + force.EntityData.SegmentPath
     force.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     force.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     force.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1488,6 +1531,7 @@ func (replace *InstallUpdate_Input_Replace) GetEntityData() *types.CommonEntityD
     replace.EntityData.BundleName = "cisco_ios_xr"
     replace.EntityData.ParentYangName = "input"
     replace.EntityData.SegmentPath = "replace"
+    replace.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + replace.EntityData.SegmentPath
     replace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1520,6 +1564,7 @@ func (replaceForce *InstallUpdate_Input_ReplaceForce) GetEntityData() *types.Com
     replaceForce.EntityData.BundleName = "cisco_ios_xr"
     replaceForce.EntityData.ParentYangName = "input"
     replaceForce.EntityData.SegmentPath = "replace-force"
+    replaceForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + replaceForce.EntityData.SegmentPath
     replaceForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replaceForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replaceForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1552,6 +1597,7 @@ func (replaceCommit *InstallUpdate_Input_ReplaceCommit) GetEntityData() *types.C
     replaceCommit.EntityData.BundleName = "cisco_ios_xr"
     replaceCommit.EntityData.ParentYangName = "input"
     replaceCommit.EntityData.SegmentPath = "replace-commit"
+    replaceCommit.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + replaceCommit.EntityData.SegmentPath
     replaceCommit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replaceCommit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replaceCommit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1584,6 +1630,7 @@ func (replaceCommitForce *InstallUpdate_Input_ReplaceCommitForce) GetEntityData(
     replaceCommitForce.EntityData.BundleName = "cisco_ios_xr"
     replaceCommitForce.EntityData.ParentYangName = "input"
     replaceCommitForce.EntityData.SegmentPath = "replace-commit-force"
+    replaceCommitForce.EntityData.AbsolutePath = "Cisco-IOS-XR-spirit-install-act:install-update/input/" + replaceCommitForce.EntityData.SegmentPath
     replaceCommitForce.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     replaceCommitForce.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     replaceCommitForce.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

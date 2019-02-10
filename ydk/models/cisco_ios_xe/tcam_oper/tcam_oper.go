@@ -35,6 +35,7 @@ func (tcamDetails *TcamDetails) GetEntityData() *types.CommonEntityData {
     tcamDetails.EntityData.BundleName = "cisco_ios_xe"
     tcamDetails.EntityData.ParentYangName = "Cisco-IOS-XE-tcam-oper"
     tcamDetails.EntityData.SegmentPath = "Cisco-IOS-XE-tcam-oper:tcam-details"
+    tcamDetails.EntityData.AbsolutePath = tcamDetails.EntityData.SegmentPath
     tcamDetails.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcamDetails.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcamDetails.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -56,6 +57,7 @@ func (tcamDetails *TcamDetails) GetEntityData() *types.CommonEntityData {
 type TcamDetails_TcamDetail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Asic Number of Switch. The type is interface{}
     // with range: 0..8.
@@ -83,6 +85,7 @@ func (tcamDetail *TcamDetails_TcamDetail) GetEntityData() *types.CommonEntityDat
     tcamDetail.EntityData.BundleName = "cisco_ios_xe"
     tcamDetail.EntityData.ParentYangName = "tcam-details"
     tcamDetail.EntityData.SegmentPath = "tcam-detail" + types.AddKeyToken(tcamDetail.AsicNo, "asic-no") + types.AddKeyToken(tcamDetail.Name, "name")
+    tcamDetail.EntityData.AbsolutePath = "Cisco-IOS-XE-tcam-oper:tcam-details/" + tcamDetail.EntityData.SegmentPath
     tcamDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     tcamDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     tcamDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

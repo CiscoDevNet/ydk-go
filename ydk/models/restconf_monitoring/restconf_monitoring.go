@@ -50,6 +50,7 @@ func (restconfState *RestconfState) GetEntityData() *types.CommonEntityData {
     restconfState.EntityData.BundleName = "ietf"
     restconfState.EntityData.ParentYangName = "ietf-restconf-monitoring"
     restconfState.EntityData.SegmentPath = "ietf-restconf-monitoring:restconf-state"
+    restconfState.EntityData.AbsolutePath = restconfState.EntityData.SegmentPath
     restconfState.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     restconfState.EntityData.NamespaceTable = ietf.GetNamespaces()
     restconfState.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -80,6 +81,7 @@ func (capabilities *RestconfState_Capabilities) GetEntityData() *types.CommonEnt
     capabilities.EntityData.BundleName = "ietf"
     capabilities.EntityData.ParentYangName = "restconf-state"
     capabilities.EntityData.SegmentPath = "capabilities"
+    capabilities.EntityData.AbsolutePath = "ietf-restconf-monitoring:restconf-state/" + capabilities.EntityData.SegmentPath
     capabilities.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     capabilities.EntityData.NamespaceTable = ietf.GetNamespaces()
     capabilities.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -111,6 +113,7 @@ func (streams *RestconfState_Streams) GetEntityData() *types.CommonEntityData {
     streams.EntityData.BundleName = "ietf"
     streams.EntityData.ParentYangName = "restconf-state"
     streams.EntityData.SegmentPath = "streams"
+    streams.EntityData.AbsolutePath = "ietf-restconf-monitoring:restconf-state/" + streams.EntityData.SegmentPath
     streams.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     streams.EntityData.NamespaceTable = ietf.GetNamespaces()
     streams.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -133,6 +136,7 @@ func (streams *RestconfState_Streams) GetEntityData() *types.CommonEntityData {
 type RestconfState_Streams_Stream struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The stream name. The type is string.
     Name interface{}
@@ -164,6 +168,7 @@ func (stream *RestconfState_Streams_Stream) GetEntityData() *types.CommonEntityD
     stream.EntityData.BundleName = "ietf"
     stream.EntityData.ParentYangName = "streams"
     stream.EntityData.SegmentPath = "stream" + types.AddKeyToken(stream.Name, "name")
+    stream.EntityData.AbsolutePath = "ietf-restconf-monitoring:restconf-state/streams/" + stream.EntityData.SegmentPath
     stream.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     stream.EntityData.NamespaceTable = ietf.GetNamespaces()
     stream.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
@@ -193,6 +198,7 @@ func (stream *RestconfState_Streams_Stream) GetEntityData() *types.CommonEntityD
 type RestconfState_Streams_Stream_Access struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. This is the secondary encoding format within the
     // 'text/event-stream' encoding used by all streams. The type 'xml' is
@@ -212,6 +218,7 @@ func (access *RestconfState_Streams_Stream_Access) GetEntityData() *types.Common
     access.EntityData.BundleName = "ietf"
     access.EntityData.ParentYangName = "stream"
     access.EntityData.SegmentPath = "access" + types.AddKeyToken(access.Encoding, "encoding")
+    access.EntityData.AbsolutePath = "ietf-restconf-monitoring:restconf-state/streams/stream/" + access.EntityData.SegmentPath
     access.EntityData.CapabilitiesTable = ietf.GetCapabilities()
     access.EntityData.NamespaceTable = ietf.GetNamespaces()
     access.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()

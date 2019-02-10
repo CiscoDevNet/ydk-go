@@ -41,6 +41,7 @@ func (clearCountersController *ClearCountersController) GetEntityData() *types.C
     clearCountersController.EntityData.BundleName = "cisco_ios_xr"
     clearCountersController.EntityData.ParentYangName = "Cisco-IOS-XR-infra-statsd-act"
     clearCountersController.EntityData.SegmentPath = "Cisco-IOS-XR-infra-statsd-act:clear-counters-controller"
+    clearCountersController.EntityData.AbsolutePath = clearCountersController.EntityData.SegmentPath
     clearCountersController.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearCountersController.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearCountersController.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -70,6 +71,7 @@ func (input *ClearCountersController_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-counters-controller"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-act:clear-counters-controller/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -97,6 +99,7 @@ func (clearCountersAll *ClearCountersAll) GetEntityData() *types.CommonEntityDat
     clearCountersAll.EntityData.BundleName = "cisco_ios_xr"
     clearCountersAll.EntityData.ParentYangName = "Cisco-IOS-XR-infra-statsd-act"
     clearCountersAll.EntityData.SegmentPath = "Cisco-IOS-XR-infra-statsd-act:clear-counters-all"
+    clearCountersAll.EntityData.AbsolutePath = clearCountersAll.EntityData.SegmentPath
     clearCountersAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearCountersAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearCountersAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -126,6 +129,7 @@ func (clearCountersInterface *ClearCountersInterface) GetEntityData() *types.Com
     clearCountersInterface.EntityData.BundleName = "cisco_ios_xr"
     clearCountersInterface.EntityData.ParentYangName = "Cisco-IOS-XR-infra-statsd-act"
     clearCountersInterface.EntityData.SegmentPath = "Cisco-IOS-XR-infra-statsd-act:clear-counters-interface"
+    clearCountersInterface.EntityData.AbsolutePath = clearCountersInterface.EntityData.SegmentPath
     clearCountersInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearCountersInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearCountersInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -155,6 +159,7 @@ func (input *ClearCountersInterface_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-counters-interface"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-statsd-act:clear-counters-interface/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -56,6 +56,7 @@ func (bridgeInstances *BridgeInstances) GetEntityData() *types.CommonEntityData 
     bridgeInstances.EntityData.BundleName = "cisco_ios_xe"
     bridgeInstances.EntityData.ParentYangName = "Cisco-IOS-XE-bridge-oper"
     bridgeInstances.EntityData.SegmentPath = "Cisco-IOS-XE-bridge-oper:bridge-instances"
+    bridgeInstances.EntityData.AbsolutePath = bridgeInstances.EntityData.SegmentPath
     bridgeInstances.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeInstances.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeInstances.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -79,6 +80,7 @@ func (bridgeInstances *BridgeInstances) GetEntityData() *types.CommonEntityData 
 type BridgeInstances_BridgeEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Bridge id <1..4094>. The type is interface{} with
     // range: 0..4294967295.
@@ -163,6 +165,7 @@ func (bridgeEntry *BridgeInstances_BridgeEntry) GetEntityData() *types.CommonEnt
     bridgeEntry.EntityData.BundleName = "cisco_ios_xe"
     bridgeEntry.EntityData.ParentYangName = "bridge-instances"
     bridgeEntry.EntityData.SegmentPath = "bridge-entry" + types.AddKeyToken(bridgeEntry.BridgeId, "bridge-id")
+    bridgeEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bridge-oper:bridge-instances/" + bridgeEntry.EntityData.SegmentPath
     bridgeEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -212,6 +215,7 @@ func (bridgeIntfEntries *BridgeInstances_BridgeEntry_BridgeIntfEntries) GetEntit
     bridgeIntfEntries.EntityData.BundleName = "cisco_ios_xe"
     bridgeIntfEntries.EntityData.ParentYangName = "bridge-entry"
     bridgeIntfEntries.EntityData.SegmentPath = "bridge-intf-entries"
+    bridgeIntfEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bridge-oper:bridge-instances/bridge-entry/" + bridgeIntfEntries.EntityData.SegmentPath
     bridgeIntfEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeIntfEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeIntfEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -233,6 +237,7 @@ func (bridgeIntfEntries *BridgeInstances_BridgeEntry_BridgeIntfEntries) GetEntit
 type BridgeInstances_BridgeEntry_BridgeIntfEntries_BridgeIntfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Switch port name belong to the bridge. The type is
     // string.
@@ -267,6 +272,7 @@ func (bridgeIntfEntry *BridgeInstances_BridgeEntry_BridgeIntfEntries_BridgeIntfE
     bridgeIntfEntry.EntityData.BundleName = "cisco_ios_xe"
     bridgeIntfEntry.EntityData.ParentYangName = "bridge-intf-entries"
     bridgeIntfEntry.EntityData.SegmentPath = "bridge-intf-entry" + types.AddKeyToken(bridgeIntfEntry.IfName, "if-name")
+    bridgeIntfEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bridge-oper:bridge-instances/bridge-entry/bridge-intf-entries/" + bridgeIntfEntry.EntityData.SegmentPath
     bridgeIntfEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeIntfEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeIntfEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -304,6 +310,7 @@ func (bridgeMatmEntries *BridgeInstances_BridgeEntry_BridgeMatmEntries) GetEntit
     bridgeMatmEntries.EntityData.BundleName = "cisco_ios_xe"
     bridgeMatmEntries.EntityData.ParentYangName = "bridge-entry"
     bridgeMatmEntries.EntityData.SegmentPath = "bridge-matm-entries"
+    bridgeMatmEntries.EntityData.AbsolutePath = "Cisco-IOS-XE-bridge-oper:bridge-instances/bridge-entry/" + bridgeMatmEntries.EntityData.SegmentPath
     bridgeMatmEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeMatmEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeMatmEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -325,6 +332,7 @@ func (bridgeMatmEntries *BridgeInstances_BridgeEntry_BridgeMatmEntries) GetEntit
 type BridgeInstances_BridgeEntry_BridgeMatmEntries_BridgeMatmEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. MAC address. The type is string with pattern:
     // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
@@ -346,6 +354,7 @@ func (bridgeMatmEntry *BridgeInstances_BridgeEntry_BridgeMatmEntries_BridgeMatmE
     bridgeMatmEntry.EntityData.BundleName = "cisco_ios_xe"
     bridgeMatmEntry.EntityData.ParentYangName = "bridge-matm-entries"
     bridgeMatmEntry.EntityData.SegmentPath = "bridge-matm-entry" + types.AddKeyToken(bridgeMatmEntry.MacAddress, "mac-address")
+    bridgeMatmEntry.EntityData.AbsolutePath = "Cisco-IOS-XE-bridge-oper:bridge-instances/bridge-entry/bridge-matm-entries/" + bridgeMatmEntry.EntityData.SegmentPath
     bridgeMatmEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     bridgeMatmEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     bridgeMatmEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

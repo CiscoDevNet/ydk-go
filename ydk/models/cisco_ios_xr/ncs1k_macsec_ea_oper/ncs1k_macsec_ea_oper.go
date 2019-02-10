@@ -54,6 +54,7 @@ func (ncs1kMacsecOper *Ncs1kMacsecOper) GetEntityData() *types.CommonEntityData 
     ncs1kMacsecOper.EntityData.BundleName = "cisco_ios_xr"
     ncs1kMacsecOper.EntityData.ParentYangName = "Cisco-IOS-XR-ncs1k-macsec-ea-oper"
     ncs1kMacsecOper.EntityData.SegmentPath = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper"
+    ncs1kMacsecOper.EntityData.AbsolutePath = ncs1kMacsecOper.EntityData.SegmentPath
     ncs1kMacsecOper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncs1kMacsecOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncs1kMacsecOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -84,6 +85,7 @@ func (ncs1kMacsecCtrlrNames *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames) GetEntityDat
     ncs1kMacsecCtrlrNames.EntityData.BundleName = "cisco_ios_xr"
     ncs1kMacsecCtrlrNames.EntityData.ParentYangName = "ncs1k-macsec-oper"
     ncs1kMacsecCtrlrNames.EntityData.SegmentPath = "ncs1k-macsec-ctrlr-names"
+    ncs1kMacsecCtrlrNames.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/" + ncs1kMacsecCtrlrNames.EntityData.SegmentPath
     ncs1kMacsecCtrlrNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncs1kMacsecCtrlrNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncs1kMacsecCtrlrNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -105,6 +107,7 @@ func (ncs1kMacsecCtrlrNames *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames) GetEntityDat
 type Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrName struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -120,6 +123,7 @@ func (ncs1kMacsecCtrlrName *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtr
     ncs1kMacsecCtrlrName.EntityData.BundleName = "cisco_ios_xr"
     ncs1kMacsecCtrlrName.EntityData.ParentYangName = "ncs1k-macsec-ctrlr-names"
     ncs1kMacsecCtrlrName.EntityData.SegmentPath = "ncs1k-macsec-ctrlr-name" + types.AddKeyToken(ncs1kMacsecCtrlrName.Name, "name")
+    ncs1kMacsecCtrlrName.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/ncs1k-macsec-ctrlr-names/" + ncs1kMacsecCtrlrName.EntityData.SegmentPath
     ncs1kMacsecCtrlrName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncs1kMacsecCtrlrName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncs1kMacsecCtrlrName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -162,6 +166,7 @@ func (ncs1kStatusInfo *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrNam
     ncs1kStatusInfo.EntityData.BundleName = "cisco_ios_xr"
     ncs1kStatusInfo.EntityData.ParentYangName = "ncs1k-macsec-ctrlr-name"
     ncs1kStatusInfo.EntityData.SegmentPath = "ncs1k-status-info"
+    ncs1kStatusInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/ncs1k-macsec-ctrlr-names/ncs1k-macsec-ctrlr-name/" + ncs1kStatusInfo.EntityData.SegmentPath
     ncs1kStatusInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ncs1kStatusInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ncs1kStatusInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +229,7 @@ func (encryptScStatus *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrNam
     encryptScStatus.EntityData.BundleName = "cisco_ios_xr"
     encryptScStatus.EntityData.ParentYangName = "ncs1k-status-info"
     encryptScStatus.EntityData.SegmentPath = "encrypt-sc-status"
+    encryptScStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/ncs1k-macsec-ctrlr-names/ncs1k-macsec-ctrlr-name/ncs1k-status-info/" + encryptScStatus.EntityData.SegmentPath
     encryptScStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     encryptScStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     encryptScStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -231,6 +237,7 @@ func (encryptScStatus *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrNam
     encryptScStatus.EntityData.Children = types.NewOrderedMap()
     encryptScStatus.EntityData.Children.Append("active-association", types.YChild{"ActiveAssociation", nil})
     for i := range encryptScStatus.ActiveAssociation {
+        types.SetYListKey(encryptScStatus.ActiveAssociation[i], i)
         encryptScStatus.EntityData.Children.Append(types.GetSegmentPath(encryptScStatus.ActiveAssociation[i]), types.YChild{"ActiveAssociation", encryptScStatus.ActiveAssociation[i]})
     }
     encryptScStatus.EntityData.Leafs = types.NewOrderedMap()
@@ -253,6 +260,7 @@ func (encryptScStatus *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrNam
 type Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrName_Ncs1kStatusInfo_EncryptScStatus_ActiveAssociation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Assocition Number. The type is interface{} with range: 0..255.
     AssociationNumber interface{}
@@ -279,7 +287,8 @@ func (activeAssociation *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrN
     activeAssociation.EntityData.YangName = "active-association"
     activeAssociation.EntityData.BundleName = "cisco_ios_xr"
     activeAssociation.EntityData.ParentYangName = "encrypt-sc-status"
-    activeAssociation.EntityData.SegmentPath = "active-association"
+    activeAssociation.EntityData.SegmentPath = "active-association" + types.AddNoKeyToken(activeAssociation)
+    activeAssociation.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/ncs1k-macsec-ctrlr-names/ncs1k-macsec-ctrlr-name/ncs1k-status-info/encrypt-sc-status/" + activeAssociation.EntityData.SegmentPath
     activeAssociation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeAssociation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeAssociation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -343,6 +352,7 @@ func (decryptScStatus *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrNam
     decryptScStatus.EntityData.BundleName = "cisco_ios_xr"
     decryptScStatus.EntityData.ParentYangName = "ncs1k-status-info"
     decryptScStatus.EntityData.SegmentPath = "decrypt-sc-status"
+    decryptScStatus.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/ncs1k-macsec-ctrlr-names/ncs1k-macsec-ctrlr-name/ncs1k-status-info/" + decryptScStatus.EntityData.SegmentPath
     decryptScStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     decryptScStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     decryptScStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -350,6 +360,7 @@ func (decryptScStatus *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrNam
     decryptScStatus.EntityData.Children = types.NewOrderedMap()
     decryptScStatus.EntityData.Children.Append("active-association", types.YChild{"ActiveAssociation", nil})
     for i := range decryptScStatus.ActiveAssociation {
+        types.SetYListKey(decryptScStatus.ActiveAssociation[i], i)
         decryptScStatus.EntityData.Children.Append(types.GetSegmentPath(decryptScStatus.ActiveAssociation[i]), types.YChild{"ActiveAssociation", decryptScStatus.ActiveAssociation[i]})
     }
     decryptScStatus.EntityData.Leafs = types.NewOrderedMap()
@@ -372,6 +383,7 @@ func (decryptScStatus *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrNam
 type Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrName_Ncs1kStatusInfo_DecryptScStatus_ActiveAssociation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Assocition Number. The type is interface{} with range: 0..255.
     AssociationNumber interface{}
@@ -398,7 +410,8 @@ func (activeAssociation *Ncs1kMacsecOper_Ncs1kMacsecCtrlrNames_Ncs1kMacsecCtrlrN
     activeAssociation.EntityData.YangName = "active-association"
     activeAssociation.EntityData.BundleName = "cisco_ios_xr"
     activeAssociation.EntityData.ParentYangName = "decrypt-sc-status"
-    activeAssociation.EntityData.SegmentPath = "active-association"
+    activeAssociation.EntityData.SegmentPath = "active-association" + types.AddNoKeyToken(activeAssociation)
+    activeAssociation.EntityData.AbsolutePath = "Cisco-IOS-XR-ncs1k-macsec-ea-oper:ncs1k-macsec-oper/ncs1k-macsec-ctrlr-names/ncs1k-macsec-ctrlr-name/ncs1k-status-info/decrypt-sc-status/" + activeAssociation.EntityData.SegmentPath
     activeAssociation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     activeAssociation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     activeAssociation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

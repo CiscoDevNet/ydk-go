@@ -43,6 +43,7 @@ func (mplsEa *MplsEa) GetEntityData() *types.CommonEntityData {
     mplsEa.EntityData.BundleName = "cisco_ios_xr"
     mplsEa.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-io-oper"
     mplsEa.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-io-oper:mpls-ea"
+    mplsEa.EntityData.AbsolutePath = mplsEa.EntityData.SegmentPath
     mplsEa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsEa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsEa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -74,6 +75,7 @@ func (nodes *MplsEa_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "mpls-ea"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-io-oper:mpls-ea/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -95,6 +97,7 @@ func (nodes *MplsEa_Nodes) GetEntityData() *types.CommonEntityData {
 type MplsEa_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -110,6 +113,7 @@ func (node *MplsEa_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-io-oper:mpls-ea/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -141,6 +145,7 @@ func (interfaces *MplsEa_Nodes_Node_Interfaces) GetEntityData() *types.CommonEnt
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-io-oper:mpls-ea/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -162,6 +167,7 @@ func (interfaces *MplsEa_Nodes_Node_Interfaces) GetEntityData() *types.CommonEnt
 type MplsEa_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -186,6 +192,7 @@ func (self *MplsEa_Nodes_Node_Interfaces_Interface) GetEntityData() *types.Commo
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-io-oper:mpls-ea/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -219,6 +226,7 @@ func (mplsMa *MplsMa) GetEntityData() *types.CommonEntityData {
     mplsMa.EntityData.BundleName = "cisco_ios_xr"
     mplsMa.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-io-oper"
     mplsMa.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-io-oper:mpls-ma"
+    mplsMa.EntityData.AbsolutePath = mplsMa.EntityData.SegmentPath
     mplsMa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mplsMa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mplsMa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +258,7 @@ func (nodes *MplsMa_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "mpls-ma"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-io-oper:mpls-ma/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -271,6 +280,7 @@ func (nodes *MplsMa_Nodes) GetEntityData() *types.CommonEntityData {
 type MplsMa_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -286,6 +296,7 @@ func (node *MplsMa_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-io-oper:mpls-ma/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -317,6 +328,7 @@ func (interfaces *MplsMa_Nodes_Node_Interfaces) GetEntityData() *types.CommonEnt
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "node"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-io-oper:mpls-ma/nodes/node/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -338,6 +350,7 @@ func (interfaces *MplsMa_Nodes_Node_Interfaces) GetEntityData() *types.CommonEnt
 type MplsMa_Nodes_Node_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -362,6 +375,7 @@ func (self *MplsMa_Nodes_Node_Interfaces_Interface) GetEntityData() *types.Commo
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-mpls-io-oper:mpls-ma/nodes/node/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

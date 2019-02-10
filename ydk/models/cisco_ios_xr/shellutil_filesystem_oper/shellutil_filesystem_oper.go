@@ -40,6 +40,7 @@ func (fileSystem *FileSystem) GetEntityData() *types.CommonEntityData {
     fileSystem.EntityData.BundleName = "cisco_ios_xr"
     fileSystem.EntityData.ParentYangName = "Cisco-IOS-XR-shellutil-filesystem-oper"
     fileSystem.EntityData.SegmentPath = "Cisco-IOS-XR-shellutil-filesystem-oper:file-system"
+    fileSystem.EntityData.AbsolutePath = fileSystem.EntityData.SegmentPath
     fileSystem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fileSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fileSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -61,6 +62,7 @@ func (fileSystem *FileSystem) GetEntityData() *types.CommonEntityData {
 type FileSystem_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -76,6 +78,7 @@ func (node *FileSystem_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "file-system"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-shellutil-filesystem-oper:file-system/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -83,6 +86,7 @@ func (node *FileSystem_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.Children = types.NewOrderedMap()
     node.EntityData.Children.Append("file-system", types.YChild{"FileSystem", nil})
     for i := range node.FileSystem {
+        types.SetYListKey(node.FileSystem[i], i)
         node.EntityData.Children.Append(types.GetSegmentPath(node.FileSystem[i]), types.YChild{"FileSystem", node.FileSystem[i]})
     }
     node.EntityData.Leafs = types.NewOrderedMap()
@@ -98,6 +102,7 @@ func (node *FileSystem_Node) GetEntityData() *types.CommonEntityData {
 type FileSystem_Node_FileSystem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Size of the file system in bytes. The type is string. Units are byte.
     Size interface{}
@@ -120,7 +125,8 @@ func (fileSystem *FileSystem_Node_FileSystem) GetEntityData() *types.CommonEntit
     fileSystem.EntityData.YangName = "file-system"
     fileSystem.EntityData.BundleName = "cisco_ios_xr"
     fileSystem.EntityData.ParentYangName = "node"
-    fileSystem.EntityData.SegmentPath = "file-system"
+    fileSystem.EntityData.SegmentPath = "file-system" + types.AddNoKeyToken(fileSystem)
+    fileSystem.EntityData.AbsolutePath = "Cisco-IOS-XR-shellutil-filesystem-oper:file-system/node/" + fileSystem.EntityData.SegmentPath
     fileSystem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fileSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fileSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

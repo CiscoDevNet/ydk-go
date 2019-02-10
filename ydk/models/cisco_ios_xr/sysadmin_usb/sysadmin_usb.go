@@ -41,6 +41,7 @@ func (usb *Usb) GetEntityData() *types.CommonEntityData {
     usb.EntityData.BundleName = "cisco_ios_xr"
     usb.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-usb"
     usb.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-usb:usb"
+    usb.EntityData.AbsolutePath = usb.EntityData.SegmentPath
     usb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     usb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     usb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

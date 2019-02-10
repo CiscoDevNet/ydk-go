@@ -61,6 +61,7 @@ func (bngPbr *BngPbr) GetEntityData() *types.CommonEntityData {
     bngPbr.EntityData.BundleName = "cisco_ios_xr"
     bngPbr.EntityData.ParentYangName = "Cisco-IOS-XR-pbr-bng-cfg"
     bngPbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-bng-cfg:bng-pbr"
+    bngPbr.EntityData.AbsolutePath = bngPbr.EntityData.SegmentPath
     bngPbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bngPbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bngPbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -91,6 +92,7 @@ func (httpEnrichment *BngPbr_HttpEnrichment) GetEntityData() *types.CommonEntity
     httpEnrichment.EntityData.BundleName = "cisco_ios_xr"
     httpEnrichment.EntityData.ParentYangName = "bng-pbr"
     httpEnrichment.EntityData.SegmentPath = "http-enrichment"
+    httpEnrichment.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-bng-cfg:bng-pbr/" + httpEnrichment.EntityData.SegmentPath
     httpEnrichment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     httpEnrichment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     httpEnrichment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -132,6 +134,7 @@ func (parameters *BngPbr_HttpEnrichment_Parameters) GetEntityData() *types.Commo
     parameters.EntityData.BundleName = "cisco_ios_xr"
     parameters.EntityData.ParentYangName = "http-enrichment"
     parameters.EntityData.SegmentPath = "parameters"
+    parameters.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-bng-cfg:bng-pbr/http-enrichment/" + parameters.EntityData.SegmentPath
     parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

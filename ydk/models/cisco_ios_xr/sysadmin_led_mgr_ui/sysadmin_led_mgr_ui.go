@@ -35,6 +35,7 @@ func (led *Led) GetEntityData() *types.CommonEntityData {
     led.EntityData.BundleName = "cisco_ios_xr"
     led.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-led-mgr-ui"
     led.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-led-mgr-ui:led"
+    led.EntityData.AbsolutePath = led.EntityData.SegmentPath
     led.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     led.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     led.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -59,6 +60,7 @@ func (led *Led) GetEntityData() *types.CommonEntityData {
 type Led_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -73,6 +75,7 @@ func (location *Led_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "led"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-led-mgr-ui:led/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -94,6 +97,7 @@ func (location *Led_Location) GetEntityData() *types.CommonEntityData {
 type Led_Location_LedAttributes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LedName interface{}
@@ -111,6 +115,7 @@ func (ledAttributes *Led_Location_LedAttributes) GetEntityData() *types.CommonEn
     ledAttributes.EntityData.BundleName = "cisco_ios_xr"
     ledAttributes.EntityData.ParentYangName = "location"
     ledAttributes.EntityData.SegmentPath = "led_attributes" + types.AddKeyToken(ledAttributes.LedName, "led_name")
+    ledAttributes.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-led-mgr-ui:led/location/" + ledAttributes.EntityData.SegmentPath
     ledAttributes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ledAttributes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ledAttributes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -131,6 +136,7 @@ func (ledAttributes *Led_Location_LedAttributes) GetEntityData() *types.CommonEn
 type Led_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -145,6 +151,7 @@ func (trace *Led_Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "led"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-led-mgr-ui:led/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -166,6 +173,7 @@ func (trace *Led_Trace) GetEntityData() *types.CommonEntityData {
 type Led_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -180,6 +188,7 @@ func (location *Led_Trace_Location) GetEntityData() *types.CommonEntityData {
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-led-mgr-ui:led/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -201,6 +210,7 @@ func (location *Led_Trace_Location) GetEntityData() *types.CommonEntityData {
 type Led_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -215,6 +225,7 @@ func (allOptions *Led_Trace_Location_AllOptions) GetEntityData() *types.CommonEn
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-led-mgr-ui:led/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -222,6 +233,7 @@ func (allOptions *Led_Trace_Location_AllOptions) GetEntityData() *types.CommonEn
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -236,6 +248,7 @@ func (allOptions *Led_Trace_Location_AllOptions) GetEntityData() *types.CommonEn
 type Led_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -246,7 +259,8 @@ func (traceBlocks *Led_Trace_Location_AllOptions_TraceBlocks) GetEntityData() *t
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-led-mgr-ui:led/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

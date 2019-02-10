@@ -274,6 +274,7 @@ func (aaaData *AaaData) GetEntityData() *types.CommonEntityData {
     aaaData.EntityData.BundleName = "cisco_ios_xe"
     aaaData.EntityData.ParentYangName = "Cisco-IOS-XE-aaa-oper"
     aaaData.EntityData.SegmentPath = "Cisco-IOS-XE-aaa-oper:aaa-data"
+    aaaData.EntityData.AbsolutePath = aaaData.EntityData.SegmentPath
     aaaData.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaaData.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaData.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -307,6 +308,7 @@ func (aaaData *AaaData) GetEntityData() *types.CommonEntityData {
 type AaaData_AaaRadiusStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. AAA group name in which the server is defined. 
     // For public servers the group name is "PUBLIC GROUP" by default. The type is
@@ -425,6 +427,7 @@ func (aaaRadiusStats *AaaData_AaaRadiusStats) GetEntityData() *types.CommonEntit
     aaaRadiusStats.EntityData.BundleName = "cisco_ios_xe"
     aaaRadiusStats.EntityData.ParentYangName = "aaa-data"
     aaaRadiusStats.EntityData.SegmentPath = "aaa-radius-stats" + types.AddKeyToken(aaaRadiusStats.GroupName, "group-name") + types.AddKeyToken(aaaRadiusStats.RadiusServerIp, "radius-server-ip") + types.AddKeyToken(aaaRadiusStats.AuthPort, "auth-port") + types.AddKeyToken(aaaRadiusStats.AcctPort, "acct-port")
+    aaaRadiusStats.EntityData.AbsolutePath = "Cisco-IOS-XE-aaa-oper:aaa-data/" + aaaRadiusStats.EntityData.SegmentPath
     aaaRadiusStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaaRadiusStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaRadiusStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -468,6 +471,7 @@ func (aaaRadiusStats *AaaData_AaaRadiusStats) GetEntityData() *types.CommonEntit
 type AaaData_AaaTacacsStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. AAA group name in which the server is defined. For
     // public servers the group name is "PUBLIC GROUP" by default. The type is
@@ -530,6 +534,7 @@ func (aaaTacacsStats *AaaData_AaaTacacsStats) GetEntityData() *types.CommonEntit
     aaaTacacsStats.EntityData.BundleName = "cisco_ios_xe"
     aaaTacacsStats.EntityData.ParentYangName = "aaa-data"
     aaaTacacsStats.EntityData.SegmentPath = "aaa-tacacs-stats" + types.AddKeyToken(aaaTacacsStats.GroupName, "group-name") + types.AddKeyToken(aaaTacacsStats.TacacsServerAddress, "tacacs-server-address") + types.AddKeyToken(aaaTacacsStats.Port, "port")
+    aaaTacacsStats.EntityData.AbsolutePath = "Cisco-IOS-XE-aaa-oper:aaa-data/" + aaaTacacsStats.EntityData.SegmentPath
     aaaTacacsStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaaTacacsStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaTacacsStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -559,6 +564,7 @@ func (aaaTacacsStats *AaaData_AaaTacacsStats) GetEntityData() *types.CommonEntit
 type AaaData_AaaLdapCounters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. LDAP server IP address. The type is one of the
     // following types: string with pattern:
@@ -617,6 +623,7 @@ func (aaaLdapCounters *AaaData_AaaLdapCounters) GetEntityData() *types.CommonEnt
     aaaLdapCounters.EntityData.BundleName = "cisco_ios_xe"
     aaaLdapCounters.EntityData.ParentYangName = "aaa-data"
     aaaLdapCounters.EntityData.SegmentPath = "aaa-ldap-counters" + types.AddKeyToken(aaaLdapCounters.LdapServerAddress, "ldap-server-address") + types.AddKeyToken(aaaLdapCounters.LdapServerPort, "ldap-server-port")
+    aaaLdapCounters.EntityData.AbsolutePath = "Cisco-IOS-XE-aaa-oper:aaa-data/" + aaaLdapCounters.EntityData.SegmentPath
     aaaLdapCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaaLdapCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaLdapCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -645,6 +652,7 @@ func (aaaLdapCounters *AaaData_AaaLdapCounters) GetEntityData() *types.CommonEnt
 type AaaData_AaaUsers struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The username used to logged into the device. The
     // type is string.
@@ -661,6 +669,7 @@ func (aaaUsers *AaaData_AaaUsers) GetEntityData() *types.CommonEntityData {
     aaaUsers.EntityData.BundleName = "cisco_ios_xe"
     aaaUsers.EntityData.ParentYangName = "aaa-data"
     aaaUsers.EntityData.SegmentPath = "aaa-users" + types.AddKeyToken(aaaUsers.Username, "username")
+    aaaUsers.EntityData.AbsolutePath = "Cisco-IOS-XE-aaa-oper:aaa-data/" + aaaUsers.EntityData.SegmentPath
     aaaUsers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaaUsers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaUsers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -683,6 +692,7 @@ func (aaaUsers *AaaData_AaaUsers) GetEntityData() *types.CommonEntityData {
 type AaaData_AaaUsers_AaaSessions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. AAA Unique ID. The type is interface{} with range:
     // 0..4294967295.
@@ -713,6 +723,7 @@ func (aaaSessions *AaaData_AaaUsers_AaaSessions) GetEntityData() *types.CommonEn
     aaaSessions.EntityData.BundleName = "cisco_ios_xe"
     aaaSessions.EntityData.ParentYangName = "aaa-users"
     aaaSessions.EntityData.SegmentPath = "aaa-sessions" + types.AddKeyToken(aaaSessions.AaaUid, "aaa-uid")
+    aaaSessions.EntityData.AbsolutePath = "Cisco-IOS-XE-aaa-oper:aaa-data/aaa-users/" + aaaSessions.EntityData.SegmentPath
     aaaSessions.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     aaaSessions.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     aaaSessions.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

@@ -68,6 +68,7 @@ func (iFMIB *IFMIB) GetEntityData() *types.CommonEntityData {
     iFMIB.EntityData.BundleName = "cisco_ios_xe"
     iFMIB.EntityData.ParentYangName = "IF-MIB"
     iFMIB.EntityData.SegmentPath = "IF-MIB:IF-MIB"
+    iFMIB.EntityData.AbsolutePath = iFMIB.EntityData.SegmentPath
     iFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     iFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     iFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -102,6 +103,7 @@ func (interfaces *IFMIB_Interfaces) GetEntityData() *types.CommonEntityData {
     interfaces.EntityData.BundleName = "cisco_ios_xe"
     interfaces.EntityData.ParentYangName = "IF-MIB"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "IF-MIB:IF-MIB/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -142,6 +144,7 @@ func (ifMIBObjects *IFMIB_IfMIBObjects) GetEntityData() *types.CommonEntityData 
     ifMIBObjects.EntityData.BundleName = "cisco_ios_xe"
     ifMIBObjects.EntityData.ParentYangName = "IF-MIB"
     ifMIBObjects.EntityData.SegmentPath = "ifMIBObjects"
+    ifMIBObjects.EntityData.AbsolutePath = "IF-MIB:IF-MIB/" + ifMIBObjects.EntityData.SegmentPath
     ifMIBObjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifMIBObjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifMIBObjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -174,6 +177,7 @@ func (ifTable *IFMIB_IfTable) GetEntityData() *types.CommonEntityData {
     ifTable.EntityData.BundleName = "cisco_ios_xe"
     ifTable.EntityData.ParentYangName = "IF-MIB"
     ifTable.EntityData.SegmentPath = "ifTable"
+    ifTable.EntityData.AbsolutePath = "IF-MIB:IF-MIB/" + ifTable.EntityData.SegmentPath
     ifTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -196,6 +200,7 @@ func (ifTable *IFMIB_IfTable) GetEntityData() *types.CommonEntityData {
 type IFMIB_IfTable_IfEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique value, greater than zero, for each
     // interface.  It is recommended that values are assigned contiguously
@@ -621,6 +626,7 @@ func (ifEntry *IFMIB_IfTable_IfEntry) GetEntityData() *types.CommonEntityData {
     ifEntry.EntityData.BundleName = "cisco_ios_xe"
     ifEntry.EntityData.ParentYangName = "ifTable"
     ifEntry.EntityData.SegmentPath = "ifEntry" + types.AddKeyToken(ifEntry.IfIndex, "ifIndex")
+    ifEntry.EntityData.AbsolutePath = "IF-MIB:IF-MIB/ifTable/" + ifEntry.EntityData.SegmentPath
     ifEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -789,6 +795,7 @@ func (ifStackTable *IFMIB_IfStackTable) GetEntityData() *types.CommonEntityData 
     ifStackTable.EntityData.BundleName = "cisco_ios_xe"
     ifStackTable.EntityData.ParentYangName = "IF-MIB"
     ifStackTable.EntityData.SegmentPath = "ifStackTable"
+    ifStackTable.EntityData.AbsolutePath = "IF-MIB:IF-MIB/" + ifStackTable.EntityData.SegmentPath
     ifStackTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifStackTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifStackTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -813,6 +820,7 @@ func (ifStackTable *IFMIB_IfStackTable) GetEntityData() *types.CommonEntityData 
 type IFMIB_IfStackTable_IfStackEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The value of ifIndex corresponding to the higher
     // sub-layer of the relationship, i.e., the sub-layer which runs on 'top' of
@@ -844,6 +852,7 @@ func (ifStackEntry *IFMIB_IfStackTable_IfStackEntry) GetEntityData() *types.Comm
     ifStackEntry.EntityData.BundleName = "cisco_ios_xe"
     ifStackEntry.EntityData.ParentYangName = "ifStackTable"
     ifStackEntry.EntityData.SegmentPath = "ifStackEntry" + types.AddKeyToken(ifStackEntry.IfStackHigherLayer, "ifStackHigherLayer") + types.AddKeyToken(ifStackEntry.IfStackLowerLayer, "ifStackLowerLayer")
+    ifStackEntry.EntityData.AbsolutePath = "IF-MIB:IF-MIB/ifStackTable/" + ifStackEntry.EntityData.SegmentPath
     ifStackEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifStackEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifStackEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -892,6 +901,7 @@ func (ifRcvAddressTable *IFMIB_IfRcvAddressTable) GetEntityData() *types.CommonE
     ifRcvAddressTable.EntityData.BundleName = "cisco_ios_xe"
     ifRcvAddressTable.EntityData.ParentYangName = "IF-MIB"
     ifRcvAddressTable.EntityData.SegmentPath = "ifRcvAddressTable"
+    ifRcvAddressTable.EntityData.AbsolutePath = "IF-MIB:IF-MIB/" + ifRcvAddressTable.EntityData.SegmentPath
     ifRcvAddressTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifRcvAddressTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifRcvAddressTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -915,6 +925,7 @@ func (ifRcvAddressTable *IFMIB_IfRcvAddressTable) GetEntityData() *types.CommonE
 type IFMIB_IfRcvAddressTable_IfRcvAddressEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..2147483647.
     // Refers to if_mib.IFMIB_IfTable_IfEntry_IfIndex
@@ -945,6 +956,7 @@ func (ifRcvAddressEntry *IFMIB_IfRcvAddressTable_IfRcvAddressEntry) GetEntityDat
     ifRcvAddressEntry.EntityData.BundleName = "cisco_ios_xe"
     ifRcvAddressEntry.EntityData.ParentYangName = "ifRcvAddressTable"
     ifRcvAddressEntry.EntityData.SegmentPath = "ifRcvAddressEntry" + types.AddKeyToken(ifRcvAddressEntry.IfIndex, "ifIndex") + types.AddKeyToken(ifRcvAddressEntry.IfRcvAddressAddress, "ifRcvAddressAddress")
+    ifRcvAddressEntry.EntityData.AbsolutePath = "IF-MIB:IF-MIB/ifRcvAddressTable/" + ifRcvAddressEntry.EntityData.SegmentPath
     ifRcvAddressEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     ifRcvAddressEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     ifRcvAddressEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

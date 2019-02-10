@@ -40,6 +40,7 @@ func (vrfPolicy *VrfPolicy) GetEntityData() *types.CommonEntityData {
     vrfPolicy.EntityData.BundleName = "cisco_ios_xr"
     vrfPolicy.EntityData.ParentYangName = "Cisco-IOS-XR-pbr-vrf-policy-cfg"
     vrfPolicy.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy"
+    vrfPolicy.EntityData.AbsolutePath = vrfPolicy.EntityData.SegmentPath
     vrfPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -61,6 +62,7 @@ func (vrfPolicy *VrfPolicy) GetEntityData() *types.CommonEntityData {
 type VrfPolicy_Vrf struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
     // [\w\-\.:,_@#%$\+=\|;]+.
@@ -76,6 +78,7 @@ func (vrf *VrfPolicy_Vrf) GetEntityData() *types.CommonEntityData {
     vrf.EntityData.BundleName = "cisco_ios_xr"
     vrf.EntityData.ParentYangName = "vrf-policy"
     vrf.EntityData.SegmentPath = "vrf" + types.AddKeyToken(vrf.VrfName, "vrf-name")
+    vrf.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy/" + vrf.EntityData.SegmentPath
     vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -98,6 +101,7 @@ func (vrf *VrfPolicy_Vrf) GetEntityData() *types.CommonEntityData {
 type VrfPolicy_Vrf_Afi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. AFI name. The type is string with pattern:
     // (ipv4)|(ipv6).
@@ -113,6 +117,7 @@ func (afi *VrfPolicy_Vrf_Afi) GetEntityData() *types.CommonEntityData {
     afi.EntityData.BundleName = "cisco_ios_xr"
     afi.EntityData.ParentYangName = "vrf"
     afi.EntityData.SegmentPath = "afi" + types.AddKeyToken(afi.AfiType, "afi-type")
+    afi.EntityData.AbsolutePath = "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy/vrf/" + afi.EntityData.SegmentPath
     afi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     afi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     afi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

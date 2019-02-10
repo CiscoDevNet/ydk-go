@@ -52,6 +52,7 @@ func (ocni *Ocni) GetEntityData() *types.CommonEntityData {
     ocni.EntityData.BundleName = "cisco_ios_xr"
     ocni.EntityData.ParentYangName = "Cisco-IOS-XR-ocni-local-routing-oper"
     ocni.EntityData.SegmentPath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni"
+    ocni.EntityData.AbsolutePath = ocni.EntityData.SegmentPath
     ocni.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ocni.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ocni.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -82,6 +83,7 @@ func (vrfipv4 *Ocni_Vrfipv4) GetEntityData() *types.CommonEntityData {
     vrfipv4.EntityData.BundleName = "cisco_ios_xr"
     vrfipv4.EntityData.ParentYangName = "ocni"
     vrfipv4.EntityData.SegmentPath = "vrfipv4"
+    vrfipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/" + vrfipv4.EntityData.SegmentPath
     vrfipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -112,6 +114,7 @@ func (networkInstances *Ocni_Vrfipv4_NetworkInstances) GetEntityData() *types.Co
     networkInstances.EntityData.BundleName = "cisco_ios_xr"
     networkInstances.EntityData.ParentYangName = "vrfipv4"
     networkInstances.EntityData.SegmentPath = "network-instances"
+    networkInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/" + networkInstances.EntityData.SegmentPath
     networkInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -134,6 +137,7 @@ func (networkInstances *Ocni_Vrfipv4_NetworkInstances) GetEntityData() *types.Co
 type Ocni_Vrfipv4_NetworkInstances_NetworkInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique name identifying the network instance.
     // The type is string.
@@ -150,6 +154,7 @@ func (networkInstance *Ocni_Vrfipv4_NetworkInstances_NetworkInstance) GetEntityD
     networkInstance.EntityData.BundleName = "cisco_ios_xr"
     networkInstance.EntityData.ParentYangName = "network-instances"
     networkInstance.EntityData.SegmentPath = "network-instance" + types.AddKeyToken(networkInstance.Name, "name")
+    networkInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/" + networkInstance.EntityData.SegmentPath
     networkInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -184,6 +189,7 @@ func (protocols *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols) GetEnt
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "network-instance"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -191,6 +197,7 @@ func (protocols *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols) GetEnt
     protocols.EntityData.Children = types.NewOrderedMap()
     protocols.EntityData.Children.Append("protocol", types.YChild{"Protocol", nil})
     for i := range protocols.Protocol {
+        types.SetYListKey(protocols.Protocol[i], i)
         protocols.EntityData.Children.Append(types.GetSegmentPath(protocols.Protocol[i]), types.YChild{"Protocol", protocols.Protocol[i]})
     }
     protocols.EntityData.Leafs = types.NewOrderedMap()
@@ -207,6 +214,7 @@ func (protocols *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols) GetEnt
 type Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The protocol name for the routing or forwarding protocol to be
     // instantiated. The type is string.
@@ -228,7 +236,8 @@ func (protocol *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol
     protocol.EntityData.YangName = "protocol"
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
-    protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.SegmentPath = "protocol" + types.AddNoKeyToken(protocol)
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -278,6 +287,7 @@ func (state *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol_St
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "protocol"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -311,6 +321,7 @@ func (staticRoutes *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Prot
     staticRoutes.EntityData.BundleName = "cisco_ios_xr"
     staticRoutes.EntityData.ParentYangName = "protocol"
     staticRoutes.EntityData.SegmentPath = "static-routes"
+    staticRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/" + staticRoutes.EntityData.SegmentPath
     staticRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -332,6 +343,7 @@ func (staticRoutes *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Prot
 type Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_StaticRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the destination prefix list key. The
     // type is string.
@@ -350,6 +362,7 @@ func (staticRoute *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Proto
     staticRoute.EntityData.BundleName = "cisco_ios_xr"
     staticRoute.EntityData.ParentYangName = "static-routes"
     staticRoute.EntityData.SegmentPath = "static-route" + types.AddKeyToken(staticRoute.Prefix, "prefix")
+    staticRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/static-routes/" + staticRoute.EntityData.SegmentPath
     staticRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -384,6 +397,7 @@ func (nextHops *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol
     nextHops.EntityData.BundleName = "cisco_ios_xr"
     nextHops.EntityData.ParentYangName = "static-route"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/static-routes/static-route/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -406,6 +420,7 @@ func (nextHops *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol
 type Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_StaticRoute_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the index of the current next-hop.
     // The index is intended to be a user-specified value which can be used to
@@ -426,6 +441,7 @@ func (nextHop *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol_
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/static-routes/static-route/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -480,6 +496,7 @@ func (state *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol_St
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/static-routes/static-route/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -511,6 +528,7 @@ func (interfaceRef *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Prot
     interfaceRef.EntityData.BundleName = "cisco_ios_xr"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/static-routes/static-route/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -548,6 +566,7 @@ func (state *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols_Protocol_St
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/static-routes/static-route/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -583,6 +602,7 @@ func (staticRoutesState *Ocni_Vrfipv4_NetworkInstances_NetworkInstance_Protocols
     staticRoutesState.EntityData.BundleName = "cisco_ios_xr"
     staticRoutesState.EntityData.ParentYangName = "static-route"
     staticRoutesState.EntityData.SegmentPath = "static-routes-state"
+    staticRoutesState.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv4/network-instances/network-instance/protocols/protocol/static-routes/static-route/" + staticRoutesState.EntityData.SegmentPath
     staticRoutesState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRoutesState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoutesState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -613,6 +633,7 @@ func (vrfipv6 *Ocni_Vrfipv6) GetEntityData() *types.CommonEntityData {
     vrfipv6.EntityData.BundleName = "cisco_ios_xr"
     vrfipv6.EntityData.ParentYangName = "ocni"
     vrfipv6.EntityData.SegmentPath = "vrfipv6"
+    vrfipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/" + vrfipv6.EntityData.SegmentPath
     vrfipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vrfipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vrfipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -643,6 +664,7 @@ func (networkInstances *Ocni_Vrfipv6_NetworkInstances) GetEntityData() *types.Co
     networkInstances.EntityData.BundleName = "cisco_ios_xr"
     networkInstances.EntityData.ParentYangName = "vrfipv6"
     networkInstances.EntityData.SegmentPath = "network-instances"
+    networkInstances.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/" + networkInstances.EntityData.SegmentPath
     networkInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -665,6 +687,7 @@ func (networkInstances *Ocni_Vrfipv6_NetworkInstances) GetEntityData() *types.Co
 type Ocni_Vrfipv6_NetworkInstances_NetworkInstance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique name identifying the network instance.
     // The type is string.
@@ -681,6 +704,7 @@ func (networkInstance *Ocni_Vrfipv6_NetworkInstances_NetworkInstance) GetEntityD
     networkInstance.EntityData.BundleName = "cisco_ios_xr"
     networkInstance.EntityData.ParentYangName = "network-instances"
     networkInstance.EntityData.SegmentPath = "network-instance" + types.AddKeyToken(networkInstance.Name, "name")
+    networkInstance.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/" + networkInstance.EntityData.SegmentPath
     networkInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     networkInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     networkInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -715,6 +739,7 @@ func (protocols *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols) GetEnt
     protocols.EntityData.BundleName = "cisco_ios_xr"
     protocols.EntityData.ParentYangName = "network-instance"
     protocols.EntityData.SegmentPath = "protocols"
+    protocols.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/" + protocols.EntityData.SegmentPath
     protocols.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocols.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocols.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -722,6 +747,7 @@ func (protocols *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols) GetEnt
     protocols.EntityData.Children = types.NewOrderedMap()
     protocols.EntityData.Children.Append("protocol", types.YChild{"Protocol", nil})
     for i := range protocols.Protocol {
+        types.SetYListKey(protocols.Protocol[i], i)
         protocols.EntityData.Children.Append(types.GetSegmentPath(protocols.Protocol[i]), types.YChild{"Protocol", protocols.Protocol[i]})
     }
     protocols.EntityData.Leafs = types.NewOrderedMap()
@@ -738,6 +764,7 @@ func (protocols *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols) GetEnt
 type Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // The protocol name for the routing or forwarding protocol to be
     // instantiated. The type is string.
@@ -759,7 +786,8 @@ func (protocol *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol
     protocol.EntityData.YangName = "protocol"
     protocol.EntityData.BundleName = "cisco_ios_xr"
     protocol.EntityData.ParentYangName = "protocols"
-    protocol.EntityData.SegmentPath = "protocol"
+    protocol.EntityData.SegmentPath = "protocol" + types.AddNoKeyToken(protocol)
+    protocol.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/" + protocol.EntityData.SegmentPath
     protocol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     protocol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     protocol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -809,6 +837,7 @@ func (state *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol_St
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "protocol"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -842,6 +871,7 @@ func (staticRoutes *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Prot
     staticRoutes.EntityData.BundleName = "cisco_ios_xr"
     staticRoutes.EntityData.ParentYangName = "protocol"
     staticRoutes.EntityData.SegmentPath = "static-routes"
+    staticRoutes.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/" + staticRoutes.EntityData.SegmentPath
     staticRoutes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRoutes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoutes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -863,6 +893,7 @@ func (staticRoutes *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Prot
 type Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_StaticRoute struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Reference to the destination prefix list key. The
     // type is string.
@@ -881,6 +912,7 @@ func (staticRoute *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Proto
     staticRoute.EntityData.BundleName = "cisco_ios_xr"
     staticRoute.EntityData.ParentYangName = "static-routes"
     staticRoute.EntityData.SegmentPath = "static-route" + types.AddKeyToken(staticRoute.Prefix, "prefix")
+    staticRoute.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/static-routes/" + staticRoute.EntityData.SegmentPath
     staticRoute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRoute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -915,6 +947,7 @@ func (nextHops *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol
     nextHops.EntityData.BundleName = "cisco_ios_xr"
     nextHops.EntityData.ParentYangName = "static-route"
     nextHops.EntityData.SegmentPath = "next-hops"
+    nextHops.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/static-routes/static-route/" + nextHops.EntityData.SegmentPath
     nextHops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -937,6 +970,7 @@ func (nextHops *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol
 type Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_StaticRoute_NextHops_NextHop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A reference to the index of the current next-hop.
     // The index is intended to be a user-specified value which can be used to
@@ -957,6 +991,7 @@ func (nextHop *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol_
     nextHop.EntityData.BundleName = "cisco_ios_xr"
     nextHop.EntityData.ParentYangName = "next-hops"
     nextHop.EntityData.SegmentPath = "next-hop" + types.AddKeyToken(nextHop.Index, "index")
+    nextHop.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/static-routes/static-route/next-hops/" + nextHop.EntityData.SegmentPath
     nextHop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nextHop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nextHop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1011,6 +1046,7 @@ func (state *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol_St
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "next-hop"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/static-routes/static-route/next-hops/next-hop/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1042,6 +1078,7 @@ func (interfaceRef *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Prot
     interfaceRef.EntityData.BundleName = "cisco_ios_xr"
     interfaceRef.EntityData.ParentYangName = "next-hop"
     interfaceRef.EntityData.SegmentPath = "interface-ref"
+    interfaceRef.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/static-routes/static-route/next-hops/next-hop/" + interfaceRef.EntityData.SegmentPath
     interfaceRef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceRef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaceRef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1079,6 +1116,7 @@ func (state *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols_Protocol_St
     state.EntityData.BundleName = "cisco_ios_xr"
     state.EntityData.ParentYangName = "interface-ref"
     state.EntityData.SegmentPath = "state"
+    state.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/static-routes/static-route/next-hops/next-hop/interface-ref/" + state.EntityData.SegmentPath
     state.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     state.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     state.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1114,6 +1152,7 @@ func (staticRoutesState *Ocni_Vrfipv6_NetworkInstances_NetworkInstance_Protocols
     staticRoutesState.EntityData.BundleName = "cisco_ios_xr"
     staticRoutesState.EntityData.ParentYangName = "static-route"
     staticRoutesState.EntityData.SegmentPath = "static-routes-state"
+    staticRoutesState.EntityData.AbsolutePath = "Cisco-IOS-XR-ocni-local-routing-oper:ocni/vrfipv6/network-instances/network-instance/protocols/protocol/static-routes/static-route/" + staticRoutesState.EntityData.SegmentPath
     staticRoutesState.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     staticRoutesState.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     staticRoutesState.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

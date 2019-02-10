@@ -35,6 +35,7 @@ func (cLABDEFMIB *CLABDEFMIB) GetEntityData() *types.CommonEntityData {
     cLABDEFMIB.EntityData.BundleName = "cisco_ios_xe"
     cLABDEFMIB.EntityData.ParentYangName = "CLAB-DEF-MIB"
     cLABDEFMIB.EntityData.SegmentPath = "CLAB-DEF-MIB:CLAB-DEF-MIB"
+    cLABDEFMIB.EntityData.AbsolutePath = cLABDEFMIB.EntityData.SegmentPath
     cLABDEFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     cLABDEFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     cLABDEFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -80,6 +81,7 @@ func (clabSecCertObject *CLABDEFMIB_ClabSecCertObject) GetEntityData() *types.Co
     clabSecCertObject.EntityData.BundleName = "cisco_ios_xe"
     clabSecCertObject.EntityData.ParentYangName = "CLAB-DEF-MIB"
     clabSecCertObject.EntityData.SegmentPath = "clabSecCertObject"
+    clabSecCertObject.EntityData.AbsolutePath = "CLAB-DEF-MIB:CLAB-DEF-MIB/" + clabSecCertObject.EntityData.SegmentPath
     clabSecCertObject.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     clabSecCertObject.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     clabSecCertObject.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

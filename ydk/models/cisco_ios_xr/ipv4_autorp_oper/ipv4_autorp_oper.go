@@ -54,6 +54,7 @@ func (autoRp *AutoRp) GetEntityData() *types.CommonEntityData {
     autoRp.EntityData.BundleName = "cisco_ios_xr"
     autoRp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-autorp-oper"
     autoRp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp"
+    autoRp.EntityData.AbsolutePath = autoRp.EntityData.SegmentPath
     autoRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     autoRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     autoRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -87,6 +88,7 @@ func (standby *AutoRp_Standby) GetEntityData() *types.CommonEntityData {
     standby.EntityData.BundleName = "cisco_ios_xr"
     standby.EntityData.ParentYangName = "auto-rp"
     standby.EntityData.SegmentPath = "standby"
+    standby.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/" + standby.EntityData.SegmentPath
     standby.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     standby.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     standby.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -120,6 +122,7 @@ func (candidateRp *AutoRp_Standby_CandidateRp) GetEntityData() *types.CommonEnti
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "standby"
     candidateRp.EntityData.SegmentPath = "candidate-rp"
+    candidateRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/" + candidateRp.EntityData.SegmentPath
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -155,6 +158,7 @@ func (traffic *AutoRp_Standby_CandidateRp_Traffic) GetEntityData() *types.Common
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "candidate-rp"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/candidate-rp/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -186,6 +190,7 @@ func (rps *AutoRp_Standby_CandidateRp_Rps) GetEntityData() *types.CommonEntityDa
     rps.EntityData.BundleName = "cisco_ios_xr"
     rps.EntityData.ParentYangName = "candidate-rp"
     rps.EntityData.SegmentPath = "rps"
+    rps.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/candidate-rp/" + rps.EntityData.SegmentPath
     rps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -193,6 +198,7 @@ func (rps *AutoRp_Standby_CandidateRp_Rps) GetEntityData() *types.CommonEntityDa
     rps.EntityData.Children = types.NewOrderedMap()
     rps.EntityData.Children.Append("rp", types.YChild{"Rp", nil})
     for i := range rps.Rp {
+        types.SetYListKey(rps.Rp[i], i)
         rps.EntityData.Children.Append(types.GetSegmentPath(rps.Rp[i]), types.YChild{"Rp", rps.Rp[i]})
     }
     rps.EntityData.Leafs = types.NewOrderedMap()
@@ -207,6 +213,7 @@ func (rps *AutoRp_Standby_CandidateRp_Rps) GetEntityData() *types.CommonEntityDa
 type AutoRp_Standby_CandidateRp_Rps_Rp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -237,7 +244,8 @@ func (rp *AutoRp_Standby_CandidateRp_Rps_Rp) GetEntityData() *types.CommonEntity
     rp.EntityData.YangName = "rp"
     rp.EntityData.BundleName = "cisco_ios_xr"
     rp.EntityData.ParentYangName = "rps"
-    rp.EntityData.SegmentPath = "rp"
+    rp.EntityData.SegmentPath = "rp" + types.AddNoKeyToken(rp)
+    rp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/candidate-rp/rps/" + rp.EntityData.SegmentPath
     rp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -279,6 +287,7 @@ func (mappingAgent *AutoRp_Standby_MappingAgent) GetEntityData() *types.CommonEn
     mappingAgent.EntityData.BundleName = "cisco_ios_xr"
     mappingAgent.EntityData.ParentYangName = "standby"
     mappingAgent.EntityData.SegmentPath = "mapping-agent"
+    mappingAgent.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/" + mappingAgent.EntityData.SegmentPath
     mappingAgent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -323,6 +332,7 @@ func (traffic *AutoRp_Standby_MappingAgent_Traffic) GetEntityData() *types.Commo
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "mapping-agent"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -356,6 +366,7 @@ func (rpAddresses *AutoRp_Standby_MappingAgent_RpAddresses) GetEntityData() *typ
     rpAddresses.EntityData.BundleName = "cisco_ios_xr"
     rpAddresses.EntityData.ParentYangName = "mapping-agent"
     rpAddresses.EntityData.SegmentPath = "rp-addresses"
+    rpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/" + rpAddresses.EntityData.SegmentPath
     rpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -377,6 +388,7 @@ func (rpAddresses *AutoRp_Standby_MappingAgent_RpAddresses) GetEntityData() *typ
 type AutoRp_Standby_MappingAgent_RpAddresses_RpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -404,6 +416,7 @@ func (rpAddress *AutoRp_Standby_MappingAgent_RpAddresses_RpAddress) GetEntityDat
     rpAddress.EntityData.BundleName = "cisco_ios_xr"
     rpAddress.EntityData.ParentYangName = "rp-addresses"
     rpAddress.EntityData.SegmentPath = "rp-address" + types.AddKeyToken(rpAddress.RpAddress, "rp-address")
+    rpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/rp-addresses/" + rpAddress.EntityData.SegmentPath
     rpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -411,6 +424,7 @@ func (rpAddress *AutoRp_Standby_MappingAgent_RpAddresses_RpAddress) GetEntityDat
     rpAddress.EntityData.Children = types.NewOrderedMap()
     rpAddress.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range rpAddress.Range {
+        types.SetYListKey(rpAddress.Range[i], i)
         rpAddress.EntityData.Children.Append(types.GetSegmentPath(rpAddress.Range[i]), types.YChild{"Range", rpAddress.Range[i]})
     }
     rpAddress.EntityData.Leafs = types.NewOrderedMap()
@@ -429,6 +443,7 @@ func (rpAddress *AutoRp_Standby_MappingAgent_RpAddresses_RpAddress) GetEntityDat
 type AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix of the range. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -459,7 +474,8 @@ func (self *AutoRp_Standby_MappingAgent_RpAddresses_RpAddress_Range) GetEntityDa
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "rp-address"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/rp-addresses/rp-address/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -503,6 +519,7 @@ func (summary *AutoRp_Standby_MappingAgent_Summary) GetEntityData() *types.Commo
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "mapping-agent"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -537,6 +554,7 @@ func (active *AutoRp_Active) GetEntityData() *types.CommonEntityData {
     active.EntityData.BundleName = "cisco_ios_xr"
     active.EntityData.ParentYangName = "auto-rp"
     active.EntityData.SegmentPath = "active"
+    active.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/" + active.EntityData.SegmentPath
     active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -570,6 +588,7 @@ func (candidateRp *AutoRp_Active_CandidateRp) GetEntityData() *types.CommonEntit
     candidateRp.EntityData.BundleName = "cisco_ios_xr"
     candidateRp.EntityData.ParentYangName = "active"
     candidateRp.EntityData.SegmentPath = "candidate-rp"
+    candidateRp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/" + candidateRp.EntityData.SegmentPath
     candidateRp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     candidateRp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     candidateRp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -605,6 +624,7 @@ func (traffic *AutoRp_Active_CandidateRp_Traffic) GetEntityData() *types.CommonE
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "candidate-rp"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/candidate-rp/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -636,6 +656,7 @@ func (rps *AutoRp_Active_CandidateRp_Rps) GetEntityData() *types.CommonEntityDat
     rps.EntityData.BundleName = "cisco_ios_xr"
     rps.EntityData.ParentYangName = "candidate-rp"
     rps.EntityData.SegmentPath = "rps"
+    rps.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/candidate-rp/" + rps.EntityData.SegmentPath
     rps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -643,6 +664,7 @@ func (rps *AutoRp_Active_CandidateRp_Rps) GetEntityData() *types.CommonEntityDat
     rps.EntityData.Children = types.NewOrderedMap()
     rps.EntityData.Children.Append("rp", types.YChild{"Rp", nil})
     for i := range rps.Rp {
+        types.SetYListKey(rps.Rp[i], i)
         rps.EntityData.Children.Append(types.GetSegmentPath(rps.Rp[i]), types.YChild{"Rp", rps.Rp[i]})
     }
     rps.EntityData.Leafs = types.NewOrderedMap()
@@ -657,6 +679,7 @@ func (rps *AutoRp_Active_CandidateRp_Rps) GetEntityData() *types.CommonEntityDat
 type AutoRp_Active_CandidateRp_Rps_Rp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Interface Name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
@@ -687,7 +710,8 @@ func (rp *AutoRp_Active_CandidateRp_Rps_Rp) GetEntityData() *types.CommonEntityD
     rp.EntityData.YangName = "rp"
     rp.EntityData.BundleName = "cisco_ios_xr"
     rp.EntityData.ParentYangName = "rps"
-    rp.EntityData.SegmentPath = "rp"
+    rp.EntityData.SegmentPath = "rp" + types.AddNoKeyToken(rp)
+    rp.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/candidate-rp/rps/" + rp.EntityData.SegmentPath
     rp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -729,6 +753,7 @@ func (mappingAgent *AutoRp_Active_MappingAgent) GetEntityData() *types.CommonEnt
     mappingAgent.EntityData.BundleName = "cisco_ios_xr"
     mappingAgent.EntityData.ParentYangName = "active"
     mappingAgent.EntityData.SegmentPath = "mapping-agent"
+    mappingAgent.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/" + mappingAgent.EntityData.SegmentPath
     mappingAgent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingAgent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingAgent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -773,6 +798,7 @@ func (traffic *AutoRp_Active_MappingAgent_Traffic) GetEntityData() *types.Common
     traffic.EntityData.BundleName = "cisco_ios_xr"
     traffic.EntityData.ParentYangName = "mapping-agent"
     traffic.EntityData.SegmentPath = "traffic"
+    traffic.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/" + traffic.EntityData.SegmentPath
     traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -806,6 +832,7 @@ func (rpAddresses *AutoRp_Active_MappingAgent_RpAddresses) GetEntityData() *type
     rpAddresses.EntityData.BundleName = "cisco_ios_xr"
     rpAddresses.EntityData.ParentYangName = "mapping-agent"
     rpAddresses.EntityData.SegmentPath = "rp-addresses"
+    rpAddresses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/" + rpAddresses.EntityData.SegmentPath
     rpAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -827,6 +854,7 @@ func (rpAddresses *AutoRp_Active_MappingAgent_RpAddresses) GetEntityData() *type
 type AutoRp_Active_MappingAgent_RpAddresses_RpAddress struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. RP Address. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -854,6 +882,7 @@ func (rpAddress *AutoRp_Active_MappingAgent_RpAddresses_RpAddress) GetEntityData
     rpAddress.EntityData.BundleName = "cisco_ios_xr"
     rpAddress.EntityData.ParentYangName = "rp-addresses"
     rpAddress.EntityData.SegmentPath = "rp-address" + types.AddKeyToken(rpAddress.RpAddress, "rp-address")
+    rpAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/rp-addresses/" + rpAddress.EntityData.SegmentPath
     rpAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rpAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rpAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -861,6 +890,7 @@ func (rpAddress *AutoRp_Active_MappingAgent_RpAddresses_RpAddress) GetEntityData
     rpAddress.EntityData.Children = types.NewOrderedMap()
     rpAddress.EntityData.Children.Append("range", types.YChild{"Range", nil})
     for i := range rpAddress.Range {
+        types.SetYListKey(rpAddress.Range[i], i)
         rpAddress.EntityData.Children.Append(types.GetSegmentPath(rpAddress.Range[i]), types.YChild{"Range", rpAddress.Range[i]})
     }
     rpAddress.EntityData.Leafs = types.NewOrderedMap()
@@ -879,6 +909,7 @@ func (rpAddress *AutoRp_Active_MappingAgent_RpAddresses_RpAddress) GetEntityData
 type AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Prefix of the range. The type is string with pattern:
     // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
@@ -909,7 +940,8 @@ func (self *AutoRp_Active_MappingAgent_RpAddresses_RpAddress_Range) GetEntityDat
     self.EntityData.YangName = "range"
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "rp-address"
-    self.EntityData.SegmentPath = "range"
+    self.EntityData.SegmentPath = "range" + types.AddNoKeyToken(self)
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/rp-addresses/rp-address/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -953,6 +985,7 @@ func (summary *AutoRp_Active_MappingAgent_Summary) GetEntityData() *types.Common
     summary.EntityData.BundleName = "cisco_ios_xr"
     summary.EntityData.ParentYangName = "mapping-agent"
     summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/" + summary.EntityData.SegmentPath
     summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

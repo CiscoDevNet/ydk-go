@@ -113,6 +113,7 @@ func (srms *Srms) GetEntityData() *types.CommonEntityData {
     srms.EntityData.BundleName = "cisco_ios_xr"
     srms.EntityData.ParentYangName = "Cisco-IOS-XR-segment-routing-ms-oper"
     srms.EntityData.SegmentPath = "Cisco-IOS-XR-segment-routing-ms-oper:srms"
+    srms.EntityData.AbsolutePath = srms.EntityData.SegmentPath
     srms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -147,6 +148,7 @@ func (mapping *Srms_Mapping) GetEntityData() *types.CommonEntityData {
     mapping.EntityData.BundleName = "cisco_ios_xr"
     mapping.EntityData.ParentYangName = "srms"
     mapping.EntityData.SegmentPath = "mapping"
+    mapping.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/" + mapping.EntityData.SegmentPath
     mapping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mapping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mapping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -180,6 +182,7 @@ func (mappingIpv4 *Srms_Mapping_MappingIpv4) GetEntityData() *types.CommonEntity
     mappingIpv4.EntityData.BundleName = "cisco_ios_xr"
     mappingIpv4.EntityData.ParentYangName = "mapping"
     mappingIpv4.EntityData.SegmentPath = "mapping-ipv4"
+    mappingIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/" + mappingIpv4.EntityData.SegmentPath
     mappingIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -187,6 +190,7 @@ func (mappingIpv4 *Srms_Mapping_MappingIpv4) GetEntityData() *types.CommonEntity
     mappingIpv4.EntityData.Children = types.NewOrderedMap()
     mappingIpv4.EntityData.Children.Append("mapping-mi", types.YChild{"MappingMi", nil})
     for i := range mappingIpv4.MappingMi {
+        types.SetYListKey(mappingIpv4.MappingMi[i], i)
         mappingIpv4.EntityData.Children.Append(types.GetSegmentPath(mappingIpv4.MappingMi[i]), types.YChild{"MappingMi", mappingIpv4.MappingMi[i]})
     }
     mappingIpv4.EntityData.Leafs = types.NewOrderedMap()
@@ -205,6 +209,7 @@ func (mappingIpv4 *Srms_Mapping_MappingIpv4) GetEntityData() *types.CommonEntity
 type Srms_Mapping_MappingIpv4_MappingMi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Ip interface{}
@@ -248,7 +253,8 @@ func (mappingMi *Srms_Mapping_MappingIpv4_MappingMi) GetEntityData() *types.Comm
     mappingMi.EntityData.YangName = "mapping-mi"
     mappingMi.EntityData.BundleName = "cisco_ios_xr"
     mappingMi.EntityData.ParentYangName = "mapping-ipv4"
-    mappingMi.EntityData.SegmentPath = "mapping-mi"
+    mappingMi.EntityData.SegmentPath = "mapping-mi" + types.AddNoKeyToken(mappingMi)
+    mappingMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/" + mappingMi.EntityData.SegmentPath
     mappingMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -297,6 +303,7 @@ func (addr *Srms_Mapping_MappingIpv4_MappingMi_Addr) GetEntityData() *types.Comm
     addr.EntityData.BundleName = "cisco_ios_xr"
     addr.EntityData.ParentYangName = "mapping-mi"
     addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/mapping-mi/" + addr.EntityData.SegmentPath
     addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -331,6 +338,7 @@ func (mappingIpv6 *Srms_Mapping_MappingIpv6) GetEntityData() *types.CommonEntity
     mappingIpv6.EntityData.BundleName = "cisco_ios_xr"
     mappingIpv6.EntityData.ParentYangName = "mapping"
     mappingIpv6.EntityData.SegmentPath = "mapping-ipv6"
+    mappingIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/" + mappingIpv6.EntityData.SegmentPath
     mappingIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -338,6 +346,7 @@ func (mappingIpv6 *Srms_Mapping_MappingIpv6) GetEntityData() *types.CommonEntity
     mappingIpv6.EntityData.Children = types.NewOrderedMap()
     mappingIpv6.EntityData.Children.Append("mapping-mi", types.YChild{"MappingMi", nil})
     for i := range mappingIpv6.MappingMi {
+        types.SetYListKey(mappingIpv6.MappingMi[i], i)
         mappingIpv6.EntityData.Children.Append(types.GetSegmentPath(mappingIpv6.MappingMi[i]), types.YChild{"MappingMi", mappingIpv6.MappingMi[i]})
     }
     mappingIpv6.EntityData.Leafs = types.NewOrderedMap()
@@ -356,6 +365,7 @@ func (mappingIpv6 *Srms_Mapping_MappingIpv6) GetEntityData() *types.CommonEntity
 type Srms_Mapping_MappingIpv6_MappingMi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // IP. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Ip interface{}
@@ -399,7 +409,8 @@ func (mappingMi *Srms_Mapping_MappingIpv6_MappingMi) GetEntityData() *types.Comm
     mappingMi.EntityData.YangName = "mapping-mi"
     mappingMi.EntityData.BundleName = "cisco_ios_xr"
     mappingMi.EntityData.ParentYangName = "mapping-ipv6"
-    mappingMi.EntityData.SegmentPath = "mapping-mi"
+    mappingMi.EntityData.SegmentPath = "mapping-mi" + types.AddNoKeyToken(mappingMi)
+    mappingMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/" + mappingMi.EntityData.SegmentPath
     mappingMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mappingMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mappingMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -448,6 +459,7 @@ func (addr *Srms_Mapping_MappingIpv6_MappingMi_Addr) GetEntityData() *types.Comm
     addr.EntityData.BundleName = "cisco_ios_xr"
     addr.EntityData.ParentYangName = "mapping-mi"
     addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/mapping-mi/" + addr.EntityData.SegmentPath
     addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -479,6 +491,7 @@ func (adjacencySid *Srms_AdjacencySid) GetEntityData() *types.CommonEntityData {
     adjacencySid.EntityData.BundleName = "cisco_ios_xr"
     adjacencySid.EntityData.ParentYangName = "srms"
     adjacencySid.EntityData.SegmentPath = "adjacency-sid"
+    adjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/" + adjacencySid.EntityData.SegmentPath
     adjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     adjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     adjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -508,6 +521,7 @@ func (l2Adjacency *Srms_AdjacencySid_L2Adjacency) GetEntityData() *types.CommonE
     l2Adjacency.EntityData.BundleName = "cisco_ios_xr"
     l2Adjacency.EntityData.ParentYangName = "adjacency-sid"
     l2Adjacency.EntityData.SegmentPath = "l2-adjacency"
+    l2Adjacency.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/" + l2Adjacency.EntityData.SegmentPath
     l2Adjacency.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2Adjacency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2Adjacency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -538,6 +552,7 @@ func (interfaces *Srms_AdjacencySid_L2Adjacency_Interfaces) GetEntityData() *typ
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "l2-adjacency"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -559,6 +574,7 @@ func (interfaces *Srms_AdjacencySid_L2Adjacency_Interfaces) GetEntityData() *typ
 type Srms_AdjacencySid_L2Adjacency_Interfaces_Interface struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
     // [a-zA-Z0-9._/-]+.
@@ -574,6 +590,7 @@ func (self *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface) GetEntityData() 
     self.EntityData.BundleName = "cisco_ios_xr"
     self.EntityData.ParentYangName = "interfaces"
     self.EntityData.SegmentPath = "interface" + types.AddKeyToken(self.InterfaceName, "interface-name")
+    self.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/" + self.EntityData.SegmentPath
     self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -607,6 +624,7 @@ func (addressFamily *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressF
     addressFamily.EntityData.BundleName = "cisco_ios_xr"
     addressFamily.EntityData.ParentYangName = "interface"
     addressFamily.EntityData.SegmentPath = "address-family"
+    addressFamily.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/interface/" + addressFamily.EntityData.SegmentPath
     addressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -638,6 +656,7 @@ func (ipv4 *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv
     ipv4.EntityData.BundleName = "cisco_ios_xr"
     ipv4.EntityData.ParentYangName = "address-family"
     ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/interface/address-family/" + ipv4.EntityData.SegmentPath
     ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -645,6 +664,7 @@ func (ipv4 *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv
     ipv4.EntityData.Children = types.NewOrderedMap()
     ipv4.EntityData.Children.Append("sid-record", types.YChild{"SidRecord", nil})
     for i := range ipv4.SidRecord {
+        types.SetYListKey(ipv4.SidRecord[i], i)
         ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.SidRecord[i]), types.YChild{"SidRecord", ipv4.SidRecord[i]})
     }
     ipv4.EntityData.Leafs = types.NewOrderedMap()
@@ -659,6 +679,7 @@ func (ipv4 *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv
 type Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv4_SidRecord struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SID type. The type is SidTypeEnum.
     SidType interface{}
@@ -699,7 +720,8 @@ func (sidRecord *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamil
     sidRecord.EntityData.YangName = "sid-record"
     sidRecord.EntityData.BundleName = "cisco_ios_xr"
     sidRecord.EntityData.ParentYangName = "ipv4"
-    sidRecord.EntityData.SegmentPath = "sid-record"
+    sidRecord.EntityData.SegmentPath = "sid-record" + types.AddNoKeyToken(sidRecord)
+    sidRecord.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/interface/address-family/ipv4/" + sidRecord.EntityData.SegmentPath
     sidRecord.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sidRecord.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sidRecord.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -746,6 +768,7 @@ func (nexthopAddress *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_Address
     nexthopAddress.EntityData.BundleName = "cisco_ios_xr"
     nexthopAddress.EntityData.ParentYangName = "sid-record"
     nexthopAddress.EntityData.SegmentPath = "nexthop-address"
+    nexthopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/interface/address-family/ipv4/sid-record/" + nexthopAddress.EntityData.SegmentPath
     nexthopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -778,6 +801,7 @@ func (ipv6 *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv
     ipv6.EntityData.BundleName = "cisco_ios_xr"
     ipv6.EntityData.ParentYangName = "address-family"
     ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/interface/address-family/" + ipv6.EntityData.SegmentPath
     ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -785,6 +809,7 @@ func (ipv6 *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv
     ipv6.EntityData.Children = types.NewOrderedMap()
     ipv6.EntityData.Children.Append("sid-record", types.YChild{"SidRecord", nil})
     for i := range ipv6.SidRecord {
+        types.SetYListKey(ipv6.SidRecord[i], i)
         ipv6.EntityData.Children.Append(types.GetSegmentPath(ipv6.SidRecord[i]), types.YChild{"SidRecord", ipv6.SidRecord[i]})
     }
     ipv6.EntityData.Leafs = types.NewOrderedMap()
@@ -799,6 +824,7 @@ func (ipv6 *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv
 type Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamily_Ipv6_SidRecord struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // SID type. The type is SidTypeEnum.
     SidType interface{}
@@ -839,7 +865,8 @@ func (sidRecord *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_AddressFamil
     sidRecord.EntityData.YangName = "sid-record"
     sidRecord.EntityData.BundleName = "cisco_ios_xr"
     sidRecord.EntityData.ParentYangName = "ipv6"
-    sidRecord.EntityData.SegmentPath = "sid-record"
+    sidRecord.EntityData.SegmentPath = "sid-record" + types.AddNoKeyToken(sidRecord)
+    sidRecord.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/interface/address-family/ipv6/" + sidRecord.EntityData.SegmentPath
     sidRecord.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sidRecord.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sidRecord.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -886,6 +913,7 @@ func (nexthopAddress *Srms_AdjacencySid_L2Adjacency_Interfaces_Interface_Address
     nexthopAddress.EntityData.BundleName = "cisco_ios_xr"
     nexthopAddress.EntityData.ParentYangName = "sid-record"
     nexthopAddress.EntityData.SegmentPath = "nexthop-address"
+    nexthopAddress.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/interface/address-family/ipv6/sid-record/" + nexthopAddress.EntityData.SegmentPath
     nexthopAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nexthopAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nexthopAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -920,6 +948,7 @@ func (policy *Srms_Policy) GetEntityData() *types.CommonEntityData {
     policy.EntityData.BundleName = "cisco_ios_xr"
     policy.EntityData.ParentYangName = "srms"
     policy.EntityData.SegmentPath = "policy"
+    policy.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/" + policy.EntityData.SegmentPath
     policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -953,6 +982,7 @@ func (policyIpv4 *Srms_Policy_PolicyIpv4) GetEntityData() *types.CommonEntityDat
     policyIpv4.EntityData.BundleName = "cisco_ios_xr"
     policyIpv4.EntityData.ParentYangName = "policy"
     policyIpv4.EntityData.SegmentPath = "policy-ipv4"
+    policyIpv4.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/" + policyIpv4.EntityData.SegmentPath
     policyIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -984,6 +1014,7 @@ func (policyIpv4Backup *Srms_Policy_PolicyIpv4_PolicyIpv4Backup) GetEntityData()
     policyIpv4Backup.EntityData.BundleName = "cisco_ios_xr"
     policyIpv4Backup.EntityData.ParentYangName = "policy-ipv4"
     policyIpv4Backup.EntityData.SegmentPath = "policy-ipv4-backup"
+    policyIpv4Backup.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/" + policyIpv4Backup.EntityData.SegmentPath
     policyIpv4Backup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyIpv4Backup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyIpv4Backup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1005,6 +1036,7 @@ func (policyIpv4Backup *Srms_Policy_PolicyIpv4_PolicyIpv4Backup) GetEntityData()
 type Srms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1047,6 +1079,7 @@ func (policyMi *Srms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi) GetEntityData(
     policyMi.EntityData.BundleName = "cisco_ios_xr"
     policyMi.EntityData.ParentYangName = "policy-ipv4-backup"
     policyMi.EntityData.SegmentPath = "policy-mi" + types.AddKeyToken(policyMi.MiId, "mi-id")
+    policyMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-backup/" + policyMi.EntityData.SegmentPath
     policyMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1094,6 +1127,7 @@ func (addr *Srms_Policy_PolicyIpv4_PolicyIpv4Backup_PolicyMi_Addr) GetEntityData
     addr.EntityData.BundleName = "cisco_ios_xr"
     addr.EntityData.ParentYangName = "policy-mi"
     addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-backup/policy-mi/" + addr.EntityData.SegmentPath
     addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1126,6 +1160,7 @@ func (policyIpv4Active *Srms_Policy_PolicyIpv4_PolicyIpv4Active) GetEntityData()
     policyIpv4Active.EntityData.BundleName = "cisco_ios_xr"
     policyIpv4Active.EntityData.ParentYangName = "policy-ipv4"
     policyIpv4Active.EntityData.SegmentPath = "policy-ipv4-active"
+    policyIpv4Active.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/" + policyIpv4Active.EntityData.SegmentPath
     policyIpv4Active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyIpv4Active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyIpv4Active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1147,6 +1182,7 @@ func (policyIpv4Active *Srms_Policy_PolicyIpv4_PolicyIpv4Active) GetEntityData()
 type Srms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1189,6 +1225,7 @@ func (policyMi *Srms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi) GetEntityData(
     policyMi.EntityData.BundleName = "cisco_ios_xr"
     policyMi.EntityData.ParentYangName = "policy-ipv4-active"
     policyMi.EntityData.SegmentPath = "policy-mi" + types.AddKeyToken(policyMi.MiId, "mi-id")
+    policyMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-active/" + policyMi.EntityData.SegmentPath
     policyMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1236,6 +1273,7 @@ func (addr *Srms_Policy_PolicyIpv4_PolicyIpv4Active_PolicyMi_Addr) GetEntityData
     addr.EntityData.BundleName = "cisco_ios_xr"
     addr.EntityData.ParentYangName = "policy-mi"
     addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-active/policy-mi/" + addr.EntityData.SegmentPath
     addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1270,6 +1308,7 @@ func (policyIpv6 *Srms_Policy_PolicyIpv6) GetEntityData() *types.CommonEntityDat
     policyIpv6.EntityData.BundleName = "cisco_ios_xr"
     policyIpv6.EntityData.ParentYangName = "policy"
     policyIpv6.EntityData.SegmentPath = "policy-ipv6"
+    policyIpv6.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/" + policyIpv6.EntityData.SegmentPath
     policyIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1301,6 +1340,7 @@ func (policyIpv6Backup *Srms_Policy_PolicyIpv6_PolicyIpv6Backup) GetEntityData()
     policyIpv6Backup.EntityData.BundleName = "cisco_ios_xr"
     policyIpv6Backup.EntityData.ParentYangName = "policy-ipv6"
     policyIpv6Backup.EntityData.SegmentPath = "policy-ipv6-backup"
+    policyIpv6Backup.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/" + policyIpv6Backup.EntityData.SegmentPath
     policyIpv6Backup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyIpv6Backup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyIpv6Backup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1322,6 +1362,7 @@ func (policyIpv6Backup *Srms_Policy_PolicyIpv6_PolicyIpv6Backup) GetEntityData()
 type Srms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1364,6 +1405,7 @@ func (policyMi *Srms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi) GetEntityData(
     policyMi.EntityData.BundleName = "cisco_ios_xr"
     policyMi.EntityData.ParentYangName = "policy-ipv6-backup"
     policyMi.EntityData.SegmentPath = "policy-mi" + types.AddKeyToken(policyMi.MiId, "mi-id")
+    policyMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-backup/" + policyMi.EntityData.SegmentPath
     policyMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1411,6 +1453,7 @@ func (addr *Srms_Policy_PolicyIpv6_PolicyIpv6Backup_PolicyMi_Addr) GetEntityData
     addr.EntityData.BundleName = "cisco_ios_xr"
     addr.EntityData.ParentYangName = "policy-mi"
     addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-backup/policy-mi/" + addr.EntityData.SegmentPath
     addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1443,6 +1486,7 @@ func (policyIpv6Active *Srms_Policy_PolicyIpv6_PolicyIpv6Active) GetEntityData()
     policyIpv6Active.EntityData.BundleName = "cisco_ios_xr"
     policyIpv6Active.EntityData.ParentYangName = "policy-ipv6"
     policyIpv6Active.EntityData.SegmentPath = "policy-ipv6-active"
+    policyIpv6Active.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/" + policyIpv6Active.EntityData.SegmentPath
     policyIpv6Active.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyIpv6Active.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyIpv6Active.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1464,6 +1508,7 @@ func (policyIpv6Active *Srms_Policy_PolicyIpv6_PolicyIpv6Active) GetEntityData()
 type Srms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Mapping Item ID (0, 1, 2, ...). The type is string
     // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
@@ -1506,6 +1551,7 @@ func (policyMi *Srms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi) GetEntityData(
     policyMi.EntityData.BundleName = "cisco_ios_xr"
     policyMi.EntityData.ParentYangName = "policy-ipv6-active"
     policyMi.EntityData.SegmentPath = "policy-mi" + types.AddKeyToken(policyMi.MiId, "mi-id")
+    policyMi.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-active/" + policyMi.EntityData.SegmentPath
     policyMi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     policyMi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     policyMi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1553,6 +1599,7 @@ func (addr *Srms_Policy_PolicyIpv6_PolicyIpv6Active_PolicyMi_Addr) GetEntityData
     addr.EntityData.BundleName = "cisco_ios_xr"
     addr.EntityData.ParentYangName = "policy-mi"
     addr.EntityData.SegmentPath = "addr"
+    addr.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-active/policy-mi/" + addr.EntityData.SegmentPath
     addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1584,6 +1631,7 @@ func (srlb *Srlb) GetEntityData() *types.CommonEntityData {
     srlb.EntityData.BundleName = "cisco_ios_xr"
     srlb.EntityData.ParentYangName = "Cisco-IOS-XR-segment-routing-ms-oper"
     srlb.EntityData.SegmentPath = "Cisco-IOS-XR-segment-routing-ms-oper:srlb"
+    srlb.EntityData.AbsolutePath = srlb.EntityData.SegmentPath
     srlb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1618,6 +1666,7 @@ func (srlbInconsistency *Srlb_SrlbInconsistency) GetEntityData() *types.CommonEn
     srlbInconsistency.EntityData.BundleName = "cisco_ios_xr"
     srlbInconsistency.EntityData.ParentYangName = "srlb"
     srlbInconsistency.EntityData.SegmentPath = "srlb-inconsistency"
+    srlbInconsistency.EntityData.AbsolutePath = "Cisco-IOS-XR-segment-routing-ms-oper:srlb/" + srlbInconsistency.EntityData.SegmentPath
     srlbInconsistency.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     srlbInconsistency.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     srlbInconsistency.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

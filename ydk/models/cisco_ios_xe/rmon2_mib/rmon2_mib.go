@@ -244,6 +244,7 @@ func (rMON2MIB *RMON2MIB) GetEntityData() *types.CommonEntityData {
     rMON2MIB.EntityData.BundleName = "cisco_ios_xe"
     rMON2MIB.EntityData.ParentYangName = "RMON2-MIB"
     rMON2MIB.EntityData.SegmentPath = "RMON2-MIB:RMON2-MIB"
+    rMON2MIB.EntityData.AbsolutePath = rMON2MIB.EntityData.SegmentPath
     rMON2MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     rMON2MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     rMON2MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -301,6 +302,7 @@ func (protocolDir *RMON2MIB_ProtocolDir) GetEntityData() *types.CommonEntityData
     protocolDir.EntityData.BundleName = "cisco_ios_xe"
     protocolDir.EntityData.ParentYangName = "RMON2-MIB"
     protocolDir.EntityData.SegmentPath = "protocolDir"
+    protocolDir.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + protocolDir.EntityData.SegmentPath
     protocolDir.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     protocolDir.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolDir.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -352,6 +354,7 @@ func (addressMap *RMON2MIB_AddressMap) GetEntityData() *types.CommonEntityData {
     addressMap.EntityData.BundleName = "cisco_ios_xe"
     addressMap.EntityData.ParentYangName = "RMON2-MIB"
     addressMap.EntityData.SegmentPath = "addressMap"
+    addressMap.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + addressMap.EntityData.SegmentPath
     addressMap.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressMap.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressMap.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -449,6 +452,7 @@ func (probeConfig *RMON2MIB_ProbeConfig) GetEntityData() *types.CommonEntityData
     probeConfig.EntityData.BundleName = "cisco_ios_xe"
     probeConfig.EntityData.ParentYangName = "RMON2-MIB"
     probeConfig.EntityData.SegmentPath = "probeConfig"
+    probeConfig.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + probeConfig.EntityData.SegmentPath
     probeConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     probeConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     probeConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -544,6 +548,7 @@ func (protocolDirTable *RMON2MIB_ProtocolDirTable) GetEntityData() *types.Common
     protocolDirTable.EntityData.BundleName = "cisco_ios_xe"
     protocolDirTable.EntityData.ParentYangName = "RMON2-MIB"
     protocolDirTable.EntityData.SegmentPath = "protocolDirTable"
+    protocolDirTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + protocolDirTable.EntityData.SegmentPath
     protocolDirTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     protocolDirTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolDirTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -571,6 +576,7 @@ func (protocolDirTable *RMON2MIB_ProtocolDirTable) GetEntityData() *types.Common
 type RMON2MIB_ProtocolDirTable_ProtocolDirEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique identifier for a particular protocol. 
     // Standard identifiers will be defined in a manner such that they can often
@@ -755,6 +761,7 @@ func (protocolDirEntry *RMON2MIB_ProtocolDirTable_ProtocolDirEntry) GetEntityDat
     protocolDirEntry.EntityData.BundleName = "cisco_ios_xe"
     protocolDirEntry.EntityData.ParentYangName = "protocolDirTable"
     protocolDirEntry.EntityData.SegmentPath = "protocolDirEntry" + types.AddKeyToken(protocolDirEntry.ProtocolDirID, "protocolDirID") + types.AddKeyToken(protocolDirEntry.ProtocolDirParameters, "protocolDirParameters")
+    protocolDirEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/protocolDirTable/" + protocolDirEntry.EntityData.SegmentPath
     protocolDirEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     protocolDirEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolDirEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -844,6 +851,7 @@ func (protocolDistControlTable *RMON2MIB_ProtocolDistControlTable) GetEntityData
     protocolDistControlTable.EntityData.BundleName = "cisco_ios_xe"
     protocolDistControlTable.EntityData.ParentYangName = "RMON2-MIB"
     protocolDistControlTable.EntityData.SegmentPath = "protocolDistControlTable"
+    protocolDistControlTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + protocolDistControlTable.EntityData.SegmentPath
     protocolDistControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     protocolDistControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolDistControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -873,6 +881,7 @@ func (protocolDistControlTable *RMON2MIB_ProtocolDistControlTable) GetEntityData
 type RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique index for this protocolDistControlEntry.
     // The type is interface{} with range: 1..65535.
@@ -919,6 +928,7 @@ func (protocolDistControlEntry *RMON2MIB_ProtocolDistControlTable_ProtocolDistCo
     protocolDistControlEntry.EntityData.BundleName = "cisco_ios_xe"
     protocolDistControlEntry.EntityData.ParentYangName = "protocolDistControlTable"
     protocolDistControlEntry.EntityData.SegmentPath = "protocolDistControlEntry" + types.AddKeyToken(protocolDistControlEntry.ProtocolDistControlIndex, "protocolDistControlIndex")
+    protocolDistControlEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/protocolDistControlTable/" + protocolDistControlEntry.EntityData.SegmentPath
     protocolDistControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     protocolDistControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolDistControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -972,6 +982,7 @@ func (protocolDistStatsTable *RMON2MIB_ProtocolDistStatsTable) GetEntityData() *
     protocolDistStatsTable.EntityData.BundleName = "cisco_ios_xe"
     protocolDistStatsTable.EntityData.ParentYangName = "RMON2-MIB"
     protocolDistStatsTable.EntityData.SegmentPath = "protocolDistStatsTable"
+    protocolDistStatsTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + protocolDistStatsTable.EntityData.SegmentPath
     protocolDistStatsTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     protocolDistStatsTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolDistStatsTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1003,6 +1014,7 @@ func (protocolDistStatsTable *RMON2MIB_ProtocolDistStatsTable) GetEntityData() *
 type RMON2MIB_ProtocolDistStatsTable_ProtocolDistStatsEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry_ProtocolDistControlIndex
@@ -1035,6 +1047,7 @@ func (protocolDistStatsEntry *RMON2MIB_ProtocolDistStatsTable_ProtocolDistStatsE
     protocolDistStatsEntry.EntityData.BundleName = "cisco_ios_xe"
     protocolDistStatsEntry.EntityData.ParentYangName = "protocolDistStatsTable"
     protocolDistStatsEntry.EntityData.SegmentPath = "protocolDistStatsEntry" + types.AddKeyToken(protocolDistStatsEntry.ProtocolDistControlIndex, "protocolDistControlIndex") + types.AddKeyToken(protocolDistStatsEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex")
+    protocolDistStatsEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/protocolDistStatsTable/" + protocolDistStatsEntry.EntityData.SegmentPath
     protocolDistStatsEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     protocolDistStatsEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     protocolDistStatsEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1080,6 +1093,7 @@ func (addressMapControlTable *RMON2MIB_AddressMapControlTable) GetEntityData() *
     addressMapControlTable.EntityData.BundleName = "cisco_ios_xe"
     addressMapControlTable.EntityData.ParentYangName = "RMON2-MIB"
     addressMapControlTable.EntityData.SegmentPath = "addressMapControlTable"
+    addressMapControlTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + addressMapControlTable.EntityData.SegmentPath
     addressMapControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressMapControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressMapControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1108,6 +1122,7 @@ func (addressMapControlTable *RMON2MIB_AddressMapControlTable) GetEntityData() *
 type RMON2MIB_AddressMapControlTable_AddressMapControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A unique index for this entry in the
     // addressMapControlTable. The type is interface{} with range: 1..65535.
@@ -1144,6 +1159,7 @@ func (addressMapControlEntry *RMON2MIB_AddressMapControlTable_AddressMapControlE
     addressMapControlEntry.EntityData.BundleName = "cisco_ios_xe"
     addressMapControlEntry.EntityData.ParentYangName = "addressMapControlTable"
     addressMapControlEntry.EntityData.SegmentPath = "addressMapControlEntry" + types.AddKeyToken(addressMapControlEntry.AddressMapControlIndex, "addressMapControlIndex")
+    addressMapControlEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/addressMapControlTable/" + addressMapControlEntry.EntityData.SegmentPath
     addressMapControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressMapControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressMapControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1190,6 +1206,7 @@ func (addressMapTable *RMON2MIB_AddressMapTable) GetEntityData() *types.CommonEn
     addressMapTable.EntityData.BundleName = "cisco_ios_xe"
     addressMapTable.EntityData.ParentYangName = "RMON2-MIB"
     addressMapTable.EntityData.SegmentPath = "addressMapTable"
+    addressMapTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + addressMapTable.EntityData.SegmentPath
     addressMapTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressMapTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressMapTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1220,6 +1237,7 @@ func (addressMapTable *RMON2MIB_AddressMapTable) GetEntityData() *types.CommonEn
 type RMON2MIB_AddressMapTable_AddressMapEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
     // textual convention to see how this works. The type is interface{} with
@@ -1278,6 +1296,7 @@ func (addressMapEntry *RMON2MIB_AddressMapTable_AddressMapEntry) GetEntityData()
     addressMapEntry.EntityData.BundleName = "cisco_ios_xe"
     addressMapEntry.EntityData.ParentYangName = "addressMapTable"
     addressMapEntry.EntityData.SegmentPath = "addressMapEntry" + types.AddKeyToken(addressMapEntry.AddressMapTimeMark, "addressMapTimeMark") + types.AddKeyToken(addressMapEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(addressMapEntry.AddressMapNetworkAddress, "addressMapNetworkAddress") + types.AddKeyToken(addressMapEntry.AddressMapSource, "addressMapSource")
+    addressMapEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/addressMapTable/" + addressMapEntry.EntityData.SegmentPath
     addressMapEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     addressMapEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     addressMapEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1332,6 +1351,7 @@ func (hlHostControlTable *RMON2MIB_HlHostControlTable) GetEntityData() *types.Co
     hlHostControlTable.EntityData.BundleName = "cisco_ios_xe"
     hlHostControlTable.EntityData.ParentYangName = "RMON2-MIB"
     hlHostControlTable.EntityData.SegmentPath = "hlHostControlTable"
+    hlHostControlTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + hlHostControlTable.EntityData.SegmentPath
     hlHostControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     hlHostControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     hlHostControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1356,6 +1376,7 @@ func (hlHostControlTable *RMON2MIB_HlHostControlTable) GetEntityData() *types.Co
 type RMON2MIB_HlHostControlTable_HlHostControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // hlHostControlTable.  Each such entry defines a function that discovers
@@ -1488,6 +1509,7 @@ func (hlHostControlEntry *RMON2MIB_HlHostControlTable_HlHostControlEntry) GetEnt
     hlHostControlEntry.EntityData.BundleName = "cisco_ios_xe"
     hlHostControlEntry.EntityData.ParentYangName = "hlHostControlTable"
     hlHostControlEntry.EntityData.SegmentPath = "hlHostControlEntry" + types.AddKeyToken(hlHostControlEntry.HlHostControlIndex, "hlHostControlIndex")
+    hlHostControlEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/hlHostControlTable/" + hlHostControlEntry.EntityData.SegmentPath
     hlHostControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     hlHostControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     hlHostControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1546,6 +1568,7 @@ func (nlHostTable *RMON2MIB_NlHostTable) GetEntityData() *types.CommonEntityData
     nlHostTable.EntityData.BundleName = "cisco_ios_xe"
     nlHostTable.EntityData.ParentYangName = "RMON2-MIB"
     nlHostTable.EntityData.SegmentPath = "nlHostTable"
+    nlHostTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + nlHostTable.EntityData.SegmentPath
     nlHostTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlHostTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlHostTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1575,6 +1598,7 @@ func (nlHostTable *RMON2MIB_NlHostTable) GetEntityData() *types.CommonEntityData
 type RMON2MIB_NlHostTable_NlHostEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_HlHostControlTable_HlHostControlEntry_HlHostControlIndex
@@ -1648,6 +1672,7 @@ func (nlHostEntry *RMON2MIB_NlHostTable_NlHostEntry) GetEntityData() *types.Comm
     nlHostEntry.EntityData.BundleName = "cisco_ios_xe"
     nlHostEntry.EntityData.ParentYangName = "nlHostTable"
     nlHostEntry.EntityData.SegmentPath = "nlHostEntry" + types.AddKeyToken(nlHostEntry.HlHostControlIndex, "hlHostControlIndex") + types.AddKeyToken(nlHostEntry.NlHostTimeMark, "nlHostTimeMark") + types.AddKeyToken(nlHostEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(nlHostEntry.NlHostAddress, "nlHostAddress")
+    nlHostEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/nlHostTable/" + nlHostEntry.EntityData.SegmentPath
     nlHostEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlHostEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlHostEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1705,6 +1730,7 @@ func (hlMatrixControlTable *RMON2MIB_HlMatrixControlTable) GetEntityData() *type
     hlMatrixControlTable.EntityData.BundleName = "cisco_ios_xe"
     hlMatrixControlTable.EntityData.ParentYangName = "RMON2-MIB"
     hlMatrixControlTable.EntityData.SegmentPath = "hlMatrixControlTable"
+    hlMatrixControlTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + hlMatrixControlTable.EntityData.SegmentPath
     hlMatrixControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     hlMatrixControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     hlMatrixControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1729,6 +1755,7 @@ func (hlMatrixControlTable *RMON2MIB_HlMatrixControlTable) GetEntityData() *type
 type RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // hlMatrixControlTable.  Each such entry defines a function that discovers
@@ -1876,6 +1903,7 @@ func (hlMatrixControlEntry *RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry) 
     hlMatrixControlEntry.EntityData.BundleName = "cisco_ios_xe"
     hlMatrixControlEntry.EntityData.ParentYangName = "hlMatrixControlTable"
     hlMatrixControlEntry.EntityData.SegmentPath = "hlMatrixControlEntry" + types.AddKeyToken(hlMatrixControlEntry.HlMatrixControlIndex, "hlMatrixControlIndex")
+    hlMatrixControlEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/hlMatrixControlTable/" + hlMatrixControlEntry.EntityData.SegmentPath
     hlMatrixControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     hlMatrixControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     hlMatrixControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1945,6 +1973,7 @@ func (nlMatrixSDTable *RMON2MIB_NlMatrixSDTable) GetEntityData() *types.CommonEn
     nlMatrixSDTable.EntityData.BundleName = "cisco_ios_xe"
     nlMatrixSDTable.EntityData.ParentYangName = "RMON2-MIB"
     nlMatrixSDTable.EntityData.SegmentPath = "nlMatrixSDTable"
+    nlMatrixSDTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + nlMatrixSDTable.EntityData.SegmentPath
     nlMatrixSDTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlMatrixSDTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlMatrixSDTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -1975,6 +2004,7 @@ func (nlMatrixSDTable *RMON2MIB_NlMatrixSDTable) GetEntityData() *types.CommonEn
 type RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry_HlMatrixControlIndex
@@ -2036,6 +2066,7 @@ func (nlMatrixSDEntry *RMON2MIB_NlMatrixSDTable_NlMatrixSDEntry) GetEntityData()
     nlMatrixSDEntry.EntityData.BundleName = "cisco_ios_xe"
     nlMatrixSDEntry.EntityData.ParentYangName = "nlMatrixSDTable"
     nlMatrixSDEntry.EntityData.SegmentPath = "nlMatrixSDEntry" + types.AddKeyToken(nlMatrixSDEntry.HlMatrixControlIndex, "hlMatrixControlIndex") + types.AddKeyToken(nlMatrixSDEntry.NlMatrixSDTimeMark, "nlMatrixSDTimeMark") + types.AddKeyToken(nlMatrixSDEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(nlMatrixSDEntry.NlMatrixSDSourceAddress, "nlMatrixSDSourceAddress") + types.AddKeyToken(nlMatrixSDEntry.NlMatrixSDDestAddress, "nlMatrixSDDestAddress")
+    nlMatrixSDEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/nlMatrixSDTable/" + nlMatrixSDEntry.EntityData.SegmentPath
     nlMatrixSDEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlMatrixSDEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlMatrixSDEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2102,6 +2133,7 @@ func (nlMatrixDSTable *RMON2MIB_NlMatrixDSTable) GetEntityData() *types.CommonEn
     nlMatrixDSTable.EntityData.BundleName = "cisco_ios_xe"
     nlMatrixDSTable.EntityData.ParentYangName = "RMON2-MIB"
     nlMatrixDSTable.EntityData.SegmentPath = "nlMatrixDSTable"
+    nlMatrixDSTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + nlMatrixDSTable.EntityData.SegmentPath
     nlMatrixDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlMatrixDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlMatrixDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2132,6 +2164,7 @@ func (nlMatrixDSTable *RMON2MIB_NlMatrixDSTable) GetEntityData() *types.CommonEn
 type RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry_HlMatrixControlIndex
@@ -2193,6 +2226,7 @@ func (nlMatrixDSEntry *RMON2MIB_NlMatrixDSTable_NlMatrixDSEntry) GetEntityData()
     nlMatrixDSEntry.EntityData.BundleName = "cisco_ios_xe"
     nlMatrixDSEntry.EntityData.ParentYangName = "nlMatrixDSTable"
     nlMatrixDSEntry.EntityData.SegmentPath = "nlMatrixDSEntry" + types.AddKeyToken(nlMatrixDSEntry.HlMatrixControlIndex, "hlMatrixControlIndex") + types.AddKeyToken(nlMatrixDSEntry.NlMatrixDSTimeMark, "nlMatrixDSTimeMark") + types.AddKeyToken(nlMatrixDSEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(nlMatrixDSEntry.NlMatrixDSDestAddress, "nlMatrixDSDestAddress") + types.AddKeyToken(nlMatrixDSEntry.NlMatrixDSSourceAddress, "nlMatrixDSSourceAddress")
+    nlMatrixDSEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/nlMatrixDSTable/" + nlMatrixDSEntry.EntityData.SegmentPath
     nlMatrixDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlMatrixDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlMatrixDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2233,6 +2267,7 @@ func (nlMatrixTopNControlTable *RMON2MIB_NlMatrixTopNControlTable) GetEntityData
     nlMatrixTopNControlTable.EntityData.BundleName = "cisco_ios_xe"
     nlMatrixTopNControlTable.EntityData.ParentYangName = "RMON2-MIB"
     nlMatrixTopNControlTable.EntityData.SegmentPath = "nlMatrixTopNControlTable"
+    nlMatrixTopNControlTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + nlMatrixTopNControlTable.EntityData.SegmentPath
     nlMatrixTopNControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlMatrixTopNControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlMatrixTopNControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2257,6 +2292,7 @@ func (nlMatrixTopNControlTable *RMON2MIB_NlMatrixTopNControlTable) GetEntityData
 type RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // nlMatrixTopNControlTable.  Each such entry defines one top N report
@@ -2362,6 +2398,7 @@ func (nlMatrixTopNControlEntry *RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNCo
     nlMatrixTopNControlEntry.EntityData.BundleName = "cisco_ios_xe"
     nlMatrixTopNControlEntry.EntityData.ParentYangName = "nlMatrixTopNControlTable"
     nlMatrixTopNControlEntry.EntityData.SegmentPath = "nlMatrixTopNControlEntry" + types.AddKeyToken(nlMatrixTopNControlEntry.NlMatrixTopNControlIndex, "nlMatrixTopNControlIndex")
+    nlMatrixTopNControlEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/nlMatrixTopNControlTable/" + nlMatrixTopNControlEntry.EntityData.SegmentPath
     nlMatrixTopNControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlMatrixTopNControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlMatrixTopNControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2415,6 +2452,7 @@ func (nlMatrixTopNTable *RMON2MIB_NlMatrixTopNTable) GetEntityData() *types.Comm
     nlMatrixTopNTable.EntityData.BundleName = "cisco_ios_xe"
     nlMatrixTopNTable.EntityData.ParentYangName = "RMON2-MIB"
     nlMatrixTopNTable.EntityData.SegmentPath = "nlMatrixTopNTable"
+    nlMatrixTopNTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + nlMatrixTopNTable.EntityData.SegmentPath
     nlMatrixTopNTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlMatrixTopNTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlMatrixTopNTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2443,6 +2481,7 @@ func (nlMatrixTopNTable *RMON2MIB_NlMatrixTopNTable) GetEntityData() *types.Comm
 type RMON2MIB_NlMatrixTopNTable_NlMatrixTopNEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_NlMatrixTopNControlTable_NlMatrixTopNControlEntry_NlMatrixTopNControlIndex
@@ -2525,6 +2564,7 @@ func (nlMatrixTopNEntry *RMON2MIB_NlMatrixTopNTable_NlMatrixTopNEntry) GetEntity
     nlMatrixTopNEntry.EntityData.BundleName = "cisco_ios_xe"
     nlMatrixTopNEntry.EntityData.ParentYangName = "nlMatrixTopNTable"
     nlMatrixTopNEntry.EntityData.SegmentPath = "nlMatrixTopNEntry" + types.AddKeyToken(nlMatrixTopNEntry.NlMatrixTopNControlIndex, "nlMatrixTopNControlIndex") + types.AddKeyToken(nlMatrixTopNEntry.NlMatrixTopNIndex, "nlMatrixTopNIndex")
+    nlMatrixTopNEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/nlMatrixTopNTable/" + nlMatrixTopNEntry.EntityData.SegmentPath
     nlMatrixTopNEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     nlMatrixTopNEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     nlMatrixTopNEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2586,6 +2626,7 @@ func (alHostTable *RMON2MIB_AlHostTable) GetEntityData() *types.CommonEntityData
     alHostTable.EntityData.BundleName = "cisco_ios_xe"
     alHostTable.EntityData.ParentYangName = "RMON2-MIB"
     alHostTable.EntityData.SegmentPath = "alHostTable"
+    alHostTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + alHostTable.EntityData.SegmentPath
     alHostTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alHostTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alHostTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2619,6 +2660,7 @@ func (alHostTable *RMON2MIB_AlHostTable) GetEntityData() *types.CommonEntityData
 type RMON2MIB_AlHostTable_AlHostEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_HlHostControlTable_HlHostControlEntry_HlHostControlIndex
@@ -2685,6 +2727,7 @@ func (alHostEntry *RMON2MIB_AlHostTable_AlHostEntry) GetEntityData() *types.Comm
     alHostEntry.EntityData.BundleName = "cisco_ios_xe"
     alHostEntry.EntityData.ParentYangName = "alHostTable"
     alHostEntry.EntityData.SegmentPath = "alHostEntry" + types.AddKeyToken(alHostEntry.HlHostControlIndex, "hlHostControlIndex") + types.AddKeyToken(alHostEntry.AlHostTimeMark, "alHostTimeMark") + types.AddKeyToken(alHostEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(alHostEntry.NlHostAddress, "nlHostAddress") + types.AddKeyToken(alHostEntry.ProtocolDirLocalIndex2, "protocolDirLocalIndex_2")
+    alHostEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/alHostTable/" + alHostEntry.EntityData.SegmentPath
     alHostEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alHostEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alHostEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2758,6 +2801,7 @@ func (alMatrixSDTable *RMON2MIB_AlMatrixSDTable) GetEntityData() *types.CommonEn
     alMatrixSDTable.EntityData.BundleName = "cisco_ios_xe"
     alMatrixSDTable.EntityData.ParentYangName = "RMON2-MIB"
     alMatrixSDTable.EntityData.SegmentPath = "alMatrixSDTable"
+    alMatrixSDTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + alMatrixSDTable.EntityData.SegmentPath
     alMatrixSDTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alMatrixSDTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alMatrixSDTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2795,6 +2839,7 @@ func (alMatrixSDTable *RMON2MIB_AlMatrixSDTable) GetEntityData() *types.CommonEn
 type RMON2MIB_AlMatrixSDTable_AlMatrixSDEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry_HlMatrixControlIndex
@@ -2852,6 +2897,7 @@ func (alMatrixSDEntry *RMON2MIB_AlMatrixSDTable_AlMatrixSDEntry) GetEntityData()
     alMatrixSDEntry.EntityData.BundleName = "cisco_ios_xe"
     alMatrixSDEntry.EntityData.ParentYangName = "alMatrixSDTable"
     alMatrixSDEntry.EntityData.SegmentPath = "alMatrixSDEntry" + types.AddKeyToken(alMatrixSDEntry.HlMatrixControlIndex, "hlMatrixControlIndex") + types.AddKeyToken(alMatrixSDEntry.AlMatrixSDTimeMark, "alMatrixSDTimeMark") + types.AddKeyToken(alMatrixSDEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(alMatrixSDEntry.NlMatrixSDSourceAddress, "nlMatrixSDSourceAddress") + types.AddKeyToken(alMatrixSDEntry.NlMatrixSDDestAddress, "nlMatrixSDDestAddress") + types.AddKeyToken(alMatrixSDEntry.ProtocolDirLocalIndex2, "protocolDirLocalIndex_2")
+    alMatrixSDEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/alMatrixSDTable/" + alMatrixSDEntry.EntityData.SegmentPath
     alMatrixSDEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alMatrixSDEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alMatrixSDEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2919,6 +2965,7 @@ func (alMatrixDSTable *RMON2MIB_AlMatrixDSTable) GetEntityData() *types.CommonEn
     alMatrixDSTable.EntityData.BundleName = "cisco_ios_xe"
     alMatrixDSTable.EntityData.ParentYangName = "RMON2-MIB"
     alMatrixDSTable.EntityData.SegmentPath = "alMatrixDSTable"
+    alMatrixDSTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + alMatrixDSTable.EntityData.SegmentPath
     alMatrixDSTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alMatrixDSTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alMatrixDSTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -2961,6 +3008,7 @@ func (alMatrixDSTable *RMON2MIB_AlMatrixDSTable) GetEntityData() *types.CommonEn
 type RMON2MIB_AlMatrixDSTable_AlMatrixDSEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry_HlMatrixControlIndex
@@ -3018,6 +3066,7 @@ func (alMatrixDSEntry *RMON2MIB_AlMatrixDSTable_AlMatrixDSEntry) GetEntityData()
     alMatrixDSEntry.EntityData.BundleName = "cisco_ios_xe"
     alMatrixDSEntry.EntityData.ParentYangName = "alMatrixDSTable"
     alMatrixDSEntry.EntityData.SegmentPath = "alMatrixDSEntry" + types.AddKeyToken(alMatrixDSEntry.HlMatrixControlIndex, "hlMatrixControlIndex") + types.AddKeyToken(alMatrixDSEntry.AlMatrixDSTimeMark, "alMatrixDSTimeMark") + types.AddKeyToken(alMatrixDSEntry.ProtocolDirLocalIndex, "protocolDirLocalIndex") + types.AddKeyToken(alMatrixDSEntry.NlMatrixDSDestAddress, "nlMatrixDSDestAddress") + types.AddKeyToken(alMatrixDSEntry.NlMatrixDSSourceAddress, "nlMatrixDSSourceAddress") + types.AddKeyToken(alMatrixDSEntry.ProtocolDirLocalIndex2, "protocolDirLocalIndex_2")
+    alMatrixDSEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/alMatrixDSTable/" + alMatrixDSEntry.EntityData.SegmentPath
     alMatrixDSEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alMatrixDSEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alMatrixDSEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3059,6 +3108,7 @@ func (alMatrixTopNControlTable *RMON2MIB_AlMatrixTopNControlTable) GetEntityData
     alMatrixTopNControlTable.EntityData.BundleName = "cisco_ios_xe"
     alMatrixTopNControlTable.EntityData.ParentYangName = "RMON2-MIB"
     alMatrixTopNControlTable.EntityData.SegmentPath = "alMatrixTopNControlTable"
+    alMatrixTopNControlTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + alMatrixTopNControlTable.EntityData.SegmentPath
     alMatrixTopNControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alMatrixTopNControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alMatrixTopNControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3083,6 +3133,7 @@ func (alMatrixTopNControlTable *RMON2MIB_AlMatrixTopNControlTable) GetEntityData
 type RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // alMatrixTopNControlTable.  Each such entry defines one top N report
@@ -3192,6 +3243,7 @@ func (alMatrixTopNControlEntry *RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNCo
     alMatrixTopNControlEntry.EntityData.BundleName = "cisco_ios_xe"
     alMatrixTopNControlEntry.EntityData.ParentYangName = "alMatrixTopNControlTable"
     alMatrixTopNControlEntry.EntityData.SegmentPath = "alMatrixTopNControlEntry" + types.AddKeyToken(alMatrixTopNControlEntry.AlMatrixTopNControlIndex, "alMatrixTopNControlIndex")
+    alMatrixTopNControlEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/alMatrixTopNControlTable/" + alMatrixTopNControlEntry.EntityData.SegmentPath
     alMatrixTopNControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alMatrixTopNControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alMatrixTopNControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3250,6 +3302,7 @@ func (alMatrixTopNTable *RMON2MIB_AlMatrixTopNTable) GetEntityData() *types.Comm
     alMatrixTopNTable.EntityData.BundleName = "cisco_ios_xe"
     alMatrixTopNTable.EntityData.ParentYangName = "RMON2-MIB"
     alMatrixTopNTable.EntityData.SegmentPath = "alMatrixTopNTable"
+    alMatrixTopNTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + alMatrixTopNTable.EntityData.SegmentPath
     alMatrixTopNTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alMatrixTopNTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alMatrixTopNTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3278,6 +3331,7 @@ func (alMatrixTopNTable *RMON2MIB_AlMatrixTopNTable) GetEntityData() *types.Comm
 type RMON2MIB_AlMatrixTopNTable_AlMatrixTopNEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_AlMatrixTopNControlTable_AlMatrixTopNControlEntry_AlMatrixTopNControlIndex
@@ -3370,6 +3424,7 @@ func (alMatrixTopNEntry *RMON2MIB_AlMatrixTopNTable_AlMatrixTopNEntry) GetEntity
     alMatrixTopNEntry.EntityData.BundleName = "cisco_ios_xe"
     alMatrixTopNEntry.EntityData.ParentYangName = "alMatrixTopNTable"
     alMatrixTopNEntry.EntityData.SegmentPath = "alMatrixTopNEntry" + types.AddKeyToken(alMatrixTopNEntry.AlMatrixTopNControlIndex, "alMatrixTopNControlIndex") + types.AddKeyToken(alMatrixTopNEntry.AlMatrixTopNIndex, "alMatrixTopNIndex")
+    alMatrixTopNEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/alMatrixTopNTable/" + alMatrixTopNEntry.EntityData.SegmentPath
     alMatrixTopNEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     alMatrixTopNEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     alMatrixTopNEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3411,6 +3466,7 @@ func (usrHistoryControlTable *RMON2MIB_UsrHistoryControlTable) GetEntityData() *
     usrHistoryControlTable.EntityData.BundleName = "cisco_ios_xe"
     usrHistoryControlTable.EntityData.ParentYangName = "RMON2-MIB"
     usrHistoryControlTable.EntityData.SegmentPath = "usrHistoryControlTable"
+    usrHistoryControlTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + usrHistoryControlTable.EntityData.SegmentPath
     usrHistoryControlTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     usrHistoryControlTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     usrHistoryControlTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3437,6 +3493,7 @@ func (usrHistoryControlTable *RMON2MIB_UsrHistoryControlTable) GetEntityData() *
 type RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. An index that uniquely identifies an entry in the
     // usrHistoryControlTable.  Each such entry defines a set of samples at a
@@ -3514,6 +3571,7 @@ func (usrHistoryControlEntry *RMON2MIB_UsrHistoryControlTable_UsrHistoryControlE
     usrHistoryControlEntry.EntityData.BundleName = "cisco_ios_xe"
     usrHistoryControlEntry.EntityData.ParentYangName = "usrHistoryControlTable"
     usrHistoryControlEntry.EntityData.SegmentPath = "usrHistoryControlEntry" + types.AddKeyToken(usrHistoryControlEntry.UsrHistoryControlIndex, "usrHistoryControlIndex")
+    usrHistoryControlEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/usrHistoryControlTable/" + usrHistoryControlEntry.EntityData.SegmentPath
     usrHistoryControlEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     usrHistoryControlEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     usrHistoryControlEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3554,6 +3612,7 @@ func (usrHistoryObjectTable *RMON2MIB_UsrHistoryObjectTable) GetEntityData() *ty
     usrHistoryObjectTable.EntityData.BundleName = "cisco_ios_xe"
     usrHistoryObjectTable.EntityData.ParentYangName = "RMON2-MIB"
     usrHistoryObjectTable.EntityData.SegmentPath = "usrHistoryObjectTable"
+    usrHistoryObjectTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + usrHistoryObjectTable.EntityData.SegmentPath
     usrHistoryObjectTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     usrHistoryObjectTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     usrHistoryObjectTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3584,6 +3643,7 @@ func (usrHistoryObjectTable *RMON2MIB_UsrHistoryObjectTable) GetEntityData() *ty
 type RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry_UsrHistoryControlIndex
@@ -3632,6 +3692,7 @@ func (usrHistoryObjectEntry *RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntr
     usrHistoryObjectEntry.EntityData.BundleName = "cisco_ios_xe"
     usrHistoryObjectEntry.EntityData.ParentYangName = "usrHistoryObjectTable"
     usrHistoryObjectEntry.EntityData.SegmentPath = "usrHistoryObjectEntry" + types.AddKeyToken(usrHistoryObjectEntry.UsrHistoryControlIndex, "usrHistoryControlIndex") + types.AddKeyToken(usrHistoryObjectEntry.UsrHistoryObjectIndex, "usrHistoryObjectIndex")
+    usrHistoryObjectEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/usrHistoryObjectTable/" + usrHistoryObjectEntry.EntityData.SegmentPath
     usrHistoryObjectEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     usrHistoryObjectEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     usrHistoryObjectEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3682,6 +3743,7 @@ func (usrHistoryTable *RMON2MIB_UsrHistoryTable) GetEntityData() *types.CommonEn
     usrHistoryTable.EntityData.BundleName = "cisco_ios_xe"
     usrHistoryTable.EntityData.ParentYangName = "RMON2-MIB"
     usrHistoryTable.EntityData.SegmentPath = "usrHistoryTable"
+    usrHistoryTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + usrHistoryTable.EntityData.SegmentPath
     usrHistoryTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     usrHistoryTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     usrHistoryTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3716,6 +3778,7 @@ func (usrHistoryTable *RMON2MIB_UsrHistoryTable) GetEntityData() *types.CommonEn
 type RMON2MIB_UsrHistoryTable_UsrHistoryEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
     // rmon2_mib.RMON2MIB_UsrHistoryControlTable_UsrHistoryControlEntry_UsrHistoryControlIndex
@@ -3775,6 +3838,7 @@ func (usrHistoryEntry *RMON2MIB_UsrHistoryTable_UsrHistoryEntry) GetEntityData()
     usrHistoryEntry.EntityData.BundleName = "cisco_ios_xe"
     usrHistoryEntry.EntityData.ParentYangName = "usrHistoryTable"
     usrHistoryEntry.EntityData.SegmentPath = "usrHistoryEntry" + types.AddKeyToken(usrHistoryEntry.UsrHistoryControlIndex, "usrHistoryControlIndex") + types.AddKeyToken(usrHistoryEntry.UsrHistorySampleIndex, "usrHistorySampleIndex") + types.AddKeyToken(usrHistoryEntry.UsrHistoryObjectIndex, "usrHistoryObjectIndex")
+    usrHistoryEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/usrHistoryTable/" + usrHistoryEntry.EntityData.SegmentPath
     usrHistoryEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     usrHistoryEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     usrHistoryEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3826,6 +3890,7 @@ func (serialConfigTable *RMON2MIB_SerialConfigTable) GetEntityData() *types.Comm
     serialConfigTable.EntityData.BundleName = "cisco_ios_xe"
     serialConfigTable.EntityData.ParentYangName = "RMON2-MIB"
     serialConfigTable.EntityData.SegmentPath = "serialConfigTable"
+    serialConfigTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + serialConfigTable.EntityData.SegmentPath
     serialConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     serialConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     serialConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3852,6 +3917,7 @@ func (serialConfigTable *RMON2MIB_SerialConfigTable) GetEntityData() *types.Comm
 type RMON2MIB_SerialConfigTable_SerialConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range:
     // -2147483648..2147483647. Refers to
@@ -3934,6 +4000,7 @@ func (serialConfigEntry *RMON2MIB_SerialConfigTable_SerialConfigEntry) GetEntity
     serialConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     serialConfigEntry.EntityData.ParentYangName = "serialConfigTable"
     serialConfigEntry.EntityData.SegmentPath = "serialConfigEntry" + types.AddKeyToken(serialConfigEntry.IfIndex, "ifIndex")
+    serialConfigEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/serialConfigTable/" + serialConfigEntry.EntityData.SegmentPath
     serialConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     serialConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     serialConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -3995,6 +4062,7 @@ func (netConfigTable *RMON2MIB_NetConfigTable) GetEntityData() *types.CommonEnti
     netConfigTable.EntityData.BundleName = "cisco_ios_xe"
     netConfigTable.EntityData.ParentYangName = "RMON2-MIB"
     netConfigTable.EntityData.SegmentPath = "netConfigTable"
+    netConfigTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + netConfigTable.EntityData.SegmentPath
     netConfigTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     netConfigTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     netConfigTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4021,6 +4089,7 @@ func (netConfigTable *RMON2MIB_NetConfigTable) GetEntityData() *types.CommonEnti
 type RMON2MIB_NetConfigTable_NetConfigEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with range:
     // -2147483648..2147483647. Refers to
@@ -4061,6 +4130,7 @@ func (netConfigEntry *RMON2MIB_NetConfigTable_NetConfigEntry) GetEntityData() *t
     netConfigEntry.EntityData.BundleName = "cisco_ios_xe"
     netConfigEntry.EntityData.ParentYangName = "netConfigTable"
     netConfigEntry.EntityData.SegmentPath = "netConfigEntry" + types.AddKeyToken(netConfigEntry.IfIndex, "ifIndex")
+    netConfigEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/netConfigTable/" + netConfigEntry.EntityData.SegmentPath
     netConfigEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     netConfigEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     netConfigEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4094,6 +4164,7 @@ func (trapDestTable *RMON2MIB_TrapDestTable) GetEntityData() *types.CommonEntity
     trapDestTable.EntityData.BundleName = "cisco_ios_xe"
     trapDestTable.EntityData.ParentYangName = "RMON2-MIB"
     trapDestTable.EntityData.SegmentPath = "trapDestTable"
+    trapDestTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + trapDestTable.EntityData.SegmentPath
     trapDestTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     trapDestTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     trapDestTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4116,6 +4187,7 @@ func (trapDestTable *RMON2MIB_TrapDestTable) GetEntityData() *types.CommonEntity
 type RMON2MIB_TrapDestTable_TrapDestEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A value that uniquely identifies this
     // trapDestEntry. The type is interface{} with range: 1..65535.
@@ -4165,6 +4237,7 @@ func (trapDestEntry *RMON2MIB_TrapDestTable_TrapDestEntry) GetEntityData() *type
     trapDestEntry.EntityData.BundleName = "cisco_ios_xe"
     trapDestEntry.EntityData.ParentYangName = "trapDestTable"
     trapDestEntry.EntityData.SegmentPath = "trapDestEntry" + types.AddKeyToken(trapDestEntry.TrapDestIndex, "trapDestIndex")
+    trapDestEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/trapDestTable/" + trapDestEntry.EntityData.SegmentPath
     trapDestEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     trapDestEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     trapDestEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4209,6 +4282,7 @@ func (serialConnectionTable *RMON2MIB_SerialConnectionTable) GetEntityData() *ty
     serialConnectionTable.EntityData.BundleName = "cisco_ios_xe"
     serialConnectionTable.EntityData.ParentYangName = "RMON2-MIB"
     serialConnectionTable.EntityData.SegmentPath = "serialConnectionTable"
+    serialConnectionTable.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/" + serialConnectionTable.EntityData.SegmentPath
     serialConnectionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     serialConnectionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     serialConnectionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
@@ -4230,6 +4304,7 @@ func (serialConnectionTable *RMON2MIB_SerialConnectionTable) GetEntityData() *ty
 type RMON2MIB_SerialConnectionTable_SerialConnectionEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. A value that uniquely identifies this
     // serialConnection entry. The type is interface{} with range: 1..65535.
@@ -4305,6 +4380,7 @@ func (serialConnectionEntry *RMON2MIB_SerialConnectionTable_SerialConnectionEntr
     serialConnectionEntry.EntityData.BundleName = "cisco_ios_xe"
     serialConnectionEntry.EntityData.ParentYangName = "serialConnectionTable"
     serialConnectionEntry.EntityData.SegmentPath = "serialConnectionEntry" + types.AddKeyToken(serialConnectionEntry.SerialConnectIndex, "serialConnectIndex")
+    serialConnectionEntry.EntityData.AbsolutePath = "RMON2-MIB:RMON2-MIB/serialConnectionTable/" + serialConnectionEntry.EntityData.SegmentPath
     serialConnectionEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
     serialConnectionEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
     serialConnectionEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()

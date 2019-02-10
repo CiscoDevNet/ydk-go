@@ -41,6 +41,7 @@ func (clock *Clock) GetEntityData() *types.CommonEntityData {
     clock.EntityData.BundleName = "cisco_ios_xr"
     clock.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-time-of-day-timezone"
     clock.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:clock"
+    clock.EntityData.AbsolutePath = clock.EntityData.SegmentPath
     clock.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clock.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clock.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -72,6 +73,7 @@ func (timezone *Clock_Timezone) GetEntityData() *types.CommonEntityData {
     timezone.EntityData.BundleName = "cisco_ios_xr"
     timezone.EntityData.ParentYangName = "clock"
     timezone.EntityData.SegmentPath = "timezone"
+    timezone.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:clock/" + timezone.EntityData.SegmentPath
     timezone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timezone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timezone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -104,6 +106,7 @@ func (trace *Trace) GetEntityData() *types.CommonEntityData {
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-time-of-day-timezone"
     trace.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace"
+    trace.EntityData.AbsolutePath = trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -133,6 +136,7 @@ func (timezoneConfig *Trace_TimezoneConfig) GetEntityData() *types.CommonEntityD
     timezoneConfig.EntityData.BundleName = "cisco_ios_xr"
     timezoneConfig.EntityData.ParentYangName = "trace"
     timezoneConfig.EntityData.SegmentPath = "timezone_config"
+    timezoneConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/" + timezoneConfig.EntityData.SegmentPath
     timezoneConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timezoneConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timezoneConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -154,6 +158,7 @@ func (timezoneConfig *Trace_TimezoneConfig) GetEntityData() *types.CommonEntityD
 type Trace_TimezoneConfig_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -168,6 +173,7 @@ func (trace *Trace_TimezoneConfig_Trace) GetEntityData() *types.CommonEntityData
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "timezone_config"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_config/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -189,6 +195,7 @@ func (trace *Trace_TimezoneConfig_Trace) GetEntityData() *types.CommonEntityData
 type Trace_TimezoneConfig_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -203,6 +210,7 @@ func (location *Trace_TimezoneConfig_Trace_Location) GetEntityData() *types.Comm
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_config/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -224,6 +232,7 @@ func (location *Trace_TimezoneConfig_Trace_Location) GetEntityData() *types.Comm
 type Trace_TimezoneConfig_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -239,6 +248,7 @@ func (allOptions *Trace_TimezoneConfig_Trace_Location_AllOptions) GetEntityData(
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_config/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -246,6 +256,7 @@ func (allOptions *Trace_TimezoneConfig_Trace_Location_AllOptions) GetEntityData(
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -260,6 +271,7 @@ func (allOptions *Trace_TimezoneConfig_Trace_Location_AllOptions) GetEntityData(
 type Trace_TimezoneConfig_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -270,7 +282,8 @@ func (traceBlocks *Trace_TimezoneConfig_Trace_Location_AllOptions_TraceBlocks) G
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_config/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -299,6 +312,7 @@ func (timezoneNotify *Trace_TimezoneNotify) GetEntityData() *types.CommonEntityD
     timezoneNotify.EntityData.BundleName = "cisco_ios_xr"
     timezoneNotify.EntityData.ParentYangName = "trace"
     timezoneNotify.EntityData.SegmentPath = "timezone_notify"
+    timezoneNotify.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/" + timezoneNotify.EntityData.SegmentPath
     timezoneNotify.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     timezoneNotify.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     timezoneNotify.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -320,6 +334,7 @@ func (timezoneNotify *Trace_TimezoneNotify) GetEntityData() *types.CommonEntityD
 type Trace_TimezoneNotify_Trace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Buffer interface{}
@@ -334,6 +349,7 @@ func (trace *Trace_TimezoneNotify_Trace) GetEntityData() *types.CommonEntityData
     trace.EntityData.BundleName = "cisco_ios_xr"
     trace.EntityData.ParentYangName = "timezone_notify"
     trace.EntityData.SegmentPath = "trace" + types.AddKeyToken(trace.Buffer, "buffer")
+    trace.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_notify/" + trace.EntityData.SegmentPath
     trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -355,6 +371,7 @@ func (trace *Trace_TimezoneNotify_Trace) GetEntityData() *types.CommonEntityData
 type Trace_TimezoneNotify_Trace_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     LocationName interface{}
@@ -369,6 +386,7 @@ func (location *Trace_TimezoneNotify_Trace_Location) GetEntityData() *types.Comm
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "trace"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.LocationName, "location_name")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_notify/trace/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -390,6 +408,7 @@ func (location *Trace_TimezoneNotify_Trace_Location) GetEntityData() *types.Comm
 type Trace_TimezoneNotify_Trace_Location_AllOptions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Option interface{}
@@ -405,6 +424,7 @@ func (allOptions *Trace_TimezoneNotify_Trace_Location_AllOptions) GetEntityData(
     allOptions.EntityData.BundleName = "cisco_ios_xr"
     allOptions.EntityData.ParentYangName = "location"
     allOptions.EntityData.SegmentPath = "all-options" + types.AddKeyToken(allOptions.Option, "option")
+    allOptions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_notify/trace/location/" + allOptions.EntityData.SegmentPath
     allOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     allOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     allOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -412,6 +432,7 @@ func (allOptions *Trace_TimezoneNotify_Trace_Location_AllOptions) GetEntityData(
     allOptions.EntityData.Children = types.NewOrderedMap()
     allOptions.EntityData.Children.Append("trace-blocks", types.YChild{"TraceBlocks", nil})
     for i := range allOptions.TraceBlocks {
+        types.SetYListKey(allOptions.TraceBlocks[i], i)
         allOptions.EntityData.Children.Append(types.GetSegmentPath(allOptions.TraceBlocks[i]), types.YChild{"TraceBlocks", allOptions.TraceBlocks[i]})
     }
     allOptions.EntityData.Leafs = types.NewOrderedMap()
@@ -426,6 +447,7 @@ func (allOptions *Trace_TimezoneNotify_Trace_Location_AllOptions) GetEntityData(
 type Trace_TimezoneNotify_Trace_Location_AllOptions_TraceBlocks struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Trace output block. The type is string.
     Data interface{}
@@ -436,7 +458,8 @@ func (traceBlocks *Trace_TimezoneNotify_Trace_Location_AllOptions_TraceBlocks) G
     traceBlocks.EntityData.YangName = "trace-blocks"
     traceBlocks.EntityData.BundleName = "cisco_ios_xr"
     traceBlocks.EntityData.ParentYangName = "all-options"
-    traceBlocks.EntityData.SegmentPath = "trace-blocks"
+    traceBlocks.EntityData.SegmentPath = "trace-blocks" + types.AddNoKeyToken(traceBlocks)
+    traceBlocks.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-time-of-day-timezone:trace/timezone_notify/trace/location/all-options/" + traceBlocks.EntityData.SegmentPath
     traceBlocks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     traceBlocks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     traceBlocks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

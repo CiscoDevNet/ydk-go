@@ -40,6 +40,7 @@ func (config *Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "Cisco-IOS-XR-config-cfgmgr-oper"
     config.EntityData.SegmentPath = "Cisco-IOS-XR-config-cfgmgr-oper:config"
+    config.EntityData.AbsolutePath = config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -69,6 +70,7 @@ func (global *Config_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "config"
     global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-oper:config/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -101,6 +103,7 @@ func (validation *Config_Global_Validation) GetEntityData() *types.CommonEntityD
     validation.EntityData.BundleName = "cisco_ios_xr"
     validation.EntityData.ParentYangName = "global"
     validation.EntityData.SegmentPath = "Cisco-IOS-XR-config-valid-ccv-oper:validation"
+    validation.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-oper:config/global/" + validation.EntityData.SegmentPath
     validation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     validation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     validation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -133,6 +136,7 @@ func (unsupportedConfigs *Config_Global_Validation_UnsupportedConfigs) GetEntity
     unsupportedConfigs.EntityData.BundleName = "cisco_ios_xr"
     unsupportedConfigs.EntityData.ParentYangName = "validation"
     unsupportedConfigs.EntityData.SegmentPath = "unsupported-configs"
+    unsupportedConfigs.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-oper:config/global/Cisco-IOS-XR-config-valid-ccv-oper:validation/" + unsupportedConfigs.EntityData.SegmentPath
     unsupportedConfigs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unsupportedConfigs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unsupportedConfigs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -154,6 +158,7 @@ func (unsupportedConfigs *Config_Global_Validation_UnsupportedConfigs) GetEntity
 type Config_Global_Validation_UnsupportedConfigs_UnsupportedConfig struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. XPath of the unsupported configuration. The type
     // is string.
@@ -174,6 +179,7 @@ func (unsupportedConfig *Config_Global_Validation_UnsupportedConfigs_Unsupported
     unsupportedConfig.EntityData.BundleName = "cisco_ios_xr"
     unsupportedConfig.EntityData.ParentYangName = "unsupported-configs"
     unsupportedConfig.EntityData.SegmentPath = "unsupported-config" + types.AddKeyToken(unsupportedConfig.Xpath, "xpath")
+    unsupportedConfig.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-oper:config/global/Cisco-IOS-XR-config-valid-ccv-oper:validation/unsupported-configs/" + unsupportedConfig.EntityData.SegmentPath
     unsupportedConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unsupportedConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unsupportedConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -181,6 +187,7 @@ func (unsupportedConfig *Config_Global_Validation_UnsupportedConfigs_Unsupported
     unsupportedConfig.EntityData.Children = types.NewOrderedMap()
     unsupportedConfig.EntityData.Children.Append("failure", types.YChild{"Failure", nil})
     for i := range unsupportedConfig.Failure {
+        types.SetYListKey(unsupportedConfig.Failure[i], i)
         unsupportedConfig.EntityData.Children.Append(types.GetSegmentPath(unsupportedConfig.Failure[i]), types.YChild{"Failure", unsupportedConfig.Failure[i]})
     }
     unsupportedConfig.EntityData.Leafs = types.NewOrderedMap()
@@ -197,6 +204,7 @@ func (unsupportedConfig *Config_Global_Validation_UnsupportedConfigs_Unsupported
 type Config_Global_Validation_UnsupportedConfigs_UnsupportedConfig_Failure struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // A unique string that identifies the error; equivalent to error-app-tag in
     // RFC 6241. The type is string.
@@ -216,7 +224,8 @@ func (failure *Config_Global_Validation_UnsupportedConfigs_UnsupportedConfig_Fai
     failure.EntityData.YangName = "failure"
     failure.EntityData.BundleName = "cisco_ios_xr"
     failure.EntityData.ParentYangName = "unsupported-config"
-    failure.EntityData.SegmentPath = "failure"
+    failure.EntityData.SegmentPath = "failure" + types.AddNoKeyToken(failure)
+    failure.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-oper:config/global/Cisco-IOS-XR-config-valid-ccv-oper:validation/unsupported-configs/unsupported-config/" + failure.EntityData.SegmentPath
     failure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     failure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     failure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -250,6 +259,7 @@ func (persistentFailures *Config_Global_Validation_PersistentFailures) GetEntity
     persistentFailures.EntityData.BundleName = "cisco_ios_xr"
     persistentFailures.EntityData.ParentYangName = "validation"
     persistentFailures.EntityData.SegmentPath = "persistent-failures"
+    persistentFailures.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-oper:config/global/Cisco-IOS-XR-config-valid-ccv-oper:validation/" + persistentFailures.EntityData.SegmentPath
     persistentFailures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     persistentFailures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     persistentFailures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -271,6 +281,7 @@ func (persistentFailures *Config_Global_Validation_PersistentFailures) GetEntity
 type Config_Global_Validation_PersistentFailures_PersistentFailure struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. XPath of the failed configuration. The type is
     // string.
@@ -291,6 +302,7 @@ func (persistentFailure *Config_Global_Validation_PersistentFailures_PersistentF
     persistentFailure.EntityData.BundleName = "cisco_ios_xr"
     persistentFailure.EntityData.ParentYangName = "persistent-failures"
     persistentFailure.EntityData.SegmentPath = "persistent-failure" + types.AddKeyToken(persistentFailure.Xpath, "xpath")
+    persistentFailure.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-oper:config/global/Cisco-IOS-XR-config-valid-ccv-oper:validation/persistent-failures/" + persistentFailure.EntityData.SegmentPath
     persistentFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     persistentFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     persistentFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -298,6 +310,7 @@ func (persistentFailure *Config_Global_Validation_PersistentFailures_PersistentF
     persistentFailure.EntityData.Children = types.NewOrderedMap()
     persistentFailure.EntityData.Children.Append("failure", types.YChild{"Failure", nil})
     for i := range persistentFailure.Failure {
+        types.SetYListKey(persistentFailure.Failure[i], i)
         persistentFailure.EntityData.Children.Append(types.GetSegmentPath(persistentFailure.Failure[i]), types.YChild{"Failure", persistentFailure.Failure[i]})
     }
     persistentFailure.EntityData.Leafs = types.NewOrderedMap()
@@ -314,6 +327,7 @@ func (persistentFailure *Config_Global_Validation_PersistentFailures_PersistentF
 type Config_Global_Validation_PersistentFailures_PersistentFailure_Failure struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // A unique string that identifies the error; equivalent to error-app-tag in
     // RFC 6241. The type is string.
@@ -333,7 +347,8 @@ func (failure *Config_Global_Validation_PersistentFailures_PersistentFailure_Fai
     failure.EntityData.YangName = "failure"
     failure.EntityData.BundleName = "cisco_ios_xr"
     failure.EntityData.ParentYangName = "persistent-failure"
-    failure.EntityData.SegmentPath = "failure"
+    failure.EntityData.SegmentPath = "failure" + types.AddNoKeyToken(failure)
+    failure.EntityData.AbsolutePath = "Cisco-IOS-XR-config-cfgmgr-oper:config/global/Cisco-IOS-XR-config-valid-ccv-oper:validation/persistent-failures/persistent-failure/" + failure.EntityData.SegmentPath
     failure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     failure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     failure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

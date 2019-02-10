@@ -43,6 +43,7 @@ func (accounting *Accounting) GetEntityData() *types.CommonEntityData {
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "Cisco-IOS-XR-accounting-cfg"
     accounting.EntityData.SegmentPath = "Cisco-IOS-XR-accounting-cfg:accounting"
+    accounting.EntityData.AbsolutePath = accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -79,6 +80,7 @@ func (interfaces *Accounting_Interfaces) GetEntityData() *types.CommonEntityData
     interfaces.EntityData.BundleName = "cisco_ios_xr"
     interfaces.EntityData.ParentYangName = "accounting"
     interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.AbsolutePath = "Cisco-IOS-XR-accounting-cfg:accounting/" + interfaces.EntityData.SegmentPath
     interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -113,6 +115,7 @@ func (mpls *Accounting_Interfaces_Mpls) GetEntityData() *types.CommonEntityData 
     mpls.EntityData.BundleName = "cisco_ios_xr"
     mpls.EntityData.ParentYangName = "interfaces"
     mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.AbsolutePath = "Cisco-IOS-XR-accounting-cfg:accounting/interfaces/" + mpls.EntityData.SegmentPath
     mpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -149,6 +152,7 @@ func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetEntityData() *typ
     segmentRouting.EntityData.BundleName = "cisco_ios_xr"
     segmentRouting.EntityData.ParentYangName = "interfaces"
     segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-accounting-cfg:accounting/interfaces/" + segmentRouting.EntityData.SegmentPath
     segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -50,6 +50,7 @@ func (hwModule *HwModule) GetEntityData() *types.CommonEntityData {
     hwModule.EntityData.BundleName = "cisco_ios_xr"
     hwModule.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-hw-module"
     hwModule.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module"
+    hwModule.EntityData.AbsolutePath = hwModule.EntityData.SegmentPath
     hwModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     hwModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     hwModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -92,6 +93,7 @@ func (config *HwModule_Config) GetEntityData() *types.CommonEntityData {
     config.EntityData.BundleName = "cisco_ios_xr"
     config.EntityData.ParentYangName = "hw-module"
     config.EntityData.SegmentPath = "config"
+    config.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/" + config.EntityData.SegmentPath
     config.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     config.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     config.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -127,6 +129,7 @@ func (shutdown *HwModule_Config_Shutdown) GetEntityData() *types.CommonEntityDat
     shutdown.EntityData.BundleName = "cisco_ios_xr"
     shutdown.EntityData.ParentYangName = "config"
     shutdown.EntityData.SegmentPath = "shutdown"
+    shutdown.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/" + shutdown.EntityData.SegmentPath
     shutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -147,6 +150,7 @@ func (shutdown *HwModule_Config_Shutdown) GetEntityData() *types.CommonEntityDat
 type HwModule_Config_Shutdown_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -160,6 +164,7 @@ func (location *HwModule_Config_Shutdown_Location) GetEntityData() *types.Common
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "shutdown"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/shutdown/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -188,6 +193,7 @@ func (reset *HwModule_Config_Reset) GetEntityData() *types.CommonEntityData {
     reset.EntityData.BundleName = "cisco_ios_xr"
     reset.EntityData.ParentYangName = "config"
     reset.EntityData.SegmentPath = "reset"
+    reset.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/" + reset.EntityData.SegmentPath
     reset.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     reset.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     reset.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -216,6 +222,7 @@ func (auto *HwModule_Config_Reset_Auto) GetEntityData() *types.CommonEntityData 
     auto.EntityData.BundleName = "cisco_ios_xr"
     auto.EntityData.ParentYangName = "reset"
     auto.EntityData.SegmentPath = "auto"
+    auto.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/reset/" + auto.EntityData.SegmentPath
     auto.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     auto.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     auto.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -244,6 +251,7 @@ func (disable *HwModule_Config_Reset_Auto_Disable) GetEntityData() *types.Common
     disable.EntityData.BundleName = "cisco_ios_xr"
     disable.EntityData.ParentYangName = "auto"
     disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/reset/auto/" + disable.EntityData.SegmentPath
     disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -264,6 +272,7 @@ func (disable *HwModule_Config_Reset_Auto_Disable) GetEntityData() *types.Common
 type HwModule_Config_Reset_Auto_Disable_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -277,6 +286,7 @@ func (location *HwModule_Config_Reset_Auto_Disable_Location) GetEntityData() *ty
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "disable"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/reset/auto/disable/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -305,6 +315,7 @@ func (offline *HwModule_Config_Offline) GetEntityData() *types.CommonEntityData 
     offline.EntityData.BundleName = "cisco_ios_xr"
     offline.EntityData.ParentYangName = "config"
     offline.EntityData.SegmentPath = "offline"
+    offline.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/" + offline.EntityData.SegmentPath
     offline.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     offline.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     offline.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -325,6 +336,7 @@ func (offline *HwModule_Config_Offline) GetEntityData() *types.CommonEntityData 
 type HwModule_Config_Offline_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
@@ -338,6 +350,7 @@ func (location *HwModule_Config_Offline_Location) GetEntityData() *types.CommonE
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "offline"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/offline/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -366,6 +379,7 @@ func (attentionLed *HwModule_Config_AttentionLed) GetEntityData() *types.CommonE
     attentionLed.EntityData.BundleName = "cisco_ios_xr"
     attentionLed.EntityData.ParentYangName = "config"
     attentionLed.EntityData.SegmentPath = "attention-led"
+    attentionLed.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/" + attentionLed.EntityData.SegmentPath
     attentionLed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     attentionLed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     attentionLed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -386,6 +400,7 @@ func (attentionLed *HwModule_Config_AttentionLed) GetEntityData() *types.CommonE
 type HwModule_Config_AttentionLed_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string with pattern:
     // ([0-255])|((0?[0-9]|1[0-5])/(FC(0?[0-5])))|((0?[0-9]|1[0-5])/(RP(0?[0-1])))|((0?[0-9]|1[0-5])/(0?[0-9]|1[0-5])(/[1-2])?)|((F[0-3])/(FC(0?[0-9]|1[0-1])))|((F[0-3])/(SC(0?[0-1])))|(0?[0-9]/(SC(0?[0-1])))|(0?[0-9]/(FT(0?[0-2])))|(0?[0-9]/(PM(0?[0-9]))).
@@ -399,6 +414,7 @@ func (location *HwModule_Config_AttentionLed_Location) GetEntityData() *types.Co
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "attention-led"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/attention-led/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -416,6 +432,7 @@ func (location *HwModule_Config_AttentionLed_Location) GetEntityData() *types.Co
 type HwModule_Config_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -430,6 +447,7 @@ func (location *HwModule_Config_Location) GetEntityData() *types.CommonEntityDat
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "config"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -459,6 +477,7 @@ func (logging *HwModule_Config_Location_Logging) GetEntityData() *types.CommonEn
     logging.EntityData.BundleName = "cisco_ios_xr"
     logging.EntityData.ParentYangName = "location"
     logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/location/" + logging.EntityData.SegmentPath
     logging.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     logging.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     logging.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -487,6 +506,7 @@ func (onboard *HwModule_Config_Location_Logging_Onboard) GetEntityData() *types.
     onboard.EntityData.BundleName = "cisco_ios_xr"
     onboard.EntityData.ParentYangName = "logging"
     onboard.EntityData.SegmentPath = "onboard"
+    onboard.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/location/logging/" + onboard.EntityData.SegmentPath
     onboard.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     onboard.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     onboard.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -515,6 +535,7 @@ func (oper *HwModule_Oper) GetEntityData() *types.CommonEntityData {
     oper.EntityData.BundleName = "cisco_ios_xr"
     oper.EntityData.ParentYangName = "hw-module"
     oper.EntityData.SegmentPath = "oper"
+    oper.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/" + oper.EntityData.SegmentPath
     oper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     oper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     oper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -535,6 +556,7 @@ func (oper *HwModule_Oper) GetEntityData() *types.CommonEntityData {
 type HwModule_Oper_Location struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Location interface{}
@@ -552,6 +574,7 @@ func (location *HwModule_Oper_Location) GetEntityData() *types.CommonEntityData 
     location.EntityData.BundleName = "cisco_ios_xr"
     location.EntityData.ParentYangName = "oper"
     location.EntityData.SegmentPath = "location" + types.AddKeyToken(location.Location, "location")
+    location.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/oper/" + location.EntityData.SegmentPath
     location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -582,6 +605,7 @@ func (actions *HwModule_Oper_Location_Actions) GetEntityData() *types.CommonEnti
     actions.EntityData.BundleName = "cisco_ios_xr"
     actions.EntityData.ParentYangName = "location"
     actions.EntityData.SegmentPath = "actions"
+    actions.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/oper/location/" + actions.EntityData.SegmentPath
     actions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     actions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     actions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -610,6 +634,7 @@ func (cbootmedia *HwModule_Oper_Location_Actions_Cbootmedia) GetEntityData() *ty
     cbootmedia.EntityData.BundleName = "cisco_ios_xr"
     cbootmedia.EntityData.ParentYangName = "actions"
     cbootmedia.EntityData.SegmentPath = "cbootmedia"
+    cbootmedia.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/oper/location/actions/" + cbootmedia.EntityData.SegmentPath
     cbootmedia.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cbootmedia.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     cbootmedia.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -630,6 +655,7 @@ func (cbootmedia *HwModule_Oper_Location_Actions_Cbootmedia) GetEntityData() *ty
 type HwModule_Oper_Location_Actions_Cbootmedia_Bootmedia struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Bootmedium interface{}
@@ -641,6 +667,7 @@ func (bootmedia *HwModule_Oper_Location_Actions_Cbootmedia_Bootmedia) GetEntityD
     bootmedia.EntityData.BundleName = "cisco_ios_xr"
     bootmedia.EntityData.ParentYangName = "cbootmedia"
     bootmedia.EntityData.SegmentPath = "bootmedia" + types.AddKeyToken(bootmedia.Bootmedium, "bootmedium")
+    bootmedia.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/oper/location/actions/cbootmedia/" + bootmedia.EntityData.SegmentPath
     bootmedia.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     bootmedia.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     bootmedia.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -666,6 +693,7 @@ func (show *HwModule_Oper_Location_Show) GetEntityData() *types.CommonEntityData
     show.EntityData.BundleName = "cisco_ios_xr"
     show.EntityData.ParentYangName = "location"
     show.EntityData.SegmentPath = "show"
+    show.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/oper/location/" + show.EntityData.SegmentPath
     show.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     show.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     show.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -696,6 +724,7 @@ func (shhwfpd *HwModule_Shhwfpd) GetEntityData() *types.CommonEntityData {
     shhwfpd.EntityData.BundleName = "cisco_ios_xr"
     shhwfpd.EntityData.ParentYangName = "hw-module"
     shhwfpd.EntityData.SegmentPath = "shhwfpd"
+    shhwfpd.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/" + shhwfpd.EntityData.SegmentPath
     shhwfpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     shhwfpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     shhwfpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -720,6 +749,7 @@ func (shhwfpd *HwModule_Shhwfpd) GetEntityData() *types.CommonEntityData {
 type HwModule_Shhwfpd_Alocation struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Locs interface{}
@@ -734,6 +764,7 @@ func (alocation *HwModule_Shhwfpd_Alocation) GetEntityData() *types.CommonEntity
     alocation.EntityData.BundleName = "cisco_ios_xr"
     alocation.EntityData.ParentYangName = "shhwfpd"
     alocation.EntityData.SegmentPath = "alocation" + types.AddKeyToken(alocation.Locs, "locs")
+    alocation.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/shhwfpd/" + alocation.EntityData.SegmentPath
     alocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     alocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     alocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -755,6 +786,7 @@ func (alocation *HwModule_Shhwfpd_Alocation) GetEntityData() *types.CommonEntity
 type HwModule_Shhwfpd_Alocation_Fpd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Fpdname interface{}
@@ -784,6 +816,7 @@ func (fpd *HwModule_Shhwfpd_Alocation_Fpd) GetEntityData() *types.CommonEntityDa
     fpd.EntityData.BundleName = "cisco_ios_xr"
     fpd.EntityData.ParentYangName = "alocation"
     fpd.EntityData.SegmentPath = "fpd" + types.AddKeyToken(fpd.Fpdname, "fpdname")
+    fpd.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/shhwfpd/alocation/" + fpd.EntityData.SegmentPath
     fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -807,6 +840,7 @@ func (fpd *HwModule_Shhwfpd_Alocation_Fpd) GetEntityData() *types.CommonEntityDa
 type HwModule_Shhwfpd_Fpd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is string.
     Fpdname interface{}
@@ -818,6 +852,7 @@ func (fpd *HwModule_Shhwfpd_Fpd) GetEntityData() *types.CommonEntityData {
     fpd.EntityData.BundleName = "cisco_ios_xr"
     fpd.EntityData.ParentYangName = "shhwfpd"
     fpd.EntityData.SegmentPath = "fpd" + types.AddKeyToken(fpd.Fpdname, "fpdname")
+    fpd.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-hw-module:hw-module/shhwfpd/" + fpd.EntityData.SegmentPath
     fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

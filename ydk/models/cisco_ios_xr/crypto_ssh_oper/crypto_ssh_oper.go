@@ -277,6 +277,7 @@ func (ssh1 *Ssh1) GetEntityData() *types.CommonEntityData {
     ssh1.EntityData.BundleName = "cisco_ios_xr"
     ssh1.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-ssh-oper"
     ssh1.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1"
+    ssh1.EntityData.AbsolutePath = ssh1.EntityData.SegmentPath
     ssh1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssh1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssh1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -306,6 +307,7 @@ func (kex *Ssh1_Kex) GetEntityData() *types.CommonEntityData {
     kex.EntityData.BundleName = "cisco_ios_xr"
     kex.EntityData.ParentYangName = "ssh1"
     kex.EntityData.SegmentPath = "kex"
+    kex.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/" + kex.EntityData.SegmentPath
     kex.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     kex.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     kex.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -336,6 +338,7 @@ func (nodes *Ssh1_Kex_Nodes) GetEntityData() *types.CommonEntityData {
     nodes.EntityData.BundleName = "cisco_ios_xr"
     nodes.EntityData.ParentYangName = "kex"
     nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/" + nodes.EntityData.SegmentPath
     nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,6 +360,7 @@ func (nodes *Ssh1_Kex_Nodes) GetEntityData() *types.CommonEntityData {
 type Ssh1_Kex_Nodes_Node struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
     // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
@@ -375,6 +379,7 @@ func (node *Ssh1_Kex_Nodes_Node) GetEntityData() *types.CommonEntityData {
     node.EntityData.BundleName = "cisco_ios_xr"
     node.EntityData.ParentYangName = "nodes"
     node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
+    node.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/" + node.EntityData.SegmentPath
     node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -407,6 +412,7 @@ func (incomingSessions *Ssh1_Kex_Nodes_Node_IncomingSessions) GetEntityData() *t
     incomingSessions.EntityData.BundleName = "cisco_ios_xr"
     incomingSessions.EntityData.ParentYangName = "node"
     incomingSessions.EntityData.SegmentPath = "incoming-sessions"
+    incomingSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/node/" + incomingSessions.EntityData.SegmentPath
     incomingSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incomingSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incomingSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -414,6 +420,7 @@ func (incomingSessions *Ssh1_Kex_Nodes_Node_IncomingSessions) GetEntityData() *t
     incomingSessions.EntityData.Children = types.NewOrderedMap()
     incomingSessions.EntityData.Children.Append("session-detail-info", types.YChild{"SessionDetailInfo", nil})
     for i := range incomingSessions.SessionDetailInfo {
+        types.SetYListKey(incomingSessions.SessionDetailInfo[i], i)
         incomingSessions.EntityData.Children.Append(types.GetSegmentPath(incomingSessions.SessionDetailInfo[i]), types.YChild{"SessionDetailInfo", incomingSessions.SessionDetailInfo[i]})
     }
     incomingSessions.EntityData.Leafs = types.NewOrderedMap()
@@ -428,6 +435,7 @@ func (incomingSessions *Ssh1_Kex_Nodes_Node_IncomingSessions) GetEntityData() *t
 type Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -462,7 +470,8 @@ func (sessionDetailInfo *Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo)
     sessionDetailInfo.EntityData.YangName = "session-detail-info"
     sessionDetailInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailInfo.EntityData.ParentYangName = "incoming-sessions"
-    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info"
+    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info" + types.AddNoKeyToken(sessionDetailInfo)
+    sessionDetailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/node/incoming-sessions/" + sessionDetailInfo.EntityData.SegmentPath
     sessionDetailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -501,6 +510,7 @@ func (outgoingConnections *Ssh1_Kex_Nodes_Node_OutgoingConnections) GetEntityDat
     outgoingConnections.EntityData.BundleName = "cisco_ios_xr"
     outgoingConnections.EntityData.ParentYangName = "node"
     outgoingConnections.EntityData.SegmentPath = "outgoing-connections"
+    outgoingConnections.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/node/" + outgoingConnections.EntityData.SegmentPath
     outgoingConnections.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outgoingConnections.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outgoingConnections.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -508,6 +518,7 @@ func (outgoingConnections *Ssh1_Kex_Nodes_Node_OutgoingConnections) GetEntityDat
     outgoingConnections.EntityData.Children = types.NewOrderedMap()
     outgoingConnections.EntityData.Children.Append("session-detail-info", types.YChild{"SessionDetailInfo", nil})
     for i := range outgoingConnections.SessionDetailInfo {
+        types.SetYListKey(outgoingConnections.SessionDetailInfo[i], i)
         outgoingConnections.EntityData.Children.Append(types.GetSegmentPath(outgoingConnections.SessionDetailInfo[i]), types.YChild{"SessionDetailInfo", outgoingConnections.SessionDetailInfo[i]})
     }
     outgoingConnections.EntityData.Leafs = types.NewOrderedMap()
@@ -522,6 +533,7 @@ func (outgoingConnections *Ssh1_Kex_Nodes_Node_OutgoingConnections) GetEntityDat
 type Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -556,7 +568,8 @@ func (sessionDetailInfo *Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailIn
     sessionDetailInfo.EntityData.YangName = "session-detail-info"
     sessionDetailInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailInfo.EntityData.ParentYangName = "outgoing-connections"
-    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info"
+    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info" + types.AddNoKeyToken(sessionDetailInfo)
+    sessionDetailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/node/outgoing-connections/" + sessionDetailInfo.EntityData.SegmentPath
     sessionDetailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -594,6 +607,7 @@ func (ssh *Ssh) GetEntityData() *types.CommonEntityData {
     ssh.EntityData.BundleName = "cisco_ios_xr"
     ssh.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-ssh-oper"
     ssh.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-ssh-oper:ssh"
+    ssh.EntityData.AbsolutePath = ssh.EntityData.SegmentPath
     ssh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     ssh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     ssh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -635,6 +649,7 @@ func (session *Ssh_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "ssh"
     session.EntityData.SegmentPath = "session"
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -671,6 +686,7 @@ func (rekey *Ssh_Session_Rekey) GetEntityData() *types.CommonEntityData {
     rekey.EntityData.BundleName = "cisco_ios_xr"
     rekey.EntityData.ParentYangName = "session"
     rekey.EntityData.SegmentPath = "rekey"
+    rekey.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/" + rekey.EntityData.SegmentPath
     rekey.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     rekey.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     rekey.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -702,6 +718,7 @@ func (incomingSessions *Ssh_Session_Rekey_IncomingSessions) GetEntityData() *typ
     incomingSessions.EntityData.BundleName = "cisco_ios_xr"
     incomingSessions.EntityData.ParentYangName = "rekey"
     incomingSessions.EntityData.SegmentPath = "incoming-sessions"
+    incomingSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/" + incomingSessions.EntityData.SegmentPath
     incomingSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incomingSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incomingSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -709,6 +726,7 @@ func (incomingSessions *Ssh_Session_Rekey_IncomingSessions) GetEntityData() *typ
     incomingSessions.EntityData.Children = types.NewOrderedMap()
     incomingSessions.EntityData.Children.Append("session-rekey-info", types.YChild{"SessionRekeyInfo", nil})
     for i := range incomingSessions.SessionRekeyInfo {
+        types.SetYListKey(incomingSessions.SessionRekeyInfo[i], i)
         incomingSessions.EntityData.Children.Append(types.GetSegmentPath(incomingSessions.SessionRekeyInfo[i]), types.YChild{"SessionRekeyInfo", incomingSessions.SessionRekeyInfo[i]})
     }
     incomingSessions.EntityData.Leafs = types.NewOrderedMap()
@@ -723,6 +741,7 @@ func (incomingSessions *Ssh_Session_Rekey_IncomingSessions) GetEntityData() *typ
 type Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -742,7 +761,8 @@ func (sessionRekeyInfo *Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo) Get
     sessionRekeyInfo.EntityData.YangName = "session-rekey-info"
     sessionRekeyInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionRekeyInfo.EntityData.ParentYangName = "incoming-sessions"
-    sessionRekeyInfo.EntityData.SegmentPath = "session-rekey-info"
+    sessionRekeyInfo.EntityData.SegmentPath = "session-rekey-info" + types.AddNoKeyToken(sessionRekeyInfo)
+    sessionRekeyInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/incoming-sessions/" + sessionRekeyInfo.EntityData.SegmentPath
     sessionRekeyInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionRekeyInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionRekeyInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -776,6 +796,7 @@ func (outgoingConnections *Ssh_Session_Rekey_OutgoingConnections) GetEntityData(
     outgoingConnections.EntityData.BundleName = "cisco_ios_xr"
     outgoingConnections.EntityData.ParentYangName = "rekey"
     outgoingConnections.EntityData.SegmentPath = "outgoing-connections"
+    outgoingConnections.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/" + outgoingConnections.EntityData.SegmentPath
     outgoingConnections.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outgoingConnections.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outgoingConnections.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -783,6 +804,7 @@ func (outgoingConnections *Ssh_Session_Rekey_OutgoingConnections) GetEntityData(
     outgoingConnections.EntityData.Children = types.NewOrderedMap()
     outgoingConnections.EntityData.Children.Append("session-rekey-info", types.YChild{"SessionRekeyInfo", nil})
     for i := range outgoingConnections.SessionRekeyInfo {
+        types.SetYListKey(outgoingConnections.SessionRekeyInfo[i], i)
         outgoingConnections.EntityData.Children.Append(types.GetSegmentPath(outgoingConnections.SessionRekeyInfo[i]), types.YChild{"SessionRekeyInfo", outgoingConnections.SessionRekeyInfo[i]})
     }
     outgoingConnections.EntityData.Leafs = types.NewOrderedMap()
@@ -797,6 +819,7 @@ func (outgoingConnections *Ssh_Session_Rekey_OutgoingConnections) GetEntityData(
 type Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -816,7 +839,8 @@ func (sessionRekeyInfo *Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo) 
     sessionRekeyInfo.EntityData.YangName = "session-rekey-info"
     sessionRekeyInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionRekeyInfo.EntityData.ParentYangName = "outgoing-connections"
-    sessionRekeyInfo.EntityData.SegmentPath = "session-rekey-info"
+    sessionRekeyInfo.EntityData.SegmentPath = "session-rekey-info" + types.AddNoKeyToken(sessionRekeyInfo)
+    sessionRekeyInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/outgoing-connections/" + sessionRekeyInfo.EntityData.SegmentPath
     sessionRekeyInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionRekeyInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionRekeyInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -852,6 +876,7 @@ func (historyDetail *Ssh_Session_HistoryDetail) GetEntityData() *types.CommonEnt
     historyDetail.EntityData.BundleName = "cisco_ios_xr"
     historyDetail.EntityData.ParentYangName = "session"
     historyDetail.EntityData.SegmentPath = "history-detail"
+    historyDetail.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/" + historyDetail.EntityData.SegmentPath
     historyDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     historyDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     historyDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -883,6 +908,7 @@ func (incomingSessions *Ssh_Session_HistoryDetail_IncomingSessions) GetEntityDat
     incomingSessions.EntityData.BundleName = "cisco_ios_xr"
     incomingSessions.EntityData.ParentYangName = "history-detail"
     incomingSessions.EntityData.SegmentPath = "incoming-sessions"
+    incomingSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/" + incomingSessions.EntityData.SegmentPath
     incomingSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incomingSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incomingSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -890,6 +916,7 @@ func (incomingSessions *Ssh_Session_HistoryDetail_IncomingSessions) GetEntityDat
     incomingSessions.EntityData.Children = types.NewOrderedMap()
     incomingSessions.EntityData.Children.Append("session-detail-info", types.YChild{"SessionDetailInfo", nil})
     for i := range incomingSessions.SessionDetailInfo {
+        types.SetYListKey(incomingSessions.SessionDetailInfo[i], i)
         incomingSessions.EntityData.Children.Append(types.GetSegmentPath(incomingSessions.SessionDetailInfo[i]), types.YChild{"SessionDetailInfo", incomingSessions.SessionDetailInfo[i]})
     }
     incomingSessions.EntityData.Leafs = types.NewOrderedMap()
@@ -904,6 +931,7 @@ func (incomingSessions *Ssh_Session_HistoryDetail_IncomingSessions) GetEntityDat
 type Ssh_Session_HistoryDetail_IncomingSessions_SessionDetailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -938,7 +966,8 @@ func (sessionDetailInfo *Ssh_Session_HistoryDetail_IncomingSessions_SessionDetai
     sessionDetailInfo.EntityData.YangName = "session-detail-info"
     sessionDetailInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailInfo.EntityData.ParentYangName = "incoming-sessions"
-    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info"
+    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info" + types.AddNoKeyToken(sessionDetailInfo)
+    sessionDetailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/incoming-sessions/" + sessionDetailInfo.EntityData.SegmentPath
     sessionDetailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -977,6 +1006,7 @@ func (outgoingConnections *Ssh_Session_HistoryDetail_OutgoingConnections) GetEnt
     outgoingConnections.EntityData.BundleName = "cisco_ios_xr"
     outgoingConnections.EntityData.ParentYangName = "history-detail"
     outgoingConnections.EntityData.SegmentPath = "outgoing-connections"
+    outgoingConnections.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/" + outgoingConnections.EntityData.SegmentPath
     outgoingConnections.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outgoingConnections.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outgoingConnections.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -984,6 +1014,7 @@ func (outgoingConnections *Ssh_Session_HistoryDetail_OutgoingConnections) GetEnt
     outgoingConnections.EntityData.Children = types.NewOrderedMap()
     outgoingConnections.EntityData.Children.Append("session-detail-info", types.YChild{"SessionDetailInfo", nil})
     for i := range outgoingConnections.SessionDetailInfo {
+        types.SetYListKey(outgoingConnections.SessionDetailInfo[i], i)
         outgoingConnections.EntityData.Children.Append(types.GetSegmentPath(outgoingConnections.SessionDetailInfo[i]), types.YChild{"SessionDetailInfo", outgoingConnections.SessionDetailInfo[i]})
     }
     outgoingConnections.EntityData.Leafs = types.NewOrderedMap()
@@ -998,6 +1029,7 @@ func (outgoingConnections *Ssh_Session_HistoryDetail_OutgoingConnections) GetEnt
 type Ssh_Session_HistoryDetail_OutgoingConnections_SessionDetailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -1032,7 +1064,8 @@ func (sessionDetailInfo *Ssh_Session_HistoryDetail_OutgoingConnections_SessionDe
     sessionDetailInfo.EntityData.YangName = "session-detail-info"
     sessionDetailInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailInfo.EntityData.ParentYangName = "outgoing-connections"
-    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info"
+    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info" + types.AddNoKeyToken(sessionDetailInfo)
+    sessionDetailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/outgoing-connections/" + sessionDetailInfo.EntityData.SegmentPath
     sessionDetailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1073,6 +1106,7 @@ func (brief *Ssh_Session_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "session"
     brief.EntityData.SegmentPath = "brief"
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1104,6 +1138,7 @@ func (incomingSessions *Ssh_Session_Brief_IncomingSessions) GetEntityData() *typ
     incomingSessions.EntityData.BundleName = "cisco_ios_xr"
     incomingSessions.EntityData.ParentYangName = "brief"
     incomingSessions.EntityData.SegmentPath = "incoming-sessions"
+    incomingSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/" + incomingSessions.EntityData.SegmentPath
     incomingSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incomingSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incomingSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1111,6 +1146,7 @@ func (incomingSessions *Ssh_Session_Brief_IncomingSessions) GetEntityData() *typ
     incomingSessions.EntityData.Children = types.NewOrderedMap()
     incomingSessions.EntityData.Children.Append("session-brief-info", types.YChild{"SessionBriefInfo", nil})
     for i := range incomingSessions.SessionBriefInfo {
+        types.SetYListKey(incomingSessions.SessionBriefInfo[i], i)
         incomingSessions.EntityData.Children.Append(types.GetSegmentPath(incomingSessions.SessionBriefInfo[i]), types.YChild{"SessionBriefInfo", incomingSessions.SessionBriefInfo[i]})
     }
     incomingSessions.EntityData.Leafs = types.NewOrderedMap()
@@ -1125,6 +1161,7 @@ func (incomingSessions *Ssh_Session_Brief_IncomingSessions) GetEntityData() *typ
 type Ssh_Session_Brief_IncomingSessions_SessionBriefInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -1158,7 +1195,8 @@ func (sessionBriefInfo *Ssh_Session_Brief_IncomingSessions_SessionBriefInfo) Get
     sessionBriefInfo.EntityData.YangName = "session-brief-info"
     sessionBriefInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionBriefInfo.EntityData.ParentYangName = "incoming-sessions"
-    sessionBriefInfo.EntityData.SegmentPath = "session-brief-info"
+    sessionBriefInfo.EntityData.SegmentPath = "session-brief-info" + types.AddNoKeyToken(sessionBriefInfo)
+    sessionBriefInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/" + sessionBriefInfo.EntityData.SegmentPath
     sessionBriefInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionBriefInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBriefInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1166,6 +1204,7 @@ func (sessionBriefInfo *Ssh_Session_Brief_IncomingSessions_SessionBriefInfo) Get
     sessionBriefInfo.EntityData.Children = types.NewOrderedMap()
     sessionBriefInfo.EntityData.Children.Append("mc-info", types.YChild{"McInfo", nil})
     for i := range sessionBriefInfo.McInfo {
+        types.SetYListKey(sessionBriefInfo.McInfo[i], i)
         sessionBriefInfo.EntityData.Children.Append(types.GetSegmentPath(sessionBriefInfo.McInfo[i]), types.YChild{"McInfo", sessionBriefInfo.McInfo[i]})
     }
     sessionBriefInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1187,6 +1226,7 @@ func (sessionBriefInfo *Ssh_Session_Brief_IncomingSessions_SessionBriefInfo) Get
 type Ssh_Session_Brief_IncomingSessions_SessionBriefInfo_McInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Channel ID. The type is interface{} with range: 0..4294967295.
     ChannelId interface{}
@@ -1206,7 +1246,8 @@ func (mcInfo *Ssh_Session_Brief_IncomingSessions_SessionBriefInfo_McInfo) GetEnt
     mcInfo.EntityData.YangName = "mc-info"
     mcInfo.EntityData.BundleName = "cisco_ios_xr"
     mcInfo.EntityData.ParentYangName = "session-brief-info"
-    mcInfo.EntityData.SegmentPath = "mc-info"
+    mcInfo.EntityData.SegmentPath = "mc-info" + types.AddNoKeyToken(mcInfo)
+    mcInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/session-brief-info/" + mcInfo.EntityData.SegmentPath
     mcInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mcInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mcInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1240,6 +1281,7 @@ func (outgoingSessions *Ssh_Session_Brief_OutgoingSessions) GetEntityData() *typ
     outgoingSessions.EntityData.BundleName = "cisco_ios_xr"
     outgoingSessions.EntityData.ParentYangName = "brief"
     outgoingSessions.EntityData.SegmentPath = "outgoing-sessions"
+    outgoingSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/" + outgoingSessions.EntityData.SegmentPath
     outgoingSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outgoingSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outgoingSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1247,6 +1289,7 @@ func (outgoingSessions *Ssh_Session_Brief_OutgoingSessions) GetEntityData() *typ
     outgoingSessions.EntityData.Children = types.NewOrderedMap()
     outgoingSessions.EntityData.Children.Append("session-brief-info", types.YChild{"SessionBriefInfo", nil})
     for i := range outgoingSessions.SessionBriefInfo {
+        types.SetYListKey(outgoingSessions.SessionBriefInfo[i], i)
         outgoingSessions.EntityData.Children.Append(types.GetSegmentPath(outgoingSessions.SessionBriefInfo[i]), types.YChild{"SessionBriefInfo", outgoingSessions.SessionBriefInfo[i]})
     }
     outgoingSessions.EntityData.Leafs = types.NewOrderedMap()
@@ -1261,6 +1304,7 @@ func (outgoingSessions *Ssh_Session_Brief_OutgoingSessions) GetEntityData() *typ
 type Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -1294,7 +1338,8 @@ func (sessionBriefInfo *Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo) Get
     sessionBriefInfo.EntityData.YangName = "session-brief-info"
     sessionBriefInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionBriefInfo.EntityData.ParentYangName = "outgoing-sessions"
-    sessionBriefInfo.EntityData.SegmentPath = "session-brief-info"
+    sessionBriefInfo.EntityData.SegmentPath = "session-brief-info" + types.AddNoKeyToken(sessionBriefInfo)
+    sessionBriefInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/" + sessionBriefInfo.EntityData.SegmentPath
     sessionBriefInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionBriefInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionBriefInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1302,6 +1347,7 @@ func (sessionBriefInfo *Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo) Get
     sessionBriefInfo.EntityData.Children = types.NewOrderedMap()
     sessionBriefInfo.EntityData.Children.Append("mc-info", types.YChild{"McInfo", nil})
     for i := range sessionBriefInfo.McInfo {
+        types.SetYListKey(sessionBriefInfo.McInfo[i], i)
         sessionBriefInfo.EntityData.Children.Append(types.GetSegmentPath(sessionBriefInfo.McInfo[i]), types.YChild{"McInfo", sessionBriefInfo.McInfo[i]})
     }
     sessionBriefInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1323,6 +1369,7 @@ func (sessionBriefInfo *Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo) Get
 type Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo_McInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Channel ID. The type is interface{} with range: 0..4294967295.
     ChannelId interface{}
@@ -1342,7 +1389,8 @@ func (mcInfo *Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo_McInfo) GetEnt
     mcInfo.EntityData.YangName = "mc-info"
     mcInfo.EntityData.BundleName = "cisco_ios_xr"
     mcInfo.EntityData.ParentYangName = "session-brief-info"
-    mcInfo.EntityData.SegmentPath = "mc-info"
+    mcInfo.EntityData.SegmentPath = "mc-info" + types.AddNoKeyToken(mcInfo)
+    mcInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/session-brief-info/" + mcInfo.EntityData.SegmentPath
     mcInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mcInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mcInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1375,6 +1423,7 @@ func (history *Ssh_Session_History) GetEntityData() *types.CommonEntityData {
     history.EntityData.BundleName = "cisco_ios_xr"
     history.EntityData.ParentYangName = "session"
     history.EntityData.SegmentPath = "history"
+    history.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/" + history.EntityData.SegmentPath
     history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1405,6 +1454,7 @@ func (incomingSessions *Ssh_Session_History_IncomingSessions) GetEntityData() *t
     incomingSessions.EntityData.BundleName = "cisco_ios_xr"
     incomingSessions.EntityData.ParentYangName = "history"
     incomingSessions.EntityData.SegmentPath = "incoming-sessions"
+    incomingSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/" + incomingSessions.EntityData.SegmentPath
     incomingSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incomingSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incomingSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1412,6 +1462,7 @@ func (incomingSessions *Ssh_Session_History_IncomingSessions) GetEntityData() *t
     incomingSessions.EntityData.Children = types.NewOrderedMap()
     incomingSessions.EntityData.Children.Append("session-history-info", types.YChild{"SessionHistoryInfo", nil})
     for i := range incomingSessions.SessionHistoryInfo {
+        types.SetYListKey(incomingSessions.SessionHistoryInfo[i], i)
         incomingSessions.EntityData.Children.Append(types.GetSegmentPath(incomingSessions.SessionHistoryInfo[i]), types.YChild{"SessionHistoryInfo", incomingSessions.SessionHistoryInfo[i]})
     }
     incomingSessions.EntityData.Leafs = types.NewOrderedMap()
@@ -1426,6 +1477,7 @@ func (incomingSessions *Ssh_Session_History_IncomingSessions) GetEntityData() *t
 type Ssh_Session_History_IncomingSessions_SessionHistoryInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -1456,7 +1508,8 @@ func (sessionHistoryInfo *Ssh_Session_History_IncomingSessions_SessionHistoryInf
     sessionHistoryInfo.EntityData.YangName = "session-history-info"
     sessionHistoryInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionHistoryInfo.EntityData.ParentYangName = "incoming-sessions"
-    sessionHistoryInfo.EntityData.SegmentPath = "session-history-info"
+    sessionHistoryInfo.EntityData.SegmentPath = "session-history-info" + types.AddNoKeyToken(sessionHistoryInfo)
+    sessionHistoryInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/incoming-sessions/" + sessionHistoryInfo.EntityData.SegmentPath
     sessionHistoryInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionHistoryInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionHistoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1464,6 +1517,7 @@ func (sessionHistoryInfo *Ssh_Session_History_IncomingSessions_SessionHistoryInf
     sessionHistoryInfo.EntityData.Children = types.NewOrderedMap()
     sessionHistoryInfo.EntityData.Children.Append("mc-info", types.YChild{"McInfo", nil})
     for i := range sessionHistoryInfo.McInfo {
+        types.SetYListKey(sessionHistoryInfo.McInfo[i], i)
         sessionHistoryInfo.EntityData.Children.Append(types.GetSegmentPath(sessionHistoryInfo.McInfo[i]), types.YChild{"McInfo", sessionHistoryInfo.McInfo[i]})
     }
     sessionHistoryInfo.EntityData.Leafs = types.NewOrderedMap()
@@ -1484,6 +1538,7 @@ func (sessionHistoryInfo *Ssh_Session_History_IncomingSessions_SessionHistoryInf
 type Ssh_Session_History_IncomingSessions_SessionHistoryInfo_McInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Channel ID. The type is interface{} with range: 0..4294967295.
     ChannelId interface{}
@@ -1503,7 +1558,8 @@ func (mcInfo *Ssh_Session_History_IncomingSessions_SessionHistoryInfo_McInfo) Ge
     mcInfo.EntityData.YangName = "mc-info"
     mcInfo.EntityData.BundleName = "cisco_ios_xr"
     mcInfo.EntityData.ParentYangName = "session-history-info"
-    mcInfo.EntityData.SegmentPath = "mc-info"
+    mcInfo.EntityData.SegmentPath = "mc-info" + types.AddNoKeyToken(mcInfo)
+    mcInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/incoming-sessions/session-history-info/" + mcInfo.EntityData.SegmentPath
     mcInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     mcInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     mcInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1539,6 +1595,7 @@ func (detail *Ssh_Session_Detail) GetEntityData() *types.CommonEntityData {
     detail.EntityData.BundleName = "cisco_ios_xr"
     detail.EntityData.ParentYangName = "session"
     detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/" + detail.EntityData.SegmentPath
     detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1570,6 +1627,7 @@ func (incomingSessions *Ssh_Session_Detail_IncomingSessions) GetEntityData() *ty
     incomingSessions.EntityData.BundleName = "cisco_ios_xr"
     incomingSessions.EntityData.ParentYangName = "detail"
     incomingSessions.EntityData.SegmentPath = "incoming-sessions"
+    incomingSessions.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/" + incomingSessions.EntityData.SegmentPath
     incomingSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     incomingSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     incomingSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1577,6 +1635,7 @@ func (incomingSessions *Ssh_Session_Detail_IncomingSessions) GetEntityData() *ty
     incomingSessions.EntityData.Children = types.NewOrderedMap()
     incomingSessions.EntityData.Children.Append("session-detail-info", types.YChild{"SessionDetailInfo", nil})
     for i := range incomingSessions.SessionDetailInfo {
+        types.SetYListKey(incomingSessions.SessionDetailInfo[i], i)
         incomingSessions.EntityData.Children.Append(types.GetSegmentPath(incomingSessions.SessionDetailInfo[i]), types.YChild{"SessionDetailInfo", incomingSessions.SessionDetailInfo[i]})
     }
     incomingSessions.EntityData.Leafs = types.NewOrderedMap()
@@ -1591,6 +1650,7 @@ func (incomingSessions *Ssh_Session_Detail_IncomingSessions) GetEntityData() *ty
 type Ssh_Session_Detail_IncomingSessions_SessionDetailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -1625,7 +1685,8 @@ func (sessionDetailInfo *Ssh_Session_Detail_IncomingSessions_SessionDetailInfo) 
     sessionDetailInfo.EntityData.YangName = "session-detail-info"
     sessionDetailInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailInfo.EntityData.ParentYangName = "incoming-sessions"
-    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info"
+    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info" + types.AddNoKeyToken(sessionDetailInfo)
+    sessionDetailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/" + sessionDetailInfo.EntityData.SegmentPath
     sessionDetailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1664,6 +1725,7 @@ func (outgoingConnections *Ssh_Session_Detail_OutgoingConnections) GetEntityData
     outgoingConnections.EntityData.BundleName = "cisco_ios_xr"
     outgoingConnections.EntityData.ParentYangName = "detail"
     outgoingConnections.EntityData.SegmentPath = "outgoing-connections"
+    outgoingConnections.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/" + outgoingConnections.EntityData.SegmentPath
     outgoingConnections.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     outgoingConnections.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     outgoingConnections.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1671,6 +1733,7 @@ func (outgoingConnections *Ssh_Session_Detail_OutgoingConnections) GetEntityData
     outgoingConnections.EntityData.Children = types.NewOrderedMap()
     outgoingConnections.EntityData.Children.Append("session-detail-info", types.YChild{"SessionDetailInfo", nil})
     for i := range outgoingConnections.SessionDetailInfo {
+        types.SetYListKey(outgoingConnections.SessionDetailInfo[i], i)
         outgoingConnections.EntityData.Children.Append(types.GetSegmentPath(outgoingConnections.SessionDetailInfo[i]), types.YChild{"SessionDetailInfo", outgoingConnections.SessionDetailInfo[i]})
     }
     outgoingConnections.EntityData.Leafs = types.NewOrderedMap()
@@ -1685,6 +1748,7 @@ func (outgoingConnections *Ssh_Session_Detail_OutgoingConnections) GetEntityData
 type Ssh_Session_Detail_OutgoingConnections_SessionDetailInfo struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // Session ID. The type is interface{} with range: 0..4294967295.
     SessionId interface{}
@@ -1719,7 +1783,8 @@ func (sessionDetailInfo *Ssh_Session_Detail_OutgoingConnections_SessionDetailInf
     sessionDetailInfo.EntityData.YangName = "session-detail-info"
     sessionDetailInfo.EntityData.BundleName = "cisco_ios_xr"
     sessionDetailInfo.EntityData.ParentYangName = "outgoing-connections"
-    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info"
+    sessionDetailInfo.EntityData.SegmentPath = "session-detail-info" + types.AddNoKeyToken(sessionDetailInfo)
+    sessionDetailInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/" + sessionDetailInfo.EntityData.SegmentPath
     sessionDetailInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionDetailInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

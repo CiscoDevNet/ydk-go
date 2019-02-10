@@ -36,6 +36,7 @@ func (exception *Exception) GetEntityData() *types.CommonEntityData {
     exception.EntityData.BundleName = "cisco_ios_xr"
     exception.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-dumper"
     exception.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-dumper:exception"
+    exception.EntityData.AbsolutePath = exception.EntityData.SegmentPath
     exception.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     exception.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     exception.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -56,6 +57,7 @@ func (exception *Exception) GetEntityData() *types.CommonEntityData {
 type Exception_Choice struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
     // This attribute is a key. The type is interface{} with range: 1..3.
     Order interface{}
@@ -70,6 +72,7 @@ func (choice *Exception_Choice) GetEntityData() *types.CommonEntityData {
     choice.EntityData.BundleName = "cisco_ios_xr"
     choice.EntityData.ParentYangName = "exception"
     choice.EntityData.SegmentPath = "choice" + types.AddKeyToken(choice.Order, "order")
+    choice.EntityData.AbsolutePath = "Cisco-IOS-XR-sysadmin-dumper:exception/" + choice.EntityData.SegmentPath
     choice.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     choice.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     choice.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

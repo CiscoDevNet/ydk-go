@@ -1392,6 +1392,7 @@ func (clearBgpAllGraceful *ClearBgpAllGraceful) GetEntityData() *types.CommonEnt
     clearBgpAllGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAllGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAllGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-all-graceful"
+    clearBgpAllGraceful.EntityData.AbsolutePath = clearBgpAllGraceful.EntityData.SegmentPath
     clearBgpAllGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAllGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAllGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1418,6 +1419,7 @@ func (clearBgpAll *ClearBgpAll) GetEntityData() *types.CommonEntityData {
     clearBgpAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-all"
+    clearBgpAll.EntityData.AbsolutePath = clearBgpAll.EntityData.SegmentPath
     clearBgpAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1448,6 +1450,7 @@ func (clearBgpIpAddrGraceful *ClearBgpIpAddrGraceful) GetEntityData() *types.Com
     clearBgpIpAddrGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpIpAddrGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpIpAddrGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr-graceful"
+    clearBgpIpAddrGraceful.EntityData.AbsolutePath = clearBgpIpAddrGraceful.EntityData.SegmentPath
     clearBgpIpAddrGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpIpAddrGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpIpAddrGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1481,6 +1484,7 @@ func (input *ClearBgpIpAddrGraceful_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-ip-addr-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1512,6 +1516,7 @@ func (clearBgpIpAddrLongLivedStale *ClearBgpIpAddrLongLivedStale) GetEntityData(
     clearBgpIpAddrLongLivedStale.EntityData.BundleName = "cisco_ios_xr"
     clearBgpIpAddrLongLivedStale.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpIpAddrLongLivedStale.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr-long-lived-stale"
+    clearBgpIpAddrLongLivedStale.EntityData.AbsolutePath = clearBgpIpAddrLongLivedStale.EntityData.SegmentPath
     clearBgpIpAddrLongLivedStale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpIpAddrLongLivedStale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpIpAddrLongLivedStale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1545,6 +1550,7 @@ func (input *ClearBgpIpAddrLongLivedStale_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-ip-addr-long-lived-stale"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr-long-lived-stale/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1575,6 +1581,7 @@ func (clearBgpIpAddr *ClearBgpIpAddr) GetEntityData() *types.CommonEntityData {
     clearBgpIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr"
+    clearBgpIpAddr.EntityData.AbsolutePath = clearBgpIpAddr.EntityData.SegmentPath
     clearBgpIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1608,6 +1615,7 @@ func (input *ClearBgpIpAddr_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1641,6 +1649,7 @@ func (clearBgpAfiSafiAllSoftInPrefixFilter *ClearBgpAfiSafiAllSoftInPrefixFilter
     clearBgpAfiSafiAllSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiAllSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiAllSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-in-prefix-filter"
+    clearBgpAfiSafiAllSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpAfiSafiAllSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpAfiSafiAllSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiAllSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiAllSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1669,6 +1678,7 @@ func (input *ClearBgpAfiSafiAllSoftInPrefixFilter_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-all-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1701,6 +1711,7 @@ func (clearBgpAfiSafiAllSoftIn *ClearBgpAfiSafiAllSoftIn) GetEntityData() *types
     clearBgpAfiSafiAllSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiAllSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiAllSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-in"
+    clearBgpAfiSafiAllSoftIn.EntityData.AbsolutePath = clearBgpAfiSafiAllSoftIn.EntityData.SegmentPath
     clearBgpAfiSafiAllSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiAllSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiAllSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1729,6 +1740,7 @@ func (input *ClearBgpAfiSafiAllSoftIn_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-all-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1761,6 +1773,7 @@ func (clearBgpAfiSafiAllSoftOut *ClearBgpAfiSafiAllSoftOut) GetEntityData() *typ
     clearBgpAfiSafiAllSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiAllSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiAllSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-out"
+    clearBgpAfiSafiAllSoftOut.EntityData.AbsolutePath = clearBgpAfiSafiAllSoftOut.EntityData.SegmentPath
     clearBgpAfiSafiAllSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiAllSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiAllSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1789,6 +1802,7 @@ func (input *ClearBgpAfiSafiAllSoftOut_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-all-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1820,6 +1834,7 @@ func (clearBgpAfiSafiAllSoft *ClearBgpAfiSafiAllSoft) GetEntityData() *types.Com
     clearBgpAfiSafiAllSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiAllSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiAllSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft"
+    clearBgpAfiSafiAllSoft.EntityData.AbsolutePath = clearBgpAfiSafiAllSoft.EntityData.SegmentPath
     clearBgpAfiSafiAllSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiAllSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiAllSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1848,6 +1863,7 @@ func (input *ClearBgpAfiSafiAllSoft_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-all-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-all-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1878,6 +1894,7 @@ func (clearBgpAfiSafiIpAddrLongLivedStale *ClearBgpAfiSafiIpAddrLongLivedStale) 
     clearBgpAfiSafiIpAddrLongLivedStale.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiIpAddrLongLivedStale.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiIpAddrLongLivedStale.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-long-lived-stale"
+    clearBgpAfiSafiIpAddrLongLivedStale.EntityData.AbsolutePath = clearBgpAfiSafiIpAddrLongLivedStale.EntityData.SegmentPath
     clearBgpAfiSafiIpAddrLongLivedStale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiIpAddrLongLivedStale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiIpAddrLongLivedStale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1914,6 +1931,7 @@ func (input *ClearBgpAfiSafiIpAddrLongLivedStale_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-ip-addr-long-lived-stale"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-long-lived-stale/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1947,6 +1965,7 @@ func (clearBgpAfiSafiIpAddrSoftInPrefixFilter *ClearBgpAfiSafiIpAddrSoftInPrefix
     clearBgpAfiSafiIpAddrSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiIpAddrSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiIpAddrSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-in-prefix-filter"
+    clearBgpAfiSafiIpAddrSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpAfiSafiIpAddrSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpAfiSafiIpAddrSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiIpAddrSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiIpAddrSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1983,6 +2002,7 @@ func (input *ClearBgpAfiSafiIpAddrSoftInPrefixFilter_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-ip-addr-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2015,6 +2035,7 @@ func (clearBgpAfiSafiIpAddrSoftIn *ClearBgpAfiSafiIpAddrSoftIn) GetEntityData() 
     clearBgpAfiSafiIpAddrSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiIpAddrSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiIpAddrSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-in"
+    clearBgpAfiSafiIpAddrSoftIn.EntityData.AbsolutePath = clearBgpAfiSafiIpAddrSoftIn.EntityData.SegmentPath
     clearBgpAfiSafiIpAddrSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiIpAddrSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiIpAddrSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2051,6 +2072,7 @@ func (input *ClearBgpAfiSafiIpAddrSoftIn_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-ip-addr-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2083,6 +2105,7 @@ func (clearBgpAfiSafiIpAddrSoftOut *ClearBgpAfiSafiIpAddrSoftOut) GetEntityData(
     clearBgpAfiSafiIpAddrSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiIpAddrSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiIpAddrSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-out"
+    clearBgpAfiSafiIpAddrSoftOut.EntityData.AbsolutePath = clearBgpAfiSafiIpAddrSoftOut.EntityData.SegmentPath
     clearBgpAfiSafiIpAddrSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiIpAddrSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiIpAddrSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2119,6 +2142,7 @@ func (input *ClearBgpAfiSafiIpAddrSoftOut_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-ip-addr-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2150,6 +2174,7 @@ func (clearBgpAfiSafiIpAddrSoft *ClearBgpAfiSafiIpAddrSoft) GetEntityData() *typ
     clearBgpAfiSafiIpAddrSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiIpAddrSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiIpAddrSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft"
+    clearBgpAfiSafiIpAddrSoft.EntityData.AbsolutePath = clearBgpAfiSafiIpAddrSoft.EntityData.SegmentPath
     clearBgpAfiSafiIpAddrSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiIpAddrSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiIpAddrSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2186,6 +2211,7 @@ func (input *ClearBgpAfiSafiIpAddrSoft_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-ip-addr-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-ip-addr-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2220,6 +2246,7 @@ func (clearBgpAfiSafiAsSoftInPrefixFilter *ClearBgpAfiSafiAsSoftInPrefixFilter) 
     clearBgpAfiSafiAsSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiAsSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiAsSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-in-prefix-filter"
+    clearBgpAfiSafiAsSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpAfiSafiAsSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpAfiSafiAsSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiAsSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiAsSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2254,6 +2281,7 @@ func (input *ClearBgpAfiSafiAsSoftInPrefixFilter_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-as-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2287,6 +2315,7 @@ func (clearBgpAfiSafiAsSoftIn *ClearBgpAfiSafiAsSoftIn) GetEntityData() *types.C
     clearBgpAfiSafiAsSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiAsSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiAsSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-in"
+    clearBgpAfiSafiAsSoftIn.EntityData.AbsolutePath = clearBgpAfiSafiAsSoftIn.EntityData.SegmentPath
     clearBgpAfiSafiAsSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiAsSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiAsSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2321,6 +2350,7 @@ func (input *ClearBgpAfiSafiAsSoftIn_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-as-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2354,6 +2384,7 @@ func (clearBgpAfiSafiAsSoftOut *ClearBgpAfiSafiAsSoftOut) GetEntityData() *types
     clearBgpAfiSafiAsSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiAsSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiAsSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-out"
+    clearBgpAfiSafiAsSoftOut.EntityData.AbsolutePath = clearBgpAfiSafiAsSoftOut.EntityData.SegmentPath
     clearBgpAfiSafiAsSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiAsSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiAsSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2388,6 +2419,7 @@ func (input *ClearBgpAfiSafiAsSoftOut_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-as-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2420,6 +2452,7 @@ func (clearBgpAfiSafiAsSoft *ClearBgpAfiSafiAsSoft) GetEntityData() *types.Commo
     clearBgpAfiSafiAsSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiAsSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiAsSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft"
+    clearBgpAfiSafiAsSoft.EntityData.AbsolutePath = clearBgpAfiSafiAsSoft.EntityData.SegmentPath
     clearBgpAfiSafiAsSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiAsSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiAsSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2454,6 +2487,7 @@ func (input *ClearBgpAfiSafiAsSoft_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-as-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-as-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2485,6 +2519,7 @@ func (clearBgpAfiSafiDampeningIpPrefix *ClearBgpAfiSafiDampeningIpPrefix) GetEnt
     clearBgpAfiSafiDampeningIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiDampeningIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiDampeningIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ip-prefix"
+    clearBgpAfiSafiDampeningIpPrefix.EntityData.AbsolutePath = clearBgpAfiSafiDampeningIpPrefix.EntityData.SegmentPath
     clearBgpAfiSafiDampeningIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiDampeningIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiDampeningIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2521,6 +2556,7 @@ func (input *ClearBgpAfiSafiDampeningIpPrefix_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-dampening-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2552,6 +2588,7 @@ func (clearBgpAfiSafiDampening *ClearBgpAfiSafiDampening) GetEntityData() *types
     clearBgpAfiSafiDampening.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiDampening.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiDampening.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening"
+    clearBgpAfiSafiDampening.EntityData.AbsolutePath = clearBgpAfiSafiDampening.EntityData.SegmentPath
     clearBgpAfiSafiDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2580,6 +2617,7 @@ func (input *ClearBgpAfiSafiDampening_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-dampening"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2613,6 +2651,7 @@ func (clearBgpAfiSafiExternalSoftInPrefixFilter *ClearBgpAfiSafiExternalSoftInPr
     clearBgpAfiSafiExternalSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiExternalSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiExternalSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-in-prefix-filter"
+    clearBgpAfiSafiExternalSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpAfiSafiExternalSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpAfiSafiExternalSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiExternalSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiExternalSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2641,6 +2680,7 @@ func (input *ClearBgpAfiSafiExternalSoftInPrefixFilter_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-external-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2673,6 +2713,7 @@ func (clearBgpAfiSafiExternalSoftIn *ClearBgpAfiSafiExternalSoftIn) GetEntityDat
     clearBgpAfiSafiExternalSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiExternalSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiExternalSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-in"
+    clearBgpAfiSafiExternalSoftIn.EntityData.AbsolutePath = clearBgpAfiSafiExternalSoftIn.EntityData.SegmentPath
     clearBgpAfiSafiExternalSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiExternalSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiExternalSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2701,6 +2742,7 @@ func (input *ClearBgpAfiSafiExternalSoftIn_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-external-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2733,6 +2775,7 @@ func (clearBgpAfiSafiExternalSoftOut *ClearBgpAfiSafiExternalSoftOut) GetEntityD
     clearBgpAfiSafiExternalSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiExternalSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiExternalSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-out"
+    clearBgpAfiSafiExternalSoftOut.EntityData.AbsolutePath = clearBgpAfiSafiExternalSoftOut.EntityData.SegmentPath
     clearBgpAfiSafiExternalSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiExternalSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiExternalSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2761,6 +2804,7 @@ func (input *ClearBgpAfiSafiExternalSoftOut_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-external-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2792,6 +2836,7 @@ func (clearBgpAfiSafiExternalSoft *ClearBgpAfiSafiExternalSoft) GetEntityData() 
     clearBgpAfiSafiExternalSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiExternalSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiExternalSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft"
+    clearBgpAfiSafiExternalSoft.EntityData.AbsolutePath = clearBgpAfiSafiExternalSoft.EntityData.SegmentPath
     clearBgpAfiSafiExternalSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiExternalSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiExternalSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2820,6 +2865,7 @@ func (input *ClearBgpAfiSafiExternalSoft_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-external-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-external-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2850,6 +2896,7 @@ func (clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask *ClearBgpAfiSafiFlapStatistics
     clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-addr-ipv4-mask"
+    clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.AbsolutePath = clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.SegmentPath
     clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2892,6 +2939,7 @@ func (input *ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-flap-statistics-ip-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2924,6 +2972,7 @@ func (clearBgpAfiSafiFlapStatisticsIpAddr *ClearBgpAfiSafiFlapStatisticsIpAddr) 
     clearBgpAfiSafiFlapStatisticsIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiFlapStatisticsIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiFlapStatisticsIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-addr"
+    clearBgpAfiSafiFlapStatisticsIpAddr.EntityData.AbsolutePath = clearBgpAfiSafiFlapStatisticsIpAddr.EntityData.SegmentPath
     clearBgpAfiSafiFlapStatisticsIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiFlapStatisticsIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiFlapStatisticsIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2960,6 +3009,7 @@ func (input *ClearBgpAfiSafiFlapStatisticsIpAddr_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-flap-statistics-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2991,6 +3041,7 @@ func (clearBgpAfiSafiFlapStatisticsIpPrefix *ClearBgpAfiSafiFlapStatisticsIpPref
     clearBgpAfiSafiFlapStatisticsIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiFlapStatisticsIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiFlapStatisticsIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-prefix"
+    clearBgpAfiSafiFlapStatisticsIpPrefix.EntityData.AbsolutePath = clearBgpAfiSafiFlapStatisticsIpPrefix.EntityData.SegmentPath
     clearBgpAfiSafiFlapStatisticsIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiFlapStatisticsIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiFlapStatisticsIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3027,6 +3078,7 @@ func (input *ClearBgpAfiSafiFlapStatisticsIpPrefix_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-flap-statistics-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3059,6 +3111,7 @@ func (clearBgpAfiSafiFlapStatisticsRegexp *ClearBgpAfiSafiFlapStatisticsRegexp) 
     clearBgpAfiSafiFlapStatisticsRegexp.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiFlapStatisticsRegexp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiFlapStatisticsRegexp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-regexp"
+    clearBgpAfiSafiFlapStatisticsRegexp.EntityData.AbsolutePath = clearBgpAfiSafiFlapStatisticsRegexp.EntityData.SegmentPath
     clearBgpAfiSafiFlapStatisticsRegexp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiFlapStatisticsRegexp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiFlapStatisticsRegexp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3091,6 +3144,7 @@ func (input *ClearBgpAfiSafiFlapStatisticsRegexp_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-flap-statistics-regexp"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-regexp/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3123,6 +3177,7 @@ func (clearBgpAfiSafiFlapStatisticsRoutePolicy *ClearBgpAfiSafiFlapStatisticsRou
     clearBgpAfiSafiFlapStatisticsRoutePolicy.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiFlapStatisticsRoutePolicy.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiFlapStatisticsRoutePolicy.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-route-policy"
+    clearBgpAfiSafiFlapStatisticsRoutePolicy.EntityData.AbsolutePath = clearBgpAfiSafiFlapStatisticsRoutePolicy.EntityData.SegmentPath
     clearBgpAfiSafiFlapStatisticsRoutePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiFlapStatisticsRoutePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiFlapStatisticsRoutePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3154,6 +3209,7 @@ func (input *ClearBgpAfiSafiFlapStatisticsRoutePolicy_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-flap-statistics-route-policy"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-route-policy/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3185,6 +3241,7 @@ func (clearBgpAfiSafiFlapStatistics *ClearBgpAfiSafiFlapStatistics) GetEntityDat
     clearBgpAfiSafiFlapStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiFlapStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiFlapStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics"
+    clearBgpAfiSafiFlapStatistics.EntityData.AbsolutePath = clearBgpAfiSafiFlapStatistics.EntityData.SegmentPath
     clearBgpAfiSafiFlapStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiFlapStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiFlapStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3213,6 +3270,7 @@ func (input *ClearBgpAfiSafiFlapStatistics_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-flap-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3244,6 +3302,7 @@ func (clearBgpAfiSafiNexthopPerformanceStatistics *ClearBgpAfiSafiNexthopPerform
     clearBgpAfiSafiNexthopPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiNexthopPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiNexthopPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-nexthop-performance-statistics"
+    clearBgpAfiSafiNexthopPerformanceStatistics.EntityData.AbsolutePath = clearBgpAfiSafiNexthopPerformanceStatistics.EntityData.SegmentPath
     clearBgpAfiSafiNexthopPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiNexthopPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiNexthopPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3272,6 +3331,7 @@ func (input *ClearBgpAfiSafiNexthopPerformanceStatistics_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-nexthop-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-nexthop-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3303,6 +3363,7 @@ func (clearBgpAfiSafiNexthopRegistrationIpAddr *ClearBgpAfiSafiNexthopRegistrati
     clearBgpAfiSafiNexthopRegistrationIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiNexthopRegistrationIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiNexthopRegistrationIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-nexthop-registration-ip-addr"
+    clearBgpAfiSafiNexthopRegistrationIpAddr.EntityData.AbsolutePath = clearBgpAfiSafiNexthopRegistrationIpAddr.EntityData.SegmentPath
     clearBgpAfiSafiNexthopRegistrationIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiNexthopRegistrationIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiNexthopRegistrationIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3339,6 +3400,7 @@ func (input *ClearBgpAfiSafiNexthopRegistrationIpAddr_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-nexthop-registration-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-nexthop-registration-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3370,6 +3432,7 @@ func (clearBgpAfiSafiSelfOriginated *ClearBgpAfiSafiSelfOriginated) GetEntityDat
     clearBgpAfiSafiSelfOriginated.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiSelfOriginated.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiSelfOriginated.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-self-originated"
+    clearBgpAfiSafiSelfOriginated.EntityData.AbsolutePath = clearBgpAfiSafiSelfOriginated.EntityData.SegmentPath
     clearBgpAfiSafiSelfOriginated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiSelfOriginated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiSelfOriginated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3398,6 +3461,7 @@ func (input *ClearBgpAfiSafiSelfOriginated_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-self-originated"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-self-originated/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3428,6 +3492,7 @@ func (clearBgpAfiSafiShutdown *ClearBgpAfiSafiShutdown) GetEntityData() *types.C
     clearBgpAfiSafiShutdown.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-shutdown"
+    clearBgpAfiSafiShutdown.EntityData.AbsolutePath = clearBgpAfiSafiShutdown.EntityData.SegmentPath
     clearBgpAfiSafiShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3456,6 +3521,7 @@ func (input *ClearBgpAfiSafiShutdown_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-shutdown"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-shutdown/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3489,6 +3555,7 @@ func (clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent *ClearBgpAfiSafiUpdateO
     clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-address-family-update-parent"
+    clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3517,6 +3584,7 @@ func (input *ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-address-family-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-address-family-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3549,6 +3617,7 @@ func (clearBgpAfiSafiUpdateOutqAddressFamily *ClearBgpAfiSafiUpdateOutqAddressFa
     clearBgpAfiSafiUpdateOutqAddressFamily.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqAddressFamily.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqAddressFamily.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-address-family"
+    clearBgpAfiSafiUpdateOutqAddressFamily.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqAddressFamily.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqAddressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqAddressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqAddressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3577,6 +3646,7 @@ func (input *ClearBgpAfiSafiUpdateOutqAddressFamily_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-address-family"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-address-family/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3611,6 +3681,7 @@ func (clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent *ClearBgpAfiSaf
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
+    clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3647,6 +3718,7 @@ func (input *ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent_Input) G
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3681,6 +3753,7 @@ func (clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh *ClearBgpAfiSafiUpdateOutqN
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh"
+    clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3717,6 +3790,7 @@ func (input *ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-refresh/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3751,6 +3825,7 @@ func (clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent *ClearBgpAfiSafiUpdate
     clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-update-parent"
+    clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3787,6 +3862,7 @@ func (input *ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-neighbor-ip-addr-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3820,6 +3896,7 @@ func (clearBgpAfiSafiUpdateOutqNeighborIpAddr *ClearBgpAfiSafiUpdateOutqNeighbor
     clearBgpAfiSafiUpdateOutqNeighborIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqNeighborIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqNeighborIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr"
+    clearBgpAfiSafiUpdateOutqNeighborIpAddr.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqNeighborIpAddr.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqNeighborIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqNeighborIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqNeighborIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3856,6 +3933,7 @@ func (input *ClearBgpAfiSafiUpdateOutqNeighborIpAddr_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-neighbor-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-neighbor-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3891,6 +3969,7 @@ func (clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent *ClearBgpAfiSafiU
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-update-parent"
+    clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3927,6 +4006,7 @@ func (input *ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent_Input) Get
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-update-group-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3962,6 +4042,7 @@ func (clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup *ClearBgpAfiSafiUpdateOutqUpd
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group"
+    clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3998,6 +4079,7 @@ func (input *ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-update-group-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4034,6 +4116,7 @@ func (clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent *C
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
+    clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4070,6 +4153,7 @@ func (input *ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdatePa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4105,6 +4189,7 @@ func (clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup *ClearBgpAfiSa
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
+    clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4141,6 +4226,7 @@ func (input *ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup_Input) 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-sub-group-refresh-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4176,6 +4262,7 @@ func (clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent *ClearBgpAfiSafiUpdateOut
     clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-update-parent"
+    clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4208,6 +4295,7 @@ func (input *ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent_Input) GetEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-update-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4241,6 +4329,7 @@ func (clearBgpAfiSafiUpdateOutqUpdateGroup *ClearBgpAfiSafiUpdateOutqUpdateGroup
     clearBgpAfiSafiUpdateOutqUpdateGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiUpdateOutqUpdateGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiUpdateOutqUpdateGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group"
+    clearBgpAfiSafiUpdateOutqUpdateGroup.EntityData.AbsolutePath = clearBgpAfiSafiUpdateOutqUpdateGroup.EntityData.SegmentPath
     clearBgpAfiSafiUpdateOutqUpdateGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiUpdateOutqUpdateGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiUpdateOutqUpdateGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4273,6 +4362,7 @@ func (input *ClearBgpAfiSafiUpdateOutqUpdateGroup_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-update-outq-update-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-update-outq-update-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4305,6 +4395,7 @@ func (clearBgpAsGraceful *ClearBgpAsGraceful) GetEntityData() *types.CommonEntit
     clearBgpAsGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAsGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAsGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-as-graceful"
+    clearBgpAsGraceful.EntityData.AbsolutePath = clearBgpAsGraceful.EntityData.SegmentPath
     clearBgpAsGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAsGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAsGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4336,6 +4427,7 @@ func (input *ClearBgpAsGraceful_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-as-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-as-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4366,6 +4458,7 @@ func (clearBgpAs *ClearBgpAs) GetEntityData() *types.CommonEntityData {
     clearBgpAs.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAs.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAs.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-as"
+    clearBgpAs.EntityData.AbsolutePath = clearBgpAs.EntityData.SegmentPath
     clearBgpAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4397,6 +4490,7 @@ func (input *ClearBgpAs_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-as"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-as/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4427,6 +4521,7 @@ func (clearBgpBestpathIpAddrIpNetmask *ClearBgpBestpathIpAddrIpNetmask) GetEntit
     clearBgpBestpathIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-addr-ip-netmask"
+    clearBgpBestpathIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpBestpathIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpBestpathIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4466,6 +4561,7 @@ func (input *ClearBgpBestpathIpAddrIpNetmask_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4497,6 +4593,7 @@ func (clearBgpBestpathIpAddr *ClearBgpBestpathIpAddr) GetEntityData() *types.Com
     clearBgpBestpathIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-addr"
+    clearBgpBestpathIpAddr.EntityData.AbsolutePath = clearBgpBestpathIpAddr.EntityData.SegmentPath
     clearBgpBestpathIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4529,6 +4626,7 @@ func (input *ClearBgpBestpathIpAddr_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4559,6 +4657,7 @@ func (clearBgpBestpathIpPrefix *ClearBgpBestpathIpPrefix) GetEntityData() *types
     clearBgpBestpathIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-prefix"
+    clearBgpBestpathIpPrefix.EntityData.AbsolutePath = clearBgpBestpathIpPrefix.EntityData.SegmentPath
     clearBgpBestpathIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4592,6 +4691,7 @@ func (input *ClearBgpBestpathIpPrefix_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4622,6 +4722,7 @@ func (clearBgpBestpathAfiSafiIpAddrIpNetmask *ClearBgpBestpathAfiSafiIpAddrIpNet
     clearBgpBestpathAfiSafiIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-addr-ip-netmask"
+    clearBgpBestpathAfiSafiIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4664,6 +4765,7 @@ func (input *ClearBgpBestpathAfiSafiIpAddrIpNetmask_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4696,6 +4798,7 @@ func (clearBgpBestpathAfiSafiIpAddr *ClearBgpBestpathAfiSafiIpAddr) GetEntityDat
     clearBgpBestpathAfiSafiIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-addr"
+    clearBgpBestpathAfiSafiIpAddr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpAddr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4731,6 +4834,7 @@ func (input *ClearBgpBestpathAfiSafiIpAddr_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4762,6 +4866,7 @@ func (clearBgpBestpathAfiSafiIpPrefix *ClearBgpBestpathAfiSafiIpPrefix) GetEntit
     clearBgpBestpathAfiSafiIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-prefix"
+    clearBgpBestpathAfiSafiIpPrefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpPrefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4798,6 +4903,7 @@ func (input *ClearBgpBestpathAfiSafiIpPrefix_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4830,6 +4936,7 @@ func (clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask *ClearBgpBestpathAfiSaf
     clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask"
+    clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4875,6 +4982,7 @@ func (input *ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4909,6 +5017,7 @@ func (clearBgpBestpathAfiSafiBridgeDomainIpAddr *ClearBgpBestpathAfiSafiBridgeDo
     clearBgpBestpathAfiSafiBridgeDomainIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiBridgeDomainIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiBridgeDomainIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr"
+    clearBgpBestpathAfiSafiBridgeDomainIpAddr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiBridgeDomainIpAddr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiBridgeDomainIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiBridgeDomainIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiBridgeDomainIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4947,6 +5056,7 @@ func (input *ClearBgpBestpathAfiSafiBridgeDomainIpAddr_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4980,6 +5090,7 @@ func (clearBgpBestpathAfiSafiBridgeDomainIpPrefix *ClearBgpBestpathAfiSafiBridge
     clearBgpBestpathAfiSafiBridgeDomainIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiBridgeDomainIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiBridgeDomainIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-prefix"
+    clearBgpBestpathAfiSafiBridgeDomainIpPrefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiBridgeDomainIpPrefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiBridgeDomainIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiBridgeDomainIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiBridgeDomainIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5019,6 +5130,7 @@ func (input *ClearBgpBestpathAfiSafiBridgeDomainIpPrefix_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-bridge-domain-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5052,6 +5164,7 @@ func (clearBgpBestpathAfiSafiRdIpAddrIpNetmask *ClearBgpBestpathAfiSafiRdIpAddrI
     clearBgpBestpathAfiSafiRdIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-addr-ip-netmask"
+    clearBgpBestpathAfiSafiRdIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5102,6 +5215,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpAddrIpNetmask_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5136,6 +5250,7 @@ func (clearBgpBestpathAfiSafiRdIpAddr *ClearBgpBestpathAfiSafiRdIpAddr) GetEntit
     clearBgpBestpathAfiSafiRdIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-addr"
+    clearBgpBestpathAfiSafiRdIpAddr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpAddr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5179,6 +5294,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpAddr_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5212,6 +5328,7 @@ func (clearBgpBestpathAfiSafiRdIpPrefix *ClearBgpBestpathAfiSafiRdIpPrefix) GetE
     clearBgpBestpathAfiSafiRdIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-prefix"
+    clearBgpBestpathAfiSafiRdIpPrefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpPrefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5256,6 +5373,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpPrefix_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5288,6 +5406,7 @@ func (clearBgpBestpathAfiSafiIpv4AddrIpv4Mask *ClearBgpBestpathAfiSafiIpv4AddrIp
     clearBgpBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-addr-ipv4-mask"
+    clearBgpBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5326,6 +5445,7 @@ func (input *ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5358,6 +5478,7 @@ func (clearBgpBestpathAfiSafiIpv4Addr *ClearBgpBestpathAfiSafiIpv4Addr) GetEntit
     clearBgpBestpathAfiSafiIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-addr"
+    clearBgpBestpathAfiSafiIpv4Addr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpv4Addr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5391,6 +5512,7 @@ func (input *ClearBgpBestpathAfiSafiIpv4Addr_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5422,6 +5544,7 @@ func (clearBgpBestpathAfiSafiIpv4Prefix *ClearBgpBestpathAfiSafiIpv4Prefix) GetE
     clearBgpBestpathAfiSafiIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-prefix"
+    clearBgpBestpathAfiSafiIpv4Prefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpv4Prefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5455,6 +5578,7 @@ func (input *ClearBgpBestpathAfiSafiIpv4Prefix_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5487,6 +5611,7 @@ func (clearBgpBestpathAfiSafiRdIpv4Addr *ClearBgpBestpathAfiSafiRdIpv4Addr) GetE
     clearBgpBestpathAfiSafiRdIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-addr"
+    clearBgpBestpathAfiSafiRdIpv4Addr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpv4Addr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5528,6 +5653,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpv4Addr_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5561,6 +5687,7 @@ func (clearBgpBestpathAfiSafiVrfIpv4Addr *ClearBgpBestpathAfiSafiVrfIpv4Addr) Ge
     clearBgpBestpathAfiSafiVrfIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiVrfIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiVrfIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-addr"
+    clearBgpBestpathAfiSafiVrfIpv4Addr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiVrfIpv4Addr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiVrfIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiVrfIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiVrfIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5597,6 +5724,7 @@ func (input *ClearBgpBestpathAfiSafiVrfIpv4Addr_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-vrf-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5629,6 +5757,7 @@ func (clearBgpBestpathAfiSafiNetwork *ClearBgpBestpathAfiSafiNetwork) GetEntityD
     clearBgpBestpathAfiSafiNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-network"
+    clearBgpBestpathAfiSafiNetwork.EntityData.AbsolutePath = clearBgpBestpathAfiSafiNetwork.EntityData.SegmentPath
     clearBgpBestpathAfiSafiNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5661,6 +5790,7 @@ func (input *ClearBgpBestpathAfiSafiNetwork_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5693,6 +5823,7 @@ func (clearBgpBestpathAfiSafiRdNetwork *ClearBgpBestpathAfiSafiRdNetwork) GetEnt
     clearBgpBestpathAfiSafiRdNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-network"
+    clearBgpBestpathAfiSafiRdNetwork.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdNetwork.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5733,6 +5864,7 @@ func (input *ClearBgpBestpathAfiSafiRdNetwork_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5766,6 +5898,7 @@ func (clearBgpBestpathAfiSafiVrfNetwork *ClearBgpBestpathAfiSafiVrfNetwork) GetE
     clearBgpBestpathAfiSafiVrfNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiVrfNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiVrfNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-network"
+    clearBgpBestpathAfiSafiVrfNetwork.EntityData.AbsolutePath = clearBgpBestpathAfiSafiVrfNetwork.EntityData.SegmentPath
     clearBgpBestpathAfiSafiVrfNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiVrfNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiVrfNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5801,6 +5934,7 @@ func (input *ClearBgpBestpathAfiSafiVrfNetwork_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-vrf-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5833,6 +5967,7 @@ func (clearBgpBestpathAfiSafiRtConstraintNetwork *ClearBgpBestpathAfiSafiRtConst
     clearBgpBestpathAfiSafiRtConstraintNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRtConstraintNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRtConstraintNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rt-constraint-network"
+    clearBgpBestpathAfiSafiRtConstraintNetwork.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRtConstraintNetwork.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRtConstraintNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRtConstraintNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRtConstraintNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5864,6 +5999,7 @@ func (input *ClearBgpBestpathAfiSafiRtConstraintNetwork_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rt-constraint-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rt-constraint-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5895,6 +6031,7 @@ func (clearBgpBestpathAfiSafiIpv4TunnelNetwork *ClearBgpBestpathAfiSafiIpv4Tunne
     clearBgpBestpathAfiSafiIpv4TunnelNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpv4TunnelNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpv4TunnelNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-tunnel-network"
+    clearBgpBestpathAfiSafiIpv4TunnelNetwork.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpv4TunnelNetwork.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpv4TunnelNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpv4TunnelNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpv4TunnelNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5927,6 +6064,7 @@ func (input *ClearBgpBestpathAfiSafiIpv4TunnelNetwork_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ipv4-tunnel-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv4-tunnel-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5958,6 +6096,7 @@ func (clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask *ClearBgpBestpathAfiSafiIpv6Add
     clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-addr-ipv6-netmask"
+    clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5996,6 +6135,7 @@ func (input *ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6028,6 +6168,7 @@ func (clearBgpBestpathAfiSafiIpv6Addr *ClearBgpBestpathAfiSafiIpv6Addr) GetEntit
     clearBgpBestpathAfiSafiIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-addr"
+    clearBgpBestpathAfiSafiIpv6Addr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpv6Addr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6061,6 +6202,7 @@ func (input *ClearBgpBestpathAfiSafiIpv6Addr_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6092,6 +6234,7 @@ func (clearBgpBestpathAfiSafiIpv6Prefix *ClearBgpBestpathAfiSafiIpv6Prefix) GetE
     clearBgpBestpathAfiSafiIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-prefix"
+    clearBgpBestpathAfiSafiIpv6Prefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiIpv6Prefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6125,6 +6268,7 @@ func (input *ClearBgpBestpathAfiSafiIpv6Prefix_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6157,6 +6301,7 @@ func (clearBgpBestpathAfiSafiRd *ClearBgpBestpathAfiSafiRd) GetEntityData() *typ
     clearBgpBestpathAfiSafiRd.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd"
+    clearBgpBestpathAfiSafiRd.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRd.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6193,6 +6338,7 @@ func (input *ClearBgpBestpathAfiSafiRd_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6225,6 +6371,7 @@ func (clearBgpBestpathAfiSafiVrf *ClearBgpBestpathAfiSafiVrf) GetEntityData() *t
     clearBgpBestpathAfiSafiVrf.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf"
+    clearBgpBestpathAfiSafiVrf.EntityData.AbsolutePath = clearBgpBestpathAfiSafiVrf.EntityData.SegmentPath
     clearBgpBestpathAfiSafiVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6256,6 +6403,7 @@ func (input *ClearBgpBestpathAfiSafiVrf_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6287,6 +6435,7 @@ func (clearBgpBestpathAfiSafi *ClearBgpBestpathAfiSafi) GetEntityData() *types.C
     clearBgpBestpathAfiSafi.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafi.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafi.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi"
+    clearBgpBestpathAfiSafi.EntityData.AbsolutePath = clearBgpBestpathAfiSafi.EntityData.SegmentPath
     clearBgpBestpathAfiSafi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6315,6 +6464,7 @@ func (input *ClearBgpBestpathAfiSafi_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6345,6 +6495,7 @@ func (clearBgpBestpathAfiSafiSrPolicyPrefix *ClearBgpBestpathAfiSafiSrPolicyPref
     clearBgpBestpathAfiSafiSrPolicyPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiSrPolicyPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiSrPolicyPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-sr-policy-prefix"
+    clearBgpBestpathAfiSafiSrPolicyPrefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiSrPolicyPrefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiSrPolicyPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiSrPolicyPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiSrPolicyPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6376,6 +6527,7 @@ func (input *ClearBgpBestpathAfiSafiSrPolicyPrefix_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-sr-policy-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-sr-policy-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6408,6 +6560,7 @@ func (clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix *ClearBgpBestpathAfiSafiBrid
     clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ipv4-prefix"
+    clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6444,6 +6597,7 @@ func (input *ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-bridge-domain-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-bridge-domain-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6477,6 +6631,7 @@ func (clearBgpBestpathAfiSafiRdIpv4Prefix *ClearBgpBestpathAfiSafiRdIpv4Prefix) 
     clearBgpBestpathAfiSafiRdIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-prefix"
+    clearBgpBestpathAfiSafiRdIpv4Prefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpv4Prefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6518,6 +6673,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpv4Prefix_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6551,6 +6707,7 @@ func (clearBgpBestpathAfiSafiMp2mpIpv4Prefix *ClearBgpBestpathAfiSafiMp2mpIpv4Pr
     clearBgpBestpathAfiSafiMp2mpIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiMp2mpIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiMp2mpIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-mp2mp-ipv4-prefix"
+    clearBgpBestpathAfiSafiMp2mpIpv4Prefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiMp2mpIpv4Prefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiMp2mpIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiMp2mpIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiMp2mpIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6587,6 +6744,7 @@ func (input *ClearBgpBestpathAfiSafiMp2mpIpv4Prefix_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-mp2mp-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-mp2mp-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6620,6 +6778,7 @@ func (clearBgpBestpathAfiSafiVrfIpv4Prefix *ClearBgpBestpathAfiSafiVrfIpv4Prefix
     clearBgpBestpathAfiSafiVrfIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiVrfIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiVrfIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-prefix"
+    clearBgpBestpathAfiSafiVrfIpv4Prefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiVrfIpv4Prefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiVrfIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiVrfIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiVrfIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6656,6 +6815,7 @@ func (input *ClearBgpBestpathAfiSafiVrfIpv4Prefix_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-vrf-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6689,6 +6849,7 @@ func (clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask *ClearBgpBestpathAfiSafiRdIpv4Ad
     clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask"
+    clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6735,6 +6896,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6769,6 +6931,7 @@ func (clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask *ClearBgpBestpathAfiSafiVrfIpv4
     clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask"
+    clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6810,6 +6973,7 @@ func (input *ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6844,6 +7008,7 @@ func (clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask *ClearBgpBestpathAfiSafiRdIpv
     clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask"
+    clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6890,6 +7055,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6924,6 +7090,7 @@ func (clearBgpBestpathAfiSafiRdIpv6Addr *ClearBgpBestpathAfiSafiRdIpv6Addr) GetE
     clearBgpBestpathAfiSafiRdIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-addr"
+    clearBgpBestpathAfiSafiRdIpv6Addr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpv6Addr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6965,6 +7132,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpv6Addr_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6998,6 +7166,7 @@ func (clearBgpBestpathAfiSafiRdIpv6Prefix *ClearBgpBestpathAfiSafiRdIpv6Prefix) 
     clearBgpBestpathAfiSafiRdIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiRdIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiRdIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-prefix"
+    clearBgpBestpathAfiSafiRdIpv6Prefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiRdIpv6Prefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiRdIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiRdIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiRdIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7039,6 +7208,7 @@ func (input *ClearBgpBestpathAfiSafiRdIpv6Prefix_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-rd-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-rd-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7072,6 +7242,7 @@ func (clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask *ClearBgpBestpathAfiSafiVrfI
     clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask"
+    clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7113,6 +7284,7 @@ func (input *ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7147,6 +7319,7 @@ func (clearBgpBestpathAfiSafiVrfIpv6Addr *ClearBgpBestpathAfiSafiVrfIpv6Addr) Ge
     clearBgpBestpathAfiSafiVrfIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiVrfIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiVrfIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-addr"
+    clearBgpBestpathAfiSafiVrfIpv6Addr.EntityData.AbsolutePath = clearBgpBestpathAfiSafiVrfIpv6Addr.EntityData.SegmentPath
     clearBgpBestpathAfiSafiVrfIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiVrfIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiVrfIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7183,6 +7356,7 @@ func (input *ClearBgpBestpathAfiSafiVrfIpv6Addr_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-vrf-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7216,6 +7390,7 @@ func (clearBgpBestpathAfiSafiVrfIpv6Prefix *ClearBgpBestpathAfiSafiVrfIpv6Prefix
     clearBgpBestpathAfiSafiVrfIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathAfiSafiVrfIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathAfiSafiVrfIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-prefix"
+    clearBgpBestpathAfiSafiVrfIpv6Prefix.EntityData.AbsolutePath = clearBgpBestpathAfiSafiVrfIpv6Prefix.EntityData.SegmentPath
     clearBgpBestpathAfiSafiVrfIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathAfiSafiVrfIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathAfiSafiVrfIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7252,6 +7427,7 @@ func (input *ClearBgpBestpathAfiSafiVrfIpv6Prefix_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-afi-safi-vrf-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-afi-safi-vrf-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7285,6 +7461,7 @@ func (clearBgpBestpathVrfIpAddrIpNetmask *ClearBgpBestpathVrfIpAddrIpNetmask) Ge
     clearBgpBestpathVrfIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-addr-ip-netmask"
+    clearBgpBestpathVrfIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpBestpathVrfIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpBestpathVrfIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7329,6 +7506,7 @@ func (input *ClearBgpBestpathVrfIpAddrIpNetmask_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7362,6 +7540,7 @@ func (clearBgpBestpathVrfIpAddr *ClearBgpBestpathVrfIpAddr) GetEntityData() *typ
     clearBgpBestpathVrfIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-addr"
+    clearBgpBestpathVrfIpAddr.EntityData.AbsolutePath = clearBgpBestpathVrfIpAddr.EntityData.SegmentPath
     clearBgpBestpathVrfIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7399,6 +7578,7 @@ func (input *ClearBgpBestpathVrfIpAddr_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7431,6 +7611,7 @@ func (clearBgpBestpathVrfIpPrefix *ClearBgpBestpathVrfIpPrefix) GetEntityData() 
     clearBgpBestpathVrfIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-prefix"
+    clearBgpBestpathVrfIpPrefix.EntityData.AbsolutePath = clearBgpBestpathVrfIpPrefix.EntityData.SegmentPath
     clearBgpBestpathVrfIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7469,6 +7650,7 @@ func (input *ClearBgpBestpathVrfIpPrefix_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7501,6 +7683,7 @@ func (clearBgpBestpathVrfAfiSafiIpv4Prefix *ClearBgpBestpathVrfAfiSafiIpv4Prefix
     clearBgpBestpathVrfAfiSafiIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-prefix"
+    clearBgpBestpathVrfAfiSafiIpv4Prefix.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiIpv4Prefix.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7539,6 +7722,7 @@ func (input *ClearBgpBestpathVrfAfiSafiIpv4Prefix_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7572,6 +7756,7 @@ func (clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask *ClearBgpBestpathVrfAfiSafiIpv4
     clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask"
+    clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7615,6 +7800,7 @@ func (input *ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7649,6 +7835,7 @@ func (clearBgpBestpathVrfAfiSafiIpv4Addr *ClearBgpBestpathVrfAfiSafiIpv4Addr) Ge
     clearBgpBestpathVrfAfiSafiIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-addr"
+    clearBgpBestpathVrfAfiSafiIpv4Addr.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiIpv4Addr.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7687,6 +7874,7 @@ func (input *ClearBgpBestpathVrfAfiSafiIpv4Addr_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7720,6 +7908,7 @@ func (clearBgpBestpathVrfAfiSafiNetwork *ClearBgpBestpathVrfAfiSafiNetwork) GetE
     clearBgpBestpathVrfAfiSafiNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-network"
+    clearBgpBestpathVrfAfiSafiNetwork.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiNetwork.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7757,6 +7946,7 @@ func (input *ClearBgpBestpathVrfAfiSafiNetwork_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7791,6 +7981,7 @@ func (clearBgpBestpathVrfAfiSafiRdNetwork *ClearBgpBestpathVrfAfiSafiRdNetwork) 
     clearBgpBestpathVrfAfiSafiRdNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiRdNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiRdNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-rd-network"
+    clearBgpBestpathVrfAfiSafiRdNetwork.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiRdNetwork.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiRdNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiRdNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiRdNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7836,6 +8027,7 @@ func (input *ClearBgpBestpathVrfAfiSafiRdNetwork_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-rd-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-rd-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7871,6 +8063,7 @@ func (clearBgpBestpathVrfAfiSafiVrfNetwork *ClearBgpBestpathVrfAfiSafiVrfNetwork
     clearBgpBestpathVrfAfiSafiVrfNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiVrfNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiVrfNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-vrf-network"
+    clearBgpBestpathVrfAfiSafiVrfNetwork.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiVrfNetwork.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiVrfNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiVrfNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiVrfNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7911,6 +8104,7 @@ func (input *ClearBgpBestpathVrfAfiSafiVrfNetwork_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-vrf-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-vrf-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7945,6 +8139,7 @@ func (clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask *ClearBgpBestpathVrfAfiSafiI
     clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask"
+    clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7988,6 +8183,7 @@ func (input *ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8022,6 +8218,7 @@ func (clearBgpBestpathVrfAfiSafiIpv6Addr *ClearBgpBestpathVrfAfiSafiIpv6Addr) Ge
     clearBgpBestpathVrfAfiSafiIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-addr"
+    clearBgpBestpathVrfAfiSafiIpv6Addr.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiIpv6Addr.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8060,6 +8257,7 @@ func (input *ClearBgpBestpathVrfAfiSafiIpv6Addr_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8093,6 +8291,7 @@ func (clearBgpBestpathVrfAfiSafiIpv6Prefix *ClearBgpBestpathVrfAfiSafiIpv6Prefix
     clearBgpBestpathVrfAfiSafiIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-prefix"
+    clearBgpBestpathVrfAfiSafiIpv6Prefix.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiIpv6Prefix.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8131,6 +8330,7 @@ func (input *ClearBgpBestpathVrfAfiSafiIpv6Prefix_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8165,6 +8365,7 @@ func (clearBgpBestpathVrfAfiSafiRd *ClearBgpBestpathVrfAfiSafiRd) GetEntityData(
     clearBgpBestpathVrfAfiSafiRd.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiRd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiRd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-rd"
+    clearBgpBestpathVrfAfiSafiRd.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiRd.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiRd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiRd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiRd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8206,6 +8407,7 @@ func (input *ClearBgpBestpathVrfAfiSafiRd_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-rd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-rd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8240,6 +8442,7 @@ func (clearBgpBestpathVrfAfiSafiVrf *ClearBgpBestpathVrfAfiSafiVrf) GetEntityDat
     clearBgpBestpathVrfAfiSafiVrf.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafiVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafiVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-vrf"
+    clearBgpBestpathVrfAfiSafiVrf.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafiVrf.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafiVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafiVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafiVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8276,6 +8479,7 @@ func (input *ClearBgpBestpathVrfAfiSafiVrf_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8309,6 +8513,7 @@ func (clearBgpBestpathVrfAfiSafi *ClearBgpBestpathVrfAfiSafi) GetEntityData() *t
     clearBgpBestpathVrfAfiSafi.EntityData.BundleName = "cisco_ios_xr"
     clearBgpBestpathVrfAfiSafi.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpBestpathVrfAfiSafi.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi"
+    clearBgpBestpathVrfAfiSafi.EntityData.AbsolutePath = clearBgpBestpathVrfAfiSafi.EntityData.SegmentPath
     clearBgpBestpathVrfAfiSafi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpBestpathVrfAfiSafi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpBestpathVrfAfiSafi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8342,6 +8547,7 @@ func (input *ClearBgpBestpathVrfAfiSafi_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-bestpath-vrf-afi-safi"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-bestpath-vrf-afi-safi/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8371,6 +8577,7 @@ func (clearBgpExternalGraceful *ClearBgpExternalGraceful) GetEntityData() *types
     clearBgpExternalGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpExternalGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpExternalGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-external-graceful"
+    clearBgpExternalGraceful.EntityData.AbsolutePath = clearBgpExternalGraceful.EntityData.SegmentPath
     clearBgpExternalGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpExternalGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpExternalGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8397,6 +8604,7 @@ func (clearBgpExternal *ClearBgpExternal) GetEntityData() *types.CommonEntityDat
     clearBgpExternal.EntityData.BundleName = "cisco_ios_xr"
     clearBgpExternal.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpExternal.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-external"
+    clearBgpExternal.EntityData.AbsolutePath = clearBgpExternal.EntityData.SegmentPath
     clearBgpExternal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpExternal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpExternal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8428,6 +8636,7 @@ func (clearBgpInstanceAllGraceful *ClearBgpInstanceAllGraceful) GetEntityData() 
     clearBgpInstanceAllGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAllGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAllGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-all-graceful"
+    clearBgpInstanceAllGraceful.EntityData.AbsolutePath = clearBgpInstanceAllGraceful.EntityData.SegmentPath
     clearBgpInstanceAllGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAllGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAllGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8458,6 +8667,7 @@ func (input *ClearBgpInstanceAllGraceful_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-all-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-all-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8489,6 +8699,7 @@ func (clearBgpInstanceAll *ClearBgpInstanceAll) GetEntityData() *types.CommonEnt
     clearBgpInstanceAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-all"
+    clearBgpInstanceAll.EntityData.AbsolutePath = clearBgpInstanceAll.EntityData.SegmentPath
     clearBgpInstanceAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8519,6 +8730,7 @@ func (input *ClearBgpInstanceAll_Input) GetEntityData() *types.CommonEntityData 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-all"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-all/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8550,6 +8762,7 @@ func (clearBgpInstanceIpAddrGraceful *ClearBgpInstanceIpAddrGraceful) GetEntityD
     clearBgpInstanceIpAddrGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceIpAddrGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceIpAddrGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr-graceful"
+    clearBgpInstanceIpAddrGraceful.EntityData.AbsolutePath = clearBgpInstanceIpAddrGraceful.EntityData.SegmentPath
     clearBgpInstanceIpAddrGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceIpAddrGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceIpAddrGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8588,6 +8801,7 @@ func (input *ClearBgpInstanceIpAddrGraceful_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-ip-addr-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8620,6 +8834,7 @@ func (clearBgpInstanceIpAddrLongLivedStale *ClearBgpInstanceIpAddrLongLivedStale
     clearBgpInstanceIpAddrLongLivedStale.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceIpAddrLongLivedStale.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceIpAddrLongLivedStale.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr-long-lived-stale"
+    clearBgpInstanceIpAddrLongLivedStale.EntityData.AbsolutePath = clearBgpInstanceIpAddrLongLivedStale.EntityData.SegmentPath
     clearBgpInstanceIpAddrLongLivedStale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceIpAddrLongLivedStale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceIpAddrLongLivedStale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8658,6 +8873,7 @@ func (input *ClearBgpInstanceIpAddrLongLivedStale_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-ip-addr-long-lived-stale"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr-long-lived-stale/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8689,6 +8905,7 @@ func (clearBgpInstanceIpAddr *ClearBgpInstanceIpAddr) GetEntityData() *types.Com
     clearBgpInstanceIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr"
+    clearBgpInstanceIpAddr.EntityData.AbsolutePath = clearBgpInstanceIpAddr.EntityData.SegmentPath
     clearBgpInstanceIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8727,6 +8944,7 @@ func (input *ClearBgpInstanceIpAddr_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8762,6 +8980,7 @@ func (clearBgpInstanceAfiSafiAllSoftInPrefixFilter *ClearBgpInstanceAfiSafiAllSo
     clearBgpInstanceAfiSafiAllSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiAllSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiAllSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-in-prefix-filter"
+    clearBgpInstanceAfiSafiAllSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpInstanceAfiSafiAllSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpInstanceAfiSafiAllSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiAllSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiAllSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8795,6 +9014,7 @@ func (input *ClearBgpInstanceAfiSafiAllSoftInPrefixFilter_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-all-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8829,6 +9049,7 @@ func (clearBgpInstanceAfiSafiAllSoftIn *ClearBgpInstanceAfiSafiAllSoftIn) GetEnt
     clearBgpInstanceAfiSafiAllSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiAllSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiAllSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-in"
+    clearBgpInstanceAfiSafiAllSoftIn.EntityData.AbsolutePath = clearBgpInstanceAfiSafiAllSoftIn.EntityData.SegmentPath
     clearBgpInstanceAfiSafiAllSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiAllSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiAllSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8862,6 +9083,7 @@ func (input *ClearBgpInstanceAfiSafiAllSoftIn_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-all-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8896,6 +9118,7 @@ func (clearBgpInstanceAfiSafiAllSoftOut *ClearBgpInstanceAfiSafiAllSoftOut) GetE
     clearBgpInstanceAfiSafiAllSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiAllSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiAllSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-out"
+    clearBgpInstanceAfiSafiAllSoftOut.EntityData.AbsolutePath = clearBgpInstanceAfiSafiAllSoftOut.EntityData.SegmentPath
     clearBgpInstanceAfiSafiAllSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiAllSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiAllSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8929,6 +9152,7 @@ func (input *ClearBgpInstanceAfiSafiAllSoftOut_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-all-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8962,6 +9186,7 @@ func (clearBgpInstanceAfiSafiAllSoft *ClearBgpInstanceAfiSafiAllSoft) GetEntityD
     clearBgpInstanceAfiSafiAllSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiAllSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiAllSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft"
+    clearBgpInstanceAfiSafiAllSoft.EntityData.AbsolutePath = clearBgpInstanceAfiSafiAllSoft.EntityData.SegmentPath
     clearBgpInstanceAfiSafiAllSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiAllSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiAllSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -8995,6 +9220,7 @@ func (input *ClearBgpInstanceAfiSafiAllSoft_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-all-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-all-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9027,6 +9253,7 @@ func (clearBgpInstanceAfiSafiIpAddrLongLivedStale *ClearBgpInstanceAfiSafiIpAddr
     clearBgpInstanceAfiSafiIpAddrLongLivedStale.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiIpAddrLongLivedStale.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiIpAddrLongLivedStale.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-long-lived-stale"
+    clearBgpInstanceAfiSafiIpAddrLongLivedStale.EntityData.AbsolutePath = clearBgpInstanceAfiSafiIpAddrLongLivedStale.EntityData.SegmentPath
     clearBgpInstanceAfiSafiIpAddrLongLivedStale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiIpAddrLongLivedStale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiIpAddrLongLivedStale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9068,6 +9295,7 @@ func (input *ClearBgpInstanceAfiSafiIpAddrLongLivedStale_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-ip-addr-long-lived-stale"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-long-lived-stale/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9103,6 +9331,7 @@ func (clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter *ClearBgpInstanceAfiSafiIp
     clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-in-prefix-filter"
+    clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9144,6 +9373,7 @@ func (input *ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-ip-addr-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9178,6 +9408,7 @@ func (clearBgpInstanceAfiSafiIpAddrSoftIn *ClearBgpInstanceAfiSafiIpAddrSoftIn) 
     clearBgpInstanceAfiSafiIpAddrSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiIpAddrSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiIpAddrSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-in"
+    clearBgpInstanceAfiSafiIpAddrSoftIn.EntityData.AbsolutePath = clearBgpInstanceAfiSafiIpAddrSoftIn.EntityData.SegmentPath
     clearBgpInstanceAfiSafiIpAddrSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiIpAddrSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiIpAddrSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9219,6 +9450,7 @@ func (input *ClearBgpInstanceAfiSafiIpAddrSoftIn_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-ip-addr-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9253,6 +9485,7 @@ func (clearBgpInstanceAfiSafiIpAddrSoftOut *ClearBgpInstanceAfiSafiIpAddrSoftOut
     clearBgpInstanceAfiSafiIpAddrSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiIpAddrSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiIpAddrSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-out"
+    clearBgpInstanceAfiSafiIpAddrSoftOut.EntityData.AbsolutePath = clearBgpInstanceAfiSafiIpAddrSoftOut.EntityData.SegmentPath
     clearBgpInstanceAfiSafiIpAddrSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiIpAddrSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiIpAddrSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9294,6 +9527,7 @@ func (input *ClearBgpInstanceAfiSafiIpAddrSoftOut_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-ip-addr-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9327,6 +9561,7 @@ func (clearBgpInstanceAfiSafiIpAddrSoft *ClearBgpInstanceAfiSafiIpAddrSoft) GetE
     clearBgpInstanceAfiSafiIpAddrSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiIpAddrSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiIpAddrSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft"
+    clearBgpInstanceAfiSafiIpAddrSoft.EntityData.AbsolutePath = clearBgpInstanceAfiSafiIpAddrSoft.EntityData.SegmentPath
     clearBgpInstanceAfiSafiIpAddrSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiIpAddrSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiIpAddrSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9368,6 +9603,7 @@ func (input *ClearBgpInstanceAfiSafiIpAddrSoft_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-ip-addr-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-ip-addr-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9404,6 +9640,7 @@ func (clearBgpInstanceAfiSafiAsSoftInPrefixFilter *ClearBgpInstanceAfiSafiAsSoft
     clearBgpInstanceAfiSafiAsSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiAsSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiAsSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-in-prefix-filter"
+    clearBgpInstanceAfiSafiAsSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpInstanceAfiSafiAsSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpInstanceAfiSafiAsSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiAsSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiAsSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9443,6 +9680,7 @@ func (input *ClearBgpInstanceAfiSafiAsSoftInPrefixFilter_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-as-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9478,6 +9716,7 @@ func (clearBgpInstanceAfiSafiAsSoftIn *ClearBgpInstanceAfiSafiAsSoftIn) GetEntit
     clearBgpInstanceAfiSafiAsSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiAsSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiAsSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-in"
+    clearBgpInstanceAfiSafiAsSoftIn.EntityData.AbsolutePath = clearBgpInstanceAfiSafiAsSoftIn.EntityData.SegmentPath
     clearBgpInstanceAfiSafiAsSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiAsSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiAsSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9517,6 +9756,7 @@ func (input *ClearBgpInstanceAfiSafiAsSoftIn_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-as-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9552,6 +9792,7 @@ func (clearBgpInstanceAfiSafiAsSoftOut *ClearBgpInstanceAfiSafiAsSoftOut) GetEnt
     clearBgpInstanceAfiSafiAsSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiAsSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiAsSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-out"
+    clearBgpInstanceAfiSafiAsSoftOut.EntityData.AbsolutePath = clearBgpInstanceAfiSafiAsSoftOut.EntityData.SegmentPath
     clearBgpInstanceAfiSafiAsSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiAsSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiAsSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9591,6 +9832,7 @@ func (input *ClearBgpInstanceAfiSafiAsSoftOut_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-as-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9625,6 +9867,7 @@ func (clearBgpInstanceAfiSafiAsSoft *ClearBgpInstanceAfiSafiAsSoft) GetEntityDat
     clearBgpInstanceAfiSafiAsSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiAsSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiAsSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft"
+    clearBgpInstanceAfiSafiAsSoft.EntityData.AbsolutePath = clearBgpInstanceAfiSafiAsSoft.EntityData.SegmentPath
     clearBgpInstanceAfiSafiAsSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiAsSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiAsSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9664,6 +9907,7 @@ func (input *ClearBgpInstanceAfiSafiAsSoft_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-as-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-as-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9697,6 +9941,7 @@ func (clearBgpInstanceAfiSafiDampeningIpPrefix *ClearBgpInstanceAfiSafiDampening
     clearBgpInstanceAfiSafiDampeningIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiDampeningIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiDampeningIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ip-prefix"
+    clearBgpInstanceAfiSafiDampeningIpPrefix.EntityData.AbsolutePath = clearBgpInstanceAfiSafiDampeningIpPrefix.EntityData.SegmentPath
     clearBgpInstanceAfiSafiDampeningIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiDampeningIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiDampeningIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9738,6 +9983,7 @@ func (input *ClearBgpInstanceAfiSafiDampeningIpPrefix_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-dampening-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9771,6 +10017,7 @@ func (clearBgpInstanceAfiSafiDampening *ClearBgpInstanceAfiSafiDampening) GetEnt
     clearBgpInstanceAfiSafiDampening.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiDampening.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiDampening.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening"
+    clearBgpInstanceAfiSafiDampening.EntityData.AbsolutePath = clearBgpInstanceAfiSafiDampening.EntityData.SegmentPath
     clearBgpInstanceAfiSafiDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9804,6 +10051,7 @@ func (input *ClearBgpInstanceAfiSafiDampening_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-dampening"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9839,6 +10087,7 @@ func (clearBgpInstanceAfiSafiExternalSoftInPrefixFilter *ClearBgpInstanceAfiSafi
     clearBgpInstanceAfiSafiExternalSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiExternalSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiExternalSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-in-prefix-filter"
+    clearBgpInstanceAfiSafiExternalSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpInstanceAfiSafiExternalSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpInstanceAfiSafiExternalSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiExternalSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiExternalSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9872,6 +10121,7 @@ func (input *ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-external-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9906,6 +10156,7 @@ func (clearBgpInstanceAfiSafiExternalSoftIn *ClearBgpInstanceAfiSafiExternalSoft
     clearBgpInstanceAfiSafiExternalSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiExternalSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiExternalSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-in"
+    clearBgpInstanceAfiSafiExternalSoftIn.EntityData.AbsolutePath = clearBgpInstanceAfiSafiExternalSoftIn.EntityData.SegmentPath
     clearBgpInstanceAfiSafiExternalSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiExternalSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiExternalSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9939,6 +10190,7 @@ func (input *ClearBgpInstanceAfiSafiExternalSoftIn_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-external-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -9973,6 +10225,7 @@ func (clearBgpInstanceAfiSafiExternalSoftOut *ClearBgpInstanceAfiSafiExternalSof
     clearBgpInstanceAfiSafiExternalSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiExternalSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiExternalSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-out"
+    clearBgpInstanceAfiSafiExternalSoftOut.EntityData.AbsolutePath = clearBgpInstanceAfiSafiExternalSoftOut.EntityData.SegmentPath
     clearBgpInstanceAfiSafiExternalSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiExternalSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiExternalSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10006,6 +10259,7 @@ func (input *ClearBgpInstanceAfiSafiExternalSoftOut_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-external-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10039,6 +10293,7 @@ func (clearBgpInstanceAfiSafiExternalSoft *ClearBgpInstanceAfiSafiExternalSoft) 
     clearBgpInstanceAfiSafiExternalSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiExternalSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiExternalSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft"
+    clearBgpInstanceAfiSafiExternalSoft.EntityData.AbsolutePath = clearBgpInstanceAfiSafiExternalSoft.EntityData.SegmentPath
     clearBgpInstanceAfiSafiExternalSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiExternalSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiExternalSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10072,6 +10327,7 @@ func (input *ClearBgpInstanceAfiSafiExternalSoft_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-external-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-external-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10104,6 +10360,7 @@ func (clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask *ClearBgpInstanceAfiSa
     clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-addr-ipv4-mask"
+    clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10151,6 +10408,7 @@ func (input *ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-flap-statistics-ip-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10185,6 +10443,7 @@ func (clearBgpInstanceAfiSafiFlapStatisticsIpAddr *ClearBgpInstanceAfiSafiFlapSt
     clearBgpInstanceAfiSafiFlapStatisticsIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiFlapStatisticsIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiFlapStatisticsIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-addr"
+    clearBgpInstanceAfiSafiFlapStatisticsIpAddr.EntityData.AbsolutePath = clearBgpInstanceAfiSafiFlapStatisticsIpAddr.EntityData.SegmentPath
     clearBgpInstanceAfiSafiFlapStatisticsIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiFlapStatisticsIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiFlapStatisticsIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10226,6 +10485,7 @@ func (input *ClearBgpInstanceAfiSafiFlapStatisticsIpAddr_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-flap-statistics-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10259,6 +10519,7 @@ func (clearBgpInstanceAfiSafiFlapStatisticsIpPrefix *ClearBgpInstanceAfiSafiFlap
     clearBgpInstanceAfiSafiFlapStatisticsIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiFlapStatisticsIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiFlapStatisticsIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-prefix"
+    clearBgpInstanceAfiSafiFlapStatisticsIpPrefix.EntityData.AbsolutePath = clearBgpInstanceAfiSafiFlapStatisticsIpPrefix.EntityData.SegmentPath
     clearBgpInstanceAfiSafiFlapStatisticsIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiFlapStatisticsIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiFlapStatisticsIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10300,6 +10561,7 @@ func (input *ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-flap-statistics-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10334,6 +10596,7 @@ func (clearBgpInstanceAfiSafiFlapStatisticsRegexp *ClearBgpInstanceAfiSafiFlapSt
     clearBgpInstanceAfiSafiFlapStatisticsRegexp.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiFlapStatisticsRegexp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiFlapStatisticsRegexp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-regexp"
+    clearBgpInstanceAfiSafiFlapStatisticsRegexp.EntityData.AbsolutePath = clearBgpInstanceAfiSafiFlapStatisticsRegexp.EntityData.SegmentPath
     clearBgpInstanceAfiSafiFlapStatisticsRegexp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiFlapStatisticsRegexp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiFlapStatisticsRegexp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10371,6 +10634,7 @@ func (input *ClearBgpInstanceAfiSafiFlapStatisticsRegexp_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-flap-statistics-regexp"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-regexp/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10405,6 +10669,7 @@ func (clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy *ClearBgpInstanceAfiSafiF
     clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-route-policy"
+    clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.EntityData.AbsolutePath = clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.EntityData.SegmentPath
     clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiFlapStatisticsRoutePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10441,6 +10706,7 @@ func (input *ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy_Input) GetEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-flap-statistics-route-policy"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-route-policy/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10474,6 +10740,7 @@ func (clearBgpInstanceAfiSafiFlapStatistics *ClearBgpInstanceAfiSafiFlapStatisti
     clearBgpInstanceAfiSafiFlapStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiFlapStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiFlapStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics"
+    clearBgpInstanceAfiSafiFlapStatistics.EntityData.AbsolutePath = clearBgpInstanceAfiSafiFlapStatistics.EntityData.SegmentPath
     clearBgpInstanceAfiSafiFlapStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiFlapStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiFlapStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10507,6 +10774,7 @@ func (input *ClearBgpInstanceAfiSafiFlapStatistics_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-flap-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10540,6 +10808,7 @@ func (clearBgpInstanceAfiSafiNexthopPerformanceStatistics *ClearBgpInstanceAfiSa
     clearBgpInstanceAfiSafiNexthopPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiNexthopPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiNexthopPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-nexthop-performance-statistics"
+    clearBgpInstanceAfiSafiNexthopPerformanceStatistics.EntityData.AbsolutePath = clearBgpInstanceAfiSafiNexthopPerformanceStatistics.EntityData.SegmentPath
     clearBgpInstanceAfiSafiNexthopPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiNexthopPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiNexthopPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10573,6 +10842,7 @@ func (input *ClearBgpInstanceAfiSafiNexthopPerformanceStatistics_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-nexthop-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-nexthop-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10606,6 +10876,7 @@ func (clearBgpInstanceAfiSafiNexthopRegistrationIpAddr *ClearBgpInstanceAfiSafiN
     clearBgpInstanceAfiSafiNexthopRegistrationIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiNexthopRegistrationIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiNexthopRegistrationIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-nexthop-registration-ip-addr"
+    clearBgpInstanceAfiSafiNexthopRegistrationIpAddr.EntityData.AbsolutePath = clearBgpInstanceAfiSafiNexthopRegistrationIpAddr.EntityData.SegmentPath
     clearBgpInstanceAfiSafiNexthopRegistrationIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiNexthopRegistrationIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiNexthopRegistrationIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10647,6 +10918,7 @@ func (input *ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr_Input) GetEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-nexthop-registration-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-nexthop-registration-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10680,6 +10952,7 @@ func (clearBgpInstanceAfiSafiSelfOriginated *ClearBgpInstanceAfiSafiSelfOriginat
     clearBgpInstanceAfiSafiSelfOriginated.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiSelfOriginated.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiSelfOriginated.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-self-originated"
+    clearBgpInstanceAfiSafiSelfOriginated.EntityData.AbsolutePath = clearBgpInstanceAfiSafiSelfOriginated.EntityData.SegmentPath
     clearBgpInstanceAfiSafiSelfOriginated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiSelfOriginated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiSelfOriginated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10713,6 +10986,7 @@ func (input *ClearBgpInstanceAfiSafiSelfOriginated_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-self-originated"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-self-originated/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10745,6 +11019,7 @@ func (clearBgpInstanceAfiSafiShutdown *ClearBgpInstanceAfiSafiShutdown) GetEntit
     clearBgpInstanceAfiSafiShutdown.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-shutdown"
+    clearBgpInstanceAfiSafiShutdown.EntityData.AbsolutePath = clearBgpInstanceAfiSafiShutdown.EntityData.SegmentPath
     clearBgpInstanceAfiSafiShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10778,6 +11053,7 @@ func (input *ClearBgpInstanceAfiSafiShutdown_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-shutdown"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-shutdown/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10813,6 +11089,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent *ClearBgpInstan
     clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-address-family-update-parent"
+    clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10846,6 +11123,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent_Input) G
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-address-family-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-address-family-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10880,6 +11158,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqAddressFamily *ClearBgpInstanceAfiSafiUpd
     clearBgpInstanceAfiSafiUpdateOutqAddressFamily.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqAddressFamily.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqAddressFamily.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-address-family"
+    clearBgpInstanceAfiSafiUpdateOutqAddressFamily.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqAddressFamily.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqAddressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqAddressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqAddressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10913,6 +11192,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqAddressFamily_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-address-family"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-address-family/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10949,6 +11229,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent *ClearB
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
+    clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -10990,6 +11271,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent_
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11026,6 +11308,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh *ClearBgpInstanceAf
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh"
+    clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11067,6 +11350,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh_Input) GetEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-refresh/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11103,6 +11387,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent *ClearBgpInsta
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-update-parent"
+    clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11144,6 +11429,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent_Input) 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11179,6 +11465,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr *ClearBgpInstanceAfiSafiUp
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr"
+    clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11220,6 +11507,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-neighbor-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11257,6 +11545,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent *ClearBgp
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-update-parent"
+    clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11298,6 +11587,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent_In
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11335,6 +11625,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup *ClearBgpInstanceAfiS
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group"
+    clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11376,6 +11667,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-update-group-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11414,6 +11706,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
+    clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11455,6 +11748,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11492,6 +11786,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup *Clear
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
+    clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11533,6 +11828,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-sub-group-refresh-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11570,6 +11866,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent *ClearBgpInstance
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-update-parent"
+    clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11607,6 +11904,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent_Input) Get
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-update-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11642,6 +11940,7 @@ func (clearBgpInstanceAfiSafiUpdateOutqUpdateGroup *ClearBgpInstanceAfiSafiUpdat
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group"
+    clearBgpInstanceAfiSafiUpdateOutqUpdateGroup.EntityData.AbsolutePath = clearBgpInstanceAfiSafiUpdateOutqUpdateGroup.EntityData.SegmentPath
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiUpdateOutqUpdateGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11679,6 +11978,7 @@ func (input *ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-update-outq-update-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-update-outq-update-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11713,6 +12013,7 @@ func (clearBgpInstanceAsGraceful *ClearBgpInstanceAsGraceful) GetEntityData() *t
     clearBgpInstanceAsGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAsGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAsGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-as-graceful"
+    clearBgpInstanceAsGraceful.EntityData.AbsolutePath = clearBgpInstanceAsGraceful.EntityData.SegmentPath
     clearBgpInstanceAsGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAsGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAsGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11749,6 +12050,7 @@ func (input *ClearBgpInstanceAsGraceful_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-as-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-as-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11781,6 +12083,7 @@ func (clearBgpInstanceAs *ClearBgpInstanceAs) GetEntityData() *types.CommonEntit
     clearBgpInstanceAs.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAs.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAs.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-as"
+    clearBgpInstanceAs.EntityData.AbsolutePath = clearBgpInstanceAs.EntityData.SegmentPath
     clearBgpInstanceAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11817,6 +12120,7 @@ func (input *ClearBgpInstanceAs_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-as"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-as/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11849,6 +12153,7 @@ func (clearBgpInstanceBestpathIpAddrIpNetmask *ClearBgpInstanceBestpathIpAddrIpN
     clearBgpInstanceBestpathIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-addr-ip-netmask"
+    clearBgpInstanceBestpathIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceBestpathIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceBestpathIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11893,6 +12198,7 @@ func (input *ClearBgpInstanceBestpathIpAddrIpNetmask_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11926,6 +12232,7 @@ func (clearBgpInstanceBestpathIpAddr *ClearBgpInstanceBestpathIpAddr) GetEntityD
     clearBgpInstanceBestpathIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-addr"
+    clearBgpInstanceBestpathIpAddr.EntityData.AbsolutePath = clearBgpInstanceBestpathIpAddr.EntityData.SegmentPath
     clearBgpInstanceBestpathIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11963,6 +12270,7 @@ func (input *ClearBgpInstanceBestpathIpAddr_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -11995,6 +12303,7 @@ func (clearBgpInstanceBestpathIpPrefix *ClearBgpInstanceBestpathIpPrefix) GetEnt
     clearBgpInstanceBestpathIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-prefix"
+    clearBgpInstanceBestpathIpPrefix.EntityData.AbsolutePath = clearBgpInstanceBestpathIpPrefix.EntityData.SegmentPath
     clearBgpInstanceBestpathIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12033,6 +12342,7 @@ func (input *ClearBgpInstanceBestpathIpPrefix_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12065,6 +12375,7 @@ func (clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask *ClearBgpInstanceBestpathAf
     clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-addr-ip-netmask"
+    clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12112,6 +12423,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12146,6 +12458,7 @@ func (clearBgpInstanceBestpathAfiSafiIpAddr *ClearBgpInstanceBestpathAfiSafiIpAd
     clearBgpInstanceBestpathAfiSafiIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-addr"
+    clearBgpInstanceBestpathAfiSafiIpAddr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpAddr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12186,6 +12499,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpAddr_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12219,6 +12533,7 @@ func (clearBgpInstanceBestpathAfiSafiIpPrefix *ClearBgpInstanceBestpathAfiSafiIp
     clearBgpInstanceBestpathAfiSafiIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-prefix"
+    clearBgpInstanceBestpathAfiSafiIpPrefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpPrefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12260,6 +12575,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpPrefix_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12294,6 +12610,7 @@ func (clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask *ClearBgpInstan
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask"
+    clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12344,6 +12661,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask_Input) G
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12380,6 +12698,7 @@ func (clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr *ClearBgpInstanceBestpat
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr"
+    clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12423,6 +12742,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12458,6 +12778,7 @@ func (clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix *ClearBgpInstanceBestp
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-prefix"
+    clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12502,6 +12823,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12537,6 +12859,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask *ClearBgpInstanceBestpath
     clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-addr-ip-netmask"
+    clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12592,6 +12915,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask_Input) GetEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12628,6 +12952,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpAddr *ClearBgpInstanceBestpathAfiSafiRd
     clearBgpInstanceBestpathAfiSafiRdIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-addr"
+    clearBgpInstanceBestpathAfiSafiRdIpAddr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpAddr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12676,6 +13001,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpAddr_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12711,6 +13037,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpPrefix *ClearBgpInstanceBestpathAfiSafi
     clearBgpInstanceBestpathAfiSafiRdIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-prefix"
+    clearBgpInstanceBestpathAfiSafiRdIpPrefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpPrefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12760,6 +13087,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpPrefix_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12794,6 +13122,7 @@ func (clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask *ClearBgpInstanceBestpathA
     clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-addr-ipv4-mask"
+    clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12837,6 +13166,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12871,6 +13201,7 @@ func (clearBgpInstanceBestpathAfiSafiIpv4Addr *ClearBgpInstanceBestpathAfiSafiIp
     clearBgpInstanceBestpathAfiSafiIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-addr"
+    clearBgpInstanceBestpathAfiSafiIpv4Addr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpv4Addr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12909,6 +13240,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpv4Addr_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12942,6 +13274,7 @@ func (clearBgpInstanceBestpathAfiSafiIpv4Prefix *ClearBgpInstanceBestpathAfiSafi
     clearBgpInstanceBestpathAfiSafiIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-prefix"
+    clearBgpInstanceBestpathAfiSafiIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -12980,6 +13313,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpv4Prefix_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13014,6 +13348,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpv4Addr *ClearBgpInstanceBestpathAfiSafi
     clearBgpInstanceBestpathAfiSafiRdIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr"
+    clearBgpInstanceBestpathAfiSafiRdIpv4Addr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpv4Addr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13060,6 +13395,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpv4Addr_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13095,6 +13431,7 @@ func (clearBgpInstanceBestpathAfiSafiVrfIpv4Addr *ClearBgpInstanceBestpathAfiSaf
     clearBgpInstanceBestpathAfiSafiVrfIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiVrfIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiVrfIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr"
+    clearBgpInstanceBestpathAfiSafiVrfIpv4Addr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiVrfIpv4Addr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiVrfIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiVrfIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiVrfIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13136,6 +13473,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13170,6 +13508,7 @@ func (clearBgpInstanceBestpathAfiSafiNetwork *ClearBgpInstanceBestpathAfiSafiNet
     clearBgpInstanceBestpathAfiSafiNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-network"
+    clearBgpInstanceBestpathAfiSafiNetwork.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiNetwork.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13207,6 +13546,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiNetwork_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13241,6 +13581,7 @@ func (clearBgpInstanceBestpathAfiSafiRdNetwork *ClearBgpInstanceBestpathAfiSafiR
     clearBgpInstanceBestpathAfiSafiRdNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-network"
+    clearBgpInstanceBestpathAfiSafiRdNetwork.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdNetwork.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13286,6 +13627,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdNetwork_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13321,6 +13663,7 @@ func (clearBgpInstanceBestpathAfiSafiVrfNetwork *ClearBgpInstanceBestpathAfiSafi
     clearBgpInstanceBestpathAfiSafiVrfNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiVrfNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiVrfNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-network"
+    clearBgpInstanceBestpathAfiSafiVrfNetwork.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiVrfNetwork.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiVrfNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiVrfNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiVrfNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13361,6 +13704,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiVrfNetwork_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-vrf-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13395,6 +13739,7 @@ func (clearBgpInstanceBestpathAfiSafiRtConstraintNetwork *ClearBgpInstanceBestpa
     clearBgpInstanceBestpathAfiSafiRtConstraintNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRtConstraintNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRtConstraintNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rt-constraint-network"
+    clearBgpInstanceBestpathAfiSafiRtConstraintNetwork.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRtConstraintNetwork.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRtConstraintNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRtConstraintNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRtConstraintNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13431,6 +13776,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rt-constraint-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rt-constraint-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13464,6 +13810,7 @@ func (clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork *ClearBgpInstanceBestpath
     clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-tunnel-network"
+    clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13501,6 +13848,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork_Input) GetEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ipv4-tunnel-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv4-tunnel-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13534,6 +13882,7 @@ func (clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask *ClearBgpInstanceBestpa
     clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-addr-ipv6-netmask"
+    clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13577,6 +13926,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13611,6 +13961,7 @@ func (clearBgpInstanceBestpathAfiSafiIpv6Addr *ClearBgpInstanceBestpathAfiSafiIp
     clearBgpInstanceBestpathAfiSafiIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-addr"
+    clearBgpInstanceBestpathAfiSafiIpv6Addr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpv6Addr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13649,6 +14000,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpv6Addr_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13682,6 +14034,7 @@ func (clearBgpInstanceBestpathAfiSafiIpv6Prefix *ClearBgpInstanceBestpathAfiSafi
     clearBgpInstanceBestpathAfiSafiIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-prefix"
+    clearBgpInstanceBestpathAfiSafiIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13720,6 +14073,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiIpv6Prefix_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13754,6 +14108,7 @@ func (clearBgpInstanceBestpathAfiSafiRd *ClearBgpInstanceBestpathAfiSafiRd) GetE
     clearBgpInstanceBestpathAfiSafiRd.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd"
+    clearBgpInstanceBestpathAfiSafiRd.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRd.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13795,6 +14150,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRd_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13829,6 +14185,7 @@ func (clearBgpInstanceBestpathAfiSafiVrf *ClearBgpInstanceBestpathAfiSafiVrf) Ge
     clearBgpInstanceBestpathAfiSafiVrf.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf"
+    clearBgpInstanceBestpathAfiSafiVrf.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiVrf.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13865,6 +14222,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiVrf_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13898,6 +14256,7 @@ func (clearBgpInstanceBestpathAfiSafi *ClearBgpInstanceBestpathAfiSafi) GetEntit
     clearBgpInstanceBestpathAfiSafi.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafi.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafi.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi"
+    clearBgpInstanceBestpathAfiSafi.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafi.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13931,6 +14290,7 @@ func (input *ClearBgpInstanceBestpathAfiSafi_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13963,6 +14323,7 @@ func (clearBgpInstanceBestpathAfiSafiSrPolicyPrefix *ClearBgpInstanceBestpathAfi
     clearBgpInstanceBestpathAfiSafiSrPolicyPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiSrPolicyPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiSrPolicyPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-sr-policy-prefix"
+    clearBgpInstanceBestpathAfiSafiSrPolicyPrefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiSrPolicyPrefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiSrPolicyPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiSrPolicyPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiSrPolicyPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -13999,6 +14360,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-sr-policy-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-sr-policy-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14033,6 +14395,7 @@ func (clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix *ClearBgpInstanceBes
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ipv4-prefix"
+    clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14074,6 +14437,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix_Input) GetEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-bridge-domain-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-bridge-domain-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14109,6 +14473,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpv4Prefix *ClearBgpInstanceBestpathAfiSa
     clearBgpInstanceBestpathAfiSafiRdIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-prefix"
+    clearBgpInstanceBestpathAfiSafiRdIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14155,6 +14520,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14190,6 +14556,7 @@ func (clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix *ClearBgpInstanceBestpathAf
     clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-mp2mp-ipv4-prefix"
+    clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14231,6 +14598,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-mp2mp-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-mp2mp-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14266,6 +14634,7 @@ func (clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix *ClearBgpInstanceBestpathAfiS
     clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-prefix"
+    clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiVrfIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14307,6 +14676,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14342,6 +14712,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask *ClearBgpInstanceBestpat
     clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask"
+    clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14393,6 +14764,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14429,6 +14801,7 @@ func (clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask *ClearBgpInstanceBestpa
     clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask"
+    clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14475,6 +14848,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14511,6 +14885,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask *ClearBgpInstanceBest
     clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask"
+    clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14562,6 +14937,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14598,6 +14974,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpv6Addr *ClearBgpInstanceBestpathAfiSafi
     clearBgpInstanceBestpathAfiSafiRdIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr"
+    clearBgpInstanceBestpathAfiSafiRdIpv6Addr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpv6Addr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14644,6 +15021,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpv6Addr_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14679,6 +15057,7 @@ func (clearBgpInstanceBestpathAfiSafiRdIpv6Prefix *ClearBgpInstanceBestpathAfiSa
     clearBgpInstanceBestpathAfiSafiRdIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiRdIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiRdIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-prefix"
+    clearBgpInstanceBestpathAfiSafiRdIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiRdIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiRdIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiRdIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiRdIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14725,6 +15104,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-rd-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-rd-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14760,6 +15140,7 @@ func (clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask *ClearBgpInstanceBes
     clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask"
+    clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14806,6 +15187,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask_Input) GetEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14842,6 +15224,7 @@ func (clearBgpInstanceBestpathAfiSafiVrfIpv6Addr *ClearBgpInstanceBestpathAfiSaf
     clearBgpInstanceBestpathAfiSafiVrfIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiVrfIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiVrfIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr"
+    clearBgpInstanceBestpathAfiSafiVrfIpv6Addr.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiVrfIpv6Addr.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiVrfIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiVrfIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiVrfIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14883,6 +15266,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14918,6 +15302,7 @@ func (clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix *ClearBgpInstanceBestpathAfiS
     clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-prefix"
+    clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathAfiSafiVrfIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14959,6 +15344,7 @@ func (input *ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-afi-safi-vrf-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -14994,6 +15380,7 @@ func (clearBgpInstanceBestpathVrfIpAddrIpNetmask *ClearBgpInstanceBestpathVrfIpA
     clearBgpInstanceBestpathVrfIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-addr-ip-netmask"
+    clearBgpInstanceBestpathVrfIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15043,6 +15430,7 @@ func (input *ClearBgpInstanceBestpathVrfIpAddrIpNetmask_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15078,6 +15466,7 @@ func (clearBgpInstanceBestpathVrfIpAddr *ClearBgpInstanceBestpathVrfIpAddr) GetE
     clearBgpInstanceBestpathVrfIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-addr"
+    clearBgpInstanceBestpathVrfIpAddr.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfIpAddr.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15120,6 +15509,7 @@ func (input *ClearBgpInstanceBestpathVrfIpAddr_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15154,6 +15544,7 @@ func (clearBgpInstanceBestpathVrfIpPrefix *ClearBgpInstanceBestpathVrfIpPrefix) 
     clearBgpInstanceBestpathVrfIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-prefix"
+    clearBgpInstanceBestpathVrfIpPrefix.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfIpPrefix.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15197,6 +15588,7 @@ func (input *ClearBgpInstanceBestpathVrfIpPrefix_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15231,6 +15623,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix *ClearBgpInstanceBestpathVrfA
     clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-prefix"
+    clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15274,6 +15667,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15309,6 +15703,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask *ClearBgpInstanceBestpa
     clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask"
+    clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15357,6 +15752,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15393,6 +15789,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiIpv4Addr *ClearBgpInstanceBestpathVrfAfi
     clearBgpInstanceBestpathVrfAfiSafiIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr"
+    clearBgpInstanceBestpathVrfAfiSafiIpv4Addr.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiIpv4Addr.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15436,6 +15833,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15471,6 +15869,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiNetwork *ClearBgpInstanceBestpathVrfAfiS
     clearBgpInstanceBestpathVrfAfiSafiNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-network"
+    clearBgpInstanceBestpathVrfAfiSafiNetwork.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiNetwork.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15513,6 +15912,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiNetwork_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15549,6 +15949,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiRdNetwork *ClearBgpInstanceBestpathVrfAf
     clearBgpInstanceBestpathVrfAfiSafiRdNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiRdNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiRdNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-rd-network"
+    clearBgpInstanceBestpathVrfAfiSafiRdNetwork.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiRdNetwork.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiRdNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiRdNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiRdNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15599,6 +16000,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiRdNetwork_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-rd-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-rd-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15636,6 +16038,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiVrfNetwork *ClearBgpInstanceBestpathVrfA
     clearBgpInstanceBestpathVrfAfiSafiVrfNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiVrfNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiVrfNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-vrf-network"
+    clearBgpInstanceBestpathVrfAfiSafiVrfNetwork.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiVrfNetwork.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiVrfNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiVrfNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiVrfNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15681,6 +16084,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-vrf-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-vrf-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15717,6 +16121,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask *ClearBgpInstanceBes
     clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask"
+    clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15765,6 +16170,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask_Input) GetEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15801,6 +16207,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiIpv6Addr *ClearBgpInstanceBestpathVrfAfi
     clearBgpInstanceBestpathVrfAfiSafiIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr"
+    clearBgpInstanceBestpathVrfAfiSafiIpv6Addr.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiIpv6Addr.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15844,6 +16251,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15879,6 +16287,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix *ClearBgpInstanceBestpathVrfA
     clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-prefix"
+    clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15922,6 +16331,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -15958,6 +16368,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiRd *ClearBgpInstanceBestpathVrfAfiSafiRd
     clearBgpInstanceBestpathVrfAfiSafiRd.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiRd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiRd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-rd"
+    clearBgpInstanceBestpathVrfAfiSafiRd.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiRd.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiRd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiRd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiRd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16004,6 +16415,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiRd_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-rd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-rd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16040,6 +16452,7 @@ func (clearBgpInstanceBestpathVrfAfiSafiVrf *ClearBgpInstanceBestpathVrfAfiSafiV
     clearBgpInstanceBestpathVrfAfiSafiVrf.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafiVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafiVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-vrf"
+    clearBgpInstanceBestpathVrfAfiSafiVrf.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafiVrf.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafiVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafiVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafiVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16081,6 +16494,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafiVrf_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16116,6 +16530,7 @@ func (clearBgpInstanceBestpathVrfAfiSafi *ClearBgpInstanceBestpathVrfAfiSafi) Ge
     clearBgpInstanceBestpathVrfAfiSafi.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceBestpathVrfAfiSafi.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceBestpathVrfAfiSafi.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi"
+    clearBgpInstanceBestpathVrfAfiSafi.EntityData.AbsolutePath = clearBgpInstanceBestpathVrfAfiSafi.EntityData.SegmentPath
     clearBgpInstanceBestpathVrfAfiSafi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceBestpathVrfAfiSafi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceBestpathVrfAfiSafi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16154,6 +16569,7 @@ func (input *ClearBgpInstanceBestpathVrfAfiSafi_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-bestpath-vrf-afi-safi"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-bestpath-vrf-afi-safi/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16188,6 +16604,7 @@ func (clearBgpInstanceExternalGraceful *ClearBgpInstanceExternalGraceful) GetEnt
     clearBgpInstanceExternalGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceExternalGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceExternalGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-external-graceful"
+    clearBgpInstanceExternalGraceful.EntityData.AbsolutePath = clearBgpInstanceExternalGraceful.EntityData.SegmentPath
     clearBgpInstanceExternalGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceExternalGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceExternalGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16218,6 +16635,7 @@ func (input *ClearBgpInstanceExternalGraceful_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-external-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-external-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16249,6 +16667,7 @@ func (clearBgpInstanceExternal *ClearBgpInstanceExternal) GetEntityData() *types
     clearBgpInstanceExternal.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceExternal.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceExternal.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-external"
+    clearBgpInstanceExternal.EntityData.AbsolutePath = clearBgpInstanceExternal.EntityData.SegmentPath
     clearBgpInstanceExternal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceExternal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceExternal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16279,6 +16698,7 @@ func (input *ClearBgpInstanceExternal_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-external"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-external/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16310,6 +16730,7 @@ func (clearBgpInstanceAfiSafiDampeningIpv4Prefix *ClearBgpInstanceAfiSafiDampeni
     clearBgpInstanceAfiSafiDampeningIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiDampeningIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiDampeningIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ipv4-prefix"
+    clearBgpInstanceAfiSafiDampeningIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceAfiSafiDampeningIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceAfiSafiDampeningIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiDampeningIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiDampeningIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16349,6 +16770,7 @@ func (input *ClearBgpInstanceAfiSafiDampeningIpv4Prefix_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-dampening-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16382,6 +16804,7 @@ func (clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix *ClearBgpInstanceAfiSafiFl
     clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ipv4-prefix"
+    clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16421,6 +16844,7 @@ func (input *ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-flap-statistics-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16454,6 +16878,7 @@ func (clearBgpInstanceAfiSafiDampeningIpv6Prefix *ClearBgpInstanceAfiSafiDampeni
     clearBgpInstanceAfiSafiDampeningIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiDampeningIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiDampeningIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ipv6-prefix"
+    clearBgpInstanceAfiSafiDampeningIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceAfiSafiDampeningIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceAfiSafiDampeningIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiDampeningIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiDampeningIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16493,6 +16918,7 @@ func (input *ClearBgpInstanceAfiSafiDampeningIpv6Prefix_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-dampening-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-dampening-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16526,6 +16952,7 @@ func (clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix *ClearBgpInstanceAfiSafiFl
     clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ipv6-prefix"
+    clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16565,6 +16992,7 @@ func (input *ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-afi-safi-flap-statistics-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-afi-safi-flap-statistics-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16599,6 +17027,7 @@ func (clearBgpInstanceNexthopPerformanceStatistics *ClearBgpInstanceNexthopPerfo
     clearBgpInstanceNexthopPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceNexthopPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceNexthopPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-nexthop-performance-statistics"
+    clearBgpInstanceNexthopPerformanceStatistics.EntityData.AbsolutePath = clearBgpInstanceNexthopPerformanceStatistics.EntityData.SegmentPath
     clearBgpInstanceNexthopPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceNexthopPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceNexthopPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16629,6 +17058,7 @@ func (input *ClearBgpInstanceNexthopPerformanceStatistics_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-nexthop-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-nexthop-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16661,6 +17091,7 @@ func (clearBgpInstanceNexthopRegistrationIpAddr *ClearBgpInstanceNexthopRegistra
     clearBgpInstanceNexthopRegistrationIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceNexthopRegistrationIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceNexthopRegistrationIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-nexthop-registration-ip-addr"
+    clearBgpInstanceNexthopRegistrationIpAddr.EntityData.AbsolutePath = clearBgpInstanceNexthopRegistrationIpAddr.EntityData.SegmentPath
     clearBgpInstanceNexthopRegistrationIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceNexthopRegistrationIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceNexthopRegistrationIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16699,6 +17130,7 @@ func (input *ClearBgpInstanceNexthopRegistrationIpAddr_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-nexthop-registration-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-nexthop-registration-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16732,6 +17164,7 @@ func (clearBgpInstancePeerDropsAll *ClearBgpInstancePeerDropsAll) GetEntityData(
     clearBgpInstancePeerDropsAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstancePeerDropsAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstancePeerDropsAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-peer-drops-all"
+    clearBgpInstancePeerDropsAll.EntityData.AbsolutePath = clearBgpInstancePeerDropsAll.EntityData.SegmentPath
     clearBgpInstancePeerDropsAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstancePeerDropsAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstancePeerDropsAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16762,6 +17195,7 @@ func (input *ClearBgpInstancePeerDropsAll_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-peer-drops-all"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-peer-drops-all/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16793,6 +17227,7 @@ func (clearBgpInstancePeerDropsIpAddr *ClearBgpInstancePeerDropsIpAddr) GetEntit
     clearBgpInstancePeerDropsIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstancePeerDropsIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstancePeerDropsIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-peer-drops-ip-addr"
+    clearBgpInstancePeerDropsIpAddr.EntityData.AbsolutePath = clearBgpInstancePeerDropsIpAddr.EntityData.SegmentPath
     clearBgpInstancePeerDropsIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstancePeerDropsIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstancePeerDropsIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16831,6 +17266,7 @@ func (input *ClearBgpInstancePeerDropsIpAddr_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-peer-drops-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-peer-drops-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16863,6 +17299,7 @@ func (clearBgpInstancePerformanceStatistics *ClearBgpInstancePerformanceStatisti
     clearBgpInstancePerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstancePerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstancePerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-performance-statistics"
+    clearBgpInstancePerformanceStatistics.EntityData.AbsolutePath = clearBgpInstancePerformanceStatistics.EntityData.SegmentPath
     clearBgpInstancePerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstancePerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstancePerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16893,6 +17330,7 @@ func (input *ClearBgpInstancePerformanceStatistics_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16927,6 +17365,7 @@ func (clearBgpInstanceRpkiServerAllSerialQuery *ClearBgpInstanceRpkiServerAllSer
     clearBgpInstanceRpkiServerAllSerialQuery.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceRpkiServerAllSerialQuery.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceRpkiServerAllSerialQuery.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-all-serial-query"
+    clearBgpInstanceRpkiServerAllSerialQuery.EntityData.AbsolutePath = clearBgpInstanceRpkiServerAllSerialQuery.EntityData.SegmentPath
     clearBgpInstanceRpkiServerAllSerialQuery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceRpkiServerAllSerialQuery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceRpkiServerAllSerialQuery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16957,6 +17396,7 @@ func (input *ClearBgpInstanceRpkiServerAllSerialQuery_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-rpki-server-all-serial-query"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-all-serial-query/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -16990,6 +17430,7 @@ func (clearBgpInstanceRpkiServerAll *ClearBgpInstanceRpkiServerAll) GetEntityDat
     clearBgpInstanceRpkiServerAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceRpkiServerAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceRpkiServerAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-all"
+    clearBgpInstanceRpkiServerAll.EntityData.AbsolutePath = clearBgpInstanceRpkiServerAll.EntityData.SegmentPath
     clearBgpInstanceRpkiServerAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceRpkiServerAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceRpkiServerAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17020,6 +17461,7 @@ func (input *ClearBgpInstanceRpkiServerAll_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-rpki-server-all"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-all/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17052,6 +17494,7 @@ func (clearBgpInstanceRpkiServerRpkiServer *ClearBgpInstanceRpkiServerRpkiServer
     clearBgpInstanceRpkiServerRpkiServer.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceRpkiServerRpkiServer.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceRpkiServerRpkiServer.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-rpki-server"
+    clearBgpInstanceRpkiServerRpkiServer.EntityData.AbsolutePath = clearBgpInstanceRpkiServerRpkiServer.EntityData.SegmentPath
     clearBgpInstanceRpkiServerRpkiServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceRpkiServerRpkiServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceRpkiServerRpkiServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17086,6 +17529,7 @@ func (input *ClearBgpInstanceRpkiServerRpkiServer_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-rpki-server-rpki-server"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-server-rpki-server/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17120,6 +17564,7 @@ func (clearBgpInstanceRpkiValidationIpv4 *ClearBgpInstanceRpkiValidationIpv4) Ge
     clearBgpInstanceRpkiValidationIpv4.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceRpkiValidationIpv4.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceRpkiValidationIpv4.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation-ipv4"
+    clearBgpInstanceRpkiValidationIpv4.EntityData.AbsolutePath = clearBgpInstanceRpkiValidationIpv4.EntityData.SegmentPath
     clearBgpInstanceRpkiValidationIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceRpkiValidationIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceRpkiValidationIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17150,6 +17595,7 @@ func (input *ClearBgpInstanceRpkiValidationIpv4_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-rpki-validation-ipv4"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation-ipv4/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17183,6 +17629,7 @@ func (clearBgpInstanceRpkiValidationIpv6 *ClearBgpInstanceRpkiValidationIpv6) Ge
     clearBgpInstanceRpkiValidationIpv6.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceRpkiValidationIpv6.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceRpkiValidationIpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation-ipv6"
+    clearBgpInstanceRpkiValidationIpv6.EntityData.AbsolutePath = clearBgpInstanceRpkiValidationIpv6.EntityData.SegmentPath
     clearBgpInstanceRpkiValidationIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceRpkiValidationIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceRpkiValidationIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17213,6 +17660,7 @@ func (input *ClearBgpInstanceRpkiValidationIpv6_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-rpki-validation-ipv6"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation-ipv6/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17245,6 +17693,7 @@ func (clearBgpInstanceRpkiValidation *ClearBgpInstanceRpkiValidation) GetEntityD
     clearBgpInstanceRpkiValidation.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceRpkiValidation.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceRpkiValidation.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation"
+    clearBgpInstanceRpkiValidation.EntityData.AbsolutePath = clearBgpInstanceRpkiValidation.EntityData.SegmentPath
     clearBgpInstanceRpkiValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceRpkiValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceRpkiValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17275,6 +17724,7 @@ func (input *ClearBgpInstanceRpkiValidation_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-rpki-validation"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-rpki-validation/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17306,6 +17756,7 @@ func (clearBgpInstanceShutdown *ClearBgpInstanceShutdown) GetEntityData() *types
     clearBgpInstanceShutdown.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-shutdown"
+    clearBgpInstanceShutdown.EntityData.AbsolutePath = clearBgpInstanceShutdown.EntityData.SegmentPath
     clearBgpInstanceShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17336,6 +17787,7 @@ func (input *ClearBgpInstanceShutdown_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-shutdown"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-shutdown/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17370,6 +17822,7 @@ func (clearBgpInstanceUpdateOutqAddressFamilyUpdateParent *ClearBgpInstanceUpdat
     clearBgpInstanceUpdateOutqAddressFamilyUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqAddressFamilyUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-address-family-update-parent"
+    clearBgpInstanceUpdateOutqAddressFamilyUpdateParent.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqAddressFamilyUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqAddressFamilyUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqAddressFamilyUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17400,6 +17853,7 @@ func (input *ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-address-family-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-address-family-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17433,6 +17887,7 @@ func (clearBgpInstanceUpdateOutqAddressFamily *ClearBgpInstanceUpdateOutqAddress
     clearBgpInstanceUpdateOutqAddressFamily.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqAddressFamily.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqAddressFamily.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-address-family"
+    clearBgpInstanceUpdateOutqAddressFamily.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqAddressFamily.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqAddressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqAddressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqAddressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17463,6 +17918,7 @@ func (input *ClearBgpInstanceUpdateOutqAddressFamily_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-address-family"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-address-family/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17498,6 +17954,7 @@ func (clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent *ClearBgpInsta
     clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-refresh-update-parent"
+    clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17536,6 +17993,7 @@ func (input *ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent_Input) 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-neighbor-ip-addr-refresh-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-refresh-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17571,6 +18029,7 @@ func (clearBgpInstanceUpdateOutqNeighborIpAddrRefresh *ClearBgpInstanceUpdateOut
     clearBgpInstanceUpdateOutqNeighborIpAddrRefresh.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqNeighborIpAddrRefresh.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-refresh"
+    clearBgpInstanceUpdateOutqNeighborIpAddrRefresh.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqNeighborIpAddrRefresh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqNeighborIpAddrRefresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqNeighborIpAddrRefresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17609,6 +18068,7 @@ func (input *ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-neighbor-ip-addr-refresh"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-refresh/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17644,6 +18104,7 @@ func (clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent *ClearBgpInstanceUpda
     clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-update-parent"
+    clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17682,6 +18143,7 @@ func (input *ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-neighbor-ip-addr-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17716,6 +18178,7 @@ func (clearBgpInstanceUpdateOutqNeighborIpAddr *ClearBgpInstanceUpdateOutqNeighb
     clearBgpInstanceUpdateOutqNeighborIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqNeighborIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqNeighborIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr"
+    clearBgpInstanceUpdateOutqNeighborIpAddr.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqNeighborIpAddr.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqNeighborIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqNeighborIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqNeighborIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17754,6 +18217,7 @@ func (input *ClearBgpInstanceUpdateOutqNeighborIpAddr_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-neighbor-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-neighbor-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17788,6 +18252,7 @@ func (clearBgpInstanceUpdateOutqProcess *ClearBgpInstanceUpdateOutqProcess) GetE
     clearBgpInstanceUpdateOutqProcess.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqProcess.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqProcess.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-process"
+    clearBgpInstanceUpdateOutqProcess.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqProcess.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqProcess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqProcess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqProcess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17818,6 +18283,7 @@ func (input *ClearBgpInstanceUpdateOutqProcess_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-process"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-process/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17853,6 +18319,7 @@ func (clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent *ClearBgpInstanc
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-update-parent"
+    clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17891,6 +18358,7 @@ func (input *ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent_Input) Ge
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-update-group-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17927,6 +18395,7 @@ func (clearBgpInstanceUpdateOutqUpdateGroupSubGroup *ClearBgpInstanceUpdateOutqU
     clearBgpInstanceUpdateOutqUpdateGroupSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqUpdateGroupSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group"
+    clearBgpInstanceUpdateOutqUpdateGroupSubGroup.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqUpdateGroupSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqUpdateGroupSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqUpdateGroupSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -17965,6 +18434,7 @@ func (input *ClearBgpInstanceUpdateOutqUpdateGroupSubGroup_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-update-group-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18002,6 +18472,7 @@ func (clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent *
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
+    clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18040,6 +18511,7 @@ func (input *ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateP
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18076,6 +18548,7 @@ func (clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup *ClearBgpInst
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group"
+    clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18114,6 +18587,7 @@ func (input *ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup_Input)
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-sub-group-refresh-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18150,6 +18624,7 @@ func (clearBgpInstanceUpdateOutqUpdateGroupUpdateParent *ClearBgpInstanceUpdateO
     clearBgpInstanceUpdateOutqUpdateGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqUpdateGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-update-parent"
+    clearBgpInstanceUpdateOutqUpdateGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqUpdateGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqUpdateGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqUpdateGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18184,6 +18659,7 @@ func (input *ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-update-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18218,6 +18694,7 @@ func (clearBgpInstanceUpdateOutqUpdateGroup *ClearBgpInstanceUpdateOutqUpdateGro
     clearBgpInstanceUpdateOutqUpdateGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceUpdateOutqUpdateGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceUpdateOutqUpdateGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group"
+    clearBgpInstanceUpdateOutqUpdateGroup.EntityData.AbsolutePath = clearBgpInstanceUpdateOutqUpdateGroup.EntityData.SegmentPath
     clearBgpInstanceUpdateOutqUpdateGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceUpdateOutqUpdateGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceUpdateOutqUpdateGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18252,6 +18729,7 @@ func (input *ClearBgpInstanceUpdateOutqUpdateGroup_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-update-outq-update-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-update-outq-update-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18284,6 +18762,7 @@ func (clearBgpInstanceVersionIpAddrIpNetmask *ClearBgpInstanceVersionIpAddrIpNet
     clearBgpInstanceVersionIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-addr-ip-netmask"
+    clearBgpInstanceVersionIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceVersionIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceVersionIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18328,6 +18807,7 @@ func (input *ClearBgpInstanceVersionIpAddrIpNetmask_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18361,6 +18841,7 @@ func (clearBgpInstanceVersionIpAddr *ClearBgpInstanceVersionIpAddr) GetEntityDat
     clearBgpInstanceVersionIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-addr"
+    clearBgpInstanceVersionIpAddr.EntityData.AbsolutePath = clearBgpInstanceVersionIpAddr.EntityData.SegmentPath
     clearBgpInstanceVersionIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18398,6 +18879,7 @@ func (input *ClearBgpInstanceVersionIpAddr_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18430,6 +18912,7 @@ func (clearBgpInstanceVersionIpPrefix *ClearBgpInstanceVersionIpPrefix) GetEntit
     clearBgpInstanceVersionIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-prefix"
+    clearBgpInstanceVersionIpPrefix.EntityData.AbsolutePath = clearBgpInstanceVersionIpPrefix.EntityData.SegmentPath
     clearBgpInstanceVersionIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18468,6 +18951,7 @@ func (input *ClearBgpInstanceVersionIpPrefix_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18500,6 +18984,7 @@ func (clearBgpInstanceVersionAfiSafiIpAddrIpNetmask *ClearBgpInstanceVersionAfiS
     clearBgpInstanceVersionAfiSafiIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-addr-ip-netmask"
+    clearBgpInstanceVersionAfiSafiIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18547,6 +19032,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18581,6 +19067,7 @@ func (clearBgpInstanceVersionAfiSafiIpAddr *ClearBgpInstanceVersionAfiSafiIpAddr
     clearBgpInstanceVersionAfiSafiIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-addr"
+    clearBgpInstanceVersionAfiSafiIpAddr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpAddr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18621,6 +19108,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpAddr_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18654,6 +19142,7 @@ func (clearBgpInstanceVersionAfiSafiIpPrefix *ClearBgpInstanceVersionAfiSafiIpPr
     clearBgpInstanceVersionAfiSafiIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-prefix"
+    clearBgpInstanceVersionAfiSafiIpPrefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpPrefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18695,6 +19184,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpPrefix_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18729,6 +19219,7 @@ func (clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask *ClearBgpInstanc
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr-ip-netmask"
+    clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18779,6 +19270,7 @@ func (input *ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask_Input) Ge
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18815,6 +19307,7 @@ func (clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr *ClearBgpInstanceVersionA
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr"
+    clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiBridgeDomainIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18858,6 +19351,7 @@ func (input *ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr_Input) GetEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18893,6 +19387,7 @@ func (clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix *ClearBgpInstanceVersio
     clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-prefix"
+    clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18937,6 +19432,7 @@ func (input *ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-bridge-domain-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -18972,6 +19468,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask *ClearBgpInstanceVersionAf
     clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-addr-ip-netmask"
+    clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19027,6 +19524,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19063,6 +19561,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpAddr *ClearBgpInstanceVersionAfiSafiRdIp
     clearBgpInstanceVersionAfiSafiRdIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-addr"
+    clearBgpInstanceVersionAfiSafiRdIpAddr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpAddr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19111,6 +19610,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpAddr_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19146,6 +19646,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpPrefix *ClearBgpInstanceVersionAfiSafiRd
     clearBgpInstanceVersionAfiSafiRdIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-prefix"
+    clearBgpInstanceVersionAfiSafiRdIpPrefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpPrefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19195,6 +19696,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpPrefix_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19229,6 +19731,7 @@ func (clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask *ClearBgpInstanceVersionAfi
     clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-addr-ipv4-mask"
+    clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19272,6 +19775,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19306,6 +19810,7 @@ func (clearBgpInstanceVersionAfiSafiIpv4Addr *ClearBgpInstanceVersionAfiSafiIpv4
     clearBgpInstanceVersionAfiSafiIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-addr"
+    clearBgpInstanceVersionAfiSafiIpv4Addr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpv4Addr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19344,6 +19849,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpv4Addr_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19377,6 +19883,7 @@ func (clearBgpInstanceVersionAfiSafiIpv4Prefix *ClearBgpInstanceVersionAfiSafiIp
     clearBgpInstanceVersionAfiSafiIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-prefix"
+    clearBgpInstanceVersionAfiSafiIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19415,6 +19922,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpv4Prefix_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19449,6 +19957,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpv4Addr *ClearBgpInstanceVersionAfiSafiRd
     clearBgpInstanceVersionAfiSafiRdIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-addr"
+    clearBgpInstanceVersionAfiSafiRdIpv4Addr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpv4Addr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19495,6 +20004,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpv4Addr_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19530,6 +20040,7 @@ func (clearBgpInstanceVersionAfiSafiVrfIpv4Addr *ClearBgpInstanceVersionAfiSafiV
     clearBgpInstanceVersionAfiSafiVrfIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiVrfIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiVrfIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-addr"
+    clearBgpInstanceVersionAfiSafiVrfIpv4Addr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiVrfIpv4Addr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiVrfIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiVrfIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiVrfIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19571,6 +20082,7 @@ func (input *ClearBgpInstanceVersionAfiSafiVrfIpv4Addr_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-vrf-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19605,6 +20117,7 @@ func (clearBgpInstanceVersionAfiSafiNetwork *ClearBgpInstanceVersionAfiSafiNetwo
     clearBgpInstanceVersionAfiSafiNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-network"
+    clearBgpInstanceVersionAfiSafiNetwork.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiNetwork.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19642,6 +20155,7 @@ func (input *ClearBgpInstanceVersionAfiSafiNetwork_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19676,6 +20190,7 @@ func (clearBgpInstanceVersionAfiSafiRdNetwork *ClearBgpInstanceVersionAfiSafiRdN
     clearBgpInstanceVersionAfiSafiRdNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-network"
+    clearBgpInstanceVersionAfiSafiRdNetwork.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdNetwork.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19721,6 +20236,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdNetwork_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19756,6 +20272,7 @@ func (clearBgpInstanceVersionAfiSafiVrfNetwork *ClearBgpInstanceVersionAfiSafiVr
     clearBgpInstanceVersionAfiSafiVrfNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiVrfNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiVrfNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-network"
+    clearBgpInstanceVersionAfiSafiVrfNetwork.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiVrfNetwork.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiVrfNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiVrfNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiVrfNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19796,6 +20313,7 @@ func (input *ClearBgpInstanceVersionAfiSafiVrfNetwork_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-vrf-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19830,6 +20348,7 @@ func (clearBgpInstanceVersionAfiSafiRtConstraintNetwork *ClearBgpInstanceVersion
     clearBgpInstanceVersionAfiSafiRtConstraintNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRtConstraintNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRtConstraintNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rt-constraint-network"
+    clearBgpInstanceVersionAfiSafiRtConstraintNetwork.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRtConstraintNetwork.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRtConstraintNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRtConstraintNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRtConstraintNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19866,6 +20385,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRtConstraintNetwork_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rt-constraint-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rt-constraint-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19899,6 +20419,7 @@ func (clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork *ClearBgpInstanceVersionAf
     clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-tunnel-network"
+    clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpv4TunnelNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19936,6 +20457,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ipv4-tunnel-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv4-tunnel-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -19969,6 +20491,7 @@ func (clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask *ClearBgpInstanceVersion
     clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-addr-ipv6-netmask"
+    clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20012,6 +20535,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20046,6 +20570,7 @@ func (clearBgpInstanceVersionAfiSafiIpv6Addr *ClearBgpInstanceVersionAfiSafiIpv6
     clearBgpInstanceVersionAfiSafiIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-addr"
+    clearBgpInstanceVersionAfiSafiIpv6Addr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpv6Addr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20084,6 +20609,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpv6Addr_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20117,6 +20643,7 @@ func (clearBgpInstanceVersionAfiSafiIpv6Prefix *ClearBgpInstanceVersionAfiSafiIp
     clearBgpInstanceVersionAfiSafiIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-prefix"
+    clearBgpInstanceVersionAfiSafiIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20155,6 +20682,7 @@ func (input *ClearBgpInstanceVersionAfiSafiIpv6Prefix_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20189,6 +20717,7 @@ func (clearBgpInstanceVersionAfiSafiRd *ClearBgpInstanceVersionAfiSafiRd) GetEnt
     clearBgpInstanceVersionAfiSafiRd.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd"
+    clearBgpInstanceVersionAfiSafiRd.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRd.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20230,6 +20759,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRd_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20264,6 +20794,7 @@ func (clearBgpInstanceVersionAfiSafiVrf *ClearBgpInstanceVersionAfiSafiVrf) GetE
     clearBgpInstanceVersionAfiSafiVrf.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf"
+    clearBgpInstanceVersionAfiSafiVrf.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiVrf.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20300,6 +20831,7 @@ func (input *ClearBgpInstanceVersionAfiSafiVrf_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20333,6 +20865,7 @@ func (clearBgpInstanceVersionAfiSafi *ClearBgpInstanceVersionAfiSafi) GetEntityD
     clearBgpInstanceVersionAfiSafi.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafi.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafi.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi"
+    clearBgpInstanceVersionAfiSafi.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafi.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20366,6 +20899,7 @@ func (input *ClearBgpInstanceVersionAfiSafi_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20398,6 +20932,7 @@ func (clearBgpInstanceVersionAfiSafiSrPolicyPrefix *ClearBgpInstanceVersionAfiSa
     clearBgpInstanceVersionAfiSafiSrPolicyPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiSrPolicyPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiSrPolicyPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-sr-policy-prefix"
+    clearBgpInstanceVersionAfiSafiSrPolicyPrefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiSrPolicyPrefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiSrPolicyPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiSrPolicyPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiSrPolicyPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20434,6 +20969,7 @@ func (input *ClearBgpInstanceVersionAfiSafiSrPolicyPrefix_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-sr-policy-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-sr-policy-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20468,6 +21004,7 @@ func (clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix *ClearBgpInstanceVers
     clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ipv4-prefix"
+    clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20509,6 +21046,7 @@ func (input *ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-bridge-domain-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-bridge-domain-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20544,6 +21082,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpv4Prefix *ClearBgpInstanceVersionAfiSafi
     clearBgpInstanceVersionAfiSafiRdIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-prefix"
+    clearBgpInstanceVersionAfiSafiRdIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20590,6 +21129,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpv4Prefix_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20625,6 +21165,7 @@ func (clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix *ClearBgpInstanceVersionAfiS
     clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-mp2mp-ipv4-prefix"
+    clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20666,6 +21207,7 @@ func (input *ClearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-mp2mp-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-mp2mp-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20701,6 +21243,7 @@ func (clearBgpInstanceVersionAfiSafiVrfIpv4Prefix *ClearBgpInstanceVersionAfiSaf
     clearBgpInstanceVersionAfiSafiVrfIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiVrfIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiVrfIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-prefix"
+    clearBgpInstanceVersionAfiSafiVrfIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiVrfIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiVrfIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiVrfIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiVrfIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20742,6 +21285,7 @@ func (input *ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-vrf-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20777,6 +21321,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask *ClearBgpInstanceVersionA
     clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-addr-ipv4-mask"
+    clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20828,6 +21373,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask_Input) GetEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20864,6 +21410,7 @@ func (clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask *ClearBgpInstanceVersion
     clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-addr-ipv4-mask"
+    clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20910,6 +21457,7 @@ func (input *ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-vrf-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20946,6 +21494,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask *ClearBgpInstanceVersi
     clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-addr-ipv6-netmask"
+    clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -20997,6 +21546,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21033,6 +21583,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpv6Addr *ClearBgpInstanceVersionAfiSafiRd
     clearBgpInstanceVersionAfiSafiRdIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-addr"
+    clearBgpInstanceVersionAfiSafiRdIpv6Addr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpv6Addr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21079,6 +21630,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpv6Addr_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21114,6 +21666,7 @@ func (clearBgpInstanceVersionAfiSafiRdIpv6Prefix *ClearBgpInstanceVersionAfiSafi
     clearBgpInstanceVersionAfiSafiRdIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiRdIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiRdIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-prefix"
+    clearBgpInstanceVersionAfiSafiRdIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiRdIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiRdIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiRdIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiRdIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21160,6 +21713,7 @@ func (input *ClearBgpInstanceVersionAfiSafiRdIpv6Prefix_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-rd-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-rd-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21195,6 +21749,7 @@ func (clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask *ClearBgpInstanceVers
     clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-addr-ipv6-netmask"
+    clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21241,6 +21796,7 @@ func (input *ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-vrf-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21277,6 +21833,7 @@ func (clearBgpInstanceVersionAfiSafiVrfIpv6Addr *ClearBgpInstanceVersionAfiSafiV
     clearBgpInstanceVersionAfiSafiVrfIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiVrfIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiVrfIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-addr"
+    clearBgpInstanceVersionAfiSafiVrfIpv6Addr.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiVrfIpv6Addr.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiVrfIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiVrfIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiVrfIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21318,6 +21875,7 @@ func (input *ClearBgpInstanceVersionAfiSafiVrfIpv6Addr_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-vrf-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21353,6 +21911,7 @@ func (clearBgpInstanceVersionAfiSafiVrfIpv6Prefix *ClearBgpInstanceVersionAfiSaf
     clearBgpInstanceVersionAfiSafiVrfIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionAfiSafiVrfIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionAfiSafiVrfIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-prefix"
+    clearBgpInstanceVersionAfiSafiVrfIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionAfiSafiVrfIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionAfiSafiVrfIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionAfiSafiVrfIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionAfiSafiVrfIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21394,6 +21953,7 @@ func (input *ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-afi-safi-vrf-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-afi-safi-vrf-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21429,6 +21989,7 @@ func (clearBgpInstanceVersionVrfIpAddrIpNetmask *ClearBgpInstanceVersionVrfIpAdd
     clearBgpInstanceVersionVrfIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-addr-ip-netmask"
+    clearBgpInstanceVersionVrfIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpInstanceVersionVrfIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpInstanceVersionVrfIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21478,6 +22039,7 @@ func (input *ClearBgpInstanceVersionVrfIpAddrIpNetmask_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21513,6 +22075,7 @@ func (clearBgpInstanceVersionVrfIpAddr *ClearBgpInstanceVersionVrfIpAddr) GetEnt
     clearBgpInstanceVersionVrfIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-addr"
+    clearBgpInstanceVersionVrfIpAddr.EntityData.AbsolutePath = clearBgpInstanceVersionVrfIpAddr.EntityData.SegmentPath
     clearBgpInstanceVersionVrfIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21555,6 +22118,7 @@ func (input *ClearBgpInstanceVersionVrfIpAddr_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21589,6 +22153,7 @@ func (clearBgpInstanceVersionVrfIpPrefix *ClearBgpInstanceVersionVrfIpPrefix) Ge
     clearBgpInstanceVersionVrfIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-prefix"
+    clearBgpInstanceVersionVrfIpPrefix.EntityData.AbsolutePath = clearBgpInstanceVersionVrfIpPrefix.EntityData.SegmentPath
     clearBgpInstanceVersionVrfIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21632,6 +22197,7 @@ func (input *ClearBgpInstanceVersionVrfIpPrefix_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21666,6 +22232,7 @@ func (clearBgpInstanceVersionVrfAfiSafiIpv4Prefix *ClearBgpInstanceVersionVrfAfi
     clearBgpInstanceVersionVrfAfiSafiIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-prefix"
+    clearBgpInstanceVersionVrfAfiSafiIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21709,6 +22276,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21744,6 +22312,7 @@ func (clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask *ClearBgpInstanceVersion
     clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-addr-ipv4-mask"
+    clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21792,6 +22361,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21828,6 +22398,7 @@ func (clearBgpInstanceVersionVrfAfiSafiIpv4Addr *ClearBgpInstanceVersionVrfAfiSa
     clearBgpInstanceVersionVrfAfiSafiIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-addr"
+    clearBgpInstanceVersionVrfAfiSafiIpv4Addr.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiIpv4Addr.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21871,6 +22442,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiIpv4Addr_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21906,6 +22478,7 @@ func (clearBgpInstanceVersionVrfAfiSafiNetwork *ClearBgpInstanceVersionVrfAfiSaf
     clearBgpInstanceVersionVrfAfiSafiNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-network"
+    clearBgpInstanceVersionVrfAfiSafiNetwork.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiNetwork.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21948,6 +22521,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiNetwork_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -21984,6 +22558,7 @@ func (clearBgpInstanceVersionVrfAfiSafiRdNetwork *ClearBgpInstanceVersionVrfAfiS
     clearBgpInstanceVersionVrfAfiSafiRdNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiRdNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiRdNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-rd-network"
+    clearBgpInstanceVersionVrfAfiSafiRdNetwork.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiRdNetwork.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiRdNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiRdNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiRdNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22034,6 +22609,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiRdNetwork_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-rd-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-rd-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22071,6 +22647,7 @@ func (clearBgpInstanceVersionVrfAfiSafiVrfNetwork *ClearBgpInstanceVersionVrfAfi
     clearBgpInstanceVersionVrfAfiSafiVrfNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiVrfNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiVrfNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-vrf-network"
+    clearBgpInstanceVersionVrfAfiSafiVrfNetwork.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiVrfNetwork.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiVrfNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiVrfNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiVrfNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22116,6 +22693,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiVrfNetwork_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-vrf-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-vrf-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22152,6 +22730,7 @@ func (clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask *ClearBgpInstanceVers
     clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-addr-ipv6-netmask"
+    clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22200,6 +22779,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22236,6 +22816,7 @@ func (clearBgpInstanceVersionVrfAfiSafiIpv6Addr *ClearBgpInstanceVersionVrfAfiSa
     clearBgpInstanceVersionVrfAfiSafiIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-addr"
+    clearBgpInstanceVersionVrfAfiSafiIpv6Addr.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiIpv6Addr.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22279,6 +22860,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiIpv6Addr_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22314,6 +22896,7 @@ func (clearBgpInstanceVersionVrfAfiSafiIpv6Prefix *ClearBgpInstanceVersionVrfAfi
     clearBgpInstanceVersionVrfAfiSafiIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-prefix"
+    clearBgpInstanceVersionVrfAfiSafiIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22357,6 +22940,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22393,6 +22977,7 @@ func (clearBgpInstanceVersionVrfAfiSafiRd *ClearBgpInstanceVersionVrfAfiSafiRd) 
     clearBgpInstanceVersionVrfAfiSafiRd.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiRd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiRd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-rd"
+    clearBgpInstanceVersionVrfAfiSafiRd.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiRd.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiRd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiRd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiRd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22439,6 +23024,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiRd_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-rd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-rd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22475,6 +23061,7 @@ func (clearBgpInstanceVersionVrfAfiSafiVrf *ClearBgpInstanceVersionVrfAfiSafiVrf
     clearBgpInstanceVersionVrfAfiSafiVrf.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafiVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafiVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-vrf"
+    clearBgpInstanceVersionVrfAfiSafiVrf.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafiVrf.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafiVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafiVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafiVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22516,6 +23103,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafiVrf_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22551,6 +23139,7 @@ func (clearBgpInstanceVersionVrfAfiSafi *ClearBgpInstanceVersionVrfAfiSafi) GetE
     clearBgpInstanceVersionVrfAfiSafi.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVersionVrfAfiSafi.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVersionVrfAfiSafi.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi"
+    clearBgpInstanceVersionVrfAfiSafi.EntityData.AbsolutePath = clearBgpInstanceVersionVrfAfiSafi.EntityData.SegmentPath
     clearBgpInstanceVersionVrfAfiSafi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVersionVrfAfiSafi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVersionVrfAfiSafi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22589,6 +23178,7 @@ func (input *ClearBgpInstanceVersionVrfAfiSafi_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-version-vrf-afi-safi"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-version-vrf-afi-safi/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22624,6 +23214,7 @@ func (clearBgpInstanceVrfAllGraceful *ClearBgpInstanceVrfAllGraceful) GetEntityD
     clearBgpInstanceVrfAllGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAllGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAllGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-all-graceful"
+    clearBgpInstanceVrfAllGraceful.EntityData.AbsolutePath = clearBgpInstanceVrfAllGraceful.EntityData.SegmentPath
     clearBgpInstanceVrfAllGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAllGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAllGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22659,6 +23250,7 @@ func (input *ClearBgpInstanceVrfAllGraceful_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-all-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-all-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22692,6 +23284,7 @@ func (clearBgpInstanceVrfAll *ClearBgpInstanceVrfAll) GetEntityData() *types.Com
     clearBgpInstanceVrfAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-all"
+    clearBgpInstanceVrfAll.EntityData.AbsolutePath = clearBgpInstanceVrfAll.EntityData.SegmentPath
     clearBgpInstanceVrfAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22727,6 +23320,7 @@ func (input *ClearBgpInstanceVrfAll_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-all"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-all/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22760,6 +23354,7 @@ func (clearBgpInstanceVrfIpAddrGraceful *ClearBgpInstanceVrfIpAddrGraceful) GetE
     clearBgpInstanceVrfIpAddrGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfIpAddrGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfIpAddrGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr-graceful"
+    clearBgpInstanceVrfIpAddrGraceful.EntityData.AbsolutePath = clearBgpInstanceVrfIpAddrGraceful.EntityData.SegmentPath
     clearBgpInstanceVrfIpAddrGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfIpAddrGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfIpAddrGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22803,6 +23398,7 @@ func (input *ClearBgpInstanceVrfIpAddrGraceful_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-ip-addr-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22837,6 +23433,7 @@ func (clearBgpInstanceVrfIpAddrLongLivedStale *ClearBgpInstanceVrfIpAddrLongLive
     clearBgpInstanceVrfIpAddrLongLivedStale.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfIpAddrLongLivedStale.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfIpAddrLongLivedStale.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr-long-lived-stale"
+    clearBgpInstanceVrfIpAddrLongLivedStale.EntityData.AbsolutePath = clearBgpInstanceVrfIpAddrLongLivedStale.EntityData.SegmentPath
     clearBgpInstanceVrfIpAddrLongLivedStale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfIpAddrLongLivedStale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfIpAddrLongLivedStale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22880,6 +23477,7 @@ func (input *ClearBgpInstanceVrfIpAddrLongLivedStale_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-ip-addr-long-lived-stale"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr-long-lived-stale/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22913,6 +23511,7 @@ func (clearBgpInstanceVrfIpAddr *ClearBgpInstanceVrfIpAddr) GetEntityData() *typ
     clearBgpInstanceVrfIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr"
+    clearBgpInstanceVrfIpAddr.EntityData.AbsolutePath = clearBgpInstanceVrfIpAddr.EntityData.SegmentPath
     clearBgpInstanceVrfIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22956,6 +23555,7 @@ func (input *ClearBgpInstanceVrfIpAddr_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -22991,6 +23591,7 @@ func (clearBgpInstanceVrfAsGraceful *ClearBgpInstanceVrfAsGraceful) GetEntityDat
     clearBgpInstanceVrfAsGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAsGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAsGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-as-graceful"
+    clearBgpInstanceVrfAsGraceful.EntityData.AbsolutePath = clearBgpInstanceVrfAsGraceful.EntityData.SegmentPath
     clearBgpInstanceVrfAsGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAsGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAsGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23032,6 +23633,7 @@ func (input *ClearBgpInstanceVrfAsGraceful_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-as-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-as-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23066,6 +23668,7 @@ func (clearBgpInstanceVrfAs *ClearBgpInstanceVrfAs) GetEntityData() *types.Commo
     clearBgpInstanceVrfAs.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAs.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAs.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-as"
+    clearBgpInstanceVrfAs.EntityData.AbsolutePath = clearBgpInstanceVrfAs.EntityData.SegmentPath
     clearBgpInstanceVrfAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23107,6 +23710,7 @@ func (input *ClearBgpInstanceVrfAs_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-as"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-as/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23142,6 +23746,7 @@ func (clearBgpInstanceVrfExternalGraceful *ClearBgpInstanceVrfExternalGraceful) 
     clearBgpInstanceVrfExternalGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfExternalGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfExternalGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-external-graceful"
+    clearBgpInstanceVrfExternalGraceful.EntityData.AbsolutePath = clearBgpInstanceVrfExternalGraceful.EntityData.SegmentPath
     clearBgpInstanceVrfExternalGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfExternalGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfExternalGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23177,6 +23782,7 @@ func (input *ClearBgpInstanceVrfExternalGraceful_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-external-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-external-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23210,6 +23816,7 @@ func (clearBgpInstanceVrfExternal *ClearBgpInstanceVrfExternal) GetEntityData() 
     clearBgpInstanceVrfExternal.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfExternal.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfExternal.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-external"
+    clearBgpInstanceVrfExternal.EntityData.AbsolutePath = clearBgpInstanceVrfExternal.EntityData.SegmentPath
     clearBgpInstanceVrfExternal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfExternal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfExternal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23245,6 +23852,7 @@ func (input *ClearBgpInstanceVrfExternal_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-external"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-external/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23281,6 +23889,7 @@ func (clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter *ClearBgpInstanceVrfAfiSaf
     clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-in-prefix-filter"
+    clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23319,6 +23928,7 @@ func (input *ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-all-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23355,6 +23965,7 @@ func (clearBgpInstanceVrfAfiSafiAllSoftIn *ClearBgpInstanceVrfAfiSafiAllSoftIn) 
     clearBgpInstanceVrfAfiSafiAllSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiAllSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiAllSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-in"
+    clearBgpInstanceVrfAfiSafiAllSoftIn.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiAllSoftIn.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiAllSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiAllSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiAllSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23393,6 +24004,7 @@ func (input *ClearBgpInstanceVrfAfiSafiAllSoftIn_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-all-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23429,6 +24041,7 @@ func (clearBgpInstanceVrfAfiSafiAllSoftOut *ClearBgpInstanceVrfAfiSafiAllSoftOut
     clearBgpInstanceVrfAfiSafiAllSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiAllSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiAllSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-out"
+    clearBgpInstanceVrfAfiSafiAllSoftOut.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiAllSoftOut.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiAllSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiAllSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiAllSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23467,6 +24080,7 @@ func (input *ClearBgpInstanceVrfAfiSafiAllSoftOut_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-all-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23502,6 +24116,7 @@ func (clearBgpInstanceVrfAfiSafiAllSoft *ClearBgpInstanceVrfAfiSafiAllSoft) GetE
     clearBgpInstanceVrfAfiSafiAllSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiAllSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiAllSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft"
+    clearBgpInstanceVrfAfiSafiAllSoft.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiAllSoft.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiAllSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiAllSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiAllSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23540,6 +24155,7 @@ func (input *ClearBgpInstanceVrfAfiSafiAllSoft_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-all-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-all-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23574,6 +24190,7 @@ func (clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale *ClearBgpInstanceVrfAfiSafi
     clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-long-lived-stale"
+    clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiIpAddrLongLivedStale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23620,6 +24237,7 @@ func (input *ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-ip-addr-long-lived-stale"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-long-lived-stale/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23657,6 +24275,7 @@ func (clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter *ClearBgpInstanceVrfAfi
     clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in-prefix-filter"
+    clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23703,6 +24322,7 @@ func (input *ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23739,6 +24359,7 @@ func (clearBgpInstanceVrfAfiSafiIpAddrSoftIn *ClearBgpInstanceVrfAfiSafiIpAddrSo
     clearBgpInstanceVrfAfiSafiIpAddrSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiIpAddrSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiIpAddrSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in"
+    clearBgpInstanceVrfAfiSafiIpAddrSoftIn.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiIpAddrSoftIn.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiIpAddrSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiIpAddrSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiIpAddrSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23785,6 +24406,7 @@ func (input *ClearBgpInstanceVrfAfiSafiIpAddrSoftIn_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23821,6 +24443,7 @@ func (clearBgpInstanceVrfAfiSafiIpAddrSoftOut *ClearBgpInstanceVrfAfiSafiIpAddrS
     clearBgpInstanceVrfAfiSafiIpAddrSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiIpAddrSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiIpAddrSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-out"
+    clearBgpInstanceVrfAfiSafiIpAddrSoftOut.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiIpAddrSoftOut.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiIpAddrSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiIpAddrSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiIpAddrSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23867,6 +24490,7 @@ func (input *ClearBgpInstanceVrfAfiSafiIpAddrSoftOut_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-ip-addr-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23902,6 +24526,7 @@ func (clearBgpInstanceVrfAfiSafiIpAddrSoft *ClearBgpInstanceVrfAfiSafiIpAddrSoft
     clearBgpInstanceVrfAfiSafiIpAddrSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiIpAddrSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiIpAddrSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft"
+    clearBgpInstanceVrfAfiSafiIpAddrSoft.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiIpAddrSoft.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiIpAddrSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiIpAddrSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiIpAddrSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23948,6 +24573,7 @@ func (input *ClearBgpInstanceVrfAfiSafiIpAddrSoft_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-ip-addr-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-ip-addr-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -23986,6 +24612,7 @@ func (clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter *ClearBgpInstanceVrfAfiSafi
     clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-in-prefix-filter"
+    clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24030,6 +24657,7 @@ func (input *ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-as-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24067,6 +24695,7 @@ func (clearBgpInstanceVrfAfiSafiAsSoftIn *ClearBgpInstanceVrfAfiSafiAsSoftIn) Ge
     clearBgpInstanceVrfAfiSafiAsSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiAsSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiAsSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-in"
+    clearBgpInstanceVrfAfiSafiAsSoftIn.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiAsSoftIn.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiAsSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiAsSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiAsSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24111,6 +24740,7 @@ func (input *ClearBgpInstanceVrfAfiSafiAsSoftIn_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-as-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24148,6 +24778,7 @@ func (clearBgpInstanceVrfAfiSafiAsSoftOut *ClearBgpInstanceVrfAfiSafiAsSoftOut) 
     clearBgpInstanceVrfAfiSafiAsSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiAsSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiAsSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-out"
+    clearBgpInstanceVrfAfiSafiAsSoftOut.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiAsSoftOut.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiAsSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiAsSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiAsSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24192,6 +24823,7 @@ func (input *ClearBgpInstanceVrfAfiSafiAsSoftOut_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-as-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24228,6 +24860,7 @@ func (clearBgpInstanceVrfAfiSafiAsSoft *ClearBgpInstanceVrfAfiSafiAsSoft) GetEnt
     clearBgpInstanceVrfAfiSafiAsSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiAsSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiAsSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft"
+    clearBgpInstanceVrfAfiSafiAsSoft.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiAsSoft.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiAsSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiAsSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiAsSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24272,6 +24905,7 @@ func (input *ClearBgpInstanceVrfAfiSafiAsSoft_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-as-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-as-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24307,6 +24941,7 @@ func (clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix *ClearBgpInstanceVrfAfiSafiD
     clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening-ipv4-prefix"
+    clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiDampeningIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24351,6 +24986,7 @@ func (input *ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-dampening-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24386,6 +25022,7 @@ func (clearBgpInstanceVrfAfiSafiDampening *ClearBgpInstanceVrfAfiSafiDampening) 
     clearBgpInstanceVrfAfiSafiDampening.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiDampening.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiDampening.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening"
+    clearBgpInstanceVrfAfiSafiDampening.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiDampening.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24424,6 +25061,7 @@ func (input *ClearBgpInstanceVrfAfiSafiDampening_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-dampening"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24461,6 +25099,7 @@ func (clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter *ClearBgpInstanceVrfA
     clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-in-prefix-filter"
+    clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24499,6 +25138,7 @@ func (input *ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-external-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24535,6 +25175,7 @@ func (clearBgpInstanceVrfAfiSafiExternalSoftIn *ClearBgpInstanceVrfAfiSafiExtern
     clearBgpInstanceVrfAfiSafiExternalSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiExternalSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiExternalSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-in"
+    clearBgpInstanceVrfAfiSafiExternalSoftIn.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiExternalSoftIn.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiExternalSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiExternalSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiExternalSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24573,6 +25214,7 @@ func (input *ClearBgpInstanceVrfAfiSafiExternalSoftIn_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-external-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24609,6 +25251,7 @@ func (clearBgpInstanceVrfAfiSafiExternalSoftOut *ClearBgpInstanceVrfAfiSafiExter
     clearBgpInstanceVrfAfiSafiExternalSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiExternalSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiExternalSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-out"
+    clearBgpInstanceVrfAfiSafiExternalSoftOut.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiExternalSoftOut.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiExternalSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiExternalSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiExternalSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24647,6 +25290,7 @@ func (input *ClearBgpInstanceVrfAfiSafiExternalSoftOut_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-external-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24682,6 +25326,7 @@ func (clearBgpInstanceVrfAfiSafiExternalSoft *ClearBgpInstanceVrfAfiSafiExternal
     clearBgpInstanceVrfAfiSafiExternalSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiExternalSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiExternalSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft"
+    clearBgpInstanceVrfAfiSafiExternalSoft.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiExternalSoft.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiExternalSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiExternalSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiExternalSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24720,6 +25365,7 @@ func (input *ClearBgpInstanceVrfAfiSafiExternalSoft_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-external-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-external-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24754,6 +25400,7 @@ func (clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask *ClearBgpInstanceVr
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask"
+    clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24806,6 +25453,7 @@ func (input *ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask_Input) GetEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24842,6 +25490,7 @@ func (clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr *ClearBgpInstanceVrfAfiSafi
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr"
+    clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24888,6 +25537,7 @@ func (input *ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24923,6 +25573,7 @@ func (clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix *ClearBgpInstanceVrfAfi
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv4-prefix"
+    clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -24967,6 +25618,7 @@ func (input *ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25003,6 +25655,7 @@ func (clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp *ClearBgpInstanceVrfAfiSafi
     clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-regexp"
+    clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiFlapStatisticsRegexp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25045,6 +25698,7 @@ func (input *ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-flap-statistics-regexp"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-regexp/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25081,6 +25735,7 @@ func (clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy *ClearBgpInstanceVrfAf
     clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-route-policy"
+    clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25122,6 +25777,7 @@ func (input *ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-flap-statistics-route-policy"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-route-policy/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25157,6 +25813,7 @@ func (clearBgpInstanceVrfAfiSafiFlapStatistics *ClearBgpInstanceVrfAfiSafiFlapSt
     clearBgpInstanceVrfAfiSafiFlapStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiFlapStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiFlapStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics"
+    clearBgpInstanceVrfAfiSafiFlapStatistics.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiFlapStatistics.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiFlapStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiFlapStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiFlapStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25195,6 +25852,7 @@ func (input *ClearBgpInstanceVrfAfiSafiFlapStatistics_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-flap-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25230,6 +25888,7 @@ func (clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics *ClearBgpInstanceVr
     clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-nexthop-performance-statistics"
+    clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25268,6 +25927,7 @@ func (input *ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics_Input) GetEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-nexthop-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-nexthop-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25303,6 +25963,7 @@ func (clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr *ClearBgpInstanceVrfAf
     clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-nexthop-registration-ip-addr"
+    clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25349,6 +26010,7 @@ func (input *ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-nexthop-registration-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-nexthop-registration-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25384,6 +26046,7 @@ func (clearBgpInstanceVrfAfiSafiSelfOriginated *ClearBgpInstanceVrfAfiSafiSelfOr
     clearBgpInstanceVrfAfiSafiSelfOriginated.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiSelfOriginated.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiSelfOriginated.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-self-originated"
+    clearBgpInstanceVrfAfiSafiSelfOriginated.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiSelfOriginated.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiSelfOriginated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiSelfOriginated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiSelfOriginated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25422,6 +26085,7 @@ func (input *ClearBgpInstanceVrfAfiSafiSelfOriginated_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-self-originated"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-self-originated/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25456,6 +26120,7 @@ func (clearBgpInstanceVrfAfiSafiShutdown *ClearBgpInstanceVrfAfiSafiShutdown) Ge
     clearBgpInstanceVrfAfiSafiShutdown.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-shutdown"
+    clearBgpInstanceVrfAfiSafiShutdown.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiShutdown.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25494,6 +26159,7 @@ func (input *ClearBgpInstanceVrfAfiSafiShutdown_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-shutdown"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-shutdown/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25531,6 +26197,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent *ClearBgpIns
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-address-family-update-parent"
+    clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25569,6 +26236,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent_Input
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-address-family-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-address-family-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25605,6 +26273,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily *ClearBgpInstanceVrfAfiS
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-address-family"
+    clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25643,6 +26312,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-address-family"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-address-family/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25681,6 +26351,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent *Cle
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
+    clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25727,6 +26398,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdatePare
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25765,6 +26437,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh *ClearBgpInstanc
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh"
+    clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25811,6 +26484,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh_Input) Ge
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25849,6 +26523,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent *ClearBgpIn
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent"
+    clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25895,6 +26570,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent_Inpu
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25932,6 +26608,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr *ClearBgpInstanceVrfAfi
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr"
+    clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -25978,6 +26655,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-neighbor-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26017,6 +26695,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent *Clear
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-update-parent"
+    clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26063,6 +26742,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26102,6 +26782,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup *ClearBgpInstanceV
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group"
+    clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26148,6 +26829,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup_Input) GetE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26188,6 +26870,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
+    clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26234,6 +26917,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGr
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26273,6 +26957,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup *Cl
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
+    clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26319,6 +27004,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGr
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26358,6 +27044,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent *ClearBgpInsta
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-update-parent"
+    clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26400,6 +27087,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent_Input) 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26437,6 +27125,7 @@ func (clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup *ClearBgpInstanceVrfAfiSaf
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group"
+    clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26479,6 +27168,7 @@ func (input *ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-update-outq-update-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-update-outq-update-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26514,6 +27204,7 @@ func (clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix *ClearBgpInstanceVrfAfiSafiD
     clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening-ipv6-prefix"
+    clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiDampeningIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26558,6 +27249,7 @@ func (input *ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix_Input) GetEntityData(
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-dampening-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-dampening-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26593,6 +27285,7 @@ func (clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix *ClearBgpInstanceVrfAfi
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv6-prefix"
+    clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.AbsolutePath = clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.SegmentPath
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26637,6 +27330,7 @@ func (input *ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-afi-safi-flap-statistics-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26673,6 +27367,7 @@ func (clearBgpInstanceVrfNexthopPerformanceStatistics *ClearBgpInstanceVrfNextho
     clearBgpInstanceVrfNexthopPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfNexthopPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfNexthopPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-nexthop-performance-statistics"
+    clearBgpInstanceVrfNexthopPerformanceStatistics.EntityData.AbsolutePath = clearBgpInstanceVrfNexthopPerformanceStatistics.EntityData.SegmentPath
     clearBgpInstanceVrfNexthopPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfNexthopPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfNexthopPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26708,6 +27403,7 @@ func (input *ClearBgpInstanceVrfNexthopPerformanceStatistics_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-nexthop-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-nexthop-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26742,6 +27438,7 @@ func (clearBgpInstanceVrfNexthopRegistrationIpAddr *ClearBgpInstanceVrfNexthopRe
     clearBgpInstanceVrfNexthopRegistrationIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfNexthopRegistrationIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfNexthopRegistrationIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-nexthop-registration-ip-addr"
+    clearBgpInstanceVrfNexthopRegistrationIpAddr.EntityData.AbsolutePath = clearBgpInstanceVrfNexthopRegistrationIpAddr.EntityData.SegmentPath
     clearBgpInstanceVrfNexthopRegistrationIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfNexthopRegistrationIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfNexthopRegistrationIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26785,6 +27482,7 @@ func (input *ClearBgpInstanceVrfNexthopRegistrationIpAddr_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-nexthop-registration-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-nexthop-registration-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26820,6 +27518,7 @@ func (clearBgpInstanceVrfPeerDropsAll *ClearBgpInstanceVrfPeerDropsAll) GetEntit
     clearBgpInstanceVrfPeerDropsAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfPeerDropsAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfPeerDropsAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-peer-drops-all"
+    clearBgpInstanceVrfPeerDropsAll.EntityData.AbsolutePath = clearBgpInstanceVrfPeerDropsAll.EntityData.SegmentPath
     clearBgpInstanceVrfPeerDropsAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfPeerDropsAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfPeerDropsAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26855,6 +27554,7 @@ func (input *ClearBgpInstanceVrfPeerDropsAll_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-peer-drops-all"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-peer-drops-all/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26888,6 +27588,7 @@ func (clearBgpInstanceVrfPeerDropsIpAddr *ClearBgpInstanceVrfPeerDropsIpAddr) Ge
     clearBgpInstanceVrfPeerDropsIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfPeerDropsIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfPeerDropsIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-peer-drops-ip-addr"
+    clearBgpInstanceVrfPeerDropsIpAddr.EntityData.AbsolutePath = clearBgpInstanceVrfPeerDropsIpAddr.EntityData.SegmentPath
     clearBgpInstanceVrfPeerDropsIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfPeerDropsIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfPeerDropsIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26931,6 +27632,7 @@ func (input *ClearBgpInstanceVrfPeerDropsIpAddr_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-peer-drops-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-peer-drops-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -26965,6 +27667,7 @@ func (clearBgpInstanceVrfPerformanceStatistics *ClearBgpInstanceVrfPerformanceSt
     clearBgpInstanceVrfPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-performance-statistics"
+    clearBgpInstanceVrfPerformanceStatistics.EntityData.AbsolutePath = clearBgpInstanceVrfPerformanceStatistics.EntityData.SegmentPath
     clearBgpInstanceVrfPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27000,6 +27703,7 @@ func (input *ClearBgpInstanceVrfPerformanceStatistics_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27033,6 +27737,7 @@ func (clearBgpInstanceVrfShutdown *ClearBgpInstanceVrfShutdown) GetEntityData() 
     clearBgpInstanceVrfShutdown.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-shutdown"
+    clearBgpInstanceVrfShutdown.EntityData.AbsolutePath = clearBgpInstanceVrfShutdown.EntityData.SegmentPath
     clearBgpInstanceVrfShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27068,6 +27773,7 @@ func (input *ClearBgpInstanceVrfShutdown_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-shutdown"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-shutdown/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27104,6 +27810,7 @@ func (clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent *ClearBgpInstanceVr
     clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-address-family-update-parent"
+    clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27139,6 +27846,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent_Input) GetEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-address-family-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-address-family-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27174,6 +27882,7 @@ func (clearBgpInstanceVrfUpdateOutqAddressFamily *ClearBgpInstanceVrfUpdateOutqA
     clearBgpInstanceVrfUpdateOutqAddressFamily.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqAddressFamily.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqAddressFamily.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-address-family"
+    clearBgpInstanceVrfUpdateOutqAddressFamily.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqAddressFamily.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqAddressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqAddressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqAddressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27209,6 +27918,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqAddressFamily_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-address-family"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-address-family/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27246,6 +27956,7 @@ func (clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent *ClearBgpIn
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh-update-parent"
+    clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27289,6 +28000,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent_Inpu
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27326,6 +28038,7 @@ func (clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh *ClearBgpInstanceVrfUpd
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh"
+    clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27369,6 +28082,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh_Input) GetEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-refresh/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27406,6 +28120,7 @@ func (clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent *ClearBgpInstanceV
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-update-parent"
+    clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27449,6 +28164,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent_Input) GetE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27485,6 +28201,7 @@ func (clearBgpInstanceVrfUpdateOutqNeighborIpAddr *ClearBgpInstanceVrfUpdateOutq
     clearBgpInstanceVrfUpdateOutqNeighborIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqNeighborIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqNeighborIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr"
+    clearBgpInstanceVrfUpdateOutqNeighborIpAddr.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqNeighborIpAddr.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqNeighborIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqNeighborIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqNeighborIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27528,6 +28245,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqNeighborIpAddr_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-neighbor-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-neighbor-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27566,6 +28284,7 @@ func (clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent *ClearBgpInst
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-update-parent"
+    clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27609,6 +28328,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent_Input)
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-update-group-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27647,6 +28367,7 @@ func (clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup *ClearBgpInstanceVrfUpdat
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group"
+    clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27690,6 +28411,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup_Input) GetEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-update-group-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27729,6 +28451,7 @@ func (clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParen
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
+    clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27772,6 +28495,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpda
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27810,6 +28534,7 @@ func (clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup *ClearBgpI
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group"
+    clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27853,6 +28578,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup_Inp
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-sub-group-refresh-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27891,6 +28617,7 @@ func (clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent *ClearBgpInstanceVrfU
     clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-update-parent"
+    clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27930,6 +28657,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-update-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -27966,6 +28694,7 @@ func (clearBgpInstanceVrfUpdateOutqUpdateGroup *ClearBgpInstanceVrfUpdateOutqUpd
     clearBgpInstanceVrfUpdateOutqUpdateGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfUpdateOutqUpdateGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfUpdateOutqUpdateGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group"
+    clearBgpInstanceVrfUpdateOutqUpdateGroup.EntityData.AbsolutePath = clearBgpInstanceVrfUpdateOutqUpdateGroup.EntityData.SegmentPath
     clearBgpInstanceVrfUpdateOutqUpdateGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfUpdateOutqUpdateGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfUpdateOutqUpdateGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28005,6 +28734,7 @@ func (input *ClearBgpInstanceVrfUpdateOutqUpdateGroup_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-update-outq-update-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-update-outq-update-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28037,6 +28767,7 @@ func (clearBgpAfiSafiDampeningIpv4Prefix *ClearBgpAfiSafiDampeningIpv4Prefix) Ge
     clearBgpAfiSafiDampeningIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiDampeningIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiDampeningIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ipv4-prefix"
+    clearBgpAfiSafiDampeningIpv4Prefix.EntityData.AbsolutePath = clearBgpAfiSafiDampeningIpv4Prefix.EntityData.SegmentPath
     clearBgpAfiSafiDampeningIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiDampeningIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiDampeningIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28071,6 +28802,7 @@ func (input *ClearBgpAfiSafiDampeningIpv4Prefix_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-dampening-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28102,6 +28834,7 @@ func (clearBgpAfiSafiFlapStatisticsIpv4Prefix *ClearBgpAfiSafiFlapStatisticsIpv4
     clearBgpAfiSafiFlapStatisticsIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiFlapStatisticsIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiFlapStatisticsIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ipv4-prefix"
+    clearBgpAfiSafiFlapStatisticsIpv4Prefix.EntityData.AbsolutePath = clearBgpAfiSafiFlapStatisticsIpv4Prefix.EntityData.SegmentPath
     clearBgpAfiSafiFlapStatisticsIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiFlapStatisticsIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiFlapStatisticsIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28136,6 +28869,7 @@ func (input *ClearBgpAfiSafiFlapStatisticsIpv4Prefix_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-flap-statistics-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28167,6 +28901,7 @@ func (clearBgpAfiSafiDampeningIpv6Prefix *ClearBgpAfiSafiDampeningIpv6Prefix) Ge
     clearBgpAfiSafiDampeningIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiDampeningIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiDampeningIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ipv6-prefix"
+    clearBgpAfiSafiDampeningIpv6Prefix.EntityData.AbsolutePath = clearBgpAfiSafiDampeningIpv6Prefix.EntityData.SegmentPath
     clearBgpAfiSafiDampeningIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiDampeningIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiDampeningIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28201,6 +28936,7 @@ func (input *ClearBgpAfiSafiDampeningIpv6Prefix_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-dampening-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-dampening-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28232,6 +28968,7 @@ func (clearBgpAfiSafiFlapStatisticsIpv6Prefix *ClearBgpAfiSafiFlapStatisticsIpv6
     clearBgpAfiSafiFlapStatisticsIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpAfiSafiFlapStatisticsIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpAfiSafiFlapStatisticsIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ipv6-prefix"
+    clearBgpAfiSafiFlapStatisticsIpv6Prefix.EntityData.AbsolutePath = clearBgpAfiSafiFlapStatisticsIpv6Prefix.EntityData.SegmentPath
     clearBgpAfiSafiFlapStatisticsIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpAfiSafiFlapStatisticsIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpAfiSafiFlapStatisticsIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28266,6 +29003,7 @@ func (input *ClearBgpAfiSafiFlapStatisticsIpv6Prefix_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-afi-safi-flap-statistics-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-afi-safi-flap-statistics-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28295,6 +29033,7 @@ func (clearBgpNexthopPerformanceStatistics *ClearBgpNexthopPerformanceStatistics
     clearBgpNexthopPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpNexthopPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpNexthopPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-nexthop-performance-statistics"
+    clearBgpNexthopPerformanceStatistics.EntityData.AbsolutePath = clearBgpNexthopPerformanceStatistics.EntityData.SegmentPath
     clearBgpNexthopPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpNexthopPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpNexthopPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28325,6 +29064,7 @@ func (clearBgpNexthopRegistrationIpAddr *ClearBgpNexthopRegistrationIpAddr) GetE
     clearBgpNexthopRegistrationIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpNexthopRegistrationIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpNexthopRegistrationIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-nexthop-registration-ip-addr"
+    clearBgpNexthopRegistrationIpAddr.EntityData.AbsolutePath = clearBgpNexthopRegistrationIpAddr.EntityData.SegmentPath
     clearBgpNexthopRegistrationIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpNexthopRegistrationIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpNexthopRegistrationIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28358,6 +29098,7 @@ func (input *ClearBgpNexthopRegistrationIpAddr_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-nexthop-registration-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-nexthop-registration-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28386,6 +29127,7 @@ func (clearBgpPeerDropsAll *ClearBgpPeerDropsAll) GetEntityData() *types.CommonE
     clearBgpPeerDropsAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpPeerDropsAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpPeerDropsAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-peer-drops-all"
+    clearBgpPeerDropsAll.EntityData.AbsolutePath = clearBgpPeerDropsAll.EntityData.SegmentPath
     clearBgpPeerDropsAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpPeerDropsAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpPeerDropsAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28415,6 +29157,7 @@ func (clearBgpPeerDropsIpAddr *ClearBgpPeerDropsIpAddr) GetEntityData() *types.C
     clearBgpPeerDropsIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpPeerDropsIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpPeerDropsIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-peer-drops-ip-addr"
+    clearBgpPeerDropsIpAddr.EntityData.AbsolutePath = clearBgpPeerDropsIpAddr.EntityData.SegmentPath
     clearBgpPeerDropsIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpPeerDropsIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpPeerDropsIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28448,6 +29191,7 @@ func (input *ClearBgpPeerDropsIpAddr_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-peer-drops-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-peer-drops-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28475,6 +29219,7 @@ func (clearBgpPerformanceStatistics *ClearBgpPerformanceStatistics) GetEntityDat
     clearBgpPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-performance-statistics"
+    clearBgpPerformanceStatistics.EntityData.AbsolutePath = clearBgpPerformanceStatistics.EntityData.SegmentPath
     clearBgpPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28504,6 +29249,7 @@ func (clearBgpRpkiServerAllSerialQuery *ClearBgpRpkiServerAllSerialQuery) GetEnt
     clearBgpRpkiServerAllSerialQuery.EntityData.BundleName = "cisco_ios_xr"
     clearBgpRpkiServerAllSerialQuery.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpRpkiServerAllSerialQuery.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-server-all-serial-query"
+    clearBgpRpkiServerAllSerialQuery.EntityData.AbsolutePath = clearBgpRpkiServerAllSerialQuery.EntityData.SegmentPath
     clearBgpRpkiServerAllSerialQuery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpRpkiServerAllSerialQuery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpRpkiServerAllSerialQuery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28532,6 +29278,7 @@ func (clearBgpRpkiServerAll *ClearBgpRpkiServerAll) GetEntityData() *types.Commo
     clearBgpRpkiServerAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpRpkiServerAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpRpkiServerAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-server-all"
+    clearBgpRpkiServerAll.EntityData.AbsolutePath = clearBgpRpkiServerAll.EntityData.SegmentPath
     clearBgpRpkiServerAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpRpkiServerAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpRpkiServerAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28562,6 +29309,7 @@ func (clearBgpRpkiServerRpkiServer *ClearBgpRpkiServerRpkiServer) GetEntityData(
     clearBgpRpkiServerRpkiServer.EntityData.BundleName = "cisco_ios_xr"
     clearBgpRpkiServerRpkiServer.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpRpkiServerRpkiServer.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-server-rpki-server"
+    clearBgpRpkiServerRpkiServer.EntityData.AbsolutePath = clearBgpRpkiServerRpkiServer.EntityData.SegmentPath
     clearBgpRpkiServerRpkiServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpRpkiServerRpkiServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpRpkiServerRpkiServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28591,6 +29339,7 @@ func (input *ClearBgpRpkiServerRpkiServer_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-rpki-server-rpki-server"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-server-rpki-server/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28620,6 +29369,7 @@ func (clearBgpRpkiValidationIpv4 *ClearBgpRpkiValidationIpv4) GetEntityData() *t
     clearBgpRpkiValidationIpv4.EntityData.BundleName = "cisco_ios_xr"
     clearBgpRpkiValidationIpv4.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpRpkiValidationIpv4.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-validation-ipv4"
+    clearBgpRpkiValidationIpv4.EntityData.AbsolutePath = clearBgpRpkiValidationIpv4.EntityData.SegmentPath
     clearBgpRpkiValidationIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpRpkiValidationIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpRpkiValidationIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28648,6 +29398,7 @@ func (clearBgpRpkiValidationIpv6 *ClearBgpRpkiValidationIpv6) GetEntityData() *t
     clearBgpRpkiValidationIpv6.EntityData.BundleName = "cisco_ios_xr"
     clearBgpRpkiValidationIpv6.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpRpkiValidationIpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-validation-ipv6"
+    clearBgpRpkiValidationIpv6.EntityData.AbsolutePath = clearBgpRpkiValidationIpv6.EntityData.SegmentPath
     clearBgpRpkiValidationIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpRpkiValidationIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpRpkiValidationIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28675,6 +29426,7 @@ func (clearBgpRpkiValidation *ClearBgpRpkiValidation) GetEntityData() *types.Com
     clearBgpRpkiValidation.EntityData.BundleName = "cisco_ios_xr"
     clearBgpRpkiValidation.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpRpkiValidation.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-rpki-validation"
+    clearBgpRpkiValidation.EntityData.AbsolutePath = clearBgpRpkiValidation.EntityData.SegmentPath
     clearBgpRpkiValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpRpkiValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpRpkiValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28701,6 +29453,7 @@ func (clearBgpShutdown *ClearBgpShutdown) GetEntityData() *types.CommonEntityDat
     clearBgpShutdown.EntityData.BundleName = "cisco_ios_xr"
     clearBgpShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-shutdown"
+    clearBgpShutdown.EntityData.AbsolutePath = clearBgpShutdown.EntityData.SegmentPath
     clearBgpShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28730,6 +29483,7 @@ func (clearBgpUpdateOutqAddressFamilyUpdateParent *ClearBgpUpdateOutqAddressFami
     clearBgpUpdateOutqAddressFamilyUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqAddressFamilyUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-address-family-update-parent"
+    clearBgpUpdateOutqAddressFamilyUpdateParent.EntityData.AbsolutePath = clearBgpUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath
     clearBgpUpdateOutqAddressFamilyUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqAddressFamilyUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqAddressFamilyUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28758,6 +29512,7 @@ func (clearBgpUpdateOutqAddressFamily *ClearBgpUpdateOutqAddressFamily) GetEntit
     clearBgpUpdateOutqAddressFamily.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqAddressFamily.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqAddressFamily.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-address-family"
+    clearBgpUpdateOutqAddressFamily.EntityData.AbsolutePath = clearBgpUpdateOutqAddressFamily.EntityData.SegmentPath
     clearBgpUpdateOutqAddressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqAddressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqAddressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28791,6 +29546,7 @@ func (clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent *ClearBgpUpdateOutqNei
     clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-refresh-update-parent"
+    clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.AbsolutePath = clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath
     clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28824,6 +29580,7 @@ func (input *ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-neighbor-ip-addr-refresh-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-refresh-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28857,6 +29614,7 @@ func (clearBgpUpdateOutqNeighborIpAddrRefresh *ClearBgpUpdateOutqNeighborIpAddrR
     clearBgpUpdateOutqNeighborIpAddrRefresh.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqNeighborIpAddrRefresh.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-refresh"
+    clearBgpUpdateOutqNeighborIpAddrRefresh.EntityData.AbsolutePath = clearBgpUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath
     clearBgpUpdateOutqNeighborIpAddrRefresh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqNeighborIpAddrRefresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqNeighborIpAddrRefresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28890,6 +29648,7 @@ func (input *ClearBgpUpdateOutqNeighborIpAddrRefresh_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-neighbor-ip-addr-refresh"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-refresh/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28923,6 +29682,7 @@ func (clearBgpUpdateOutqNeighborIpAddrUpdateParent *ClearBgpUpdateOutqNeighborIp
     clearBgpUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqNeighborIpAddrUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-update-parent"
+    clearBgpUpdateOutqNeighborIpAddrUpdateParent.EntityData.AbsolutePath = clearBgpUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath
     clearBgpUpdateOutqNeighborIpAddrUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqNeighborIpAddrUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28956,6 +29716,7 @@ func (input *ClearBgpUpdateOutqNeighborIpAddrUpdateParent_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-neighbor-ip-addr-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -28988,6 +29749,7 @@ func (clearBgpUpdateOutqNeighborIpAddr *ClearBgpUpdateOutqNeighborIpAddr) GetEnt
     clearBgpUpdateOutqNeighborIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqNeighborIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqNeighborIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr"
+    clearBgpUpdateOutqNeighborIpAddr.EntityData.AbsolutePath = clearBgpUpdateOutqNeighborIpAddr.EntityData.SegmentPath
     clearBgpUpdateOutqNeighborIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqNeighborIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqNeighborIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29021,6 +29783,7 @@ func (input *ClearBgpUpdateOutqNeighborIpAddr_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-neighbor-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-neighbor-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29050,6 +29813,7 @@ func (clearBgpUpdateOutqProcess *ClearBgpUpdateOutqProcess) GetEntityData() *typ
     clearBgpUpdateOutqProcess.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqProcess.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqProcess.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-process"
+    clearBgpUpdateOutqProcess.EntityData.AbsolutePath = clearBgpUpdateOutqProcess.EntityData.SegmentPath
     clearBgpUpdateOutqProcess.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqProcess.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqProcess.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29083,6 +29847,7 @@ func (clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent *ClearBgpUpdateOutqUpdat
     clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-update-parent"
+    clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29116,6 +29881,7 @@ func (input *ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-update-group-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29150,6 +29916,7 @@ func (clearBgpUpdateOutqUpdateGroupSubGroup *ClearBgpUpdateOutqUpdateGroupSubGro
     clearBgpUpdateOutqUpdateGroupSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqUpdateGroupSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group"
+    clearBgpUpdateOutqUpdateGroupSubGroup.EntityData.AbsolutePath = clearBgpUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath
     clearBgpUpdateOutqUpdateGroupSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqUpdateGroupSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqUpdateGroupSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29183,6 +29950,7 @@ func (input *ClearBgpUpdateOutqUpdateGroupSubGroup_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-update-group-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29218,6 +29986,7 @@ func (clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent *ClearBgp
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
+    clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29251,6 +30020,7 @@ func (input *ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent_In
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-refresh-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29285,6 +30055,7 @@ func (clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup *ClearBgpUpdateOutqUp
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-refresh-sub-group"
+    clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.AbsolutePath = clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29318,6 +30089,7 @@ func (input *ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-update-group-sub-group-refresh-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-sub-group-refresh-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29352,6 +30124,7 @@ func (clearBgpUpdateOutqUpdateGroupUpdateParent *ClearBgpUpdateOutqUpdateGroupUp
     clearBgpUpdateOutqUpdateGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqUpdateGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-update-parent"
+    clearBgpUpdateOutqUpdateGroupUpdateParent.EntityData.AbsolutePath = clearBgpUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath
     clearBgpUpdateOutqUpdateGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqUpdateGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqUpdateGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29381,6 +30154,7 @@ func (input *ClearBgpUpdateOutqUpdateGroupUpdateParent_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-update-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29413,6 +30187,7 @@ func (clearBgpUpdateOutqUpdateGroup *ClearBgpUpdateOutqUpdateGroup) GetEntityDat
     clearBgpUpdateOutqUpdateGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpUpdateOutqUpdateGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpUpdateOutqUpdateGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group"
+    clearBgpUpdateOutqUpdateGroup.EntityData.AbsolutePath = clearBgpUpdateOutqUpdateGroup.EntityData.SegmentPath
     clearBgpUpdateOutqUpdateGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpUpdateOutqUpdateGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpUpdateOutqUpdateGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29442,6 +30217,7 @@ func (input *ClearBgpUpdateOutqUpdateGroup_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-update-outq-update-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-update-outq-update-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29472,6 +30248,7 @@ func (clearBgpVersionIpAddrIpNetmask *ClearBgpVersionIpAddrIpNetmask) GetEntityD
     clearBgpVersionIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-addr-ip-netmask"
+    clearBgpVersionIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpVersionIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpVersionIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29511,6 +30288,7 @@ func (input *ClearBgpVersionIpAddrIpNetmask_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29542,6 +30320,7 @@ func (clearBgpVersionIpAddr *ClearBgpVersionIpAddr) GetEntityData() *types.Commo
     clearBgpVersionIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-addr"
+    clearBgpVersionIpAddr.EntityData.AbsolutePath = clearBgpVersionIpAddr.EntityData.SegmentPath
     clearBgpVersionIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29574,6 +30353,7 @@ func (input *ClearBgpVersionIpAddr_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29604,6 +30384,7 @@ func (clearBgpVersionIpPrefix *ClearBgpVersionIpPrefix) GetEntityData() *types.C
     clearBgpVersionIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-prefix"
+    clearBgpVersionIpPrefix.EntityData.AbsolutePath = clearBgpVersionIpPrefix.EntityData.SegmentPath
     clearBgpVersionIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29637,6 +30418,7 @@ func (input *ClearBgpVersionIpPrefix_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29667,6 +30449,7 @@ func (clearBgpVersionAfiSafiIpAddrIpNetmask *ClearBgpVersionAfiSafiIpAddrIpNetma
     clearBgpVersionAfiSafiIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-addr-ip-netmask"
+    clearBgpVersionAfiSafiIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29709,6 +30492,7 @@ func (input *ClearBgpVersionAfiSafiIpAddrIpNetmask_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29741,6 +30525,7 @@ func (clearBgpVersionAfiSafiIpAddr *ClearBgpVersionAfiSafiIpAddr) GetEntityData(
     clearBgpVersionAfiSafiIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-addr"
+    clearBgpVersionAfiSafiIpAddr.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpAddr.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29776,6 +30561,7 @@ func (input *ClearBgpVersionAfiSafiIpAddr_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29807,6 +30593,7 @@ func (clearBgpVersionAfiSafiIpPrefix *ClearBgpVersionAfiSafiIpPrefix) GetEntityD
     clearBgpVersionAfiSafiIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-prefix"
+    clearBgpVersionAfiSafiIpPrefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpPrefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29843,6 +30630,7 @@ func (input *ClearBgpVersionAfiSafiIpPrefix_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29875,6 +30663,7 @@ func (clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask *ClearBgpVersionAfiSafiB
     clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-addr-ip-netmask"
+    clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29920,6 +30709,7 @@ func (input *ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-bridge-domain-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29954,6 +30744,7 @@ func (clearBgpVersionAfiSafiBridgeDomainIpAddr *ClearBgpVersionAfiSafiBridgeDoma
     clearBgpVersionAfiSafiBridgeDomainIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiBridgeDomainIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiBridgeDomainIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-addr"
+    clearBgpVersionAfiSafiBridgeDomainIpAddr.EntityData.AbsolutePath = clearBgpVersionAfiSafiBridgeDomainIpAddr.EntityData.SegmentPath
     clearBgpVersionAfiSafiBridgeDomainIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiBridgeDomainIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiBridgeDomainIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -29992,6 +30783,7 @@ func (input *ClearBgpVersionAfiSafiBridgeDomainIpAddr_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-bridge-domain-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30025,6 +30817,7 @@ func (clearBgpVersionAfiSafiBridgeDomainIpPrefix *ClearBgpVersionAfiSafiBridgeDo
     clearBgpVersionAfiSafiBridgeDomainIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiBridgeDomainIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiBridgeDomainIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-prefix"
+    clearBgpVersionAfiSafiBridgeDomainIpPrefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiBridgeDomainIpPrefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiBridgeDomainIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiBridgeDomainIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiBridgeDomainIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30064,6 +30857,7 @@ func (input *ClearBgpVersionAfiSafiBridgeDomainIpPrefix_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-bridge-domain-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30097,6 +30891,7 @@ func (clearBgpVersionAfiSafiRdIpAddrIpNetmask *ClearBgpVersionAfiSafiRdIpAddrIpN
     clearBgpVersionAfiSafiRdIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-addr-ip-netmask"
+    clearBgpVersionAfiSafiRdIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30147,6 +30942,7 @@ func (input *ClearBgpVersionAfiSafiRdIpAddrIpNetmask_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30181,6 +30977,7 @@ func (clearBgpVersionAfiSafiRdIpAddr *ClearBgpVersionAfiSafiRdIpAddr) GetEntityD
     clearBgpVersionAfiSafiRdIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-addr"
+    clearBgpVersionAfiSafiRdIpAddr.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpAddr.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30224,6 +31021,7 @@ func (input *ClearBgpVersionAfiSafiRdIpAddr_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30257,6 +31055,7 @@ func (clearBgpVersionAfiSafiRdIpPrefix *ClearBgpVersionAfiSafiRdIpPrefix) GetEnt
     clearBgpVersionAfiSafiRdIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-prefix"
+    clearBgpVersionAfiSafiRdIpPrefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpPrefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30301,6 +31100,7 @@ func (input *ClearBgpVersionAfiSafiRdIpPrefix_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30333,6 +31133,7 @@ func (clearBgpVersionAfiSafiIpv4AddrIpv4Mask *ClearBgpVersionAfiSafiIpv4AddrIpv4
     clearBgpVersionAfiSafiIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-addr-ipv4-mask"
+    clearBgpVersionAfiSafiIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30371,6 +31172,7 @@ func (input *ClearBgpVersionAfiSafiIpv4AddrIpv4Mask_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30403,6 +31205,7 @@ func (clearBgpVersionAfiSafiIpv4Addr *ClearBgpVersionAfiSafiIpv4Addr) GetEntityD
     clearBgpVersionAfiSafiIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-addr"
+    clearBgpVersionAfiSafiIpv4Addr.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpv4Addr.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30436,6 +31239,7 @@ func (input *ClearBgpVersionAfiSafiIpv4Addr_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30467,6 +31271,7 @@ func (clearBgpVersionAfiSafiIpv4Prefix *ClearBgpVersionAfiSafiIpv4Prefix) GetEnt
     clearBgpVersionAfiSafiIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-prefix"
+    clearBgpVersionAfiSafiIpv4Prefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpv4Prefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30500,6 +31305,7 @@ func (input *ClearBgpVersionAfiSafiIpv4Prefix_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30532,6 +31338,7 @@ func (clearBgpVersionAfiSafiRdIpv4Addr *ClearBgpVersionAfiSafiRdIpv4Addr) GetEnt
     clearBgpVersionAfiSafiRdIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-addr"
+    clearBgpVersionAfiSafiRdIpv4Addr.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpv4Addr.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30573,6 +31380,7 @@ func (input *ClearBgpVersionAfiSafiRdIpv4Addr_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30606,6 +31414,7 @@ func (clearBgpVersionAfiSafiVrfIpv4Addr *ClearBgpVersionAfiSafiVrfIpv4Addr) GetE
     clearBgpVersionAfiSafiVrfIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiVrfIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiVrfIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-addr"
+    clearBgpVersionAfiSafiVrfIpv4Addr.EntityData.AbsolutePath = clearBgpVersionAfiSafiVrfIpv4Addr.EntityData.SegmentPath
     clearBgpVersionAfiSafiVrfIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiVrfIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiVrfIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30642,6 +31451,7 @@ func (input *ClearBgpVersionAfiSafiVrfIpv4Addr_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-vrf-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30674,6 +31484,7 @@ func (clearBgpVersionAfiSafiNetwork *ClearBgpVersionAfiSafiNetwork) GetEntityDat
     clearBgpVersionAfiSafiNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-network"
+    clearBgpVersionAfiSafiNetwork.EntityData.AbsolutePath = clearBgpVersionAfiSafiNetwork.EntityData.SegmentPath
     clearBgpVersionAfiSafiNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30706,6 +31517,7 @@ func (input *ClearBgpVersionAfiSafiNetwork_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30738,6 +31550,7 @@ func (clearBgpVersionAfiSafiRdNetwork *ClearBgpVersionAfiSafiRdNetwork) GetEntit
     clearBgpVersionAfiSafiRdNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-network"
+    clearBgpVersionAfiSafiRdNetwork.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdNetwork.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30778,6 +31591,7 @@ func (input *ClearBgpVersionAfiSafiRdNetwork_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30811,6 +31625,7 @@ func (clearBgpVersionAfiSafiVrfNetwork *ClearBgpVersionAfiSafiVrfNetwork) GetEnt
     clearBgpVersionAfiSafiVrfNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiVrfNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiVrfNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-network"
+    clearBgpVersionAfiSafiVrfNetwork.EntityData.AbsolutePath = clearBgpVersionAfiSafiVrfNetwork.EntityData.SegmentPath
     clearBgpVersionAfiSafiVrfNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiVrfNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiVrfNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30846,6 +31661,7 @@ func (input *ClearBgpVersionAfiSafiVrfNetwork_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-vrf-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30878,6 +31694,7 @@ func (clearBgpVersionAfiSafiRtConstraintNetwork *ClearBgpVersionAfiSafiRtConstra
     clearBgpVersionAfiSafiRtConstraintNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRtConstraintNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRtConstraintNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rt-constraint-network"
+    clearBgpVersionAfiSafiRtConstraintNetwork.EntityData.AbsolutePath = clearBgpVersionAfiSafiRtConstraintNetwork.EntityData.SegmentPath
     clearBgpVersionAfiSafiRtConstraintNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRtConstraintNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRtConstraintNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30909,6 +31726,7 @@ func (input *ClearBgpVersionAfiSafiRtConstraintNetwork_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rt-constraint-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rt-constraint-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30940,6 +31758,7 @@ func (clearBgpVersionAfiSafiIpv4TunnelNetwork *ClearBgpVersionAfiSafiIpv4TunnelN
     clearBgpVersionAfiSafiIpv4TunnelNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpv4TunnelNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpv4TunnelNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-tunnel-network"
+    clearBgpVersionAfiSafiIpv4TunnelNetwork.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpv4TunnelNetwork.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpv4TunnelNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpv4TunnelNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpv4TunnelNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -30972,6 +31791,7 @@ func (input *ClearBgpVersionAfiSafiIpv4TunnelNetwork_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ipv4-tunnel-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv4-tunnel-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31003,6 +31823,7 @@ func (clearBgpVersionAfiSafiIpv6AddrIpv6Netmask *ClearBgpVersionAfiSafiIpv6AddrI
     clearBgpVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-addr-ipv6-netmask"
+    clearBgpVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31041,6 +31862,7 @@ func (input *ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31073,6 +31895,7 @@ func (clearBgpVersionAfiSafiIpv6Addr *ClearBgpVersionAfiSafiIpv6Addr) GetEntityD
     clearBgpVersionAfiSafiIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-addr"
+    clearBgpVersionAfiSafiIpv6Addr.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpv6Addr.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31106,6 +31929,7 @@ func (input *ClearBgpVersionAfiSafiIpv6Addr_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31137,6 +31961,7 @@ func (clearBgpVersionAfiSafiIpv6Prefix *ClearBgpVersionAfiSafiIpv6Prefix) GetEnt
     clearBgpVersionAfiSafiIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-prefix"
+    clearBgpVersionAfiSafiIpv6Prefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiIpv6Prefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31170,6 +31995,7 @@ func (input *ClearBgpVersionAfiSafiIpv6Prefix_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31202,6 +32028,7 @@ func (clearBgpVersionAfiSafiRd *ClearBgpVersionAfiSafiRd) GetEntityData() *types
     clearBgpVersionAfiSafiRd.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd"
+    clearBgpVersionAfiSafiRd.EntityData.AbsolutePath = clearBgpVersionAfiSafiRd.EntityData.SegmentPath
     clearBgpVersionAfiSafiRd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31238,6 +32065,7 @@ func (input *ClearBgpVersionAfiSafiRd_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31270,6 +32098,7 @@ func (clearBgpVersionAfiSafiVrf *ClearBgpVersionAfiSafiVrf) GetEntityData() *typ
     clearBgpVersionAfiSafiVrf.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf"
+    clearBgpVersionAfiSafiVrf.EntityData.AbsolutePath = clearBgpVersionAfiSafiVrf.EntityData.SegmentPath
     clearBgpVersionAfiSafiVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31301,6 +32130,7 @@ func (input *ClearBgpVersionAfiSafiVrf_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31332,6 +32162,7 @@ func (clearBgpVersionAfiSafi *ClearBgpVersionAfiSafi) GetEntityData() *types.Com
     clearBgpVersionAfiSafi.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafi.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafi.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi"
+    clearBgpVersionAfiSafi.EntityData.AbsolutePath = clearBgpVersionAfiSafi.EntityData.SegmentPath
     clearBgpVersionAfiSafi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31360,6 +32191,7 @@ func (input *ClearBgpVersionAfiSafi_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31390,6 +32222,7 @@ func (clearBgpVersionAfiSafiSrPolicyPrefix *ClearBgpVersionAfiSafiSrPolicyPrefix
     clearBgpVersionAfiSafiSrPolicyPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiSrPolicyPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiSrPolicyPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-sr-policy-prefix"
+    clearBgpVersionAfiSafiSrPolicyPrefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiSrPolicyPrefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiSrPolicyPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiSrPolicyPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiSrPolicyPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31421,6 +32254,7 @@ func (input *ClearBgpVersionAfiSafiSrPolicyPrefix_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-sr-policy-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-sr-policy-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31453,6 +32287,7 @@ func (clearBgpVersionAfiSafiBridgeDomainIpv4Prefix *ClearBgpVersionAfiSafiBridge
     clearBgpVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ipv4-prefix"
+    clearBgpVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiBridgeDomainIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31489,6 +32324,7 @@ func (input *ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-bridge-domain-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-bridge-domain-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31522,6 +32358,7 @@ func (clearBgpVersionAfiSafiRdIpv4Prefix *ClearBgpVersionAfiSafiRdIpv4Prefix) Ge
     clearBgpVersionAfiSafiRdIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-prefix"
+    clearBgpVersionAfiSafiRdIpv4Prefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpv4Prefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31563,6 +32400,7 @@ func (input *ClearBgpVersionAfiSafiRdIpv4Prefix_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31596,6 +32434,7 @@ func (clearBgpVersionAfiSafiMp2mpIpv4Prefix *ClearBgpVersionAfiSafiMp2mpIpv4Pref
     clearBgpVersionAfiSafiMp2mpIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiMp2mpIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiMp2mpIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-mp2mp-ipv4-prefix"
+    clearBgpVersionAfiSafiMp2mpIpv4Prefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiMp2mpIpv4Prefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiMp2mpIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiMp2mpIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiMp2mpIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31632,6 +32471,7 @@ func (input *ClearBgpVersionAfiSafiMp2mpIpv4Prefix_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-mp2mp-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-mp2mp-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31665,6 +32505,7 @@ func (clearBgpVersionAfiSafiVrfIpv4Prefix *ClearBgpVersionAfiSafiVrfIpv4Prefix) 
     clearBgpVersionAfiSafiVrfIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiVrfIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiVrfIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-prefix"
+    clearBgpVersionAfiSafiVrfIpv4Prefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiVrfIpv4Prefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiVrfIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiVrfIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiVrfIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31701,6 +32542,7 @@ func (input *ClearBgpVersionAfiSafiVrfIpv4Prefix_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-vrf-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31734,6 +32576,7 @@ func (clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask *ClearBgpVersionAfiSafiRdIpv4Addr
     clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-addr-ipv4-mask"
+    clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31780,6 +32623,7 @@ func (input *ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31814,6 +32658,7 @@ func (clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask *ClearBgpVersionAfiSafiVrfIpv4Ad
     clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-addr-ipv4-mask"
+    clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31855,6 +32700,7 @@ func (input *ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-vrf-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31889,6 +32735,7 @@ func (clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask *ClearBgpVersionAfiSafiRdIpv6A
     clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-addr-ipv6-netmask"
+    clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31935,6 +32782,7 @@ func (input *ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -31969,6 +32817,7 @@ func (clearBgpVersionAfiSafiRdIpv6Addr *ClearBgpVersionAfiSafiRdIpv6Addr) GetEnt
     clearBgpVersionAfiSafiRdIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-addr"
+    clearBgpVersionAfiSafiRdIpv6Addr.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpv6Addr.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32010,6 +32859,7 @@ func (input *ClearBgpVersionAfiSafiRdIpv6Addr_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32043,6 +32893,7 @@ func (clearBgpVersionAfiSafiRdIpv6Prefix *ClearBgpVersionAfiSafiRdIpv6Prefix) Ge
     clearBgpVersionAfiSafiRdIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiRdIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiRdIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-prefix"
+    clearBgpVersionAfiSafiRdIpv6Prefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiRdIpv6Prefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiRdIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiRdIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiRdIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32084,6 +32935,7 @@ func (input *ClearBgpVersionAfiSafiRdIpv6Prefix_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-rd-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-rd-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32117,6 +32969,7 @@ func (clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask *ClearBgpVersionAfiSafiVrfIpv
     clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-addr-ipv6-netmask"
+    clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32158,6 +33011,7 @@ func (input *ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-vrf-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32192,6 +33046,7 @@ func (clearBgpVersionAfiSafiVrfIpv6Addr *ClearBgpVersionAfiSafiVrfIpv6Addr) GetE
     clearBgpVersionAfiSafiVrfIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiVrfIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiVrfIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-addr"
+    clearBgpVersionAfiSafiVrfIpv6Addr.EntityData.AbsolutePath = clearBgpVersionAfiSafiVrfIpv6Addr.EntityData.SegmentPath
     clearBgpVersionAfiSafiVrfIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiVrfIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiVrfIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32228,6 +33083,7 @@ func (input *ClearBgpVersionAfiSafiVrfIpv6Addr_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-vrf-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32261,6 +33117,7 @@ func (clearBgpVersionAfiSafiVrfIpv6Prefix *ClearBgpVersionAfiSafiVrfIpv6Prefix) 
     clearBgpVersionAfiSafiVrfIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionAfiSafiVrfIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionAfiSafiVrfIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-prefix"
+    clearBgpVersionAfiSafiVrfIpv6Prefix.EntityData.AbsolutePath = clearBgpVersionAfiSafiVrfIpv6Prefix.EntityData.SegmentPath
     clearBgpVersionAfiSafiVrfIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionAfiSafiVrfIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionAfiSafiVrfIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32297,6 +33154,7 @@ func (input *ClearBgpVersionAfiSafiVrfIpv6Prefix_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-afi-safi-vrf-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-afi-safi-vrf-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32330,6 +33188,7 @@ func (clearBgpVersionVrfIpAddrIpNetmask *ClearBgpVersionVrfIpAddrIpNetmask) GetE
     clearBgpVersionVrfIpAddrIpNetmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfIpAddrIpNetmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfIpAddrIpNetmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-addr-ip-netmask"
+    clearBgpVersionVrfIpAddrIpNetmask.EntityData.AbsolutePath = clearBgpVersionVrfIpAddrIpNetmask.EntityData.SegmentPath
     clearBgpVersionVrfIpAddrIpNetmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfIpAddrIpNetmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfIpAddrIpNetmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32374,6 +33233,7 @@ func (input *ClearBgpVersionVrfIpAddrIpNetmask_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-ip-addr-ip-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-addr-ip-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32407,6 +33267,7 @@ func (clearBgpVersionVrfIpAddr *ClearBgpVersionVrfIpAddr) GetEntityData() *types
     clearBgpVersionVrfIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-addr"
+    clearBgpVersionVrfIpAddr.EntityData.AbsolutePath = clearBgpVersionVrfIpAddr.EntityData.SegmentPath
     clearBgpVersionVrfIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32444,6 +33305,7 @@ func (input *ClearBgpVersionVrfIpAddr_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32476,6 +33338,7 @@ func (clearBgpVersionVrfIpPrefix *ClearBgpVersionVrfIpPrefix) GetEntityData() *t
     clearBgpVersionVrfIpPrefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfIpPrefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfIpPrefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-prefix"
+    clearBgpVersionVrfIpPrefix.EntityData.AbsolutePath = clearBgpVersionVrfIpPrefix.EntityData.SegmentPath
     clearBgpVersionVrfIpPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfIpPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfIpPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32514,6 +33377,7 @@ func (input *ClearBgpVersionVrfIpPrefix_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-ip-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-ip-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32546,6 +33410,7 @@ func (clearBgpVersionVrfAfiSafiIpv4Prefix *ClearBgpVersionVrfAfiSafiIpv4Prefix) 
     clearBgpVersionVrfAfiSafiIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-prefix"
+    clearBgpVersionVrfAfiSafiIpv4Prefix.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiIpv4Prefix.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32584,6 +33449,7 @@ func (input *ClearBgpVersionVrfAfiSafiIpv4Prefix_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32617,6 +33483,7 @@ func (clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask *ClearBgpVersionVrfAfiSafiIpv4Ad
     clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-addr-ipv4-mask"
+    clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32660,6 +33527,7 @@ func (input *ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-ipv4-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32694,6 +33562,7 @@ func (clearBgpVersionVrfAfiSafiIpv4Addr *ClearBgpVersionVrfAfiSafiIpv4Addr) GetE
     clearBgpVersionVrfAfiSafiIpv4Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiIpv4Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiIpv4Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-addr"
+    clearBgpVersionVrfAfiSafiIpv4Addr.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiIpv4Addr.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiIpv4Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiIpv4Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiIpv4Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32732,6 +33601,7 @@ func (input *ClearBgpVersionVrfAfiSafiIpv4Addr_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-ipv4-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv4-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32765,6 +33635,7 @@ func (clearBgpVersionVrfAfiSafiNetwork *ClearBgpVersionVrfAfiSafiNetwork) GetEnt
     clearBgpVersionVrfAfiSafiNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-network"
+    clearBgpVersionVrfAfiSafiNetwork.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiNetwork.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32802,6 +33673,7 @@ func (input *ClearBgpVersionVrfAfiSafiNetwork_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32836,6 +33708,7 @@ func (clearBgpVersionVrfAfiSafiRdNetwork *ClearBgpVersionVrfAfiSafiRdNetwork) Ge
     clearBgpVersionVrfAfiSafiRdNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiRdNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiRdNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-rd-network"
+    clearBgpVersionVrfAfiSafiRdNetwork.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiRdNetwork.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiRdNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiRdNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiRdNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32881,6 +33754,7 @@ func (input *ClearBgpVersionVrfAfiSafiRdNetwork_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-rd-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-rd-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32916,6 +33790,7 @@ func (clearBgpVersionVrfAfiSafiVrfNetwork *ClearBgpVersionVrfAfiSafiVrfNetwork) 
     clearBgpVersionVrfAfiSafiVrfNetwork.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiVrfNetwork.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiVrfNetwork.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-vrf-network"
+    clearBgpVersionVrfAfiSafiVrfNetwork.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiVrfNetwork.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiVrfNetwork.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiVrfNetwork.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiVrfNetwork.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32956,6 +33831,7 @@ func (input *ClearBgpVersionVrfAfiSafiVrfNetwork_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-vrf-network"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-vrf-network/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -32990,6 +33866,7 @@ func (clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask *ClearBgpVersionVrfAfiSafiIpv
     clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-addr-ipv6-netmask"
+    clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33033,6 +33910,7 @@ func (input *ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-ipv6-addr-ipv6-netmask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-addr-ipv6-netmask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33067,6 +33945,7 @@ func (clearBgpVersionVrfAfiSafiIpv6Addr *ClearBgpVersionVrfAfiSafiIpv6Addr) GetE
     clearBgpVersionVrfAfiSafiIpv6Addr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiIpv6Addr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiIpv6Addr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-addr"
+    clearBgpVersionVrfAfiSafiIpv6Addr.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiIpv6Addr.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiIpv6Addr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiIpv6Addr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiIpv6Addr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33105,6 +33984,7 @@ func (input *ClearBgpVersionVrfAfiSafiIpv6Addr_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-ipv6-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33138,6 +34018,7 @@ func (clearBgpVersionVrfAfiSafiIpv6Prefix *ClearBgpVersionVrfAfiSafiIpv6Prefix) 
     clearBgpVersionVrfAfiSafiIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-prefix"
+    clearBgpVersionVrfAfiSafiIpv6Prefix.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiIpv6Prefix.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33176,6 +34057,7 @@ func (input *ClearBgpVersionVrfAfiSafiIpv6Prefix_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33210,6 +34092,7 @@ func (clearBgpVersionVrfAfiSafiRd *ClearBgpVersionVrfAfiSafiRd) GetEntityData() 
     clearBgpVersionVrfAfiSafiRd.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiRd.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiRd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-rd"
+    clearBgpVersionVrfAfiSafiRd.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiRd.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiRd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiRd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiRd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33251,6 +34134,7 @@ func (input *ClearBgpVersionVrfAfiSafiRd_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-rd"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-rd/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33285,6 +34169,7 @@ func (clearBgpVersionVrfAfiSafiVrf *ClearBgpVersionVrfAfiSafiVrf) GetEntityData(
     clearBgpVersionVrfAfiSafiVrf.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafiVrf.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafiVrf.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-vrf"
+    clearBgpVersionVrfAfiSafiVrf.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafiVrf.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafiVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafiVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafiVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33321,6 +34206,7 @@ func (input *ClearBgpVersionVrfAfiSafiVrf_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi-vrf"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi-vrf/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33354,6 +34240,7 @@ func (clearBgpVersionVrfAfiSafi *ClearBgpVersionVrfAfiSafi) GetEntityData() *typ
     clearBgpVersionVrfAfiSafi.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVersionVrfAfiSafi.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVersionVrfAfiSafi.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi"
+    clearBgpVersionVrfAfiSafi.EntityData.AbsolutePath = clearBgpVersionVrfAfiSafi.EntityData.SegmentPath
     clearBgpVersionVrfAfiSafi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVersionVrfAfiSafi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVersionVrfAfiSafi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33387,6 +34274,7 @@ func (input *ClearBgpVersionVrfAfiSafi_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-version-vrf-afi-safi"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-version-vrf-afi-safi/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33420,6 +34308,7 @@ func (clearBgpVrfAllGraceful *ClearBgpVrfAllGraceful) GetEntityData() *types.Com
     clearBgpVrfAllGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAllGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAllGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-all-graceful"
+    clearBgpVrfAllGraceful.EntityData.AbsolutePath = clearBgpVrfAllGraceful.EntityData.SegmentPath
     clearBgpVrfAllGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAllGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAllGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33450,6 +34339,7 @@ func (input *ClearBgpVrfAllGraceful_Input) GetEntityData() *types.CommonEntityDa
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-all-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-all-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33483,6 +34373,7 @@ func (clearBgpInstanceVrfRpkiValidationIpv4 *ClearBgpInstanceVrfRpkiValidationIp
     clearBgpInstanceVrfRpkiValidationIpv4.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfRpkiValidationIpv4.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfRpkiValidationIpv4.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-rpki-validation-ipv4"
+    clearBgpInstanceVrfRpkiValidationIpv4.EntityData.AbsolutePath = clearBgpInstanceVrfRpkiValidationIpv4.EntityData.SegmentPath
     clearBgpInstanceVrfRpkiValidationIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfRpkiValidationIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfRpkiValidationIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33518,6 +34409,7 @@ func (input *ClearBgpInstanceVrfRpkiValidationIpv4_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-rpki-validation-ipv4"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-rpki-validation-ipv4/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33552,6 +34444,7 @@ func (clearBgpInstanceVrfRpkiValidationIpv6 *ClearBgpInstanceVrfRpkiValidationIp
     clearBgpInstanceVrfRpkiValidationIpv6.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfRpkiValidationIpv6.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfRpkiValidationIpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-rpki-validation-ipv6"
+    clearBgpInstanceVrfRpkiValidationIpv6.EntityData.AbsolutePath = clearBgpInstanceVrfRpkiValidationIpv6.EntityData.SegmentPath
     clearBgpInstanceVrfRpkiValidationIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfRpkiValidationIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfRpkiValidationIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33587,6 +34480,7 @@ func (input *ClearBgpInstanceVrfRpkiValidationIpv6_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-rpki-validation-ipv6"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-rpki-validation-ipv6/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33620,6 +34514,7 @@ func (clearBgpInstanceVrfRpkiValidation *ClearBgpInstanceVrfRpkiValidation) GetE
     clearBgpInstanceVrfRpkiValidation.EntityData.BundleName = "cisco_ios_xr"
     clearBgpInstanceVrfRpkiValidation.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpInstanceVrfRpkiValidation.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-rpki-validation"
+    clearBgpInstanceVrfRpkiValidation.EntityData.AbsolutePath = clearBgpInstanceVrfRpkiValidation.EntityData.SegmentPath
     clearBgpInstanceVrfRpkiValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpInstanceVrfRpkiValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpInstanceVrfRpkiValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33655,6 +34550,7 @@ func (input *ClearBgpInstanceVrfRpkiValidation_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-instance-vrf-rpki-validation"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-instance-vrf-rpki-validation/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33688,6 +34584,7 @@ func (clearBgpVrfRpkiValidationIpv4 *ClearBgpVrfRpkiValidationIpv4) GetEntityDat
     clearBgpVrfRpkiValidationIpv4.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfRpkiValidationIpv4.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfRpkiValidationIpv4.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-rpki-validation-ipv4"
+    clearBgpVrfRpkiValidationIpv4.EntityData.AbsolutePath = clearBgpVrfRpkiValidationIpv4.EntityData.SegmentPath
     clearBgpVrfRpkiValidationIpv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfRpkiValidationIpv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfRpkiValidationIpv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33718,6 +34615,7 @@ func (input *ClearBgpVrfRpkiValidationIpv4_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-rpki-validation-ipv4"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-rpki-validation-ipv4/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33750,6 +34648,7 @@ func (clearBgpVrfRpkiValidationIpv6 *ClearBgpVrfRpkiValidationIpv6) GetEntityDat
     clearBgpVrfRpkiValidationIpv6.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfRpkiValidationIpv6.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfRpkiValidationIpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-rpki-validation-ipv6"
+    clearBgpVrfRpkiValidationIpv6.EntityData.AbsolutePath = clearBgpVrfRpkiValidationIpv6.EntityData.SegmentPath
     clearBgpVrfRpkiValidationIpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfRpkiValidationIpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfRpkiValidationIpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33780,6 +34679,7 @@ func (input *ClearBgpVrfRpkiValidationIpv6_Input) GetEntityData() *types.CommonE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-rpki-validation-ipv6"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-rpki-validation-ipv6/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33811,6 +34711,7 @@ func (clearBgpVrfRpkiValidation *ClearBgpVrfRpkiValidation) GetEntityData() *typ
     clearBgpVrfRpkiValidation.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfRpkiValidation.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfRpkiValidation.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-rpki-validation"
+    clearBgpVrfRpkiValidation.EntityData.AbsolutePath = clearBgpVrfRpkiValidation.EntityData.SegmentPath
     clearBgpVrfRpkiValidation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfRpkiValidation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfRpkiValidation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33841,6 +34742,7 @@ func (input *ClearBgpVrfRpkiValidation_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-rpki-validation"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-rpki-validation/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33872,6 +34774,7 @@ func (clearBgpVrfAll *ClearBgpVrfAll) GetEntityData() *types.CommonEntityData {
     clearBgpVrfAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-all"
+    clearBgpVrfAll.EntityData.AbsolutePath = clearBgpVrfAll.EntityData.SegmentPath
     clearBgpVrfAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33902,6 +34805,7 @@ func (input *ClearBgpVrfAll_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-all"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-all/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33933,6 +34837,7 @@ func (clearBgpVrfIpAddrGraceful *ClearBgpVrfIpAddrGraceful) GetEntityData() *typ
     clearBgpVrfIpAddrGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfIpAddrGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfIpAddrGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr-graceful"
+    clearBgpVrfIpAddrGraceful.EntityData.AbsolutePath = clearBgpVrfIpAddrGraceful.EntityData.SegmentPath
     clearBgpVrfIpAddrGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfIpAddrGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfIpAddrGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -33971,6 +34876,7 @@ func (input *ClearBgpVrfIpAddrGraceful_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-ip-addr-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34003,6 +34909,7 @@ func (clearBgpVrfIpAddrLongLivedStale *ClearBgpVrfIpAddrLongLivedStale) GetEntit
     clearBgpVrfIpAddrLongLivedStale.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfIpAddrLongLivedStale.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfIpAddrLongLivedStale.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr-long-lived-stale"
+    clearBgpVrfIpAddrLongLivedStale.EntityData.AbsolutePath = clearBgpVrfIpAddrLongLivedStale.EntityData.SegmentPath
     clearBgpVrfIpAddrLongLivedStale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfIpAddrLongLivedStale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfIpAddrLongLivedStale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34041,6 +34948,7 @@ func (input *ClearBgpVrfIpAddrLongLivedStale_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-ip-addr-long-lived-stale"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr-long-lived-stale/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34072,6 +34980,7 @@ func (clearBgpVrfIpAddr *ClearBgpVrfIpAddr) GetEntityData() *types.CommonEntityD
     clearBgpVrfIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr"
+    clearBgpVrfIpAddr.EntityData.AbsolutePath = clearBgpVrfIpAddr.EntityData.SegmentPath
     clearBgpVrfIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34110,6 +35019,7 @@ func (input *ClearBgpVrfIpAddr_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34143,6 +35053,7 @@ func (clearBgpVrfAsGraceful *ClearBgpVrfAsGraceful) GetEntityData() *types.Commo
     clearBgpVrfAsGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAsGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAsGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-as-graceful"
+    clearBgpVrfAsGraceful.EntityData.AbsolutePath = clearBgpVrfAsGraceful.EntityData.SegmentPath
     clearBgpVrfAsGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAsGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAsGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34179,6 +35090,7 @@ func (input *ClearBgpVrfAsGraceful_Input) GetEntityData() *types.CommonEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-as-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-as-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34211,6 +35123,7 @@ func (clearBgpVrfAs *ClearBgpVrfAs) GetEntityData() *types.CommonEntityData {
     clearBgpVrfAs.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAs.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAs.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-as"
+    clearBgpVrfAs.EntityData.AbsolutePath = clearBgpVrfAs.EntityData.SegmentPath
     clearBgpVrfAs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34247,6 +35160,7 @@ func (input *ClearBgpVrfAs_Input) GetEntityData() *types.CommonEntityData {
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-as"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-as/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34280,6 +35194,7 @@ func (clearBgpVrfExternalGraceful *ClearBgpVrfExternalGraceful) GetEntityData() 
     clearBgpVrfExternalGraceful.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfExternalGraceful.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfExternalGraceful.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-external-graceful"
+    clearBgpVrfExternalGraceful.EntityData.AbsolutePath = clearBgpVrfExternalGraceful.EntityData.SegmentPath
     clearBgpVrfExternalGraceful.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfExternalGraceful.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfExternalGraceful.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34310,6 +35225,7 @@ func (input *ClearBgpVrfExternalGraceful_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-external-graceful"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-external-graceful/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34341,6 +35257,7 @@ func (clearBgpVrfExternal *ClearBgpVrfExternal) GetEntityData() *types.CommonEnt
     clearBgpVrfExternal.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfExternal.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfExternal.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-external"
+    clearBgpVrfExternal.EntityData.AbsolutePath = clearBgpVrfExternal.EntityData.SegmentPath
     clearBgpVrfExternal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfExternal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfExternal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34371,6 +35288,7 @@ func (input *ClearBgpVrfExternal_Input) GetEntityData() *types.CommonEntityData 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-external"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-external/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34405,6 +35323,7 @@ func (clearBgpVrfAfiSafiAllSoftInPrefixFilter *ClearBgpVrfAfiSafiAllSoftInPrefix
     clearBgpVrfAfiSafiAllSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiAllSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiAllSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-in-prefix-filter"
+    clearBgpVrfAfiSafiAllSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpVrfAfiSafiAllSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpVrfAfiSafiAllSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiAllSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiAllSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34438,6 +35357,7 @@ func (input *ClearBgpVrfAfiSafiAllSoftInPrefixFilter_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-all-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34472,6 +35392,7 @@ func (clearBgpVrfAfiSafiAllSoftIn *ClearBgpVrfAfiSafiAllSoftIn) GetEntityData() 
     clearBgpVrfAfiSafiAllSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiAllSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiAllSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-in"
+    clearBgpVrfAfiSafiAllSoftIn.EntityData.AbsolutePath = clearBgpVrfAfiSafiAllSoftIn.EntityData.SegmentPath
     clearBgpVrfAfiSafiAllSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiAllSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiAllSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34505,6 +35426,7 @@ func (input *ClearBgpVrfAfiSafiAllSoftIn_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-all-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34539,6 +35461,7 @@ func (clearBgpVrfAfiSafiAllSoftOut *ClearBgpVrfAfiSafiAllSoftOut) GetEntityData(
     clearBgpVrfAfiSafiAllSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiAllSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiAllSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-out"
+    clearBgpVrfAfiSafiAllSoftOut.EntityData.AbsolutePath = clearBgpVrfAfiSafiAllSoftOut.EntityData.SegmentPath
     clearBgpVrfAfiSafiAllSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiAllSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiAllSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34572,6 +35495,7 @@ func (input *ClearBgpVrfAfiSafiAllSoftOut_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-all-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34605,6 +35529,7 @@ func (clearBgpVrfAfiSafiAllSoft *ClearBgpVrfAfiSafiAllSoft) GetEntityData() *typ
     clearBgpVrfAfiSafiAllSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiAllSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiAllSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft"
+    clearBgpVrfAfiSafiAllSoft.EntityData.AbsolutePath = clearBgpVrfAfiSafiAllSoft.EntityData.SegmentPath
     clearBgpVrfAfiSafiAllSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiAllSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiAllSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34638,6 +35563,7 @@ func (input *ClearBgpVrfAfiSafiAllSoft_Input) GetEntityData() *types.CommonEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-all-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-all-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34670,6 +35596,7 @@ func (clearBgpVrfAfiSafiIpAddrLongLivedStale *ClearBgpVrfAfiSafiIpAddrLongLivedS
     clearBgpVrfAfiSafiIpAddrLongLivedStale.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiIpAddrLongLivedStale.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiIpAddrLongLivedStale.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-long-lived-stale"
+    clearBgpVrfAfiSafiIpAddrLongLivedStale.EntityData.AbsolutePath = clearBgpVrfAfiSafiIpAddrLongLivedStale.EntityData.SegmentPath
     clearBgpVrfAfiSafiIpAddrLongLivedStale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiIpAddrLongLivedStale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiIpAddrLongLivedStale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34711,6 +35638,7 @@ func (input *ClearBgpVrfAfiSafiIpAddrLongLivedStale_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-ip-addr-long-lived-stale"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-long-lived-stale/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34746,6 +35674,7 @@ func (clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter *ClearBgpVrfAfiSafiIpAddrSoftIn
     clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-in-prefix-filter"
+    clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiIpAddrSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34787,6 +35716,7 @@ func (input *ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-ip-addr-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34821,6 +35751,7 @@ func (clearBgpVrfAfiSafiIpAddrSoftIn *ClearBgpVrfAfiSafiIpAddrSoftIn) GetEntityD
     clearBgpVrfAfiSafiIpAddrSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiIpAddrSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiIpAddrSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-in"
+    clearBgpVrfAfiSafiIpAddrSoftIn.EntityData.AbsolutePath = clearBgpVrfAfiSafiIpAddrSoftIn.EntityData.SegmentPath
     clearBgpVrfAfiSafiIpAddrSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiIpAddrSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiIpAddrSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34862,6 +35793,7 @@ func (input *ClearBgpVrfAfiSafiIpAddrSoftIn_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-ip-addr-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34896,6 +35828,7 @@ func (clearBgpVrfAfiSafiIpAddrSoftOut *ClearBgpVrfAfiSafiIpAddrSoftOut) GetEntit
     clearBgpVrfAfiSafiIpAddrSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiIpAddrSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiIpAddrSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-out"
+    clearBgpVrfAfiSafiIpAddrSoftOut.EntityData.AbsolutePath = clearBgpVrfAfiSafiIpAddrSoftOut.EntityData.SegmentPath
     clearBgpVrfAfiSafiIpAddrSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiIpAddrSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiIpAddrSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34937,6 +35870,7 @@ func (input *ClearBgpVrfAfiSafiIpAddrSoftOut_Input) GetEntityData() *types.Commo
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-ip-addr-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -34970,6 +35904,7 @@ func (clearBgpVrfAfiSafiIpAddrSoft *ClearBgpVrfAfiSafiIpAddrSoft) GetEntityData(
     clearBgpVrfAfiSafiIpAddrSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiIpAddrSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiIpAddrSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft"
+    clearBgpVrfAfiSafiIpAddrSoft.EntityData.AbsolutePath = clearBgpVrfAfiSafiIpAddrSoft.EntityData.SegmentPath
     clearBgpVrfAfiSafiIpAddrSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiIpAddrSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiIpAddrSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35011,6 +35946,7 @@ func (input *ClearBgpVrfAfiSafiIpAddrSoft_Input) GetEntityData() *types.CommonEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-ip-addr-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-ip-addr-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35047,6 +35983,7 @@ func (clearBgpVrfAfiSafiAsSoftInPrefixFilter *ClearBgpVrfAfiSafiAsSoftInPrefixFi
     clearBgpVrfAfiSafiAsSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiAsSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiAsSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-in-prefix-filter"
+    clearBgpVrfAfiSafiAsSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpVrfAfiSafiAsSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpVrfAfiSafiAsSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiAsSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiAsSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35086,6 +36023,7 @@ func (input *ClearBgpVrfAfiSafiAsSoftInPrefixFilter_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-as-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35121,6 +36059,7 @@ func (clearBgpVrfAfiSafiAsSoftIn *ClearBgpVrfAfiSafiAsSoftIn) GetEntityData() *t
     clearBgpVrfAfiSafiAsSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiAsSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiAsSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-in"
+    clearBgpVrfAfiSafiAsSoftIn.EntityData.AbsolutePath = clearBgpVrfAfiSafiAsSoftIn.EntityData.SegmentPath
     clearBgpVrfAfiSafiAsSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiAsSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiAsSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35160,6 +36099,7 @@ func (input *ClearBgpVrfAfiSafiAsSoftIn_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-as-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35195,6 +36135,7 @@ func (clearBgpVrfAfiSafiAsSoftOut *ClearBgpVrfAfiSafiAsSoftOut) GetEntityData() 
     clearBgpVrfAfiSafiAsSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiAsSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiAsSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-out"
+    clearBgpVrfAfiSafiAsSoftOut.EntityData.AbsolutePath = clearBgpVrfAfiSafiAsSoftOut.EntityData.SegmentPath
     clearBgpVrfAfiSafiAsSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiAsSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiAsSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35234,6 +36175,7 @@ func (input *ClearBgpVrfAfiSafiAsSoftOut_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-as-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35268,6 +36210,7 @@ func (clearBgpVrfAfiSafiAsSoft *ClearBgpVrfAfiSafiAsSoft) GetEntityData() *types
     clearBgpVrfAfiSafiAsSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiAsSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiAsSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft"
+    clearBgpVrfAfiSafiAsSoft.EntityData.AbsolutePath = clearBgpVrfAfiSafiAsSoft.EntityData.SegmentPath
     clearBgpVrfAfiSafiAsSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiAsSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiAsSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35307,6 +36250,7 @@ func (input *ClearBgpVrfAfiSafiAsSoft_Input) GetEntityData() *types.CommonEntity
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-as-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-as-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35340,6 +36284,7 @@ func (clearBgpVrfAfiSafiDampeningIpv4Prefix *ClearBgpVrfAfiSafiDampeningIpv4Pref
     clearBgpVrfAfiSafiDampeningIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiDampeningIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiDampeningIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening-ipv4-prefix"
+    clearBgpVrfAfiSafiDampeningIpv4Prefix.EntityData.AbsolutePath = clearBgpVrfAfiSafiDampeningIpv4Prefix.EntityData.SegmentPath
     clearBgpVrfAfiSafiDampeningIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiDampeningIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiDampeningIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35379,6 +36324,7 @@ func (input *ClearBgpVrfAfiSafiDampeningIpv4Prefix_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-dampening-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35412,6 +36358,7 @@ func (clearBgpVrfAfiSafiDampening *ClearBgpVrfAfiSafiDampening) GetEntityData() 
     clearBgpVrfAfiSafiDampening.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiDampening.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiDampening.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening"
+    clearBgpVrfAfiSafiDampening.EntityData.AbsolutePath = clearBgpVrfAfiSafiDampening.EntityData.SegmentPath
     clearBgpVrfAfiSafiDampening.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiDampening.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiDampening.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35445,6 +36392,7 @@ func (input *ClearBgpVrfAfiSafiDampening_Input) GetEntityData() *types.CommonEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-dampening"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35480,6 +36428,7 @@ func (clearBgpVrfAfiSafiExternalSoftInPrefixFilter *ClearBgpVrfAfiSafiExternalSo
     clearBgpVrfAfiSafiExternalSoftInPrefixFilter.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiExternalSoftInPrefixFilter.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiExternalSoftInPrefixFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-in-prefix-filter"
+    clearBgpVrfAfiSafiExternalSoftInPrefixFilter.EntityData.AbsolutePath = clearBgpVrfAfiSafiExternalSoftInPrefixFilter.EntityData.SegmentPath
     clearBgpVrfAfiSafiExternalSoftInPrefixFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiExternalSoftInPrefixFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiExternalSoftInPrefixFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35513,6 +36462,7 @@ func (input *ClearBgpVrfAfiSafiExternalSoftInPrefixFilter_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-external-soft-in-prefix-filter"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-in-prefix-filter/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35547,6 +36497,7 @@ func (clearBgpVrfAfiSafiExternalSoftIn *ClearBgpVrfAfiSafiExternalSoftIn) GetEnt
     clearBgpVrfAfiSafiExternalSoftIn.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiExternalSoftIn.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiExternalSoftIn.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-in"
+    clearBgpVrfAfiSafiExternalSoftIn.EntityData.AbsolutePath = clearBgpVrfAfiSafiExternalSoftIn.EntityData.SegmentPath
     clearBgpVrfAfiSafiExternalSoftIn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiExternalSoftIn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiExternalSoftIn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35580,6 +36531,7 @@ func (input *ClearBgpVrfAfiSafiExternalSoftIn_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-external-soft-in"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-in/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35614,6 +36566,7 @@ func (clearBgpVrfAfiSafiExternalSoftOut *ClearBgpVrfAfiSafiExternalSoftOut) GetE
     clearBgpVrfAfiSafiExternalSoftOut.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiExternalSoftOut.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiExternalSoftOut.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-out"
+    clearBgpVrfAfiSafiExternalSoftOut.EntityData.AbsolutePath = clearBgpVrfAfiSafiExternalSoftOut.EntityData.SegmentPath
     clearBgpVrfAfiSafiExternalSoftOut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiExternalSoftOut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiExternalSoftOut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35647,6 +36600,7 @@ func (input *ClearBgpVrfAfiSafiExternalSoftOut_Input) GetEntityData() *types.Com
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-external-soft-out"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft-out/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35680,6 +36634,7 @@ func (clearBgpVrfAfiSafiExternalSoft *ClearBgpVrfAfiSafiExternalSoft) GetEntityD
     clearBgpVrfAfiSafiExternalSoft.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiExternalSoft.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiExternalSoft.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft"
+    clearBgpVrfAfiSafiExternalSoft.EntityData.AbsolutePath = clearBgpVrfAfiSafiExternalSoft.EntityData.SegmentPath
     clearBgpVrfAfiSafiExternalSoft.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiExternalSoft.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiExternalSoft.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35713,6 +36668,7 @@ func (input *ClearBgpVrfAfiSafiExternalSoft_Input) GetEntityData() *types.Common
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-external-soft"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-external-soft/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35745,6 +36701,7 @@ func (clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask *ClearBgpVrfAfiSafiFlapStat
     clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask"
+    clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.AbsolutePath = clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.SegmentPath
     clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35792,6 +36749,7 @@ func (input *ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ip-addr-ipv4-mask/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35826,6 +36784,7 @@ func (clearBgpVrfAfiSafiFlapStatisticsIpAddr *ClearBgpVrfAfiSafiFlapStatisticsIp
     clearBgpVrfAfiSafiFlapStatisticsIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiFlapStatisticsIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiFlapStatisticsIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ip-addr"
+    clearBgpVrfAfiSafiFlapStatisticsIpAddr.EntityData.AbsolutePath = clearBgpVrfAfiSafiFlapStatisticsIpAddr.EntityData.SegmentPath
     clearBgpVrfAfiSafiFlapStatisticsIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiFlapStatisticsIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiFlapStatisticsIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35867,6 +36826,7 @@ func (input *ClearBgpVrfAfiSafiFlapStatisticsIpAddr_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-flap-statistics-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35900,6 +36860,7 @@ func (clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix *ClearBgpVrfAfiSafiFlapStatisti
     clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ipv4-prefix"
+    clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.AbsolutePath = clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.SegmentPath
     clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiFlapStatisticsIpv4Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35939,6 +36900,7 @@ func (input *ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-flap-statistics-ipv4-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ipv4-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -35973,6 +36935,7 @@ func (clearBgpVrfAfiSafiFlapStatisticsRegexp *ClearBgpVrfAfiSafiFlapStatisticsRe
     clearBgpVrfAfiSafiFlapStatisticsRegexp.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiFlapStatisticsRegexp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiFlapStatisticsRegexp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-regexp"
+    clearBgpVrfAfiSafiFlapStatisticsRegexp.EntityData.AbsolutePath = clearBgpVrfAfiSafiFlapStatisticsRegexp.EntityData.SegmentPath
     clearBgpVrfAfiSafiFlapStatisticsRegexp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiFlapStatisticsRegexp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiFlapStatisticsRegexp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36010,6 +36973,7 @@ func (input *ClearBgpVrfAfiSafiFlapStatisticsRegexp_Input) GetEntityData() *type
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-flap-statistics-regexp"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-regexp/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36044,6 +37008,7 @@ func (clearBgpVrfAfiSafiFlapStatisticsRoutePolicy *ClearBgpVrfAfiSafiFlapStatist
     clearBgpVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-route-policy"
+    clearBgpVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.AbsolutePath = clearBgpVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.SegmentPath
     clearBgpVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiFlapStatisticsRoutePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36080,6 +37045,7 @@ func (input *ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-flap-statistics-route-policy"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-route-policy/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36113,6 +37079,7 @@ func (clearBgpVrfAfiSafiFlapStatistics *ClearBgpVrfAfiSafiFlapStatistics) GetEnt
     clearBgpVrfAfiSafiFlapStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiFlapStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiFlapStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics"
+    clearBgpVrfAfiSafiFlapStatistics.EntityData.AbsolutePath = clearBgpVrfAfiSafiFlapStatistics.EntityData.SegmentPath
     clearBgpVrfAfiSafiFlapStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiFlapStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiFlapStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36146,6 +37113,7 @@ func (input *ClearBgpVrfAfiSafiFlapStatistics_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-flap-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36179,6 +37147,7 @@ func (clearBgpVrfAfiSafiNexthopPerformanceStatistics *ClearBgpVrfAfiSafiNexthopP
     clearBgpVrfAfiSafiNexthopPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiNexthopPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiNexthopPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-nexthop-performance-statistics"
+    clearBgpVrfAfiSafiNexthopPerformanceStatistics.EntityData.AbsolutePath = clearBgpVrfAfiSafiNexthopPerformanceStatistics.EntityData.SegmentPath
     clearBgpVrfAfiSafiNexthopPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiNexthopPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiNexthopPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36212,6 +37181,7 @@ func (input *ClearBgpVrfAfiSafiNexthopPerformanceStatistics_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-nexthop-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-nexthop-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36245,6 +37215,7 @@ func (clearBgpVrfAfiSafiNexthopRegistrationIpAddr *ClearBgpVrfAfiSafiNexthopRegi
     clearBgpVrfAfiSafiNexthopRegistrationIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiNexthopRegistrationIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiNexthopRegistrationIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-nexthop-registration-ip-addr"
+    clearBgpVrfAfiSafiNexthopRegistrationIpAddr.EntityData.AbsolutePath = clearBgpVrfAfiSafiNexthopRegistrationIpAddr.EntityData.SegmentPath
     clearBgpVrfAfiSafiNexthopRegistrationIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiNexthopRegistrationIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiNexthopRegistrationIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36286,6 +37257,7 @@ func (input *ClearBgpVrfAfiSafiNexthopRegistrationIpAddr_Input) GetEntityData() 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-nexthop-registration-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-nexthop-registration-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36319,6 +37291,7 @@ func (clearBgpVrfAfiSafiSelfOriginated *ClearBgpVrfAfiSafiSelfOriginated) GetEnt
     clearBgpVrfAfiSafiSelfOriginated.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiSelfOriginated.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiSelfOriginated.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-self-originated"
+    clearBgpVrfAfiSafiSelfOriginated.EntityData.AbsolutePath = clearBgpVrfAfiSafiSelfOriginated.EntityData.SegmentPath
     clearBgpVrfAfiSafiSelfOriginated.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiSelfOriginated.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiSelfOriginated.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36352,6 +37325,7 @@ func (input *ClearBgpVrfAfiSafiSelfOriginated_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-self-originated"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-self-originated/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36384,6 +37358,7 @@ func (clearBgpVrfAfiSafiShutdown *ClearBgpVrfAfiSafiShutdown) GetEntityData() *t
     clearBgpVrfAfiSafiShutdown.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-shutdown"
+    clearBgpVrfAfiSafiShutdown.EntityData.AbsolutePath = clearBgpVrfAfiSafiShutdown.EntityData.SegmentPath
     clearBgpVrfAfiSafiShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36417,6 +37392,7 @@ func (input *ClearBgpVrfAfiSafiShutdown_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-shutdown"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-shutdown/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36452,6 +37428,7 @@ func (clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent *ClearBgpVrfAfiSafiU
     clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-address-family-update-parent"
+    clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36485,6 +37462,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent_Input) GetEnt
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-address-family-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-address-family-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36519,6 +37497,7 @@ func (clearBgpVrfAfiSafiUpdateOutqAddressFamily *ClearBgpVrfAfiSafiUpdateOutqAdd
     clearBgpVrfAfiSafiUpdateOutqAddressFamily.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqAddressFamily.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqAddressFamily.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-address-family"
+    clearBgpVrfAfiSafiUpdateOutqAddressFamily.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqAddressFamily.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqAddressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqAddressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqAddressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36552,6 +37531,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqAddressFamily_Input) GetEntityData() *t
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-address-family"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-address-family/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36588,6 +37568,7 @@ func (clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent *ClearBgpVrf
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
+    clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36629,6 +37610,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent_Input
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36665,6 +37647,7 @@ func (clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh *ClearBgpVrfAfiSafiUpdat
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh"
+    clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36706,6 +37689,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh_Input) GetEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-refresh/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36742,6 +37726,7 @@ func (clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent *ClearBgpVrfAfiSafi
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent"
+    clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36783,6 +37768,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent_Input) GetEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36818,6 +37804,7 @@ func (clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr *ClearBgpVrfAfiSafiUpdateOutqNe
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr"
+    clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqNeighborIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36859,6 +37846,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-neighbor-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36896,6 +37884,7 @@ func (clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent *ClearBgpVrfAf
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-update-parent"
+    clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36937,6 +37926,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent_Input) 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -36974,6 +37964,7 @@ func (clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup *ClearBgpVrfAfiSafiUpdateO
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group"
+    clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37015,6 +38006,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37053,6 +38045,7 @@ func (clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
+    clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37094,6 +38087,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37131,6 +38125,7 @@ func (clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup *ClearBgpVr
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
+    clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37172,6 +38167,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup_Inpu
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-sub-group-refresh-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37209,6 +38205,7 @@ func (clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent *ClearBgpVrfAfiSafiUpd
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-update-parent"
+    clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37246,6 +38243,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent_Input) GetEntit
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-update-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37281,6 +38279,7 @@ func (clearBgpVrfAfiSafiUpdateOutqUpdateGroup *ClearBgpVrfAfiSafiUpdateOutqUpdat
     clearBgpVrfAfiSafiUpdateOutqUpdateGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiUpdateOutqUpdateGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group"
+    clearBgpVrfAfiSafiUpdateOutqUpdateGroup.EntityData.AbsolutePath = clearBgpVrfAfiSafiUpdateOutqUpdateGroup.EntityData.SegmentPath
     clearBgpVrfAfiSafiUpdateOutqUpdateGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiUpdateOutqUpdateGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37318,6 +38317,7 @@ func (input *ClearBgpVrfAfiSafiUpdateOutqUpdateGroup_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-update-outq-update-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-update-outq-update-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37351,6 +38351,7 @@ func (clearBgpVrfAfiSafiDampeningIpv6Prefix *ClearBgpVrfAfiSafiDampeningIpv6Pref
     clearBgpVrfAfiSafiDampeningIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiDampeningIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiDampeningIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening-ipv6-prefix"
+    clearBgpVrfAfiSafiDampeningIpv6Prefix.EntityData.AbsolutePath = clearBgpVrfAfiSafiDampeningIpv6Prefix.EntityData.SegmentPath
     clearBgpVrfAfiSafiDampeningIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiDampeningIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiDampeningIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37390,6 +38391,7 @@ func (input *ClearBgpVrfAfiSafiDampeningIpv6Prefix_Input) GetEntityData() *types
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-dampening-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-dampening-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37423,6 +38425,7 @@ func (clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix *ClearBgpVrfAfiSafiFlapStatisti
     clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ipv6-prefix"
+    clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.AbsolutePath = clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.SegmentPath
     clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfAfiSafiFlapStatisticsIpv6Prefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37462,6 +38465,7 @@ func (input *ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-afi-safi-flap-statistics-ipv6-prefix"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-afi-safi-flap-statistics-ipv6-prefix/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37496,6 +38500,7 @@ func (clearBgpVrfNexthopPerformanceStatistics *ClearBgpVrfNexthopPerformanceStat
     clearBgpVrfNexthopPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfNexthopPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfNexthopPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-nexthop-performance-statistics"
+    clearBgpVrfNexthopPerformanceStatistics.EntityData.AbsolutePath = clearBgpVrfNexthopPerformanceStatistics.EntityData.SegmentPath
     clearBgpVrfNexthopPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfNexthopPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfNexthopPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37526,6 +38531,7 @@ func (input *ClearBgpVrfNexthopPerformanceStatistics_Input) GetEntityData() *typ
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-nexthop-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-nexthop-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37558,6 +38564,7 @@ func (clearBgpVrfNexthopRegistrationIpAddr *ClearBgpVrfNexthopRegistrationIpAddr
     clearBgpVrfNexthopRegistrationIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfNexthopRegistrationIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfNexthopRegistrationIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-nexthop-registration-ip-addr"
+    clearBgpVrfNexthopRegistrationIpAddr.EntityData.AbsolutePath = clearBgpVrfNexthopRegistrationIpAddr.EntityData.SegmentPath
     clearBgpVrfNexthopRegistrationIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfNexthopRegistrationIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfNexthopRegistrationIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37596,6 +38603,7 @@ func (input *ClearBgpVrfNexthopRegistrationIpAddr_Input) GetEntityData() *types.
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-nexthop-registration-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-nexthop-registration-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37629,6 +38637,7 @@ func (clearBgpVrfPeerDropsAll *ClearBgpVrfPeerDropsAll) GetEntityData() *types.C
     clearBgpVrfPeerDropsAll.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfPeerDropsAll.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfPeerDropsAll.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-peer-drops-all"
+    clearBgpVrfPeerDropsAll.EntityData.AbsolutePath = clearBgpVrfPeerDropsAll.EntityData.SegmentPath
     clearBgpVrfPeerDropsAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfPeerDropsAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfPeerDropsAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37659,6 +38668,7 @@ func (input *ClearBgpVrfPeerDropsAll_Input) GetEntityData() *types.CommonEntityD
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-peer-drops-all"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-peer-drops-all/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37690,6 +38700,7 @@ func (clearBgpVrfPeerDropsIpAddr *ClearBgpVrfPeerDropsIpAddr) GetEntityData() *t
     clearBgpVrfPeerDropsIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfPeerDropsIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfPeerDropsIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-peer-drops-ip-addr"
+    clearBgpVrfPeerDropsIpAddr.EntityData.AbsolutePath = clearBgpVrfPeerDropsIpAddr.EntityData.SegmentPath
     clearBgpVrfPeerDropsIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfPeerDropsIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfPeerDropsIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37728,6 +38739,7 @@ func (input *ClearBgpVrfPeerDropsIpAddr_Input) GetEntityData() *types.CommonEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-peer-drops-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-peer-drops-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37760,6 +38772,7 @@ func (clearBgpVrfPerformanceStatistics *ClearBgpVrfPerformanceStatistics) GetEnt
     clearBgpVrfPerformanceStatistics.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfPerformanceStatistics.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfPerformanceStatistics.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-performance-statistics"
+    clearBgpVrfPerformanceStatistics.EntityData.AbsolutePath = clearBgpVrfPerformanceStatistics.EntityData.SegmentPath
     clearBgpVrfPerformanceStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfPerformanceStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfPerformanceStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37790,6 +38803,7 @@ func (input *ClearBgpVrfPerformanceStatistics_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-performance-statistics"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-performance-statistics/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37821,6 +38835,7 @@ func (clearBgpVrfShutdown *ClearBgpVrfShutdown) GetEntityData() *types.CommonEnt
     clearBgpVrfShutdown.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfShutdown.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfShutdown.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-shutdown"
+    clearBgpVrfShutdown.EntityData.AbsolutePath = clearBgpVrfShutdown.EntityData.SegmentPath
     clearBgpVrfShutdown.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfShutdown.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfShutdown.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37851,6 +38866,7 @@ func (input *ClearBgpVrfShutdown_Input) GetEntityData() *types.CommonEntityData 
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-shutdown"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-shutdown/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37885,6 +38901,7 @@ func (clearBgpVrfUpdateOutqAddressFamilyUpdateParent *ClearBgpVrfUpdateOutqAddre
     clearBgpVrfUpdateOutqAddressFamilyUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqAddressFamilyUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-address-family-update-parent"
+    clearBgpVrfUpdateOutqAddressFamilyUpdateParent.EntityData.AbsolutePath = clearBgpVrfUpdateOutqAddressFamilyUpdateParent.EntityData.SegmentPath
     clearBgpVrfUpdateOutqAddressFamilyUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqAddressFamilyUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqAddressFamilyUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37915,6 +38932,7 @@ func (input *ClearBgpVrfUpdateOutqAddressFamilyUpdateParent_Input) GetEntityData
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-address-family-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-address-family-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37948,6 +38966,7 @@ func (clearBgpVrfUpdateOutqAddressFamily *ClearBgpVrfUpdateOutqAddressFamily) Ge
     clearBgpVrfUpdateOutqAddressFamily.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqAddressFamily.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqAddressFamily.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-address-family"
+    clearBgpVrfUpdateOutqAddressFamily.EntityData.AbsolutePath = clearBgpVrfUpdateOutqAddressFamily.EntityData.SegmentPath
     clearBgpVrfUpdateOutqAddressFamily.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqAddressFamily.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqAddressFamily.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -37978,6 +38997,7 @@ func (input *ClearBgpVrfUpdateOutqAddressFamily_Input) GetEntityData() *types.Co
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-address-family"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-address-family/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38013,6 +39033,7 @@ func (clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent *ClearBgpVrfUpdateO
     clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh-update-parent"
+    clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.AbsolutePath = clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.SegmentPath
     clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38051,6 +39072,7 @@ func (input *ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent_Input) GetEn
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38086,6 +39108,7 @@ func (clearBgpVrfUpdateOutqNeighborIpAddrRefresh *ClearBgpVrfUpdateOutqNeighborI
     clearBgpVrfUpdateOutqNeighborIpAddrRefresh.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqNeighborIpAddrRefresh.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh"
+    clearBgpVrfUpdateOutqNeighborIpAddrRefresh.EntityData.AbsolutePath = clearBgpVrfUpdateOutqNeighborIpAddrRefresh.EntityData.SegmentPath
     clearBgpVrfUpdateOutqNeighborIpAddrRefresh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqNeighborIpAddrRefresh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqNeighborIpAddrRefresh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38124,6 +39147,7 @@ func (input *ClearBgpVrfUpdateOutqNeighborIpAddrRefresh_Input) GetEntityData() *
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-refresh/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38159,6 +39183,7 @@ func (clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent *ClearBgpVrfUpdateOutqNeig
     clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-update-parent"
+    clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.AbsolutePath = clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.SegmentPath
     clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqNeighborIpAddrUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38197,6 +39222,7 @@ func (input *ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent_Input) GetEntityDat
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-neighbor-ip-addr-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38231,6 +39257,7 @@ func (clearBgpVrfUpdateOutqNeighborIpAddr *ClearBgpVrfUpdateOutqNeighborIpAddr) 
     clearBgpVrfUpdateOutqNeighborIpAddr.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqNeighborIpAddr.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqNeighborIpAddr.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr"
+    clearBgpVrfUpdateOutqNeighborIpAddr.EntityData.AbsolutePath = clearBgpVrfUpdateOutqNeighborIpAddr.EntityData.SegmentPath
     clearBgpVrfUpdateOutqNeighborIpAddr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqNeighborIpAddr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqNeighborIpAddr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38269,6 +39296,7 @@ func (input *ClearBgpVrfUpdateOutqNeighborIpAddr_Input) GetEntityData() *types.C
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-neighbor-ip-addr"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-neighbor-ip-addr/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38305,6 +39333,7 @@ func (clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent *ClearBgpVrfUpdateOut
     clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-update-parent"
+    clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38343,6 +39372,7 @@ func (input *ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent_Input) GetEnti
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-update-group-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38379,6 +39409,7 @@ func (clearBgpVrfUpdateOutqUpdateGroupSubGroup *ClearBgpVrfUpdateOutqUpdateGroup
     clearBgpVrfUpdateOutqUpdateGroupSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqUpdateGroupSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group"
+    clearBgpVrfUpdateOutqUpdateGroupSubGroup.EntityData.AbsolutePath = clearBgpVrfUpdateOutqUpdateGroupSubGroup.EntityData.SegmentPath
     clearBgpVrfUpdateOutqUpdateGroupSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqUpdateGroupSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqUpdateGroupSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38417,6 +39448,7 @@ func (input *ClearBgpVrfUpdateOutqUpdateGroupSubGroup_Input) GetEntityData() *ty
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-update-group-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38454,6 +39486,7 @@ func (clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent *Clear
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
+    clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.AbsolutePath = clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.SegmentPath
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38492,6 +39525,7 @@ func (input *ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38528,6 +39562,7 @@ func (clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup *ClearBgpVrfUpdate
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group"
+    clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.AbsolutePath = clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.SegmentPath
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38566,6 +39601,7 @@ func (input *ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup_Input) GetE
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-sub-group-refresh-sub-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38602,6 +39638,7 @@ func (clearBgpVrfUpdateOutqUpdateGroupUpdateParent *ClearBgpVrfUpdateOutqUpdateG
     clearBgpVrfUpdateOutqUpdateGroupUpdateParent.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqUpdateGroupUpdateParent.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-update-parent"
+    clearBgpVrfUpdateOutqUpdateGroupUpdateParent.EntityData.AbsolutePath = clearBgpVrfUpdateOutqUpdateGroupUpdateParent.EntityData.SegmentPath
     clearBgpVrfUpdateOutqUpdateGroupUpdateParent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqUpdateGroupUpdateParent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqUpdateGroupUpdateParent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38636,6 +39673,7 @@ func (input *ClearBgpVrfUpdateOutqUpdateGroupUpdateParent_Input) GetEntityData()
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-update-group-update-parent"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group-update-parent/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38670,6 +39708,7 @@ func (clearBgpVrfUpdateOutqUpdateGroup *ClearBgpVrfUpdateOutqUpdateGroup) GetEnt
     clearBgpVrfUpdateOutqUpdateGroup.EntityData.BundleName = "cisco_ios_xr"
     clearBgpVrfUpdateOutqUpdateGroup.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-bgp-act"
     clearBgpVrfUpdateOutqUpdateGroup.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group"
+    clearBgpVrfUpdateOutqUpdateGroup.EntityData.AbsolutePath = clearBgpVrfUpdateOutqUpdateGroup.EntityData.SegmentPath
     clearBgpVrfUpdateOutqUpdateGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     clearBgpVrfUpdateOutqUpdateGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     clearBgpVrfUpdateOutqUpdateGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -38704,6 +39743,7 @@ func (input *ClearBgpVrfUpdateOutqUpdateGroup_Input) GetEntityData() *types.Comm
     input.EntityData.BundleName = "cisco_ios_xr"
     input.EntityData.ParentYangName = "clear-bgp-vrf-update-outq-update-group"
     input.EntityData.SegmentPath = "input"
+    input.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-act:clear-bgp-vrf-update-outq-update-group/" + input.EntityData.SegmentPath
     input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
